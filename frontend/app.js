@@ -1,24 +1,29 @@
 const $ = (selector) => document.querySelector(selector);
 const terminal = new Set(["complete", "cards_only", "needs_evidence", "needs_resolution", "failed", "cancelled"]);
 const statusLabels = {
+  cleaning: "Gemini đang đọc yêu cầu của bạn", designing_checklist: "Gemini đang tìm tham khảo và chuẩn bị lựa chọn",
+  checking_selection_conflicts: "Gemini đang kiểm tra xung đột nghiêm trọng trong lựa chọn",
+  awaiting_choices: "Xác nhận lựa chọn thiết kế", resolving_choices: "Gemini đang tổng hợp nhu cầu đã chốt",
+  generating_prompt_pool: "Đang viết các gợi ý thiết kế", specialist_auditing: "Đang kiểm tra thiết kế từ ba góc nhìn",
+  harmony_scoring: "Đang đánh giá hài hòa và tính điểm", selecting: "Đang chọn ba điểm cao nhất",
   prompt_writing: "Gemini đang viết prompt tạo ảnh qua API",
   brief_checking: "Gemini đang kiểm tra các thông tin đã nhận diện",
   normalizing: "Đang hiểu yêu cầu", retrieving: "Đang chọn căn cứ",
-  rendering: "Đang tạo ảnh qua API", image_repairing: "Đang sửa ảnh qua API", image_checking: "Đang audit ảnh",
+  rendering: "Đang tạo ảnh qua API", image_repairing: "Đang sửa ảnh qua API", image_checking: "Đang đánh giá ảnh",
   awaiting_image: "Đang chờ bạn gửi ảnh tạo", awaiting_image_repair: "Đang chờ bạn gửi ảnh sửa",
   awaiting_manual_audit: "Chờ kết quả kiểm tra", awaiting_audit_choice: "Chọn cách kiểm tra ảnh",
   concept_repairing: "Đang sửa phương án", repair_auditing: "Đang kiểm tra phương án sửa",
   queued: "Đang xếp hàng", understanding: "Đang hiểu yêu cầu", planning: "Đang tạo phương án",
   auditing: "Đang kiểm tra phương án", cards_ready: "Đã có gợi ý", awaiting_user: "Cần bạn bổ sung thông tin",
   complete: "Hoàn tất", cards_only: "Đã hoàn tất gợi ý bằng chữ", needs_evidence: "Chưa đủ nguồn để tiếp tục",
-  needs_resolution: "Cần làm rõ yêu cầu", failed: "Không thể hoàn thành", cancelled: "Đã hủy",
+  needs_resolution: "Chưa đủ gợi ý hợp lệ", failed: "Không thể hoàn thành", cancelled: "Đã hủy",
 };
-const waiting = new Set(["awaiting_user", "awaiting_image", "awaiting_image_repair", "awaiting_manual_audit", "awaiting_audit_choice"]);
+const waiting = new Set(["awaiting_choices", "awaiting_user", "awaiting_image", "awaiting_image_repair", "awaiting_manual_audit", "awaiting_audit_choice"]);
 let textApiReady = false;
 let simulationEnabled = false;
 function updateSubmitState() {
   const ready = textApiReady || (simulationEnabled && $("#simulation-mode").checked);
-  $("#submit-request").disabled = !ready || (!!activeJob && !terminal.has(activeJob.status));
+  $("#submit-request").disabled = !ready || submittingRequest || (!!activeJob && !terminal.has(activeJob.status));
 }
 $("#simulation-mode").addEventListener("change", updateSubmitState);
 let activeId = new URLSearchParams(location.search).get("request") || localStorage.getItem("arena-active-request");
@@ -29,6 +34,8 @@ let manualPasteController = new AbortController();
 const uploadDrafts = new Map();
 let previewUrl = null;
 let activeJob = null;
+let pendingSubmission = null;
+let submittingRequest = false;
 let pollTimer = null;
 let imageEditor = null;
 function editor() { return imageEditor ||= new ArenaImageEditor(); }
@@ -57,14 +64,43 @@ function escapeHtml(value) {
 }
 
 async function api(path, options = {}) {
-  const response = await fetch(path, {
-    ...options,
-    headers: { "Content-Type": "application/json", ...(options.headers || {}) },
+  const controller = new AbortController();
+  const timeoutMs = options.timeoutMs ?? 15000;
+  let timer;
+  const deadline = new Promise((resolve, reject) => {
+    timer = setTimeout(() => {
+      const error = new Error("Máy chủ chưa phản hồi trong thời gian cho phép. Vui lòng thử lại; thao tác gửi yêu cầu giữ cùng khóa để tránh tạo trùng.");
+      error.code = "request_timeout";
+      reject(error);
+      controller.abort();
+    }, timeoutMs);
   });
-  const contentType = response.headers.get("content-type") || "";
-  const body = contentType.includes("application/json") ? await response.json() : null;
-  if (!response.ok) throw new Error(body?.error?.message || `Lỗi HTTP ${response.status}`);
-  return body;
+  const {timeoutMs: ignoredTimeout, ...requestOptions} = options;
+  try {
+    const response = await Promise.race([fetch(path, {
+      ...requestOptions,
+      signal: controller.signal,
+      headers: { "Content-Type": "application/json", ...(options.headers || {}) },
+    }), deadline]);
+    const contentType = response.headers.get("content-type") || "";
+    const body = contentType.includes("application/json") ? await Promise.race([response.json(), deadline]) : null;
+    if (!response.ok) {
+      const error = new Error(body?.error?.message || `Lỗi HTTP ${response.status}`);
+      error.code = body?.error?.code;
+      error.status = response.status;
+      throw error;
+    }
+    return body;
+  } catch (error) {
+    if (error.name === "AbortError") {
+      const timeout = new Error("Máy chủ chưa phản hồi trong thời gian cho phép. Vui lòng gửi lại; hệ thống giữ khóa yêu cầu để tránh tạo trùng.");
+      timeout.code = "request_timeout";
+      throw timeout;
+    }
+    throw error;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 function setKeyMessage(message, error = false) {
@@ -77,25 +113,26 @@ async function loadHealth() {
   try {
     const health = await api("/health");
     $(".status-dot").classList.add("online");
-    $("#server-label").textContent = "Backend đang hoạt động";
+    $("#server-label").textContent = "Ứng dụng sẵn sàng";
     textApiReady = health.text_api_ready ?? (health.provider === "gemini" && health.api_key_configured === true);
     simulationEnabled = health.simulation_enabled === true;
     $("#simulation-option").hidden = !simulationEnabled;
-    $("#provider-badge").textContent = textApiReady ? "Gemini · đã cấu hình key" : health.provider === "gemini" ? "Gemini · cần API key" : "Mock · chỉ mô phỏng";
+    $("#provider-badge").textContent = textApiReady ? "Đã nhập key" : health.provider === "gemini" ? "Cần kết nối" : "Chỉ mô phỏng";
     $("#provider-badge").className = `badge ${textApiReady ? "connected" : "mock"}`;
-    $("#text-api-note").textContent = textApiReady ? "Hiểu yêu cầu, tạo và audit phương án dùng API Gemini. Google xác thực key ở lần gọi đầu; lỗi API sẽ được báo, không chuyển sang mock." : "Chưa có API văn bản hoạt động. Kết nối Gemini API key để phân tích yêu cầu thật; lựa chọn ảnh thủ công không thay bước này.";
+    $("#connection-settings").open = !textApiReady;
+    $("#text-api-note").textContent = textApiReady ? "Bạn có thể nhập nhu cầu bên dưới. Google sẽ kiểm tra key và quyền sử dụng khi xử lý yêu cầu." : "Kết nối API key ở trên để bắt đầu. Đăng nhập Gemini chưa thay thế bước này.";
     updateSubmitState();
     imagesEnabled = health.images_enabled;
     updateImageMode();
-    $("#pack-label").textContent = `Phạm vi hiện tại: ${health.pack_id} · v${health.pack_version}. ${health.cultural_caption_ready ? "Có dữ liệu nguồn đã xác minh trong pack." : "Chưa có nguồn văn hóa đã xác minh trong pack."}`;
+    $("#pack-label").textContent = "Gemini tìm và đọc nguồn theo từng nhu cầu. Tham khảo và đánh giá AI cần được xem xét theo đúng phạm vi.";
   } catch (error) {
     textApiReady = false;
     simulationEnabled = false;
     updateSubmitState();
-    $("#server-label").textContent = "Không kết nối được backend";
-    $("#provider-badge").textContent = "Backend ngoại tuyến";
+    $("#server-label").textContent = "Ứng dụng mất kết nối";
+    $("#provider-badge").textContent = "Chưa kết nối";
     $("#provider-badge").className = "badge";
-    $("#pack-label").textContent = "Khởi động backend để xem phạm vi dữ liệu.";
+    $("#pack-label").textContent = "Mở lại ứng dụng để tiếp tục.";
     setKeyMessage(error.message, true);
   }
 }
@@ -111,7 +148,7 @@ $("#key-form").addEventListener("submit", async (event) => {
   try {
     await api("/session/api-key", { method: "POST", body: JSON.stringify({ api_key: key }) });
     keyInput.value = "";
-    setKeyMessage("Đã cập nhật key. Các request đang chờ vẫn giữ nguyên tiến độ. Key chỉ tồn tại trong tiến trình backend; Gemini xác thực ở lần gọi API tiếp theo.");
+    setKeyMessage("Đã nhập key. Google sẽ kiểm tra quyền sử dụng ở lần xử lý tiếp theo.");
     await loadHealth();
   } catch (error) {
     setKeyMessage(error.message, true);
@@ -129,18 +166,22 @@ document.querySelectorAll("[data-example]").forEach((button) => {
 
 $("#request-form").addEventListener("submit", async (event) => {
   event.preventDefault();
-  const input = $("#request-input").value.trim();
-  if (!input) return $("#request-input").focus();
+  if (submittingRequest) return;
+  const input = $("#request-input").value;
+  if (!input.trim()) return $("#request-input").focus();
   if (!textApiReady && !(simulationEnabled && $("#simulation-mode").checked)) return setKeyMessage("Kết nối Gemini API key để hệ thống nhận diện yêu cầu.", true);
   if (activeJob && !terminal.has(activeJob.status)) return;
+  submittingRequest = true;
   $("#submit-request").disabled = true;
   activeJob = null;
   activeId = null;
   stopPolling();
   $("#result-section").hidden = false;
   $("#result-title").textContent = "Đang gửi yêu cầu…";
-  $("#result-summary").textContent = "";
+  $("#result-summary").textContent = "Đang kết nối máy chủ. Hệ thống sẽ thông báo nếu không nhận được phản hồi trong 15 giây.";
   $("#request-error").hidden = true;
+  $("#next-action").hidden = true;
+  $("#revision-control").hidden = true;
   $("#cards").replaceChildren();
   $("#warnings").replaceChildren();
   $("#question-card").hidden = true;
@@ -151,10 +192,14 @@ $("#request-form").addEventListener("submit", async (event) => {
   $("#mock-request-notice").hidden = true;
   renderedManualKey = null;
   uploadDrafts.clear();
-  $("#progress").classList.remove("done");
+  $("#progress").classList.remove("done", "stopped");
   window.scrollTo({ top: $("#result-section").offsetTop - 20, behavior: "smooth" });
   try {
-    const created = await api("/requests", { method: "POST", body: JSON.stringify({ input, session_id: sessionId, render_image: $("#render-image").checked, image_mode: $("#image-mode").value, audit_mode: $("#audit-mode").value }) });
+    const submission = {raw_prompt: input, workflow_version: 2, reference_mode: $("#reference-mode").value || "gemini_web", creative_level: $("#creative-level").value, session_id: sessionId, render_image: $("#render-image").checked, image_mode: $("#image-mode").value, audit_mode: $("#audit-mode").value};
+    const fingerprint = JSON.stringify(submission);
+    if (!pendingSubmission || pendingSubmission.fingerprint !== fingerprint) pendingSubmission = {fingerprint, key: crypto.randomUUID()};
+    const created = await api("/requests", { method: "POST", body: JSON.stringify({...submission, idempotency_key: pendingSubmission.key}) });
+    pendingSubmission = null;
     activeId = created.request_id;
     localStorage.setItem("arena-active-request", activeId);
     history.replaceState(null, "", `?request=${encodeURIComponent(activeId)}`);
@@ -162,9 +207,11 @@ $("#request-form").addEventListener("submit", async (event) => {
     syncPolling();
     await refreshJob();
   } catch (error) {
-    showRequestError(error.message);
+    showRequestError(error);
+    renderNextAction({status: "failed", error});
     $("#result-title").textContent = "Không gửi được yêu cầu";
   } finally {
+    submittingRequest = false;
     updateSubmitState();
   }
 });
@@ -174,7 +221,7 @@ $("#retry-real-request").addEventListener("click", async () => {
   const button = $("#retry-real-request");
   button.disabled = true;
   try {
-    const original = activeJob.turns.map((turn) => turn.text).join("\n\n");
+    const original = activeJob.raw_prompt || activeJob.turns[0]?.text || "";
     if (!terminal.has(activeJob.status)) await api(`/requests/${activeId}/cancel`, { method: "POST", body: "{}" });
     $("#request-input").value = original;
     $("#simulation-mode").checked = false;
@@ -183,7 +230,7 @@ $("#retry-real-request").addEventListener("click", async () => {
     $("#api-key").focus();
     updateSubmitState();
   } catch (error) {
-    showRequestError(error.message);
+    showRequestError(error);
   } finally {
     button.disabled = false;
   }
@@ -195,17 +242,90 @@ $("#cancel-request").addEventListener("click", async () => {
     await api(`/requests/${activeId}/cancel`, { method: "POST", body: "{}" });
     await refreshJob();
   } catch (error) {
-    showRequestError(error.message);
+    showRequestError(error);
   }
 });
 
-function showRequestError(message) {
+function errorGuidance(error) {
+  const code = error?.code || "";
+  if (code === "google_http_429") return {message: "Gemini đang giới hạn sử dụng hoặc chưa cấp quyền cho bước này. Kết quả đã nhận và nhu cầu của bạn vẫn được giữ.", next: "Kiểm tra hạn mức và quyền tìm web của API key, hoặc đổi key có quyền sử dụng. Sau khi xử lý xong, bấm Thử lại yêu cầu.", quota: true};
+  if (["google_http_401", "google_http_403", "missing_api_key"].includes(code)) return {message: "Gemini chưa chấp nhận API key hoặc quyền sử dụng của key.", next: "Nhập lại key trong phần Kết nối Gemini, rồi thử lại yêu cầu.", key: true};
+  if (code === "google_http_400") return {message: "Gemini từ chối cấu hình ứng dụng gửi đi. Đây chưa phải lỗi trong cách bạn mô tả bộ đồ.", next: "Nhờ người thiết lập ứng dụng kiểm tra cấu hình Gemini. Sau khi sửa, bấm Thử lại yêu cầu."};
+  if (code === "google_http_404") return {message: "Model Gemini đang cấu hình chưa dùng được với key này.", next: "Nhờ người thiết lập ứng dụng chọn model được Google cho phép, rồi thử lại."};
+  if (["budget_exhausted", "deadline_exceeded", "session_budget_exhausted", "task_retry_exhausted"].includes(code)) return {message: "Phiên này đã chạm giới hạn xử lý. Kết quả đã nhận vẫn được giữ.", next: "Bạn có thể xem kết quả hiện có hoặc bấm Thử lại yêu cầu để bắt đầu phiên mới."};
+  if (["semantic_invalid", "schema_invalid", "provider_invalid_json", "provider_incomplete_output"].includes(code)) return {message: "Gemini đã trả kết quả, nhưng ứng dụng chưa xác nhận được nội dung đầy đủ và đúng với lựa chọn của bạn.", next: "Các lựa chọn đã lưu vẫn được giữ. Nếu có nút Tiếp tục từ lựa chọn đã chốt, hãy dùng nút đó; nếu lỗi lặp lại, xem Chi tiết kỹ thuật."};
+  return {message: typeof error === "string" ? error : "Chưa hoàn thành bước này. Nội dung đã nhập vẫn được giữ.", next: "Kiểm tra kết nối và thử lại. Nếu lỗi lặp lại, mở Chi tiết kỹ thuật để người hỗ trợ kiểm tra."};
+}
+
+function showRequestError(error) {
   const box = $("#request-error");
-  box.textContent = message;
+  const guidance = errorGuidance(error);
+  const technical = typeof error === "string" ? "" : `${error?.message || ""}${error?.code ? ` (${error.code})` : ""}`;
+  box.innerHTML = `<p>${escapeHtml(guidance.message)}</p>${technical ? `<details><summary>Chi tiết kỹ thuật</summary><p>${escapeHtml(technical)}</p></details>` : ""}`;
   box.hidden = false;
 }
 
+function renderNextAction(job) {
+  const box = $("#next-action");
+  box.hidden = true;
+  if (job.status === "failed" || job.error || job.status === "needs_resolution" && job.workflow_version === 2) {
+    const guidance = job.status === "needs_resolution" && !job.error ? {message: "Chưa đủ gợi ý hợp lệ", next: `Hiện có ${job.cards?.length || 0}/3 gợi ý đạt điều kiện từ ${job.prompt_pool?.length || 0} prompt hợp lệ. Các bản lỗi chưa được chọn. Bạn có thể tiếp tục nếu còn ngân sách hoặc sửa lựa chọn.`} : errorGuidance(job.error);
+    const task = job.trace?.at(-1)?.task;
+    const stoppedAt = ({checking_selection_conflicts: "Kiểm tra xung đột lựa chọn", cleaning: "Hiểu nhu cầu", designing_checklist: "Chuẩn bị bảng lựa chọn và tham khảo", resolving_choices: "Tổng hợp lựa chọn", generating_prompt_pool: "Viết gợi ý thiết kế", specialist_auditing: "Đánh giá thiết kế", harmony_scoring: "Đánh giá tổng hợp thiết kế"}[job.failed_stage]) || ({VP02C: "Kiểm tra xung đột lựa chọn", VP01: "Hiểu nhu cầu", VP02: "Chuẩn bị bảng lựa chọn và tham khảo", VP02R: "Tìm nguồn tham khảo"}[task]) || "Xử lý yêu cầu";
+    const canUseBasic = job.workflow_version === 2 && job.reference_mode !== "text_only" && guidance.quota && (job.failed_stage === "designing_checklist" || ["VP02", "VP02R"].includes(task));
+    const design = job.user_report?.api?.budgets?.design;
+    const canContinue = !["budget_exhausted", "deadline_exceeded", "session_budget_exhausted"].includes(job.error?.code) && (!design || ((job.metrics?.design?.attempts || 0) < design.total_provider_calls_max && (job.metrics?.design?.active_seconds || 0) < design.active_processing_deadline_seconds));
+    box.innerHTML = `<div><strong>Đã dừng ở: ${escapeHtml(stoppedAt)}</strong><p>${escapeHtml(guidance.next)}</p>${guidance.quota ? '<p><a href="https://ai.dev/rate-limit" target="_blank" rel="noopener noreferrer">Kiểm tra hạn mức tại Google ↗</a></p>' : ""}</div><div class="manual-actions"><button type="button" class="button button-quiet" data-key-settings>Nhập / đổi API key</button><button type="button" class="button button-accent" data-retry-request>Thử lại yêu cầu</button></div>`;
+    box.hidden = false;
+    if (canContinue && job.workflow_version === 2 && job.resolved_brief?.status === "ready" && job.prompt_pool?.length && !job.cards?.length) {
+      const button = document.createElement("button");
+      button.type = "button"; button.className = "button button-accent"; button.textContent = "Tiếp tục phần đánh giá còn thiếu";
+      button.addEventListener("click", async () => { button.disabled = true; try { await api(`/requests/${job.request_id}/retry-audits`, {method: "POST", body: JSON.stringify({revision: job.revision})}); await refreshJob(); syncPolling(); } catch (error) { showRequestError(error); button.disabled = false; } });
+      box.append(button);
+    }
+    if (canContinue && job.workflow_version === 2 && job.choices && ((["checking_selection_conflicts", "resolving_choices"].includes(job.failed_stage) && !job.resolved_brief) || (job.resolved_brief?.status === "ready" && !job.prompt_pool?.length && !job.cards?.length))) {
+      const button = document.createElement("button");
+      button.type = "button"; button.className = "button button-accent"; button.textContent = "Tiếp tục từ lựa chọn đã chốt";
+      button.addEventListener("click", async () => { button.disabled = true; try { await api(`/requests/${job.request_id}/retry-resolution`, {method: "POST", body: JSON.stringify({revision: job.revision})}); await refreshJob(); syncPolling(); } catch (error) { showRequestError(error); button.disabled = false; } });
+      box.append(button);
+    }
+    if (canUseBasic) {
+      const note = document.createElement("p");
+      note.textContent = "Bạn cũng có thể dùng chế độ cơ bản cho ý tưởng hiện đại: không tìm web, không có link đã kiểm chứng. Yêu cầu tái hiện lịch sử vẫn cần nguồn.";
+      const button = document.createElement("button");
+      button.type = "button"; button.className = "button button-quiet"; button.textContent = "Thử chế độ cơ bản";
+      button.addEventListener("click", () => { $("#reference-mode").value = "text_only"; $("#request-input").value = job.raw_prompt || job.turns?.[0]?.text || $("#request-input").value; $("#request-form").requestSubmit(); });
+      box.append(note, button);
+    }
+    box.querySelector("[data-key-settings]").addEventListener("click", () => { $("#connection-settings").open = true; $("#api-key").focus(); });
+    box.querySelector("[data-retry-request]").addEventListener("click", () => { if (job.turns?.[0]) $("#request-input").value = job.raw_prompt || job.turns[0].text; $("#reference-mode").value = job.reference_mode || "gemini_web"; $("#request-form").requestSubmit(); });
+  } else if (job.status === "awaiting_manual_audit") {
+    box.hidden = false;
+    box.innerHTML = '<strong>Ảnh đã nhận</strong><a class="button button-quiet small-button" href="#manual-step">Kiểm tra ảnh ↓</a>';
+  } else if (job.status === "awaiting_image" && job.workflow_version === 2) {
+    box.hidden = false;
+    const selected = (job.cards || []).find(card => job.image_target_ids?.includes(card.candidate_id));
+    box.innerHTML = `<div><strong>${selected ? `Đang nhận ảnh cho: ${escapeHtml(selected.title)}` : "Bước tiếp: chọn một gợi ý để xem ảnh"}</strong><p>Bấm Sao chép hướng dẫn ở thẻ bạn thích. Hướng dẫn này dùng để tạo ảnh; nút sẽ sao chép sẵn để bạn dán vào Gemini. Sau đó tải ảnh về và gửi vào đây.</p><p class="tiny-note">Đánh giá áp dụng cho bản mô tả thiết kế; ảnh thực tế chưa được tạo.</p></div>`;
+  }
+}
+
+function v2Summary(job) {
+  if (job.status === "awaiting_choices") return "Xem những phần đã hiểu và chọn các chi tiết còn thiếu bên dưới.";
+  if (job.status === "awaiting_image") return `Có ${job.cards?.length || 0} gợi ý bằng chữ. Chọn gợi ý bạn thích để tạo ảnh trên Gemini.`;
+  if (job.status === "failed") return "Phiên đang dừng. Nhu cầu và các kết quả đã nhận vẫn được giữ; xem bước xử lý bên dưới.";
+  if (job.status === "cancelled") return "Đã dừng theo yêu cầu. Bạn có thể nhập lại nhu cầu để bắt đầu phiên mới.";
+  if (job.status === "complete" && job.output_artifact_ids?.length) return "Ảnh đã được lưu. Xem ảnh bên dưới, tải về hoặc mở ảnh để khoanh phần muốn sửa. Nhận xét kiểm tra bằng AI có thể sai.";
+  if (terminal.has(job.status)) return job.user_report?.final || "Xem kết quả hiện có bên dưới.";
+  return "Bạn chưa cần thao tác. Gemini đang xử lý; việc chuẩn bị gợi ý có thể mất vài phút.";
+}
+
 async function copyPrompt(text, textarea = null) {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+  } catch (_) { /* Select the exact text below for the legacy/manual fallback. */ }
   const temporary = !textarea;
   const previousFocus = document.activeElement;
   if (temporary) {
@@ -216,7 +336,7 @@ async function copyPrompt(text, textarea = null) {
   }
   textarea.focus(); textarea.select();
   try {
-    if (!document.execCommand("copy")) await navigator.clipboard.writeText(text);
+    if (!document.execCommand("copy")) throw new Error("Clipboard không khả dụng");
   } finally {
     if (temporary) {
       textarea.remove();
@@ -232,8 +352,26 @@ function candidatePrompt(job, card, index) {
     || "";
 }
 
+function shouldChooseCopiedCandidate(job, card) {
+  const ids = new Set((job.cards || []).map(item => item.candidate_id));
+  const hasImages = (job.artifacts || []).some(item => job.workflow_version !== 2 || ids.has(item.candidate_id));
+  return job.status === "awaiting_image" && !!job.pending_manual && !hasImages
+    && !job.image_target_ids?.includes(card.candidate_id);
+}
+
+async function chooseImageCandidate(job, card) {
+  await api(`/requests/${job.request_id}/image-candidate`, {method: "POST", body: JSON.stringify({
+    revision: job.revision, step_id: job.pending_manual.step_id, candidate_id: card.candidate_id,
+  })});
+  renderedManualKey = null;
+  uploadDrafts.clear();
+  await refreshJob();
+}
+
 function renderCards(job) {
   const cards = job.cards || [];
+  const currentIds = new Set(cards.map(card => card.candidate_id));
+  const hasCurrentImages = (job.artifacts || []).some(artifact => job.workflow_version !== 2 || currentIds.has(artifact.candidate_id));
   $("#cards").innerHTML = cards.map((card, index) => {
     const design = card.design || {};
     const prompt = candidatePrompt(job, card, index);
@@ -245,17 +383,22 @@ function renderCards(job) {
         : escapeHtml(title);
     });
     return `<article class="idea-card">
-      <div class="idea-top"><span class="idea-index">PHƯƠNG ÁN 0${index + 1}</span><span class="score">${escapeHtml(card.score ?? "Gợi ý")}${card.score !== undefined ? " điểm" : ""}</span></div>
+      <div class="idea-top"><span class="idea-index">PHƯƠNG ÁN 0${index + 1}</span></div>
       <h3>${escapeHtml(card.title || "Gợi ý phối đồ")}</h3>
-      ${index === 0 ? '<p class="chosen-label">Gợi ý nổi bật</p>' : ""}
-      <p>${escapeHtml(card.target_need || "")}</p>
-      <p class="design-detail">${escapeHtml(design.subject_description || "")} ${escapeHtml(design.scene || "")}</p>
+      ${index === 0 ? '<p class="chosen-label">Phương án đề xuất</p>' : ""}
+      ${job.workflow_version === 2 ? [
+        ["Thời trang / cấu trúc", card.fashion_summary, card.specialist_reviews?.fashion],
+        ["Văn hóa / lịch sử", card.culture_summary, card.specialist_reviews?.culture],
+        ["Hội họa / mỹ thuật", card.art_summary, card.specialist_reviews?.art],
+      ].map(([label, text, review]) => `<section class="specialist-section"><h4>${label} </h4><p>${escapeHtml(text)}</p><details><summary>Nhận xét AI</summary><p class="muted">${escapeHtml(review?.summary || "")}</p>${review?.concerns?.length ? `<p>${review.concerns.map(escapeHtml).join(" · ")}</p>` : ""}</details></section>`).join("") + `<details><summary>Đánh giá tổng hợp</summary><p class="muted">${escapeHtml(card.harmony?.summary)}</p></details><p class="tiny-note">Đánh giá AI hỗ trợ tham khảo; chưa xác nhận độ chính xác lịch sử, khả năng may thực tế hoặc chất lượng ảnh.</p>` : `<p>${escapeHtml(card.target_need || "")}</p>`}
+      ${job.workflow_version !== 2 ? `<p class="design-detail">${escapeHtml(design.subject_description || "")} ${escapeHtml(design.scene || "")}</p>` : ""}
       ${tags.length ? `<div class="tag-list">${tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>` : ""}
       ${(card.caveats || []).map((item) => `<p>${escapeHtml(item)}</p>`).join("")}
       <div class="option-prompt">
-        ${job.status === "awaiting_image" && !(job.artifacts || []).length ? `<button type="button" class="button button-accent small-button" data-select-option="${index}" ${job.image_target_ids?.includes(card.candidate_id) ? "disabled" : ""}>${job.image_target_ids?.includes(card.candidate_id) ? "Đã chọn tạo ảnh" : "Chọn phương án này"}</button>` : ""}
-        <button type="button" class="button button-dark" data-copy-option="${index}" aria-label="Nhận prompt phương án ${index + 1}" aria-controls="option-prompt-${index}" aria-expanded="false" ${prompt ? "" : "disabled"}>Nhận prompt</button>
-        <div id="option-prompt-${index}" hidden><label for="option-prompt-text-${index}">Prompt tạo ảnh · phương án ${index + 1}</label><textarea id="option-prompt-text-${index}" rows="8" readonly>${escapeHtml(prompt)}</textarea></div>
+        ${job.status === "awaiting_image" && !hasCurrentImages ? `<button type="button" class="button button-accent small-button" data-select-option="${index}" ${job.image_target_ids?.includes(card.candidate_id) ? "disabled" : ""}>${job.image_target_ids?.includes(card.candidate_id) ? "Đã chọn tạo ảnh" : "Chọn phương án này"}</button>` : ""}
+        <button type="button" class="button button-dark" data-copy-option="${index}" aria-label="Sao chép hướng dẫn phương án ${index + 1}" aria-controls="option-prompt-${index}" ${prompt ? "" : "disabled"}>Sao chép hướng dẫn</button>
+        <button type="button" class="button button-quiet small-button" data-view-option="${index}" aria-expanded="false" aria-controls="option-prompt-${index}">Xem hướng dẫn</button>
+        <div id="option-prompt-${index}" hidden><label for="option-prompt-text-${index}">Hướng dẫn tạo ảnh · phương án ${index + 1}</label><textarea id="option-prompt-text-${index}" rows="8" readonly>${escapeHtml(prompt)}</textarea></div>
         <span role="status">${prompt ? "" : "Đang chuẩn bị prompt…"}</span>
       </div>
       ${sources.length ? `<p class="source-line">Nguồn: ${sources.join(" · ")}</p>` : ""}
@@ -265,30 +408,44 @@ function renderCards(job) {
     button.disabled = true;
     try {
       const candidate = cards[Number(button.dataset.selectOption)];
-      await api(`/requests/${job.request_id}/image-candidate`, {method: "POST", body: JSON.stringify({
-        revision: job.revision, step_id: job.pending_manual.step_id, candidate_id: candidate.candidate_id,
-      })});
-      renderedManualKey = null;
-      uploadDrafts.clear();
-      await refreshJob();
-    } catch (error) { showRequestError(error.message); button.disabled = false; }
+      await chooseImageCandidate(job, candidate);
+    } catch (error) { showRequestError(error); button.disabled = false; }
   }));
-  $("#cards").querySelectorAll("[data-copy-option]").forEach((button) => button.addEventListener("click", async () => {
+  $("#cards").querySelectorAll("[data-view-option]").forEach((button) => button.addEventListener("click", () => {
     const panel = button.parentElement.querySelector("div");
     panel.hidden = !panel.hidden;
     button.setAttribute("aria-expanded", String(!panel.hidden));
-    button.textContent = panel.hidden ? "Nhận prompt" : "Ẩn prompt";
-    if (panel.hidden) return;
+    button.textContent = panel.hidden ? "Xem hướng dẫn" : "Ẩn hướng dẫn";
+  }));
+  $("#cards").querySelectorAll("[data-copy-option]").forEach((button) => button.addEventListener("click", async () => {
+    const index = Number(button.dataset.copyOption), candidate = cards[index];
+    const panel = button.parentElement.querySelector("div");
     const textarea = panel.querySelector("textarea");
     const message = button.parentElement.querySelector('[role="status"]');
+    button.disabled = true;
     try {
-      await copyPrompt(candidatePrompt(job, cards[Number(button.dataset.copyOption)], Number(button.dataset.copyOption)), textarea);
+      await copyPrompt(candidatePrompt(job, candidate, index), textarea);
       message.textContent = "Đã copy · dán vào Gemini";
-    } catch (_) { message.textContent = "Dùng Ctrl+C / ⌘C để copy phần đã chọn"; }
+    } catch (_) {
+      panel.hidden = false; textarea.focus(); textarea.select();
+      message.textContent = "Dùng Ctrl+C / ⌘C để copy phần đã chọn. Bấm Chọn phương án này trước khi gửi ảnh.";
+      button.disabled = false;
+      return;
+    }
+    try {
+      if (shouldChooseCopiedCandidate(job, candidate)) {
+        await chooseImageCandidate(job, candidate);
+        const current = $("#cards").querySelector(`[data-copy-option="${index}"]`);
+        if (current && activeJob?.image_target_ids?.includes(candidate.candidate_id)) current.parentElement.querySelector('[role="status"]').textContent = "Đã sao chép hướng dẫn và chọn phương án";
+      }
+    } catch (error) {
+      showRequestError(`Đã sao chép prompt, nhưng chưa chọn được phương án để nhận ảnh: ${error.message}. Bấm Chọn phương án này và kiểm tra tên trước khi gửi ảnh.`);
+    } finally { button.disabled = false; }
   }));
 }
 
 function renderQuestion(job) {
+  if (job.workflow_version === 2) return renderChecklist(job);
   const questions = job.questions || [];
   const box = $("#question-card");
   if (job.status !== "awaiting_user" || !questions.length) { box.hidden = true; box.replaceChildren(); return; }
@@ -315,29 +472,42 @@ async function sendAnswer(job, answer) {
     await refreshJob();
     if (activeId && !terminal.has(activeJob?.status)) syncPolling();
   } catch (error) {
-    showRequestError(error.message);
+    showRequestError(error);
     $("#question-card").querySelectorAll("button,input").forEach((element) => { element.disabled = false; });
   }
 }
 
 function renderWarnings(job) {
   const messages = [...(job.warnings || [])];
-  if (job.status === "needs_evidence") messages.unshift("Yêu cầu cần nguồn phù hợp hơn. Bạn có thể gửi một yêu cầu theo hướng lấy cảm hứng hiện đại.");
+  if (job.status === "needs_evidence") messages.unshift("Chưa đủ nguồn cho phần bắt buộc. Giữ nguyên mức lịch sử đã yêu cầu; có thể thử tìm nguồn lại.");
   if (job.status === "cards_only" && job.render_image && !job.artifacts?.length) messages.unshift("Không có ảnh đã kiểm tra; các gợi ý bằng chữ vẫn được giữ lại.");
+  if (job.workflow_version === 2) {
+    const basic = job.reference_mode === "text_only" ? '<p class="warning">Chế độ cơ bản: ý tưởng hiện đại, không có nguồn web đã tìm/đọc và không xác nhận lịch sử.</p>' : "";
+    const usageWarnings = [...new Set(job.api_call_warnings || [])];
+    const usageNotice = usageWarnings.map(message => `<p class="warning" role="status">${escapeHtml(message)}</p>`).join("");
+    const notes = [...new Set(messages)].filter(message => !usageWarnings.includes(message));
+    $("#warnings").innerHTML = basic + usageNotice + (job.status === "needs_evidence" ? '<p class="warning">Chưa đủ nguồn cho yêu cầu đã chốt. Bạn có thể sửa lựa chọn hoặc thử tìm nguồn lại.</p>' : "") + (notes.length ? `<details><summary>Ghi chú xử lý (gồm các lần thử trước)</summary>${notes.map(message => `<p>${escapeHtml(message)}</p>`).join("")}</details>` : "");
+    return;
+  }
   $("#warnings").innerHTML = messages.map((message) => `<div class="warning">${escapeHtml(message)}</div>`).join("");
 }
 
 function renderImage(job) {
-  const labels = {passed: "Ảnh qua audit", mock_flow_checked: "Chỉ kiểm tra luồng bằng mock; chưa audit thị giác thật", failed_or_uncertain: "Chưa đạt / chưa xác định", unverified: "Chưa có audit hợp lệ"};
+  const labels = {passed: "Ảnh đã được AI đánh giá", mock_flow_checked: "Chỉ kiểm tra luồng bằng mô phỏng; chưa đánh giá ảnh thực tế", failed_or_uncertain: "Chưa đạt / chưa xác định", unverified: "Chưa có kết quả đánh giá ảnh"};
   const currentIds = job.output_artifact_ids || (job.artifacts || []).filter(a => !(job.artifacts || []).some(child => child.parent_artifact_id === a.artifact_id)).map(a => a.artifact_id);
   const editable = waiting.has(job.status) || ["complete", "cards_only"].includes(job.status);
+  const imageReview = (artifact) => {
+    if (job.workflow_version !== 2) return "";
+    const audit = (job.image_audits || []).flatMap(batch => batch.audits || []).reverse().find(row => row.artifact_id === artifact.artifact_id);
+    return audit ? `<details><summary>Nhận xét kiểm tra ảnh bằng AI</summary><p>AI có thể nhìn nhầm chi tiết. Hãy đối chiếu với ảnh trước khi quyết định sửa tiếp.</p><p>${escapeHtml(audit.quality_reason)}</p>${audit.findings.map(f => `<p>${escapeHtml(f.evidence)} · ${escapeHtml(f.reason)}</p>`).join("")}</details>` : "";
+  };
   const imageMarkup = (artifact) => `<div class="image-result">
     <button type="button" class="image-open" data-edit-image="${escapeHtml(artifact.artifact_id)}" ${editable ? "" : "disabled"} aria-label="Mở ảnh để phác thảo"><img src="${escapeHtml(artifact.url)}" alt="${artifact.parent_artifact_id ? "Ảnh sửa" : "Ảnh tạo"}" /></button>
     <p>${escapeHtml((job.cards || []).find(c => c.candidate_id === artifact.candidate_id)?.title || artifact.candidate_id || "")}<br /><strong>${artifact.parent_artifact_id ? "Ảnh sửa từ ảnh gốc của request này" : "Ảnh tạo ban đầu"}</strong><br />
     ${escapeHtml(artifact.output_origin === "gemini" ? "API Gemini" : artifact.output_origin === "mock" ? "Ảnh mock" : artifact.output_origin)}<br />
     ${escapeHtml(labels[artifact.check_status] || "Chưa kiểm tra")}<br />
     ${(job.selected_artifact_ids || [job.selected_artifact_id]).includes(artifact.artifact_id) ? "Ảnh kết quả đã kiểm tra của phương án này.<br />" : ""}
-    <a href="${escapeHtml(artifact.url)}" download>Tải ảnh</a><br /><button type="button" class="button button-accent small-button" data-edit-image="${escapeHtml(artifact.artifact_id)}" ${editable ? "" : "disabled"}>Mở ảnh / Phác thảo chỉnh sửa</button></p></div>`;
+    <a href="${escapeHtml(artifact.url)}" download>Tải ảnh</a><br /><button type="button" class="button button-accent small-button" data-edit-image="${escapeHtml(artifact.artifact_id)}" ${editable ? "" : "disabled"}>Mở ảnh / Phác thảo chỉnh sửa</button></p>${imageReview(artifact)}</div>`;
   const current = (job.artifacts || []).filter(a => currentIds.includes(a.artifact_id));
   const history = (job.artifacts || []).filter(a => !currentIds.includes(a.artifact_id));
   $("#image-result").innerHTML = current.map(imageMarkup).join("") + (history.length ? `<details class="details image-history"><summary>Lịch sử ảnh (${history.length})</summary>${history.map(a => `<p><a href="${escapeHtml(a.url)}" download>${escapeHtml(a.filename || "Ảnh trước chỉnh sửa")}</a></p>`).join("")}</details>` : "");
@@ -355,7 +525,7 @@ function renderImage(job) {
         await api(`/requests/${job.request_id}/image-edits`, {method: "POST", body: JSON.stringify({revision: activeJob.revision, parent_artifact_id: artifact.artifact_id, image: result.image, filename: result.filename, ...context})});
         renderedManualKey = null; await refreshJob(); syncPolling();
       }});
-    } catch (error) { showRequestError(error.message); }
+    } catch (error) { showRequestError(error); }
     finally { button.disabled = false; }
   }));
 }
@@ -363,7 +533,7 @@ function renderImage(job) {
 function updateImageMode() {
   const manual = $("#image-mode").value === "gemini_manual";
   $("#render-image").disabled = (!manual && !imagesEnabled) || (!!activeJob && !terminal.has(activeJob.status));
-  $("#image-note").textContent = manual ? "Copy prompt → gửi ảnh lại" : imagesEnabled ? "API ảnh đã bật" : "API ảnh cần --images";
+  $("#image-note").textContent = manual ? "Dán prompt vào Gemini, rồi gửi ảnh về; không gọi API tạo ảnh" : imagesEnabled ? "Tạo ảnh tự động qua API — cần bật billing, có tính phí" : "Tạo ảnh API cần bật billing và được người thiết lập ứng dụng bật tính năng";
   if (!manual && !imagesEnabled) $("#render-image").checked = false;
 }
 $("#image-mode").addEventListener("change", updateImageMode);
@@ -379,7 +549,7 @@ async function resumeStep(job, endpoint, data = {}) {
     await refreshJob();
     if (activeJob && !terminal.has(activeJob.status) && !waiting.has(activeJob.status)) syncPolling();
   } catch (error) {
-    showRequestError(error.message);
+    showRequestError(error);
     box.querySelectorAll("button,input,textarea").forEach((element) => { element.disabled = false; });
   }
 }
@@ -407,58 +577,37 @@ function renderManual(job) {
   const candidateIndex = Math.max(0, cards.findIndex(card => card.candidate_id === candidateId));
   const card = cards[candidateIndex];
   const heading = (title) => `<div class="manual-heading"><div><h3>${title}</h3><p class="manual-option">${escapeHtml(card?.title || `Phương án ${candidateIndex + 1}`)}</p></div><span class="manual-count">${job.image_target_ids ? "PHƯƠNG ÁN " : ""}${String(candidateIndex + 1).padStart(2, "0")}${job.image_target_ids ? "" : ` / ${String(cards.length || 1).padStart(2, "0")}`}</span></div>`;
-  if (pending.kind === "audit_choice") {
-    box.innerHTML = `${heading("Kiểm tra ảnh")}<p>Kiểm tra tự động chưa khả dụng. Bạn có thể tiếp tục chỉnh sửa trực tiếp trên ảnh.</p><button class="button button-accent" id="choose-background-audit">Tiếp tục chỉnh sửa trực tiếp</button><details class="manual-help"><summary>Audit JSON nâng cao</summary><button class="button button-dark" id="choose-manual-audit">Kiểm tra trên Gemini</button><p>${escapeHtml(job.audit_api_error?.message || "Hãy kiểm tra ảnh trên Gemini rồi gửi kết quả.")}</p></details>`;
+  if (["audit_choice", "audit"].includes(pending.kind)) {
+    box.innerHTML = `${heading("Kiểm tra ảnh")}<p>Kiểm tra ảnh thủ công bằng JSON đã được bỏ. Bạn có thể tiếp tục bằng quy trình kiểm tra qua API và chỉnh sửa trực tiếp.</p><button class="button button-accent" id="choose-background-audit">Tiếp tục kiểm tra qua API và chỉnh sửa</button>`;
     box.querySelector("#choose-background-audit").addEventListener("click", () => resumeStep(job, "background-audit-mode"));
-    box.querySelector("#choose-manual-audit").addEventListener("click", () => resumeStep(job, "manual-audit-mode"));
     return;
   }
-  const audit = pending.kind === "audit";
   const repair = pending.kind === "repair";
-  const instructions = audit
-    ? "Copy hướng dẫn, mở Gemini và đính kèm ảnh cần kiểm tra. Dán kết quả JSON Gemini trả về vào đây. Với ảnh sửa, đính kèm ảnh sửa trước, ảnh gốc sau."
-    : repair
+  const instructions = repair
       ? "Copy yêu cầu sửa và tiếp tục cuộc trò chuyện Gemini đã tạo ảnh. Đính kèm ảnh gốc, tải ảnh sửa về rồi gửi tại đây."
-      : "Chọn phương án bạn muốn, nhận prompt ở thẻ đó rồi dán vào Gemini. Gửi ảnh về đúng phương án đang hiển thị ở đây. Nếu không chọn riêng, ứng dụng sẽ lần lượt nhận ảnh cho cả ba phương án.";
+      : "Bấm Sao chép hướng dẫn ở thẻ bạn thích để sao chép và chọn phương án. Mở Gemini, dán đoạn vừa sao chép và gửi. Nếu Gemini chỉ trả lời bằng chữ, chọn Công cụ → Tạo ảnh rồi gửi lại. Tải ảnh Gemini trả về, quay lại đây bấm Chọn ảnh (hoặc copy ảnh rồi bấm Dán ảnh), kiểm tra tên phương án và bấm Gửi ảnh. Sau đó bấm vào ảnh để chỉnh sửa.";
   const relevant = (job.artifacts || []).filter((a) => a.artifact_id === pending.artifact_id || a.artifact_id === pending.parent_artifact_id);
   relevant.sort((a, b) => Number(b.artifact_id === pending.artifact_id) - Number(a.artifact_id === pending.artifact_id));
-  box.innerHTML = `${heading(audit ? "Kiểm tra ảnh" : repair ? "Sửa ảnh" : "Tạo ảnh với Gemini")}
-    ${!audit && !repair ? '<div class="manual-path" aria-label="Các bước tạo ảnh"><span>01 · Nhận prompt</span><span>02 · Tạo trên Gemini</span><span>03 · Gửi ảnh</span></div>' : ""}
+  box.innerHTML = `${heading(repair ? "Sửa ảnh" : "Tạo ảnh với Gemini")}
+    ${!repair ? '<div class="manual-path" aria-label="Các bước tạo ảnh"><span>01 · Sao chép hướng dẫn</span><span>02 · Tạo trên Gemini</span><span>03 · Gửi ảnh</span></div>' : ""}
     <div class="manual-actions">
-      ${audit || repair ? `<button type="button" class="button button-dark" id="copy-prompt">${audit ? "Copy hướng dẫn" : "Copy yêu cầu sửa"}</button>` : ""}
+      ${repair ? `<button type="button" class="button button-dark" id="copy-prompt">Copy yêu cầu sửa</button>` : ""}
       <a class="button button-quiet gemini-button" href="https://gemini.google.com/" target="_blank" rel="noreferrer">Mở Gemini ↗</a>
       <span id="copy-message" role="status"></span>
     </div>
     ${relevant.length ? `<div class="manual-references">${relevant.map((a) => `<div class="audit-reference"><img src="${escapeHtml(a.url)}" alt="${a.artifact_id === pending.artifact_id ? "Ảnh cần kiểm tra" : "Ảnh gốc"}" /><a class="button button-quiet small-button" href="${escapeHtml(a.url)}" download>${a.artifact_id === pending.artifact_id ? "Tải ảnh cần kiểm tra" : "Tải ảnh gốc"}</a></div>`).join("")}</div>` : ""}
-    ${audit ? `<form id="audit-form" class="manual-audit-form"><label for="audit-result">Kết quả từ Gemini</label><textarea id="audit-result" rows="4" maxlength="80000" required placeholder="Dán kết quả JSON…"></textarea><div class="manual-actions"><button type="button" class="button button-quiet" id="paste-audit">Dán kết quả</button><button class="button button-accent" type="submit">Gửi kết quả</button><span id="paste-message" role="status"></span></div></form>`
-      : `<div class="manual-upload" tabindex="0" aria-label="Dán ảnh Gemini"><div class="upload-control"><button type="button" class="button button-accent" id="paste-image">Dán ảnh</button><label for="manual-image" class="button button-quiet upload-button">Chọn ảnh</label><input id="manual-image" class="visually-hidden" type="file" accept="image/png,image/jpeg,image/webp" /><span id="upload-name">Chưa chọn ảnh</span></div><span class="upload-hint">Ctrl+V / ⌘V hoặc chọn ảnh · PNG, JPG, WebP · tối đa 10 MB</span><div id="upload-preview"></div><div class="manual-actions"><button id="edit-upload" type="button" class="button button-dark" hidden>Mở ảnh / Phác thảo chỉnh sửa</button><button id="confirm-image" type="button" class="button button-accent" disabled>Gửi ảnh</button></div></div>`}
+    <div class="manual-upload" tabindex="0" aria-label="Dán ảnh Gemini"><div class="upload-control"><button type="button" class="button button-accent" id="paste-image">Dán ảnh</button><label for="manual-image" class="button button-quiet upload-button">Chọn ảnh</label><input id="manual-image" class="visually-hidden" type="file" accept="image/png,image/jpeg,image/webp" /><span id="upload-name">Chưa chọn ảnh</span></div><span class="upload-hint">Ctrl+V / ⌘V hoặc chọn ảnh · PNG, JPG, WebP · tối đa 10 MB</span><div id="upload-preview"></div><div class="manual-actions"><button id="edit-upload" type="button" class="button button-dark" hidden>Mở ảnh / Phác thảo chỉnh sửa</button><button id="confirm-image" type="button" class="button button-accent" disabled>Gửi ảnh</button></div></div>
     ${job.audit_mode !== "background" ? '<button type="button" class="button button-quiet" id="switch-direct-edit">Dùng quy trình chỉnh sửa trực tiếp</button>' : ""}
-    <details class="manual-help"><summary>Hướng dẫn</summary><p>${instructions}</p></details>`;
+    <details class="manual-help" ${!repair ? "open" : ""}><summary>Hướng dẫn từng bước</summary><p>${instructions}</p></details>`;
   box.querySelector("#copy-prompt")?.addEventListener("click", async () => {
     try {
       await copyPrompt(pending.prompt);
-      box.querySelector("#copy-message").textContent = "Đã copy prompt";
+      box.querySelector("#copy-message").textContent = "Đã sao chép hướng dẫn";
     } catch (_) {
       box.querySelector("#copy-message").textContent = "Trình duyệt chưa cho phép copy. Hãy cấp quyền clipboard rồi thử lại.";
     }
   });
   box.querySelector("#switch-direct-edit")?.addEventListener("click", () => resumeStep(job, "background-audit-mode"));
-  if (audit) {
-    box.querySelector("#paste-audit").addEventListener("click", async () => {
-      try {
-        const result = await navigator.clipboard.readText();
-        if (renderedManualKey !== key) return;
-        box.querySelector("#audit-result").value = result;
-        box.querySelector("#paste-message").textContent = "Đã dán";
-      } catch (_) {
-        if (renderedManualKey !== key) return;
-        box.querySelector("#audit-result").focus();
-        box.querySelector("#paste-message").textContent = "Dán bằng Ctrl+V / ⌘V";
-      }
-    });
-    box.querySelector("#audit-form").addEventListener("submit", (event) => { event.preventDefault(); resumeStep(job, "manual-audits", {result: box.querySelector("#audit-result").value}); });
-    return;
-  }
   let selectedImage = null;
   let selectedName = null;
   let selectedEdit = null;
@@ -488,7 +637,7 @@ function renderManual(job) {
       const result = await readArenaImageFile(file);
       if (version !== selectionVersion || renderedManualKey !== key) return;
       showPreview(result);
-    } catch (error) { if (version === selectionVersion && renderedManualKey === key) showRequestError(error.message); }
+    } catch (error) { if (version === selectionVersion && renderedManualKey === key) showRequestError(error); }
   }
   async function openSelected() {
     if (!selectedImage) return;
@@ -497,13 +646,13 @@ function renderManual(job) {
         if (renderedManualKey !== key) throw new Error("Bước nhận ảnh đã thay đổi. Hãy mở lại bước hiện tại.");
         ++selectionVersion; showPreview(result, packet);
       }});
-    } catch (error) { showRequestError(error.message); }
+    } catch (error) { showRequestError(error); }
   }
   editButton.addEventListener("click", openSelected);
   box.querySelector("#manual-image").addEventListener("change", event => selectFile(event.target.files[0]));
   box.querySelector("#paste-image").addEventListener("click", async () => {
     try { const file = await arenaImageFromClipboard(); if (renderedManualKey === key) await selectFile(file); }
-    catch (error) { showRequestError(error.message); box.querySelector(".manual-upload").focus(); }
+    catch (error) { showRequestError(error); box.querySelector(".manual-upload").focus(); }
   });
   document.addEventListener("paste", event => {
     const file = [...(event.clipboardData?.items || [])].find(item => item.kind === "file" && item.type.startsWith("image/"))?.getAsFile();
@@ -528,17 +677,17 @@ function renderReport(job) {
   box.innerHTML = `<details><summary>Thông tin xử lý và kiểm tra ảnh</summary><h3>Báo cáo yêu cầu</h3><p class="report-outcome">${escapeHtml(report.final)}</p>
     <h4>Input đã nhận</h4><p>${escapeHtml(report.inputs.initial)}</p>${list(report.inputs.answers)}
     ${list(report.inputs.images.map((image) => `${image.role}: ${image.name} · ${image.source}`))}
-    ${report.inputs.manual_audits.map((text, index) => `<details><summary>Kết quả audit thủ công đã nhận · lượt ${index + 1}</summary><p>${escapeHtml(text)}</p></details>`).join("")}
-    <h4>Yêu cầu đã chốt</h4>${list(report.agreed)}<h4>Giả định còn lại</h4>${list(report.assumptions)}
+    ${report.inputs.manual_audits.map((text, index) => `<details><summary>Kết quả đánh giá thủ công đã nhận · lượt ${index + 1}</summary><p>${escapeHtml(text)}</p></details>`).join("")}
+    ${job.workflow_version === 2 ? `<h4>Yêu cầu đã làm rõ</h4><p>${escapeHtml(report.clean_text || "")}</p><h4>Tập phương án trước đánh giá</h4>${list((report.generation_batches || []).map(b => `${b.batch_id}: ${b.count} hướng dẫn · ${b.direction.label}${b.supplemental ? " · bổ sung" : ""}`))}<h4>Ngân sách từng giai đoạn</h4>${list(Object.entries(report.api.phases || {}).map(([phase, m]) => `${phase}: ${m.attempts} lượt gọi · ${m.actual_api_calls} HTTP API thật · ${m.active_seconds} giây xử lý`))}` : ""}<h4>Yêu cầu đã chốt</h4>${list(report.agreed)}<h4>Giả định còn lại</h4>${list(report.assumptions)}
     <h4>Phương án và lựa chọn</h4>${report.candidates.map((candidate) => `<p><strong>${escapeHtml(candidate.title)}</strong> · ${escapeHtml(candidate.description)}<br />${escapeHtml(candidate.reason)}</p>`).join("")}
     <p><strong>${report.selected ? `Chọn: ${escapeHtml(report.selected)}` : "Chưa chọn phương án"}</strong><br />${escapeHtml(report.selection_reason)}</p>
-    <details><summary>Xem phần đạt, chưa đạt và chưa xác định của audit phương án</summary>${(report.candidate_audits || []).map((audit) => `<p><strong>${escapeHtml(audit.title)}${audit.is_repair ? " · sau sửa" : ""}</strong></p>${list(audit.findings)}`).join("")}</details>
+    <details><summary>Xem phần đạt, chưa đạt và chưa xác định của đánh giá phương án</summary>${(report.candidate_audits || []).map((audit) => `<p><strong>${escapeHtml(audit.title)}${audit.is_repair ? " · sau sửa" : ""}</strong></p>${list(audit.findings)}`).join("")}</details>
     <h4>Các bước đã thực hiện theo thứ tự</h4><ol>${report.steps.map((step) => `<li><strong>${escapeHtml(step.purpose)}</strong> · ${escapeHtml(step.via)}${step.detail ? `<br />${escapeHtml(step.detail)}` : ""}</li>`).join("")}</ol>
     <h4>API thật</h4><p>${totals.actual} lượt gọi thực tế: ${totals.success} thành công, ${totals.failed} thất bại / phản hồi không hợp lệ, ${totals.interrupted} bị ngắt chưa có kết quả. ${totals.cache} bước dùng kết quả đã lưu, không gọi lại API.</p>
     ${report.api.calls.length ? list(report.api.calls.map((call) => `${call.purpose} · ${call.provider} / ${call.model}: ${call.calls} lượt API thật · ${call.result}`)) : ""}
     ${totals.mock ? '<p class="muted">Các bước mock chỉ mô phỏng workflow, không tính là API thật.</p>' : ""}
-    <h4>Thao tác Gemini thủ công</h4><p>${report.manual.image_prompts} prompt tạo/sửa ảnh đã giao · ${report.manual.images_received} ảnh đã nhận · ${report.manual.audit_prompts} prompt audit đã giao · ${report.manual.audits_received} kết quả audit hợp lệ đã nhận.</p>
-    <h4>Audit ảnh và sửa</h4>${report.audits.length ? report.audits.map((audit) => `<p><strong>${escapeHtml(audit.image)}</strong> · ${escapeHtml(audit.via)}<br />${escapeHtml(audit.quality)}</p>${list(audit.findings)}${audit.fixes.length ? `<p>Cần sửa:</p>${list(audit.fixes)}` : ""}`).join("") : '<p>Chưa có kết quả audit ảnh hợp lệ.</p>'}
+    <h4>Thao tác Gemini thủ công</h4><p>${report.manual.image_prompts} hướng dẫn tạo/sửa ảnh đã cung cấp · ${report.manual.images_received} ảnh đã nhận · ${report.manual.audit_prompts} hướng dẫn đánh giá đã cung cấp · ${report.manual.audits_received} kết quả đánh giá đã nhận.</p>
+    <h4>Đánh giá ảnh và chỉnh sửa</h4>${report.audits.length ? report.audits.map((audit) => `<p><strong>${escapeHtml(audit.image)}</strong> · ${escapeHtml(audit.via)}<br />${escapeHtml(audit.quality)}</p>${list(audit.findings)}${audit.fixes.length ? `<p>Cần sửa:</p>${list(audit.fixes)}` : ""}`).join("") : '<p>Chưa có kết quả đánh giá ảnh.</p>'}
     ${report.repairs.map((repair) => `<p>Vòng sửa đã yêu cầu:</p>${list(repair.fixes)}<p>${escapeHtml(repair.quality)}</p>`).join("")}
     <h4>Kết quả cuối và giới hạn</h4><p>${escapeHtml(report.final)}</p>${list(report.limits)}</details>`;
   $("#details").hidden = true;
@@ -553,9 +702,11 @@ async function refreshJob() {
     if (isOlderJob(job, activeJob)) return;
     if (!activeJob || activeJob.request_id !== job.request_id) {
       $("#image-mode").value = job.image_mode || "api";
-      $("#audit-mode").value = job.audit_mode || "api";
+      $("#audit-mode").value = job.audit_mode === "gemini_manual" ? "background" : (job.audit_mode || "api");
       $("#render-image").checked = job.render_image;
-      $("#request-input").value = job.turns.map((turn) => turn.text).join("\n\n");
+      $("#request-input").value = job.raw_prompt || job.turns[0]?.text || "";
+      $("#reference-mode").value = job.reference_mode || "gemini_web";
+      if (job.creative_level) $("#creative-level").value = job.creative_level;
     }
     activeJob = job;
     $("#image-mode").disabled = !terminal.has(job.status);
@@ -567,25 +718,174 @@ async function refreshJob() {
     $("#mock-request-notice").hidden = job.provider !== "mock";
     $("#result-title").textContent = statusLabels[job.status] || job.status;
     const subjectLabel = {au_phuc: "âu phục", ao_dai: "áo dài", ao_tu_than: "áo tứ thân", ao_ngu_than: "áo ngũ thân", ao_va_chan_vay: "áo phối chân váy", vay_lien: "váy liền thân"}[job.brief?.subject?.value] || job.brief?.subject?.value;
-    $("#result-summary").textContent = subjectLabel ? `Đối tượng: ${subjectLabel}${job.brief.mode ? ` · ${job.brief.mode === "historical" ? "theo hướng lịch sử" : "lấy cảm hứng"}` : ""}` : "";
-    $("#progress").classList.toggle("done", terminal.has(job.status));
+    $("#result-summary").textContent = job.workflow_version === 2 ? v2Summary(job) : subjectLabel ? `Đối tượng: ${subjectLabel}${job.brief.mode ? ` · ${job.brief.mode === "historical" ? "theo hướng lịch sử" : "lấy cảm hứng"}` : ""}` : "";
+    $("#progress").classList.toggle("done", ["complete", "cards_only"].includes(job.status));
+    $("#progress").classList.toggle("stopped", terminal.has(job.status) && !["complete", "cards_only"].includes(job.status));
     $("#cancel-request").hidden = terminal.has(job.status);
     renderQuestion(job);
     renderCards(job);
     renderWarnings(job);
     renderImage(job);
     renderManual(job);
-    const action = $("#next-action");
-    action.hidden = job.status !== "awaiting_manual_audit";
-    if (!action.hidden) action.innerHTML = '<strong>Ảnh đã nhận</strong><a class="button button-quiet small-button" href="#manual-step">Kiểm tra ảnh ↓</a>';
+    renderNextAction(job);
     renderReport(job);
-    if (job.error) showRequestError(`${job.error.message}${job.error.code ? ` (${job.error.code})` : ""}`);
+    renderRevisionControl(job);
+    if (job.error) showRequestError(job.error);
     syncPolling();
   } catch (error) {
     if (requestId !== activeId) return;
     stopPolling();
-    showRequestError(error.message);
+    showRequestError(error);
+    const action = $("#next-action");
+    action.hidden = false;
+    action.innerHTML = '<div><strong>Chưa tải được tiến độ</strong><p>Không cần nhập lại nhu cầu. Kiểm tra kết nối rồi tải lại tiến độ của phiên đang mở.</p></div><button type="button" class="button button-accent" data-refresh-job>Tải lại tiến độ</button>';
+    action.querySelector("[data-refresh-job]").addEventListener("click", refreshJob);
   }
+}
+
+let renderedChecklistKey = null;
+function referenceMarkup(reference) {
+  const safe = (url) => /^https?:\/\//i.test(url || "") ? escapeHtml(url) : "";
+  const url = safe(reference.url), preview = safe(reference.preview_url);
+  const explanation = `<p>${escapeHtml(reference.description)}</p><p class="tiny-note">${escapeHtml(reference.scope)} · ${reference.discovery_status === "tool_grounded" ? "Có metadata công cụ Gemini; chưa xác nhận chuyên môn" : "Chưa tìm được / chưa có xuất xứ công cụ"}</p>${preview ? `<img src="${preview}" alt="${escapeHtml(reference.label)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.hidden=true" />` : ""}`;
+  const link = url ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${escapeHtml(reference.label)} ↗</a>` : `<span>${escapeHtml(reference.label)} · chưa tìm được link</span>`;
+  return `<div class="reference-preview">${link}<div class="reference-hover" role="tooltip">${explanation}</div><details><summary>Xem mẫu</summary><div class="reference-body">${explanation}${url ? `<a href="${url}" target="_blank" rel="noopener noreferrer">Mở trang chi tiết ↗</a>` : ""}</div></details></div>`;
+}
+
+function choiceProblem(groups, selections) {
+  const selected = new Map(selections.map(item => [item.group_id, item]));
+  for (const group of groups) {
+    if (group.status === "locked" || !group.depends_on.every(dep => dep.option_ids.some(id => selected.get(dep.group_id)?.option_ids.includes(id)))) continue;
+    const item = selected.get(group.group_id);
+    const count = (item?.option_ids.length || 0) + Number(!!item?.custom_text.trim());
+    if (group.status === "needs_choice" && count < group.min) return `Ở “${group.label}”, hãy chọn ít nhất ${group.min} ý, giao AI đề xuất hoặc nhập ý riêng.`;
+    if (count > group.max) return `Ở “${group.label}”, chỉ chọn tối đa ${group.max} ý (tính cả ý riêng).`;
+  }
+  return "";
+}
+
+function selectionSummary(snapshot) {
+  if (!snapshot?.checklist || !snapshot.choices) return "";
+  const groups = new Map(snapshot.checklist.groups.map(g => [g.group_id, g]));
+  const rows = (snapshot.choices.selections || []).map(item => {
+    const group = groups.get(item.group_id);
+    if (!group) return "";
+    const labels = item.option_ids.map(id => group.options.find(o => o.option_id === id)).filter(Boolean).map(o => o.is_ai_delegate ? "Để AI đề xuất" : o.label);
+    if (item.custom_text?.trim()) labels.push(`Yêu cầu riêng: ${item.custom_text}`);
+    return labels.length ? `<li><strong>${escapeHtml(group.label)}</strong>: ${labels.map(escapeHtml).join(" · ")}</li>` : "";
+  }).filter(Boolean);
+  const changes = (snapshot.choices.explicit_changes || []).map(c => `<li>Đã sửa yêu cầu: ${escapeHtml(c.replacement_text)}</li>`);
+  return `<ul>${rows.concat(changes).join("") || "<li>Giữ các thông tin đã hiểu, không thêm lựa chọn.</li>"}</ul>`;
+}
+
+function renderChecklist(job) {
+  const box = $("#question-card"), checklist = job.checklist;
+  if (job.status !== "awaiting_choices" || !checklist) {
+    const snapshot = job.choices && checklist ? {checklist, choices: job.choices} : job.previous_selection_snapshot;
+    const summary = selectionSummary(snapshot);
+    box.hidden = !summary;
+    if (summary) box.innerHTML = `<details open><summary>Lựa chọn đã chốt để đối chiếu</summary>${summary}<p class="tiny-note">Bạn có thể chọn lại từ bảng đã có bằng nút bên dưới.</p></details>`;
+    else box.replaceChildren();
+    renderedChecklistKey = null; return;
+  }
+  const conflictReview = job.selection_review?.status === "conflict" ? job.selection_review.conflicts : [];
+  const conflictMarkup = conflictReview.length ? `<section role="alert"><h4>Cần sửa xung đột nghiêm trọng</h4>${conflictReview.map(c => `<div><strong>${escapeHtml(c.summary)}</strong><p>${escapeHtml(c.reason)}</p><p>Chi tiết đang xung đột: ${escapeHtml(c.same_feature)}</p><ul>${c.evidence.map(e => `<li>${escapeHtml(e.quote)}</li>`).join("")}</ul><p>Gợi ý sửa: ${escapeHtml(c.suggested_fix)}</p></div>`).join("")}<p>Lựa chọn đã được giữ bên dưới. Hãy sửa rồi chốt lại để Gemini kiểm tra; chỉ tiếp tục khi hết xung đột nghiêm trọng.</p></section>` : (job.resolved_brief?.status === "needs_resolution" ? `<section role="alert"><h4>Cần làm rõ yêu cầu</h4>${(job.resolved_brief.conflicts || []).map(c => `<p>${escapeHtml(typeof c === "string" ? c : JSON.stringify(c))}</p>`).join("")}</section>` : "");
+  const key = `${job.request_id}:${job.revision}:${checklist.form_id}`;
+  if (key === renderedChecklistKey) return;
+  renderedChecklistKey = key;
+  const references = new Map((checklist.references || []).map(r => [r.reference_id, r]));
+  const groups = checklist.groups || [];
+  box.hidden = false;
+  box.innerHTML = `<h3>Chọn những chi tiết còn thiếu</h3><p>${escapeHtml(checklist.clean_prompt.clean_text)}</p><p class="muted">Ở mỗi phần cần chọn, bấm ý bạn thích, giao AI đề xuất hoặc nhập ý riêng. “Đã xác định” là phần được giữ từ lời bạn nói. ${job.choice_restore ? "Các lựa chọn bạn đã chốt được giữ lại; bạn có thể thay đổi trước khi chốt lần mới." : "Không có lựa chọn nào được chọn sẵn."}</p>${job.previous_selection_snapshot ? `<details><summary>Đối chiếu lựa chọn trước</summary>${selectionSummary(job.previous_selection_snapshot)}</details>` : ""}
+    ${conflictMarkup}<form id="choice-form">${groups.map((g, index) => `<details class="choice-group" data-group="${escapeHtml(g.group_id)}" ${index < 6 ? "open" : ""}><summary>${escapeHtml(g.label)} · ${g.status === "locked" ? "Đã xác định" : g.selection_mode === "single" ? "Chọn một" : "Chọn nhiều"}</summary><fieldset ${g.status === "locked" ? "disabled" : ""}>
+    <legend>${escapeHtml(g.question)}</legend><p class="muted">${escapeHtml(g.why_it_matters)}</p>${g.status !== "locked" ? `<p class="tiny-note">${g.status === "needs_choice" ? `Cần chọn ít nhất ${g.min}` : "Có thể bỏ qua"} · tối đa ${g.max} ý, tính cả ý riêng.</p>` : ""}
+    ${g.status === "locked" ? g.related_atom_ids.map(aid => `<p>${escapeHtml(checklist.clean_prompt.atoms.find(a => a.atom_id === aid)?.meaning)}</p>`).join("") : g.options.map(o => `<div class="choice-option"><label><input type="${g.selection_mode === "single" ? "radio" : "checkbox"}" name="${escapeHtml(g.group_id)}" value="${escapeHtml(o.option_id)}" data-delegate="${o.is_ai_delegate}" /><strong>${o.is_ai_delegate ? "Để AI đề xuất" : escapeHtml(o.label)}</strong>${o.is_recommended ? '<small> · Gợi ý</small>' : ""}</label><p>${escapeHtml(o.description)}</p>${o.reference_ids.map(rid => references.has(rid) ? referenceMarkup(references.get(rid)) : "").join("")}</div>`).join("") + `<label>Nhập yêu cầu riêng<textarea data-custom rows="2" maxlength="6000" placeholder="Nhập để chọn ý riêng…"></textarea></label>`}
+    </fieldset><p data-inactive class="tiny-note" hidden>Chọn nhóm nền phù hợp để mở phần này.</p></details>`).join("")}
+    <details class="explicit-changes"><summary>Sửa ý đã hiểu (cần xác nhận)</summary>${checklist.clean_prompt.atoms.map(a => `<div data-change-atom="${escapeHtml(a.atom_id)}"><p>${escapeHtml(a.meaning)}</p><textarea rows="2" maxlength="6000" placeholder="Ý thay thế…"></textarea><label><input type="checkbox" /> Tôi xác nhận thay ý này</label></div>`).join("")}</details>
+    <div class="reference-results">${(job.reference_metadata || []).map(m => m.groundingMetadata?.searchEntryPoint?.renderedContent).filter(Boolean).map(html => `<iframe title="Gợi ý tìm kiếm Google do Gemini trả" sandbox="allow-popups allow-popups-to-escape-sandbox" srcdoc="${escapeHtml(html)}"></iframe>`).join("")}</div>
+    <p id="choice-error" class="error" role="alert"></p><button class="button button-accent" type="submit">Xác nhận lựa chọn và kiểm tra xung đột</button></form>`;
+  const form = box.querySelector("#choice-form");
+  const sections = new Map([...form.querySelectorAll("[data-group]")].map(el => [el.dataset.group, el]));
+  function selections() {
+    return groups.filter(g => g.status !== "locked").map(g => {
+      const section = sections.get(g.group_id), field = section.querySelector("fieldset");
+      return {group_id: g.group_id, option_ids: field.disabled ? [] : [...section.querySelectorAll("input:checked")].map(el => el.value), custom_text: field.disabled ? "" : section.querySelector("[data-custom]").value};
+    });
+  }
+  function dependencies() {
+    // Recompute to a fixed point so changing an ancestor clears every descendant.
+    for (let pass = 0; pass <= groups.length; pass++) {
+      const picked = new Map(selections().map(s => [s.group_id, s.option_ids]));
+      for (const g of groups) {
+        if (g.status === "locked") continue;
+        const section = sections.get(g.group_id), field = section.querySelector("fieldset");
+        const active = g.depends_on.every(d => d.option_ids.some(id => (picked.get(d.group_id) || []).includes(id)));
+        field.disabled = !active; section.querySelector("[data-inactive]").hidden = active;
+        if (!active) { section.querySelectorAll("input").forEach(el => { el.checked = false; }); section.querySelector("[data-custom]").value = ""; }
+      }
+    }
+  }
+  for (const g of groups) {
+    if (g.status === "locked") continue;
+    const section = sections.get(g.group_id), custom = section.querySelector("[data-custom]");
+    section.querySelectorAll("input").forEach(input => input.addEventListener("change", () => {
+      if (input.checked) {
+        if (input.dataset.delegate === "true") section.querySelectorAll("input").forEach(other => { if (other !== input) other.checked = false; });
+        else section.querySelectorAll('[data-delegate="true"]').forEach(other => { other.checked = false; });
+        if (g.selection_mode === "single" || input.dataset.delegate === "true") custom.value = "";
+      }
+      dependencies();
+    }));
+    custom.addEventListener("input", () => {
+      if (custom.value.trim()) section.querySelectorAll("input").forEach(el => { if (g.selection_mode === "single" || el.dataset.delegate === "true") el.checked = false; });
+      dependencies();
+    });
+  }
+  for (const saved of job.choice_restore?.selections || []) {
+    const section = sections.get(saved.group_id);
+    if (!section || !section.querySelector("[data-custom]")) continue;
+    section.querySelectorAll("input").forEach(input => { input.checked = saved.option_ids.includes(input.value); });
+    section.querySelector("[data-custom]").value = saved.custom_text || "";
+  }
+  for (const change of job.choice_restore?.explicit_changes || []) {
+    const el = [...form.querySelectorAll("[data-change-atom]")].find(el => el.dataset.changeAtom === change.atom_id);
+    if (el) { el.querySelector("textarea").value = change.replacement_text; el.querySelector("input").checked = true; }
+  }
+  dependencies();
+  const idempotencyKey = crypto.randomUUID();
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    const picked = selections();
+    const problem = choiceProblem(groups, picked);
+    if (problem) { box.querySelector("#choice-error").textContent = problem; return; }
+    const explicit_changes = [];
+    for (const el of form.querySelectorAll("[data-change-atom]")) {
+      if (el.querySelector("input").checked) {
+        const replacement_text = el.querySelector("textarea").value;
+        if (!replacement_text.trim()) { box.querySelector("#choice-error").textContent = "Cần nhập ý thay thế cho phần đã xác nhận."; return; }
+        explicit_changes.push({atom_id: el.dataset.changeAtom, replacement_text, confirmed: "yes"});
+      }
+    }
+    const payload = {revision: job.revision, form_id: checklist.form_id, idempotency_key: idempotencyKey, selections: picked, explicit_changes};
+    const button = form.querySelector('button[type="submit"]'); button.disabled = true;
+    try {
+      await api(`/requests/${job.request_id}/selections`, {method: "POST", body: JSON.stringify(payload)});
+      renderedChecklistKey = null; await refreshJob(); syncPolling();
+    } catch (error) { box.querySelector("#choice-error").textContent = error.message; button.disabled = false; }
+  });
+}
+
+function renderRevisionControl(job) {
+  const box = $("#revision-control");
+  if (!box) return;
+  box.hidden = job.workflow_version !== 2 || !job.checklist || !["awaiting_image", "complete", "cards_only", "needs_evidence", "needs_resolution", "failed"].includes(job.status);
+  if (box.hidden) return;
+  box.innerHTML = '<button type="button" class="button button-quiet" data-reuse="true">Chọn lại từ bảng đã có</button><button type="button" class="button button-quiet" data-reuse="false">Tìm nguồn và tạo bảng mới (API cần billing)</button><span class="tiny-note">Chọn lại giữ các option và lựa chọn đã chốt, không gọi API để mở bảng. Sau khi chốt mới, thiết kế sẽ được tạo và đánh giá lại qua API.</span>';
+  box.querySelectorAll("button").forEach(button => button.addEventListener("click", async event => {
+    event.currentTarget.disabled = true;
+    try { await api(`/requests/${job.request_id}/revise`, {method: "POST", body: JSON.stringify({revision: job.revision, reuse_checklist: button.dataset.reuse === "true"})}); renderedChecklistKey = null; await refreshJob(); syncPolling(); }
+    catch (error) { showRequestError(error); event.currentTarget.disabled = false; }
+  }));
 }
 
 loadHealth();

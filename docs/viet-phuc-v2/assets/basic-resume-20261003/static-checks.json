@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-03",
+  "scope": "Static checks after final UX changes; no UI journey or Gemini rerun",
+  "observed_commands": {
+    "node --check frontend/app.js": "exit 0",
+    "python3 -m compileall -q backend/arena_backend backend/tests": "exit 0",
+    "git diff --check": "exit 0"
+  },
+  "python_sources_ast_parsed": 15,
+  "html_duplicate_ids": false,
+  "required_controls_present": true,
+  "schema_json_and_internal_refs": "pass",
+  "internal_schema_refs_checked": 27,
+  "default_budgets": "26/240 and 13/90 unchanged",
+  "sampling_policy": "model default, no task temperature override",
+  "protected_files": {
+    "frontend/image-editor.js": {
+      "sha256": "3cb67e04c5e17972b0b3d01aed8d1d7963a2ff46995aa4aef89a2b06ba459785",
+      "byte_equal_HEAD": true
+    },
+    "arena-kit/image-edit-template.txt": {
+      "sha256": "dc6f4c8566efd115fdc878dac132ee88e2021955efd449c9310442d0026d61f9",
+      "byte_equal_HEAD": true
+    }
+  },
+  "secret_matches_in_new_text_evidence": 0,
+  "last_executed_unit_suite_before_final_ux": {
+    "tests": 156,
+    "seconds": 50.861,
+    "result": "OK",
+    "live_google_calls": 0
+  },
+  "not_executed_after_final_ux": [
+    "Python unit suite",
+    "Frontend VM tests",
+    "Browser scenario",
+    "Gemini calls"
+  ],
+  "recorded_packet_strokes": 4,
+  "optional_jsonschema_meta_validation": "Unavailable: jsonschema not installed; no package installed",
+  "new_reports_local_links": "pass"
+}

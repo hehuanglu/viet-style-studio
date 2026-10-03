@@ -1,0 +1,908 @@
+{
+  "evidence_id": "c817cef7-f1f2-498f-a39b-bf5dfa20da61",
+  "recorded_at": 1791050857.662066,
+  "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+  "revision": 5,
+  "attempt_id": "a7294d52-8c53-42bc-8f42-ae147121e4f4",
+  "task": "VP07",
+  "payload": {
+    "REQUEST_METADATA": {
+      "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+      "revision": 5
+    },
+    "RESOLVED_BRIEF": {
+      "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+      "revision": 5,
+      "resolved_text": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại. Tôi cần một bộ trang phục mùa hè, cho nữ, lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng. Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam (cụ thể: chọn cảm hứng từ tranh khắc gỗ dân gian). Thiết kế phom dáng chọn áo phối với chân váy dài. Phụ kiện đi kèm chọn khuyên tai tối giản, đảm bảo vừa đủ và phù hợp với đề bài.",
+      "domains": [
+        {
+          "domain_id": "dom_context",
+          "label": "Bối cảnh và Đối tượng",
+          "summary": "Thông tin về sự kiện thời trang, mùa mặc và đối tượng sử dụng trang phục.",
+          "related_domain_ids": [
+            "dom_structure"
+          ]
+        },
+        {
+          "domain_id": "dom_structure",
+          "label": "Cấu trúc và Thiết kế",
+          "summary": "Kiểu dáng, đường nét, cấu trúc trang phục (chọn áo cách tân phối chân váy dài) cùng phong cách truyền thống kết hợp hiện đại.",
+          "related_domain_ids": [
+            "dom_context",
+            "dom_art",
+            "dom_accessories"
+          ]
+        },
+        {
+          "domain_id": "dom_art",
+          "label": "Mỹ thuật và Cảm hứng",
+          "summary": "Cảm hứng từ Việt phục truyền thống và mỹ thuật hội họa truyền thống Việt Nam (chọn cảm hứng tranh khắc gỗ dân gian).",
+          "related_domain_ids": [
+            "dom_structure"
+          ]
+        },
+        {
+          "domain_id": "dom_accessories",
+          "label": "Phụ kiện",
+          "summary": "Các loại phụ kiện đi kèm như khuyên tai tối giản với số lượng vừa đủ.",
+          "related_domain_ids": [
+            "dom_structure"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_context_event",
+          "domain_ids": [
+            "dom_context"
+          ],
+          "meaning": "Đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại.",
+          "intent_type": "context",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_context_season_gender",
+          "domain_ids": [
+            "dom_context"
+          ],
+          "meaning": "Trang phục mùa hè, dành cho nữ.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Tôi cần một bộ trang phục mùa hè, cho nữ"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_structure_inspiration",
+          "domain_ids": [
+            "dom_structure",
+            "dom_art"
+          ],
+          "meaning": "Lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_structure_lines_qualities",
+          "domain_ids": [
+            "dom_structure"
+          ],
+          "meaning": "Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_art_painting",
+          "domain_ids": [
+            "dom_art"
+          ],
+          "meaning": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_structure_silhouette_options",
+          "domain_ids": [
+            "dom_structure"
+          ],
+          "meaning": "Có thể là áo phối với chân váy dài hoặc váy liền thân.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Có thể là áo phối với chân váy dài hoặc váy liền thân."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_accessories_types",
+          "domain_ids": [
+            "dom_accessories"
+          ],
+          "meaning": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_accessories_quantity",
+          "domain_ids": [
+            "dom_accessories"
+          ],
+          "meaning": "Không cần quá nhiều phụ kiện, chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_user_sel_silhouette",
+          "domain_ids": [
+            "dom_structure"
+          ],
+          "meaning": "Chọn thiết kế áo phối với chân váy dài.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn thiết kế áo phối với chân váy dài."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_user_sel_art",
+          "domain_ids": [
+            "dom_art"
+          ],
+          "meaning": "Chọn cảm hứng từ tranh khắc gỗ dân gian.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn cảm hứng từ tranh khắc gỗ dân gian."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_user_sel_acc",
+          "domain_ids": [
+            "dom_accessories"
+          ],
+          "meaning": "Chọn khuyên tai tối giản.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn khuyên tai tối giản."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "locked_atom_ids": [
+        "atom_context_season_gender",
+        "atom_structure_lines_qualities",
+        "atom_accessories_quantity",
+        "atom_user_sel_silhouette",
+        "atom_user_sel_art",
+        "atom_user_sel_acc"
+      ],
+      "delegated_atom_ids": [],
+      "creative_space": [
+        {
+          "domain_id": "dom_structure",
+          "description": "Không gian sáng tạo cho chi tiết thiết kế áo và chân váy dài trong khuôn khổ mùa hè, sang trọng, gọn gàng.",
+          "allowed_variations": [
+            "Chất liệu vải thoáng mát phù hợp mùa hè",
+            "Màu sắc hài hòa theo xu hướng thời trang hiện đại"
+          ]
+        },
+        {
+          "domain_id": "dom_art",
+          "description": "Phát triển họa tiết dựa trên cảm hứng tranh khắc gỗ dân gian cho viền áo hoặc chân váy.",
+          "allowed_variations": [
+            "Cách điệu đường nét mảng khối từ tranh Đông Hồ, Hàng Trống"
+          ]
+        }
+      ],
+      "reference_ids": [],
+      "historical_mode": "inspired",
+      "decisions": [
+        {
+          "group_id": "grp_structure_silhouette",
+          "option_ids": [
+            "opt_silhouette_ao_chanvay"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_user_sel_silhouette"
+          ]
+        },
+        {
+          "group_id": "grp_art_inspiration",
+          "option_ids": [
+            "opt_art_tranh_khac"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_user_sel_art"
+          ]
+        },
+        {
+          "group_id": "grp_accessories_selection",
+          "option_ids": [
+            "opt_acc_khuyen_tai"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_user_sel_acc"
+          ]
+        }
+      ],
+      "conflicts": [],
+      "status": "ready"
+    },
+    "CANDIDATE_BATCH": [
+      {
+        "candidate_id": "R5-B3-C1",
+        "batch_id": "B3",
+        "revision": 5,
+        "title": "Việt Phục Cải Biên Mùa Hè - Họa Tiết Khắc Gỗ Hàng Trống Tối Giản",
+        "image_prompt": "Một khung hình thời trang duy nhất chụp một bộ trang phục mùa hè cho nữ mang phong cách kết hợp giữa truyền thống Việt Nam và hiện đại. Thiết kế gồm một chiếc áo cách tân cổ tròn gọn gàng, tay lỡ thoáng mát, chất liệu lanh mềm mại, màu trắng ngà thanh lịch. Phối cùng là một chiếc chân váy dài dáng suông màu xanh nhạt, chất liệu đũi nhẹ nhàng, thoải mái, có độ rủ sang trọng. Viền cổ áo và mép tay áo được điểm xuyết các đường thêu tay tinh tế mô phỏng nét khắc gỗ dân gian Hàng Trống với mảng khối đơn giản. Đi kèm là một đôi khuyên tai kim loại tối giản dạng hạt tròn nhỏ gọn, vừa đủ và phù hợp với đề bài. Trang phục đảm bảo sự thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Bối cảnh studio hiện đại, ánh sáng tự nhiên dịu nhẹ, bố cục toàn thân rõ nét, không ghép ảnh, không lặp người mẫu.",
+        "design_sections": [
+          {
+            "domain_id": "dom_context",
+            "description": "Trang phục dự sự kiện thời trang mùa hè dành cho nữ, kết hợp hài hòa giữa nét truyền thống và hiện đại.",
+            "related_atom_ids": [
+              "atom_context_event",
+              "atom_context_season_gender"
+            ]
+          },
+          {
+            "domain_id": "dom_structure",
+            "description": "Áo cách tân cổ tròn tay lỡ chất liệu lanh mềm phối cùng chân váy dài dáng suông chất liệu đũi, mang lại sự thoải mái, sang trọng và gọn gàng.",
+            "related_atom_ids": [
+              "atom_structure_lines_qualities",
+              "atom_user_sel_silhouette"
+            ]
+          },
+          {
+            "domain_id": "dom_art",
+            "description": "Họa tiết thêu tay viền cổ và tay áo lấy cảm hứng từ nét khắc gỗ dân gian Hàng Trống với mảng khối tối giản.",
+            "related_atom_ids": [
+              "atom_art_painting",
+              "atom_user_sel_art"
+            ]
+          },
+          {
+            "domain_id": "dom_accessories",
+            "description": "Phụ kiện khuyên tai kim loại tối giản dạng hạt tròn nhỏ, vừa đủ cho tổng thể trang phục.",
+            "related_atom_ids": [
+              "atom_accessories_quantity",
+              "atom_user_sel_acc"
+            ]
+          }
+        ],
+        "fashion_summary": "Thiết kế trang phục mùa hè cho nữ với áo cách tân phối chân váy dài dáng suông, sử dụng chất liệu lanh và đũi thoáng mát, đảm bảo độ thoải mái, sang trọng và gọn gàng cho sự kiện thời trang.",
+        "art_summary": "Ứng dụng cảm hứng từ tranh khắc gỗ dân gian Hàng Trống vào các đường viền thêu tay tối giản trên áo, tạo điểm nhấn nghệ thuật truyền thống trong phom dáng hiện đại.",
+        "culture_summary": "Sự giao thoa tinh tế giữa di sản mỹ thuật truyền thống Việt Nam và tư duy thiết kế thời trang ứng dụng hiện đại.",
+        "choices_made": [
+          "Chọn thiết kế áo phối với chân váy dài.",
+          "Chọn cảm hứng từ tranh khắc gỗ dân gian Hàng Trống.",
+          "Chọn khuyên tai tối giản.",
+          "Sử dụng chất liệu lanh và đũi thoáng mát cho mùa hè."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_context_season_gender",
+            "prompt_quote": "bộ trang phục mùa hè cho nữ"
+          },
+          {
+            "atom_id": "atom_structure_lines_qualities",
+            "prompt_quote": "Trang phục đảm bảo sự thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+          },
+          {
+            "atom_id": "atom_accessories_quantity",
+            "prompt_quote": "vừa đủ và phù hợp với đề bài"
+          },
+          {
+            "atom_id": "atom_user_sel_silhouette",
+            "prompt_quote": "Thiết kế gồm một chiếc áo cách tân cổ tròn gọn gàng, tay lỡ thoáng mát, chất liệu lanh mềm mại, màu trắng ngà thanh lịch. Phối cùng là một chiếc chân váy dài dáng suông màu xanh nhạt"
+          },
+          {
+            "atom_id": "atom_user_sel_art",
+            "prompt_quote": "mô phỏng nét khắc gỗ dân gian Hàng Trống với mảng khối đơn giản"
+          },
+          {
+            "atom_id": "atom_user_sel_acc",
+            "prompt_quote": "Đi kèm là một đôi khuyên tai kim loại tối giản dạng hạt tròn nhỏ gọn"
+          }
+        ],
+        "assumptions": [
+          "Chất liệu lanh và đũi phù hợp với tiêu chí thoáng mát mùa hè.",
+          "Màu sắc trang nhã phù hợp với không gian sự kiện thời trang."
+        ],
+        "limitations": [
+          "Các họa tiết khắc gỗ dân gian được cách điệu dưới dạng thêu tay ứng dụng trên trang phục hiện đại."
+        ],
+        "content_hash": "385b44d3e7ea15dffb0ace6201a1f03506d4a0f7dfdb6aa9f812bf8881bd24d8"
+      },
+      {
+        "candidate_id": "R5-B3-C2",
+        "batch_id": "B3",
+        "revision": 5,
+        "title": "Việt Phục Hiện Đại Mùa Hè - Cảm Hứng Khắc Gỗ Đông Hồ",
+        "image_prompt": "Một khung hình thời trang duy nhất chụp toàn thân bộ trang phục mùa hè dành cho nữ theo chủ đề kết hợp truyền thống và hiện đại. Trang phục gồm một chiếc áo dáng suông nhẹ cổ V hiện đại, tay ngắn gọn gàng, chất liệu cotton lụa màu vàng nhạt trẻ trung. Phối cùng chân váy dài xếp ly nhẹ nhàng màu trắng kem, chất liệu tơ đũi thoáng mát, thanh lịch. Gấu chân váy được thêu họa tiết cách điệu lấy cảm hứng từ đường nét dứt khoát của tranh khắc gỗ Đông Hồ. Phụ kiện đi kèm chỉ gồm một đôi khuyên tai bạc tối giản dạng thanh mảnh, không cần quá nhiều phụ kiện, vừa đủ và phù hợp với đề bài. Đường nét trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Bối cảnh không gian mở tối giản, ánh sáng tự nhiên rực rỡ, không ghép ảnh.",
+        "design_sections": [
+          {
+            "domain_id": "dom_context",
+            "description": "Trang phục sự kiện thời trang mùa hè cho nữ với định hướng kết hợp truyền thống và hiện đại.",
+            "related_atom_ids": [
+              "atom_context_event",
+              "atom_context_season_gender"
+            ]
+          },
+          {
+            "domain_id": "dom_structure",
+            "description": "Áo dáng suông nhẹ cổ V tay ngắn kết hợp chân váy dài xếp ly tơ đũi, mang đến sự thoải mái, sang trọng, gọn gàng cho mùa hè.",
+            "related_atom_ids": [
+              "atom_structure_lines_qualities",
+              "atom_user_sel_silhouette"
+            ]
+          },
+          {
+            "domain_id": "dom_art",
+            "description": "Họa tiết thêu ở gấu chân váy lấy cảm hứng từ đường nét tranh khắc gỗ Đông Hồ.",
+            "related_atom_ids": [
+              "atom_art_painting",
+              "atom_user_sel_art"
+            ]
+          },
+          {
+            "domain_id": "dom_accessories",
+            "description": "Khuyên tai bạc tối giản dạng thanh mảnh, đảm bảo tiêu chí vừa đủ.",
+            "related_atom_ids": [
+              "atom_accessories_quantity",
+              "atom_user_sel_acc"
+            ]
+          }
+        ],
+        "fashion_summary": "Phương án sử dụng áo dáng suông cổ V phối chân váy dài xếp ly từ chất liệu cotton lụa và tơ đũi, mang lại cảm giác nhẹ nhàng, thoải mái cho mùa hè.",
+        "art_summary": "Sử dụng cảm hứng từ tranh khắc gỗ Đông Hồ với các đường nét dứt khoát làm điểm nhấn thêu tinh tế ở chân váy.",
+        "culture_summary": "Truyền tải nét đẹp mỹ thuật dân gian qua lăng kính thời trang đương đại.",
+        "choices_made": [
+          "Chọn thiết kế áo phối với chân váy dài.",
+          "Chọn cảm hứng từ tranh khắc gỗ Đông Hồ.",
+          "Chọn khuyên tai tối giản.",
+          "Sử dụng chất liệu cotton lụa và tơ đũi."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_context_season_gender",
+            "prompt_quote": "bộ trang phục mùa hè dành cho nữ"
+          },
+          {
+            "atom_id": "atom_structure_lines_qualities",
+            "prompt_quote": "Đường nét trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+          },
+          {
+            "atom_id": "atom_accessories_quantity",
+            "prompt_quote": "vừa đủ và phù hợp với đề bài"
+          },
+          {
+            "atom_id": "atom_user_sel_silhouette",
+            "prompt_quote": "Trang phục gồm một chiếc áo dáng suông nhẹ cổ V hiện đại, tay ngắn gọn gàng, chất liệu cotton lụa màu vàng nhạt trẻ trung. Phối cùng chân váy dài xếp ly nhẹ nhàng màu trắng kem"
+          },
+          {
+            "atom_id": "atom_user_sel_art",
+            "prompt_quote": "lấy cảm hứng từ đường nét dứt khoát của tranh khắc gỗ Đông Hồ"
+          },
+          {
+            "atom_id": "atom_user_sel_acc",
+            "prompt_quote": "một đôi khuyên tai bạc tối giản dạng thanh mảnh"
+          }
+        ],
+        "assumptions": [
+          "Chất liệu tơ đũi và cotton lụa đáp ứng tốt yêu cầu mặc mùa hè.",
+          "Màu sắc sáng giúp tôn lên nét hiện đại của thiết kế."
+        ],
+        "limitations": [
+          "Họa tiết khắc gỗ được chuyển hóa thành đường thêu tinh tế trên chân váy dài."
+        ],
+        "content_hash": "28432118eacfb66d9e2c07d8316eb64edfa4dd7ee46d063c16f2167d7b086499"
+      },
+      {
+        "candidate_id": "R5-B3-C3",
+        "batch_id": "B3",
+        "revision": 5,
+        "title": "Việt Phục Giao Thoa Mùa Hè - Cảm Hứng Khắc Gỗ Dân Gian",
+        "image_prompt": "Một khung hình thời trang duy nhất chụp toàn thân bộ trang phục mùa hè cho nữ mang hơi hướng truyền thống kết hợp hiện đại. Bộ đồ gồm áo kiểu vạt chéo nhẹ nhàng, tay lỡ rộng thoáng mát, chất liệu đũi xước màu xanh ngọc. Phối cùng chân váy dài maxi dáng suông thẳng, chất liệu linen mềm mại màu trắng tinh khôi. Phần nẹp ngực áo được thêu nổi họa tiết hình học tối giản lấy cảm hứng từ các mảng khắc trong tranh khắc gỗ dân gian Việt Nam. Đi kèm là một đôi khuyên tai tròn nhỏ tối giản bằng đồng, không cần quá nhiều phụ kiện, đảm bảo vừa đủ và phù hợp với đề bài. Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Phối cảnh studio chuyên nghiệp, ánh sáng hướng dương nhẹ, không ghép ảnh.",
+        "design_sections": [
+          {
+            "domain_id": "dom_context",
+            "description": "Trang phục sự kiện thời trang mùa hè dành cho nữ với phong cách truyền thống kết hợp hiện đại.",
+            "related_atom_ids": [
+              "atom_context_event",
+              "atom_context_season_gender"
+            ]
+          },
+          {
+            "domain_id": "dom_structure",
+            "description": "Áo vạt chéo tay lỡ chất liệu đũi xước kết hợp chân váy dài maxi linen dáng suông, đảm bảo sự thoải mái, sang trọng và gọn gàng.",
+            "related_atom_ids": [
+              "atom_structure_lines_qualities",
+              "atom_user_sel_silhouette"
+            ]
+          },
+          {
+            "domain_id": "dom_art",
+            "description": "Họa tiết thêu nổi nẹp ngực lấy cảm hứng từ các mảng khắc trong tranh khắc gỗ dân gian.",
+            "related_atom_ids": [
+              "atom_art_painting",
+              "atom_user_sel_art"
+            ]
+          },
+          {
+            "domain_id": "dom_accessories",
+            "description": "Khuyên tai tròn nhỏ tối giản bằng đồng, đúng tiêu chí số lượng vừa đủ.",
+            "related_atom_ids": [
+              "atom_accessories_quantity",
+              "atom_user_sel_acc"
+            ]
+          }
+        ],
+        "fashion_summary": "Áo vạt chéo nhẹ nhàng kết hợp chân váy dài maxi linen mang lại phong cách mùa hè phóng khoáng, thoải mái, sang trọng và gọn gàng cho người mặc.",
+        "art_summary": "Sử dụng cảm hứng mảng khối từ tranh khắc gỗ dân gian để thêu nổi trên nẹp ngực áo, tạo điểm nhấn nghệ thuật đặc sắc.",
+        "culture_summary": "Sự kết hợp ăn ý giữa phom dáng gợi nhớ trang phục truyền thống và mỹ thuật khắc gỗ dân gian Việt Nam.",
+        "choices_made": [
+          "Chọn thiết kế áo phối với chân váy dài.",
+          "Chọn cảm hứng từ tranh khắc gỗ dân gian.",
+          "Chọn khuyên tai tối giản.",
+          "Sử dụng chất liệu đũi xước và linen."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_context_season_gender",
+            "prompt_quote": "trang phục mùa hè cho nữ"
+          },
+          {
+            "atom_id": "atom_structure_lines_qualities",
+            "prompt_quote": "Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+          },
+          {
+            "atom_id": "atom_accessories_quantity",
+            "prompt_quote": "đảm bảo vừa đủ và phù hợp với đề bài"
+          },
+          {
+            "atom_id": "atom_user_sel_silhouette",
+            "prompt_quote": "Bộ đồ gồm áo kiểu vạt chéo nhẹ nhàng, tay lỡ rộng thoáng mát, chất liệu đũi xước màu xanh ngọc. Phối cùng chân váy dài maxi dáng suông thẳng, chất liệu linen mềm mại"
+          },
+          {
+            "atom_id": "atom_user_sel_art",
+            "prompt_quote": "lấy cảm hứng từ các mảng khắc trong tranh khắc gỗ dân gian Việt Nam"
+          },
+          {
+            "atom_id": "atom_user_sel_acc",
+            "prompt_quote": "một đôi khuyên tai tròn nhỏ tối giản bằng đồng"
+          }
+        ],
+        "assumptions": [
+          "Chất liệu đũi xước và linen đem lại sự thông thoáng cần thiết trong ngày hè.",
+          "Màu sắc hài hòa tôn lên vẻ đẹp hiện đại."
+        ],
+        "limitations": [
+          "Họa tiết khắc gỗ được thể hiện qua kỹ thuật thêu nổi hình học trên nẹp áo."
+        ],
+        "content_hash": "91adb253c42a526ea641cb2ea69bd6be72e461a907001c7c6c27cab747101a0e"
+      }
+    ],
+    "REFERENCE_BUNDLE": {
+      "references": [],
+      "provider_metadata": [
+        {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "9T_BaqeVObWj9tMPgqmY2Qk"
+        }
+      ],
+      "reference_mode": "text_only",
+      "availability": "unavailable_by_user_choice"
+    },
+    "EXPECTED_CHECKS": [
+      {
+        "check_id": "locked:atom_context_season_gender",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Trang phục mùa hè, dành cho nữ.",
+        "exact_prompt_excerpts": {
+          "R5-B3-C1": "bộ trang phục mùa hè cho nữ",
+          "R5-B3-C2": "bộ trang phục mùa hè dành cho nữ",
+          "R5-B3-C3": "trang phục mùa hè cho nữ"
+        }
+      },
+      {
+        "check_id": "locked:atom_structure_lines_qualities",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.",
+        "exact_prompt_excerpts": {
+          "R5-B3-C1": "Trang phục đảm bảo sự thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.",
+          "R5-B3-C2": "Đường nét trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.",
+          "R5-B3-C3": "Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+        }
+      },
+      {
+        "check_id": "locked:atom_accessories_quantity",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Không cần quá nhiều phụ kiện, chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+        "exact_prompt_excerpts": {
+          "R5-B3-C1": "vừa đủ và phù hợp với đề bài",
+          "R5-B3-C2": "vừa đủ và phù hợp với đề bài",
+          "R5-B3-C3": "đảm bảo vừa đủ và phù hợp với đề bài"
+        }
+      },
+      {
+        "check_id": "locked:atom_user_sel_silhouette",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chọn thiết kế áo phối với chân váy dài.",
+        "exact_prompt_excerpts": {
+          "R5-B3-C1": "Thiết kế gồm một chiếc áo cách tân cổ tròn gọn gàng, tay lỡ thoáng mát, chất liệu lanh mềm mại, màu trắng ngà thanh lịch. Phối cùng là một chiếc chân váy dài dáng suông màu xanh nhạt",
+          "R5-B3-C2": "Trang phục gồm một chiếc áo dáng suông nhẹ cổ V hiện đại, tay ngắn gọn gàng, chất liệu cotton lụa màu vàng nhạt trẻ trung. Phối cùng chân váy dài xếp ly nhẹ nhàng màu trắng kem",
+          "R5-B3-C3": "Bộ đồ gồm áo kiểu vạt chéo nhẹ nhàng, tay lỡ rộng thoáng mát, chất liệu đũi xước màu xanh ngọc. Phối cùng chân váy dài maxi dáng suông thẳng, chất liệu linen mềm mại"
+        }
+      },
+      {
+        "check_id": "locked:atom_user_sel_art",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chọn cảm hứng từ tranh khắc gỗ dân gian.",
+        "exact_prompt_excerpts": {
+          "R5-B3-C1": "mô phỏng nét khắc gỗ dân gian Hàng Trống với mảng khối đơn giản",
+          "R5-B3-C2": "lấy cảm hứng từ đường nét dứt khoát của tranh khắc gỗ Đông Hồ",
+          "R5-B3-C3": "lấy cảm hứng từ các mảng khắc trong tranh khắc gỗ dân gian Việt Nam"
+        }
+      },
+      {
+        "check_id": "locked:atom_user_sel_acc",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chọn khuyên tai tối giản.",
+        "exact_prompt_excerpts": {
+          "R5-B3-C1": "Đi kèm là một đôi khuyên tai kim loại tối giản dạng hạt tròn nhỏ gọn",
+          "R5-B3-C2": "một đôi khuyên tai bạc tối giản dạng thanh mảnh",
+          "R5-B3-C3": "một đôi khuyên tai tròn nhỏ tối giản bằng đồng"
+        }
+      },
+      {
+        "check_id": "summary_prompt_consistency",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Toàn bộ kế hoạch/tóm tắt phải trùng prompt"
+      }
+    ],
+    "ROLE_RUBRIC": {
+      "version": "vp-rubric-2.0.0",
+      "role": "art",
+      "rating_min": 0,
+      "rating_max": 5,
+      "criteria": [
+        {
+          "criterion_id": "ornament_composition",
+          "weight": 25,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "color_language",
+          "weight": 25,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "form_surface_integration",
+          "weight": 20,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "purposeful_originality",
+          "weight": 30,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        }
+      ]
+    }
+  },
+  "prompt": "TASK: AUDIT_VIET_PHUC_VISUAL_ART_AND_ORNAMENT\n\nThông tin ứng dụng cấp: {\"request_id\": \"5621740e-7b15-4dc0-a3ad-7c94016f438a\", \"revision\": 5}\nNhu cầu đã chốt: {\"request_id\": \"5621740e-7b15-4dc0-a3ad-7c94016f438a\", \"revision\": 5, \"resolved_text\": \"tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại. Tôi cần một bộ trang phục mùa hè, cho nữ, lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng. Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam (cụ thể: chọn cảm hứng từ tranh khắc gỗ dân gian). Thiết kế phom dáng chọn áo phối với chân váy dài. Phụ kiện đi kèm chọn khuyên tai tối giản, đảm bảo vừa đủ và phù hợp với đề bài.\", \"domains\": [{\"domain_id\": \"dom_context\", \"label\": \"Bối cảnh và Đối tượng\", \"summary\": \"Thông tin về sự kiện thời trang, mùa mặc và đối tượng sử dụng trang phục.\", \"related_domain_ids\": [\"dom_structure\"]}, {\"domain_id\": \"dom_structure\", \"label\": \"Cấu trúc và Thiết kế\", \"summary\": \"Kiểu dáng, đường nét, cấu trúc trang phục (chọn áo cách tân phối chân váy dài) cùng phong cách truyền thống kết hợp hiện đại.\", \"related_domain_ids\": [\"dom_context\", \"dom_art\", \"dom_accessories\"]}, {\"domain_id\": \"dom_art\", \"label\": \"Mỹ thuật và Cảm hứng\", \"summary\": \"Cảm hứng từ Việt phục truyền thống và mỹ thuật hội họa truyền thống Việt Nam (chọn cảm hứng tranh khắc gỗ dân gian).\", \"related_domain_ids\": [\"dom_structure\"]}, {\"domain_id\": \"dom_accessories\", \"label\": \"Phụ kiện\", \"summary\": \"Các loại phụ kiện đi kèm như khuyên tai tối giản với số lượng vừa đủ.\", \"related_domain_ids\": [\"dom_structure\"]}], \"atoms\": [{\"atom_id\": \"atom_context_event\", \"domain_ids\": [\"dom_context\"], \"meaning\": \"Đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại.\", \"intent_type\": \"context\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_context_season_gender\", \"domain_ids\": [\"dom_context\"], \"meaning\": \"Trang phục mùa hè, dành cho nữ.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Tôi cần một bộ trang phục mùa hè, cho nữ\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_structure_inspiration\", \"domain_ids\": [\"dom_structure\", \"dom_art\"], \"meaning\": \"Lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_structure_lines_qualities\", \"domain_ids\": [\"dom_structure\"], \"meaning\": \"Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_art_painting\", \"domain_ids\": [\"dom_art\"], \"meaning\": \"Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_structure_silhouette_options\", \"domain_ids\": [\"dom_structure\"], \"meaning\": \"Có thể là áo phối với chân váy dài hoặc váy liền thân.\", \"intent_type\": \"delegated\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Có thể là áo phối với chân váy dài hoặc váy liền thân.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_accessories_types\", \"domain_ids\": [\"dom_accessories\"], \"meaning\": \"Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục.\", \"intent_type\": \"delegated\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_accessories_quantity\", \"domain_ids\": [\"dom_accessories\"], \"meaning\": \"Không cần quá nhiều phụ kiện, chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_user_sel_silhouette\", \"domain_ids\": [\"dom_structure\"], \"meaning\": \"Chọn thiết kế áo phối với chân váy dài.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn thiết kế áo phối với chân váy dài.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_user_sel_art\", \"domain_ids\": [\"dom_art\"], \"meaning\": \"Chọn cảm hứng từ tranh khắc gỗ dân gian.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn cảm hứng từ tranh khắc gỗ dân gian.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_user_sel_acc\", \"domain_ids\": [\"dom_accessories\"], \"meaning\": \"Chọn khuyên tai tối giản.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn khuyên tai tối giản.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}], \"locked_atom_ids\": [\"atom_context_season_gender\", \"atom_structure_lines_qualities\", \"atom_accessories_quantity\", \"atom_user_sel_silhouette\", \"atom_user_sel_art\", \"atom_user_sel_acc\"], \"delegated_atom_ids\": [], \"creative_space\": [{\"domain_id\": \"dom_structure\", \"description\": \"Không gian sáng tạo cho chi tiết thiết kế áo và chân váy dài trong khuôn khổ mùa hè, sang trọng, gọn gàng.\", \"allowed_variations\": [\"Chất liệu vải thoáng mát phù hợp mùa hè\", \"Màu sắc hài hòa theo xu hướng thời trang hiện đại\"]}, {\"domain_id\": \"dom_art\", \"description\": \"Phát triển họa tiết dựa trên cảm hứng tranh khắc gỗ dân gian cho viền áo hoặc chân váy.\", \"allowed_variations\": [\"Cách điệu đường nét mảng khối từ tranh Đông Hồ, Hàng Trống\"]}], \"reference_ids\": [], \"historical_mode\": \"inspired\", \"decisions\": [{\"group_id\": \"grp_structure_silhouette\", \"option_ids\": [\"opt_silhouette_ao_chanvay\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_user_sel_silhouette\"]}, {\"group_id\": \"grp_art_inspiration\", \"option_ids\": [\"opt_art_tranh_khac\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_user_sel_art\"]}, {\"group_id\": \"grp_accessories_selection\", \"option_ids\": [\"opt_acc_khuyen_tai\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_user_sel_acc\"]}], \"conflicts\": [], \"status\": \"ready\"}\nCác phương án, image_prompt nguyên văn và hash do ứng dụng cấp: [{\"candidate_id\": \"R5-B3-C1\", \"batch_id\": \"B3\", \"revision\": 5, \"title\": \"Việt Phục Cải Biên Mùa Hè - Họa Tiết Khắc Gỗ Hàng Trống Tối Giản\", \"image_prompt\": \"Một khung hình thời trang duy nhất chụp một bộ trang phục mùa hè cho nữ mang phong cách kết hợp giữa truyền thống Việt Nam và hiện đại. Thiết kế gồm một chiếc áo cách tân cổ tròn gọn gàng, tay lỡ thoáng mát, chất liệu lanh mềm mại, màu trắng ngà thanh lịch. Phối cùng là một chiếc chân váy dài dáng suông màu xanh nhạt, chất liệu đũi nhẹ nhàng, thoải mái, có độ rủ sang trọng. Viền cổ áo và mép tay áo được điểm xuyết các đường thêu tay tinh tế mô phỏng nét khắc gỗ dân gian Hàng Trống với mảng khối đơn giản. Đi kèm là một đôi khuyên tai kim loại tối giản dạng hạt tròn nhỏ gọn, vừa đủ và phù hợp với đề bài. Trang phục đảm bảo sự thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Bối cảnh studio hiện đại, ánh sáng tự nhiên dịu nhẹ, bố cục toàn thân rõ nét, không ghép ảnh, không lặp người mẫu.\", \"design_sections\": [{\"domain_id\": \"dom_context\", \"description\": \"Trang phục dự sự kiện thời trang mùa hè dành cho nữ, kết hợp hài hòa giữa nét truyền thống và hiện đại.\", \"related_atom_ids\": [\"atom_context_event\", \"atom_context_season_gender\"]}, {\"domain_id\": \"dom_structure\", \"description\": \"Áo cách tân cổ tròn tay lỡ chất liệu lanh mềm phối cùng chân váy dài dáng suông chất liệu đũi, mang lại sự thoải mái, sang trọng và gọn gàng.\", \"related_atom_ids\": [\"atom_structure_lines_qualities\", \"atom_user_sel_silhouette\"]}, {\"domain_id\": \"dom_art\", \"description\": \"Họa tiết thêu tay viền cổ và tay áo lấy cảm hứng từ nét khắc gỗ dân gian Hàng Trống với mảng khối tối giản.\", \"related_atom_ids\": [\"atom_art_painting\", \"atom_user_sel_art\"]}, {\"domain_id\": \"dom_accessories\", \"description\": \"Phụ kiện khuyên tai kim loại tối giản dạng hạt tròn nhỏ, vừa đủ cho tổng thể trang phục.\", \"related_atom_ids\": [\"atom_accessories_quantity\", \"atom_user_sel_acc\"]}], \"fashion_summary\": \"Thiết kế trang phục mùa hè cho nữ với áo cách tân phối chân váy dài dáng suông, sử dụng chất liệu lanh và đũi thoáng mát, đảm bảo độ thoải mái, sang trọng và gọn gàng cho sự kiện thời trang.\", \"art_summary\": \"Ứng dụng cảm hứng từ tranh khắc gỗ dân gian Hàng Trống vào các đường viền thêu tay tối giản trên áo, tạo điểm nhấn nghệ thuật truyền thống trong phom dáng hiện đại.\", \"culture_summary\": \"Sự giao thoa tinh tế giữa di sản mỹ thuật truyền thống Việt Nam và tư duy thiết kế thời trang ứng dụng hiện đại.\", \"choices_made\": [\"Chọn thiết kế áo phối với chân váy dài.\", \"Chọn cảm hứng từ tranh khắc gỗ dân gian Hàng Trống.\", \"Chọn khuyên tai tối giản.\", \"Sử dụng chất liệu lanh và đũi thoáng mát cho mùa hè.\"], \"claims\": [], \"locked_coverage\": [{\"atom_id\": \"atom_context_season_gender\", \"prompt_quote\": \"bộ trang phục mùa hè cho nữ\"}, {\"atom_id\": \"atom_structure_lines_qualities\", \"prompt_quote\": \"Trang phục đảm bảo sự thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.\"}, {\"atom_id\": \"atom_accessories_quantity\", \"prompt_quote\": \"vừa đủ và phù hợp với đề bài\"}, {\"atom_id\": \"atom_user_sel_silhouette\", \"prompt_quote\": \"Thiết kế gồm một chiếc áo cách tân cổ tròn gọn gàng, tay lỡ thoáng mát, chất liệu lanh mềm mại, màu trắng ngà thanh lịch. Phối cùng là một chiếc chân váy dài dáng suông màu xanh nhạt\"}, {\"atom_id\": \"atom_user_sel_art\", \"prompt_quote\": \"mô phỏng nét khắc gỗ dân gian Hàng Trống với mảng khối đơn giản\"}, {\"atom_id\": \"atom_user_sel_acc\", \"prompt_quote\": \"Đi kèm là một đôi khuyên tai kim loại tối giản dạng hạt tròn nhỏ gọn\"}], \"assumptions\": [\"Chất liệu lanh và đũi phù hợp với tiêu chí thoáng mát mùa hè.\", \"Màu sắc trang nhã phù hợp với không gian sự kiện thời trang.\"], \"limitations\": [\"Các họa tiết khắc gỗ dân gian được cách điệu dưới dạng thêu tay ứng dụng trên trang phục hiện đại.\"], \"content_hash\": \"385b44d3e7ea15dffb0ace6201a1f03506d4a0f7dfdb6aa9f812bf8881bd24d8\"}, {\"candidate_id\": \"R5-B3-C2\", \"batch_id\": \"B3\", \"revision\": 5, \"title\": \"Việt Phục Hiện Đại Mùa Hè - Cảm Hứng Khắc Gỗ Đông Hồ\", \"image_prompt\": \"Một khung hình thời trang duy nhất chụp toàn thân bộ trang phục mùa hè dành cho nữ theo chủ đề kết hợp truyền thống và hiện đại. Trang phục gồm một chiếc áo dáng suông nhẹ cổ V hiện đại, tay ngắn gọn gàng, chất liệu cotton lụa màu vàng nhạt trẻ trung. Phối cùng chân váy dài xếp ly nhẹ nhàng màu trắng kem, chất liệu tơ đũi thoáng mát, thanh lịch. Gấu chân váy được thêu họa tiết cách điệu lấy cảm hứng từ đường nét dứt khoát của tranh khắc gỗ Đông Hồ. Phụ kiện đi kèm chỉ gồm một đôi khuyên tai bạc tối giản dạng thanh mảnh, không cần quá nhiều phụ kiện, vừa đủ và phù hợp với đề bài. Đường nét trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Bối cảnh không gian mở tối giản, ánh sáng tự nhiên rực rỡ, không ghép ảnh.\", \"design_sections\": [{\"domain_id\": \"dom_context\", \"description\": \"Trang phục sự kiện thời trang mùa hè cho nữ với định hướng kết hợp truyền thống và hiện đại.\", \"related_atom_ids\": [\"atom_context_event\", \"atom_context_season_gender\"]}, {\"domain_id\": \"dom_structure\", \"description\": \"Áo dáng suông nhẹ cổ V tay ngắn kết hợp chân váy dài xếp ly tơ đũi, mang đến sự thoải mái, sang trọng, gọn gàng cho mùa hè.\", \"related_atom_ids\": [\"atom_structure_lines_qualities\", \"atom_user_sel_silhouette\"]}, {\"domain_id\": \"dom_art\", \"description\": \"Họa tiết thêu ở gấu chân váy lấy cảm hứng từ đường nét tranh khắc gỗ Đông Hồ.\", \"related_atom_ids\": [\"atom_art_painting\", \"atom_user_sel_art\"]}, {\"domain_id\": \"dom_accessories\", \"description\": \"Khuyên tai bạc tối giản dạng thanh mảnh, đảm bảo tiêu chí vừa đủ.\", \"related_atom_ids\": [\"atom_accessories_quantity\", \"atom_user_sel_acc\"]}], \"fashion_summary\": \"Phương án sử dụng áo dáng suông cổ V phối chân váy dài xếp ly từ chất liệu cotton lụa và tơ đũi, mang lại cảm giác nhẹ nhàng, thoải mái cho mùa hè.\", \"art_summary\": \"Sử dụng cảm hứng từ tranh khắc gỗ Đông Hồ với các đường nét dứt khoát làm điểm nhấn thêu tinh tế ở chân váy.\", \"culture_summary\": \"Truyền tải nét đẹp mỹ thuật dân gian qua lăng kính thời trang đương đại.\", \"choices_made\": [\"Chọn thiết kế áo phối với chân váy dài.\", \"Chọn cảm hứng từ tranh khắc gỗ Đông Hồ.\", \"Chọn khuyên tai tối giản.\", \"Sử dụng chất liệu cotton lụa và tơ đũi.\"], \"claims\": [], \"locked_coverage\": [{\"atom_id\": \"atom_context_season_gender\", \"prompt_quote\": \"bộ trang phục mùa hè dành cho nữ\"}, {\"atom_id\": \"atom_structure_lines_qualities\", \"prompt_quote\": \"Đường nét trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.\"}, {\"atom_id\": \"atom_accessories_quantity\", \"prompt_quote\": \"vừa đủ và phù hợp với đề bài\"}, {\"atom_id\": \"atom_user_sel_silhouette\", \"prompt_quote\": \"Trang phục gồm một chiếc áo dáng suông nhẹ cổ V hiện đại, tay ngắn gọn gàng, chất liệu cotton lụa màu vàng nhạt trẻ trung. Phối cùng chân váy dài xếp ly nhẹ nhàng màu trắng kem\"}, {\"atom_id\": \"atom_user_sel_art\", \"prompt_quote\": \"lấy cảm hứng từ đường nét dứt khoát của tranh khắc gỗ Đông Hồ\"}, {\"atom_id\": \"atom_user_sel_acc\", \"prompt_quote\": \"một đôi khuyên tai bạc tối giản dạng thanh mảnh\"}], \"assumptions\": [\"Chất liệu tơ đũi và cotton lụa đáp ứng tốt yêu cầu mặc mùa hè.\", \"Màu sắc sáng giúp tôn lên nét hiện đại của thiết kế.\"], \"limitations\": [\"Họa tiết khắc gỗ được chuyển hóa thành đường thêu tinh tế trên chân váy dài.\"], \"content_hash\": \"28432118eacfb66d9e2c07d8316eb64edfa4dd7ee46d063c16f2167d7b086499\"}, {\"candidate_id\": \"R5-B3-C3\", \"batch_id\": \"B3\", \"revision\": 5, \"title\": \"Việt Phục Giao Thoa Mùa Hè - Cảm Hứng Khắc Gỗ Dân Gian\", \"image_prompt\": \"Một khung hình thời trang duy nhất chụp toàn thân bộ trang phục mùa hè cho nữ mang hơi hướng truyền thống kết hợp hiện đại. Bộ đồ gồm áo kiểu vạt chéo nhẹ nhàng, tay lỡ rộng thoáng mát, chất liệu đũi xước màu xanh ngọc. Phối cùng chân váy dài maxi dáng suông thẳng, chất liệu linen mềm mại màu trắng tinh khôi. Phần nẹp ngực áo được thêu nổi họa tiết hình học tối giản lấy cảm hứng từ các mảng khắc trong tranh khắc gỗ dân gian Việt Nam. Đi kèm là một đôi khuyên tai tròn nhỏ tối giản bằng đồng, không cần quá nhiều phụ kiện, đảm bảo vừa đủ và phù hợp với đề bài. Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Phối cảnh studio chuyên nghiệp, ánh sáng hướng dương nhẹ, không ghép ảnh.\", \"design_sections\": [{\"domain_id\": \"dom_context\", \"description\": \"Trang phục sự kiện thời trang mùa hè dành cho nữ với phong cách truyền thống kết hợp hiện đại.\", \"related_atom_ids\": [\"atom_context_event\", \"atom_context_season_gender\"]}, {\"domain_id\": \"dom_structure\", \"description\": \"Áo vạt chéo tay lỡ chất liệu đũi xước kết hợp chân váy dài maxi linen dáng suông, đảm bảo sự thoải mái, sang trọng và gọn gàng.\", \"related_atom_ids\": [\"atom_structure_lines_qualities\", \"atom_user_sel_silhouette\"]}, {\"domain_id\": \"dom_art\", \"description\": \"Họa tiết thêu nổi nẹp ngực lấy cảm hứng từ các mảng khắc trong tranh khắc gỗ dân gian.\", \"related_atom_ids\": [\"atom_art_painting\", \"atom_user_sel_art\"]}, {\"domain_id\": \"dom_accessories\", \"description\": \"Khuyên tai tròn nhỏ tối giản bằng đồng, đúng tiêu chí số lượng vừa đủ.\", \"related_atom_ids\": [\"atom_accessories_quantity\", \"atom_user_sel_acc\"]}], \"fashion_summary\": \"Áo vạt chéo nhẹ nhàng kết hợp chân váy dài maxi linen mang lại phong cách mùa hè phóng khoáng, thoải mái, sang trọng và gọn gàng cho người mặc.\", \"art_summary\": \"Sử dụng cảm hứng mảng khối từ tranh khắc gỗ dân gian để thêu nổi trên nẹp ngực áo, tạo điểm nhấn nghệ thuật đặc sắc.\", \"culture_summary\": \"Sự kết hợp ăn ý giữa phom dáng gợi nhớ trang phục truyền thống và mỹ thuật khắc gỗ dân gian Việt Nam.\", \"choices_made\": [\"Chọn thiết kế áo phối với chân váy dài.\", \"Chọn cảm hứng từ tranh khắc gỗ dân gian.\", \"Chọn khuyên tai tối giản.\", \"Sử dụng chất liệu đũi xước và linen.\"], \"claims\": [], \"locked_coverage\": [{\"atom_id\": \"atom_context_season_gender\", \"prompt_quote\": \"trang phục mùa hè cho nữ\"}, {\"atom_id\": \"atom_structure_lines_qualities\", \"prompt_quote\": \"Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.\"}, {\"atom_id\": \"atom_accessories_quantity\", \"prompt_quote\": \"đảm bảo vừa đủ và phù hợp với đề bài\"}, {\"atom_id\": \"atom_user_sel_silhouette\", \"prompt_quote\": \"Bộ đồ gồm áo kiểu vạt chéo nhẹ nhàng, tay lỡ rộng thoáng mát, chất liệu đũi xước màu xanh ngọc. Phối cùng chân váy dài maxi dáng suông thẳng, chất liệu linen mềm mại\"}, {\"atom_id\": \"atom_user_sel_art\", \"prompt_quote\": \"lấy cảm hứng từ các mảng khắc trong tranh khắc gỗ dân gian Việt Nam\"}, {\"atom_id\": \"atom_user_sel_acc\", \"prompt_quote\": \"một đôi khuyên tai tròn nhỏ tối giản bằng đồng\"}], \"assumptions\": [\"Chất liệu đũi xước và linen đem lại sự thông thoáng cần thiết trong ngày hè.\", \"Màu sắc hài hòa tôn lên vẻ đẹp hiện đại.\"], \"limitations\": [\"Họa tiết khắc gỗ được thể hiện qua kỹ thuật thêu nổi hình học trên nẹp áo.\"], \"content_hash\": \"91adb253c42a526ea641cb2ea69bd6be72e461a907001c7c6c27cab747101a0e\"}]\nTài liệu mỹ thuật, mô-típ và kỹ thuật được phép dùng: {\"references\": [], \"provider_metadata\": [{\"groundingMetadata\": {}, \"urlContextMetadata\": {}, \"modelVersion\": \"gemini-3.5-flash-lite\", \"responseId\": \"9T_BaqeVObWj9tMPgqmY2Qk\"}], \"reference_mode\": \"text_only\", \"availability\": \"unavailable_by_user_choice\"}\nCác kiểm tra và mức bắt buộc thuộc vai trò này: [{\"check_id\": \"locked:atom_context_season_gender\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Trang phục mùa hè, dành cho nữ.\", \"exact_prompt_excerpts\": {\"R5-B3-C1\": \"bộ trang phục mùa hè cho nữ\", \"R5-B3-C2\": \"bộ trang phục mùa hè dành cho nữ\", \"R5-B3-C3\": \"trang phục mùa hè cho nữ\"}}, {\"check_id\": \"locked:atom_structure_lines_qualities\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.\", \"exact_prompt_excerpts\": {\"R5-B3-C1\": \"Trang phục đảm bảo sự thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.\", \"R5-B3-C2\": \"Đường nét trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.\", \"R5-B3-C3\": \"Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.\"}}, {\"check_id\": \"locked:atom_accessories_quantity\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Không cần quá nhiều phụ kiện, chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.\", \"exact_prompt_excerpts\": {\"R5-B3-C1\": \"vừa đủ và phù hợp với đề bài\", \"R5-B3-C2\": \"vừa đủ và phù hợp với đề bài\", \"R5-B3-C3\": \"đảm bảo vừa đủ và phù hợp với đề bài\"}}, {\"check_id\": \"locked:atom_user_sel_silhouette\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chọn thiết kế áo phối với chân váy dài.\", \"exact_prompt_excerpts\": {\"R5-B3-C1\": \"Thiết kế gồm một chiếc áo cách tân cổ tròn gọn gàng, tay lỡ thoáng mát, chất liệu lanh mềm mại, màu trắng ngà thanh lịch. Phối cùng là một chiếc chân váy dài dáng suông màu xanh nhạt\", \"R5-B3-C2\": \"Trang phục gồm một chiếc áo dáng suông nhẹ cổ V hiện đại, tay ngắn gọn gàng, chất liệu cotton lụa màu vàng nhạt trẻ trung. Phối cùng chân váy dài xếp ly nhẹ nhàng màu trắng kem\", \"R5-B3-C3\": \"Bộ đồ gồm áo kiểu vạt chéo nhẹ nhàng, tay lỡ rộng thoáng mát, chất liệu đũi xước màu xanh ngọc. Phối cùng chân váy dài maxi dáng suông thẳng, chất liệu linen mềm mại\"}}, {\"check_id\": \"locked:atom_user_sel_art\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chọn cảm hứng từ tranh khắc gỗ dân gian.\", \"exact_prompt_excerpts\": {\"R5-B3-C1\": \"mô phỏng nét khắc gỗ dân gian Hàng Trống với mảng khối đơn giản\", \"R5-B3-C2\": \"lấy cảm hứng từ đường nét dứt khoát của tranh khắc gỗ Đông Hồ\", \"R5-B3-C3\": \"lấy cảm hứng từ các mảng khắc trong tranh khắc gỗ dân gian Việt Nam\"}}, {\"check_id\": \"locked:atom_user_sel_acc\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chọn khuyên tai tối giản.\", \"exact_prompt_excerpts\": {\"R5-B3-C1\": \"Đi kèm là một đôi khuyên tai kim loại tối giản dạng hạt tròn nhỏ gọn\", \"R5-B3-C2\": \"một đôi khuyên tai bạc tối giản dạng thanh mảnh\", \"R5-B3-C3\": \"một đôi khuyên tai tròn nhỏ tối giản bằng đồng\"}}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Toàn bộ kế hoạch/tóm tắt phải trùng prompt\"}]\nTiêu chí/rating/trọng số mỹ thuật đã khóa: {\"version\": \"vp-rubric-2.0.0\", \"role\": \"art\", \"rating_min\": 0, \"rating_max\": 5, \"criteria\": [{\"criterion_id\": \"ornament_composition\", \"weight\": 25, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"color_language\", \"weight\": 25, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"form_surface_integration\", \"weight\": 20, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"purposeful_originality\", \"weight\": 30, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}]}\n\nVAI TRÒ\nĐánh giá hội họa, ngôn ngữ tạo hình, bảng màu, hoa văn và sự sáng tạo có chủ đích của kế hoạch/prompt. Chưa có ảnh; nhận xét khả năng tạo hình, không khẳng định đã thấy ảnh. Không tự xác nhận niên đại/ý nghĩa mô-típ như một chuyên gia lịch sử.\n\nKIỂM TRA\n1. Đọc image_prompt cùng các phần thiết kế, so art_summary và nhu cầu đã chốt. Hoa văn phải xuất hiện cụ thể trong prompt, không chỉ nằm trong tóm tắt.\n2. Xem mô-típ, nét/hình, vị trí, tỉ lệ, độ phủ, nhịp lặp, khoảng trống, hướng chuyển động và điểm nhấn. “Đẹp, tinh tế, mang nét Việt” chưa đủ để hình dung một thiết kế nếu không có quyết định tạo hình cụ thể.\n3. Xem màu chính/điểm nhấn, độ tương phản, quan hệ màu với chất liệu và bối cảnh. Không dùng gu cá nhân để làm sai màu khóa của người dùng.\n4. Xem cách đưa hoa văn vào phom: thêu/đắp nổi có phục vụ cấu trúc, đường cắt và ánh sáng hay làm chi tiết rời rạc. Phân biệt nguồn cảm hứng với kỹ thuật thể hiện.\n5. Sáng tạo có chủ đích được đánh giá ở cách tổ chức, tiết chế, chuyển thể và quan hệ chi tiết; không thưởng chỉ vì thêm nhiều mô-típ, trang trí dày hoặc dùng mỹ từ.\n6. Nếu người dùng đã chọn không hoa văn, xét ngôn ngữ tạo hình ở phom, chất liệu, mảng màu và khoảng trống; không tự thêm hoa văn để tăng điểm mỹ thuật.\n7. EXPECTED_CHECKS trả đúng một lần, giữ severity và applicability; quote phải có thật. Ghi uncertain khi mô tả quá mơ hồ để kết luận, fail khi thấy trái điều bắt buộc. Không đặt thêm luật lịch sử hoặc nguồn mới.\n\nCHẤM BỐN TIÊU CHÍ\n- ornament_composition: bố cục, nhịp và ngôn ngữ mô-típ/mảng tạo hình.\n- color_language: bảng màu nhất quán, rõ chủ đạo và điểm nhấn.\n- form_surface_integration: hoa văn/bề mặt hỗ trợ phom và chất liệu.\n- purposeful_originality: sáng tạo có chủ đích trong phạm vi được phép đổi.\nRating số nguyên 0–5 theo ROLE_RUBRIC; không tự tính tổng final /100. Không giảm điểm vì không có nhiều chi tiết nếu yêu cầu là tối giản.\n\nTrả đúng SpecialistAuditBatch, role=art; đủ tập candidate đầu vào, giữ candidate_revision và content_hash. Có checks, criterion_ratings đúng bốn tiêu chí, strengths, concerns, suggested_fixes, summary. Không sửa prompt.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "role": {
+        "type": "string",
+        "enum": [
+          "fashion",
+          "culture",
+          "art"
+        ]
+      },
+      "audits": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "candidate_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "candidate_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "content_hash": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "fashion",
+                "culture",
+                "art"
+              ]
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "check_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  "owner_role": {
+                    "type": "string",
+                    "enum": [
+                      "fashion",
+                      "culture",
+                      "art"
+                    ]
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "hard",
+                      "soft"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "fail",
+                      "uncertain",
+                      "not_applicable"
+                    ]
+                  },
+                  "prompt_quote": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 18000
+                  },
+                  "source_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "check_id",
+                  "owner_role",
+                  "severity",
+                  "status",
+                  "prompt_quote",
+                  "source_ids",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 160,
+              "minItems": 0
+            },
+            "criterion_ratings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "criterion_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "applicable": {
+                    "type": "boolean"
+                  },
+                  "rating": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 5
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "criterion_id",
+                  "applicable",
+                  "rating",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 4,
+              "minItems": 4
+            },
+            "strengths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "concerns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "suggested_fixes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            }
+          },
+          "required": [
+            "candidate_id",
+            "candidate_revision",
+            "content_hash",
+            "role",
+            "checks",
+            "criterion_ratings",
+            "strengths",
+            "concerns",
+            "suggested_fixes",
+            "summary"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 3,
+        "minItems": 1
+      }
+    },
+    "required": [
+      "role",
+      "audits"
+    ],
+    "additionalProperties": false
+  },
+  "config": {
+    "timeout_seconds": 45,
+    "max_output_tokens": 14000,
+    "sampling_policy": "model_default",
+    "web_tools": false,
+    "structured": true
+  }
+}

@@ -12,20 +12,25 @@ from .providers import GeminiProvider, ProviderError
 from .constraints import check_constraint
 from .evidence import Evidence
 from .image_workflow import ImageWorkflow, WAITING
+from .viet_phuc_workflow import VietPhucWorkflow
 
 
 SCHEMAS = {"P02": "NormalizedBrief", "P03": "CandidateBatch", "P04": "CandidateAuditBatch", "P06": "ImageAuditBatch", "P08": "CandidateRepair", "P09": "ImagePrompt", "P10": "NormalizedBrief"}
 TERMINAL = {"complete", "cards_only", "needs_evidence", "needs_resolution", "failed", "cancelled"}
 
 
-class Engine(ImageWorkflow):
-    def __init__(self, provider, data_dir, enable_images=False, pack_path=None, policy=None, evidence_dir=None, allow_mock_requests=False):
+class Engine(VietPhucWorkflow, ImageWorkflow):
+    def __init__(self, provider, data_dir, enable_images=False, pack_path=None, policy=None, evidence_dir=None, allow_mock_requests=False, default_workflow_version=2, design_attempts_override=None):
         self.provider, self.enable_images = provider, enable_images
         self.allow_mock_requests = allow_mock_requests
+        self.default_workflow_version = default_workflow_version
+        require(design_attempts_override is None or type(design_attempts_override) is int and 1 <= design_attempts_override <= 64, 'Trần thử nghiệm thiết kế cần là số nguyên 1–64')
+        self.design_attempts_override = design_attempts_override
         self.store = Store(data_dir)
-        self.policy = policy or read_json(KIT / "policy.json")
-        self.domain = Domain(pack_path) if pack_path else Domain()
-        self.contracts, self.prompts = Contracts(), Prompts()
+        self.policy = copy.deepcopy(policy) if policy else read_json(KIT / "policy.json")
+        self.domain = Domain(pack_path) if pack_path else Domain() if default_workflow_version == 1 else Domain(KIT.parent / "backend" / "packs" / "viet-phuc-v2.json")
+        self.contracts = Contracts()
+        self.prompts = Prompts() if default_workflow_version == 1 else Prompts(KIT / "image-audit.md")
         self.executor = ThreadPoolExecutor(max_workers=4)
         self.text_slots = threading.Semaphore(self.policy["request_budget"]["text_concurrency"])
         self.image_slots = threading.Semaphore(self.policy["request_budget"]["image_concurrency"])
@@ -43,11 +48,21 @@ class Engine(ImageWorkflow):
                             "provider": provider.name, "models": [provider.text_model, provider.image_model],
                             "generation_config": provider.generation_config, "image_generation_config": provider.image_generation_config,
                             "code": {p.name: {"sha256": code_hashes[p.name], "source": p.read_text()} for p in code_files}})
+        self._init_v2()
+        self.policy["design_budget"] = self.vp_config["design_budget"]
+        self.policy["media_budget"] = self.vp_config["media_budget"]
+        self.evidence.write("vp-runtime", {"version": self.vp_version, "config": self.vp_config, "contracts": self.vp_contracts.document, "templates": self.vp_prompts.templates, "system": self.vp_prompts.system})
         self._recover()
 
     def _recover(self):
         for job in self.store.jobs():
             if job["status"] in TERMINAL:
+                continue
+            if job.get("workflow_version") == 2:
+                self._recover_v2(job)
+                continue
+            # Keep saved v1 image sessions readable across the v2 migration.
+            if job.get("image_workflow") and job["status"] in WAITING:
                 continue
             compatible = job["manifest"]["kit_hash"] == self.cache_version and job["provider"] == self.provider.name and job["manifest"]["text_model"] == self.provider.text_model and job["manifest"]["image_model"] == self.provider.image_model and job.get("server_images_enabled", False) == self.enable_images
             if compatible and job["status"] in WAITING:
@@ -82,7 +97,9 @@ class Engine(ImageWorkflow):
                 "simulation_enabled": self.provider.name == "mock" and self.allow_mock_requests,
                 "pack_id": self.domain.pack["pack_id"], "pack_version": self.domain.pack["version"],
                 "pack_hash": self.domain.hash, "cultural_caption_ready": any(u["kind"] == "cultural_fact" and u["status"] == "verified" and self.domain.sources[u["source_id"]]["kind"] != "task_brief" for u in self.domain.units.values()),
-                "mock_outputs_are_fixtures": self.provider.name == "mock"}
+                "mock_outputs_are_fixtures": self.provider.name == "mock",
+                "api_call_usage": getattr(self.provider, "api_call_usage", None),
+                "workflow_version": 2, "reference_discovery": "gemini_search_url_context", "design_config": self.vp_config}
 
     def configure_api_key(self, key):
         require(isinstance(key, str) and bool(key.strip()), "Vui lòng nhập Gemini API key")
@@ -92,7 +109,8 @@ class Engine(ImageWorkflow):
             if current.name == "gemini" and current.matches_api_key(normalized):
                 return self.health()
             active = [job for job in self.store.jobs() if job["status"] not in TERMINAL
-                      and (job["status"] not in WAITING or job.get("inflight"))]
+                      and (job["status"] not in WAITING | {"awaiting_choices"} or job.get("inflight")
+                           or any(c['status'] == 'inflight' for c in job.get('call_records', {}).values()))]
             require(not active, "Một bước xử lý đang gọi API. Thử cập nhật key lại khi bước này hoàn tất; không cần hủy yêu cầu đang chờ thao tác thủ công", "active_requests", 409)
             if current.name == "gemini":
                 current.update_api_key(normalized)
@@ -104,6 +122,11 @@ class Engine(ImageWorkflow):
 
     def create(self, payload):
         require(isinstance(payload, dict), "Body phải là object JSON")
+        version = payload.get("workflow_version", self.default_workflow_version)
+        require(type(version) is int and version in (1, 2), "workflow_version không hợp lệ")
+        if version == 2:
+            return self._create_v2(payload)
+        require(self.default_workflow_version == 1, "Chỉ đọc request v1 đã lưu; tạo yêu cầu mới bằng v2", "legacy_request", 409)
         text = payload.get("input")
         require(isinstance(text, str) and 0 < len(text.strip()) <= 6000, "input phải là chuỗi 1–6000 ký tự")
         require(isinstance(payload.get("render_image", False), bool), "render_image phải là boolean")
@@ -216,8 +239,14 @@ class Engine(ImageWorkflow):
         if hasattr(self.provider, "observe_attempt"):
             def record(call_id):
                 self._check_active(job)
+                warning = getattr(self.provider, "last_call_warning", None)
+                if warning:
+                    job["warnings"].append(warning)
+                    job.setdefault("api_call_warnings", []).append(warning)
                 job["inflight"]["provider_call_id"] = call_id
                 job["metrics"]["actual_api_calls"] = job["metrics"].get("actual_api_calls", 0) + 1
+                if job.get("workflow_version") == 2:
+                    job["metrics"]["media"]["actual_api_calls"] += 1
                 self.store.save_job(job)
             self.provider.observe_attempt(record)
 
@@ -336,7 +365,9 @@ class Engine(ImageWorkflow):
 
     def _run(self, request_id):
         job = self.store.get_job(request_id)
-        budget = Budget(job, self.policy)
+        if job.get("workflow_version") == 2 and not job.get("image_workflow"):
+            return self._run_v2(request_id)
+        budget = Budget(job, self.policy, "media" if job.get("workflow_version") == 2 else None)
         try:
             if job.get("image_workflow"):
                 self._continue_images(job, budget, self._image_candidate(job), job["retrieval_bundle"])
@@ -393,7 +424,7 @@ class Engine(ImageWorkflow):
                 self._event(job, "needs_evidence")
                 return
             if not bundle["cultural_units"]:
-                job["warnings"].append("Gói hiện tại chỉ hỗ trợ minh họa lấy cảm hứng; chưa đáp ứng caption nguồn gốc/ý nghĩa của bài nộp.")
+                job["warnings"].append("Gói cũ chỉ hỗ trợ minh họa lấy cảm hứng; chưa đủ căn cứ văn hóa/lịch sử.")
             gates = manifest(brief, bundle)
             job["gate_manifest"] = gates
             self._event(job, "planning")

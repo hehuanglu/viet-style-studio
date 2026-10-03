@@ -1,0 +1,510 @@
+{
+  "evidence_id": "f40aa763-23cf-44e1-a1d3-83af6d7e6a06",
+  "recorded_at": 1791060206.9809961,
+  "event": "designing_checklist",
+  "job": {
+    "request_id": "60cc725c-7eff-48ba-bccd-3f01cd7ad17b",
+    "session_id": "c0faba6b-fa26-497f-ba66-2219b586c43b",
+    "workflow_version": 2,
+    "revision": 1,
+    "status": "designing_checklist",
+    "provider": "gemini",
+    "creative_level": "balanced",
+    "scoring_profile": "balanced",
+    "image_mode": "gemini_manual",
+    "audit_mode": "background",
+    "render_image": true,
+    "reference_mode": "text_only",
+    "raw_prompt": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. ",
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. "
+      }
+    ],
+    "brief": null,
+    "questions": [],
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "image_prompts": [],
+    "error": null,
+    "warnings": [
+      "Chế độ cơ bản: không tìm/đọc web, không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử."
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "cleaning",
+        "brief_revision": 1,
+        "timestamp": 1791060202.717542
+      },
+      {
+        "sequence": 2,
+        "stage": "designing_checklist",
+        "brief_revision": 1,
+        "timestamp": 1791060206.979472
+      }
+    ],
+    "trace": [
+      {
+        "task": "VP01",
+        "phase": "design",
+        "attempt_id": "0ae1d7bb-ae0a-4d21-83a6-ce1d2fdc6c4c",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 4244,
+        "provider_call_id": "ce4ad9e8-6aa9-4306-930d-aba42fc1dcef",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 2127,
+          "candidatesTokenCount": 1408,
+          "totalTokenCount": 3535,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2127
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "62jBar3zEr6e2roPheqlsAQ"
+        },
+        "input_hash": "4b8baef173404638bbee2946cb6482774c7fa9f4e2256886e5bf18ae40832c31",
+        "output_hash": "14afc9b9806910412bac7c4f6bfabd0e7b046fbbb4b9ae4f31d47647f6c086df",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      }
+    ],
+    "workflow_steps": [
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP01",
+          "phase": "design",
+          "attempt_id": "0ae1d7bb-ae0a-4d21-83a6-ce1d2fdc6c4c",
+          "revision": 1,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 4244,
+          "provider_call_id": "ce4ad9e8-6aa9-4306-930d-aba42fc1dcef",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 2127,
+            "candidatesTokenCount": 1408,
+            "totalTokenCount": 3535,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2127
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "62jBar3zEr6e2roPheqlsAQ"
+          },
+          "input_hash": "4b8baef173404638bbee2946cb6482774c7fa9f4e2256886e5bf18ae40832c31",
+          "output_hash": "14afc9b9806910412bac7c4f6bfabd0e7b046fbbb4b9ae4f31d47647f6c086df",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      }
+    ],
+    "created_at": 1791060202.700014,
+    "budget_config": {
+      "design": {
+        "total_provider_calls_max": 30,
+        "active_processing_deadline_seconds": 320,
+        "retry_per_task_max": 1
+      },
+      "media": {
+        "total_provider_calls_max": 13,
+        "active_processing_deadline_seconds": 90
+      }
+    },
+    "clean_prompt": {
+      "request_id": "60cc725c-7eff-48ba-bccd-3f01cd7ad17b",
+      "revision": 1,
+      "clean_text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.",
+      "domains": [
+        {
+          "domain_id": "dom_context",
+          "label": "Bối cảnh sử dụng",
+          "summary": "Mục đích thiết kế trang phục cho sự kiện thời trang vào mùa hè.",
+          "related_domain_ids": [
+            "dom_structure"
+          ]
+        },
+        {
+          "domain_id": "dom_structure",
+          "label": "Cấu trúc & Kiểu dáng",
+          "summary": "Thiết kế váy liền thân nữ với các yếu tố hiện đại, gọn gàng, tiện dụng, thoải mái và dễ mặc.",
+          "related_domain_ids": [
+            "dom_context",
+            "dom_culture"
+          ]
+        },
+        {
+          "domain_id": "dom_culture",
+          "label": "Yếu tố văn hóa & Việt phục",
+          "summary": "Chủ đề kết hợp truyền thống và hiện đại, gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí.",
+          "related_domain_ids": [
+            "dom_structure"
+          ]
+        },
+        {
+          "domain_id": "dom_aesthetic",
+          "label": "Mỹ thuật & Phong cách",
+          "summary": "Định hướng thẩm mỹ sang trọng, bắt kịp xu hướng, xử lý theo hướng hiện đại.",
+          "related_domain_ids": [
+            "dom_structure",
+            "dom_culture"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_01",
+          "domain_ids": [
+            "dom_context",
+            "dom_structure"
+          ],
+          "meaning": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_02",
+          "domain_ids": [
+            "dom_culture"
+          ],
+          "meaning": "Chủ đề kết hợp truyền thống và hiện đại, gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_03",
+          "domain_ids": [
+            "dom_structure",
+            "dom_aesthetic"
+          ],
+          "meaning": "Xử lý các yếu tố Việt phục theo hướng hiện đại, gọn gàng và tiện dụng.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_04",
+          "domain_ids": [
+            "dom_structure",
+            "dom_aesthetic"
+          ],
+          "meaning": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "relations": [
+        {
+          "from_atom_id": "atom_02",
+          "to_atom_id": "atom_03",
+          "relation": "modifier",
+          "reason": "Yếu tố gợi nhắc Việt phục cần được xử lý theo định hướng hiện đại, gọn gàng và tiện dụng."
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. "
+          },
+          "atom_ids": [
+            "atom_01",
+            "atom_02",
+            "atom_03",
+            "atom_04"
+          ],
+          "disposition": "retained",
+          "reason": "Tất cả các ý chính về bối cảnh, cấu trúc váy, yếu tố văn hóa và phong cách thẩm mỹ trong yêu cầu gốc đều được giữ trọn vẹn vào các atom."
+        }
+      ]
+    },
+    "checklist": null,
+    "resolved_brief": null,
+    "choices": null,
+    "references": [],
+    "reference_metadata": [],
+    "checkpoints": {
+      "e6d9e60fecaf9c22f700281bfd9d1432f09c111b01fa5a789fedc13b9707ff33": {
+        "task": "VP01",
+        "value": {
+          "request_id": "60cc725c-7eff-48ba-bccd-3f01cd7ad17b",
+          "revision": 1,
+          "clean_text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.",
+          "domains": [
+            {
+              "domain_id": "dom_context",
+              "label": "Bối cảnh sử dụng",
+              "summary": "Mục đích thiết kế trang phục cho sự kiện thời trang vào mùa hè.",
+              "related_domain_ids": [
+                "dom_structure"
+              ]
+            },
+            {
+              "domain_id": "dom_structure",
+              "label": "Cấu trúc & Kiểu dáng",
+              "summary": "Thiết kế váy liền thân nữ với các yếu tố hiện đại, gọn gàng, tiện dụng, thoải mái và dễ mặc.",
+              "related_domain_ids": [
+                "dom_context",
+                "dom_culture"
+              ]
+            },
+            {
+              "domain_id": "dom_culture",
+              "label": "Yếu tố văn hóa & Việt phục",
+              "summary": "Chủ đề kết hợp truyền thống và hiện đại, gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí.",
+              "related_domain_ids": [
+                "dom_structure"
+              ]
+            },
+            {
+              "domain_id": "dom_aesthetic",
+              "label": "Mỹ thuật & Phong cách",
+              "summary": "Định hướng thẩm mỹ sang trọng, bắt kịp xu hướng, xử lý theo hướng hiện đại.",
+              "related_domain_ids": [
+                "dom_structure",
+                "dom_culture"
+              ]
+            }
+          ],
+          "atoms": [
+            {
+              "atom_id": "atom_01",
+              "domain_ids": [
+                "dom_context",
+                "dom_structure"
+              ],
+              "meaning": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_02",
+              "domain_ids": [
+                "dom_culture"
+              ],
+              "meaning": "Chủ đề kết hợp truyền thống và hiện đại, gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí,"
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_03",
+              "domain_ids": [
+                "dom_structure",
+                "dom_aesthetic"
+              ],
+              "meaning": "Xử lý các yếu tố Việt phục theo hướng hiện đại, gọn gàng và tiện dụng.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_04",
+              "domain_ids": [
+                "dom_structure",
+                "dom_aesthetic"
+              ],
+              "meaning": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            }
+          ],
+          "relations": [
+            {
+              "from_atom_id": "atom_02",
+              "to_atom_id": "atom_03",
+              "relation": "modifier",
+              "reason": "Yếu tố gợi nhắc Việt phục cần được xử lý theo định hướng hiện đại, gọn gàng và tiện dụng."
+            }
+          ],
+          "conflicts": [],
+          "coverage": [
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. "
+              },
+              "atom_ids": [
+                "atom_01",
+                "atom_02",
+                "atom_03",
+                "atom_04"
+              ],
+              "disposition": "retained",
+              "reason": "Tất cả các ý chính về bối cảnh, cấu trúc váy, yếu tố văn hóa và phong cách thẩm mỹ trong yêu cầu gốc đều được giữ trọn vẹn vào các atom."
+            }
+          ]
+        },
+        "metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "62jBar3zEr6e2roPheqlsAQ"
+        },
+        "usage": {
+          "promptTokenCount": 2127,
+          "candidatesTokenCount": 1408,
+          "totalTokenCount": 3535,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2127
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      }
+    },
+    "call_records": {
+      "0ae1d7bb-ae0a-4d21-83a6-ce1d2fdc6c4c": {
+        "task_key": "e6d9e60fecaf9c22f700281bfd9d1432f09c111b01fa5a789fedc13b9707ff33",
+        "task": "VP01",
+        "stage": "cleaning",
+        "role": null,
+        "revision": 1,
+        "batch_id": null,
+        "status": "complete",
+        "started_at": 1791060202.728126,
+        "timeout_seconds": 40,
+        "provider_call_id": "ce4ad9e8-6aa9-4306-930d-aba42fc1dcef",
+        "finished_at": 1791060206.972051
+      }
+    },
+    "selection_receipts": {},
+    "generation_batches": {},
+    "prompt_pool": [],
+    "specialist_audits": {},
+    "harmony_audits": {},
+    "supplemental_batches": 0,
+    "checklist_round": 0,
+    "metrics": {
+      "provider_calls": 1,
+      "actual_api_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 4.266,
+      "design": {
+        "attempts": 1,
+        "actual_api_calls": 1,
+        "active_seconds": 4.266,
+        "search_queries_reported": 0
+      },
+      "media": {
+        "attempts": 0,
+        "actual_api_calls": 0,
+        "active_seconds": 0.0
+      },
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null,
+      "manual_image_prompts": 0,
+      "manual_images_received": 0,
+      "manual_audit_prompts": 0,
+      "manual_audits_received": 0
+    },
+    "manifest": {
+      "kit_hash": "73bd63ac90443a675b3cbcf3792cbddc8f9e8118daa4b153bf6bdfedb6681a5a",
+      "vp_hash": "b4b5032c661841125fabf429a9035e9162af5117429f5bf60d3e94c5882b05ac",
+      "template_version": "7a51b9a5dcb2da474c3395e8eab68889f000f6cfb33071a1964486eb6b438b8b",
+      "schema_version": "viet-phuc-2.0.0",
+      "rubric_version": "vp-rubric-2.1.0",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image",
+      "pack_hash": "5eefbd3c6bef7b07444cbad8f51d2e535b0a032dbc05d962bbf232185855ee38"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "design_clock": {
+      "started_at": 1791060202.7115352,
+      "checkpoint_at": 1791060206.977175,
+      "base": 0.0
+    }
+  }
+}

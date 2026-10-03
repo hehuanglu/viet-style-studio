@@ -1,0 +1,75 @@
+{
+  "evidence_id": "55896499-c603-4a44-b5f1-f2c82c2cc261",
+  "recorded_at": 1791056369.427886,
+  "request_id": "c7af53c4-cbfa-4b2f-9480-a70c655ccfa9",
+  "attempt_id": "c331c1db-7471-4ed9-8565-21ae5d0327c7",
+  "trace": {
+    "task": "VP02C",
+    "phase": "design",
+    "attempt_id": "c331c1db-7471-4ed9-8565-21ae5d0327c7",
+    "revision": 3,
+    "role": null,
+    "batch_id": null,
+    "cache_hit": false,
+    "duration_ms": 3122,
+    "provider_call_id": "d7d0dec9-4250-4ad3-a267-d0b5da97f5e2",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 10715,
+      "candidatesTokenCount": 580,
+      "totalTokenCount": 11295,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 10715
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "7lnBavvFMs-ivr0P8MGSsQU"
+    },
+    "input_hash": "63bc36c70520db8c97de93bf56be5159a34a46b023e2c57ba1be67c9fbe3db7b",
+    "output_hash": "bc483a68b974eb1e704b1faa50a6c6af1906e7f56ea3acdcb0b6a64bee1bad72",
+    "error_code": "semantic_invalid",
+    "error_message": "Conflict lặp cùng bằng chứng",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "request_id": "c7af53c4-cbfa-4b2f-9480-a70c655ccfa9",
+    "revision": 3,
+    "form_id": "01bcaff9-b392-4c97-9e71-ad782a5eac26",
+    "status": "conflict",
+    "conflicts": [
+      {
+        "conflict_id": "conf_collar_high_and_deep_v",
+        "severity": "severe",
+        "summary": "Mâu thuẫn trực tiếp về thiết kế cổ áo trên cùng một chi tiết và cùng một lớp trang phục.",
+        "reason": "Yêu cầu tùy chỉnh bắt buộc cổ áo vừa phải kín cao ôm sát cổ, vừa phải khoét chữ V sâu xuống ngực mà không có lớp lót hoặc áo trong trên cùng một cổ áo của váy, điều này là bất khả thi về mặt cấu trúc trang phục.",
+        "same_feature": "Cổ áo liền thân của trang phục tại cùng một vị trí và lớp vải duy nhất.",
+        "evidence": [
+          {
+            "kind": "custom",
+            "group_id": "group_viet_phuc_elements",
+            "option_id": "",
+            "atom_id": "",
+            "quote": "Trên cùng một lớp váy và cùng một cổ áo: cổ phải kín cao ôm sát cổ; đồng thời chính cổ đó phải khoét chữ V sâu xuống ngực, không có lớp lót hoặc áo trong."
+          },
+          {
+            "kind": "custom",
+            "group_id": "group_viet_phuc_elements",
+            "option_id": "",
+            "atom_id": "",
+            "quote": "Trên cùng một lớp váy và cùng một cổ áo: cổ phải kín cao ôm sát cổ; đồng thời chính cổ đó phải khoét chữ V sâu xuống ngực, không có lớp lót hoặc áo trong."
+          }
+        ],
+        "suggested_fix": "Vui lòng điều chỉnh lại yêu cầu tùy chỉnh để chọn một trong hai kiểu dáng cổ áo (kín cao ôm sát hoặc khoét chữ V sâu) hoặc phân chia thành các lớp áo/chi tiết riêng biệt."
+      }
+    ],
+    "summary": "Phát hiện 1 mâu thuẫn nghiêm trọng (severe) trong lựa chọn tùy chỉnh của nhóm định hướng gợi nhắc Việt phục, nơi người dùng yêu cầu cổ áo vừa kín cao ôm sát vừa khoét chữ V sâu trên cùng một lớp váy và cùng một cổ áo."
+  }
+}

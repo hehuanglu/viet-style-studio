@@ -1,3 +1,5 @@
+> Phạm vi tài liệu: hồ sơ theo thời điểm, không phải hướng dẫn runtime hiện hành. Các số đo/kết luận bên dưới thuộc phiên hoặc kế hoạch được mô tả; cơ chế có thể đã thay đổi. Xem [README hiện hành](../README.md) và đối chiếu mã/cấu hình trước khi áp dụng.
+
 # Các phần việc cho thử nghiệm back-end
 
 ## Đợt 1: luồng cơ bản có thể chạy và đo

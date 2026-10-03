@@ -1,0 +1,329 @@
+{
+  "evidence_id": "69ca674b-828a-46f1-b489-ac7488e57608",
+  "recorded_at": 1791051836.331472,
+  "request_id": "49c833d0-1af4-4da6-96ed-11b9e6094b06",
+  "revision": 1,
+  "attempt_id": "32d8977c-0d2e-4072-9f50-dee4a511afe5",
+  "task": "VP01",
+  "payload": {
+    "REQUEST_METADATA": {
+      "request_id": "49c833d0-1af4-4da6-96ed-11b9e6094b06",
+      "revision": 1
+    },
+    "USER_TURNS": [
+      {
+        "id": "T1",
+        "text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. Lấy cảm hứng từ mỹ thuật hội họa truyền thống Việt Nam để phát triển bảng màu, họa tiết và chi tiết bề mặt; thể hiện vừa đủ để tổng thể thanh lịch, không rườm rà. Ưu tiên chất liệu nhẹ, thoáng mát. Chỉ thêm một vài phụ kiện hài hòa như khuyên tai, vòng cổ, mũ hoặc túi xách."
+      }
+    ],
+    "RAW_PROMPT": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. Lấy cảm hứng từ mỹ thuật hội họa truyền thống Việt Nam để phát triển bảng màu, họa tiết và chi tiết bề mặt; thể hiện vừa đủ để tổng thể thanh lịch, không rườm rà. Ưu tiên chất liệu nhẹ, thoáng mát. Chỉ thêm một vài phụ kiện hài hòa như khuyên tai, vòng cổ, mũ hoặc túi xách.",
+    "DOMAIN_GUIDANCE": [
+      "Bối cảnh",
+      "Cấu trúc",
+      "Chất liệu",
+      "Màu",
+      "Mỹ thuật",
+      "Văn hóa",
+      "Thể hiện ảnh",
+      "Tạo miền khác nếu cần"
+    ],
+    "PREVIOUS_CLEAN_PROMPT": null
+  },
+  "prompt": "TASK: CLEAN_AND_SEGMENT_VIET_PHUC_REQUEST\n\nThông tin ứng dụng cấp: {\"request_id\": \"49c833d0-1af4-4da6-96ed-11b9e6094b06\", \"revision\": 1}\nCác lượt người dùng nguyên văn theo thứ tự: [{\"id\": \"T1\", \"text\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. Lấy cảm hứng từ mỹ thuật hội họa truyền thống Việt Nam để phát triển bảng màu, họa tiết và chi tiết bề mặt; thể hiện vừa đủ để tổng thể thanh lịch, không rườm rà. Ưu tiên chất liệu nhẹ, thoáng mát. Chỉ thêm một vài phụ kiện hài hòa như khuyên tai, vòng cổ, mũ hoặc túi xách.\"}]\nLời yêu cầu gốc cần xử lý: \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. Lấy cảm hứng từ mỹ thuật hội họa truyền thống Việt Nam để phát triển bảng màu, họa tiết và chi tiết bề mặt; thể hiện vừa đủ để tổng thể thanh lịch, không rườm rà. Ưu tiên chất liệu nhẹ, thoáng mát. Chỉ thêm một vài phụ kiện hài hòa như khuyên tai, vòng cổ, mũ hoặc túi xách.\"\nCác miền nghiệp vụ gợi ý, có thể mở rộng: [\"Bối cảnh\", \"Cấu trúc\", \"Chất liệu\", \"Màu\", \"Mỹ thuật\", \"Văn hóa\", \"Thể hiện ảnh\", \"Tạo miền khác nếu cần\"]\nBản chuẩn hóa trước đó nếu có: null\n\nMỤC TIÊU\nGiữ trọn ý quan trọng và diễn đạt rõ hơn thành clean_prompt. Không tóm tắt bằng cách mất chi tiết, không giới hạn nội dung bằng một template trang phục cố định. Chưa tư vấn lựa chọn, chưa tạo phương án, chưa viết image prompt.\n\nTHỰC HIỆN\n1. Đọc từng ý của lời người dùng, giữ cả phủ định, nhiều thành tố phong cách, ví dụ, điều giao AI lựa chọn, ý định lai phom, mức gắn với lịch sử và điều chưa rõ. Nguyên văn gốc luôn được bảo toàn bên ngoài tác vụ này.\n2. Viết clean_text bằng lời tự nhiên đầy đủ. Không bổ sung phom, chất liệu, màu, hoa văn, ý nghĩa hoặc nhân vật chưa được yêu cầu. Có thể chỉnh cách diễn đạt/lỗi gõ trong clean_text nhưng không chỉnh quote.\n3. Chia thành domains có label dễ hiểu và summary. DOMAIN_GUIDANCE chỉ là gợi ý; tạo miền mới nếu ý chưa nằm trong miền quen thuộc. Một atom có thể thuộc nhiều miền. Không nhân bản cùng ý thành nhiều yêu cầu khác nhau.\n4. Tạo atoms có meaning, domain_ids, intent_type, polarity, source_refs và resolution. must/avoid chỉ khi lời người dùng thực sự khóa/cấm. Những ví dụ như “sen, rồng, mây...” là example nếu không nói tất cả bắt buộc. “Không cần tất cả” phải giữ thành ý độc lập về quyền chọn.\n5. Nếu người dùng muốn nền âu phục lai nét Việt, giữ nền âu phục và ý định lai; không tự đổi nền thành áo dài. Nếu phom ngoài danh mục cũ, giữ mô tả và tạo miền/ý phù hợp, không thay bằng phom gần nhất.\n6. Ghi relations giữa ý cùng phụ thuộc, loại trừ hoặc giải thích nhau. Ghi conflicts khi có mâu thuẫn thực sự; không tự giải quyết bằng cách bỏ một phía.\n7. Lập coverage: các đoạn có ý thiết kế/bối cảnh/quyền chọn phải chỉ tới atom đã giữ, ví dụ hoặc ý chưa rõ. Không dùng “ngoài danh mục” làm lý do loại. Không tự chứng nhận coverage này là đầy đủ tuyệt đối; bước sau sẽ đọc độc lập lời gốc.\n8. Giữ mã atom/domain trước đó nếu ý không đổi. Nếu người dùng đã đổi rõ, ghi supersedes_atom_ids cho ý thay thế; không xóa lịch sử.\n\nKIỂM TRA TRƯỚC KHI TRẢ\n- Không mất các từ “không”, “chỉ”, “có thể”, “ví dụ”, “không cần tất cả”, “để bạn đề xuất”.\n- Không tự suy giới tính hoặc vai trò người mặc từ dịp sử dụng.\n- Mỗi quote thuộc đúng lượt nguồn, không ghép/sửa lỗi gõ trong quote.\n- Không biến lời người dùng nói về lịch sử thành dữ kiện đã xác minh.\n\nTrả đúng CleanPrompt theo response schema. request_id và revision giữ nguyên. Không đề xuất câu hỏi ở tác vụ này.\n\nLượt trước không hợp lệ: Miền liên quan không tồn tại. Giữ nguyên input và sửa đúng hợp đồng.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "request_id": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120
+      },
+      "revision": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "clean_text": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 18000
+      },
+      "domains": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "domain_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "related_domain_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "domain_id",
+            "label",
+            "summary",
+            "related_domain_ids"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 40,
+        "minItems": 1
+      },
+      "atoms": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "atom_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "domain_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "meaning": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 6000
+            },
+            "intent_type": {
+              "type": "string",
+              "enum": [
+                "must",
+                "avoid",
+                "preference",
+                "example",
+                "delegated",
+                "context",
+                "unknown"
+              ]
+            },
+            "polarity": {
+              "type": "string",
+              "enum": [
+                "positive",
+                "negative",
+                "neutral"
+              ]
+            },
+            "source_refs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "turn_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "quote": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 6000
+                  }
+                },
+                "required": [
+                  "turn_id",
+                  "quote"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 30,
+              "minItems": 1
+            },
+            "resolution": {
+              "type": "string",
+              "enum": [
+                "explicit",
+                "inferred",
+                "open",
+                "conflicting"
+              ]
+            },
+            "supersedes_atom_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom_id",
+            "domain_ids",
+            "meaning",
+            "intent_type",
+            "polarity",
+            "source_refs",
+            "resolution",
+            "supersedes_atom_ids"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 100,
+        "minItems": 1
+      },
+      "relations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "from_atom_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "to_atom_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "relation": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            }
+          },
+          "required": [
+            "from_atom_id",
+            "to_atom_id",
+            "relation",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 100,
+        "minItems": 0
+      },
+      "conflicts": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "maxItems": 100,
+        "minItems": 0
+      },
+      "coverage": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "source_ref": {
+              "type": "object",
+              "properties": {
+                "turn_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 6000
+                }
+              },
+              "required": [
+                "turn_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            },
+            "atom_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "disposition": {
+              "type": "string",
+              "enum": [
+                "retained",
+                "example",
+                "unclear"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            }
+          },
+          "required": [
+            "source_ref",
+            "atom_ids",
+            "disposition",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 200,
+        "minItems": 1
+      }
+    },
+    "required": [
+      "request_id",
+      "revision",
+      "clean_text",
+      "domains",
+      "atoms",
+      "relations",
+      "conflicts",
+      "coverage"
+    ],
+    "additionalProperties": false
+  },
+  "config": {
+    "timeout_seconds": 40,
+    "max_output_tokens": 16000,
+    "sampling_policy": "model_default",
+    "web_tools": false,
+    "structured": true
+  }
+}

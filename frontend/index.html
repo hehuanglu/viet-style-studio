@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f5f1e9" />
-    <title>AI Arena · Phối đồ</title>
+    <title>AI Arena · Việt phục</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
@@ -14,55 +14,69 @@
           <span class="brand-mark">A</span>
           <span>AI ARENA <small>STUDIO</small></span>
         </a>
-        <div class="server-state"><span class="status-dot"></span><span id="server-label">Đang kết nối backend…</span></div>
+        <div class="server-state"><span class="status-dot"></span><span id="server-label">Đang kết nối…</span></div>
       </header>
 
       <section class="intro">
-        <div class="eyebrow">THỬ NGHIỆM · PHỐI TRANG PHỤC</div>
-        <h1>Tìm một cách phối<br /><em>thật hợp với bạn.</em></h1>
-        <p>Mô tả trang phục, màu sắc và dịp bạn cần. AI Arena sẽ hỏi thêm khi cần rồi đưa ra các gợi ý có thể so sánh.</p>
+        <div class="eyebrow">THIẾT KẾ VIỆT PHỤC</div>
+        <h1>Thiết kế trang phục<br /><em>theo yêu cầu của bạn.</em></h1>
+        <p>Mô tả về bộ đồ bạn muốn. Bạn sẽ chốt những chi tiết còn thiếu, xem tối đa ba gợi ý rồi chọn một để tạo ảnh trên Gemini.</p>
+        <ol class="journey-guide"><li>Mô tả bộ đồ</li><li>Chọn phương án phù hợp</li><li>Tạo ảnh và chỉnh sửa</li></ol>
       </section>
 
       <section class="setup panel" aria-labelledby="setup-title">
         <div class="panel-heading">
-          <div><div class="eyebrow">KẾT NỐI MÔ HÌNH</div><h2 id="setup-title">Gemini API key</h2></div>
+          <div><div class="eyebrow">THIẾT LẬP BAN ĐẦU</div><h2 id="setup-title">Kết nối Gemini</h2></div>
           <span id="provider-badge" class="badge">Đang kiểm tra</span>
         </div>
-        <p class="muted">Key chỉ được giữ trong bộ nhớ backend đang chạy, không lưu trong trình duyệt hay cơ sở dữ liệu.</p>
+        <details id="connection-settings" open><summary>Nhập hoặc đổi API key</summary>
+        <p class="muted">API key cho phép ứng dụng đọc yêu cầu và tìm nguồn. Việc đăng nhập trang Gemini để tạo ảnh là một bước riêng. Bạn có thể nhờ người thiết lập ứng dụng chuẩn bị key có quyền tìm web.</p>
+        <p class="muted">Key chỉ được giữ trong bộ nhớ khi ứng dụng đang chạy. <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">Quản lý key tại Google AI Studio ↗</a></p>
         <form id="key-form" class="key-row">
           <label class="sr-only" for="api-key">Gemini API key</label>
           <input id="api-key" type="password" autocomplete="off" placeholder="Dán Gemini API key" spellcheck="false" />
           <button id="key-submit" type="submit" class="button button-dark">Kết nối</button>
         </form>
         <div id="key-message" class="inline-message" role="status"></div>
-        <p id="text-api-note" class="inline-message" role="status">Cần kết nối Gemini API để hiểu yêu cầu, tạo và audit phương án.</p>
         <label id="simulation-option" class="check-row" hidden><input id="simulation-mode" type="checkbox" />Chạy mô phỏng để kiểm thử (không gọi API, không đánh giá yêu cầu thật)</label>
+        </details>
+        <p id="text-api-note" class="inline-message" role="status">Kết nối để bắt đầu.</p>
       </section>
 
       <section class="workspace">
         <div class="panel composer">
           <div class="panel-heading">
-            <div><div class="eyebrow">YÊU CẦU CỦA BẠN</div><h2>Bạn muốn phối thế nào?</h2></div>
+            <div><div class="eyebrow">YÊU CẦU CỦA BẠN</div><h2>Bạn muốn thiết kế thế nào?</h2></div>
             <span class="step-number">01</span>
           </div>
           <form id="request-form">
             <label class="sr-only" for="request-input">Mô tả yêu cầu</label>
             <textarea id="request-input" rows="5" maxlength="6000" placeholder="Ví dụ: Phối áo dài xanh cho sự kiện ở trường, phong cách hiện đại và tối giản…"></textarea>
+            <p class="muted">Bạn chưa biết chọn vải, dáng hoặc hoa văn? Cứ nói điều bạn thích và điều muốn tránh; ở bước sau có thể chọn “Để AI đề xuất”.</p>
+            <details class="advanced-settings"><summary>Cài đặt nâng cao (có thể giữ nguyên)</summary>
+            <p class="muted">Mặc định khám phá ý tưởng mới và ưu tiên sáng tạo, vẫn giữ những điều bạn đã chốt. Mức Khám phá tự động dùng chế độ đánh giá ưu tiên sáng tạo. Các điểm đánh giá là hỗ trợ của AI.</p>
+            <div class="mode-options">
+              <label for="reference-mode">Nguồn tham khảo<select id="reference-mode"><option value="gemini_web">Tìm nguồn trên web qua API — cần bật billing</option><option value="text_only">Không tìm web — API văn bản, có hạn mức miễn phí</option></select><span class="tiny-note">Tìm web cần project API đã bật thanh toán (billing); có thể phát sinh phí theo mức dùng. Không tìm web vẫn cần API key và quota văn bản, không có link kiểm chứng.</span></label>
+              <label for="creative-level">Mức sáng tạo<select id="creative-level"><option value="explore">Khám phá</option><option value="balanced">Cân bằng</option><option value="moderate">Vừa phải</option></select></label>
+            </div>
             <div class="mode-options">
               <label for="image-mode">Tạo / sửa ảnh
-                <select id="image-mode"><option value="gemini_manual">Gemini thủ công</option><option value="api">API hiện có</option></select>
+                <select id="image-mode"><option value="gemini_manual">Dán prompt vào Gemini và tải ảnh về — không dùng API ảnh</option><option value="api">Tự động tạo / sửa ảnh qua API — cần billing, có tính phí</option></select>
               </label>
               <label for="audit-mode">Kiểm tra ảnh
-                <select id="audit-mode"><option value="background">Tự động hỗ trợ chỉnh sửa</option><option value="api">Audit bắt buộc qua API (nâng cao)</option><option value="gemini_manual">Audit JSON thủ công (nâng cao)</option></select>
+                <select id="audit-mode"><option value="background">Kiểm tra ảnh qua API nếu dùng được; lỗi vẫn cho chỉnh sửa</option><option value="api">Bắt buộc kiểm tra ảnh qua API — cần quota, tính phí nếu dùng Paid Tier</option></select>
+                <span class="tiny-note">Hai lựa chọn kiểm tra qua API dùng model văn bản: có hạn mức miễn phí nếu project được cấp; Paid Tier tính phí theo lượng dùng. Chế độ hỗ trợ vẫn thử gọi API, không phải chế độ miễn phí. Thao tác trên trang Gemini dùng hạn mức tài khoản Gemini riêng.</span>
               </label>
             </div>
-            <p class="muted">Tạo ảnh trên Gemini rồi dán vào đây. Mở ảnh để khoanh vùng, phác thảo và nhận prompt sửa. Dán ảnh hoàn thiện để cập nhật ngay. Kiểm tra tự động hỗ trợ phát hiện lỗi; bạn không cần chuyển kết quả JSON.</p>
-            <div class="form-footer">
+            <p class="tiny-note">Billing là thanh toán của project Gemini API, khác với gói đăng ký trên trang Gemini. <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">Xem yêu cầu và giá API của Google ↗</a></p>
               <label class="check-row">
-                <input id="render-image" type="checkbox" disabled />
+                <input id="render-image" type="checkbox" checked disabled />
                 <span>Tạo ảnh minh họa</span>
-                <span id="image-note" class="tiny-note">Chưa bật trên backend</span>
+                <span id="image-note" class="tiny-note">Tạo trên Gemini, rồi gửi ảnh về đây</span>
               </label>
+            </details>
+            <div class="form-footer">
+              <span class="muted">Bước đầu: xem và chốt các chi tiết.</span>
               <button id="submit-request" type="submit" class="button button-accent" disabled>Tạo gợi ý <span aria-hidden="true">↗</span></button>
             </div>
           </form>
@@ -83,10 +97,11 @@
           <button id="cancel-request" type="button" class="button button-quiet" hidden>Hủy yêu cầu</button>
         </div>
         <div id="progress" class="progress-track"><span></span></div>
-        <div id="request-error" class="error-box" hidden></div>
+        <div id="request-error" class="error-box" hidden role="alert"></div>
         <div id="next-action" class="question-card" hidden aria-live="polite"></div>
         <div id="mock-request-notice" class="error-box" hidden>Request này được xử lý bằng mock; thông tin và câu hỏi là mô phỏng, chưa được Gemini nhận diện. Để phân tích thật, dừng bản mô phỏng, kết nối API key rồi gửi lại yêu cầu gốc.<button id="retry-real-request" type="button" class="button button-quiet">Dừng mô phỏng và nhập lại yêu cầu gốc</button></div>
         <div id="question-card" class="question-card" hidden></div>
+        <div id="revision-control" hidden></div>
         <div id="warnings" class="warnings"></div>
         <div id="cards" class="cards-grid"></div>
         <div id="manual-step" class="panel manual-step" hidden aria-live="polite"></div>

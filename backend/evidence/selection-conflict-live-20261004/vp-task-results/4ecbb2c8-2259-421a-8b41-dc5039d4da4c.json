@@ -1,0 +1,179 @@
+{
+  "evidence_id": "4ecbb2c8-2259-421a-8b41-dc5039d4da4c",
+  "recorded_at": 1791060206.975897,
+  "request_id": "60cc725c-7eff-48ba-bccd-3f01cd7ad17b",
+  "attempt_id": "0ae1d7bb-ae0a-4d21-83a6-ce1d2fdc6c4c",
+  "trace": {
+    "task": "VP01",
+    "phase": "design",
+    "attempt_id": "0ae1d7bb-ae0a-4d21-83a6-ce1d2fdc6c4c",
+    "revision": 1,
+    "role": null,
+    "batch_id": null,
+    "cache_hit": false,
+    "duration_ms": 4244,
+    "provider_call_id": "ce4ad9e8-6aa9-4306-930d-aba42fc1dcef",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 2127,
+      "candidatesTokenCount": 1408,
+      "totalTokenCount": 3535,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2127
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "62jBar3zEr6e2roPheqlsAQ"
+    },
+    "input_hash": "4b8baef173404638bbee2946cb6482774c7fa9f4e2256886e5bf18ae40832c31",
+    "output_hash": "14afc9b9806910412bac7c4f6bfabd0e7b046fbbb4b9ae4f31d47647f6c086df",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "request_id": "60cc725c-7eff-48ba-bccd-3f01cd7ad17b",
+    "revision": 1,
+    "clean_text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.",
+    "domains": [
+      {
+        "domain_id": "dom_context",
+        "label": "Bối cảnh sử dụng",
+        "summary": "Mục đích thiết kế trang phục cho sự kiện thời trang vào mùa hè.",
+        "related_domain_ids": [
+          "dom_structure"
+        ]
+      },
+      {
+        "domain_id": "dom_structure",
+        "label": "Cấu trúc & Kiểu dáng",
+        "summary": "Thiết kế váy liền thân nữ với các yếu tố hiện đại, gọn gàng, tiện dụng, thoải mái và dễ mặc.",
+        "related_domain_ids": [
+          "dom_context",
+          "dom_culture"
+        ]
+      },
+      {
+        "domain_id": "dom_culture",
+        "label": "Yếu tố văn hóa & Việt phục",
+        "summary": "Chủ đề kết hợp truyền thống và hiện đại, gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí.",
+        "related_domain_ids": [
+          "dom_structure"
+        ]
+      },
+      {
+        "domain_id": "dom_aesthetic",
+        "label": "Mỹ thuật & Phong cách",
+        "summary": "Định hướng thẩm mỹ sang trọng, bắt kịp xu hướng, xử lý theo hướng hiện đại.",
+        "related_domain_ids": [
+          "dom_structure",
+          "dom_culture"
+        ]
+      }
+    ],
+    "atoms": [
+      {
+        "atom_id": "atom_01",
+        "domain_ids": [
+          "dom_context",
+          "dom_structure"
+        ],
+        "meaning": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_02",
+        "domain_ids": [
+          "dom_culture"
+        ],
+        "meaning": "Chủ đề kết hợp truyền thống và hiện đại, gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí,"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_03",
+        "domain_ids": [
+          "dom_structure",
+          "dom_aesthetic"
+        ],
+        "meaning": "Xử lý các yếu tố Việt phục theo hướng hiện đại, gọn gàng và tiện dụng.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_04",
+        "domain_ids": [
+          "dom_structure",
+          "dom_aesthetic"
+        ],
+        "meaning": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      }
+    ],
+    "relations": [
+      {
+        "from_atom_id": "atom_02",
+        "to_atom_id": "atom_03",
+        "relation": "modifier",
+        "reason": "Yếu tố gợi nhắc Việt phục cần được xử lý theo định hướng hiện đại, gọn gàng và tiện dụng."
+      }
+    ],
+    "conflicts": [],
+    "coverage": [
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. "
+        },
+        "atom_ids": [
+          "atom_01",
+          "atom_02",
+          "atom_03",
+          "atom_04"
+        ],
+        "disposition": "retained",
+        "reason": "Tất cả các ý chính về bối cảnh, cấu trúc váy, yếu tố văn hóa và phong cách thẩm mỹ trong yêu cầu gốc đều được giữ trọn vẹn vào các atom."
+      }
+    ]
+  }
+}

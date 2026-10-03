@@ -1,0 +1,290 @@
+{
+  "evidence_id": "46b598a2-b6ea-43e2-b6be-8cbdc5bfc6d1",
+  "recorded_at": 1791050803.521583,
+  "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+  "attempt_id": "3fb34384-3fff-4068-8cb8-84baea900a2c",
+  "trace": {
+    "task": "VP04",
+    "phase": "design",
+    "attempt_id": "3fb34384-3fff-4068-8cb8-84baea900a2c",
+    "revision": 5,
+    "role": null,
+    "batch_id": "B2",
+    "cache_hit": false,
+    "duration_ms": 14736,
+    "provider_call_id": "12c107c5-e7eb-4d9a-a30c-f4d2486dbb0a",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 5869,
+      "candidatesTokenCount": 3201,
+      "totalTokenCount": 9070,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 5869
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "JUTBaqWVE8yy9tMPk9uU0Ao"
+    },
+    "input_hash": "833cb544d0030baac7654b50f9fba979e53f569f8058c1e5012b129ed15d0158",
+    "output_hash": "762890a27ccc8c95bed1f8dd3dc9876a3e4cce04b2b9007558cffb21956e07c4",
+    "error_code": "semantic_invalid",
+    "error_message": "Candidate R5-B2-C1, atom atom_structure_lines_qualities: prompt_quote='đảm bảo tiêu chí thoải mái, sang trọng và gọn gàng' không có nguyên văn trong image_prompt. COPY đoạn liên tục từ chính image_prompt, giữ chữ hoa/thường và dấu câu; không paraphrase",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "candidates": [
+      {
+        "candidate_id": "R5-B2-C1",
+        "batch_id": "B2",
+        "revision": 5,
+        "title": "Áo cách tân phối chân váy dài lụa mát họa tiết tranh khắc gỗ",
+        "image_prompt": "Một bộ trang phục mùa hè dành cho nữ, thiết kế kết hợp giữa truyền thống và hiện đại, mang lại cảm giác thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Trang phục gồm một chiếc áo cách tân cổ tròn gọn gàng phối cùng chân váy dài suông thanh lịch. Chất liệu vải lụa tơ tằm thoáng mát, màu sắc trang nhã, hiện đại. Phần viền cổ và tay áo được điểm xuyết họa tiết lấy cảm hứng từ tranh khắc gỗ dân gian Đông Hồ với đường nét mảng khối tinh tế, sắc nét. Đi kèm trang phục là một đôi khuyên tai tối giản. Bối cảnh chụp tại sự kiện thời trang hiện đại, ánh sáng tự nhiên dịu nhẹ, một khung hình nguyên vẹn, sắc nét, chi tiết.",
+        "design_sections": [
+          {
+            "domain_id": "dom_context",
+            "description": "Trang phục mùa hè dành cho nữ, thiết kế dự sự kiện thời trang kết hợp truyền thống và hiện đại.",
+            "related_atom_ids": [
+              "atom_context_season_gender",
+              "atom_context_event"
+            ]
+          },
+          {
+            "domain_id": "dom_structure",
+            "description": "Áo cách tân phối chân váy dài suông, đường nét thoải mái, sang trọng và gọn gàng.",
+            "related_atom_ids": [
+              "atom_structure_lines_qualities",
+              "atom_user_sel_silhouette"
+            ]
+          },
+          {
+            "domain_id": "dom_art",
+            "description": "Họa tiết viền áo và chân váy lấy cảm hứng từ đường nét mảng khối tranh khắc gỗ dân gian Đông Hồ.",
+            "related_atom_ids": [
+              "atom_user_sel_art"
+            ]
+          },
+          {
+            "domain_id": "dom_accessories",
+            "description": "Sử dụng khuyên tai tối giản, số lượng vừa đủ phù hợp với tổng thể trang phục.",
+            "related_atom_ids": [
+              "atom_accessories_quantity",
+              "atom_user_sel_acc"
+            ]
+          }
+        ],
+        "fashion_summary": "Thiết kế áo cách tân kết hợp chân váy dài suông bằng chất liệu lụa thoáng mát cho mùa hè, đảm bảo tiêu chí thoải mái, sang trọng và gọn gàng.",
+        "art_summary": "Sử dụng họa tiết cách điệu từ tranh khắc gỗ dân gian Đông Hồ với đường nét mảng khối rõ ràng ở viền áo và chân váy.",
+        "culture_summary": "Mang đậm tinh thần sáng tạo đương đại lấy cảm hứng từ di sản mỹ thuật truyền thống Việt Nam.",
+        "choices_made": [
+          "Chọn thiết kế áo phối với chân váy dài.",
+          "Chọn cảm hứng từ tranh khắc gỗ dân gian.",
+          "Chọn khuyên tai tối giản."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_context_season_gender",
+            "prompt_quote": "trang phục mùa hè dành cho nữ"
+          },
+          {
+            "atom_id": "atom_structure_lines_qualities",
+            "prompt_quote": "đảm bảo tiêu chí thoải mái, sang trọng và gọn gàng"
+          },
+          {
+            "atom_id": "atom_accessories_quantity",
+            "prompt_quote": "Đi kèm trang phục là một đôi khuyên tai tối giản."
+          },
+          {
+            "atom_id": "atom_user_sel_silhouette",
+            "prompt_quote": "Thiết kế áo cách tân phối chân váy dài suông"
+          },
+          {
+            "atom_id": "atom_user_sel_art",
+            "prompt_quote": "họa tiết lấy cảm hứng từ tranh khắc gỗ dân gian Đông Hồ"
+          },
+          {
+            "atom_id": "atom_user_sel_acc",
+            "prompt_quote": "khuyên tai tối giản"
+          }
+        ],
+        "assumptions": [
+          "Sử dụng chất liệu lụa tơ tằm giúp đảm bảo độ thoáng mát cho mùa hè."
+        ],
+        "limitations": [
+          "Chỉ mang tính chất minh họa thiết kế sáng tạo, không phải phục dựng lịch sử chính xác."
+        ]
+      },
+      {
+        "candidate_id": "R5-B2-C2",
+        "batch_id": "B2",
+        "revision": 5,
+        "title": "Áo yếm cách tân phối chân váy dài xếp ly nhẹ cảm hứng tranh Hàng Trống",
+        "image_prompt": "Một bộ trang phục mùa hè dành cho nữ, thiết kế kết hợp giữa truyền thống và hiện đại, mang lại cảm giác thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Trang phục gồm áo thiết kế dáng suông nhẹ giao lãnh cách tân phối cùng chân váy dài xếp ly mềm mại. Chất liệu đũi lụa cao cấp thoáng mát, màu sắc xu hướng thời trang hiện đại. Phần gấu áo và cạp chân váy thêu tay tinh tế họa tiết lấy cảm hứng từ đường nét mỹ thuật tranh khắc gỗ dân gian Hàng Trống. Đi kèm trang phục là khuyên tai tối giản. Bối cảnh sự kiện thời trang trong nhà, ánh sáng studio chuẩn, một khung hình nguyên vẹn, sắc nét.",
+        "design_sections": [
+          {
+            "domain_id": "dom_context",
+            "description": "Trang phục mùa hè dành cho nữ dự sự kiện thời trang giao thoa truyền thống và hiện đại.",
+            "related_atom_ids": [
+              "atom_context_season_gender",
+              "atom_context_event"
+            ]
+          },
+          {
+            "domain_id": "dom_structure",
+            "description": "Áo cách tân kết hợp chân váy dài xếp ly nhẹ, phom dáng gọn gàng, thoải mái cho mùa hè.",
+            "related_atom_ids": [
+              "atom_structure_lines_qualities",
+              "atom_user_sel_silhouette"
+            ]
+          },
+          {
+            "domain_id": "dom_art",
+            "description": "Họa tiết thêu tinh tế lấy cảm hứng từ tranh khắc gỗ dân gian Hàng Trống.",
+            "related_atom_ids": [
+              "atom_user_sel_art"
+            ]
+          },
+          {
+            "domain_id": "dom_accessories",
+            "description": "Phụ kiện khuyên tai tối giản vừa đủ cho sự kiện thời trang.",
+            "related_atom_ids": [
+              "atom_accessories_quantity",
+              "atom_user_sel_acc"
+            ]
+          }
+        ],
+        "fashion_summary": "Phom dáng áo cách tân phối chân váy dài xếp ly nhẹ, sử dụng vải đũi lụa mát mẻ, giữ sự sang trọng và gọn gàng.",
+        "art_summary": "Họa tiết điểm xuyết lấy cảm hứng từ tranh khắc gỗ dân gian Hàng Trống ở gấu áo và cạp váy.",
+        "culture_summary": "Thể hiện sự kết hợp hài hòa giữa chất liệu hiện đại và ngôn ngữ tạo hình truyền thống Việt Nam.",
+        "choices_made": [
+          "Chọn thiết kế áo phối với chân váy dài.",
+          "Chọn cảm hứng từ tranh khắc gỗ dân gian.",
+          "Chọn khuyên tai tối giản."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_context_season_gender",
+            "prompt_quote": "trang phục mùa hè dành cho nữ"
+          },
+          {
+            "atom_id": "atom_structure_lines_qualities",
+            "prompt_quote": "thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng"
+          },
+          {
+            "atom_id": "atom_accessories_quantity",
+            "prompt_quote": "Đi kèm trang phục là khuyên tai tối giản"
+          },
+          {
+            "atom_id": "atom_user_sel_silhouette",
+            "prompt_quote": "áo thiết kế dáng suông nhẹ giao lãnh cách tân phối cùng chân váy dài xếp ly mềm mại"
+          },
+          {
+            "atom_id": "atom_user_sel_art",
+            "prompt_quote": "lấy cảm hứng từ đường nét mỹ thuật tranh khắc gỗ dân gian Hàng Trống"
+          },
+          {
+            "atom_id": "atom_user_sel_acc",
+            "prompt_quote": "khuyên tai tối giản"
+          }
+        ],
+        "assumptions": [
+          "Sử dụng vải đũi lụa giúp tăng độ thoáng khí cho trang phục mùa hè."
+        ],
+        "limitations": [
+          "Thiết kế mang tính cách tân sáng tạo, không đại diện cho nguyên mẫu lịch sử cụ thể."
+        ]
+      },
+      {
+        "candidate_id": "R5-B2-C3",
+        "batch_id": "B2",
+        "revision": 5,
+        "title": "Áo dài cách tân ngắn tay phối chân váy dài suông họa tiết khắc gỗ",
+        "image_prompt": "Một bộ trang phục mùa hè dành cho nữ, thiết kế kết hợp giữa truyền thống và hiện đại, mang lại cảm giác thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Trang phục gồm áo dài cách tân tay ngắn phối cùng chân váy dài suông đứng dáng. Chất liệu vải đũi cotton thoáng mát, màu sắc nhã nhặn hợp xu hướng. Dọc thân áo và tà váy được cách điệu hoa văn dạng mảng khối tối giản lấy cảm hứng từ tranh khắc gỗ dân gian. Phụ kiện đi kèm gồm một đôi khuyên tai tối giản. Bối cảnh không gian sự kiện thời trang ngoài trời buổi chiều, ánh sáng tự nhiên rực rỡ, một khung hình nguyên vẹn, chi tiết sắc nét.",
+        "design_sections": [
+          {
+            "domain_id": "dom_context",
+            "description": "Trang phục mùa hè dành cho nữ dự sự kiện thời trang kết hợp giữa truyền thống và hiện đại.",
+            "related_atom_ids": [
+              "atom_context_season_gender",
+              "atom_context_event"
+            ]
+          },
+          {
+            "domain_id": "dom_structure",
+            "description": "Áo dài cách tân ngắn tay phối chân váy dài suông, đường nét thanh lịch, gọn gàng.",
+            "related_atom_ids": [
+              "atom_structure_lines_qualities",
+              "atom_user_sel_silhouette"
+            ]
+          },
+          {
+            "domain_id": "dom_art",
+            "description": "Hoa văn dạng mảng khối tối giản lấy cảm hứng từ tranh khắc gỗ dân gian.",
+            "related_atom_ids": [
+              "atom_user_sel_art"
+            ]
+          },
+          {
+            "domain_id": "dom_accessories",
+            "description": "Sử dụng khuyên tai tối giản vừa đủ cho sự kiện.",
+            "related_atom_ids": [
+              "atom_accessories_quantity",
+              "atom_user_sel_acc"
+            ]
+          }
+        ],
+        "fashion_summary": "Áo dài cách tân ngắn tay kết hợp chân váy dài suông bằng vải đũi cotton mát mẻ, đảm bảo tính ứng dụng cao, gọn gàng và sang trọng.",
+        "art_summary": "Họa tiết mảng khối tối giản dựa trên cảm hứng tranh khắc gỗ dân gian bố trí hài hòa dọc thân áo và chân váy.",
+        "culture_summary": "Giao thoa văn hóa truyền thống và hiện đại qua lăng kính thời trang ứng dụng.",
+        "choices_made": [
+          "Chọn thiết kế áo phối với chân váy dài.",
+          "Chọn cảm hứng từ tranh khắc gỗ dân gian.",
+          "Chọn khuyên tai tối giản."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_context_season_gender",
+            "prompt_quote": "trang phục mùa hè dành cho nữ"
+          },
+          {
+            "atom_id": "atom_structure_lines_qualities",
+            "prompt_quote": "thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng"
+          },
+          {
+            "atom_id": "atom_accessories_quantity",
+            "prompt_quote": "Phụ kiện đi kèm gồm một đôi khuyên tai tối giản"
+          },
+          {
+            "atom_id": "atom_user_sel_silhouette",
+            "prompt_quote": "áo dài cách tân tay ngắn phối cùng chân váy dài suông đứng dáng"
+          },
+          {
+            "atom_id": "atom_user_sel_art",
+            "prompt_quote": "lấy cảm hứng từ tranh khắc gỗ dân gian"
+          },
+          {
+            "atom_id": "atom_user_sel_acc",
+            "prompt_quote": "khuyên tai tối giản"
+          }
+        ],
+        "assumptions": [
+          "Sử dụng vải đũi cotton giúp trang phục đứng dáng vừa phải và thoáng mát trong mùa hè."
+        ],
+        "limitations": [
+          "Sản phẩm mang tính chất gợi ý thiết kế sáng tạo thời trang."
+        ]
+      }
+    ],
+    "limitations": []
+  }
+}

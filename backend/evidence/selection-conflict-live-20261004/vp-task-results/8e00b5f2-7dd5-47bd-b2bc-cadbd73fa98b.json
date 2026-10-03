@@ -1,0 +1,379 @@
+{
+  "evidence_id": "8e00b5f2-7dd5-47bd-b2bc-cadbd73fa98b",
+  "recorded_at": 1791060295.968766,
+  "request_id": "60cc725c-7eff-48ba-bccd-3f01cd7ad17b",
+  "attempt_id": "03c981f3-00ff-466c-96a7-b4b1ed8a0884",
+  "trace": {
+    "task": "VP04",
+    "phase": "design",
+    "attempt_id": "03c981f3-00ff-466c-96a7-b4b1ed8a0884",
+    "revision": 2,
+    "role": null,
+    "batch_id": "B2",
+    "cache_hit": false,
+    "duration_ms": 12449,
+    "provider_call_id": "371e7612-1d46-41de-b25e-6d0479984bf2",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 6405,
+      "candidatesTokenCount": 4605,
+      "totalTokenCount": 11010,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 6405
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "PGnBarfCAbTa9tMP4dqvqQQ"
+    },
+    "input_hash": "4449557ae982a5dcea6b3e746263d1c707595bd573e9512ba2f38f29d030a539",
+    "output_hash": "02d651685fedbf0b46cfa4b561a846c9529c0e9e81ae57bf50e40969bfebec8e",
+    "error_code": "semantic_invalid",
+    "error_message": "Candidate R2-B2-C1, atom atom_01: prompt_quote='Thiết kế váy liền thân nữ theo phong cách kết hợp truyền thống và hiện đại.' không có nguyên văn trong image_prompt. COPY đoạn liên tục từ chính image_prompt, giữ chữ hoa/thường và dấu câu; không paraphrase",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "candidates": [
+      {
+        "candidate_id": "R2-B2-C1",
+        "batch_id": "B2",
+        "revision": 2,
+        "title": "Váy liền thân suông nhẹ cảm hứng giao lĩnh màu đỏ trầm hạc in chìm",
+        "image_prompt": "Một khung hình chụp toàn thân chuyên nghiệp tại sự kiện thời trang mùa hè, hiển thị duy nhất một bộ thiết kế váy liền thân nữ theo phong cách kết hợp truyền thống và hiện đại. Váy có phom suông nhẹ phóng khoáng, tay áo rộng lửng lấy cảm hứng từ áo giao lĩnh với phần nẹp cổ chéo gọn gàng và tinh tế. Chất liệu chính là lụa tơ tằm tự nhiên cao cấp kết hợp lớp lót cotton bên trong đảm bảo độ kín đáo, thoải mái và dễ mặc. Bảng màu chủ đạo là đỏ trầm phối ánh vàng đồng sang trọng ở đường viền cổ và cổ tay. Họa tiết chim hạc in chìm sắc nét và tinh tế dọc theo thân váy. Trang phục đi kèm phụ kiện quạt cầm tay gấp gọn vẽ tay cầm nhẹ nhàng và thắt lưng bản nhỏ đính nút đồng thủ công tạo điểm nhấn vòng eo. Ánh sáng tự nhiên mềm mại, bối cảnh sàn diễn thời trang hiện đại tối giản.",
+        "design_sections": [
+          {
+            "domain_id": "dom_context",
+            "description": "Trang phục thiết kế riêng cho sự kiện thời trang mùa hè, đáp ứng tiêu chí hiện đại, sang trọng và tiện dụng.",
+            "related_atom_ids": [
+              "atom_01",
+              "atom_mat_1"
+            ]
+          },
+          {
+            "domain_id": "dom_structure",
+            "description": "Váy liền thân phom suông nhẹ phóng khoáng, kết hợp tay áo rộng lửng cảm hứng giao lĩnh với chi tiết xử lý viền nẹp cổ và cổ tay gọn gàng, tiện dụng, đi kèm thắt lưng bản nhỏ đính nút đồng.",
+            "related_atom_ids": [
+              "atom_01",
+              "atom_03",
+              "atom_04",
+              "atom_sil_2",
+              "atom_mat_1",
+              "atom_acc_5"
+            ]
+          },
+          {
+            "domain_id": "dom_culture",
+            "description": "Chủ đề kết hợp truyền thống và hiện đại, gợi nhắc Việt phục qua phom dáng giao lĩnh và họa tiết chim hạc in chìm.",
+            "related_atom_ids": [
+              "atom_02",
+              "atom_sil_2",
+              "atom_art_3"
+            ]
+          },
+          {
+            "domain_id": "dom_aesthetic",
+            "description": "Phong cách sang trọng, bắt kịp xu hướng với bảng màu đỏ trầm phối ánh vàng đồng, họa tiết chim hạc dọc thân váy và phụ kiện quạt cầm tay gấp gọn vẽ tay.",
+            "related_atom_ids": [
+              "atom_03",
+              "atom_04",
+              "atom_col_3",
+              "atom_art_3",
+              "atom_acc_4",
+              "atom_acc_5"
+            ]
+          }
+        ],
+        "fashion_summary": "Váy liền thân nữ mùa hè phom suông nhẹ, tay áo rộng lửng cảm hứng giao lĩnh, chất liệu lụa tơ tằm tự nhiên kết hợp lót cotton, kết hợp thắt lưng bản nhỏ đính nút đồng thủ công.",
+        "art_summary": "Bảng màu đỏ trầm phối ánh vàng đồng, họa tiết chim hạc in chìm sắc nét dọc thân váy, đi kèm quạt cầm tay gấp gọn vẽ tay.",
+        "culture_summary": "Thiết kế sáng tạo lấy cảm hứng từ Việt phục (giao lĩnh và hạc văn) kết hợp hài hòa với xu hướng thời trang hiện đại.",
+        "choices_made": [
+          "Chọn phom váy suông nhẹ với tay áo rộng lửng cảm hứng giao lĩnh.",
+          "Chọn chất liệu lụa tơ tằm tự nhiên kết hợp lót cotton.",
+          "Chọn bảng màu đỏ trầm phối ánh vàng đồng.",
+          "Chọn họa tiết chim hạc in chìm dọc thân váy.",
+          "Chọn quạt cầm tay gấp gọn vẽ tay.",
+          "Chọn thắt lưng bản nhỏ đính nút đồng."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_01",
+            "prompt_quote": "Thiết kế váy liền thân nữ theo phong cách kết hợp truyền thống và hiện đại."
+          },
+          {
+            "atom_id": "atom_02",
+            "prompt_quote": "phong cách kết hợp truyền thống và hiện đại."
+          },
+          {
+            "atom_id": "atom_03",
+            "prompt_quote": "tinh tế. Chất liệu chính là lụa tơ tằm tự nhiên cao cấp kết hợp lớp lót cotton bên trong đảm bảo độ kín đáo, thoải mái và dễ mặc."
+          },
+          {
+            "atom_id": "atom_04",
+            "prompt_quote": "đảm bảo độ kín đáo, thoải mái và dễ mặc."
+          },
+          {
+            "atom_id": "atom_sil_2",
+            "prompt_quote": "Váy có phom suông nhẹ phóng khoáng, tay áo rộng lửng lấy cảm hứng từ áo giao lĩnh với phần nẹp cổ chéo gọn gàng và tinh tế."
+          },
+          {
+            "atom_id": "atom_mat_1",
+            "prompt_quote": "Chất liệu chính là lụa tơ tằm tự nhiên cao cấp kết hợp lớp lót cotton bên trong"
+          },
+          {
+            "atom_id": "atom_col_3",
+            "prompt_quote": "Bảng màu chủ đạo là đỏ trầm phối ánh vàng đồng sang trọng ở đường viền cổ và cổ tay."
+          },
+          {
+            "atom_id": "atom_art_3",
+            "prompt_quote": "Họa tiết chim hạc in chìm sắc nét và tinh tế dọc theo thân váy."
+          },
+          {
+            "atom_id": "atom_acc_4",
+            "prompt_quote": "quạt cầm tay gấp gọn vẽ tay cầm nhẹ nhàng"
+          },
+          {
+            "atom_id": "atom_acc_5",
+            "prompt_quote": "thắt lưng bản nhỏ đính nút đồng thủ công tạo điểm nhấn vòng eo."
+          }
+        ],
+        "assumptions": [
+          "Trang phục được trưng bày trong sự kiện thời trang mùa hè dưới góc nhìn toàn thân rõ nét."
+        ],
+        "limitations": [
+          "Độ rủ của lụa tơ tằm tự nhiên có thể thay đổi nhẹ tùy thuộc vào điều kiện ánh sáng thực tế khi tạo ảnh."
+        ]
+      },
+      {
+        "candidate_id": "R2-B2-C2",
+        "batch_id": "B2",
+        "revision": 2,
+        "title": "Váy suông nhẹ hiện đại phối tay áo giao lĩnh lửng và hạc văn",
+        "image_prompt": "Một khung hình chụp toàn thân tại sàn diễn thời trang mùa hè, hiển thị duy nhất một bộ thiết kế váy liền thân nữ kết hợp giữa nét truyền thống và hiện đại. Thiết kế váy phom suông nhẹ nhàng, tay áo rộng lửng lấy cảm hứng từ áo giao lĩnh có đường nẹp cổ viền vàng đồng gọn gàng. Sử dụng chất liệu lụa tơ tằm tự nhiên thượng hạng cùng lớp lót cotton thoáng mát bên trong. Bảng màu gồm tông đỏ trầm chủ đạo kết hợp ánh vàng đồng tinh tế. Họa tiết chim hạc in chìm dọc thân váy tạo chiều sâu nghệ thuật. Đi kèm bộ phụ kiện gồm quạt cầm tay gấp gọn vẽ tay thanh nhã và thắt lưng bản nhỏ đính nút đồng làm nổi bật vòng eo. Ánh sáng studio thời trang chuyên nghiệp, góc chụp chính diện.",
+        "design_sections": [
+          {
+            "domain_id": "dom_context",
+            "description": "Sự kiện thời trang mùa hè với trang phục thiết kế hiện đại, thoải mái và tiện dụng.",
+            "related_atom_ids": [
+              "atom_01",
+              "atom_mat_1"
+            ]
+          },
+          {
+            "domain_id": "dom_structure",
+            "description": "Váy liền thân phom suông nhẹ, tay áo rộng lửng cảm hứng giao lĩnh, hoàn thiện tỉ mỉ phần đường viền nẹp cổ, kết hợp thắt lưng bản nhỏ đính nút đồng.",
+            "related_atom_ids": [
+              "atom_01",
+              "atom_03",
+              "atom_04",
+              "atom_sil_2",
+              "atom_mat_1",
+              "atom_acc_5"
+            ]
+          },
+          {
+            "domain_id": "dom_culture",
+            "description": "Kết hợp truyền thống và hiện đại qua phom dáng giao lĩnh và họa tiết hạc văn.",
+            "related_atom_ids": [
+              "atom_02",
+              "atom_sil_2",
+              "atom_art_3"
+            ]
+          },
+          {
+            "domain_id": "dom_aesthetic",
+            "description": "Thẩm mỹ sang trọng, hiện đại với sắc đỏ trầm phối ánh vàng đồng, họa tiết chim hạc in chìm và phụ kiện quạt cầm tay gấp gọn.",
+            "related_atom_ids": [
+              "atom_03",
+              "atom_04",
+              "atom_col_3",
+              "atom_art_3",
+              "atom_acc_4",
+              "atom_acc_5"
+            ]
+          }
+        ],
+        "fashion_summary": "Váy liền thân nữ mùa hè phom suông nhẹ, tay áo rộng lửng cảm hứng giao lĩnh, chất liệu lụa tơ tằm tự nhiên kết hợp lót cotton, thắt lưng bản nhỏ đính nút đồng.",
+        "art_summary": "Đỏ trầm phối ánh vàng đồng, họa tiết chim hạc in chìm dọc thân váy, phụ kiện quạt cầm tay gấp gọn vẽ tay.",
+        "culture_summary": "Ý tưởng thiết kế sáng tạo lấy cảm hứng từ Việt phục trong bối cảnh thời trang đương đại.",
+        "choices_made": [
+          "Chọn phom váy suông nhẹ với tay áo rộng lửng cảm hứng giao lĩnh.",
+          "Chọn chất liệu lụa tơ tằm tự nhiên kết hợp lót cotton.",
+          "Chọn bảng màu đỏ trầm phối ánh vàng đồng.",
+          "Chọn họa tiết chim hạc in chìm dọc thân váy.",
+          "Chọn quạt cầm tay gấp gọn vẽ tay.",
+          "Chọn thắt lưng bản nhỏ đính nút đồng."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_01",
+            "prompt_quote": "thiết kế váy liền thân nữ kết hợp giữa nét truyền thống và hiện đại."
+          },
+          {
+            "atom_id": "atom_02",
+            "prompt_quote": "kết hợp giữa nét truyền thống và hiện đại."
+          },
+          {
+            "atom_id": "atom_03",
+            "prompt_quote": "Thiết kế váy phom suông nhẹ nhàng, tay áo rộng lửng lấy cảm hứng từ áo giao lĩnh có đường nẹp cổ viền vàng đồng gọn gàng."
+          },
+          {
+            "atom_id": "atom_04",
+            "prompt_quote": "cùng lớp lót cotton thoáng mát bên trong."
+          },
+          {
+            "atom_id": "atom_sil_2",
+            "prompt_quote": "Thiết kế váy phom suông nhẹ nhàng, tay áo rộng lửng lấy cảm hứng từ áo giao lĩnh"
+          },
+          {
+            "atom_id": "atom_mat_1",
+            "prompt_quote": "Sử dụng chất liệu lụa tơ tằm tự nhiên thượng hạng cùng lớp lót cotton thoáng mát bên trong."
+          },
+          {
+            "atom_id": "atom_col_3",
+            "prompt_quote": "Bảng màu gồm tông đỏ trầm chủ đạo kết hợp ánh vàng đồng tinh tế."
+          },
+          {
+            "atom_id": "atom_art_3",
+            "prompt_quote": "Họa tiết chim hạc in chìm dọc thân váy tạo chiều sâu nghệ thuật."
+          },
+          {
+            "atom_id": "atom_acc_4",
+            "prompt_quote": "quạt cầm tay gấp gọn vẽ tay thanh nhã"
+          },
+          {
+            "atom_id": "atom_acc_5",
+            "prompt_quote": "thắt lưng bản nhỏ đính nút đồng làm nổi bật vòng eo."
+          }
+        ],
+        "assumptions": [
+          "Trang phục phù hợp cho sự kiện thời trang mùa hè, thể hiện rõ các chi tiết cấu trúc."
+        ],
+        "limitations": [
+          "Họa tiết in chìm có thể cần điều chỉnh độ tương phản màu sắc tùy thuộc vào công nghệ tạo ảnh."
+        ]
+      },
+      {
+        "candidate_id": "R2-B2-C3",
+        "batch_id": "B2",
+        "revision": 2,
+        "title": "Váy liền thân mùa hè cảm hứng giao lĩnh lụa tơ tằm đỏ trầm",
+        "image_prompt": "Một khung hình duy nhất chụp toàn thân bộ trang phục váy liền thân nữ dành cho sự kiện thời trang mùa hè theo chủ đề kết hợp truyền thống và hiện đại. Váy có phom suông nhẹ phóng khoáng, tay áo rộng lửng mang đậm cảm hứng giao lĩnh với phần cổ áo cắt gọn gàng, tiện dụng. Chất liệu lụa tơ tằm tự nhiên kết hợp lót cotton mềm mại, thoáng mát. Bảng màu đỏ trầm sang trọng kết hợp điểm nhấn ánh vàng đồng tinh xảo. Họa tiết chim hạc in chìm dọc thân váy sắc nét. Trang phục đi kèm quạt cầm tay gấp gọn vẽ tay nghệ thuật và thắt lưng bản nhỏ đính nút đồng thủ công. Ánh sáng tự nhiên rực rỡ, không gian sự kiện thời trang tối giản, hiện đại.",
+        "design_sections": [
+          {
+            "domain_id": "dom_context",
+            "description": "Trang phục sự kiện thời trang mùa hè với tính ứng dụng cao.",
+            "related_atom_ids": [
+              "atom_01",
+              "atom_mat_1"
+            ]
+          },
+          {
+            "domain_id": "dom_structure",
+            "description": "Váy liền thân phom suông nhẹ, tay áo rộng lửng cảm hứng giao lĩnh, thiết kế gọn gàng, thoải mái kết hợp thắt lưng bản nhỏ đính nút đồng.",
+            "related_atom_ids": [
+              "atom_01",
+              "atom_03",
+              "atom_04",
+              "atom_sil_2",
+              "atom_mat_1",
+              "atom_acc_5"
+            ]
+          },
+          {
+            "domain_id": "dom_culture",
+            "description": "Gợi nhắc Việt phục qua phom dáng áo giao lĩnh và họa tiết hạc văn trong chủ đề giao thoa truyền thống - hiện đại.",
+            "related_atom_ids": [
+              "atom_02",
+              "atom_sil_2",
+              "atom_art_3"
+            ]
+          },
+          {
+            "domain_id": "dom_aesthetic",
+            "description": "Định hướng thẩm mỹ sang trọng, bắt kịp xu hướng với bảng màu đỏ trầm ánh vàng đồng, họa tiết hạc in chìm và phụ kiện quạt cầm tay.",
+            "related_atom_ids": [
+              "atom_03",
+              "atom_04",
+              "atom_col_3",
+              "atom_art_3",
+              "atom_acc_4",
+              "atom_acc_5"
+            ]
+          }
+        ],
+        "fashion_summary": "Váy liền thân nữ mùa hè phom suông nhẹ, tay áo rộng lửng cảm hứng giao lĩnh, lụa tơ tằm tự nhiên kết hợp lót cotton, thắt lưng bản nhỏ đính nút đồng.",
+        "art_summary": "Đỏ trầm phối ánh vàng đồng, họa tiết chim hạc in chìm dọc thân váy, quạt cầm tay gấp gọn vẽ tay.",
+        "culture_summary": "Thiết kế sáng tạo lấy cảm hứng từ Việt phục với đường nét hiện đại, gọn gàng.",
+        "choices_made": [
+          "Chọn phom váy suông nhẹ với tay áo rộng lửng cảm hứng giao lĩnh.",
+          "Chọn chất liệu lụa tơ tằm tự nhiên kết hợp lót cotton.",
+          "Chọn bảng màu đỏ trầm phối ánh vàng đồng.",
+          "Chọn họa tiết chim hạc in chìm dọc thân váy.",
+          "Chọn quạt cầm tay gấp gọn vẽ tay.",
+          "Chọn thắt lưng bản nhỏ đính nút đồng."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_01",
+            "prompt_quote": "trang phục váy liền thân nữ dành cho sự kiện thời trang mùa hè theo chủ đề kết hợp truyền thống và hiện đại."
+          },
+          {
+            "atom_id": "atom_02",
+            "prompt_quote": "theo chủ đề kết hợp truyền thống và hiện đại."
+          },
+          {
+            "atom_id": "atom_03",
+            "prompt_quote": "Váy có phom suông nhẹ phóng khoáng, tay áo rộng lửng mang đậm cảm hứng giao lĩnh với phần cổ áo cắt gọn gàng, tiện dụng."
+          },
+          {
+            "atom_id": "atom_04",
+            "prompt_quote": "Chất liệu lụa tơ tằm tự nhiên kết hợp lót cotton mềm mại, thoáng mát."
+          },
+          {
+            "atom_id": "atom_sil_2",
+            "prompt_quote": "Váy có phom suông nhẹ phóng khoáng, tay áo rộng lửng mang đậm cảm hứng giao lĩnh"
+          },
+          {
+            "atom_id": "atom_mat_1",
+            "prompt_quote": "Chất liệu lụa tơ tằm tự nhiên kết hợp lót cotton mềm mại, thoáng mát."
+          },
+          {
+            "atom_id": "atom_col_3",
+            "prompt_quote": "Bảng màu đỏ trầm sang trọng kết hợp điểm nhấn ánh vàng đồng tinh xảo."
+          },
+          {
+            "atom_id": "atom_art_3",
+            "prompt_quote": "Họa tiết chim hạc in chìm dọc thân váy sắc nét."
+          },
+          {
+            "atom_id": "atom_acc_4",
+            "prompt_quote": "quạt cầm tay gấp gọn vẽ tay nghệ thuật"
+          },
+          {
+            "atom_id": "atom_acc_5",
+            "prompt_quote": "thắt lưng bản nhỏ đính nút đồng thủ công."
+          }
+        ],
+        "assumptions": [
+          "Bố cục khung hình tập trung hoàn toàn vào một bộ trang phục duy nhất trong không gian sự kiện."
+        ],
+        "limitations": [
+          "Sự kết hợp giữa lụa tơ tằm và lớp lót cotton cần đảm bảo độ mỏng nhẹ phù hợp cho mùa hè."
+        ]
+      }
+    ],
+    "limitations": [
+      "Không gian sáng tạo tập trung vào việc tinh chỉnh chi tiết đường may và hoàn thiện viền nẹp trong khuôn khổ phom suông nhẹ và tay áo giao lĩnh đã chọn."
+    ]
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "evidence_id": "879ee030-cc71-42a6-b465-114145f12054",
+  "recorded_at": 1791038882.4133341,
+  "request_id": "d8338bb7-d9d1-40d1-b746-687aaf25c50b",
+  "attempt_id": "affdec6a-da7c-4008-b234-913120960498",
+  "trace": {
+    "task": "VP04",
+    "phase": "design",
+    "attempt_id": "affdec6a-da7c-4008-b234-913120960498",
+    "revision": 4,
+    "role": null,
+    "batch_id": "B3",
+    "cache_hit": false,
+    "duration_ms": 10014,
+    "provider_call_id": "4034c469-1c48-4bec-a295-9d0101574116",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 5520,
+      "candidatesTokenCount": 3246,
+      "totalTokenCount": 8766,
+      "cachedContentTokenCount": 3182,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 5520
+        }
+      ],
+      "cacheTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 3182
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "mBXBapvyOpva9tMPvIOb0Q4"
+    },
+    "input_hash": "96c6684618a80c3bf29d1be35a6c0b8fdce7bf2e8fa4eee89d3e8f9df4b89af2",
+    "output_hash": "afa64ae6e5c7dde17f00a407f3fe1e307fa66c443f77cf02005c2894583eef6f",
+    "error_code": "semantic_invalid",
+    "error_message": "Coverage quote không có trong image_prompt",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "candidates": [
+      {
+        "candidate_id": "R4-B3-C1",
+        "batch_id": "B3",
+        "revision": 4,
+        "title": "Áo dài tân thời xanh ngọc nhạt suông nhẹ, thêu chìm hoa sen tối giản",
+        "image_prompt": "Một bức ảnh chụp thời trang chất lượng cao hiển thị bộ áo dài tân thời hiện đại dành cho nữ. Bộ trang phục có phom dáng suông nhẹ, kín đáo, thanh lịch và mang lại cảm giác nhẹ nhàng, dễ đi lại. Chất liệu vải là lụa mềm cao cấp, bề mặt có độ bóng mờ tự nhiên. Màu sắc chủ đạo là xanh ngọc nhạt trơn. Trên thân áo có chi tiết thêu chìm tối giản hình hoa sen mờ nhẹ ở một bên ngực và tà áo. Thiết kế hoàn toàn không có nhiều phụ kiện rườm rà và không giống váy cô dâu. Bối cảnh không gian buổi chiều nhẹ nhàng, ánh sáng tự nhiên dịu mát.",
+        "design_sections": [
+          {
+            "domain_id": "domain_style",
+            "description": "Phom áo dài tân thời dáng suông nhẹ, thanh lịch, kín đáo, nhẹ nhàng, giúp dễ đi lại; hoàn toàn tránh các phụ kiện rườm rà và không giống váy cô dâu.",
+            "related_atom_ids": [
+              "atom_garment_type",
+              "atom_silhouette_qualities",
+              "atom_style_choice",
+              "atom_avoid_accessories_and_bridal"
+            ]
+          },
+          {
+            "domain_id": "domain_aesthetics",
+            "description": "Màu xanh ngọc nhạt trơn làm chủ đạo, kết hợp họa tiết thêu chìm hoa sen tối giản tinh tế.",
+            "related_atom_ids": [
+              "atom_color",
+              "atom_motifs_optional",
+              "atom_aesthetics_choice"
+            ]
+          },
+          {
+            "domain_id": "domain_history",
+            "description": "Không áp dụng phục dựng trang phục lịch sử, giữ tinh thần hiện đại.",
+            "related_atom_ids": [
+              "atom_no_historical_reconstruction"
+            ]
+          },
+          {
+            "domain_id": "domain_presentation",
+            "description": "Sử dụng chất liệu lụa mềm cao cấp theo đề xuất của AI và cung cấp hình ảnh minh họa trực quan.",
+            "related_atom_ids": [
+              "atom_ai_delegation",
+              "atom_material_choice",
+              "atom_want_visuals"
+            ]
+          }
+        ],
+        "fashion_summary": "Thiết kế áo dài tân thời với phom dáng suông nhẹ, mang lại sự thoải mái, thanh lịch và dễ di chuyển, sử dụng chất liệu lụa mềm cao cấp.",
+        "art_summary": "Sử dụng gam màu xanh ngọc nhạt trơn kết hợp hoa văn thêu chìm tối giản họa tiết hoa sen ở vị trí tinh tế.",
+        "culture_summary": "Thiết kế mang tính ứng dụng cao trong đời sống hiện đại, không mang tính chất phục dựng lịch sử.",
+        "choices_made": [
+          "Sử dụng phom áo dài tân thời dáng suông nhẹ.",
+          "Chọn chất liệu lụa mềm cao cấp.",
+          "Màu xanh ngọc nhạt trơn kết hợp thêu chìm họa tiết hoa sen tối giản."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_garment_type",
+            "prompt_quote": "bộ áo dài tân thời hiện đại"
+          },
+          {
+            "atom_id": "atom_silhouette_qualities",
+            "prompt_quote": "phom dáng suông nhẹ, kín đáo, thanh lịch và mang lại cảm giác nhẹ nhàng, dễ đi lại"
+          },
+          {
+            "atom_id": "atom_no_historical_reconstruction",
+            "prompt_quote": "không mang tính chất phục dựng lịch sử"
+          },
+          {
+            "atom_id": "atom_avoid_accessories_and_bridal",
+            "prompt_quote": "không có nhiều phụ kiện rườm rà và không giống váy cô dâu"
+          },
+          {
+            "atom_id": "atom_style_choice",
+            "prompt_quote": "phom áo dài tân thời dáng suông nhẹ, thanh lịch và dễ đi lại"
+          },
+          {
+            "atom_id": "atom_aesthetics_choice",
+            "prompt_quote": "màu xanh ngọc nhạt trơn với hoa văn thêu chìm tối giản"
+          }
+        ],
+        "assumptions": [
+          "Áo dài được thiết kế cho sự kiện đi dự đám cưới vào buổi chiều."
+        ],
+        "limitations": [
+          "Sử dụng AI tạo ảnh mô phỏng, màu sắc thực tế có thể chênh lệch nhẹ theo chất liệu vải lụa."
+        ]
+      },
+      {
+        "candidate_id": "R4-B3-C2",
+        "batch_id": "B3",
+        "revision": 4,
+        "title": "Áo dài tân thời xanh ngọc nhạt voan tơ, nét gợi mây tối giản",
+        "image_prompt": "Một bức ảnh chụp thời trang minh họa bộ áo dài tân thời hiện đại cho nữ. Trang phục có phom dáng suông nhẹ, kín đáo, thanh lịch, nhẹ nhàng và thoải mái khi đi lại. Chất liệu vải voan tơ nhẹ bay bổng. Màu sắc là xanh ngọc nhạt trơn. Họa tiết thêu chìm tối giản lấy cảm hứng từ những nét gợi mây mờ ảo chạy dọc nhẹ theo thân áo. Không sử dụng nhiều phụ kiện và không giống váy cô dâu. Khung cảnh buổi chiều với ánh sáng tự nhiên.",
+        "design_sections": [
+          {
+            "domain_id": "domain_style",
+            "description": "Phom áo dài tân thời dáng suông nhẹ, thanh lịch, kín đáo, nhẹ nhàng, thuận tiện di chuyển; không dùng nhiều phụ kiện và tránh giống váy cô dâu.",
+            "related_atom_ids": [
+              "atom_garment_type",
+              "atom_silhouette_qualities",
+              "atom_style_choice",
+              "atom_avoid_accessories_and_bridal"
+            ]
+          },
+          {
+            "domain_id": "domain_aesthetics",
+            "description": "Màu xanh ngọc nhạt trơn kết hợp hoa văn thêu chìm tối giản với nét gợi mây.",
+            "related_atom_ids": [
+              "atom_color",
+              "atom_motifs_optional",
+              "atom_aesthetics_choice"
+            ]
+          },
+          {
+            "domain_id": "domain_history",
+            "description": "Không phục dựng trang phục lịch sử.",
+            "related_atom_ids": [
+              "atom_no_historical_reconstruction"
+            ]
+          },
+          {
+            "domain_id": "domain_presentation",
+            "description": "Đề xuất sử dụng chất liệu voan tơ nhẹ và hiển thị hình ảnh trực quan.",
+            "related_atom_ids": [
+              "atom_ai_delegation",
+              "atom_material_choice",
+              "atom_want_visuals"
+            ]
+          }
+        ],
+        "fashion_summary": "Áo dài tân thời dáng suông nhẹ kết hợp chất liệu voan tơ nhẹ bay bổng, đáp ứng tiêu chí thanh lịch và thoải mái.",
+        "art_summary": "Sử dụng màu xanh ngọc nhạt trơn với các đường nét gợi mây thêu chìm tối giản tạo điểm nhấn nhẹ nhàng.",
+        "culture_summary": "Thiết kế hiện đại không mang định hướng phục dựng lịch sử.",
+        "choices_made": [
+          "Sử dụng phom áo dài tân thời dáng suông nhẹ.",
+          "Chọn chất liệu voan tơ nhẹ.",
+          "Màu xanh ngọc nhạt trơn kết hợp thêu chìm họa tiết nét gợi mây tối giản."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_garment_type",
+            "prompt_quote": "bộ áo dài tân thời hiện đại"
+          },
+          {
+            "atom_id": "atom_silhouette_qualities",
+            "prompt_quote": "phom dáng suông nhẹ, kín đáo, thanh lịch, nhẹ nhàng và thoải mái khi đi lại"
+          },
+          {
+            "atom_id": "atom_no_historical_reconstruction",
+            "prompt_quote": "Không phục dựng trang phục lịch sử"
+          },
+          {
+            "atom_id": "atom_avoid_accessories_and_bridal",
+            "prompt_quote": "Không sử dụng nhiều phụ kiện và không giống váy cô dâu"
+          },
+          {
+            "atom_id": "atom_style_choice",
+            "prompt_quote": "phom áo dài tân thời dáng suông nhẹ, thanh lịch và dễ đi lại"
+          },
+          {
+            "atom_id": "atom_aesthetics_choice",
+            "prompt_quote": "màu xanh ngọc nhạt trơn với hoa văn thêu chìm tối giản"
+          }
+        ],
+        "assumptions": [
+          "Phù hợp mặc đi dự đám cưới bạn vào buổi chiều."
+        ],
+        "limitations": [
+          "Độ rủ của chất liệu voan tơ có thể thay đổi nhẹ tùy theo thực tế gia công."
+        ]
+      },
+      {
+        "candidate_id": "R4-B3-C3",
+        "batch_id": "B3",
+        "revision": 4,
+        "title": "Áo dài tân thời xanh ngọc nhạt lụa nhẹ, kết hợp hoa sen và nét gợi mây",
+        "image_prompt": "Ảnh chụp thời trang hiển thị thiết kế áo dài tân thời hiện đại dành cho nữ. Kiểu dáng suông nhẹ, thanh lịch, kín đáo, mang lại cảm giác nhẹ nhàng và dễ đi lại. Chất liệu vải lụa mềm mịn. Màu sắc xanh ngọc nhạt trơn. Họa tiết thêu chìm tối giản kết hợp hài hòa giữa hoa sen nhỏ và nét mây mờ ảo. Không có phụ kiện phức tạp, không giống váy cô dâu. Bối cảnh buổi chiều với ánh sáng tự nhiên mềm mại.",
+        "design_sections": [
+          {
+            "domain_id": "domain_style",
+            "description": "Phom áo dài tân thời dáng suông nhẹ, thanh lịch, kín đáo, dễ đi lại; hạn chế phụ kiện và tránh nhầm lẫn với váy cô dâu.",
+            "related_atom_ids": [
+              "atom_garment_type",
+              "atom_silhouette_qualities",
+              "atom_style_choice",
+              "atom_avoid_accessories_and_bridal"
+            ]
+          },
+          {
+            "domain_id": "domain_aesthetics",
+            "description": "Màu xanh ngọc nhạt trơn cùng hoa văn thêu chìm tối giản kết hợp hoa sen và nét mây.",
+            "related_atom_ids": [
+              "atom_color",
+              "atom_motifs_optional",
+              "atom_aesthetics_choice"
+            ]
+          },
+          {
+            "domain_id": "domain_history",
+            "description": "Không yêu cầu phục dựng trang phục lịch sử.",
+            "related_atom_ids": [
+              "atom_no_historical_reconstruction"
+            ]
+          },
+          {
+            "domain_id": "domain_presentation",
+            "description": "Đề xuất chất liệu lụa mềm và cung cấp hình ảnh minh họa dễ lựa chọn.",
+            "related_atom_ids": [
+              "atom_ai_delegation",
+              "atom_material_choice",
+              "atom_want_visuals"
+            ]
+          }
+        ],
+        "fashion_summary": "Áo dài tân thời dáng suông nhẹ kết hợp chất liệu lụa mềm, mang lại sự thoải mái, thanh lịch cho người mặc.",
+        "art_summary": "Màu xanh ngọc nhạt trơn tinh tế kết hợp hoa văn thêu chìm tối giản hình hoa sen và nét mây.",
+        "culture_summary": "Thiết kế hiện đại mang tính ứng dụng cao, không theo đuổi việc phục dựng trang phục lịch sử.",
+        "choices_made": [
+          "Sử dụng phom áo dài tân thời dáng suông nhẹ.",
+          "Chọn chất liệu lụa mềm.",
+          "Màu xanh ngọc nhạt trơn với thêu chìm tối giản kết hợp hoa sen và nét mây."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_garment_type",
+            "prompt_quote": "thiết kế áo dài tân thời hiện đại"
+          },
+          {
+            "atom_id": "atom_silhouette_qualities",
+            "prompt_quote": "Kiểu dáng suông nhẹ, thanh lịch, kín đáo, mang lại cảm giác nhẹ nhàng và dễ đi lại"
+          },
+          {
+            "atom_id": "atom_no_historical_reconstruction",
+            "prompt_quote": "Không yêu cầu phục dựng trang phục lịch sử"
+          },
+          {
+            "atom_id": "atom_avoid_accessories_and_bridal",
+            "prompt_quote": "Không có phụ kiện phức tạp, không giống váy cô dâu"
+          },
+          {
+            "atom_id": "atom_style_choice",
+            "prompt_quote": "phom áo dài tân thời dáng suông nhẹ, thanh lịch và dễ đi lại"
+          },
+          {
+            "atom_id": "atom_aesthetics_choice",
+            "prompt_quote": "màu xanh ngọc nhạt trơn với hoa văn thêu chìm tối giản"
+          }
+        ],
+        "assumptions": [
+          "Mặc đi dự đám cưới bạn vào buổi chiều."
+        ],
+        "limitations": [
+          "Hình ảnh là bản mô phỏng trực quan từ AI, cần đối chiếu khi may thực tế."
+        ]
+      }
+    ],
+    "limitations": [
+      "Các phương án đề xuất dựa trên mô phỏng ý tưởng trực quan bằng AI, chưa qua sản xuất thực tế."
+    ]
+  }
+}

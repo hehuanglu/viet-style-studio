@@ -1,0 +1,38 @@
+{
+  "evidence_id": "a5b85457-1dec-4138-91ab-6738e06fbfbb",
+  "recorded_at": 1791056787.027262,
+  "model": "gemini-3.5-flash-lite",
+  "call_id": "2115fbba-3537-4e61-9a8e-f02d5b9daddc",
+  "request_hash": "83bc64525dacaf876a6502f27f54b7ed54f81a65ba5c2d1e6491a0bdeee8a5dd",
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"request_id\": \"3fe58d0c-1d31-4e81-b942-c894d552b524\",\n  \"revision\": 1,\n  \"clean_text\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.\",\n  \"domains\": [\n    {\n      \"domain_id\": \"dom_context\",\n      \"label\": \"Bối cảnh và Chủ đề\",\n      \"summary\": \"Thông tin về sự kiện thời trang mùa hè và chủ đề kết hợp truyền thống - hiện đại.\",\n      \"related_domain_ids\": [\"dom_structure\", \"dom_style\"]\n    },\n    {\n      \"domain_id\": \"dom_structure\",\n      \"label\": \"Cấu trúc Trang phục\",\n      \"summary\": \"Kiểu dáng váy liền thân nữ với yêu cầu thoải mái, dễ mặc, tiện dụng.\",\n      \"related_domain_ids\": [\"dom_context\", \"dom_style\"]\n    },\n    {\n      \"domain_id\": \"dom_structure_viet_phuc\",\n      \"label\": \"Yếu tố Việt phục và Hiện đại\",\n      \"summary\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí theo hướng hiện đại, gọn gàng.\",\n      \"related_domain_ids\": [\"dom_structure\", \"dom_style\"]\n    },\n    {\n      \"domain_id\": \"dom_style\",\n      \"label\": \"Phong cách và Thẩm mỹ\",\n      \"summary\": \"Vẻ ngoài sang trọng, bắt kịp xu hướng thời trang.\",\n      \"related_domain_ids\": [\"dom_context\", \"dom_structure\"]\n    }\n  ],\n  \"atoms\": [\n    {\n      \"atom_id\": \"atm_1\",\n      \"domain_ids\": [\"dom_context\"],\n      \"meaning\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\",\n      \"intent_type\": \"must\",\n      \"polarity\": \"positive\",\n      \"source_refs\": [\n        {\n          \"turn_id\": \"T1\",\n          \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"\n        }\n      ],\n      \"resolution\": \"explicit\",\n      \"supersedes_atom_ids\": []\n    },\n    {\n      \"atom_id\": \"atm_2\",\n      \"domain_ids\": [\"dom_structure_viet_phuc\"],\n      \"meaning\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\",\n      \"intent_type\": \"preference\",\n      \"polarity\": \"positive\",\n      \"source_refs\": [\n        {\n          \"turn_id\": \"T1\",\n          \"quote\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\"\n        }\n      ],\n      \"resolution\": \"explicit\",\n      \"supersedes_atom_ids\": []\n    },\n    {\n      \"atom_id\": \"atm_3\",\n      \"domain_ids\": [\"dom_structure\", \"dom_style\"],\n      \"meaning\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.\",\n      \"intent_type\": \"preference\",\n      \"polarity\": \"positive\",\n      \"source_refs\": [\n        {\n          \"turn_id\": \"T1\",\n          \"quote\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.\"\n        }\n      ],\n      \"resolution\": \"explicit\",\n      \"supersedes_atom_ids\": []\n    }\n  ],\n  \"relations\": [\n    {\n      \"from_atom_id\": \"atm_1\",\n      \"to_atom_id\": \"atm_2\",\n      \"relation\": \"context_for\",\n      \"reason\": \"Chủ đề sự kiện kết hợp truyền thống và hiện đại định hướng cho cách xử lý yếu tố Việt phục hiện đại.\"\n    },\n    {\n      \"from_atom_id\": \"atm_2\",\n      \"to_atom_id\": \"atm_3\",\n      \"relation\": \"complementary\",\n      \"reason\": \"Yếu tố gợi nhắc Việt phục hiện đại kết hợp với tiêu chí thoải mái, sang trọng tạo nên tổng thể thiết kế váy.\"\n    }\n  ],\n  \"conflicts\": [],\n  \"coverage\": [\n    {\n      \"source_ref\": {\n        \"turn_id\": \"T1\",\n        \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"\n      },\n      \"atom_ids\": [\"atm_1\"],\n      \"disposition\": \"retained\",\n      \"reason\": \"Đã ghi nhận đầy đủ yêu cầu về loại trang phục, mùa, dịp sự kiện và chủ đề.\"\n    },\n    {\n      \"source_ref\": {\n        \"turn_id\": \"T1\",\n        \"quote\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\"\n      },\n      \"atom_ids\": [\"atm_2\"],\n      \"disposition\": \"retained\",\n      \"reason\": \"Đã giữ lại toàn bộ ý định kết hợp yếu tố Việt phục qua các chi tiết và cách xử lý hiện đại.\"\n    },\n    {\n      \"source_ref\": {\n        \"turn_id\": \"T1\",\n        \"quote\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.\"\n      },\n      \"atom_ids\": [\"atm_3\"],\n      \"disposition\": \"retained\",\n      \"reason\": \"Đã ghi nhận các tiêu chí về độ thoải mái, tính tiện dụng và phong cách sang trọng, hợp xu hướng.\"\n    }\n  ]\n}",
+              "thoughtSignature": "EmAKXgFpFH0TE7IZxEqQv0yskhbqc6gfFv17HpNw6/EiWYEF2KnC/1ZoTuhksk474mNNeyg7vL6JOV6dyrnS1ixDV1yl+1Jz3sDkL7IDJIFPWySBbHFSnfLzzBadGFaViKI="
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 2134,
+      "candidatesTokenCount": 1498,
+      "totalTokenCount": 3632,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2134
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "j1vBas2YBfr92roPo6nIkQM"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "evidence_id": "a988475a-20cb-4ba3-89f3-447d02460be3",
+  "recorded_at": 1791040577.187722,
+  "model": "gemini-3.5-flash-lite",
+  "call_id": "3c05381a-466e-4c7f-afff-137ab967cacd",
+  "request_hash": "f061d3de975bf681a546841ff746cba6d615f672f3f5aa144e01e7d1d8c3264d",
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"audits\": [\n    {\n      \"artifact_id\": \"23e014bd-ca51-4492-a2dc-b262814fb398\",\n      \"findings\": [\n        {\n          \"finding_id\": \"f_visible_user_constraints_1\",\n          \"gate_id\": \"visible_user_constraints\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Chủ thể nữ mặc áo dài xanh ngọc nhạt tân thời dáng suông nhẹ, bối cảnh tiệc cưới buổi chiều.\",\n          \"reason\": \"Hình ảnh thể hiện đầy đủ chủ thể, màu sắc, phom dáng và bối cảnh theo yêu cầu người dùng.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_visible_invariants_1\",\n          \"gate_id\": \"visible_invariants\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Giữ đúng áo dài tân thời màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, không phục dựng lịch sử.\",\n          \"reason\": \"Các tiêu chí cố định và không phục dựng lịch sử đều được bảo đảm.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_major_visual_defects_1\",\n          \"gate_id\": \"major_visual_defects\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Ảnh sắc nét, bố cục ba khung hình rõ ràng, không có lỗi biến dạng lớn.\",\n          \"reason\": \"Chất lượng hình ảnh đạt yêu cầu thị giác, không phát hiện lỗi tạo hình nghiêm trọng.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_edit_preservation_1\",\n          \"gate_id\": \"edit_preservation\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"fail\",\n          \"evidence\": \"Túi cầm tay màu be vẫn còn xuất hiện ở cả ba khung hình trên ảnh đầu ra.\",\n          \"reason\": \"Yêu cầu chỉnh sửa bỏ chiếc túi cầm tay màu be chưa được thực hiện, ảnh giữ nguyên chi tiết cũ.\",\n          \"minimal_fix\": \"Xóa chiếc túi cầm tay màu be và điều chỉnh bàn tay ở trạng thái tự nhiên.\"\n        }\n      ],\n      \"visual_quality\": 3,\n      \"quality_reason\": \"Hình ảnh có chất lượng thẩm mỹ và chi tiết tốt, nhưng chưa thực hiện đúng yêu cầu chỉnh sửa loại bỏ túi xách.\"\n    }\n  ]\n}",
+              "thoughtSignature": "EmAKXgFpFH0TGCSt/9IaS3adlg4v+BWBmShTyMcJuMJ2SlubpLtuhAi2wsm+PneV2CKRl2R7zIsH0fIxjqDWtCDVZweRZmZGOy+QzrWxOegQ8osfHsp4fCSvk5kLUyagGJU="
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 14433,
+      "candidatesTokenCount": 752,
+      "totalTokenCount": 15185,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 12273
+        },
+        {
+          "modality": "IMAGE",
+          "tokenCount": 2160
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "PBzBavixGpLAvr0PxrTXiQI"
+  }
+}

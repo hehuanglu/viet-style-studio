@@ -1,0 +1,73 @@
+{
+  "evidence_id": "3b24ccb1-8b46-43eb-85ec-de26c691b71e",
+  "recorded_at": 1791059391.2672808,
+  "request_id": "1e8d2acd-4e15-40a3-9ccc-f40ed1f95f8b",
+  "attempt_id": "d493bff1-08b8-451b-97c4-36aae6021481",
+  "trace": {
+    "task": "VP02C",
+    "phase": "design",
+    "attempt_id": "d493bff1-08b8-451b-97c4-36aae6021481",
+    "revision": 2,
+    "role": null,
+    "batch_id": null,
+    "cache_hit": false,
+    "duration_ms": 2661,
+    "provider_call_id": "6eadd125-f06e-43e4-a43a-7550ec974e58",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 9921,
+      "candidatesTokenCount": 492,
+      "totalTokenCount": 10413,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 9921
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "vWXBat3TC_yB2roPxo-2sAY"
+    },
+    "input_hash": "3a0b1f3de58878814404f01a7659ea8ded688d4c3d804cd70079ecc3412a11de",
+    "output_hash": "5a0eaa584546dfc150bb127820c5b53340b432bafd069db0470edea7ed9ebcf8",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "request_id": "1e8d2acd-4e15-40a3-9ccc-f40ed1f95f8b",
+    "revision": 2,
+    "form_id": "d8f15430-1679-48f8-9d55-64ed6cf5c2a6",
+    "status": "conflict",
+    "conflicts": [
+      {
+        "conflict_id": "conflict_cowl_neck_contradiction",
+        "severity": "severe",
+        "summary": "Mâu thuẫn nghiêm trọng về thiết kế cổ áo: cùng một cổ áo của cùng một lớp váy vừa phải kín cao che toàn bộ cổ, vừa phải khoét chữ V sâu xuống ngực mà không dùng lớp phủ hoặc cổ tháo rời.",
+        "reason": "Về mặt kỹ thuật cắt may và hình khối trang phục, cùng một chi tiết cổ áo trên một lớp váy duy nhất không thể vừa kín cao che toàn bộ cổ lại vừa khoét chữ V sâu xuống ngực cùng lúc mà không mâu thuẫn trực tiếp.",
+        "same_feature": "Cổ áo của cùng một lớp váy.",
+        "evidence": [
+          {
+            "kind": "custom",
+            "group_id": "group_culture_viet_elements",
+            "option_id": "",
+            "atom_id": "",
+            "quote": "cổ kín cao che toàn bộ cổ"
+          },
+          {
+            "kind": "custom",
+            "group_id": "group_culture_viet_elements",
+            "option_id": "",
+            "atom_id": "",
+            "quote": "khoét chữ V sâu xuống ngực"
+          }
+        ],
+        "suggested_fix": "Điều chỉnh lại yêu cầu về cổ áo trong phần tùy chỉnh (custom_text) để chọn một kiểu dáng duy nhất hoặc phân định rõ ràng các lớp áo khác nhau."
+      }
+    ],
+    "summary": "Phát hiện 1 mâu thuẫn nghiêm trọng (severe) trực tiếp trên cùng một chi tiết cổ áo tại phần tùy chỉnh (custom_text)."
+  }
+}

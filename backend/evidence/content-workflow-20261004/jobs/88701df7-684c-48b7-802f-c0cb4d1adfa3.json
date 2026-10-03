@@ -1,0 +1,872 @@
+{
+  "evidence_id": "88701df7-684c-48b7-802f-c0cb4d1adfa3",
+  "recorded_at": 1791052801.29779,
+  "event": "failed",
+  "job": {
+    "request_id": "e15b574f-31cf-4e52-811b-93f5f2f96d2c",
+    "session_id": "content-workflow-20261004",
+    "workflow_version": 2,
+    "revision": 1,
+    "status": "failed",
+    "provider": "gemini",
+    "creative_level": "explore",
+    "scoring_profile": "creative",
+    "image_mode": "api",
+    "audit_mode": "api",
+    "render_image": true,
+    "reference_mode": "gemini_web",
+    "raw_prompt": "Thiết kế bộ trang phục nữ mùa hè để tham dự một sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại. Lấy cảm hứng từ Việt phục truyền thống, kết hợp áo dáng gọn với chân váy dài, phom thoải mái và dễ ứng dụng trong đời sống. Tạo vẻ sang trọng, thanh lịch và hợp xu hướng mà không làm mất đi nét Việt. Khai thác màu sắc, họa tiết và đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc. Phối chất liệu nhẹ, thoáng, phù hợp mùa hè. Hoàn thiện trang phục với một hoặc hai phụ kiện phù hợp như khuyên tai, vòng cổ, mũ hoặc túi xách; tránh dùng quá nhiều phụ kiện.",
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Thiết kế bộ trang phục nữ mùa hè để tham dự một sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại. Lấy cảm hứng từ Việt phục truyền thống, kết hợp áo dáng gọn với chân váy dài, phom thoải mái và dễ ứng dụng trong đời sống. Tạo vẻ sang trọng, thanh lịch và hợp xu hướng mà không làm mất đi nét Việt. Khai thác màu sắc, họa tiết và đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc. Phối chất liệu nhẹ, thoáng, phù hợp mùa hè. Hoàn thiện trang phục với một hoặc hai phụ kiện phù hợp như khuyên tai, vòng cổ, mũ hoặc túi xách; tránh dùng quá nhiều phụ kiện."
+      }
+    ],
+    "brief": null,
+    "questions": [],
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "image_prompts": [],
+    "error": {
+      "code": "google_http_429",
+      "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. "
+    },
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "cleaning",
+        "brief_revision": 1,
+        "timestamp": 1791052793.538759
+      },
+      {
+        "sequence": 2,
+        "stage": "designing_checklist",
+        "brief_revision": 1,
+        "timestamp": 1791052800.9671512
+      },
+      {
+        "sequence": 3,
+        "stage": "failed",
+        "brief_revision": 1,
+        "timestamp": 1791052801.297763
+      }
+    ],
+    "trace": [
+      {
+        "task": "VP01",
+        "phase": "design",
+        "attempt_id": "3069d0d8-b366-4a3f-83b9-2eda8b764281",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 7416,
+        "provider_call_id": "75cc0e59-d810-42e1-bb68-f02deb383af3",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 2271,
+          "candidatesTokenCount": 2783,
+          "totalTokenCount": 5054,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2271
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "-kvBatq0B5zY9tMP-9zl-Q0"
+        },
+        "input_hash": "f40173b0e551c0a4a3339c2efca1a3fb96ed62f7724b2013404ac2dfeec14ebd",
+        "output_hash": "4f5d6ec9c0578b35bc3d02807baef756e1d2e0b8e62402d7c4c39fc9995d5f62",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP02",
+        "phase": "design",
+        "attempt_id": "51a865f9-2763-49ad-aa6a-9ce89e923277",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 323,
+        "provider_call_id": "403fd993-92ec-447e-8186-01ee9c1bc349",
+        "provider_called": true,
+        "usage": {},
+        "tool_metadata": {},
+        "input_hash": "c1fb2f37beaea61fee7c6c3a7b7cf9eb0fa51dfdb3b931f956589cc1be071b11",
+        "output_hash": null,
+        "error_code": "google_http_429",
+        "error_message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      }
+    ],
+    "workflow_steps": [
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP01",
+          "phase": "design",
+          "attempt_id": "3069d0d8-b366-4a3f-83b9-2eda8b764281",
+          "revision": 1,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 7416,
+          "provider_call_id": "75cc0e59-d810-42e1-bb68-f02deb383af3",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 2271,
+            "candidatesTokenCount": 2783,
+            "totalTokenCount": 5054,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2271
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "-kvBatq0B5zY9tMP-9zl-Q0"
+          },
+          "input_hash": "f40173b0e551c0a4a3339c2efca1a3fb96ed62f7724b2013404ac2dfeec14ebd",
+          "output_hash": "4f5d6ec9c0578b35bc3d02807baef756e1d2e0b8e62402d7c4c39fc9995d5f62",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP02",
+          "phase": "design",
+          "attempt_id": "51a865f9-2763-49ad-aa6a-9ce89e923277",
+          "revision": 1,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 323,
+          "provider_call_id": "403fd993-92ec-447e-8186-01ee9c1bc349",
+          "provider_called": true,
+          "usage": {},
+          "tool_metadata": {},
+          "input_hash": "c1fb2f37beaea61fee7c6c3a7b7cf9eb0fa51dfdb3b931f956589cc1be071b11",
+          "output_hash": null,
+          "error_code": "google_http_429",
+          "error_message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "app",
+        "purpose": "Dừng vì lỗi",
+        "detail": ""
+      }
+    ],
+    "created_at": 1791052793.5324109,
+    "budget_config": {
+      "design": {
+        "total_provider_calls_max": 26,
+        "active_processing_deadline_seconds": 240,
+        "retry_per_task_max": 1
+      },
+      "media": {
+        "total_provider_calls_max": 13,
+        "active_processing_deadline_seconds": 90
+      }
+    },
+    "clean_prompt": {
+      "request_id": "e15b574f-31cf-4e52-811b-93f5f2f96d2c",
+      "revision": 1,
+      "clean_text": "Thiết kế bộ trang phục nữ mùa hè để tham dự một sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại. Lấy cảm hứng từ Việt phục truyền thống, kết hợp áo dáng gọn với chân váy dài, phom thoải mái và dễ ứng dụng trong đời sống. Tạo vẻ sang trọng, thanh lịch và hợp xu hướng mà không làm mất đi nét Việt. Khai thác màu sắc, họa tiết và đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc. Phối chất liệu nhẹ, thoáng, phù hợp mùa hè. Hoàn thiện trang phục với một hoặc hai phụ kiện phù hợp như khuyên tai, vòng cổ, mũ hoặc túi xách; tránh dùng quá nhiều phụ kiện.",
+      "domains": [
+        {
+          "domain_id": "d_context",
+          "label": "Bối cảnh & Mục đích",
+          "summary": "Mô tả bối cảnh sử dụng trang phục là sự kiện thời trang mang chủ đề giao thoa giữa truyền thống và hiện đại, dành cho nữ vào mùa hè.",
+          "related_domain_ids": [
+            "d_structure",
+            "d_culture"
+          ]
+        },
+        {
+          "domain_id": "d_structure",
+          "label": "Cấu trúc & Phom dáng",
+          "summary": "Yêu cầu kết hợp áo dáng gọn và chân váy dài, phom thoải mái, dễ ứng dụng, mang vẻ sang trọng, thanh lịch và hợp xu hướng.",
+          "related_domain_ids": [
+            "d_context",
+            "d_material"
+          ]
+        },
+        {
+          "domain_id": "d_culture",
+          "label": "Văn hóa & Mỹ thuật",
+          "summary": "Lấy cảm hứng từ Việt phục truyền thống, khai thác màu sắc, họa tiết, đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc mà vẫn giữ nét Việt.",
+          "related_domain_ids": [
+            "d_context",
+            "d_structure"
+          ]
+        },
+        {
+          "domain_id": "d_material",
+          "label": "Chất liệu",
+          "summary": "Sử dụng chất liệu nhẹ, thoáng, phù hợp cho thời tiết mùa hè.",
+          "related_domain_ids": [
+            "d_structure"
+          ]
+        },
+        {
+          "domain_id": "d_accessory",
+          "label": "Phụ kiện",
+          "summary": "Hoàn thiện với 1-2 phụ kiện như khuyên tai, vòng cổ, mũ hoặc túi xách; tránh dùng quá nhiều phụ kiện.",
+          "related_domain_ids": [
+            "d_structure"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_context_1",
+          "domain_ids": [
+            "d_context"
+          ],
+          "meaning": "Trang phục dành cho nữ mặc vào mùa hè để tham dự sự kiện thời trang.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Thiết kế bộ trang phục nữ mùa hè để tham dự một sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_context_2",
+          "domain_ids": [
+            "d_context"
+          ],
+          "meaning": "Sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Thiết kế bộ trang phục nữ mùa hè để tham dự một sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_culture_1",
+          "domain_ids": [
+            "d_culture"
+          ],
+          "meaning": "Lấy cảm hứng từ Việt phục truyền thống và giữ nét Việt.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Lấy cảm hứng từ Việt phục truyền thống"
+            },
+            {
+              "turn_id": "T1",
+              "quote": "mà không làm mất đi nét Việt."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_structure_1",
+          "domain_ids": [
+            "d_structure"
+          ],
+          "meaning": "Kết hợp áo dáng gọn với chân váy dài, phom thoải mái và dễ ứng dụng trong đời sống.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "kết hợp áo dáng gọn với chân váy dài, phom thoải mái và dễ ứng dụng trong đời sống."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_structure_2",
+          "domain_ids": [
+            "d_structure"
+          ],
+          "meaning": "Tạo vẻ sang trọng, thanh lịch và hợp xu hướng.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Tạo vẻ sang trọng, thanh lịch và hợp xu hướng"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_culture_2",
+          "domain_ids": [
+            "d_culture"
+          ],
+          "meaning": "Khai thác màu sắc, họa tiết và đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Khai thác màu sắc, họa tiết và đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_material_1",
+          "domain_ids": [
+            "d_material"
+          ],
+          "meaning": "Phối chất liệu nhẹ, thoáng, phù hợp mùa hè.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Phối chất liệu nhẹ, thoáng, phù hợp mùa hè."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_accessory_1",
+          "domain_ids": [
+            "d_accessory"
+          ],
+          "meaning": "Hoàn thiện trang phục với một hoặc hai phụ kiện phù hợp như khuyên tai, vòng cổ, mũ hoặc túi xách.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Hoàn thiện trang phục với một hoặc hai phụ kiện phù hợp như khuyên tai, vòng cổ, mũ hoặc túi xách;"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_accessory_2",
+          "domain_ids": [
+            "d_accessory"
+          ],
+          "meaning": "Tránh dùng quá nhiều phụ kiện.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "tránh dùng quá nhiều phụ kiện."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "relations": [
+        {
+          "from_atom_id": "atom_culture_1",
+          "to_atom_id": "atom_culture_2",
+          "relation": "complement",
+          "reason": "Cùng định hướng khai thác yếu tố truyền thống và mỹ thuật Việt Nam cho trang phục."
+        },
+        {
+          "from_atom_id": "atom_accessory_1",
+          "to_atom_id": "atom_accessory_2",
+          "relation": "constraint",
+          "reason": "Quy định số lượng phụ kiện vừa phải và giới hạn không được dùng quá nhiều."
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Thiết kế bộ trang phục nữ mùa hè để tham dự một sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại."
+          },
+          "atom_ids": [
+            "atom_context_1",
+            "atom_context_2"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận đầy đủ bối cảnh, đối tượng, thời gian và chủ đề sự kiện."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Lấy cảm hứng từ Việt phục truyền thống, kết hợp áo dáng gọn với chân váy dài, phom thoải mái và dễ ứng dụng trong đời sống. Tạo vẻ sang trọng, thanh lịch và hợp xu hướng mà không làm mất đi nét Việt."
+          },
+          "atom_ids": [
+            "atom_culture_1",
+            "atom_structure_1",
+            "atom_structure_2"
+          ],
+          "disposition": "retained",
+          "reason": "Đã phân rã các yêu cầu về cảm hứng Việt phục, cấu trúc áo dáng gọn - chân váy dài và phong cách."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Khai thác màu sắc, họa tiết và đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc."
+          },
+          "atom_ids": [
+            "atom_culture_2"
+          ],
+          "disposition": "retained",
+          "reason": "Đã lưu ý ý định khai thác mỹ thuật truyền thống."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Phối chất liệu nhẹ, thoáng, phù hợp mùa hè."
+          },
+          "atom_ids": [
+            "atom_material_1"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận yêu cầu về chất liệu mùa hè."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Hoàn thiện trang phục với một hoặc hai phụ kiện phù hợp như khuyên tai, vòng cổ, mũ hoặc túi xách; tránh dùng quá nhiều phụ kiện."
+          },
+          "atom_ids": [
+            "atom_accessory_1",
+            "atom_accessory_2"
+          ],
+          "disposition": "retained",
+          "reason": "Đã lưu giữ cả hướng dẫn chọn phụ kiện và điều cấm tránh dùng quá nhiều."
+        }
+      ]
+    },
+    "checklist": null,
+    "resolved_brief": null,
+    "choices": null,
+    "references": [],
+    "reference_metadata": [],
+    "checkpoints": {
+      "0f6fc22b901a756b895da08bc8083b2b58f8b8c385407777e91723bddbb2b32d": {
+        "task": "VP01",
+        "value": {
+          "request_id": "e15b574f-31cf-4e52-811b-93f5f2f96d2c",
+          "revision": 1,
+          "clean_text": "Thiết kế bộ trang phục nữ mùa hè để tham dự một sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại. Lấy cảm hứng từ Việt phục truyền thống, kết hợp áo dáng gọn với chân váy dài, phom thoải mái và dễ ứng dụng trong đời sống. Tạo vẻ sang trọng, thanh lịch và hợp xu hướng mà không làm mất đi nét Việt. Khai thác màu sắc, họa tiết và đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc. Phối chất liệu nhẹ, thoáng, phù hợp mùa hè. Hoàn thiện trang phục với một hoặc hai phụ kiện phù hợp như khuyên tai, vòng cổ, mũ hoặc túi xách; tránh dùng quá nhiều phụ kiện.",
+          "domains": [
+            {
+              "domain_id": "d_context",
+              "label": "Bối cảnh & Mục đích",
+              "summary": "Mô tả bối cảnh sử dụng trang phục là sự kiện thời trang mang chủ đề giao thoa giữa truyền thống và hiện đại, dành cho nữ vào mùa hè.",
+              "related_domain_ids": [
+                "d_structure",
+                "d_culture"
+              ]
+            },
+            {
+              "domain_id": "d_structure",
+              "label": "Cấu trúc & Phom dáng",
+              "summary": "Yêu cầu kết hợp áo dáng gọn và chân váy dài, phom thoải mái, dễ ứng dụng, mang vẻ sang trọng, thanh lịch và hợp xu hướng.",
+              "related_domain_ids": [
+                "d_context",
+                "d_material"
+              ]
+            },
+            {
+              "domain_id": "d_culture",
+              "label": "Văn hóa & Mỹ thuật",
+              "summary": "Lấy cảm hứng từ Việt phục truyền thống, khai thác màu sắc, họa tiết, đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc mà vẫn giữ nét Việt.",
+              "related_domain_ids": [
+                "d_context",
+                "d_structure"
+              ]
+            },
+            {
+              "domain_id": "d_material",
+              "label": "Chất liệu",
+              "summary": "Sử dụng chất liệu nhẹ, thoáng, phù hợp cho thời tiết mùa hè.",
+              "related_domain_ids": [
+                "d_structure"
+              ]
+            },
+            {
+              "domain_id": "d_accessory",
+              "label": "Phụ kiện",
+              "summary": "Hoàn thiện với 1-2 phụ kiện như khuyên tai, vòng cổ, mũ hoặc túi xách; tránh dùng quá nhiều phụ kiện.",
+              "related_domain_ids": [
+                "d_structure"
+              ]
+            }
+          ],
+          "atoms": [
+            {
+              "atom_id": "atom_context_1",
+              "domain_ids": [
+                "d_context"
+              ],
+              "meaning": "Trang phục dành cho nữ mặc vào mùa hè để tham dự sự kiện thời trang.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Thiết kế bộ trang phục nữ mùa hè để tham dự một sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_context_2",
+              "domain_ids": [
+                "d_context"
+              ],
+              "meaning": "Sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Thiết kế bộ trang phục nữ mùa hè để tham dự một sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_culture_1",
+              "domain_ids": [
+                "d_culture"
+              ],
+              "meaning": "Lấy cảm hứng từ Việt phục truyền thống và giữ nét Việt.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Lấy cảm hứng từ Việt phục truyền thống"
+                },
+                {
+                  "turn_id": "T1",
+                  "quote": "mà không làm mất đi nét Việt."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_structure_1",
+              "domain_ids": [
+                "d_structure"
+              ],
+              "meaning": "Kết hợp áo dáng gọn với chân váy dài, phom thoải mái và dễ ứng dụng trong đời sống.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "kết hợp áo dáng gọn với chân váy dài, phom thoải mái và dễ ứng dụng trong đời sống."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_structure_2",
+              "domain_ids": [
+                "d_structure"
+              ],
+              "meaning": "Tạo vẻ sang trọng, thanh lịch và hợp xu hướng.",
+              "intent_type": "preference",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Tạo vẻ sang trọng, thanh lịch và hợp xu hướng"
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_culture_2",
+              "domain_ids": [
+                "d_culture"
+              ],
+              "meaning": "Khai thác màu sắc, họa tiết và đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc.",
+              "intent_type": "preference",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Khai thác màu sắc, họa tiết và đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_material_1",
+              "domain_ids": [
+                "d_material"
+              ],
+              "meaning": "Phối chất liệu nhẹ, thoáng, phù hợp mùa hè.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Phối chất liệu nhẹ, thoáng, phù hợp mùa hè."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_accessory_1",
+              "domain_ids": [
+                "d_accessory"
+              ],
+              "meaning": "Hoàn thiện trang phục với một hoặc hai phụ kiện phù hợp như khuyên tai, vòng cổ, mũ hoặc túi xách.",
+              "intent_type": "preference",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Hoàn thiện trang phục với một hoặc hai phụ kiện phù hợp như khuyên tai, vòng cổ, mũ hoặc túi xách;"
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_accessory_2",
+              "domain_ids": [
+                "d_accessory"
+              ],
+              "meaning": "Tránh dùng quá nhiều phụ kiện.",
+              "intent_type": "avoid",
+              "polarity": "negative",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "tránh dùng quá nhiều phụ kiện."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            }
+          ],
+          "relations": [
+            {
+              "from_atom_id": "atom_culture_1",
+              "to_atom_id": "atom_culture_2",
+              "relation": "complement",
+              "reason": "Cùng định hướng khai thác yếu tố truyền thống và mỹ thuật Việt Nam cho trang phục."
+            },
+            {
+              "from_atom_id": "atom_accessory_1",
+              "to_atom_id": "atom_accessory_2",
+              "relation": "constraint",
+              "reason": "Quy định số lượng phụ kiện vừa phải và giới hạn không được dùng quá nhiều."
+            }
+          ],
+          "conflicts": [],
+          "coverage": [
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Thiết kế bộ trang phục nữ mùa hè để tham dự một sự kiện thời trang có chủ đề giao thoa giữa truyền thống và hiện đại."
+              },
+              "atom_ids": [
+                "atom_context_1",
+                "atom_context_2"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận đầy đủ bối cảnh, đối tượng, thời gian và chủ đề sự kiện."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Lấy cảm hứng từ Việt phục truyền thống, kết hợp áo dáng gọn với chân váy dài, phom thoải mái và dễ ứng dụng trong đời sống. Tạo vẻ sang trọng, thanh lịch và hợp xu hướng mà không làm mất đi nét Việt."
+              },
+              "atom_ids": [
+                "atom_culture_1",
+                "atom_structure_1",
+                "atom_structure_2"
+              ],
+              "disposition": "retained",
+              "reason": "Đã phân rã các yêu cầu về cảm hứng Việt phục, cấu trúc áo dáng gọn - chân váy dài và phong cách."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Khai thác màu sắc, họa tiết và đường nét từ mỹ thuật hội họa truyền thống Việt Nam một cách tinh tế, có chọn lọc."
+              },
+              "atom_ids": [
+                "atom_culture_2"
+              ],
+              "disposition": "retained",
+              "reason": "Đã lưu ý ý định khai thác mỹ thuật truyền thống."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Phối chất liệu nhẹ, thoáng, phù hợp mùa hè."
+              },
+              "atom_ids": [
+                "atom_material_1"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận yêu cầu về chất liệu mùa hè."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Hoàn thiện trang phục với một hoặc hai phụ kiện phù hợp như khuyên tai, vòng cổ, mũ hoặc túi xách; tránh dùng quá nhiều phụ kiện."
+              },
+              "atom_ids": [
+                "atom_accessory_1",
+                "atom_accessory_2"
+              ],
+              "disposition": "retained",
+              "reason": "Đã lưu giữ cả hướng dẫn chọn phụ kiện và điều cấm tránh dùng quá nhiều."
+            }
+          ]
+        },
+        "metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "-kvBatq0B5zY9tMP-9zl-Q0"
+        },
+        "usage": {
+          "promptTokenCount": 2271,
+          "candidatesTokenCount": 2783,
+          "totalTokenCount": 5054,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2271
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      }
+    },
+    "call_records": {
+      "3069d0d8-b366-4a3f-83b9-2eda8b764281": {
+        "task_key": "0f6fc22b901a756b895da08bc8083b2b58f8b8c385407777e91723bddbb2b32d",
+        "task": "VP01",
+        "stage": "cleaning",
+        "role": null,
+        "revision": 1,
+        "batch_id": null,
+        "status": "complete",
+        "started_at": 1791052793.546166,
+        "timeout_seconds": 40,
+        "provider_call_id": "75cc0e59-d810-42e1-bb68-f02deb383af3",
+        "finished_at": 1791052800.96216
+      },
+      "51a865f9-2763-49ad-aa6a-9ce89e923277": {
+        "task_key": "2ab7aa7b4e4c4fdf864d87b1b3bcaeec505e40db1d50babd6edc0e1491819291",
+        "task": "VP02",
+        "stage": "designing_checklist",
+        "role": null,
+        "revision": 1,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791052800.972916,
+        "timeout_seconds": 60,
+        "provider_call_id": "403fd993-92ec-447e-8186-01ee9c1bc349",
+        "finished_at": 1791052801.295508
+      }
+    },
+    "selection_receipts": {},
+    "generation_batches": {},
+    "prompt_pool": [],
+    "specialist_audits": {},
+    "harmony_audits": {},
+    "supplemental_batches": 0,
+    "checklist_round": 0,
+    "metrics": {
+      "provider_calls": 2,
+      "actual_api_calls": 2,
+      "cache_hits": 0,
+      "active_seconds": 7.759,
+      "design": {
+        "attempts": 2,
+        "actual_api_calls": 2,
+        "active_seconds": 7.759,
+        "search_queries_reported": 0
+      },
+      "media": {
+        "attempts": 0,
+        "actual_api_calls": 0,
+        "active_seconds": 0.0
+      },
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null,
+      "manual_image_prompts": 0,
+      "manual_images_received": 0,
+      "manual_audit_prompts": 0,
+      "manual_audits_received": 0
+    },
+    "manifest": {
+      "kit_hash": "e2f44f44b91cc71d7b5c21f89cc6d58d24fb73f7fd2222635cadd5eaa0674da9",
+      "vp_hash": "b60c6693188f32173bc1237d6fbfa5da0d2b26edf16f31f69dd77c8f66077067",
+      "template_version": "9f1702a178eabf2a9072d6e6eb6758eaab18ae8db86eaeb2e6d02d68b4e913a8",
+      "schema_version": "viet-phuc-2.0.0",
+      "rubric_version": "vp-rubric-2.1.0",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image",
+      "pack_hash": "5eefbd3c6bef7b07444cbad8f51d2e535b0a032dbc05d962bbf232185855ee38"
+    },
+    "server_images_enabled": true,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "design_clock": {
+      "started_at": 1791052793.536261,
+      "checkpoint_at": 1791052801.295681,
+      "base": 0.0
+    },
+    "next_form_id": "c64a3fa5-3753-401f-9798-9e8af984259c",
+    "failed_stage": "designing_checklist"
+  }
+}

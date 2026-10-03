@@ -1,0 +1,811 @@
+{
+  "evidence_id": "57a2c11e-1ca0-4aae-8f29-dd34add03c24",
+  "recorded_at": 1791054793.866915,
+  "request_id": "09607fb7-4676-497e-ac4c-005583da6bdb",
+  "attempt_id": "d59b7e51-2ef6-4ab6-9cec-a28b7e178ae1",
+  "trace": {
+    "task": "VP02",
+    "phase": "design",
+    "attempt_id": "d59b7e51-2ef6-4ab6-9cec-a28b7e178ae1",
+    "revision": 1,
+    "role": null,
+    "batch_id": null,
+    "cache_hit": false,
+    "duration_ms": 25116,
+    "provider_call_id": "e953100d-6de9-47d9-a44c-a29278f519a8",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 4632,
+      "candidatesTokenCount": 8941,
+      "totalTokenCount": 13573,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4632
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "sVPBareEE-Xv1e8PqLiP2A8"
+    },
+    "input_hash": "580e096a4998ae96db2a4afac5da48921466f05559b2473fb256febe4148edb0",
+    "output_hash": "f4441aa7bb4662591aa4721a3b950f0390c9c8597ddb3feb0eb6804dac564dc6",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "request_id": "09607fb7-4676-497e-ac4c-005583da6bdb",
+    "revision": 1,
+    "clean_prompt": {
+      "request_id": "09607fb7-4676-497e-ac4c-005583da6bdb",
+      "revision": 1,
+      "clean_text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.",
+      "domains": [
+        {
+          "domain_id": "domain_context",
+          "label": "Bối cảnh & Mục đích",
+          "summary": "Yêu cầu về bối cảnh sử dụng trang phục là sự kiện thời trang mùa hè với chủ đề kết hợp truyền thống và hiện đại.",
+          "related_domain_ids": [
+            "domain_structure",
+            "domain_aesthetics"
+          ]
+        },
+        {
+          "domain_id": "domain_structure",
+          "label": "Cấu trúc & Phom dáng",
+          "summary": "Thiết kế váy liền thân nữ, có sự gợi nhắc nét Việt qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí được xử lý hiện đại, gọn gàng và tiện dụng.",
+          "related_domain_ids": [
+            "domain_context",
+            "domain_aesthetics"
+          ]
+        },
+        {
+          "domain_id": "domain_aesthetics",
+          "label": "Mỹ thuật & Trải nghiệm",
+          "summary": "Yêu cầu trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng, bắt kịp xu hướng và mang tính kết hợp giữa truyền thống với hiện đại.",
+          "related_domain_ids": [
+            "domain_context",
+            "domain_structure"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_01",
+          "domain_ids": [
+            "domain_context"
+          ],
+          "meaning": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_02",
+          "domain_ids": [
+            "domain_context",
+            "domain_aesthetics"
+          ],
+          "meaning": "Chủ đề thiết kế kết hợp giữa truyền thống và hiện đại.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "với chủ đề kết hợp truyền thống và hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_03",
+          "domain_ids": [
+            "domain_structure"
+          ],
+          "meaning": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, xử lý theo hướng hiện đại, gọn gàng và tiện dụng.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_04",
+          "domain_ids": [
+            "domain_aesthetics"
+          ],
+          "meaning": "Váy cần thoải mái, dễ mặc, toát lên vẻ sang trọng và bắt kịp xu hướng.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "relations": [
+        {
+          "from_atom_id": "atom_01",
+          "to_atom_id": "atom_02",
+          "relation": "context_theme",
+          "reason": "Sự kiện thời trang gắn liền với chủ đề kết hợp truyền thống và hiện đại."
+        },
+        {
+          "from_atom_id": "atom_03",
+          "to_atom_id": "atom_04",
+          "relation": "design_execution",
+          "reason": "Cách xử lý hiện đại, gọn gàng, tiện dụng của chi tiết Việt phục hỗ trợ cho tiêu chí thoải mái, dễ mặc và sang trọng."
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. "
+          },
+          "atom_ids": [
+            "atom_01",
+            "atom_02",
+            "atom_03",
+            "atom_04"
+          ],
+          "disposition": "retained",
+          "reason": "Đã bảo lưu toàn bộ các ý định về bối cảnh, chủ đề, cách gợi nhắc Việt phục hiện đại và các tiêu chí thẩm mỹ, công năng của trang phục."
+        }
+      ]
+    },
+    "form_id": "8efcdf39-d9d8-4205-9e60-099bb17a7742",
+    "groups": [
+      {
+        "group_id": "group_viet_phuc_elements",
+        "domain_ids": [
+          "domain_structure"
+        ],
+        "label": "Đặc điểm gợi nhắc Việt phục",
+        "question": "Bạn muốn phần nào trên váy liền thân thể hiện rõ nét cảm hứng từ Việt phục truyền thống?",
+        "why_it_matters": "Giúp định hướng điểm nhấn đặc trưng trên trang phục để đảm bảo sự cân đối giữa yếu tố di sản và tính hiện đại, gọn gàng.",
+        "status": "needs_choice",
+        "selection_mode": "multiple",
+        "min": 1,
+        "max": 3,
+        "related_atom_ids": [
+          "atom_03"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_vp_collar",
+            "label": "Cổ áo cách điệu từ cổ áo dài/giao lĩnh",
+            "description": "Sử dụng đường cong hoặc nếp gấp cổ truyền thống được thu gọn, xử lý tinh tế cho váy liền.",
+            "decision_text": "Chọn điểm nhấn ở cổ áo mang hơi hướng Việt phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [
+              "opt_vp_sleeve",
+              "opt_vp_trim"
+            ],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_vp_sleeve",
+            "label": "Tay áo lấy cảm hứng từ tay áo thụng/áo dài",
+            "description": "Thiết kế tay lỡ suông nhẹ hoặc tay giác lăng gọn gàng, gợi nhắc đường nét trang phục cổ.",
+            "decision_text": "Chọn điểm nhấn ở tay áo mang hơi hướng Việt phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [
+              "opt_vp_collar",
+              "opt_vp_silhouette"
+            ],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_vp_silhouette",
+            "label": "Phom dáng tổng thể chiết eo ôm nhẹ kết hợp tà giả",
+            "description": "Phom váy liền thân có đường cắt xẻ hoặc vạt chéo nhẹ nhàng gợi nhắc cấu trúc vạt áo truyền thống.",
+            "decision_text": "Chọn phom dáng váy liền thân mang hơi hướng Việt phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [
+              "opt_vp_sleeve",
+              "opt_vp_trim"
+            ],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_vp_trim",
+            "label": "Chi tiết trang trí khuy tết nút vải hoặc viền nẹp",
+            "description": "Sử dụng hàng khuy tết thủ công hoặc đường viền nẹp dọc thân váy theo phong cách cổ điển tối giản.",
+            "decision_text": "Chọn chi tiết trang trí khuy nút hoặc viền nẹp mang hơi hướng Việt phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [
+              "opt_vp_collar",
+              "opt_vp_silhouette"
+            ],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_vp_pattern",
+            "label": "Hoa văn cảm hứng cung đình hoặc dân gian tối giản",
+            "description": "Đưa họa tiết mây, sóng nước hoặc hoa sen cách điệu in/thêu chìm tinh tế trên bề mặt vải.",
+            "decision_text": "Chọn hoa văn cảm hứng truyền thống cho bề mặt váy.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [
+              "opt_vp_collar",
+              "opt_vp_sleeve"
+            ],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_vp",
+            "label": "Để AI tự quyết định chi tiết gợi nhắc Việt phục",
+            "description": "AI sẽ phối hợp các chi tiết phom dáng và cổ/tay áo sao cho hiện đại và phù hợp nhất với sự kiện thời trang.",
+            "decision_text": "Để AI tự quyết định đặc điểm gợi nhắc Việt phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": [
+              "opt_vp_collar",
+              "opt_vp_sleeve",
+              "opt_vp_silhouette",
+              "opt_vp_trim",
+              "opt_vp_pattern"
+            ]
+          }
+        ],
+        "allows_custom": true
+      },
+      {
+        "group_id": "group_fabric_and_material",
+        "domain_ids": [
+          "domain_aesthetics",
+          "domain_structure"
+        ],
+        "label": "Chất liệu và tổ hợp vải mùa hè",
+        "question": "Bạn ưu tiên tổ hợp chất liệu nào cho chiếc váy liền thân mùa hè này để đảm bảo độ thoải mái, sang trọng và đứng phom?",
+        "why_it_matters": "Thời tiết mùa hè đòi hỏi chất liệu thoáng mát, thấm hút nhưng vẫn cần giữ được độ rủ hoặc đứng phom để toát lên nét sang trọng.",
+        "status": "needs_choice",
+        "selection_mode": "single",
+        "min": 1,
+        "max": 1,
+        "related_atom_ids": [
+          "atom_04"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_mat_linen_silk",
+            "label": "Linen pha lụa cao cấp",
+            "description": "Kết hợp độ thoáng mát, mộc mạc của linen với độ óng ả, mềm mại của lụa, tạo cảm giác sang trọng và thoải mái.",
+            "decision_text": "Chọn chất liệu linen pha lụa.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_mat_organza_cotton",
+            "label": "Organza tơ tằm kết hợp lót cotton",
+            "description": "Tạo hiệu ứng phom dáng bồng bềnh nhẹ nhàng bên ngoài, lớp lót cotton thấm hút mồ hôi tốt bên trong.",
+            "decision_text": "Chọn chất liệu organza tơ tằm kết hợp lót cotton.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_mat_smooth_taffeta",
+            "label": "Taffeta đũi mỏng nhẹ",
+            "description": "Chất liệu có độ đứng phom vừa phải giúp tôn dáng váy liền thân nhưng vẫn thoáng nhẹ cho mùa hè.",
+            "decision_text": "Chọn chất liệu taffeta đũi mỏng nhẹ.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_mat_satin_matte",
+            "label": "Satin mờ lụa tổng hợp cao cấp",
+            "description": "Bề mặt láng mịn, bắt sáng nhẹ nhàng, mang lại vẻ hiện đại, sắc sảo và rất phù hợp cho sự kiện thời trang.",
+            "decision_text": "Chọn chất liệu satin mờ lụa tổng hợp.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_mat_crepe_silk",
+            "label": "Crepe lụa cát thoáng khí",
+            "description": "Chất vải có độ co giãn nhẹ, rủ tự nhiên, không nhăn nhiều, đem lại sự thoải mái tối đa khi di chuyển.",
+            "decision_text": "Chọn chất liệu crepe lụa cát.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_mat",
+            "label": "Để AI tự quyết định chất liệu",
+            "description": "AI sẽ chọn tổ hợp vải tối ưu nhất cho thiết kế váy mùa hè kết hợp truyền thống và hiện đại.",
+            "decision_text": "Để AI tự quyết định chất liệu trang phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": [
+              "opt_mat_linen_silk",
+              "opt_mat_organza_cotton",
+              "opt_mat_smooth_taffeta",
+              "opt_mat_satin_matte",
+              "opt_mat_crepe_silk"
+            ]
+          }
+        ],
+        "allows_custom": true
+      },
+      {
+        "group_id": "group_color_palette",
+        "domain_ids": [
+          "domain_aesthetics"
+        ],
+        "label": "Bảng màu chủ đạo",
+        "question": "Bạn muốn định hướng bảng màu nào cho thiết kế váy liền thân sự kiện thời trang?",
+        "why_it_matters": "Màu sắc quyết định tinh thần hiện đại, sang trọng và khả năng bắt kịp xu hướng thời trang.",
+        "status": "needs_choice",
+        "selection_mode": "single",
+        "min": 1,
+        "max": 1,
+        "related_atom_ids": [
+          "atom_02",
+          "atom_04"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_col_earth_neutrals",
+            "label": "Nhóm màu trung tính ấm (Be, ngà, nâu nhạt)",
+            "description": "Mang lại cảm giác thanh lịch, nhã nhặn, dễ phối hợp phụ kiện và tôn da trong không gian sự kiện.",
+            "decision_text": "Chọn bảng màu trung tính ấm.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_col_royal_jade",
+            "label": "Nhóm màu ngọc bích và xanh trầm",
+            "description": "Lấy cảm hứng từ sắc phục hoàng gia hoặc gốm sứ truyền thống, tạo vẻ đẹp huyền ảo, sang trọng.",
+            "decision_text": "Chọn bảng màu xanh ngọc bích và xanh trầm.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_col_lotus_pastel",
+            "label": "Nhóm màu pastel hoài niệm (Hồng sen nhạt, xanh bạc hà)",
+            "description": "Sắc độ nhẹ nhàng, tươi mới cho mùa hè, gợi nhắc hình ảnh thiên nhiên Việt Nam một cách hiện đại.",
+            "decision_text": "Chọn bảng màu pastel hoài niệm.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_col_monochrome_contrast",
+            "label": "Tông đơn sắc đối lập tinh tế (Trắng ngà và đen tuyền)",
+            "description": "Phong cách tối giản hiện đại (Minimalism), làm nổi bật đường nét cắt may và chi tiết gợi nhắc Việt phục.",
+            "decision_text": "Chọn bảng màu đơn sắc đối lập tinh tế.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_col_warm_sunset",
+            "label": "Nhóm màu hoàng hôn ấm (Đỏ gạch trầm, vàng nghệ nhạt)",
+            "description": "Tạo ấn tượng thị giác mạnh mẽ, nổi bật trên thảm đỏ sự kiện thời trang nhưng vẫn giữ nét hoài cổ.",
+            "decision_text": "Chọn bảng màu hoàng hôn ấm.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_col",
+            "label": "Để AI tự quyết định bảng màu",
+            "description": "AI sẽ chọn bảng màu phù hợp nhất với chủ đề kết hợp truyền thống - hiện đại và chất liệu váy.",
+            "decision_text": "Để AI tự quyết định bảng màu trang phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": [
+              "opt_col_earth_neutrals",
+              "opt_col_royal_jade",
+              "opt_col_lotus_pastel",
+              "opt_col_monochrome_contrast",
+              "opt_col_warm_sunset"
+            ]
+          }
+        ],
+        "allows_custom": true
+      },
+      {
+        "group_id": "group_silhouette_fit",
+        "domain_ids": [
+          "domain_structure",
+          "domain_aesthetics"
+        ],
+        "label": "Dáng váy và độ ôm cơ thể",
+        "question": "Bạn muốn phom dáng tổng thể của chiếc váy liền thân này thể hiện theo hướng nào để tối ưu sự thoải mái và sang trọng?",
+        "why_it_matters": "Xác định tỷ lệ và đường cắt may chính giúp chiếc váy vừa vặn, thanh lịch và đáp ứng tiêu chí dễ mặc.",
+        "status": "needs_choice",
+        "selection_mode": "single",
+        "min": 1,
+        "max": 1,
+        "related_atom_ids": [
+          "atom_03",
+          "atom_04"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_fit_aline_midi",
+            "label": "Dáng chữ A nhẹ nhàng chiều dài midi",
+            "description": "Tôn dáng, che khuyết điểm tốt, mang lại sự thoải mái tuyệt đối khi di chuyển tại sự kiện.",
+            "decision_text": "Chọn dáng váy chữ A chiều dài midi.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_fit_wrap_dress",
+            "label": "Dáng váy cuốn vạt (Wrap dress) lấy cảm hứng giao lĩnh",
+            "description": "Có thể điều chỉnh độ ôm eo linh hoạt, tạo đường cong mềm mại và đậm chất truyền thống đương đại.",
+            "decision_text": "Chọn dáng váy cuốn vạt.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_fit_straight_column",
+            "label": "Dáng suông thẳng (Column) có chiết eo nhẹ",
+            "description": "Phong cách tối giản hiện đại, kéo dài vóc dáng, tạo vẻ sắc sảo và bắt kịp xu hướng thời trang quốc tế.",
+            "decision_text": "Chọn dáng váy suông thẳng chiết eo nhẹ.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_fit_tiered_flare",
+            "label": "Dáng váy tầng suông nhẹ bay bổng",
+            "description": "Phù hợp cho không gian mùa hè ngoài trời, tạo hiệu ứng chuyển động uyển chuyển, trẻ trung.",
+            "decision_text": "Chọn dáng váy tầng suông nhẹ.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_fit_fit_and_flare",
+            "label": "Dáng ôm trên xòe dưới (Fit & Flare) cổ điển",
+            "description": "Tôn vòng eo thon gọn, phần chân váy xòe nhẹ thanh lịch mang hơi thở giao thoa Đông - Tây.",
+            "decision_text": "Chọn dáng váy ôm trên xòe dưới.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_fit",
+            "label": "Để AI tự quyết định phom dáng",
+            "description": "AI sẽ lựa chọn phom dáng váy liền thân phù hợp nhất với chủ đề và sự kiện.",
+            "decision_text": "Để AI tự quyết định phom dáng trang phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": [
+              "opt_fit_aline_midi",
+              "opt_fit_wrap_dress",
+              "opt_fit_straight_column",
+              "opt_fit_tiered_flare",
+              "opt_fit_fit_and_flare"
+            ]
+          }
+        ],
+        "allows_custom": true
+      },
+      {
+        "group_id": "group_accessories",
+        "domain_ids": [
+          "domain_context",
+          "domain_aesthetics"
+        ],
+        "label": "Phụ kiện đi kèm sự kiện",
+        "question": "Bạn có muốn bổ sung phụ kiện mang cảm hứng dân gian đương đại nào để hoàn thiện bộ trang phục không? (Tối đa 2 lựa chọn)",
+        "why_it_matters": "Phụ kiện giúp củng cố chủ đề kết hợp truyền thống và hiện đại cho sự kiện thời trang mà không làm rườm rà tổng thể.",
+        "status": "optional",
+        "selection_mode": "multiple",
+        "min": 0,
+        "max": 2,
+        "related_atom_ids": [
+          "atom_01",
+          "atom_02"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_acc_headband",
+            "label": "Khăn vấn cách điệu tối giản (Mấn mềm)",
+            "description": "Bờm tóc bọc vải cùng màu hoặc đồng điệu với váy, tạo điểm nhấn gọn gàng thay cho mấn truyền thống cồng kềnh.",
+            "decision_text": "Chọn phụ kiện khăn vấn cách điệu tối giản.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [
+              "opt_acc_bag",
+              "opt_acc_jewelry"
+            ],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_acc_bag",
+            "label": "Túi xách mây tre đan bọc da hiện đại",
+            "description": "Phụ kiện cầm tay nhỏ gọn, kết hợp chất liệu thủ công truyền thống với khung kim loại hoặc da cao cấp.",
+            "decision_text": "Chọn phụ kiện túi xách mây tre đan.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [
+              "opt_acc_headband",
+              "opt_acc_jewelry"
+            ],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_acc_jewelry",
+            "label": "Trang sức bạc chạm khắc họa tiết hoa sen/mây",
+            "description": "Hoa tai hoặc vòng cổ bản nhỏ lấy cảm hứng từ đồ trang sức cổ nhưng tinh tế, hiện đại.",
+            "decision_text": "Chọn phụ kiện trang sức bạc chạm khắc.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [
+              "opt_acc_headband",
+              "opt_acc_bag"
+            ],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_acc_fan",
+            "label": "Quạt cầm tay lụa khung tre gấp gọn",
+            "description": "Đạo cụ hoặc phụ kiện thời trang nhẹ nhàng phù hợp cho sự kiện thời trang mùa hè ngoài trời.",
+            "decision_text": "Chọn phụ kiện quạt cầm tay lụa khung tre.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [
+              "opt_acc_bag",
+              "opt_acc_jewelry"
+            ],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_acc_belt",
+            "label": "Đai lưng vải thắt nơ hoặc khóa kim loại đồng",
+            "description": "Điểm nhấn tôn vòng eo, gợi nhắc cách thắt đai yếm hoặc thắt lưng áo dài truyền thống.",
+            "decision_text": "Chọn phụ kiện đai lưng vải thắt nơ/khóa đồng.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [
+              "opt_acc_bag",
+              "opt_acc_jewelry"
+            ],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_acc",
+            "label": "Để AI tự quyết định phụ kiện phù hợp",
+            "description": "AI sẽ đề xuất phụ kiện tối giản đi kèm nếu cần thiết cho sự kiện.",
+            "decision_text": "Để AI tự quyết định phụ kiện trang phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": [
+              "opt_acc_headband",
+              "opt_acc_bag",
+              "opt_acc_jewelry",
+              "opt_acc_fan",
+              "opt_acc_belt"
+            ]
+          }
+        ],
+        "allows_custom": true
+      },
+      {
+        "group_id": "group_presentation_style",
+        "domain_ids": [
+          "domain_context",
+          "domain_aesthetics"
+        ],
+        "label": "Phong cách thể hiện thiết kế",
+        "question": "Bạn mong muốn bản thiết kế trực quan sắp tới được trình bày theo góc độ nào để hỗ trợ tốt nhất cho sự kiện thời trang?",
+        "why_it_matters": "Định hướng cách diễn họa bản vẽ giúp làm nổi bật ý đồ sáng tạo và tính ứng dụng thực tế của trang phục.",
+        "status": "optional",
+        "selection_mode": "single",
+        "min": 1,
+        "max": 1,
+        "related_atom_ids": [
+          "atom_01",
+          "atom_04"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_pres_sketch_modern",
+            "label": "Bản vẽ phác thảo thời trang đương đại (Fashion Sketch)",
+            "description": "Tập trung vào đường nét hình khối, tỷ lệ trang phục và phong cách trình diễn sàn diễn (Runway).",
+            "decision_text": "Chọn phong cách thể hiện bản vẽ phác thảo thời trang.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_pres_lookbook_outdoor",
+            "label": "Ảnh dựng phối cảnh Lookbook ngoài trời mùa hè",
+            "description": "Thể hiện trang phục trong bối cảnh thực tế dưới ánh sáng tự nhiên, làm nổi bật chất liệu và độ thoải mái.",
+            "decision_text": "Chọn phong cách thể hiện ảnh dựng phối cảnh Lookbook.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_pres_technical_flat",
+            "label": "Bản vẽ kỹ thuật chi tiết (Tech Pack / Flat sketch)",
+            "description": "Nhấn mạnh cấu trúc may đo, đường cắt, vị trí chi tiết gợi nhắc Việt phục để nhà xưởng dễ thực hiện.",
+            "decision_text": "Chọn phong cách thể hiện bản vẽ kỹ thuật chi tiết.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_pres_moodboard_material",
+            "label": "Bảng ý tưởng vật liệu và chi tiết (Moodboard kết hợp mẫu vải)",
+            "description": "Tập trung thể hiện sự kết hợp màu sắc, bề mặt chất liệu vải và các điểm nhấn trang trí cận cảnh.",
+            "decision_text": "Chọn phong cách thể hiện bảng ý tưởng vật liệu.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_pres_cinematic_runway",
+            "label": "Bản phối cảnh sân khấu thời trang chuyên nghiệp",
+            "description": "Đặt trang phục trong không gian ánh sáng sự kiện thảm đỏ, thể hiện rõ vẻ sang trọng và bắt kịp xu hướng.",
+            "decision_text": "Chọn phong cách thể hiện phối cảnh sân khấu thời trang.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_pres",
+            "label": "Để AI tự quyết định cách thể hiện",
+            "description": "AI sẽ chọn hình thức trình bày trực quan phù hợp nhất với yêu cầu thiết kế.",
+            "decision_text": "Để AI tự quyết định cách thể hiện bản vẽ.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": [
+              "opt_pres_sketch_modern",
+              "opt_pres_lookbook_outdoor",
+              "opt_pres_technical_flat",
+              "opt_pres_moodboard_material",
+              "opt_pres_cinematic_runway"
+            ]
+          }
+        ],
+        "allows_custom": true
+      }
+    ],
+    "references": [],
+    "open_conflicts": []
+  }
+}

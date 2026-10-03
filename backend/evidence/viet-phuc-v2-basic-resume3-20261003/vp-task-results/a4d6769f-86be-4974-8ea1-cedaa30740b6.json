@@ -1,0 +1,413 @@
+{
+  "evidence_id": "a4d6769f-86be-4974-8ea1-cedaa30740b6",
+  "recorded_at": 1791039183.31708,
+  "request_id": "d8338bb7-d9d1-40d1-b746-687aaf25c50b",
+  "attempt_id": "05ef6122-e749-43e4-9e2b-eeac2b74ba01",
+  "trace": {
+    "task": "VP06",
+    "phase": "design",
+    "attempt_id": "05ef6122-e749-43e4-9e2b-eeac2b74ba01",
+    "revision": 5,
+    "role": "culture",
+    "batch_id": "B1",
+    "cache_hit": false,
+    "duration_ms": 10705,
+    "provider_call_id": "c5420e5a-cd3b-46a4-819e-4aa26d29cfe4",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 7914,
+      "candidatesTokenCount": 3932,
+      "totalTokenCount": 11846,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 7914
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "xRbBap2sG7nW9tMPwqWxuAk"
+    },
+    "input_hash": "887c141c5c102aa597247d5686f72ee0d6b881d3a20e7c1ef30db580cfc8d876",
+    "output_hash": "e6533d76795f1e17438dae30292c3737fdc26f9e682c140877baadc08d1a3019",
+    "error_code": "semantic_invalid",
+    "error_message": "Pass phải có chi tiết prompt",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "role": "culture",
+    "audits": [
+      {
+        "candidate_id": "R5-B1-C1",
+        "candidate_revision": 5,
+        "content_hash": "00caea4cbdf2854fe828d320bf02fd39f274f3e13275c6f8dcaadf401e2997ec",
+        "role": "culture",
+        "checks": [
+          {
+            "check_id": "locked:atom_garment_type",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bộ áo dài tân thời dáng suông nhẹ dành cho nữ",
+            "source_ids": [],
+            "reason": "Phương án đã tuân thủ đúng yêu cầu về áo dài hiện đại."
+          },
+          {
+            "check_id": "locked:atom_silhouette_qualities",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "dáng suông nhẹ dành cho nữ, thiết kế kín đáo, nhẹ nhàng và rất dễ đi lại",
+            "source_ids": [],
+            "reason": "Hình ảnh và mô tả giữ đúng tiêu chí dáng suông nhẹ, kín đáo và dễ di chuyển."
+          },
+          {
+            "check_id": "locked:atom_no_historical_reconstruction",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "Thiết kế hiện đại, tránh hoàn toàn rườm rà",
+            "source_ids": [],
+            "reason": "Đúng với yêu cầu không cần phục dựng trang phục lịch sử (chế độ trung lập/inspired hiện đại)."
+          },
+          {
+            "check_id": "locked:atom_avoid_accessories_and_bridal",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "không có phụ kiện cầu kỳ và không làm giống váy cô dâu",
+            "source_ids": [],
+            "reason": "Prompt không đề xuất phụ kiện rườm rà hay thiết kế giống váy cưới."
+          },
+          {
+            "check_id": "locked:atom_style_choice",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bộ áo dài tân thời dáng suông nhẹ",
+            "source_ids": [],
+            "reason": "Phản ánh đúng phom áo dài tân thời đã chọn."
+          },
+          {
+            "check_id": "locked:atom_aesthetics_choice",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "màu xanh ngọc nhạt trơn làm chủ đạo, kết hợp họa tiết thêu chìm tối giản hình hoa sen mờ nhẹ",
+            "source_ids": [],
+            "reason": "Đúng với màu sắc và hoa văn thêu chìm tối giản đã chọn."
+          },
+          {
+            "check_id": "summary_prompt_consistency",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bộ áo dài tân thời dáng suông nhẹ dành cho nữ",
+            "source_ids": [],
+            "reason": "Toàn bộ kế hoạch và tóm tắt khớp chặt chẽ với prompt của phương án."
+          },
+          {
+            "check_id": "claim_support",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Không có claim lịch sử sai lệch hoặc không có căn cứ nào được đưa ra."
+          },
+          {
+            "check_id": "historical_scope",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "not_applicable",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Chế độ lịch sử là trung lập (neutral), không yêu cầu phục dựng lịch sử."
+          }
+        ],
+        "criterion_ratings": [
+          {
+            "criterion_id": "mode_fidelity",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa phức tạp hoặc phục dựng lịch sử."
+          },
+          {
+            "criterion_id": "evidence_scope",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa phức tạp hoặc phục dựng lịch sử."
+          },
+          {
+            "criterion_id": "cultural_integration",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa phức tạp hoặc phục dựng lịch sử."
+          },
+          {
+            "criterion_id": "claim_transparency",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa phức tạp hoặc phục dựng lịch sử."
+          }
+        ],
+        "strengths": [
+          "Giữ đúng định hướng áo dài tân thời hiện đại, không sa đà vào phục dựng lịch sử.",
+          "Thiết kế đơn giản, thanh lịch, phù hợp đi đám cưới buổi chiều."
+        ],
+        "concerns": [],
+        "suggested_fixes": [],
+        "summary": "Phương án bám sát hoàn toàn các yêu cầu khóa của người dùng, không vi phạm các ràng buộc về phong cách và lịch sử."
+      },
+      {
+        "candidate_id": "R5-B1-C2",
+        "candidate_revision": 5,
+        "content_hash": "d6037fea8ceba65a4cf2a4724a117214a539c652334e72e4259a6a456673eb61",
+        "role": "culture",
+        "checks": [
+          {
+            "check_id": "locked:atom_garment_type",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bộ áo dài tân thời dáng suông nhẹ dành cho nữ",
+            "source_ids": [],
+            "reason": "Phương án tuân thủ đúng yêu cầu về áo dài hiện đại."
+          },
+          {
+            "check_id": "locked:atom_silhouette_qualities",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "dáng suông nhẹ dành cho nữ, thiết kế kín đáo, nhẹ nhàng và rất dễ đi lại",
+            "source_ids": [],
+            "reason": "Bảo đảm tiêu chí dáng suông, kín đáo và nhẹ nhàng."
+          },
+          {
+            "check_id": "locked:atom_no_historical_reconstruction",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "Kiểu dáng hiện đại, không rườm rà phụ kiện",
+            "source_ids": [],
+            "reason": "Đúng với định hướng không phục dựng lịch sử."
+          },
+          {
+            "check_id": "locked:atom_avoid_accessories_and_bridal",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "không rườm rà phụ kiện, không làm giống váy cô dâu",
+            "source_ids": [],
+            "reason": "Tránh hoàn toàn phụ kiện rườm rà và kiểu dáng váy cưới."
+          },
+          {
+            "check_id": "locked:atom_style_choice",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bộ áo dài tân thời dáng suông nhẹ",
+            "source_ids": [],
+            "reason": "Phản ánh đúng phom áo dài tân thời đã chọn."
+          },
+          {
+            "check_id": "locked:atom_aesthetics_choice",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "màu xanh ngọc nhạt trơn làm chủ đạo, kết hợp hoa văn thêu chìm tối giản với những nét gợi mây",
+            "source_ids": [],
+            "reason": "Sử dụng màu xanh ngọc nhạt và họa tiết nét mây thêu chìm tối giản đúng sở thích."
+          },
+          {
+            "check_id": "summary_prompt_consistency",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bộ áo dài tân thời dáng suông nhẹ dành cho nữ",
+            "source_ids": [],
+            "reason": "Tóm tắt và kế hoạch hoàn toàn đồng nhất với prompt."
+          },
+          {
+            "check_id": "claim_support",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Không có phát ngôn lịch sử nào cần kiểm chứng."
+          },
+          {
+            "check_id": "historical_scope",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "not_applicable",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Chế độ trung lập, không áp dụng tiêu chí lịch sử khắt khe."
+          }
+        ],
+        "criterion_ratings": [
+          {
+            "criterion_id": "mode_fidelity",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa phức tạp."
+          },
+          {
+            "criterion_id": "evidence_scope",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa phức tạp."
+          },
+          {
+            "criterion_id": "cultural_integration",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa phức tạp."
+          },
+          {
+            "criterion_id": "claim_transparency",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa phức tạp."
+          }
+        ],
+        "strengths": [
+          "Sử dụng chất liệu voan tơ nhẹ nhàng, bay bổng phù hợp đi tiệc.",
+          "Họa tiết gợi mây tối giản mang lại nét đẹp tinh tế."
+        ],
+        "concerns": [],
+        "suggested_fixes": [],
+        "summary": "Phương án hoàn toàn đáp ứng các tiêu chí thiết kế hiện đại và không vi phạm ràng buộc văn hóa/lịch sử."
+      },
+      {
+        "candidate_id": "R5-B1-C3",
+        "candidate_revision": 5,
+        "content_hash": "d88c63eb0db0d8f7ec0b37441b77fdd136582a634fba0de768b9414e99c22619",
+        "role": "culture",
+        "checks": [
+          {
+            "check_id": "locked:atom_garment_type",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bộ áo dài tân thời dáng suông nhẹ dành cho nữ",
+            "source_ids": [],
+            "reason": "Đúng loại trang phục áo dài hiện đại."
+          },
+          {
+            "check_id": "locked:atom_silhouette_qualities",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "dáng suông nhẹ dành cho nữ, thiết kế kín đáo, nhẹ nhàng và rất dễ đi lại",
+            "source_ids": [],
+            "reason": "Giữ đúng tính chất thanh lịch, kín đáo và thoải mái."
+          },
+          {
+            "check_id": "locked:atom_no_historical_reconstruction",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "Kiểu dáng hiện đại, không kèm phụ kiện rườm rà",
+            "source_ids": [],
+            "reason": "Không thực hiện phục dựng lịch sử."
+          },
+          {
+            "check_id": "locked:atom_avoid_accessories_and_bridal",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "không kèm phụ kiện rườm rà, tuyệt đối không làm giống váy cô dâu",
+            "source_ids": [],
+            "reason": "Tránh hoàn toàn phụ kiện và dáng váy cưới."
+          },
+          {
+            "check_id": "locked:atom_style_choice",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bộ áo dài tân thời dáng suông nhẹ",
+            "source_ids": [],
+            "reason": "Đúng phom dáng đã chọn."
+          },
+          {
+            "check_id": "locked:atom_aesthetics_choice",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "hoàn toàn mang màu xanh ngọc nhạt trơn thanh lịch, không thêm thắt hoa văn nổi bật để giữ nét tinh tế nguyên bản",
+            "source_ids": [],
+            "reason": "Đúng phong cách trơn tối giản."
+          },
+          {
+            "check_id": "summary_prompt_consistency",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bộ áo dài tân thời dáng suông nhẹ dành cho nữ",
+            "source_ids": [],
+            "reason": "Tóm tắt khớp prompt."
+          },
+          {
+            "check_id": "claim_support",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Không có claim lịch sử cần kiểm tra."
+          },
+          {
+            "check_id": "historical_scope",
+            "owner_role": "culture",
+            "severity": "hard",
+            "status": "not_applicable",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Chế độ trung lập, không có yêu cầu lịch sử."
+          }
+        ],
+        "criterion_ratings": [
+          {
+            "criterion_id": "mode_fidelity",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa."
+          },
+          {
+            "criterion_id": "evidence_scope",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa."
+          },
+          {
+            "criterion_id": "cultural_integration",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa."
+          },
+          {
+            "criterion_id": "claim_transparency",
+            "applicable": false,
+            "rating": null,
+            "reason": "Không có yêu cầu văn hóa."
+          }
+        ],
+        "strengths": [
+          "Thiết kế trơn tối giản mang lại sự sang trọng và hiện đại.",
+          "Tuân thủ tuyệt đối các ràng buộc về phong cách và bối cảnh."
+        ],
+        "concerns": [],
+        "suggested_fixes": [],
+        "summary": "Phương án đạt yêu cầu toàn diện, giữ vững tinh thần hiện đại và tối giản theo đúng yêu cầu."
+      }
+    ]
+  }
+}

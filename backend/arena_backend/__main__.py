@@ -18,19 +18,20 @@ def main():
     parser.add_argument("--text-model", default="gemini-3.5-flash-lite")
     parser.add_argument("--image-model", default="gemini-3.1-flash-image")
     parser.add_argument("--max-api-calls", type=int, default=None,
-                        help="Trần API cho toàn bộ tiến trình (chỉ dùng khi thử nghiệm); mặc định dùng ngân sách riêng từng request")
+                        help="Tùy chọn cũ đã bỏ hiệu lực; chỉ cảnh báo mỗi 100 lượt gọi, không chặn tiến trình")
     parser.add_argument("--images", action="store_true")
+    parser.add_argument("--design-attempts", type=int, help="Ghi đè trần attempts thiết kế khi đo thử; không đổi mặc định hoặc media budget")
     parser.add_argument("--prompt-key", action="store_true")
     parser.add_argument("--pack", type=Path)
     parser.add_argument("--evidence-dir", type=Path, help="Lưu request/response/ảnh/trace vào thư mục evidence riêng")
     args = parser.parse_args()
     if args.provider == "gemini":
         key = getpass.getpass("Gemini API key (hidden): ") if args.prompt_key else os.environ.get("GEMINI_API_KEY")
-        provider = GeminiProvider(key, args.text_model, args.image_model, args.max_api_calls, args.evidence_dir, allow_unconfigured=True)
+        provider = GeminiProvider(key, args.text_model, args.image_model, evidence_dir=args.evidence_dir, allow_unconfigured=True)
     else:
         provider = MockProvider()
     data_dir = args.data_dir or Path(__file__).resolve().parents[1] / ".data" / args.provider
-    engine = Engine(provider, data_dir, args.images, args.pack, evidence_dir=args.evidence_dir, allow_mock_requests=args.provider == "mock")
+    engine = Engine(provider, data_dir, args.images, args.pack, evidence_dir=args.evidence_dir, allow_mock_requests=args.provider == "mock", design_attempts_override=args.design_attempts)
     server = create_server(engine, port=args.port)
     print(json.dumps({"listening": f"http://127.0.0.1:{server.server_port}", **engine.health()}, ensure_ascii=False), flush=True)
     try:

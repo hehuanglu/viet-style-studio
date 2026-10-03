@@ -1,0 +1,30 @@
+TASK: CLEAN_AND_SEGMENT_VIET_PHUC_REQUEST
+
+Thông tin ứng dụng cấp: {{REQUEST_METADATA}}
+Các lượt người dùng nguyên văn theo thứ tự: {{USER_TURNS}}
+Lời yêu cầu gốc cần xử lý: {{RAW_PROMPT}}
+Các miền nghiệp vụ gợi ý, có thể mở rộng: {{DOMAIN_GUIDANCE}}
+Bản chuẩn hóa trước đó nếu có: {{PREVIOUS_CLEAN_PROMPT}}
+
+MỤC TIÊU
+Giữ trọn ý quan trọng và diễn đạt rõ hơn thành clean_prompt. Không tóm tắt bằng cách mất chi tiết, không giới hạn nội dung bằng một template trang phục cố định. Chưa tư vấn lựa chọn, chưa tạo phương án, chưa viết image prompt.
+
+THỰC HIỆN
+1. Đọc từng ý của lời người dùng, giữ cả phủ định, nhiều thành tố phong cách, ví dụ, điều giao AI lựa chọn, ý định lai phom, mức gắn với lịch sử và điều chưa rõ. Nguyên văn gốc luôn được bảo toàn bên ngoài tác vụ này.
+2. Viết clean_text bằng lời tự nhiên đầy đủ. Không bổ sung phom, chất liệu, màu, hoa văn, ý nghĩa hoặc nhân vật chưa được yêu cầu. Có thể chỉnh cách diễn đạt/lỗi gõ trong clean_text nhưng không chỉnh quote.
+3. Chia thành domains có label dễ hiểu và summary. DOMAIN_GUIDANCE chỉ là gợi ý; tạo miền mới nếu ý chưa nằm trong miền quen thuộc. Một atom có thể thuộc nhiều miền. Không nhân bản cùng ý thành nhiều yêu cầu khác nhau.
+4. Tạo atoms có meaning, domain_ids, intent_type, polarity, source_refs và resolution. must/avoid chỉ khi lời người dùng thực sự khóa/cấm. Những ví dụ như “sen, rồng, mây...” là example nếu không nói tất cả bắt buộc. “Không cần tất cả” phải giữ thành ý độc lập về quyền chọn.
+5. Nếu người dùng muốn nền âu phục lai nét Việt, giữ nền âu phục và ý định lai; không tự đổi nền thành áo dài. Nếu phom ngoài danh mục cũ, giữ mô tả và tạo miền/ý phù hợp, không thay bằng phom gần nhất.
+6. Ghi relations giữa ý cùng phụ thuộc, loại trừ hoặc giải thích nhau. Ghi conflicts khi có mâu thuẫn thực sự; không tự giải quyết bằng cách bỏ một phía.
+7. Lập coverage: các đoạn có ý thiết kế/bối cảnh/quyền chọn phải chỉ tới atom đã giữ, ví dụ hoặc ý chưa rõ. Không dùng “ngoài danh mục” làm lý do loại. Không tự chứng nhận coverage này là đầy đủ tuyệt đối; bước sau sẽ đọc độc lập lời gốc.
+8. Giữ mã atom/domain trước đó nếu ý không đổi. Nếu người dùng đã đổi rõ, ghi supersedes_atom_ids cho ý thay thế; không xóa lịch sử.
+
+KIỂM TRA TRƯỚC KHI TRẢ
+- Không mất các từ “không”, “chỉ”, “có thể”, “ví dụ”, “không cần tất cả”, “để bạn đề xuất”.
+- Không tự suy giới tính hoặc vai trò người mặc từ dịp sử dụng.
+- Mỗi quote thuộc đúng lượt nguồn, không ghép/sửa lỗi gõ trong quote.
+- Không biến lời người dùng nói về lịch sử thành dữ kiện đã xác minh.
+
+Trả đúng CleanPrompt theo response schema. request_id và revision giữ nguyên. Không đề xuất câu hỏi ở tác vụ này.
+
+- Kiểm tra tập mã trước khi trả: mọi related_domain_ids/domain_ids chỉ trỏ domain_id thực sự có trong domains[] của bản trả về. Không tham chiếu nhãn hoặc miền dự kiến rồi bỏ khỏi danh sách. Nếu một miền có nội dung thật cần giữ thì tạo miền đó; nếu chỉ là liên kết không liên quan thì bỏ liên kết, không bỏ ý gốc.

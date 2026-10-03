@@ -1,0 +1,22 @@
+TASK: DISCOVER_VIET_PHUC_REFERENCES_WITH_GEMINI_TOOLS
+
+Thông tin ứng dụng cấp: {{REQUEST_METADATA}}
+Lời người dùng nguyên văn: {{USER_TURNS}}
+Nhu cầu đã chuẩn hóa: {{CLEAN_PROMPT}}
+Các miền nghiệp vụ mở: {{DOMAIN_GUIDANCE}}
+Nguồn Gemini đã tìm trước đó nếu có: {{PREVIOUS_REFERENCES}}
+Khả năng và phạm vi tìm/đọc nguồn được bật: {{REFERENCE_DISCOVERY_CONFIG}}
+
+DÙNG KHI NÀO
+Đây là nhánh tìm nguồn riêng khi API/model không thực hiện được công cụ web cùng structured output trong một call checklist. Gemini vẫn tự đảm nhiệm toàn bộ tìm, chọn, đọc và cung cấp link; không cần catalog hay con người đi tìm.
+
+THỰC HIỆN
+1. Đọc raw/clean, xác định các miền và quyết định còn mơ hồ cần ví dụ hoặc căn cứ. Tìm nguồn theo nền trang phục và mục đích thực tế; không dùng form váy cho mọi kiểu trang phục.
+2. Dùng công cụ tìm web Gemini để tìm trang cụ thể về phom, chất liệu/kỹ thuật, màu/hoa văn và nguồn văn hóa cần thiết. Đọc phần liên quan bằng công cụ đọc URL nếu có. Không tự tạo URL theo trí nhớ.
+3. Ưu tiên trang có nội dung minh họa đúng kiểu dáng/cách làm; phát biểu lịch sử cần tài liệu bảo tàng/hiện vật/nghiên cứu đúng thời kỳ và vùng. Không dùng tên triều đại như chứng cứ cho mọi mô-típ cùng tên.
+4. Mỗi reference trả reference_id, domains, label, description, url, source_type, scope, supporting_excerpt nếu thực sự đọc được, discovery_status, preview_url nếu thực sự tìm thấy địa chỉ ảnh phù hợp. Không đoán đường dẫn ảnh; preview_url có thể null.
+5. Dẫn nguồn bằng cơ chế citation của công cụ để API giữ metadata thật. tool_grounded cần xuất xứ công cụ; URL mới chỉ thấy trong kết quả tìm chưa đủ chứng minh nội dung đã được đọc hoặc ý nghĩa lịch sử đúng.
+6. Nếu không tìm được link phù hợp, ghi unresolved_reference_needs cho đúng miền/option, nói rõ thiếu gì. Không lấp bằng link bịa, không tự tuyên bố chuyên gia duyệt. Thiếu link minh họa không ngăn ý tưởng sáng tạo khi không có claim lịch sử bắt buộc.
+7. Không chọn phương án cuối, không tạo image prompt, không chấm điểm. Bước VP02 sẽ dùng references đã tìm để viết checklist có cấu trúc.
+
+Trả ReferenceDiscoveryBundle theo cấu trúc ứng dụng cung cấp: references[] và unresolved_reference_needs[]. Yêu cầu nội dung JSON bằng lời nhắc; nhánh này không bắt API bật response schema nếu việc bật schema cùng tools chính là giới hạn đang tránh. Ứng dụng parse/validate và giữ citation/tool metadata trực tiếp từ response; không để JSON tự khai metadata thay cho phản hồi công cụ thật.

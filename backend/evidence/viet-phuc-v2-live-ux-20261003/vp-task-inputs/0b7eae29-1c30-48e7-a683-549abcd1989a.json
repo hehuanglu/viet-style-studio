@@ -1,0 +1,1096 @@
+{
+  "evidence_id": "0b7eae29-1c30-48e7-a683-549abcd1989a",
+  "recorded_at": 1791028879.5541701,
+  "request_id": "af4df8b8-d374-45bc-ae57-f0e4124e3bd0",
+  "revision": 1,
+  "attempt_id": "722f5f44-ee03-4859-b2d1-513392907e54",
+  "task": "VP02",
+  "payload": {
+    "REQUEST_METADATA": {
+      "request_id": "af4df8b8-d374-45bc-ae57-f0e4124e3bd0",
+      "revision": 1
+    },
+    "USER_TURNS": [
+      {
+        "id": "T1",
+        "text": "Mình là nữ, muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều. Mình thích màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại. Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Mình không cần phục dựng trang phục lịch sử. Bạn cứ đề xuất những phần mình chưa biết, nhưng tránh nhiều phụ kiện và đừng làm giống váy cô dâu. Mình muốn xem hình để dễ chọn."
+      }
+    ],
+    "CLEAN_PROMPT": {
+      "request_id": "af4df8b8-d374-45bc-ae57-f0e4124e3bd0",
+      "revision": 1,
+      "clean_text": "Người dùng là nữ, muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều. Khách thích màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại. Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Người dùng không cần phục dựng trang phục lịch sử. Đồng thời muốn ứng dụng đề xuất những phần chưa biết, nhưng tránh dùng nhiều phụ kiện và đừng làm giống váy cô dâu, ngoài ra mong muốn được xem hình để dễ chọn.",
+      "domains": [
+        {
+          "domain_id": "DOMAIN_CONTEXT",
+          "label": "Bối cảnh sử dụng",
+          "summary": "Thông tin về giới tính người mặc và sự kiện tham dự.",
+          "related_domain_ids": [
+            "DOMAIN_STYLE"
+          ]
+        },
+        {
+          "domain_id": "DOMAIN_STYLE",
+          "label": "Phom dáng và phong cách",
+          "summary": "Yêu cầu về kiểu áo dài hiện đại, dáng thanh lịch, kín đáo, nhẹ, dễ đi lại và tránh giống váy cô dâu.",
+          "related_domain_ids": [
+            "DOMAIN_CONTEXT",
+            "DOMAIN_COLOR",
+            "DOMAIN_ART"
+          ]
+        },
+        {
+          "domain_id": "DOMAIN_COLOR",
+          "label": "Màu sắc",
+          "summary": "Yêu cầu về màu xanh ngọc nhạt.",
+          "related_domain_ids": [
+            "DOMAIN_STYLE"
+          ]
+        },
+        {
+          "domain_id": "DOMAIN_ART",
+          "label": "Họa tiết và mỹ thuật",
+          "summary": "Ý thích về hoa sen hoặc các nét gợi mây nhưng không bắt buộc dùng hết.",
+          "related_domain_ids": [
+            "DOMAIN_STYLE"
+          ]
+        },
+        {
+          "domain_id": "DOMAIN_HISTORY",
+          "label": "Tính lịch sử",
+          "summary": "Không yêu cầu phục dựng trang phục lịch sử.",
+          "related_domain_ids": []
+        },
+        {
+          "domain_id": "DOMAIN_ACCESSORY",
+          "label": "Phụ kiện",
+          "summary": "Tránh dùng nhiều phụ kiện và không làm giống váy cô dâu.",
+          "related_domain_ids": [
+            "DOMAIN_STYLE"
+          ]
+        },
+        {
+          "domain_id": "DOMAIN_DELEGATION",
+          "label": "Đề xuất và trực quan hóa",
+          "summary": "Giao AI đề xuất các phần chưa biết và yêu cầu xem hình ảnh để dễ chọn.",
+          "related_domain_ids": []
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "ATOM_GENDER",
+          "domain_ids": [
+            "DOMAIN_CONTEXT"
+          ],
+          "meaning": "Người dùng là nữ.",
+          "intent_type": "context",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình là nữ,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "ATOM_OCCASION",
+          "domain_ids": [
+            "DOMAIN_CONTEXT"
+          ],
+          "meaning": "Mặc đi đám cưới bạn vào buổi chiều.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "ATOM_AO_DAI_MODERN",
+          "domain_ids": [
+            "DOMAIN_STYLE"
+          ],
+          "meaning": "Trang phục là áo dài hiện đại.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "muốn một bộ áo dài hiện đại"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "ATOM_COLOR_LIGHT_JADE",
+          "domain_ids": [
+            "DOMAIN_COLOR"
+          ],
+          "meaning": "Thích màu xanh ngọc nhạt.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình thích màu xanh ngọc nhạt,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "ATOM_SILHOUETTE_STYLE",
+          "domain_ids": [
+            "DOMAIN_STYLE"
+          ],
+          "meaning": "Dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "ATOM_MOTIF_PREFERENCE",
+          "domain_ids": [
+            "DOMAIN_ART"
+          ],
+          "meaning": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết.",
+          "intent_type": "example",
+          "polarity": "neutral",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "ATOM_NO_HISTORICAL_RESTORATION",
+          "domain_ids": [
+            "DOMAIN_HISTORY"
+          ],
+          "meaning": "Không cần phục dựng trang phục lịch sử.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình không cần phục dựng trang phục lịch sử."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "ATOM_DELEGATE_UNKNOWN",
+          "domain_ids": [
+            "DOMAIN_DELEGATION"
+          ],
+          "meaning": "Giao AI đề xuất những phần chưa biết.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "ATOM_AVOID_EXCESS_ACCESSORIES",
+          "domain_ids": [
+            "DOMAIN_ACCESSORY"
+          ],
+          "meaning": "Tránh nhiều phụ kiện.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "nhưng tránh nhiều phụ kiện"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "ATOM_AVOID_BRIDE_DRESS",
+          "domain_ids": [
+            "DOMAIN_STYLE",
+            "DOMAIN_ACCESSORY"
+          ],
+          "meaning": "Đừng làm giống váy cô dâu.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "và đừng làm giống váy cô dâu."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "ATOM_WANT_IMAGES",
+          "domain_ids": [
+            "DOMAIN_DELEGATION"
+          ],
+          "meaning": "Muốn xem hình để dễ chọn.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình muốn xem hình để dễ chọn."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "relations": [
+        {
+          "from_atom_id": "ATOM_AO_DAI_MODERN",
+          "to_atom_id": "ATOM_AVOID_BRIDE_DRESS",
+          "relation": "constraint_refinement",
+          "reason": "Áo dài hiện đại đi dự tiệc cưới cần tránh nhầm lẫn hoặc trùng lặp với trang phục của cô dâu."
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Mình là nữ,"
+          },
+          "atom_ids": [
+            "ATOM_GENDER"
+          ],
+          "disposition": "retained",
+          "reason": "Xác định giới tính người mặc."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều."
+          },
+          "atom_ids": [
+            "ATOM_OCCASION",
+            "ATOM_AO_DAI_MODERN"
+          ],
+          "disposition": "retained",
+          "reason": "Ghi nhận bối cảnh sự kiện và loại trang phục."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Mình thích màu xanh ngọc nhạt,"
+          },
+          "atom_ids": [
+            "ATOM_COLOR_LIGHT_JADE"
+          ],
+          "disposition": "retained",
+          "reason": "Sở thích về màu sắc."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+          },
+          "atom_ids": [
+            "ATOM_SILHOUETTE_STYLE"
+          ],
+          "disposition": "retained",
+          "reason": "Yêu cầu về phom dáng và đặc tính trang phục."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+          },
+          "atom_ids": [
+            "ATOM_MOTIF_PREFERENCE"
+          ],
+          "disposition": "example",
+          "reason": "Ý kiến tham khảo về họa tiết mang tính tùy chọn."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Mình không cần phục dựng trang phục lịch sử."
+          },
+          "atom_ids": [
+            "ATOM_NO_HISTORICAL_RESTORATION"
+          ],
+          "disposition": "retained",
+          "reason": "Loại bỏ yêu cầu phục dựng lịch sử."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+          },
+          "atom_ids": [
+            "ATOM_DELEGATE_UNKNOWN"
+          ],
+          "disposition": "retained",
+          "reason": "Trao quyền cho AI đề xuất các phần chưa rõ."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "nhưng tránh nhiều phụ kiện và đừng làm giống váy cô dâu."
+          },
+          "atom_ids": [
+            "ATOM_AVOID_EXCESS_ACCESSORIES",
+            "ATOM_AVOID_BRIDE_DRESS"
+          ],
+          "disposition": "retained",
+          "reason": "Các điều cần tránh đối với phụ kiện và phong cách váy cưới."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Mình muốn xem hình để dễ chọn."
+          },
+          "atom_ids": [
+            "ATOM_WANT_IMAGES"
+          ],
+          "disposition": "retained",
+          "reason": "Mong muốn xem hình ảnh trực quan."
+        }
+      ]
+    },
+    "DOMAIN_GUIDANCE": [
+      {
+        "domain_id": "DOMAIN_CONTEXT",
+        "label": "Bối cảnh sử dụng"
+      },
+      {
+        "domain_id": "DOMAIN_STYLE",
+        "label": "Phom dáng và phong cách"
+      },
+      {
+        "domain_id": "DOMAIN_COLOR",
+        "label": "Màu sắc"
+      },
+      {
+        "domain_id": "DOMAIN_ART",
+        "label": "Họa tiết và mỹ thuật"
+      },
+      {
+        "domain_id": "DOMAIN_HISTORY",
+        "label": "Tính lịch sử"
+      },
+      {
+        "domain_id": "DOMAIN_ACCESSORY",
+        "label": "Phụ kiện"
+      },
+      {
+        "domain_id": "DOMAIN_DELEGATION",
+        "label": "Đề xuất và trực quan hóa"
+      }
+    ],
+    "REFERENCE_BUNDLE": {
+      "references": [],
+      "provider_metadata": []
+    },
+    "REFERENCE_DISCOVERY_CONFIG": {
+      "mode": "search_and_read",
+      "tools": [
+        "google_search",
+        "url_context"
+      ]
+    },
+    "PREVIOUS_CHECKLIST_AND_CHOICES": {
+      "checklist": null,
+      "choices": null,
+      "unresolved": null
+    },
+    "FORM_CONFIG": {
+      "form_id": "f1271d84-f825-4794-8052-5c0d5b238489",
+      "open_groups_initial": 6,
+      "options_min": 2,
+      "options_max": 5
+    }
+  },
+  "prompt": "TASK: REVIEW_COVERAGE_AND_PROPOSE_DOMAIN_CHECKLIST\n\nThông tin ứng dụng cấp: {\"request_id\": \"af4df8b8-d374-45bc-ae57-f0e4124e3bd0\", \"revision\": 1}\nLời người dùng nguyên văn: [{\"id\": \"T1\", \"text\": \"Mình là nữ, muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều. Mình thích màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại. Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Mình không cần phục dựng trang phục lịch sử. Bạn cứ đề xuất những phần mình chưa biết, nhưng tránh nhiều phụ kiện và đừng làm giống váy cô dâu. Mình muốn xem hình để dễ chọn.\"}]\nBản chuẩn hóa cần đối chiếu: {\"request_id\": \"af4df8b8-d374-45bc-ae57-f0e4124e3bd0\", \"revision\": 1, \"clean_text\": \"Người dùng là nữ, muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều. Khách thích màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại. Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Người dùng không cần phục dựng trang phục lịch sử. Đồng thời muốn ứng dụng đề xuất những phần chưa biết, nhưng tránh dùng nhiều phụ kiện và đừng làm giống váy cô dâu, ngoài ra mong muốn được xem hình để dễ chọn.\", \"domains\": [{\"domain_id\": \"DOMAIN_CONTEXT\", \"label\": \"Bối cảnh sử dụng\", \"summary\": \"Thông tin về giới tính người mặc và sự kiện tham dự.\", \"related_domain_ids\": [\"DOMAIN_STYLE\"]}, {\"domain_id\": \"DOMAIN_STYLE\", \"label\": \"Phom dáng và phong cách\", \"summary\": \"Yêu cầu về kiểu áo dài hiện đại, dáng thanh lịch, kín đáo, nhẹ, dễ đi lại và tránh giống váy cô dâu.\", \"related_domain_ids\": [\"DOMAIN_CONTEXT\", \"DOMAIN_COLOR\", \"DOMAIN_ART\"]}, {\"domain_id\": \"DOMAIN_COLOR\", \"label\": \"Màu sắc\", \"summary\": \"Yêu cầu về màu xanh ngọc nhạt.\", \"related_domain_ids\": [\"DOMAIN_STYLE\"]}, {\"domain_id\": \"DOMAIN_ART\", \"label\": \"Họa tiết và mỹ thuật\", \"summary\": \"Ý thích về hoa sen hoặc các nét gợi mây nhưng không bắt buộc dùng hết.\", \"related_domain_ids\": [\"DOMAIN_STYLE\"]}, {\"domain_id\": \"DOMAIN_HISTORY\", \"label\": \"Tính lịch sử\", \"summary\": \"Không yêu cầu phục dựng trang phục lịch sử.\", \"related_domain_ids\": []}, {\"domain_id\": \"DOMAIN_ACCESSORY\", \"label\": \"Phụ kiện\", \"summary\": \"Tránh dùng nhiều phụ kiện và không làm giống váy cô dâu.\", \"related_domain_ids\": [\"DOMAIN_STYLE\"]}, {\"domain_id\": \"DOMAIN_DELEGATION\", \"label\": \"Đề xuất và trực quan hóa\", \"summary\": \"Giao AI đề xuất các phần chưa biết và yêu cầu xem hình ảnh để dễ chọn.\", \"related_domain_ids\": []}], \"atoms\": [{\"atom_id\": \"ATOM_GENDER\", \"domain_ids\": [\"DOMAIN_CONTEXT\"], \"meaning\": \"Người dùng là nữ.\", \"intent_type\": \"context\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Mình là nữ,\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"ATOM_OCCASION\", \"domain_ids\": [\"DOMAIN_CONTEXT\"], \"meaning\": \"Mặc đi đám cưới bạn vào buổi chiều.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"ATOM_AO_DAI_MODERN\", \"domain_ids\": [\"DOMAIN_STYLE\"], \"meaning\": \"Trang phục là áo dài hiện đại.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"muốn một bộ áo dài hiện đại\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"ATOM_COLOR_LIGHT_JADE\", \"domain_ids\": [\"DOMAIN_COLOR\"], \"meaning\": \"Thích màu xanh ngọc nhạt.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Mình thích màu xanh ngọc nhạt,\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"ATOM_SILHOUETTE_STYLE\", \"domain_ids\": [\"DOMAIN_STYLE\"], \"meaning\": \"Dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"ATOM_MOTIF_PREFERENCE\", \"domain_ids\": [\"DOMAIN_ART\"], \"meaning\": \"Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết.\", \"intent_type\": \"example\", \"polarity\": \"neutral\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"ATOM_NO_HISTORICAL_RESTORATION\", \"domain_ids\": [\"DOMAIN_HISTORY\"], \"meaning\": \"Không cần phục dựng trang phục lịch sử.\", \"intent_type\": \"avoid\", \"polarity\": \"negative\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Mình không cần phục dựng trang phục lịch sử.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"ATOM_DELEGATE_UNKNOWN\", \"domain_ids\": [\"DOMAIN_DELEGATION\"], \"meaning\": \"Giao AI đề xuất những phần chưa biết.\", \"intent_type\": \"delegated\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Bạn cứ đề xuất những phần mình chưa biết,\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"ATOM_AVOID_EXCESS_ACCESSORIES\", \"domain_ids\": [\"DOMAIN_ACCESSORY\"], \"meaning\": \"Tránh nhiều phụ kiện.\", \"intent_type\": \"avoid\", \"polarity\": \"negative\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"nhưng tránh nhiều phụ kiện\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"ATOM_AVOID_BRIDE_DRESS\", \"domain_ids\": [\"DOMAIN_STYLE\", \"DOMAIN_ACCESSORY\"], \"meaning\": \"Đừng làm giống váy cô dâu.\", \"intent_type\": \"avoid\", \"polarity\": \"negative\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"và đừng làm giống váy cô dâu.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"ATOM_WANT_IMAGES\", \"domain_ids\": [\"DOMAIN_DELEGATION\"], \"meaning\": \"Muốn xem hình để dễ chọn.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Mình muốn xem hình để dễ chọn.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}], \"relations\": [{\"from_atom_id\": \"ATOM_AO_DAI_MODERN\", \"to_atom_id\": \"ATOM_AVOID_BRIDE_DRESS\", \"relation\": \"constraint_refinement\", \"reason\": \"Áo dài hiện đại đi dự tiệc cưới cần tránh nhầm lẫn hoặc trùng lặp với trang phục của cô dâu.\"}], \"conflicts\": [], \"coverage\": [{\"source_ref\": {\"turn_id\": \"T1\", \"quote\": \"Mình là nữ,\"}, \"atom_ids\": [\"ATOM_GENDER\"], \"disposition\": \"retained\", \"reason\": \"Xác định giới tính người mặc.\"}, {\"source_ref\": {\"turn_id\": \"T1\", \"quote\": \"muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều.\"}, \"atom_ids\": [\"ATOM_OCCASION\", \"ATOM_AO_DAI_MODERN\"], \"disposition\": \"retained\", \"reason\": \"Ghi nhận bối cảnh sự kiện và loại trang phục.\"}, {\"source_ref\": {\"turn_id\": \"T1\", \"quote\": \"Mình thích màu xanh ngọc nhạt,\"}, \"atom_ids\": [\"ATOM_COLOR_LIGHT_JADE\"], \"disposition\": \"retained\", \"reason\": \"Sở thích về màu sắc.\"}, {\"source_ref\": {\"turn_id\": \"T1\", \"quote\": \"dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.\"}, \"atom_ids\": [\"ATOM_SILHOUETTE_STYLE\"], \"disposition\": \"retained\", \"reason\": \"Yêu cầu về phom dáng và đặc tính trang phục.\"}, {\"source_ref\": {\"turn_id\": \"T1\", \"quote\": \"Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết.\"}, \"atom_ids\": [\"ATOM_MOTIF_PREFERENCE\"], \"disposition\": \"example\", \"reason\": \"Ý kiến tham khảo về họa tiết mang tính tùy chọn.\"}, {\"source_ref\": {\"turn_id\": \"T1\", \"quote\": \"Mình không cần phục dựng trang phục lịch sử.\"}, \"atom_ids\": [\"ATOM_NO_HISTORICAL_RESTORATION\"], \"disposition\": \"retained\", \"reason\": \"Loại bỏ yêu cầu phục dựng lịch sử.\"}, {\"source_ref\": {\"turn_id\": \"T1\", \"quote\": \"Bạn cứ đề xuất những phần mình chưa biết,\"}, \"atom_ids\": [\"ATOM_DELEGATE_UNKNOWN\"], \"disposition\": \"retained\", \"reason\": \"Trao quyền cho AI đề xuất các phần chưa rõ.\"}, {\"source_ref\": {\"turn_id\": \"T1\", \"quote\": \"nhưng tránh nhiều phụ kiện và đừng làm giống váy cô dâu.\"}, \"atom_ids\": [\"ATOM_AVOID_EXCESS_ACCESSORIES\", \"ATOM_AVOID_BRIDE_DRESS\"], \"disposition\": \"retained\", \"reason\": \"Các điều cần tránh đối với phụ kiện và phong cách váy cưới.\"}, {\"source_ref\": {\"turn_id\": \"T1\", \"quote\": \"Mình muốn xem hình để dễ chọn.\"}, \"atom_ids\": [\"ATOM_WANT_IMAGES\"], \"disposition\": \"retained\", \"reason\": \"Mong muốn xem hình ảnh trực quan.\"}]}\nThông tin miền nghiệp vụ mở: [{\"domain_id\": \"DOMAIN_CONTEXT\", \"label\": \"Bối cảnh sử dụng\"}, {\"domain_id\": \"DOMAIN_STYLE\", \"label\": \"Phom dáng và phong cách\"}, {\"domain_id\": \"DOMAIN_COLOR\", \"label\": \"Màu sắc\"}, {\"domain_id\": \"DOMAIN_ART\", \"label\": \"Họa tiết và mỹ thuật\"}, {\"domain_id\": \"DOMAIN_HISTORY\", \"label\": \"Tính lịch sử\"}, {\"domain_id\": \"DOMAIN_ACCESSORY\", \"label\": \"Phụ kiện\"}, {\"domain_id\": \"DOMAIN_DELEGATION\", \"label\": \"Đề xuất và trực quan hóa\"}]\nKết quả tham khảo Gemini đã tìm trước đó nếu có (có thể rỗng, không phải catalog bắt buộc): {\"references\": [], \"provider_metadata\": []}\nKhả năng tìm web/đọc URL đã bật, hoặc chế độ dùng kết quả VP02R: {\"mode\": \"search_and_read\", \"tools\": [\"google_search\", \"url_context\"]}\nBảng và lựa chọn đã có nếu có: {\"checklist\": null, \"choices\": null, \"unresolved\": null}\nMã form mới và giới hạn hiển thị do ứng dụng cấp: {\"form_id\": \"f1271d84-f825-4794-8052-5c0d5b238489\", \"open_groups_initial\": 6, \"options_min\": 2, \"options_max\": 5}\n\nMỤC TIÊU\nĐọc lại raw và clean để bảo đảm giữ ý, sau đó xây form lựa chọn theo đúng những quyết định còn mơ hồ, đủ giúp thiết kế Việt phục tốt nhất trong phạm vi nhu cầu. Không hỏi tất cả nhóm theo danh sách cố định.\n\nĐỐI CHIẾU\n- So từng ý của USER_TURNS với CLEAN_PROMPT, không tin riêng coverage do bước trước tự khai.\n- Sửa clean_prompt trong bản trả về nếu bỏ ý, hiểu sai hoặc biến sở thích/ví dụ thành bắt buộc; giữ căn cứ từ nguyên văn và mã ý còn đúng.\n- Phân biệt thông tin người dùng đã quyết định, thiếu thật sự, mâu thuẫn và phần người dùng đã giao AI đề xuất. Không yêu cầu người dùng chọn lại điều đã rõ.\n\nTHIẾT KẾ BẢNG THEO MIỀN\n1. Xem xét bối cảnh, phom/cấu trúc, chất liệu/kỹ thuật, bảng màu, mỹ thuật/hoa văn, văn hóa/lịch sử, cách thể hiện ảnh và miền khác nếu thực sự cần. Chỉ tạo nhóm liên quan.\n2. Mỗi nhóm ghi domain_ids, related_atom_ids, question, why_it_matters, status và selection_mode. Dùng single cho các lựa chọn thay nhau; multiple chỉ khi kết hợp có nghĩa. Ghi min/max hợp lý theo FORM_CONFIG, không cắt ý gốc để đủ giới hạn hiển thị.\n3. Lựa chọn phải phù hợp với nền trang phục và hoàn cảnh. Không đưa phom váy A-line/Column thành lựa chọn mặc định cho người yêu cầu âu phục. Nếu phù hợp với váy, label có thể là “Chữ A (A-line)” và “Dáng cột (Column)”, kèm mô tả dễ hiểu.\n4. Tách nguồn cảm hứng/mô-típ khỏi kỹ thuật thể hiện: sen/rồng/mây là nội dung có thể lựa chọn; thêu, thêu nổi, đắp nổi là cách đưa lên trang phục. Tách vị trí/độ phủ khi những quyết định đó ảnh hưởng thiết kế.\n5. Tách lấy cảm hứng đương đại khỏi tái hiện có căn cứ. Chưa có nguồn đúng phạm vi thì không ghi một option là “chuẩn lịch sử”. Không gán niên đại hoặc ý nghĩa từ trí nhớ.\n6. Có “Để AI đề xuất” cho nhóm có thể giao AI chọn, đánh dấu is_ai_delegate=true. Nếu người dùng đã giao quyền, ghi lựa chọn đó là đề xuất để họ kiểm tra, không đặt thành blocker bắt họ tự chọn.\n7. Có allows_custom=true cho người dùng thêm ý. Một giá trị thiếu không tự trở thành option đã chọn. is_recommended chỉ là khuyến nghị, không phải đồng ý của người dùng.\n8. Lập phụ thuộc và quan hệ loại trừ bằng mã option/group. Không tạo vòng phụ thuộc. Không cho “không hoa văn” đi cùng một hoa văn cụ thể. Khi nhóm nền thay đổi, chỉ rõ nhóm phụ cần xét lại.\n9. Nhóm đã rõ có status=locked để hiển thị “Đã hiểu”; không yêu cầu chọn lại. Điều kiện cần làm rõ thật sự có status=needs_choice. Các phần giúp tinh chỉnh có status=optional.\n\nTHAM KHẢO DO GEMINI ĐẢM NHIỆM\n- Tự quyết định cần tìm gì theo miền và từng option; dùng tìm web tích hợp Gemini để tìm URL thật, đọc nội dung liên quan bằng khả năng đọc trang nếu có. Không cần catalog, không yêu cầu người dùng tự đi tìm hay đội vận hành nhập link.\n- Trả references[] gồm reference_id duy nhất, domains, label, description, url, source_type, scope, supporting_excerpt nếu thực sự đọc được và discovery_status. Option gắn reference_ids tới references này hoặc nguồn Gemini đã tìm trong REFERENCE_BUNDLE.\n- Với mỗi option chuyên môn cụ thể, cố gắng cung cấp trang đúng kiểu để xem: phom dáng, kỹ thuật thêu/đắp nổi, mô-típ hoặc hiện vật liên quan. Không dùng một link chung cho mọi option và không coi link tìm kiếm chung là nguồn đã đọc.\n- Nguồn thời trang/cách làm minh họa đúng hình thức; phát biểu văn hóa/lịch sử cần trang có nội dung hỗ trợ đúng phạm vi. Không che thiếu tài liệu lịch sử bằng link váy/thêu.\n- preview_url chỉ trả nếu công cụ/nội dung trang thực sự cung cấp ảnh liên quan; không đoán đường dẫn ảnh. Có thể null; giải thích và URL trang vẫn đủ để người dùng xem chi tiết.\n- origin=gemini_suggestion cho option; nguồn link vẫn ghi source_type thật. Không tự khai chuyên gia duyệt. tool_grounded chỉ khi có dấu dẫn nguồn/kết quả công cụ; chưa tìm được thì not_found, URL chưa đọc được phải mô tả đúng giới hạn.\n- Nếu REFERENCE_DISCOVERY_CONFIG là chế độ format_only sau VP02R, chỉ dùng nguồn trong REFERENCE_BUNDLE và giữ đúng URL/đoạn trích; không tạo link mới không có xuất xứ.\n- Thiếu link phù hợp thì reference_ids=[] và ghi chưa tìm được; không bịa để lấp đủ form. Nếu công cụ tìm nguồn không sẵn sàng, báo giới hạn đó, không tự chuyển sang catalog thủ công.\n\nTrả đúng ClarificationChecklist gồm clean_prompt đã đối chiếu, form_id do ứng dụng cấp, groups, references và open_conflicts. Không tạo thiết kế cuối hoặc điểm ở bước này.\n\nLượt trước không hợp lệ: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. . Giữ nguyên input và sửa đúng hợp đồng.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "request_id": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120
+      },
+      "revision": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "clean_prompt": {
+        "type": "object",
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "clean_text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 18000
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "domain_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "summary": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "related_domain_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "maxItems": 100,
+                  "minItems": 0,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "domain_id",
+                "label",
+                "summary",
+                "related_domain_ids"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 40,
+            "minItems": 1
+          },
+          "atoms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "atom_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "domain_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "maxItems": 100,
+                  "minItems": 0,
+                  "uniqueItems": true
+                },
+                "meaning": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 6000
+                },
+                "intent_type": {
+                  "type": "string",
+                  "enum": [
+                    "must",
+                    "avoid",
+                    "preference",
+                    "example",
+                    "delegated",
+                    "context",
+                    "unknown"
+                  ]
+                },
+                "polarity": {
+                  "type": "string",
+                  "enum": [
+                    "positive",
+                    "negative",
+                    "neutral"
+                  ]
+                },
+                "source_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "turn_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 120
+                      },
+                      "quote": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 6000
+                      }
+                    },
+                    "required": [
+                      "turn_id",
+                      "quote"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 30,
+                  "minItems": 1
+                },
+                "resolution": {
+                  "type": "string",
+                  "enum": [
+                    "explicit",
+                    "inferred",
+                    "open",
+                    "conflicting"
+                  ]
+                },
+                "supersedes_atom_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "maxItems": 100,
+                  "minItems": 0,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "atom_id",
+                "domain_ids",
+                "meaning",
+                "intent_type",
+                "polarity",
+                "source_refs",
+                "resolution",
+                "supersedes_atom_ids"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 100,
+            "minItems": 1
+          },
+          "relations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "from_atom_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "to_atom_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "relation": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                }
+              },
+              "required": [
+                "from_atom_id",
+                "to_atom_id",
+                "relation",
+                "reason"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 100,
+            "minItems": 0
+          },
+          "conflicts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "maxItems": 100,
+            "minItems": 0
+          },
+          "coverage": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_ref": {
+                  "type": "object",
+                  "properties": {
+                    "turn_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "quote": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 6000
+                    }
+                  },
+                  "required": [
+                    "turn_id",
+                    "quote"
+                  ],
+                  "additionalProperties": false
+                },
+                "atom_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "maxItems": 100,
+                  "minItems": 0,
+                  "uniqueItems": true
+                },
+                "disposition": {
+                  "type": "string",
+                  "enum": [
+                    "retained",
+                    "example",
+                    "unclear"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                }
+              },
+              "required": [
+                "source_ref",
+                "atom_ids",
+                "disposition",
+                "reason"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 200,
+            "minItems": 1
+          }
+        },
+        "required": [
+          "request_id",
+          "revision",
+          "clean_text",
+          "domains",
+          "atoms",
+          "relations",
+          "conflicts",
+          "coverage"
+        ],
+        "additionalProperties": false
+      },
+      "form_id": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120
+      },
+      "groups": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "group_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "domain_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "why_it_matters": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "locked",
+                "needs_choice",
+                "optional"
+              ]
+            },
+            "selection_mode": {
+              "type": "string",
+              "enum": [
+                "single",
+                "multiple"
+              ]
+            },
+            "min": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "max": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "related_atom_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "depends_on": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "group_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "option_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "group_id",
+                  "option_ids"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 40,
+              "minItems": 0
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "option_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  },
+                  "decision_text": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  },
+                  "reference_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  },
+                  "origin": {
+                    "type": "string",
+                    "enum": [
+                      "gemini_suggestion"
+                    ]
+                  },
+                  "is_recommended": {
+                    "type": "boolean"
+                  },
+                  "is_ai_delegate": {
+                    "type": "boolean"
+                  },
+                  "compatible_option_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  },
+                  "incompatible_option_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "option_id",
+                  "label",
+                  "description",
+                  "decision_text",
+                  "reference_ids",
+                  "origin",
+                  "is_recommended",
+                  "is_ai_delegate",
+                  "compatible_option_ids",
+                  "incompatible_option_ids"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 8,
+              "minItems": 0
+            },
+            "allows_custom": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "group_id",
+            "domain_ids",
+            "label",
+            "question",
+            "why_it_matters",
+            "status",
+            "selection_mode",
+            "min",
+            "max",
+            "related_atom_ids",
+            "depends_on",
+            "options",
+            "allows_custom"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 40,
+        "minItems": 0
+      },
+      "references": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "reference_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "domains": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 0,
+              "maxLength": 3000
+            },
+            "preview_url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 0,
+              "maxLength": 3000
+            },
+            "source_type": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "scope": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "supporting_excerpt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 0,
+              "maxLength": 10000
+            },
+            "discovery_status": {
+              "type": "string",
+              "enum": [
+                "tool_grounded",
+                "not_found",
+                "unconfirmed"
+              ]
+            },
+            "discovered_at": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "tool_citation_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "reference_id",
+            "domains",
+            "label",
+            "description",
+            "url",
+            "preview_url",
+            "source_type",
+            "scope",
+            "supporting_excerpt",
+            "discovery_status",
+            "discovered_at",
+            "tool_citation_ids"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 80,
+        "minItems": 0
+      },
+      "open_conflicts": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "maxItems": 100,
+        "minItems": 0
+      }
+    },
+    "required": [
+      "request_id",
+      "revision",
+      "clean_prompt",
+      "form_id",
+      "groups",
+      "references",
+      "open_conflicts"
+    ],
+    "additionalProperties": false
+  },
+  "config": {
+    "timeout_seconds": 60,
+    "max_output_tokens": 20000,
+    "temperature": 1.0,
+    "web_tools": true,
+    "structured": true
+  }
+}

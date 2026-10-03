@@ -1,0 +1,34 @@
+TASK: RESOLVE_VIET_PHUC_BRIEF_FROM_USER_CHOICES
+
+Thông tin ứng dụng cấp: {{REQUEST_METADATA}}
+Các lượt người dùng nguyên văn: {{USER_TURNS}}
+Bản chuẩn hóa đã đối chiếu: {{CLEAN_PROMPT}}
+Bảng lựa chọn đang dùng: {{CHECKLIST}}
+Các lựa chọn hợp lệ và thay đổi rõ ràng đã được ứng dụng kiểm tra: {{VALIDATED_SELECTIONS}}
+Bản đã chốt trước đó nếu có: {{PREVIOUS_RESOLVED_BRIEF}}
+Nguồn và tham khảo đúng phạm vi: {{REFERENCE_BUNDLE}}
+
+MỤC TIÊU
+Tạo resolved_brief đầy đủ từ nhu cầu gốc và lựa chọn của người dùng. Không còn phải ép thiết kế vào trường cố định. Đây là phần nhu cầu đã chốt dùng cho tất cả lượt sinh tiếp theo, chưa phải image prompt.
+
+QUY TẮC TỔNG HỢP
+1. Giữ mọi ý của clean_prompt; thêm các ý từ lựa chọn cụ thể hoặc custom_text. Ghi decisions để phân biệt người dùng chọn option nào và phần nào giao AI chọn.
+   Với mỗi atom cũ chưa có explicit_changes: sao chép nguyên atom_id, meaning, intent_type, polarity và mọi source_refs cũ vào atoms, kể cả example/preference/context đã được lựa chọn cụ thể ở lượt này. Thêm atom mới với mã mới và source_ref từ lượt S cho quyết định mới. Không dùng lại mã atom cũ để ghi đè meaning, không bỏ atom ví dụ, không chuyển example thành preference/must vì người dùng vừa chọn một ví dụ. decisions.atom_ids trỏ các atom mới của lượt chốt; giữ ví dụ gốc làm lịch sử quyền chọn.
+2. Các lựa chọn đến từ cùng form_id/revision được ứng dụng xác thực. Không tự tạo lựa chọn mới hoặc khẳng định người dùng đồng ý một option chưa chọn.
+   VALIDATED_SELECTIONS.decision_contracts là quyền giao AI và mã lựa chọn đã được backend tính từ form. Sao chép chính xác delegated/option_ids/custom_text/group_id này vào decisions; không suy delegated từ label. Với delegated=false, mọi atom mới thuộc decision phải nằm trong locked_atom_ids. Với delegated=true, chúng nằm trong delegated_atom_ids.
+   decisions chỉ chứa đúng các group_id trong decision_contracts, không thêm nhóm locked/nhóm chưa chọn. old_atom_binding liệt kê must_lock, keep_delegated, do_not_lock của ý cũ; tuân thủ danh sách đó, thêm mã atom mới từ quyết định tương ứng vào danh sách khóa/giao AI. Giới tính hoặc dịp cưới là context thì vẫn giữ trong resolved_text nhưng không tự khóa thành must.
+3. Ý mới thay điều bắt buộc cũ chỉ khi có explicit_changes hoặc lời người dùng thay đổi rõ. Nếu option và điều cũ mâu thuẫn nhưng chưa có thay đổi rõ, ghi conflict và needs_resolution.
+4. “Để AI đề xuất” giữ thành delegated_atom_ids và creative_space phù hợp; không chọn ngay một giá trị ngầm rồi gọi đó là quyết định của người dùng. Không biến ví dụ thành must.
+5. resolved_text phải đủ bối cảnh, phom/chất liệu, màu, hoa văn/kỹ thuật, mức văn hóa và phần khác có liên quan. Không yêu cầu mọi miền đều có giá trị; miền không liên quan không được bịa nội dung.
+6. locked_atom_ids chỉ chứa điều bắt buộc hoặc lựa chọn người dùng đã chốt. preferences cần được thể hiện trong phương án sau nhưng không tự chuyển thành cấm các biến thể khác nếu người dùng không khóa.
+7. creative_space mô tả rõ phần có thể đổi và biên thay đổi. Không cho đổi phom đã chốt, thêm phụ kiện đã cấm hoặc đổi mode lịch sử để sáng tạo hơn.
+8. historical_mode giữ đúng ý: neutral nếu không có nhu cầu văn hóa, inspired nếu lấy cảm hứng/cách tân, historical nếu tái hiện trong phạm vi tài liệu; unresolved nếu thật sự cần người dùng phân biệt. Không bắt người dùng chọn mode nếu lời gốc đã rõ.
+9. reference_ids và nguồn không được thêm ngoài bundle. Thiếu bằng chứng bắt buộc cho historical => needs_evidence, ghi chính xác phần thiếu; inspired vẫn có thể ready với thiết kế sáng tạo và giới hạn phát biểu lịch sử.
+10. Ý mới từ lựa chọn bằng giao diện gắn source_ref tới lượt lựa chọn do ứng dụng cung cấp; không chế quote từ option thành lời gốc chưa từng nói. Quyết định từ checklist là bổ sung và làm cụ thể nhu cầu, không thay thế atom gốc. Atom quyết định mới có supersedes_atom_ids=[]. Chỉ dùng supersedes_atom_ids khi atom_id được liệt kê trong VALIDATED_SELECTIONS.explicit_changes và người dùng đã xác nhận thay đổi đó.
+
+Trả đúng ResolvedBrief: status=ready khi đủ điều kiện, needs_resolution khi cần giải quyết mâu thuẫn/ý quan trọng, needs_evidence khi thiếu căn cứ bắt buộc. Không tạo phương án, điểm hoặc lời nhắc ảnh.
+
+KIỂM TRA TRƯỚC KHI TRẢ JSON
+- Nếu VALIDATED_SELECTIONS.explicit_changes=[]: supersedes_atom_ids của TẤT CẢ atoms phải là []. Không đặt mã atom gốc vào supersedes chỉ vì người dùng vừa chọn một phương án.
+- Sao chép nguyên các atom của CLEAN_PROMPT. Thêm atom mới cho mỗi quyết định đã chốt; ví dụ ý gốc cho phép A hoặc B vẫn giữ nguyên, quyết định chọn A là atom mới, supersedes_atom_ids=[]. Hai atom này không mâu thuẫn: A là một lựa chọn nằm trong phạm vi A hoặc B.
+- Với explicit_changes không rỗng, supersedes_atom_ids chỉ được chứa các atom_id trong explicit_changes; không suy thay đổi từ selections, custom_text hoặc PREVIOUS_RESOLVED_BRIEF.

@@ -1,0 +1,483 @@
+{
+  "evidence_id": "9e5422ec-7118-4137-8114-8b1765ad627c",
+  "recorded_at": 1791062824.785802,
+  "request_id": "ce6c0b69-afe5-44cd-b418-818b84ad19c3",
+  "attempt_id": "2a9ad063-ce2a-4755-b2c7-2a9be7623bd8",
+  "trace": {
+    "task": "VP05",
+    "phase": "design",
+    "attempt_id": "2a9ad063-ce2a-4755-b2c7-2a9be7623bd8",
+    "revision": 2,
+    "role": "fashion",
+    "batch_id": "B1",
+    "cache_hit": false,
+    "duration_ms": 12616,
+    "provider_call_id": "52f8d4a5-d8f3-4a7d-8530-fc6c0163e895",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 10707,
+      "candidatesTokenCount": 4982,
+      "totalTokenCount": 15689,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 10707
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "HHPBaoLuLK7Z9tMP87a1gAI"
+    },
+    "input_hash": "55935e302088b66a3724b1238584d3453959c9c6cc7c9df5176a877b8b1c0b7f",
+    "output_hash": "d5f66cb2b2e7bc4f792cb46d9c10c7e37bba224b023657bce252572148335f79",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "role": "fashion",
+    "audits": [
+      {
+        "candidate_id": "R2-B1-C1",
+        "candidate_revision": 2,
+        "content_hash": "630b0ff8b27d9c36d0862d756fee9b3cc9a61fae219f7830c7b558930d0e53fe",
+        "role": "fashion",
+        "checks": [
+          {
+            "check_id": "locked:atom_01",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Image prompt không chứa đoạn trích nguyên văn của atom_01 (EXPECTED_CHECKS.exact_prompt_excerpts trống cho R2-B1-C1), dẫn đến thiếu chứng cứ trực tiếp theo yêu cầu bắt buộc của hợp đồng."
+          },
+          {
+            "check_id": "locked:atom_02",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Image prompt không có exact_prompt_excerpts cho atom_02, thiếu căn cứ khẳng định đáp ứng chủ đề kết hợp truyền thống và hiện đại theo chuẩn kiểm tra."
+          },
+          {
+            "check_id": "locked:atom_04",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Thiếu exact_prompt_excerpts trong prompt cho atom_04 về tính gọn gàng và tiện dụng."
+          },
+          {
+            "check_id": "locked:atom_05",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Thiếu exact_prompt_excerpts trong prompt cho atom_05 về độ thoải mái và sang trọng."
+          },
+          {
+            "check_id": "locked:atom_s_tp",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Thiếu exact_prompt_excerpts trong prompt cho atom_s_tp về phom chữ A nhẹ và cổ lập lĩnh."
+          },
+          {
+            "check_id": "locked:atom_s_cl",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Thiếu exact_prompt_excerpts trong prompt cho atom_s_cl về chất liệu lụa tơ tằm."
+          },
+          {
+            "check_id": "locked:atom_s_ms",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Thiếu exact_prompt_excerpts trong prompt cho atom_s_ms về bảng màu trắng ngà và xanh ngọc bích."
+          },
+          {
+            "check_id": "locked:atom_s_mt",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "Thiếu exact_prompt_excerpts trong prompt cho atom_s_mt về thêu tay tối giản hoa sen."
+          },
+          {
+            "check_id": "locked:atom_s_pk",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "khăn vấn tóc cách tân dạng băng đô lụa",
+            "source_ids": [],
+            "reason": "Prompt chứa chính xác cụm từ về phụ kiện khăn vấn tóc cách tân dạng băng đô lụa."
+          },
+          {
+            "check_id": "locked:atom_s_tb",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bản minh họa thiết kế thời trang",
+            "source_ids": [],
+            "reason": "Prompt trình bày đúng định dạng yêu cầu dưới dạng bản minh họa thiết kế thời trang."
+          },
+          {
+            "check_id": "summary_prompt_consistency",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bản minh họa thiết kế thời trang",
+            "source_ids": [],
+            "reason": "Các thông tin tóm tắt và phần thiết kế bám sát nội dung image_prompt đã cung cấp."
+          }
+        ],
+        "criterion_ratings": [
+          {
+            "criterion_id": "need_fit",
+            "applicable": true,
+            "rating": 3,
+            "reason": "Đáp ứng đầy đủ các lựa chọn đã chốt về phụ kiện và hình thức trình bày nhưng do thiếu các đoạn trích bắt buộc trongEXPECTED_CHECKS nên điểm số bị ảnh hưởng."
+          },
+          {
+            "criterion_id": "silhouette_structure",
+            "applicable": true,
+            "rating": 3,
+            "reason": "Phom dáng chữ A nhẹ và cổ lập lĩnh được định hướng rõ ràng trong thiết kế."
+          },
+          {
+            "criterion_id": "material_technique",
+            "applicable": true,
+            "rating": 3,
+            "reason": "Chất liệu lụa tơ tằm phối lót cotton và chi tiết thêu hoa sen tối giản hợp lý."
+          },
+          {
+            "criterion_id": "contextual_usability",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Phù hợp với sự kiện thời trang mùa hè mang tính quốc tế."
+          }
+        ],
+        "strengths": [
+          "Bố cục image_prompt mạch lạc, mô tả chi tiết các yếu tố thời trang.",
+          "Sử dụng chất liệu và phụ kiện đúng định hướng."
+        ],
+        "concerns": [
+          "Một số check yêu cầu exact_prompt_excerpts bị trống ở candidate này theo dữ liệu đầu vào."
+        ],
+        "suggested_fixes": [
+          "Đảm bảo image_prompt tích hợp đầy đủ các cụm từ khóa đúng chuẩn yêu cầu kiểm tra."
+        ],
+        "summary": "Phương án R2-B1-C1 có cấu trúc thời trang tốt, tuy nhiên thiếu một số đoạn trích chứng cứ bắt buộc trong trường exact_prompt_excerpts.",
+        "score": 67.5,
+        "score_reason": "Điểm được tính dựa trên 4 tiêu chí với mức rating trung bình 3.25/5."
+      },
+      {
+        "candidate_id": "R2-B1-C2",
+        "candidate_revision": 2,
+        "content_hash": "aa6b366d8bc39b26933e7a9c30ff9ad74e6041caf9fb2714792dacf5488b5a09",
+        "role": "fashion",
+        "checks": [
+          {
+            "check_id": "locked:atom_01",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "váy liền thân nữ mùa hè tham gia sự kiện thời trang",
+            "source_ids": [],
+            "reason": "Prompt có chứa chính xác đoạn trích mô tả trang phục váy liền thân nữ mùa hè tham gia sự kiện thời trang."
+          },
+          {
+            "check_id": "locked:atom_02",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "mang cảm hứng truyền thống kết hợp hiện đại",
+            "source_ids": [],
+            "reason": "Prompt phản ánh đúng chủ đề truyền thống kết hợp hiện đại."
+          },
+          {
+            "check_id": "locked:atom_04",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "gọn gàng, tiện dụng",
+            "source_ids": [],
+            "reason": "Prompt thể hiện rõ yêu cầu xử lý gọn gàng, tiện dụng."
+          },
+          {
+            "check_id": "locked:atom_05",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "thoải mái, dễ mặc và sang trọng",
+            "source_ids": [],
+            "reason": "Prompt có chứa cụm từ phản ánh độ thoải mái, dễ mặc và sang trọng."
+          },
+          {
+            "check_id": "locked:atom_s_tp",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "phom chữ A nhẹ, kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại",
+            "source_ids": [],
+            "reason": "Prompt chứa chính xác mô tả phom dáng và cấu trúc cổ áo, tay áo."
+          },
+          {
+            "check_id": "locked:atom_s_cl",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "chất liệu lụa tơ tằm tự nhiên kết hợp lớp lót cotton mỏng",
+            "source_ids": [],
+            "reason": "Prompt có chứa đoạn trích về chất liệu lụa tơ tằm và lớp lót cotton mỏng."
+          },
+          {
+            "check_id": "locked:atom_s_ms",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "EXPECTED_CHECKS.exact_prompt_excerpts cho atom_s_ms ở candidate này trống, không có chứng cứ trích dẫn trực tiếp."
+          },
+          {
+            "check_id": "locked:atom_s_mt",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "thêu tay tối giản hình hoa sen cách điệu",
+            "source_ids": [],
+            "reason": "Prompt chứa đúng mô tả thêu tay tối giản hoa sen cách điệu."
+          },
+          {
+            "check_id": "locked:atom_s_pk",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "băng đô lụa cách tân",
+            "source_ids": [],
+            "reason": "Prompt chứa cụm từ băng đô lụa cách tân."
+          },
+          {
+            "check_id": "locked:atom_s_tb",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bản minh họa thiết kế thời trang",
+            "source_ids": [],
+            "reason": "Prompt chỉ định rõ dạng bản minh họa thiết kế thời trang."
+          },
+          {
+            "check_id": "summary_prompt_consistency",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bản minh họa thiết kế thời trang",
+            "source_ids": [],
+            "reason": "Các phần tóm tắt và thiết kế hoàn toàn nhất quán với nội dung image_prompt."
+          }
+        ],
+        "criterion_ratings": [
+          {
+            "criterion_id": "need_fit",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Đáp ứng tốt các yêu cầu về nhu cầu thiết kế váy liền thân mùa hè."
+          },
+          {
+            "criterion_id": "silhouette_structure",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Phom chữ A nhẹ cùng cổ lập lĩnh và tay áo hiện đại rất cân đối."
+          },
+          {
+            "criterion_id": "material_technique",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Chất liệu lụa tơ tằm phối lót cotton và chi tiết thêu tối giản rất khả thi."
+          },
+          {
+            "criterion_id": "contextual_usability",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Tính ứng dụng cao trong sự kiện thời trang quốc tế."
+          }
+        ],
+        "strengths": [
+          "Các đoạn trích chứng cứ khớp tốt với hầu hết các yêu cầu bắt buộc.",
+          "Thiết kế cấu trúc gọn gàng, hiện đại và tiện dụng."
+        ],
+        "concerns": [
+          "Trích dẫn cho atom_s_ms bị trống trong dữ liệu đầu vào expected_checks."
+        ],
+        "suggested_fixes": [
+          "Bổ sung trích dẫn cho bảng màu trong các revision tiếp theo nếu cần thiết."
+        ],
+        "summary": "Phương án R2-B1-C2 đạt độ hoàn thiện cao, đáp ứng tốt các tiêu chí về cấu trúc và thẩm mỹ thời trang.",
+        "score": 80.0,
+        "score_reason": "Điểm số dựa trên 4 tiêu chí đạt mức rating trung bình 4/5."
+      },
+      {
+        "candidate_id": "R2-B1-C3",
+        "candidate_revision": 2,
+        "content_hash": "13be6c8936fa6405df4cfb88c07a724ad8971b1f6759fb9cac8749bc06d9944a",
+        "role": "fashion",
+        "checks": [
+          {
+            "check_id": "locked:atom_01",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "váy liền thân nữ mùa hè cho sự kiện thời trang",
+            "source_ids": [],
+            "reason": "Prompt có chứa đoạn trích chính xác mô tả váy liền thân nữ mùa hè cho sự kiện thời trang."
+          },
+          {
+            "check_id": "locked:atom_02",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "chủ đề kết hợp truyền thống và hiện đại theo chuẩn quốc tế",
+            "source_ids": [],
+            "reason": "Prompt thể hiện rõ chủ đề truyền thống kết hợp hiện đại theo chuẩn quốc tế."
+          },
+          {
+            "check_id": "locked:atom_04",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "gọn gàng, tiện dụng",
+            "source_ids": [],
+            "reason": "Prompt có chứa yêu cầu xử lý gọn gàng, tiện dụng."
+          },
+          {
+            "check_id": "locked:atom_05",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "thoải mái, dễ mặc nhưng vô cùng sang trọng",
+            "source_ids": [],
+            "reason": "Prompt chứa cụm từ mô tả sự thoải mái, dễ mặc và sang trọng."
+          },
+          {
+            "check_id": "locked:atom_s_tp",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "phom chữ A nhẹ, kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại",
+            "source_ids": [],
+            "reason": "Prompt mô tả rõ phom chữ A nhẹ kết hợp cổ lập lĩnh và tay áo hiện đại."
+          },
+          {
+            "check_id": "locked:atom_s_cl",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "EXPECTED_CHECKS.exact_prompt_excerpts cho atom_s_cl ở candidate này trống."
+          },
+          {
+            "check_id": "locked:atom_s_ms",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "",
+            "source_ids": [],
+            "reason": "EXPECTED_CHECKS.exact_prompt_excerpts cho atom_s_ms ở candidate này trống."
+          },
+          {
+            "check_id": "locked:atom_s_mt",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "thêu tay tối giản họa sen cách điệu",
+            "source_ids": [],
+            "reason": "Prompt chứa chính xác cụm từ thêu tay tối giản họa sen cách điệu."
+          },
+          {
+            "check_id": "locked:atom_s_pk",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "khăn vấn tóc cách tân dạng băng đô lụa",
+            "source_ids": [],
+            "reason": "Prompt chứa đúng mô tả phụ kiện khăn vấn tóc cách tân dạng băng đô lụa."
+          },
+          {
+            "check_id": "locked:atom_s_tb",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bản minh họa thiết kế thời trang",
+            "source_ids": [],
+            "reason": "Prompt trình bày rõ dưới dạng bản minh họa thiết kế thời trang."
+          },
+          {
+            "check_id": "summary_prompt_consistency",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "bản minh họa thiết kế thời trang",
+            "source_ids": [],
+            "reason": "Tóm tắt thời trang và nghệ thuật phù hợp hoàn toàn với nội dung prompt."
+          }
+        ],
+        "criterion_ratings": [
+          {
+            "criterion_id": "need_fit",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Đáp ứng tốt các yêu cầu cốt lõi của đề bài."
+          },
+          {
+            "criterion_id": "silhouette_structure",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Cấu trúc phom dáng chữ A nhẹ nhàng, cổ lập lĩnh thanh lịch."
+          },
+          {
+            "criterion_id": "material_technique",
+            "applicable": true,
+            "rating": 3,
+            "reason": "Chất liệu và kỹ thuật mô tả tốt nhưng thiếu trích dẫn chuẩn cho một số check."
+          },
+          {
+            "criterion_id": "contextual_usability",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Tính ứng dụng cao cho sự kiện thời trang."
+          }
+        ],
+        "strengths": [
+          "Ngôn ngữ mô tả trong prompt rất trôi chảy và chuyên nghiệp.",
+          "Phom dáng và chi tiết thêu hoa sen tạo điểm nhấn tốt."
+        ],
+        "concerns": [
+          "Một số check về chất liệu và màu sắc bị trống exact_prompt_excerpts trong dữ liệu đầu vào."
+        ],
+        "suggested_fixes": [
+          "Cập nhật đầy đủ các trích dẫn trong expected_checks để đảm bảo tính minh bạch."
+        ],
+        "summary": "Phương án R2-B1-C3 có chất lượng thiết kế ổn định, đáp ứng tốt yêu cầu thời trang hiện đại kết hợp truyền thống.",
+        "score": 75.0,
+        "score_reason": "Điểm được tính dựa trên 4 tiêu chí với mức rating trung bình 3.75/5."
+      }
+    ]
+  }
+}

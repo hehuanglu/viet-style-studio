@@ -401,6 +401,22 @@ lỗi tạo hình lớn và vùng cần giữ khi đây là một edit.
 Không lấy mô tả prompt làm bằng chứng ảnh đã thể hiện đúng.
 Không suy ra niên đại, nguồn gốc hoặc chi tiết bị che từ vẻ ngoài chung.
 
+Thực hiện các kiểm tra tương ứng trên cả mặt trước và mặt sau của trang phục.
+Hai ô phải thể hiện cùng một người mẫu duy nhất mặc cùng một bộ trang phục:
+ô mặt trước và ô mặt sau là hai góc nhìn của chính người đó, không phải hai người mẫu khác nhau.
+Đối chiếu tính nhất quán giữa hai góc nhìn về người mẫu, tỷ lệ cơ thể, màu,
+chất liệu, phụ kiện, cấu trúc và sự nối tiếp của các chi tiết quanh trang phục.
+Với mỗi tiêu chí áp dụng cho cả hai mặt, quan sát riêng từng mặt và nêu rõ
+“mặt trước: …; mặt sau: …” trong evidence; chỉ pass khi cả hai mặt đáp ứng.
+Nếu một mặt có lỗi rõ ràng, ghi fail và chỉ rõ mặt/vị trí cần sửa. Nếu thiếu,
+bị che hoặc không đủ rõ để kiểm tra một mặt, ghi uncertain và nêu phần
+chưa quan sát được; không suy kết quả mặt sau từ mặt trước hoặc ngược lại.
+Chi tiết chỉ thuộc một mặt thì đánh giá ở mặt đó và giải thích phạm vi,
+không yêu cầu hai mặt có họa tiết hay kết cấu giống hệt nhau. minimal_fix
+phải chỉ rõ mặt cần sửa và phần cần giữ ở mặt còn lại; sửa tương ứng ở cả
+hai mặt khi thay đổi ảnh hưởng đến cùng chi tiết hoặc cấu trúc liên tục.
+Không thêm field mới ngoài schema; dùng evidence và minimal_fix hiện có.
+
 Với mỗi gate: status=pass|fail|uncertain|not_applicable,
 evidence là quan sát ngắn từ ảnh, rule_id/constraint_id và minimal_fix.
 Nếu chi tiết không thấy hoặc độ phân giải thiếu, status=uncertain.

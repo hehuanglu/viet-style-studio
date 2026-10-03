@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-03",
+  "fixture_calls": 0,
+  "total_transport_attempts": 11,
+  "remote_http_responses": 10,
+  "local_tls_failure_before_response": 1,
+  "http_status_counts": {
+    "200": 4,
+    "400": 2,
+    "429": 3,
+    "404": 1
+  },
+  "reported_total_tokens": 10536,
+  "tokens_on_failed_calls": "not reported, not assumed zero",
+  "app_requests": [
+    {
+      "request_id": "18921acc-d526-4829-baee-7dec7e012e46",
+      "status": "failed",
+      "actual_api_attempts": 1,
+      "active_seconds": 0.792,
+      "tasks": [
+        "VP01"
+      ]
+    },
+    {
+      "request_id": "f1bdf342-27ab-4f64-9e35-edbef4d5b6b2",
+      "status": "failed",
+      "actual_api_attempts": 1,
+      "active_seconds": 0.797,
+      "tasks": [
+        "VP01"
+      ]
+    },
+    {
+      "request_id": "af4df8b8-d374-45bc-ae57-f0e4124e3bd0",
+      "status": "failed",
+      "actual_api_attempts": 3,
+      "active_seconds": 11.946,
+      "tasks": [
+        "VP01",
+        "VP02",
+        "VP02"
+      ]
+    }
+  ],
+  "diagnostics": [
+    {
+      "file": "diagnostic-25-search-access.json",
+      "purpose": "one_short_25_search_access_check",
+      "status": 404,
+      "actual_api_calls": 1,
+      "elapsed_seconds": 1.059
+    },
+    {
+      "file": "diagnostic-minimal-response-2.json",
+      "purpose": "one_minimal_request_no_schema_no_tools",
+      "status": 200,
+      "actual_api_calls": 1,
+      "elapsed_seconds": 1.035
+    },
+    {
+      "file": "diagnostic-minimal-response.json",
+      "purpose": "one_minimal_request_no_schema_no_tools",
+      "status": "network_error",
+      "actual_api_calls": 1,
+      "elapsed_seconds": 0.088
+    },
+    {
+      "file": "diagnostic-minimal-schema.json",
+      "purpose": "one_minimal_response_format_schema_no_tools",
+      "status": 200,
+      "actual_api_calls": 1,
+      "elapsed_seconds": 1.884
+    },
+    {
+      "file": "diagnostic-vp01-without-array-bounds.json",
+      "purpose": "same_vp01_request_without_array_bounds",
+      "status": 200,
+      "actual_api_calls": 1,
+      "elapsed_seconds": 7.996
+    },
+    {
+      "file": "diagnostic-vp02-quota-details.json",
+      "purpose": "one_replay_vp02_for_quota_details",
+      "status": 429,
+      "actual_api_calls": 1,
+      "elapsed_seconds": 0.774
+    }
+  ],
+  "workflow_completed": false,
+  "selected_third_prompt": false,
+  "manual_image_generation_submissions": 0,
+  "media_api_calls": 0,
+  "downloaded_images": 0,
+  "final_blocker": "VP02 Search Grounding HTTP 429; 2.5 access diagnostic HTTP 404",
+  "key_persisted": false
+}

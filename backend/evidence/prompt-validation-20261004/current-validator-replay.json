@@ -1,0 +1,1241 @@
+[
+  {
+    "source": "backend/evidence/prompt-validation-20261004/VP01-domain-ids.json",
+    "status": "passed",
+    "error": null,
+    "repairs": [],
+    "normalized_value": {
+      "request_id": "d8338bb7-d9d1-40d1-b746-687aaf25c50b",
+      "revision": 1,
+      "clean_text": "Người dùng là nữ, muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều. Khách thích màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại. Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Người dùng không cần phục dựng trang phục lịch sử, muốn để bạn đề xuất những phần chưa biết, nhưng cần tránh nhiều phụ kiện và không làm giống váy cô dâu. Đồng thời, khách muốn xem hình để dễ chọn.",
+      "domains": [
+        {
+          "domain_id": "context_and_intent",
+          "label": "Bối cảnh và Ý định",
+          "summary": "Xác định bối cảnh sử dụng trang phục là đi đám cưới bạn vào buổi chiều, không cần phục dựng trang phục lịch sử và giao một số phần cho nhà thiết kế đề xuất.",
+          "related_domain_ids": [
+            "style_and_structure",
+            "visual_and_presentation"
+          ]
+        },
+        {
+          "domain_id": "style_and_structure",
+          "label": "Cấu trúc và Kiểu dáng",
+          "summary": "Yêu cầu về áo dài hiện đại có dáng thanh lịch, kín đáo, nhẹ, dễ đi lại; tránh dùng nhiều phụ kiện và không làm giống váy cô dâu.",
+          "related_domain_ids": [
+            "context_and_intent",
+            "color_and_art"
+          ]
+        },
+        {
+          "domain_id": "color_and_art",
+          "label": "Màu sắc và Mỹ thuật",
+          "summary": "Yêu cầu màu xanh ngọc nhạt; hoa sen hoặc các nét gợi mây là ý thích tùy chọn, không bắt buộc dùng hết.",
+          "related_domain_ids": [
+            "style_and_structure",
+            "visual_and_presentation"
+          ]
+        },
+        {
+          "domain_id": "visual_and_presentation",
+          "label": "Thể hiện hình ảnh",
+          "summary": "Khách muốn xem hình ảnh để dễ lựa chọn.",
+          "related_domain_ids": [
+            "context_and_intent"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_gender",
+          "domain_ids": [
+            "context_and_intent"
+          ],
+          "meaning": "Người dùng là nữ.",
+          "intent_type": "context",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình là nữ"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_outfit_type",
+          "domain_ids": [
+            "context_and_intent",
+            "style_and_structure"
+          ],
+          "meaning": "Muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_color_preference",
+          "domain_ids": [
+            "color_and_art"
+          ],
+          "meaning": "Thích màu xanh ngọc nhạt.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình thích màu xanh ngọc nhạt"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_silhouette_comfort",
+          "domain_ids": [
+            "style_and_structure"
+          ],
+          "meaning": "Dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_motifs_optional",
+          "domain_ids": [
+            "color_and_art"
+          ],
+          "meaning": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết.",
+          "intent_type": "example",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_no_historical_reconstruction",
+          "domain_ids": [
+            "context_and_intent"
+          ],
+          "meaning": "Không cần phục dựng trang phục lịch sử.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình không cần phục dựng trang phục lịch sử"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_delegated_parts",
+          "domain_ids": [
+            "context_and_intent"
+          ],
+          "meaning": "Để bạn đề xuất những phần mình chưa biết.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Bạn cứ đề xuất những phần mình chưa biết"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_avoid_accessories_and_bridal",
+          "domain_ids": [
+            "style_and_structure"
+          ],
+          "meaning": "Tránh nhiều phụ kiện và đừng làm giống váy cô dâu.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "nhưng tránh nhiều phụ kiện và đừng làm giống váy cô dâu"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_want_images",
+          "domain_ids": [
+            "visual_and_presentation"
+          ],
+          "meaning": "Muốn xem hình để dễ chọn.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình muốn xem hình để dễ chọn."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "relations": [
+        {
+          "from_atom_id": "atom_outfit_type",
+          "to_atom_id": "atom_silhouette_comfort",
+          "relation": "mô tả chi tiết kiểu dáng",
+          "reason": "Các tiêu chí thanh lịch, kín đáo, nhẹ, dễ đi lại bổ sung chi tiết cho bộ áo dài hiện đại."
+        },
+        {
+          "from_atom_id": "atom_motifs_optional",
+          "to_atom_id": "atom_color_preference",
+          "relation": "bổ sung yếu tố thẩm mỹ",
+          "reason": "Hoa sen hoặc mây gợi ý thêm cho phần trang trí đi kèm màu sắc trang phục."
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Mình là nữ, muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều. Mình thích màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại. Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Mình không cần phục dựng trang phục lịch sử. Bạn cứ đề xuất những phần mình chưa biết, nhưng tránh nhiều phụ kiện và đừng làm giống váy cô dâu. Mình muốn xem hình để dễ chọn."
+          },
+          "atom_ids": [
+            "atom_gender",
+            "atom_outfit_type",
+            "atom_color_preference",
+            "atom_silhouette_comfort",
+            "atom_motifs_optional",
+            "atom_no_historical_reconstruction",
+            "atom_delegated_parts",
+            "atom_avoid_accessories_and_bridal",
+            "atom_want_images"
+          ],
+          "disposition": "retained",
+          "reason": "Toàn bộ ý kiến và yêu cầu trong lượt của người dùng đã được phân đoạn đầy đủ vào các atom."
+        }
+      ]
+    }
+  },
+  {
+    "source": "backend/evidence/prompt-validation-20261004/VP04-case-sensitive.json",
+    "status": "passed",
+    "error": null,
+    "repairs": [
+      {
+        "candidate_id": "R5-B1-C1",
+        "entry_id": "atm_1",
+        "reported_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại",
+        "original_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại",
+        "start": 30,
+        "end": 134
+      },
+      {
+        "candidate_id": "R5-B1-C1",
+        "entry_id": "atm_s2",
+        "reported_quote": "chi tiết cổ đứng cách tân gọn gàng",
+        "original_quote": "Chi tiết cổ đứng cách tân gọn gàng",
+        "start": 239,
+        "end": 273
+      },
+      {
+        "candidate_id": "R5-B1-C1",
+        "entry_id": "atm_s5",
+        "reported_quote": "kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ và tà váy",
+        "original_quote": "Kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ và tà váy",
+        "start": 410,
+        "end": 477
+      },
+      {
+        "candidate_id": "R5-B1-C2",
+        "entry_id": "atm_1",
+        "reported_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại",
+        "original_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại",
+        "start": 30,
+        "end": 134
+      },
+      {
+        "candidate_id": "R5-B1-C3",
+        "entry_id": "atm_1",
+        "reported_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại",
+        "original_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại",
+        "start": 30,
+        "end": 134
+      }
+    ],
+    "normalized_value": {
+      "candidates": [
+        {
+          "candidate_id": "R5-B1-C1",
+          "batch_id": "B1",
+          "revision": 5,
+          "title": "Váy liền thân chữ A linen pha lụa kết hợp cổ đứng và thêu hoa sen tối giản",
+          "image_prompt": "Một khung hình chụp toàn thân thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại, sử dụng phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển, dáng váy suông nhẹ thanh thoát. Chi tiết cổ đứng cách tân gọn gàng được xử lý tinh tế. Chất liệu linen pha lụa cao cấp, bề mặt thoáng mát và sang trọng. Bảng màu thổ hoàng và nâu đất ấm áp, thời thượng. Kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ và tà váy với mật độ thêu thưa, thanh mảnh. Trang sức kim loại cảm hứng văn hóa truyền thống dạng vòng cổ mỏng tối giản và quạt lụa cầm tay mini trang trí. Bối cảnh sự kiện thời trang hiện đại, ánh sáng tự nhiên mềm mại.",
+          "design_sections": [
+            {
+              "domain_id": "dom_context",
+              "description": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "related_atom_ids": [
+                "atm_1"
+              ]
+            },
+            {
+              "domain_id": "dom_structure",
+              "description": "Phom dáng chữ A hiện đại, thoáng mát và dễ di chuyển kết hợp chất liệu linen pha lụa cao cấp.",
+              "related_atom_ids": [
+                "atm_s1",
+                "atm_s3"
+              ]
+            },
+            {
+              "domain_id": "dom_structure_viet_phuc",
+              "description": "Cổ đứng cách tân gọn gàng và kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà.",
+              "related_atom_ids": [
+                "atm_s2",
+                "atm_s5"
+              ]
+            },
+            {
+              "domain_id": "dom_style",
+              "description": "Bảng màu thổ hoàng và nâu đất ấm áp kết hợp trang sức kim loại truyền thống và quạt lụa mini.",
+              "related_atom_ids": [
+                "atm_s4",
+                "atm_s6"
+              ]
+            }
+          ],
+          "fashion_summary": "Trang phục váy liền thân mùa hè ứng dụng phom dáng chữ A kết hợp cổ đứng cách tân và chất liệu linen pha lụa mang lại sự thoải mái, tiện dụng nhưng vẫn giữ nét sang trọng.",
+          "art_summary": "Sử dụng kỹ thuật thêu đường nét tối giản hoa sen và lá sen ở viền cổ và tà váy, kết hợp bảng màu thổ hoàng và nâu đất thời thượng.",
+          "culture_summary": "Gợi nhắc Việt phục qua đường nét cổ áo cách tân và chi tiết thêu hoa sen kết hợp trang sức kim loại mang cảm hứng truyền thống.",
+          "choices_made": [
+            "Chọn phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển.",
+            "Sử dụng chi tiết cổ đứng cách tân gọn gàng.",
+            "Chọn chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng.",
+            "Chọn bảng màu thổ hoàng và nâu đất ấm áp, thời thượng.",
+            "Sử dụng kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà.",
+            "Kết hợp trang sức kim loại cảm hứng văn hóa truyền thống.",
+            "Kết hợp quạt lụa cầm tay mini trang trí."
+          ],
+          "claims": [],
+          "locked_coverage": [
+            {
+              "atom_id": "atm_1",
+              "prompt_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại"
+            },
+            {
+              "atom_id": "atm_s1",
+              "prompt_quote": "phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển"
+            },
+            {
+              "atom_id": "atm_s2",
+              "prompt_quote": "Chi tiết cổ đứng cách tân gọn gàng"
+            },
+            {
+              "atom_id": "atm_s3",
+              "prompt_quote": "Chất liệu linen pha lụa cao cấp, bề mặt thoáng mát và sang trọng"
+            },
+            {
+              "atom_id": "atm_s4",
+              "prompt_quote": "Bảng màu thổ hoàng và nâu đất ấm áp, thời thượng"
+            },
+            {
+              "atom_id": "atm_s5",
+              "prompt_quote": "Kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ và tà váy"
+            },
+            {
+              "atom_id": "atm_s6",
+              "prompt_quote": "Trang sức kim loại cảm hứng văn hóa truyền thống dạng vòng cổ mỏng tối giản và quạt lụa cầm tay mini trang trí"
+            }
+          ],
+          "assumptions": [
+            "Sự kiện thời trang diễn ra trong không gian hiện đại với ánh sáng tự nhiên."
+          ],
+          "limitations": [
+            "Chất liệu linen pha lụa có độ nhăn tự nhiên đặc trưng."
+          ]
+        },
+        {
+          "candidate_id": "R5-B1-C2",
+          "batch_id": "B1",
+          "revision": 5,
+          "title": "Váy liền thân chữ A tông thổ hoàng với chi tiết cổ đứng và thêu hoa sen tinh tế",
+          "image_prompt": "Một khung hình chụp toàn thân thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại, thể hiện qua phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển với đường cắt may sắc sảo. Điểm nhấn là chi tiết cổ đứng cách tân gọn gàng. Trang phục dùng chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng. Phối màu với bảng màu thổ hoàng và nâu đất ấm áp, thời thượng. Họa tiết ứng dụng kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà tạo chiều sâu thanh lịch. Phụ kiện đi kèm gồm trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí. Không gian sự kiện thời trang chuyên nghiệp, ánh sáng chiếu rọi tôn chất liệu.",
+          "design_sections": [
+            {
+              "domain_id": "dom_context",
+              "description": "Thiết kế váy liền thân nữ mùa hè cho sự kiện thời trang mang chủ đề truyền thống kết hợp hiện đại.",
+              "related_atom_ids": [
+                "atm_1"
+              ]
+            },
+            {
+              "domain_id": "dom_structure",
+              "description": "Cấu trúc váy chữ A kết hợp chất liệu linen pha lụa.",
+              "related_atom_ids": [
+                "atm_s1",
+                "atm_s3"
+              ]
+            },
+            {
+              "domain_id": "dom_structure_viet_phuc",
+              "description": "Cổ đứng cách tân và họa tiết thêu hoa sen tối giản.",
+              "related_atom_ids": [
+                "atm_s2",
+                "atm_s5"
+              ]
+            },
+            {
+              "domain_id": "dom_style",
+              "description": "Bảng màu thổ hoàng - nâu đất cùng trang sức kim loại và quạt lụa.",
+              "related_atom_ids": [
+                "atm_s4",
+                "atm_s6"
+              ]
+            }
+          ],
+          "fashion_summary": "Thiết kế tập trung vào sự thoải mái và tiện dụng nhờ phom chữ A và chất liệu cao cấp, phù hợp cho sự kiện thời trang.",
+          "art_summary": "Kỹ thuật thêu nét tối giản hoa sen/lá sen kết hợp hài hòa với gam màu đất ấm áp.",
+          "culture_summary": "Kết hợp các yếu tố Việt phục cách tân cùng trang sức mang âm hưởng văn hóa truyền thống.",
+          "choices_made": [
+            "Chọn phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển.",
+            "Sử dụng chi tiết cổ đứng cách tân gọn gàng.",
+            "Chọn chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng.",
+            "Chọn bảng màu thổ hoàng và nâu đất ấm áp, thời thượng.",
+            "Sử dụng kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà.",
+            "Kết hợp trang sức kim loại cảm hứng văn hóa truyền thống.",
+            "Kết hợp quạt lụa cầm tay mini trang trí."
+          ],
+          "claims": [],
+          "locked_coverage": [
+            {
+              "atom_id": "atm_1",
+              "prompt_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại"
+            },
+            {
+              "atom_id": "atm_s1",
+              "prompt_quote": "phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển"
+            },
+            {
+              "atom_id": "atm_s2",
+              "prompt_quote": "chi tiết cổ đứng cách tân gọn gàng"
+            },
+            {
+              "atom_id": "atm_s3",
+              "prompt_quote": "chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng"
+            },
+            {
+              "atom_id": "atm_s4",
+              "prompt_quote": "bảng màu thổ hoàng và nâu đất ấm áp, thời thượng"
+            },
+            {
+              "atom_id": "atm_s5",
+              "prompt_quote": "kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà"
+            },
+            {
+              "atom_id": "atm_s6",
+              "prompt_quote": "trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí"
+            }
+          ],
+          "assumptions": [
+            "Sử dụng ánh sáng studio làm nổi bật chi tiết thêu và chất liệu."
+          ],
+          "limitations": [
+            "Quạt lụa cầm tay mini mang tính chất trang trí điểm nhấn."
+          ]
+        },
+        {
+          "candidate_id": "R5-B1-C3",
+          "batch_id": "B1",
+          "revision": 5,
+          "title": "Váy liền thân chữ A phối cổ đứng hiện đại với thêu hoa sen tối giản và quạt lụa",
+          "image_prompt": "Một khung hình chụp toàn thân thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại, mang phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển. Phần trên nổi bật với chi tiết cổ đứng cách tân gọn gàng. Trang phục sử dụng chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng. Tông màu chủ đạo là bảng màu thổ hoàng và nâu đất ấm áp, thời thượng. Điểm nhấn bề mặt là kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà. Đi kèm trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí gọn nhẹ trên tay. Bối cảnh thảm đỏ sự kiện thời trang, ánh sáng studio cân đối.",
+          "design_sections": [
+            {
+              "domain_id": "dom_context",
+              "description": "Thiết kế váy liền thân nữ mùa hè cho sự kiện thời trang kết hợp truyền thống và hiện đại.",
+              "related_atom_ids": [
+                "atm_1"
+              ]
+            },
+            {
+              "domain_id": "dom_structure",
+              "description": "Cấu trúc dáng chữ A linh hoạt với chất liệu linen pha lụa.",
+              "related_atom_ids": [
+                "atm_s1",
+                "atm_s3"
+              ]
+            },
+            {
+              "domain_id": "dom_structure_viet_phuc",
+              "description": "Cổ đứng cách tân và họa tiết thêu đường nét hoa sen tối giản.",
+              "related_atom_ids": [
+                "atm_s2",
+                "atm_s5"
+              ]
+            },
+            {
+              "domain_id": "dom_style",
+              "description": "Bảng màu thổ hoàng - nâu đất, trang sức kim loại và quạt lụa mini.",
+              "related_atom_ids": [
+                "atm_s4",
+                "atm_s6"
+              ]
+            }
+          ],
+          "fashion_summary": "Váy liền thân chữ A tối ưu hóa sự thoải mái, ứng dụng vật liệu cao cấp cho sự kiện thời trang.",
+          "art_summary": "Họa tiết hoa sen thêu nét tối giản kết hợp màu sắc ấm áp tạo sự sang trọng hiện đại.",
+          "culture_summary": "Phảng phất hơi hướng Việt phục qua cổ áo và phụ kiện quạt lụa, trang sức kim loại truyền thống.",
+          "choices_made": [
+            "Chọn phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển.",
+            "Sử dụng chi tiết cổ đứng cách tân gọn gàng.",
+            "Chọn chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng.",
+            "Chọn bảng màu thổ hoàng và nâu đất ấm áp, thời thượng.",
+            "Sử dụng kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà.",
+            "Kết hợp trang sức kim loại cảm hứng văn hóa truyền thống.",
+            "Kết hợp quạt lụa cầm tay mini trang trí."
+          ],
+          "claims": [],
+          "locked_coverage": [
+            {
+              "atom_id": "atm_1",
+              "prompt_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại"
+            },
+            {
+              "atom_id": "atm_s1",
+              "prompt_quote": "phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển"
+            },
+            {
+              "atom_id": "atm_s2",
+              "prompt_quote": "chi tiết cổ đứng cách tân gọn gàng"
+            },
+            {
+              "atom_id": "atm_s3",
+              "prompt_quote": "chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng"
+            },
+            {
+              "atom_id": "atm_s4",
+              "prompt_quote": "bảng màu thổ hoàng và nâu đất ấm áp, thời thượng"
+            },
+            {
+              "atom_id": "atm_s5",
+              "prompt_quote": "kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà"
+            },
+            {
+              "atom_id": "atm_s6",
+              "prompt_quote": "trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí"
+            }
+          ],
+          "assumptions": [
+            "Không gian trưng bày thời trang trong nhà với ánh sáng chuẩn."
+          ],
+          "limitations": [
+            "Trang sức kim loại mang tính gợi nhắc, không mô phỏng nguyên bản cổ vật."
+          ]
+        }
+      ],
+      "limitations": []
+    }
+  },
+  {
+    "source": "backend/evidence/prompt-validation-20261004/VP04-palette.json",
+    "status": "passed",
+    "error": null,
+    "repairs": [],
+    "normalized_value": {
+      "candidates": [
+        {
+          "candidate_id": "R4-B3-C1",
+          "batch_id": "B3",
+          "revision": 4,
+          "title": "Váy Liền Thân Chữ A Cổ Đứng Thêu Sen (Biến Thể 1)",
+          "image_prompt": "Một khung hình chụp toàn thân thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại, phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển, sử dụng chi tiết cổ đứng cách tân gọn gàng, chọn chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng, chọn bảng màu thổ hoàng và nâu đất ấm áp, thời thượng, sử dụng kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà, kết hợp trang sức kim loại cảm hứng văn hóa truyền thống và kết hợp quạt lụa cầm tay mini trang trí.",
+          "design_sections": [
+            {
+              "domain_id": "dom_context",
+              "description": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "related_atom_ids": [
+                "atm_1"
+              ]
+            },
+            {
+              "domain_id": "dom_structure",
+              "description": "Phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển, mang lại sự thoải mái và tiện dụng.",
+              "related_atom_ids": [
+                "atm_s1",
+                "atm_s3"
+              ]
+            },
+            {
+              "domain_id": "dom_structure_viet_phuc",
+              "description": "Chi tiết cổ đứng cách tân gọn gàng gợi nhắc Việt phục.",
+              "related_atom_ids": [
+                "atm_s2",
+                "atm_s5"
+              ]
+            },
+            {
+              "domain_id": "dom_style",
+              "description": "Chất liệu linen pha lụa cao cấp kết hợp bảng màu thổ hoàng và nâu đất, trang sức kim loại và quạt lụa cầm tay mini trang trí.",
+              "related_atom_ids": [
+                "atm_s3",
+                "atm_s4",
+                "atm_s6"
+              ]
+            }
+          ],
+          "fashion_summary": "Trang phục váy liền thân nữ phom chữ A hiện đại, sử dụng chất liệu linen pha lụa cao cấp kết hợp cổ đứng cách tân.",
+          "art_summary": "Thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà, kết hợp trang sức kim loại và quạt lụa cầm tay mini.",
+          "culture_summary": "Gợi nhắc Việt phục qua phom dáng và cổ áo cách tân kết hợp yếu tố truyền thống.",
+          "choices_made": [
+            "Chọn phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển.",
+            "Sử dụng chi tiết cổ đứng cách tân gọn gàng.",
+            "Chọn chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng.",
+            "Chọn bảng màu thổ hoàng và nâu đất ấm áp, thời thượng.",
+            "Sử dụng kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà.",
+            "Kết hợp trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí."
+          ],
+          "claims": [],
+          "locked_coverage": [
+            {
+              "atom_id": "atm_1",
+              "prompt_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại"
+            },
+            {
+              "atom_id": "atm_s1",
+              "prompt_quote": "phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển"
+            },
+            {
+              "atom_id": "atm_s2",
+              "prompt_quote": "sử dụng chi tiết cổ đứng cách tân gọn gàng"
+            },
+            {
+              "atom_id": "atm_s3",
+              "prompt_quote": "chọn chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng"
+            },
+            {
+              "atom_id": "atm_s4",
+              "prompt_quote": "chọn bảng màu thổ hoàng và nâu đất ấm áp, thời thượng"
+            },
+            {
+              "atom_id": "atm_s5",
+              "prompt_quote": "sử dụng kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà"
+            },
+            {
+              "atom_id": "atm_s6",
+              "prompt_quote": "kết hợp trang sức kim loại cảm hứng văn hóa truyền thống và kết hợp quạt lụa cầm tay mini trang trí"
+            }
+          ],
+          "assumptions": [
+            "Sự kiện thời trang diễn ra vào mùa hè, ưu tiên tính ứng dụng và thoải mái."
+          ],
+          "limitations": [
+            "Chất liệu linen pha lụa có độ nhăn tự nhiên đặc trưng."
+          ]
+        },
+        {
+          "candidate_id": "R4-B3-C2",
+          "batch_id": "B3",
+          "revision": 4,
+          "title": "Váy Liền Thân Chữ A Cổ Đứng Thêu Sen (Biến Thể 2)",
+          "image_prompt": "Một khung hình chụp toàn thân thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại, áp dụng phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển, điểm xuyết chi tiết cổ đứng cách tân gọn gàng, sử dụng chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng, phối bảng màu thổ hoàng và nâu đất ấm áp, thời thượng, ứng dụng kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà, đi kèm trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí.",
+          "design_sections": [
+            {
+              "domain_id": "dom_context",
+              "description": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "related_atom_ids": [
+                "atm_1"
+              ]
+            },
+            {
+              "domain_id": "dom_structure",
+              "description": "Phom dáng chữ A hiện đại, thoáng mát.",
+              "related_atom_ids": [
+                "atm_s1",
+                "atm_s3"
+              ]
+            },
+            {
+              "domain_id": "dom_structure_viet_phuc",
+              "description": "Cổ đứng cách tân gọn gàng mang hơi hướng Việt phục.",
+              "related_atom_ids": [
+                "atm_s2",
+                "atm_s5"
+              ]
+            },
+            {
+              "domain_id": "dom_style",
+              "description": "Chất liệu linen pha lụa, màu thổ hoàng và nâu đất, trang sức kim loại và quạt lụa mini.",
+              "related_atom_ids": [
+                "atm_s3",
+                "atm_s4",
+                "atm_s6"
+              ]
+            }
+          ],
+          "fashion_summary": "Trang phục váy liền thân nữ phom chữ A với chất liệu linen pha lụa và cổ đứng cách tân.",
+          "art_summary": "Họa tiết hoa sen thêu tối giản cùng trang sức kim loại và quạt lụa cầm tay mini.",
+          "culture_summary": "Gợi nhắc Việt phục trong sự kiện thời trang hiện đại.",
+          "choices_made": [
+            "Chọn phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển.",
+            "Sử dụng chi tiết cổ đứng cách tân gọn gàng.",
+            "Chọn chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng.",
+            "Chọn bảng màu thổ hoàng và nâu đất ấm áp, thời thượng.",
+            "Sử dụng kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà.",
+            "Kết hợp trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí."
+          ],
+          "claims": [],
+          "locked_coverage": [
+            {
+              "atom_id": "atm_1",
+              "prompt_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại"
+            },
+            {
+              "atom_id": "atm_s1",
+              "prompt_quote": "phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển"
+            },
+            {
+              "atom_id": "atm_s2",
+              "prompt_quote": "chi tiết cổ đứng cách tân gọn gàng"
+            },
+            {
+              "atom_id": "atm_s3",
+              "prompt_quote": "chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng"
+            },
+            {
+              "atom_id": "atm_s4",
+              "prompt_quote": "bảng màu thổ hoàng và nâu đất ấm áp, thời thượng"
+            },
+            {
+              "atom_id": "atm_s5",
+              "prompt_quote": "kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà"
+            },
+            {
+              "atom_id": "atm_s6",
+              "prompt_quote": "trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí"
+            }
+          ],
+          "assumptions": [
+            "Sự kiện thời trang mùa hè ưu tiên sự thoải mái."
+          ],
+          "limitations": [
+            "Chất liệu linen pha lụa cần bảo quản cẩn thận khi giặt ủi."
+          ]
+        },
+        {
+          "candidate_id": "R4-B3-C3",
+          "batch_id": "B3",
+          "revision": 4,
+          "title": "Váy Liền Thân Chữ A Cổ Đứng Thêu Sen (Biến Thể 3)",
+          "image_prompt": "Một khung hình chụp toàn thân thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại, kết hợp phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển, điểm nhấn chi tiết cổ đứng cách tân gọn gàng, sử dụng chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng, bao gồm bảng màu thổ hoàng và nâu đất ấm áp, thời thượng, thêu kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà, hoàn thiện cùng trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí.",
+          "design_sections": [
+            {
+              "domain_id": "dom_context",
+              "description": "Thiết kế váy liền thân nữ mùa hè cho sự kiện thời trang truyền thống và hiện đại.",
+              "related_atom_ids": [
+                "atm_1"
+              ]
+            },
+            {
+              "domain_id": "dom_structure",
+              "description": "Phom chữ A hiện đại.",
+              "related_atom_ids": [
+                "atm_s1",
+                "atm_s3"
+              ]
+            },
+            {
+              "domain_id": "dom_structure_viet_phuc",
+              "description": "Cổ đứng cách tân gọn gàng.",
+              "related_atom_ids": [
+                "atm_s2",
+                "atm_s5"
+              ]
+            },
+            {
+              "domain_id": "dom_style",
+              "description": "Chất liệu linen lụa, màu thổ hoàng và nâu đất, trang sức kim loại và quạt lụa.",
+              "related_atom_ids": [
+                "atm_s3",
+                "atm_s4",
+                "atm_s6"
+              ]
+            }
+          ],
+          "fashion_summary": "Váy liền thân chữ A với chất liệu linen lụa cao cấp và cổ đứng cách tân.",
+          "art_summary": "Thêu hoa sen tối giản, trang sức kim loại và quạt lụa mini.",
+          "culture_summary": "Kết hợp yếu tố Việt phục qua cổ áo và họa tiết thêu.",
+          "choices_made": [
+            "Chọn phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển.",
+            "Sử dụng chi tiết cổ đứng cách tân gọn gàng.",
+            "Chọn chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng.",
+            "Chọn bảng màu thổ hoàng và nâu đất ấm áp, thời thượng.",
+            "Sử dụng kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà.",
+            "Kết hợp trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí."
+          ],
+          "claims": [],
+          "locked_coverage": [
+            {
+              "atom_id": "atm_1",
+              "prompt_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại"
+            },
+            {
+              "atom_id": "atm_s1",
+              "prompt_quote": "phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển"
+            },
+            {
+              "atom_id": "atm_s2",
+              "prompt_quote": "chi tiết cổ đứng cách tân gọn gàng"
+            },
+            {
+              "atom_id": "atm_s3",
+              "prompt_quote": "chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng"
+            },
+            {
+              "atom_id": "atm_s4",
+              "prompt_quote": "bảng màu thổ hoàng và nâu đất ấm áp, thời thượng"
+            },
+            {
+              "atom_id": "atm_s5",
+              "prompt_quote": "kỹ thuật thêu đường nét tối giản hoa sen/lá sen ở viền cổ hoặc tà"
+            },
+            {
+              "atom_id": "atm_s6",
+              "prompt_quote": "trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí"
+            }
+          ],
+          "assumptions": [
+            "Sự kiện thời trang mùa hè đề cao sự thanh lịch."
+          ],
+          "limitations": [
+            "Độ rủ của vải linen pha lụa có thể thay đổi tùy theo tỉ lệ pha trộn thực tế."
+          ]
+        }
+      ],
+      "limitations": []
+    }
+  },
+  {
+    "source": "backend/evidence/prompt-validation-20261004/VP06-empty-pass.json",
+    "status": "passed",
+    "error": null,
+    "repairs": [],
+    "normalized_value": {
+      "role": "culture",
+      "audits": [
+        {
+          "candidate_id": "R5-B1-C1",
+          "candidate_revision": 5,
+          "content_hash": "3f229d5d14eb62b5b0957ba1ff12d96852470c35bcb0bb2ff3907703384be912",
+          "role": "culture",
+          "checks": [
+            {
+              "check_id": "locked:atm_1",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Đã thể hiện đúng và đủ yêu cầu về thiết kế váy liền thân mùa hè với chủ đề kết hợp truyền thống và hiện đại."
+            },
+            {
+              "check_id": "locked:atm_s1",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển.",
+              "source_ids": [],
+              "reason": "Ứng dụng chính xác phom dáng chữ A theo đúng yêu cầu khóa."
+            },
+            {
+              "check_id": "locked:atm_s2",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chi tiết cổ đứng cách tân gọn gàng, thanh lịch.",
+              "source_ids": [],
+              "reason": "Sử dụng chi tiết cổ đứng cách tân gọn gàng đúng định hướng văn hóa."
+            },
+            {
+              "check_id": "locked:atm_s3",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng.",
+              "source_ids": [],
+              "reason": "Đảm bảo chất liệu linen pha lụa cao cấp theo đúng yêu cầu."
+            },
+            {
+              "check_id": "locked:atm_s4",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu thổ hoàng và nâu đất ấm áp, thời thượng.",
+              "source_ids": [],
+              "reason": "Sử dụng bảng màu thổ hoàng và nâu đất đúng yêu cầu đã chốt."
+            },
+            {
+              "check_id": "locked:atm_s5",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Kỹ thuật thêu đường nét tối giản hoa sen và lá sen ở viền cổ và tà váy.",
+              "source_ids": [],
+              "reason": "Áp dụng kỹ thuật thêu hoa sen tối giản ở viền cổ và tà váy chính xác."
+            },
+            {
+              "check_id": "locked:atm_s6",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Kết hợp trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí.",
+              "source_ids": [],
+              "reason": "Kết hợp đầy đủ trang sức kim loại cảm hứng truyền thống và quạt lụa cầm tay mini."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Nội dung tóm tắt văn hóa và các phần thiết kế hoàn toàn đồng nhất với image_prompt."
+            },
+            {
+              "check_id": "claim_support",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Đã kiểm tra claims rỗng và nội dung không chứa claim lịch sử thực tế chưa khai báo; thiết kế mang tính chất gợi cảm hứng sáng tạo phù hợp chế độ inspired."
+            },
+            {
+              "check_id": "historical_scope",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "not_applicable",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Chế độ lịch sử được thiết lập là inspired, không yêu cầu phục dựng nguyên bản."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "mode_fidelity",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Tuân thủ xuất sắc chế độ cảm hứng (inspired) với các yếu tố cách tân hiện đại và hài hòa."
+            },
+            {
+              "criterion_id": "evidence_scope",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Không đưa ra các phát biểu lịch sử sai lệch; giới hạn rõ ràng ở mức sáng tạo cảm hứng."
+            },
+            {
+              "criterion_id": "cultural_integration",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Đưa các yếu tố Việt phục (cổ đứng, thêu sen, phụ kiện) vào trang phục hiện đại một cách tinh tế."
+            },
+            {
+              "criterion_id": "claim_transparency",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Minh bạch tuyệt đối, không có claim thực tế chưa được kiểm chứng hay mạo nhận lịch sử."
+            }
+          ],
+          "strengths": [
+            "Kết hợp mượt mà giữa cổ đứng cách tân và phom dáng chữ A hiện đại.",
+            "Sử dụng họa tiết hoa sen tối giản đúng tinh thần kết hợp truyền thống và hiện đại."
+          ],
+          "concerns": [],
+          "suggested_fixes": [],
+          "summary": "Phương án R5-B1-C1 thể hiện sự hòa quyện tinh tế giữa yếu tố Việt phục và thời trang đương đại, tuân thủ đúng mọi yêu cầu đã khóa."
+        },
+        {
+          "candidate_id": "R5-B1-C2",
+          "candidate_revision": 5,
+          "content_hash": "3c8388d6d9368b0425806aaa2e368cca99f883117e2f879c7d41b8a613eefccb",
+          "role": "culture",
+          "checks": [
+            {
+              "check_id": "locked:atm_1",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Bám sát chủ đề kết hợp truyền thống và hiện đại cho trang phục váy liền thân nữ."
+            },
+            {
+              "check_id": "locked:atm_s1",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển.",
+              "source_ids": [],
+              "reason": "Sử dụng phom dáng chữ A hiện đại và thoáng mát."
+            },
+            {
+              "check_id": "locked:atm_s2",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Cổ đứng cách tân gọn gàng tạo điểm nhấn.",
+              "source_ids": [],
+              "reason": "Ứng dụng chi tiết cổ đứng cách tân gọn gàng."
+            },
+            {
+              "check_id": "locked:atm_s3",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng.",
+              "source_ids": [],
+              "reason": "Đáp ứng đúng yêu cầu về chất liệu linen pha lụa cao cấp."
+            },
+            {
+              "check_id": "locked:atm_s4",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu thổ hoàng và nâu đất ấm áp, thời thượng.",
+              "source_ids": [],
+              "reason": "Sử dụng bảng màu thổ hoàng và nâu đất đúng chuẩn yêu cầu."
+            },
+            {
+              "check_id": "locked:atm_s5",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Kỹ thuật thêu đường nét tối giản hoa sen ở viền cổ.",
+              "source_ids": [],
+              "reason": "Áp dụng kỹ thuật thêu hoa sen tối giản ở viền cổ."
+            },
+            {
+              "check_id": "locked:atm_s6",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Kết hợp trang sức kim loại cảm hứng văn hóa truyền thống cùng quạt lụa cầm tay mini trang trí.",
+              "source_ids": [],
+              "reason": "Kết hợp trang sức kim loại và quạt lụa cầm tay mini trang trí phù hợp."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Tóm tắt văn hóa và nội dung thiết kế hoàn toàn nhất quán với image_prompt."
+            },
+            {
+              "check_id": "claim_support",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Đã kiểm tra claims rỗng và không có phát biểu lịch sử chưa khai báo; thiết kế mang tính sáng tạo cảm hứng đúng chuẩn."
+            },
+            {
+              "check_id": "historical_scope",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "not_applicable",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Chế độ inspired không yêu cầu đối chiếu phạm vi lịch sử khắt khe."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "mode_fidelity",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Thể hiện tốt chế độ cảm hứng hiện đại."
+            },
+            {
+              "criterion_id": "evidence_scope",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Giữ đúng giới hạn sáng tạo không sa đà vào gán ghép lịch sử sai."
+            },
+            {
+              "criterion_id": "cultural_integration",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Đưa cổ đứng và hoa sen vào thiết kế tinh gọn."
+            },
+            {
+              "criterion_id": "claim_transparency",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Minh bạch và rõ ràng trong định hướng thiết kế."
+            }
+          ],
+          "strengths": [
+            "Điểm nhấn thêu hoa sen ở viền cổ gọn gàng, tinh tế."
+          ],
+          "concerns": [],
+          "suggested_fixes": [],
+          "summary": "Phương án R5-B1-C2 đáp ứng trọn vẹn các tiêu chí văn hóa và cấu trúc theo hướng hiện đại, tiện dụng."
+        },
+        {
+          "candidate_id": "R5-B1-C3",
+          "candidate_revision": 5,
+          "content_hash": "ff71fb151c47aa59e09954ab298944fbf948ceba89fff7846c5757360011aa68",
+          "role": "culture",
+          "checks": [
+            {
+              "check_id": "locked:atm_1",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Đảm bảo đầy đủ bối cảnh và chủ đề kết hợp truyền thống - hiện đại."
+            },
+            {
+              "check_id": "locked:atm_s1",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Phom dáng chữ A (A-line) hiện đại, thoáng mát và dễ di chuyển.",
+              "source_ids": [],
+              "reason": "Phom dáng chữ A được thể hiện chuẩn xác."
+            },
+            {
+              "check_id": "locked:atm_s2",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Sử dụng chi tiết cổ đứng cách tân gọn gàng, thanh lịch.",
+              "source_ids": [],
+              "reason": "Chi tiết cổ đứng cách tân gọn gàng, thanh lịch."
+            },
+            {
+              "check_id": "locked:atm_s3",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chọn chất liệu linen pha lụa cao cấp, thoáng mát và sang trọng.",
+              "source_ids": [],
+              "reason": "Chất liệu linen pha lụa cao cấp được tích hợp đúng yêu cầu."
+            },
+            {
+              "check_id": "locked:atm_s4",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chọn bảng màu thổ hoàng và nâu đất ấm áp, thời thượng.",
+              "source_ids": [],
+              "reason": "Bảng màu thổ hoàng và nâu đất được chọn đúng định hướng."
+            },
+            {
+              "check_id": "locked:atm_s5",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Sử dụng kỹ thuật thêu đường nét tối giản hoa sen và lá sen ở viền cổ và tà.",
+              "source_ids": [],
+              "reason": "Áp dụng kỹ thuật thêu hoa sen và lá sen tối giản ở viền cổ và tà."
+            },
+            {
+              "check_id": "locked:atm_s6",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Kết hợp trang sức kim loại cảm hứng văn hóa truyền thống và quạt lụa cầm tay mini trang trí.",
+              "source_ids": [],
+              "reason": "Phụ kiện trang sức kim loại và quạt lụa cầm tay mini được kết hợp hoàn hảo."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Nội dung tóm tắt ăn khớp chặt chẽ với prompt của ứng viên."
+            },
+            {
+              "check_id": "claim_support",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Claims rỗng, không phát sinh claim lịch sử chưa được chứng thực."
+            },
+            {
+              "check_id": "historical_scope",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "not_applicable",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Chế độ historical_mode là inspired, không áp dụng kiểm tra phạm vi lịch sử."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "mode_fidelity",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Thể hiện tốt tinh thần cảm hứng đương đại."
+            },
+            {
+              "criterion_id": "evidence_scope",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Không vượt quá giới hạn sáng tạo hay tự ý áp đặt sự thật lịch sử."
+            },
+            {
+              "criterion_id": "cultural_integration",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Hòa quyện mượt mà các yếu tố Việt phục cách tân."
+            },
+            {
+              "criterion_id": "claim_transparency",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Đảm bảo tính minh bạch, không gian sáng tạo rõ ràng."
+            }
+          ],
+          "strengths": [
+            "Sự đồng bộ cao giữa các chi tiết thiết kế và yêu cầu cốt lõi."
+          ],
+          "concerns": [],
+          "suggested_fixes": [],
+          "summary": "Phương án R5-B1-C3 hoàn thiện tốt các tiêu chí thẩm mỹ và văn hóa theo hướng hiện đại, tiện dụng."
+        }
+      ]
+    }
+  }
+]

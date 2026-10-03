@@ -54,7 +54,7 @@ class ManualWorkflowTests(unittest.TestCase):
         self.temp.cleanup()
 
     def engine(self, provider=None, candidate_limit=1, **kwargs):
-        engine = Engine(provider or NoImageAPI(), Path(self.temp.name) / str(len(self.engines)), allow_mock_requests=True, **kwargs)
+        engine = Engine(provider or NoImageAPI(), Path(self.temp.name) / str(len(self.engines)), allow_mock_requests=True, default_workflow_version=1, **kwargs)
         # Existing tests isolate one image/audit/repair checkpoint.
         engine.policy["request_budget"]["candidate_limit"] = candidate_limit
         self.engines.append(engine)
@@ -92,7 +92,7 @@ class ManualWorkflowTests(unittest.TestCase):
         directory = engine.store.directory
         engine.close()
         self.engines.remove(engine)
-        engine = Engine(provider or NoImageAPI(), directory, allow_mock_requests=True)
+        engine = Engine(provider or NoImageAPI(), directory, allow_mock_requests=True, default_workflow_version=1)
         self.engines.append(engine)
         return engine
 
@@ -556,8 +556,8 @@ class ManualWorkflowTests(unittest.TestCase):
         with self.assertRaises(ArenaError) as error: engine.submit_image(job["request_id"], data)
         self.assertEqual(error.exception.code, "stale_revision")
 
-    def test_report_http_failure_and_pre_http_budget_failure_are_distinct(self):
-        for limit, actual, failed in ((12, 5, 1), (4, 4, 0)):
+    def test_report_http_failure_with_legacy_limit_is_not_blocked(self):
+        for limit, actual, failed in ((12, 5, 1), (4, 5, 1)):
             provider = GeminiProvider("fake-test-key", session_call_limit=limit)
             fixture = MockProvider()
             def structured(task, system, prompt, schema, payload, timeout, images=None):

@@ -1,0 +1,175 @@
+{
+  "evidence_id": "70b5e1cb-eb70-48b9-b9ea-cf46ea33dbf7",
+  "recorded_at": 1791063088.620151,
+  "request_id": "d718733c-9d6d-467e-a90c-d1e8b21ed401",
+  "attempt_id": "2cdcee22-83b6-4f6a-96b9-b1aeb30369ed",
+  "trace": {
+    "task": "VP01",
+    "phase": "design",
+    "attempt_id": "2cdcee22-83b6-4f6a-96b9-b1aeb30369ed",
+    "revision": 1,
+    "role": null,
+    "batch_id": null,
+    "cache_hit": false,
+    "duration_ms": 4548,
+    "provider_call_id": "617caaa1-865d-48fb-b283-40b73ba0e8b8",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 2499,
+      "candidatesTokenCount": 1578,
+      "totalTokenCount": 4077,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2499
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "LHTBaqrpKqmRvr0Pr6y7iAY"
+    },
+    "input_hash": "53f38f48687993df689c1831a93902067b7677175e5695a4e6bd6d4620473957",
+    "output_hash": "5c8a25ced0a8c32a3b90eff926432a8af630b43cefcc7a9e2e59589d6720b5af",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "request_id": "d718733c-9d6d-467e-a90c-d1e8b21ed401",
+    "revision": 1,
+    "clean_text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và thời trang quốc tế.",
+    "domains": [
+      {
+        "domain_id": "bối_cảnh_và_chủ_đề",
+        "label": "Bối cảnh & Chủ đề",
+        "summary": "Thông tin về loại trang phục, mùa, sự kiện và chủ đề thiết kế kết hợp truyền thống và hiện đại.",
+        "related_domain_ids": [
+          "phom_dáng_và_chi_tiết"
+        ]
+      },
+      {
+        "domain_id": "phom_dáng_và_chi_tiết",
+        "label": "Phom dáng & Chi tiết Việt phục",
+        "summary": "Yêu cầu gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí theo hướng hiện đại, gọn gàng và tiện dụng.",
+        "related_domain_ids": [
+          "bối_cảnh_và_chủ_đề",
+          "tiêu_chí_thẩm_mỹ_và_sử_dụng"
+        ]
+      },
+      {
+        "domain_id": "tiêu_chí_thẩm_mỹ_và_sử_dụng",
+        "label": "Tiêu chí thẩm mỹ & Sử dụng",
+        "summary": "Yêu cầu về độ thoải mái, dễ mặc, sang trọng và phong cách thời trang quốc tế.",
+        "related_domain_ids": [
+          "phom_dáng_và_chi_tiết"
+        ]
+      }
+    ],
+    "atoms": [
+      {
+        "atom_id": "atom_dress_type_context",
+        "domain_ids": [
+          "bối_cảnh_và_chủ_đề"
+        ],
+        "meaning": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_viet_phuc_inspiration",
+        "domain_ids": [
+          "phom_dáng_và_chi_tiết"
+        ],
+        "meaning": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.",
+        "intent_type": "preference",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_usability_and_style",
+        "domain_ids": [
+          "tiêu_chí_thẩm_mỹ_và_sử_dụng"
+        ],
+        "meaning": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      }
+    ],
+    "relations": [
+      {
+        "from_atom_id": "atom_dress_type_context",
+        "to_atom_id": "atom_viet_phuc_inspiration",
+        "relation": "bổ_sung_phong_cách",
+        "reason": "Chủ đề truyền thống và hiện đại của bối cảnh gắn liền với cách xử lý gợi nhắc Việt phục."
+      },
+      {
+        "from_atom_id": "atom_viet_phuc_inspiration",
+        "to_atom_id": "atom_usability_and_style",
+        "relation": "hỗ_trợ_thẩm_mỹ",
+        "reason": "Cách xử lý hiện đại, gọn gàng, tiện dụng kết hợp với yêu cầu sang trọng và thời trang quốc tế."
+      }
+    ],
+    "conflicts": [],
+    "coverage": [
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+        },
+        "atom_ids": [
+          "atom_dress_type_context"
+        ],
+        "disposition": "retained",
+        "reason": "Đã ghi nhận đầy đủ ý về loại trang phục, mùa và chủ đề."
+      },
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng."
+        },
+        "atom_ids": [
+          "atom_viet_phuc_inspiration"
+        ],
+        "disposition": "retained",
+        "reason": "Đã giữ nguyên yêu cầu gợi nhắc Việt phục và tính chất hiện đại, tiện dụng."
+      },
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế."
+        },
+        "atom_ids": [
+          "atom_usability_and_style"
+        ],
+        "disposition": "retained",
+        "reason": "Đã ghi nhận các tiêu chí về độ thoải mái, sang trọng và tính thời trang quốc tế."
+      }
+    ]
+  }
+}

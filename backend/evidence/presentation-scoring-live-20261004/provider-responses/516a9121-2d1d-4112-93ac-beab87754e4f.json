@@ -1,0 +1,38 @@
+{
+  "evidence_id": "516a9121-2d1d-4112-93ac-beab87754e4f",
+  "recorded_at": 1791063088.617502,
+  "model": "gemini-3.5-flash-lite",
+  "call_id": "617caaa1-865d-48fb-b283-40b73ba0e8b8",
+  "request_hash": "6976708d62d1d6042e8d70f7299de1dab5b59728dd2d1c0cf564e08542022210",
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"request_id\": \"d718733c-9d6d-467e-a90c-d1e8b21ed401\",\n  \"revision\": 1,\n  \"clean_text\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và thời trang quốc tế.\",\n  \"domains\": [\n    {\n      \"domain_id\": \"bối_cảnh_và_chủ_đề\",\n      \"label\": \"Bối cảnh & Chủ đề\",\n      \"summary\": \"Thông tin về loại trang phục, mùa, sự kiện và chủ đề thiết kế kết hợp truyền thống và hiện đại.\",\n      \"related_domain_ids\": [\"phom_dáng_và_chi_tiết\"]\n    },\n    {\n      \"domain_id\": \"phom_dáng_và_chi_tiết\",\n      \"label\": \"Phom dáng & Chi tiết Việt phục\",\n      \"summary\": \"Yêu cầu gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí theo hướng hiện đại, gọn gàng và tiện dụng.\",\n      \"related_domain_ids\": [\"bối_cảnh_và_chủ_đề\", \"tiêu_chí_thẩm_mỹ_và_sử_dụng\"]\n    },\n    {\n      \"domain_id\": \"tiêu_chí_thẩm_mỹ_và_sử_dụng\",\n      \"label\": \"Tiêu chí thẩm mỹ & Sử dụng\",\n      \"summary\": \"Yêu cầu về độ thoải mái, dễ mặc, sang trọng và phong cách thời trang quốc tế.\",\n      \"related_domain_ids\": [\"phom_dáng_và_chi_tiết\"]\n    }\n  ],\n  \"atoms\": [\n    {\n      \"atom_id\": \"atom_dress_type_context\",\n      \"domain_ids\": [\"bối_cảnh_và_chủ_đề\"],\n      \"meaning\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\",\n      \"intent_type\": \"must\",\n      \"polarity\": \"positive\",\n      \"source_refs\": [\n        {\n          \"turn_id\": \"T1\",\n          \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"\n        }\n      ],\n      \"resolution\": \"explicit\",\n      \"supersedes_atom_ids\": []\n    },\n    {\n      \"atom_id\": \"atom_viet_phuc_inspiration\",\n      \"domain_ids\": [\"phom_dáng_và_chi_tiết\"],\n      \"meaning\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\",\n      \"intent_type\": \"preference\",\n      \"polarity\": \"positive\",\n      \"source_refs\": [\n        {\n          \"turn_id\": \"T1\",\n          \"quote\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\"\n        }\n      ],\n      \"resolution\": \"explicit\",\n      \"supersedes_atom_ids\": []\n    },\n    {\n      \"atom_id\": \"atom_usability_and_style\",\n      \"domain_ids\": [\"tiêu_chí_thẩm_mỹ_và_sử_dụng\"],\n      \"meaning\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế.\",\n      \"intent_type\": \"must\",\n      \"polarity\": \"positive\",\n      \"source_refs\": [\n        {\n          \"turn_id\": \"T1\",\n          \"quote\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế.\"\n        }\n      ],\n      \"resolution\": \"explicit\",\n      \"supersedes_atom_ids\": []\n    }\n  ],\n  \"relations\": [\n    {\n      \"from_atom_id\": \"atom_dress_type_context\",\n      \"to_atom_id\": \"atom_viet_phuc_inspiration\",\n      \"relation\": \"bổ_sung_phong_cách\",\n      \"reason\": \"Chủ đề truyền thống và hiện đại của bối cảnh gắn liền với cách xử lý gợi nhắc Việt phục.\"\n    },\n    {\n      \"from_atom_id\": \"atom_viet_phuc_inspiration\",\n      \"to_atom_id\": \"atom_usability_and_style\",\n      \"relation\": \"hỗ_trợ_thẩm_mỹ\",\n      \"reason\": \"Cách xử lý hiện đại, gọn gàng, tiện dụng kết hợp với yêu cầu sang trọng và thời trang quốc tế.\"\n    }\n  ],\n  \"conflicts\": [],\n  \"coverage\": [\n    {\n      \"source_ref\": {\n        \"turn_id\": \"T1\",\n        \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"\n      },\n      \"atom_ids\": [\"atom_dress_type_context\"],\n      \"disposition\": \"retained\",\n      \"reason\": \"Đã ghi nhận đầy đủ ý về loại trang phục, mùa và chủ đề.\"\n    },\n    {\n      \"source_ref\": {\n        \"turn_id\": \"T1\",\n        \"quote\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\"\n      },\n      \"atom_ids\": [\"atom_viet_phuc_inspiration\"],\n      \"disposition\": \"retained\",\n      \"reason\": \"Đã giữ nguyên yêu cầu gợi nhắc Việt phục và tính chất hiện đại, tiện dụng.\"\n    },\n    {\n      \"source_ref\": {\n        \"turn_id\": \"T1\",\n        \"quote\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế.\"\n      },\n      \"atom_ids\": [\"atom_usability_and_style\"],\n      \"disposition\": \"retained\",\n      \"reason\": \"Đã ghi nhận các tiêu chí về độ thoải mái, sang trọng và tính thời trang quốc tế.\"\n    }\n  ]\n}",
+              "thoughtSignature": "EmAKXgFpFH0T22AF4MYxy00OooELtgw0dlXdKjsHSXRydy79Dnt7BAH29GqbxPntcwfWxrQt6a/rFbR+DDcXB3uY4VEn3IOkda4Qe2a4sfPm1pvxHiRvOezLkoJopKDp8SA="
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 2499,
+      "candidatesTokenCount": 1578,
+      "totalTokenCount": 4077,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2499
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "LHTBaqrpKqmRvr0Pr6y7iAY"
+  }
+}

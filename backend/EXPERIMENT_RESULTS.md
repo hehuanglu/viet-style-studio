@@ -1,3 +1,5 @@
+> Phạm vi tài liệu: hồ sơ theo thời điểm, không phải hướng dẫn runtime hiện hành. Các số đo/kết luận bên dưới thuộc phiên hoặc kế hoạch được mô tả; cơ chế có thể đã thay đổi. Xem [README hiện hành](../README.md) và đối chiếu mã/cấu hình trước khi áp dụng.
+
 # Kết quả thử nghiệm back-end
 
 Ngày chạy: 02/10/2026. Python 3.13.2; Gemini GenerateContent REST; text model `gemini-3.5-flash-lite`. Không bật sinh ảnh. Key được nhập ẩn vào tiến trình, không ghi vào mã nguồn hoặc báo cáo; tiến trình Gemini đã dừng sau kiểm tra.

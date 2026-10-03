@@ -1,0 +1,1876 @@
+{
+  "evidence_id": "6c4d128b-13e5-4a26-be8e-fd88f3b2e866",
+  "recorded_at": 1791063183.7815711,
+  "request_id": "d718733c-9d6d-467e-a90c-d1e8b21ed401",
+  "revision": 2,
+  "attempt_id": "dc2739a2-3402-4361-a0a2-144ed5c7debf",
+  "task": "VP08",
+  "payload": {
+    "REQUEST_METADATA": {
+      "request_id": "d718733c-9d6d-467e-a90c-d1e8b21ed401",
+      "revision": 2
+    },
+    "RESOLVED_BRIEF": {
+      "request_id": "d718733c-9d6d-467e-a90c-d1e8b21ed401",
+      "revision": 2,
+      "resolved_text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và thời trang quốc tế. Cụ thể, thiết kế sử dụng phom váy liền thân kết hợp cổ áo đối lập hiện đại lấy cảm hứng từ cổ áo giao lĩnh hoặc áo ngũ thân, chất liệu lụa tơ tằm kết hợp linen cao cấp, bảng màu pastel nhẹ nhàng cho mùa hè, họa tiết hoa sen cách điệu thêu tối giản, cùng phong cách trình bày ảnh minh họa thiết kế thời trang (Fashion Sketch).",
+      "domains": [
+        {
+          "domain_id": "bối_cảnh_và_chủ_đề",
+          "label": "Bối cảnh & Chủ đề",
+          "summary": "Thông tin về loại trang phục, mùa, sự kiện và chủ đề thiết kế kết hợp truyền thống và hiện đại.",
+          "related_domain_ids": [
+            "phom_dáng_và_chi_tiết"
+          ]
+        },
+        {
+          "domain_id": "phom_dáng_và_chi_tiết",
+          "label": "Phom dáng & Chi tiết Việt phục",
+          "summary": "Yêu cầu gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí theo hướng hiện đại, gọn gàng và tiện dụng.",
+          "related_domain_ids": [
+            "bối_cảnh_và_chủ_đề",
+            "tiêu_chí_thẩm_mỹ_và_sử_dụng"
+          ]
+        },
+        {
+          "domain_id": "tiêu_chí_thẩm_mỹ_và_sử_dụng",
+          "label": "Tiêu chí thẩm mỹ & Sử dụng",
+          "summary": "Yêu cầu về độ thoải mái, dễ mặc, sang trọng và phong cách thời trang quốc tế.",
+          "related_domain_ids": [
+            "phom_dáng_và_chi_tiết"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_dress_type_context",
+          "domain_ids": [
+            "bối_cảnh_và_chủ_đề"
+          ],
+          "meaning": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_viet_phuc_inspiration",
+          "domain_ids": [
+            "phom_dáng_và_chi_tiết"
+          ],
+          "meaning": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_usability_and_style",
+          "domain_ids": [
+            "tiêu_chí_thẩm_mỹ_và_sử_dụng"
+          ],
+          "meaning": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_opt_co_ao_doi_lap",
+          "domain_ids": [
+            "phom_dáng_và_chi_tiết"
+          ],
+          "meaning": "Chọn phom váy liền thân kết hợp chi tiết cổ áo cách tân từ Việt phục truyền thống (sử dụng phom váy liền thân suông nhẹ hoặc chiết eo gọn, điểm nhấn là thiết kế cổ áo lấy cảm hứng từ cổ áo giao lĩnh hoặc áo ngũ thân nhưng cách tân gọn gàng).",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn phom váy liền thân kết hợp chi tiết cổ áo cách tân từ Việt phục truyền thống."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_opt_silk_linen",
+          "domain_ids": [
+            "tiêu_chí_thẩm_mỹ_và_sử_dụng"
+          ],
+          "meaning": "Chọn chất liệu lụa tơ tằm kết hợp linen cao cấp (lụa tơ tằm mềm mại, thoáng khí kết hợp linen cao cấp tạo độ đứng phom tự nhiên, mang lại cảm giác mát mẻ và sang trọng).",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn chất liệu lụa tơ tằm kết hợp linen cao cấp."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_opt_pastel_nhe_nhang",
+          "domain_ids": [
+            "tiêu_chí_thẩm_mỹ_và_sử_dụng"
+          ],
+          "meaning": "Chọn bảng màu pastel nhẹ nhàng cho mùa hè (xanh ngọc, hồng phấn, kem sữa mang lại cảm giác mát mẻ, thanh lịch).",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn bảng màu pastel nhẹ nhàng cho mùa hè."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_opt_hoa_tiet_sen_cach_dieu",
+          "domain_ids": [
+            "phom_dáng_và_chi_tiết"
+          ],
+          "meaning": "Chọn họa tiết hoa sen cách điệu thêu tối giản (ứng dụng motif hoa sen cách điệu theo đường nét hiện đại, thêu tay tinh xảo ở một góc ngực áo hoặc tà váy).",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn họa tiết hoa sen cách điệu thêu tối giản."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_opt_fashion_illustration",
+          "domain_ids": [
+            "bối_cảnh_và_chủ_đề"
+          ],
+          "meaning": "Chọn phong cách bản minh họa thiết kế thời trang (Fashion Sketch) (tranh phác thảo thời trang nghệ thuật thể hiện rõ đường nét phom dáng, chất liệu và chi tiết độc đáo).",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn phong cách bản minh họa thiết kế thời trang."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "locked_atom_ids": [
+        "atom_dress_type_context",
+        "atom_usability_and_style",
+        "atom_opt_co_ao_doi_lap",
+        "atom_opt_silk_linen",
+        "atom_opt_pastel_nhe_nhang",
+        "atom_opt_hoa_tiet_sen_cach_dieu",
+        "atom_opt_fashion_illustration"
+      ],
+      "delegated_atom_ids": [],
+      "creative_space": [
+        {
+          "domain_id": "phom_dáng_và_chi_tiết",
+          "description": "Biên độ sáng tạo cho phép điều chỉnh chi tiết nhỏ của cổ áo cách tân và họa tiết thêu sen tối giản sao cho hài hòa với tổng thể phom suông nhẹ hoặc chiết eo gọn.",
+          "allowed_variations": [
+            "Biến tấu nhẹ độ cao và độ ôm của cổ áo giao lĩnh/ngũ thân cách tân",
+            "Vị trí đặt họa tiết thêu sen ở ngực áo hoặc tà váy"
+          ]
+        }
+      ],
+      "reference_ids": [],
+      "historical_mode": "inspired",
+      "decisions": [
+        {
+          "group_id": "group_dress_silhouettes_and_inspiration",
+          "option_ids": [
+            "opt_co_ao_doi_lap"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_opt_co_ao_doi_lap"
+          ]
+        },
+        {
+          "group_id": "group_fabric_and_materials",
+          "option_ids": [
+            "opt_silk_linen"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_opt_silk_linen"
+          ]
+        },
+        {
+          "group_id": "group_color_palette",
+          "option_ids": [
+            "opt_pastel_nhe_nhang"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_opt_pastel_nhe_nhang"
+          ]
+        },
+        {
+          "group_id": "group_ornaments_and_motifs",
+          "option_ids": [
+            "opt_hoa_tiet_sen_cach_dieu"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_opt_hoa_tiet_sen_cach_dieu"
+          ]
+        },
+        {
+          "group_id": "group_image_presentation_style",
+          "option_ids": [
+            "opt_fashion_illustration"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_opt_fashion_illustration"
+          ]
+        }
+      ],
+      "conflicts": [],
+      "status": "ready"
+    },
+    "CANDIDATE_BATCH": [
+      {
+        "candidate_id": "R2-B1-C1",
+        "batch_id": "B1",
+        "revision": 2,
+        "title": "Váy Liền Thân Cổ Giao Lĩnh Cách Tân - Xanh Ngọc Lụa Linen",
+        "image_prompt": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) thanh lịch, sắc nét cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang, mang chủ đề kết hợp truyền thống và hiện đại. Thiết kế váy liền thân suông nhẹ, điểm nhấn phần cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đan chéo tinh tế, gọn gàng và hiện đại. Chất liệu kết hợp lụa tơ tằm mềm mại và linen cao cấp tạo độ đứng phom tự nhiên. Bảng màu pastel xanh ngọc nhẹ nhàng, mát mẻ. Họa tiết hoa sen cách điệu theo đường nét tối giản được thêu tay tinh xảo ở một bên ngực áo. Trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng và thời trang quốc tế. Khung hình đơn, một bộ trang phục duy nhất trên nền giấy phác thảo thời trang chuyên nghiệp, ánh sáng tự nhiên mềm mại.",
+        "design_sections": [
+          {
+            "domain_id": "bối_cảnh_và_chủ_đề",
+            "description": "Thiết kế váy liền thân nữ mùa hè phục vụ sự kiện thời trang với chủ đề giao thoa truyền thống và hiện đại, thể hiện dưới dạng bản minh họa thiết kế thời trang (Fashion Sketch).",
+            "related_atom_ids": [
+              "atom_dress_type_context",
+              "atom_opt_fashion_illustration"
+            ]
+          },
+          {
+            "domain_id": "phom_dáng_và_chi_tiết",
+            "description": "Phom váy liền thân suông nhẹ kết hợp cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đan chéo gọn gàng; họa tiết hoa sen cách điệu thêu tối giản đặt ở một bên ngực áo.",
+            "related_atom_ids": [
+              "atom_viet_phuc_inspiration",
+              "atom_opt_co_ao_doi_lap",
+              "atom_opt_hoa_tiet_sen_cach_dieu"
+            ]
+          },
+          {
+            "domain_id": "tiêu_chí_thẩm_mỹ_và_sử_dụng",
+            "description": "Sử dụng chất liệu lụa tơ tằm kết hợp linen cao cấp, bảng màu pastel xanh ngọc nhẹ nhàng cho mùa hè, đảm bảo độ thoải mái, dễ mặc, sang trọng và mang phong cách thời trang quốc tế.",
+            "related_atom_ids": [
+              "atom_usability_and_style",
+              "atom_opt_silk_linen",
+              "atom_opt_pastel_nhe_nhang"
+            ]
+          }
+        ],
+        "fashion_summary": "Váy liền thân phom suông nhẹ, cổ giao lĩnh cách tân gọn gàng, chất liệu lụa pha linen đứng phom nhưng thoáng mát.",
+        "art_summary": "Phong cách bản minh họa thời trang (Fashion Sketch), tông màu xanh ngọc pastel, họa tiết hoa sen thêu tối giản một bên ngực.",
+        "culture_summary": "Lấy cảm hứng từ cổ áo giao lĩnh của Việt phục, cách tân theo hướng hiện đại, tinh gọn và ứng dụng cao trong thời trang quốc tế.",
+        "choices_made": [
+          "Chọn phom váy liền thân suông nhẹ",
+          "Chọn cổ áo giao lĩnh cách tân gọn gàng",
+          "Chọn chất liệu lụa tơ tằm kết hợp linen cao cấp",
+          "Chọn bảng màu pastel xanh ngọc",
+          "Chọn họa tiết hoa sen cách điệu thêu tối giản ở ngực áo",
+          "Chọn phong cách minh họa thiết kế thời trang (Fashion Sketch)"
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_dress_type_context",
+            "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+          },
+          {
+            "atom_id": "atom_usability_and_style",
+            "prompt_quote": "Trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng và thời trang quốc tế."
+          },
+          {
+            "atom_id": "atom_opt_co_ao_doi_lap",
+            "prompt_quote": "phần cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đan chéo tinh tế, gọn gàng và hiện đại"
+          },
+          {
+            "atom_id": "atom_opt_silk_linen",
+            "prompt_quote": "Chất liệu kết hợp lụa tơ tằm mềm mại và linen cao cấp tạo độ đứng phom tự nhiên."
+          },
+          {
+            "atom_id": "atom_opt_pastel_nhe_nhang",
+            "prompt_quote": "Bảng màu pastel xanh ngọc nhẹ nhàng, mát mẻ."
+          },
+          {
+            "atom_id": "atom_opt_hoa_tiet_sen_cach_dieu",
+            "prompt_quote": "Họa tiết hoa sen cách điệu theo đường nét tối giản được thêu tay tinh xảo ở một bên ngực áo."
+          },
+          {
+            "atom_id": "atom_opt_fashion_illustration",
+            "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)"
+          }
+        ],
+        "assumptions": [
+          "Sử dụng gam màu xanh ngọc trong dải pastel nhẹ nhàng cho mùa hè.",
+          "Vị trí thêu hoa sen tối giản được đặt ở ngực áo để tạo điểm nhấn cân đối với phom suông."
+        ],
+        "limitations": [
+          "Chất liệu lụa tơ tằm và linen cần xử lý độ rũ và độ đứng phom phù hợp trong bản vẽ minh họa."
+        ],
+        "content_hash": "4c702fd1fad96ab76379a1def9bd535e892f78c341c0573ccfd5d268e7909e3d"
+      },
+      {
+        "candidate_id": "R2-B1-C2",
+        "batch_id": "B1",
+        "revision": 2,
+        "title": "Váy Liền Thân Cổ Ngũ Thân Cách Tân - Hồng Phấn Lụa Linen",
+        "image_prompt": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) tinh tế và hiện đại cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang kết hợp truyền thống và hiện đại. Thiết kế váy liền thân chiết eo gọn gàng, điểm nhấn cổ áo cách tân lấy cảm hứng từ cổ áo ngũ thân truyền thống với đường nẹp chạy dọc tinh tế. Chất liệu lụa tơ tằm kết hợp linen cao cấp mang lại sự thoải mái, thoáng mát và sang trọng. Bảng màu pastel hồng phấn nhẹ nhàng, thanh lịch cho mùa hè. Họa tiết hoa sen cách điệu thêu tối giản được bố trí dọc theo tà váy. Phong cách trình bày dạng bản vẽ phác thảo thời trang chuẩn mực, một khung hình duy nhất, chi tiết rõ ràng, thời trang quốc tế.",
+        "design_sections": [
+          {
+            "domain_id": "bối_cảnh_và_chủ_đề",
+            "description": "Thiết kế váy liền thân nữ mùa hè phục vụ sự kiện thời trang chủ đề giao thoa truyền thống - hiện đại, thể hiện qua phong cách minh họa thiết kế thời trang (Fashion Sketch).",
+            "related_atom_ids": [
+              "atom_dress_type_context",
+              "atom_opt_fashion_illustration"
+            ]
+          },
+          {
+            "domain_id": "phom_dáng_và_chi_tiết",
+            "description": "Phom váy liền thân chiết eo gọn, cổ áo cách tân lấy cảm hứng từ áo ngũ thân; họa tiết hoa sen cách điệu thêu tối giản đặt ở tà váy.",
+            "related_atom_ids": [
+              "atom_viet_phuc_inspiration",
+              "atom_opt_co_ao_doi_lap",
+              "atom_opt_hoa_tiet_sen_cach_dieu"
+            ]
+          },
+          {
+            "domain_id": "tiêu_chí_thẩm_mỹ_và_sử_dụng",
+            "description": "Chất liệu lụa tơ tằm kết hợp linen cao cấp, tông màu hồng phấn pastel nhẹ nhàng, đảm bảo tính thoải mái, dễ mặc, sang trọng và phong cách quốc tế.",
+            "related_atom_ids": [
+              "atom_usability_and_style",
+              "atom_opt_silk_linen",
+              "atom_opt_pastel_nhe_nhang"
+            ]
+          }
+        ],
+        "fashion_summary": "Váy liền thân chiết eo gọn, cổ ngũ thân cách tân với đường nẹp hiện đại, chất liệu lụa linen cao cấp.",
+        "art_summary": "Bản minh họa thời trang (Fashion Sketch), gam màu hồng phấn pastel, họa tiết hoa sen thêu tối giản dọc tà váy.",
+        "culture_summary": "Khai thác đường nét cổ áo ngũ thân Việt phục, chuyển hóa thành chi tiết cổ áo hiện đại, gọn gàng và ứng dụng.",
+        "choices_made": [
+          "Chọn phom váy liền thân chiết eo gọn",
+          "Chọn cổ áo ngũ thân cách tân với đường nẹp",
+          "Chọn chất liệu lụa tơ tằm kết hợp linen cao cấp",
+          "Chọn bảng màu pastel hồng phấn",
+          "Chọn họa tiết hoa sen cách điệu thêu tối giản ở tà váy",
+          "Chọn phong cách minh họa thiết kế thời trang (Fashion Sketch)"
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_dress_type_context",
+            "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+          },
+          {
+            "atom_id": "atom_usability_and_style",
+            "prompt_quote": "mang lại sự thoải mái, thoáng mát và sang trọng... thời trang quốc tế."
+          },
+          {
+            "atom_id": "atom_opt_co_ao_doi_lap",
+            "prompt_quote": "cổ áo cách tân lấy cảm hứng từ cổ áo ngũ thân truyền thống với đường nẹp chạy dọc tinh tế"
+          },
+          {
+            "atom_id": "atom_opt_silk_linen",
+            "prompt_quote": "Chất liệu lụa tơ tằm kết hợp linen cao cấp"
+          },
+          {
+            "atom_id": "atom_opt_pastel_nhe_nhang",
+            "prompt_quote": "Bảng màu pastel hồng phấn nhẹ nhàng, thanh lịch cho mùa hè."
+          },
+          {
+            "atom_id": "atom_opt_hoa_tiet_sen_cach_dieu",
+            "prompt_quote": "Họa tiết hoa sen cách điệu thêu tối giản được bố trí dọc theo tà váy."
+          },
+          {
+            "atom_id": "atom_opt_fashion_illustration",
+            "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)"
+          }
+        ],
+        "assumptions": [
+          "Sử dụng màu hồng phấn trong dải pastel nhẹ nhàng.",
+          "Vị trí thêu sen tối giản chạy dọc tà váy để làm nổi bật chiều cao và đường nét thiết kế."
+        ],
+        "limitations": [
+          "Đường nẹp cổ ngũ thân cách tân cần được thể hiện rõ ràng trong nét vẽ phác thảo."
+        ],
+        "content_hash": "c89d52b80af4dcd3cb8687243fb2faf2ddb880de052dff68bb236f252c7c7ad7"
+      },
+      {
+        "candidate_id": "R2-B1-C3",
+        "batch_id": "B1",
+        "revision": 2,
+        "title": "Váy Liền Thân Cổ Giao Lĩnh Thanh Lịch - Kem Sữa Lụa Linen",
+        "image_prompt": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) sang trọng cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang theo chủ đề kết hợp truyền thống và hiện đại. Phom váy liền thân suông nhẹ kết hợp chi tiết cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh mở rộng nhẹ nhàng, gọn gàng và tiện dụng. Chất liệu lụa tơ tằm kết hợp linen cao cấp mang lại cảm giác mát mẻ, sang trọng. Bảng màu pastel kem sữa nhẹ nhàng, thanh lịch phù hợp mùa hè. Họa tiết hoa sen cách điệu thêu tối giản được điểm xuyết tinh tế ở phần cổ áo và ngực. Trình bày dưới dạng bản vẽ phác thảo thời trang chuyên nghiệp, một khung hình đơn, phong cách quốc tế.",
+        "design_sections": [
+          {
+            "domain_id": "bối_cảnh_và_chủ_đề",
+            "description": "Thiết kế váy liền thân nữ mùa hè phục vụ sự kiện thời trang chủ đề kết hợp truyền thống - hiện đại, thể hiện qua phong cách minh họa thiết kế thời trang (Fashion Sketch).",
+            "related_atom_ids": [
+              "atom_dress_type_context",
+              "atom_opt_fashion_illustration"
+            ]
+          },
+          {
+            "domain_id": "phom_dáng_và_chi_tiết",
+            "description": "Phom váy liền thân suông nhẹ, cổ áo giao lĩnh cách tân mở rộng nhẹ; họa tiết hoa sen cách điệu thêu tối giản ở phần cổ và ngực áo.",
+            "related_atom_ids": [
+              "atom_viet_phuc_inspiration",
+              "atom_opt_co_ao_doi_lap",
+              "atom_opt_hoa_tiet_sen_cach_dieu"
+            ]
+          },
+          {
+            "domain_id": "tiêu_chí_thẩm_mỹ_và_sử_dụng",
+            "description": "Sử dụng lụa tơ tằm kết hợp linen cao cấp, màu pastel kem sữa thanh lịch, mang lại sự thoải mái, dễ mặc, sang trọng và chuẩn thời trang quốc tế.",
+            "related_atom_ids": [
+              "atom_usability_and_style",
+              "atom_opt_silk_linen",
+              "atom_opt_pastel_nhe_nhang"
+            ]
+          }
+        ],
+        "fashion_summary": "Váy liền thân suông nhẹ, cổ giao lĩnh cách tân mở rộng, chất liệu lụa pha linen cao cấp.",
+        "art_summary": "Bản minh họa thời trang (Fashion Sketch), gam màu kem sữa pastel, họa tiết hoa sen thêu tối giản ở cổ và ngực áo.",
+        "culture_summary": "Gợi nhắc di sản cổ giao lĩnh Việt phục qua góc nhìn thiết kế đương đại, gọn gàng và mang tính ứng dụng quốc tế.",
+        "choices_made": [
+          "Chọn phom váy liền thân suông nhẹ",
+          "Chọn cổ áo giao lĩnh cách tân mở rộng",
+          "Chọn chất liệu lụa tơ tằm kết hợp linen cao cấp",
+          "Chọn bảng màu pastel kem sữa",
+          "Chọn họa tiết hoa sen cách điệu thêu tối giản ở cổ và ngực áo",
+          "Chọn phong cách minh họa thiết kế thời trang (Fashion Sketch)"
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_dress_type_context",
+            "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+          },
+          {
+            "atom_id": "atom_usability_and_style",
+            "prompt_quote": "mang lại cảm giác mát mẻ, sang trọng... thoải mái, dễ mặc... chuẩn thời trang quốc tế."
+          },
+          {
+            "atom_id": "atom_opt_co_ao_doi_lap",
+            "prompt_quote": "chi tiết cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh mở rộng nhẹ nhàng, gọn gàng và tiện dụng."
+          },
+          {
+            "atom_id": "atom_opt_silk_linen",
+            "prompt_quote": "Chất liệu lụa tơ tằm kết hợp linen cao cấp"
+          },
+          {
+            "atom_id": "atom_opt_pastel_nhe_nhang",
+            "prompt_quote": "Bảng màu pastel kem sữa nhẹ nhàng, thanh lịch phù hợp mùa hè."
+          },
+          {
+            "atom_id": "atom_opt_hoa_tiet_sen_cach_dieu",
+            "prompt_quote": "Họa tiết hoa sen cách điệu thêu tối giản được điểm xuyết tinh tế ở phần cổ áo và ngực."
+          },
+          {
+            "atom_id": "atom_opt_fashion_illustration",
+            "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)"
+          }
+        ],
+        "assumptions": [
+          "Sử dụng màu kem sữa trong bảng màu pastel nhẹ nhàng.",
+          "Điểm thêu sen tối giản kết hợp ở cổ và ngực để tạo điểm nhấn đồng bộ."
+        ],
+        "limitations": [
+          "Phom suông nhẹ kết hợp chất liệu lụa linen cần giữ được đường nét sắc sảo đặc trưng của dòng sketch thời trang cao cấp."
+        ],
+        "content_hash": "46e67c8d4d648b66d1491fb0508a00f0bf023bf8c6dde8316660185d3c1bc9b1"
+      }
+    ],
+    "VALIDATED_SPECIALIST_AUDITS": {
+      "R2-B1-C1": {
+        "fashion": {
+          "candidate_id": "R2-B1-C1",
+          "candidate_revision": 2,
+          "content_hash": "4c702fd1fad96ab76379a1def9bd535e892f78c341c0573ccfd5d268e7909e3d",
+          "role": "fashion",
+          "checks": [
+            {
+              "check_id": "locked:atom_dress_type_context",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Image prompt explicitly includes the exact sentence defining the dress type, summer context, fashion event, and traditional-modern fusion theme."
+            },
+            {
+              "check_id": "locked:atom_usability_and_style",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng và thời trang quốc tế.",
+              "source_ids": [],
+              "reason": "Image prompt fully captures the usability and styling requirements regarding comfort, wearability, luxury, and international fashion appeal."
+            },
+            {
+              "check_id": "locked:atom_opt_co_ao_doi_lap",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "phần cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đان chéo tinh tế, gọn gàng và hiện đại",
+              "source_ids": [],
+              "reason": "Image prompt correctly specifies the updated collar inspired by the overlapping collar (giao lĩnh) tailored cleanly and modernly."
+            },
+            {
+              "check_id": "locked:atom_opt_silk_linen",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu kết hợp lụa tơ tằm mềm mại và linen cao cấp tạo độ đứng phom tự nhiên.",
+              "source_ids": [],
+              "reason": "Image prompt accurately integrates the combination of soft silk and premium linen with natural structural stiffness."
+            },
+            {
+              "check_id": "locked:atom_opt_pastel_nhe_nhang",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu pastel xanh ngọc nhẹ nhàng, mát mẻ.",
+              "source_ids": [],
+              "reason": "Image prompt states the soft jade green pastel palette suitable for summer."
+            },
+            {
+              "check_id": "locked:atom_opt_hoa_tiet_sen_cach_dieu",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Họa tiết hoa sen cách điệu theo đường nét tối giản được thêu tay tinh xảo ở một bên ngực áo.",
+              "source_ids": [],
+              "reason": "Image prompt incorporates the stylized minimal lotus embroidery on one side of the chest."
+            },
+            {
+              "check_id": "locked:atom_opt_fashion_illustration",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)",
+              "source_ids": [],
+              "reason": "Image prompt explicitly designates the fashion sketch presentation style."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) thanh lịch, sắc nét cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang, mang chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "All summary elements, design sections, and choices made are fully aligned and verified against the image prompt text."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "need_fit",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Đáp ứng hoàn hảo mọi yêu cầu cốt lõi và lựa chọn đã chốt bao gồm kiểu váy liền thân, cổ giao lĩnh cách tân và bảng màu pastel xanh ngọc."
+            },
+            {
+              "criterion_id": "silhouette_structure",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Phom suông nhẹ kết hợp cổ áo giao lĩnh đan chéo mang lại cấu trúc rõ ràng, hiện đại và thanh lịch."
+            },
+            {
+              "criterion_id": "material_technique",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Sự kết hợp giữa lụa tơ tằm và linen cao cấp được miêu tả rõ ràng, đảm bảo độ rủ mềm mại và độ đứng phom tự nhiên."
+            },
+            {
+              "criterion_id": "contextual_usability",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Trang phục phù hợp cho sự kiện thời trang mùa hè, mang phong cách quốc tế, thoải mái và dễ ứng dụng."
+            }
+          ],
+          "strengths": [
+            "Sự kết hợp ăn ý giữa cổ giao lĩnh cách tân và phom suông nhẹ.",
+            "Chất liệu lụa linen và màu xanh ngọc pastel mang lại cảm giác mát mẻ, sang trọng cho mùa hè.",
+            "Chi tiết thêu hoa sen tối giản đặt ở ngực áo tạo điểm nhấn tinh tế."
+          ],
+          "concerns": [
+            "Cần kiểm soát độ cứng phom của linen khi pha với lụa để không làm mất đi độ bay bổng cần thiết trong bản phác thảo."
+          ],
+          "suggested_fixes": [
+            "Giữ nguyên các thông số chi tiết và đảm bảo nét vẽ phác thảo làm nổi bật chất liệu lụa pha linen."
+          ],
+          "summary": "Phương án R2-B1-C1 đáp ứng xuất sắc các tiêu chí thời trang, cấu trúc và thẩm mỹ với thiết kế váy liền thân cổ giao lĩnh xanh ngọc.",
+          "score": 100.0,
+          "score_reason": "Đạt điểm tối đa (100/100) nhờ tuân thủ đầy đủ và chính xác tất cả các yêu cầu về nhu cầu, phom dáng, chất liệu, màu sắc và phong cách trình bày."
+        },
+        "culture": {
+          "candidate_id": "R2-B1-C1",
+          "candidate_revision": 2,
+          "content_hash": "4c702fd1fad96ab76379a1def9bd535e892f78c341c0573ccfd5d268e7909e3d",
+          "role": "culture",
+          "checks": [
+            {
+              "check_id": "locked:atom_dress_type_context",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang, mang chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Ứng dụng và phản ánh chính xác ngữ cảnh thiết kế váy liền thân nữ mùa hè cho sự kiện thời trang với chủ đề truyền thống kết hợp hiện đại."
+            },
+            {
+              "check_id": "locked:atom_usability_and_style",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng và thời trang quốc tế.",
+              "source_ids": [],
+              "reason": "Đáp ứng đúng yêu cầu về độ thoải mái, dễ mặc, sang trọng và mang phong cách thời trang quốc tế."
+            },
+            {
+              "check_id": "locked:atom_opt_co_ao_doi_lap",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "phần cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đان chéo tinh tế, gọn gàng và hiện đại",
+              "source_ids": [],
+              "reason": "Khai thác thành công yếu tố cổ áo giao lĩnh của Việt phục, được cách tân gọn gàng, tinh tế và phù hợp với định hướng thiết kế hiện đại."
+            },
+            {
+              "check_id": "locked:atom_opt_silk_linen",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu kết hợp lụa tơ tằm mềm mại và linen cao cấp tạo độ đứng phom tự nhiên.",
+              "source_ids": [],
+              "reason": "Sử dụng đúng chất liệu lụa tơ tằm kết hợp linen cao cấp theo đúng lựa chọn đã chốt."
+            },
+            {
+              "check_id": "locked:atom_opt_pastel_nhe_nhang",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu pastel xanh ngọc nhẹ nhàng, mát mẻ.",
+              "source_ids": [],
+              "reason": "Áp dụng bảng màu pastel xanh ngọc nhẹ nhàng đúng với lựa chọn cho mùa hè."
+            },
+            {
+              "check_id": "locked:atom_opt_hoa_tiet_sen_cach_dieu",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Họa tiết hoa sen cách điệu theo đường nét tối giản được thêu tay tinh xảo ở một bên ngực áo.",
+              "source_ids": [],
+              "reason": "Tích hợp họa tiết hoa sen cách điệu thêu tối giản đúng theo lựa chọn thiết kế đã chốt."
+            },
+            {
+              "check_id": "locked:atom_opt_fashion_illustration",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)",
+              "source_ids": [],
+              "reason": "Thực hiện đúng định dạng phong cách bản minh họa thiết kế thời trang (Fashion Sketch)."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) thanh lịch, sắc nét cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang, mang chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Các phần tóm tắt và mô tả thiết kế phản ánh hoàn toàn nhất quán với nội dung image_prompt đã kiểm tra."
+            },
+            {
+              "check_id": "claim_support",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Đã kiểm tra claims rỗng và xác nhận không có phát biểu lịch sử hay nguồn gốc chưa được khai báo; nội dung giữ đúng tinh thần cảm hứng (inspired) không đưa ra các khẳng định phục dựng sai lệch."
+            },
+            {
+              "check_id": "historical_scope",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "not_applicable",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Chế độ lịch sử được thiết lập là inspired, không yêu cầu tái hiện nguyên bản lịch sử khắt khe."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "mode_fidelity",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Tôn trọng tuyệt đối mức độ cảm hứng (inspired) đã chốt, kết hợp khéo léo yếu tố truyền thống và hiện đại."
+            },
+            {
+              "criterion_id": "evidence_scope",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Không có phát biểu lịch sử ngoại lai, mọi chi tiết cách tân đều nằm trong biên độ sáng tạo cho phép."
+            },
+            {
+              "criterion_id": "cultural_integration",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Cổ áo giao lĩnh và họa tiết hoa sen được lồng ghép rất tinh tế, gọn gàng và ứng dụng cao."
+            },
+            {
+              "criterion_id": "claim_transparency",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Minh bạch trong định hướng thiết kế, không tự ý gán nhãn phục dựng chính xác."
+            }
+          ],
+          "strengths": [
+            "Khai thác thành công cổ áo giao lĩnh truyền thống theo hướng hiện đại, gọn gàng.",
+            "Sự kết hợp chất liệu lụa tơ tằm và linen cùng bảng màu xanh ngọc pastel mang lại cảm giác mùa hè thanh lịch.",
+            "Họa tiết hoa sen cách điệu thêu tối giản tạo điểm nhấn trang nhã, đúng chủ đề."
+          ],
+          "concerns": [],
+          "suggested_fixes": [],
+          "summary": "Phương án R2-B1-C1 thể hiện sự giao thoa nhịp nhàng giữa di sản cổ giao lĩnh Việt phục và thời trang hiện đại, đáp ứng xuất sắc các tiêu chí văn hóa và thẩm mỹ.",
+          "score": 100.0,
+          "score_reason": "Đạt điểm tuyệt đối trên tất cả 4 tiêu chí do tuân thủ hoàn hảo chế độ inspired, tích hợp văn hóa chính xác và minh bạch."
+        },
+        "art": {
+          "candidate_id": "R2-B1-C1",
+          "candidate_revision": 2,
+          "content_hash": "4c702fd1fad96ab76379a1def9bd535e892f78c341c0573ccfd5d268e7909e3d",
+          "role": "art",
+          "checks": [
+            {
+              "check_id": "locked:atom_dress_type_context",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang, mang chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Image prompt đã nêu rõ yêu cầu về thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+            },
+            {
+              "check_id": "locked:atom_usability_and_style",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng và thời trang quốc tế.",
+              "source_ids": [],
+              "reason": "Image prompt bảo đảm tiêu chí thẩm mỹ, sự thoải mái, dễ mặc và phong cách thời trang quốc tế đúng yêu cầu."
+            },
+            {
+              "check_id": "locked:atom_opt_co_ao_doi_lap",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "phần cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đان chéo tinh tế, gọn gàng và hiện đại",
+              "source_ids": [],
+              "reason": "Image prompt thể hiện rõ chi tiết cổ áo cách tân lấy cảm hứng từ cổ giao lĩnh gọn gàng và hiện đại."
+            },
+            {
+              "check_id": "locked:atom_opt_silk_linen",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu kết hợp lụa tơ tằm mềm mại và linen cao cấp tạo độ đứng phom tự nhiên.",
+              "source_ids": [],
+              "reason": "Image prompt chỉ định rõ sự kết hợp giữa lụa tơ tằm và linen cao cấp."
+            },
+            {
+              "check_id": "locked:atom_opt_pastel_nhe_nhang",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu pastel xanh ngọc nhẹ nhàng, mát mẻ.",
+              "source_ids": [],
+              "reason": "Image prompt sử dụng bảng màu pastel xanh ngọc đúng theo tùy chọn đã chọn."
+            },
+            {
+              "check_id": "locked:atom_opt_hoa_tiet_sen_cach_dieu",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Họa tiết hoa sen cách điệu theo đường nét tối giản được thêu tay tinh xảo ở một bên ngực áo.",
+              "source_ids": [],
+              "reason": "Image prompt tích hợp họa tiết hoa sen cách điệu thêu tối giản ở ngực áo phù hợp tùy chọn."
+            },
+            {
+              "check_id": "locked:atom_opt_fashion_illustration",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)",
+              "source_ids": [],
+              "reason": "Image prompt quy định phong cách trình bày dưới dạng bản minh họa thiết kế thời trang (Fashion Sketch)."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) thanh lịch, sắc nét cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang",
+              "source_ids": [],
+              "reason": "Toàn bộ tóm tắt thời trang, mỹ thuật và văn hóa đều phản ánh nhất quán và khớp với nội dung chi tiết trong image prompt."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "ornament_composition",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Bố cục hoa sen cách điệu thêu tối giản ở ngực áo hài hòa, tạo điểm nhấn tinh tế trên nền váy suông nhẹ."
+            },
+            {
+              "criterion_id": "color_language",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Bảng màu pastel xanh ngọc đồng nhất, mang lại cảm giác mát mẻ, thanh lịch và đúng tinh thần trang phục mùa hè."
+            },
+            {
+              "criterion_id": "form_surface_integration",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Sự kết hợp giữa chất liệu lụa tơ tằm và linen cao cấp hỗ trợ tốt cho phom suông nhẹ và độ đứng phom tự nhiên."
+            },
+            {
+              "criterion_id": "purposeful_originality",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Cách tân cổ áo giao lĩnh và bố trí họa tiết tối giản thể hiện sự sáng tạo có chủ đích, giữ được nét truyền thống kết hợp hiện đại."
+            }
+          ],
+          "strengths": [
+            "Phom dáng và chi tiết cổ giao lĩnh cách tân gọn gàng, hiện đại.",
+            "Sử dụng chất liệu lụa linen cao cấp phù hợp với mùa hè.",
+            "Bảng màu pastel xanh ngọc nhẹ nhàng, thanh lịch.",
+            "Phong cách minh họa Fashion Sketch sắc nét và chuyên nghiệp."
+          ],
+          "concerns": [],
+          "suggested_fixes": [
+            "Tiếp tục duy trì sự rõ nét của đường nét phom dáng trong bản vẽ phác thảo."
+          ],
+          "summary": "Phương án R2-B1-C1 đáp ứng xuất sắc các tiêu chí về mỹ thuật, bố cục, bảng màu và sự chuyển hóa truyền thống - hiện đại.",
+          "score": 100.0,
+          "score_reason": "Đạt điểm tuyệt đối nhờ sự đồng bộ hoàn hảo giữa yêu cầu người dùng, chi tiết tạo hình, màu sắc, chất liệu và phong cách minh họa."
+        }
+      },
+      "R2-B1-C2": {
+        "fashion": {
+          "candidate_id": "R2-B1-C2",
+          "candidate_revision": 2,
+          "content_hash": "c89d52b80af4dcd3cb8687243fb2faf2ddb880de052dff68bb236f252c7c7ad7",
+          "role": "fashion",
+          "checks": [
+            {
+              "check_id": "locked:atom_dress_type_context",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Prompt explicitly states the dress type, summer context, fashion event, and traditional-modern fusion theme."
+            },
+            {
+              "check_id": "locked:atom_usability_and_style",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "mang lại sự thoải mái, thoáng mát và sang trọng... thời trang quốc tế.",
+              "source_ids": [],
+              "reason": "Prompt appropriately addresses usability, comfort, luxury, and international fashion style."
+            },
+            {
+              "check_id": "locked:atom_opt_co_ao_doi_lap",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "cổ áo cách tân lấy cảm hứng từ cổ áo ngũ thân truyền thống với đường nẹp chạy dọc tinh tế",
+              "source_ids": [],
+              "reason": "Prompt accurately reflects the updated collar inspired by the ngũ thân tradition with vertical detailing."
+            },
+            {
+              "check_id": "locked:atom_opt_silk_linen",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu lụa tơ tằm kết hợp linen cao cấp",
+              "source_ids": [],
+              "reason": "Prompt includes the specified high-end silk and linen material combination."
+            },
+            {
+              "check_id": "locked:atom_opt_pastel_nhe_nhang",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu pastel hồng phấn nhẹ nhàng, thanh lịch cho mùa hè.",
+              "source_ids": [],
+              "reason": "Prompt includes the soft pink pastel palette."
+            },
+            {
+              "check_id": "locked:atom_opt_hoa_tiet_sen_cach_dieu",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Họa tiết hoa sen cách điệu thêu tối giản được bố trí dọc theo tà váy.",
+              "source_ids": [],
+              "reason": "Prompt accurately incorporates the minimalist stylized lotus motif along the dress skirt."
+            },
+            {
+              "check_id": "locked:atom_opt_fashion_illustration",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)",
+              "source_ids": [],
+              "reason": "Prompt specifies the fashion sketch illustration style."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) tinh tế và hiện đại cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "All summary elements, sections, and choices match the image prompt contents."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "need_fit",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Đáp ứng trọn vẹn yêu cầu thiết kế váy liền thân chiết eo gọn cùng cổ áo ngũ thân cách tân."
+            },
+            {
+              "criterion_id": "silhouette_structure",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Phom chiết eo gọn kết hợp đường nẹp dọc cổ ngũ thân tạo tỷ lệ cơ thể đẹp và cấu trúc sắc nét."
+            },
+            {
+              "criterion_id": "material_technique",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Chất liệu lụa tơ tằm kết hợp linen cao cấp đáp ứng tốt tiêu chí thoáng mát và sang trọng."
+            },
+            {
+              "criterion_id": "contextual_usability",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Rất phù hợp cho sự kiện thời trang mùa hè với phong cách thanh lịch và hiện đại."
+            }
+          ],
+          "strengths": [
+            "Thiết kế chiết eo tôn dáng kết hợp cổ ngũ thân cách tân độc đáo.",
+            "Màu hồng phấn pastel mang lại vẻ đẹp nữ tính, thanh lịch.",
+            "Họa tiết hoa sen dọc tà váy tạo hiệu ứng thị giác kéo dài chiều cao."
+          ],
+          "concerns": [
+            "Cần chú ý kỹ thuật thể hiện đường nẹp dọc trong tranh phác thảo để không bị nhầm lẫn với khuy áo truyền thống quá rườm rà."
+          ],
+          "suggested_fixes": [
+            "Giữ nguyên định hướng hiện đại hóa chi tiết cổ áo ngũ thân trong quá trình dựng hình."
+          ],
+          "summary": "Phương án R2-B1-C2 thể hiện sự sáng tạo tinh tế trong việc chuyển hóa cổ áo ngũ thân thành chi tiết thời trang hiện đại.",
+          "score": 100.0,
+          "score_reason": "Đạt điểm tối đa nhờ tuân thủ hoàn hảo các yêu cầu kỹ thuật, thẩm mỹ và quy chế thiết kế."
+        },
+        "culture": {
+          "candidate_id": "R2-B1-C2",
+          "candidate_revision": 2,
+          "content_hash": "c89d52b80af4dcd3cb8687243fb2faf2ddb880de052dff68bb236f252c7c7ad7",
+          "role": "culture",
+          "checks": [
+            {
+              "check_id": "locked:atom_dress_type_context",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Phản ánh đúng ngữ cảnh thiết kế váy liền thân nữ mùa hè cho sự kiện thời trang theo chủ đề đã chọn."
+            },
+            {
+              "check_id": "locked:atom_usability_and_style",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "mang lại sự thoải mái, thoáng mát và sang trọng... thời trang quốc tế.",
+              "source_ids": [],
+              "reason": "Đáp ứng tiêu chí thoải mái, thoáng mát, sang trọng và mang phong cách quốc tế."
+            },
+            {
+              "check_id": "locked:atom_opt_co_ao_doi_lap",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "cổ áo cách tân lấy cảm hứng từ cổ áo ngũ thân truyền thống với đường nẹp chạy dọc tinh tế",
+              "source_ids": [],
+              "reason": "Khai thác đường nét cổ áo ngũ thân Việt phục với đường nẹp chạy dọc hiện đại, gọn gàng."
+            },
+            {
+              "check_id": "locked:atom_opt_silk_linen",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu lụa tơ tằm kết hợp linen cao cấp",
+              "source_ids": [],
+              "reason": "Sử dụng chính xác chất liệu lụa tơ tằm và linen cao cấp đã chọn."
+            },
+            {
+              "check_id": "locked:atom_opt_pastel_nhe_nhang",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu pastel hồng phấn nhẹ nhàng, thanh lịch cho mùa hè.",
+              "source_ids": [],
+              "reason": "Áp dụng bảng màu pastel hồng phấn đúng yêu cầu."
+            },
+            {
+              "check_id": "locked:atom_opt_hoa_tiet_sen_cach_dieu",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Họa tiết hoa sen cách điệu thêu tối giản được bố trí dọc theo tà váy.",
+              "source_ids": [],
+              "reason": "Tích hợp họa tiết hoa sen cách điệu thêu tối giản ở tà váy đúng lựa chọn."
+            },
+            {
+              "check_id": "locked:atom_opt_fashion_illustration",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)",
+              "source_ids": [],
+              "reason": "Định dạng phong cách bản minh họa thiết kế thời trang (Fashion Sketch) được thể hiện chuẩn xác."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) tinh tế và hiện đại cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Tóm tắt và thiết kế các phần hoàn toàn đồng nhất với nội dung prompt."
+            },
+            {
+              "check_id": "claim_support",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Claims rỗng, không phát hiện phát biểu lịch sử sai lệch; hoàn toàn phù hợp với chế độ cảm hứng."
+            },
+            {
+              "check_id": "historical_scope",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "not_applicable",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Chế độ lịch sử là inspired nên không áp dụng kiểm tra khắt khe của historical mode."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "mode_fidelity",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Phản ánh đúng mức độ cảm hứng (inspired) với cách tân chi tiết cổ áo ngũ thân tinh tế."
+            },
+            {
+              "criterion_id": "evidence_scope",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Giới hạn mô tả hợp lý, không đưa ra các tuyên bố lịch sử không có căn cứ."
+            },
+            {
+              "criterion_id": "cultural_integration",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Đưa chi tiết cổ áo ngũ thân vào váy chiết eo hiện đại một cách uyển chuyển và có chủ ý."
+            },
+            {
+              "criterion_id": "claim_transparency",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Minh bạch và rõ ràng trong định hướng thiết kế sáng tạo."
+            }
+          ],
+          "strengths": [
+            "Ý tưởng cách tân cổ áo ngũ thân với đường nẹp dọc tạo điểm nhấn độc đáo và thanh lịch.",
+            "Sự kết hợp màu hồng phấn pastel và chất liệu lụa linen phù hợp hoàn hảo với trang phục mùa hè.",
+            "Bố trí họa tiết hoa sen dọc tà váy giúp tôn lên chiều cao và đường nét thanh thoát."
+          ],
+          "concerns": [],
+          "suggested_fixes": [],
+          "summary": "Phương án R2-B1-C2 khai thác tốt cảm hứng từ áo ngũ thân truyền thống, chuyển hóa thành phom dáng váy liền thân hiện đại, sang trọng.",
+          "score": 100.0,
+          "score_reason": "Đạt điểm tối đa do đáp ứng trọn vẹn các tiêu chí chuyên môn văn hóa và tuân thủ chặt chẽ cấu trúc prompt."
+        },
+        "art": {
+          "candidate_id": "R2-B1-C2",
+          "candidate_revision": 2,
+          "content_hash": "c89d52b80af4dcd3cb8687243fb2faf2ddb880de052dff68bb236f252c7c7ad7",
+          "role": "art",
+          "checks": [
+            {
+              "check_id": "locked:atom_dress_type_context",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang",
+              "source_ids": [],
+              "reason": "Image prompt đề cập đầy đủ bối cảnh váy liền thân nữ mùa hè cho sự kiện thời trang kết hợp truyền thống và hiện đại."
+            },
+            {
+              "check_id": "locked:atom_usability_and_style",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "mang lại sự thoải mái, thoáng mát và sang trọng... thời trang quốc tế.",
+              "source_ids": [],
+              "reason": "Image prompt bảo đảm tiêu chí sử dụng thoải mái, thoáng mát, sang trọng và phong cách quốc tế."
+            },
+            {
+              "check_id": "locked:atom_opt_co_ao_doi_lap",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "cổ áo cách tân lấy cảm hứng từ cổ áo ngũ thân truyền thống với đường nẹp chạy dọc tinh tế",
+              "source_ids": [],
+              "reason": "Image prompt thể hiện rõ chi tiết cổ áo ngũ thân cách tân với đường nẹp chạy dọc tinh tế."
+            },
+            {
+              "check_id": "locked:atom_opt_silk_linen",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu lụa tơ tằm kết hợp linen cao cấp",
+              "source_ids": [],
+              "reason": "Image prompt sử dụng chất liệu lụa tơ tằm kết hợp linen cao cấp."
+            },
+            {
+              "check_id": "locked:atom_opt_pastel_nhe_nhang",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu pastel hồng phấn nhẹ nhàng, thanh lịch cho mùa hè.",
+              "source_ids": [],
+              "reason": "Image prompt chỉ định bảng màu pastel hồng phấn đúng theo tùy chọn."
+            },
+            {
+              "check_id": "locked:atom_opt_hoa_tiet_sen_cach_dieu",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Họa tiết hoa sen cách điệu thêu tối giản được bố trí dọc theo tà váy.",
+              "source_ids": [],
+              "reason": "Image prompt bố trí họa tiết hoa sen cách điệu thêu tối giản dọc theo tà váy."
+            },
+            {
+              "check_id": "locked:atom_opt_fashion_illustration",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)",
+              "source_ids": [],
+              "reason": "Image prompt quy định phong cách trình bày dưới dạng bản minh họa thiết kế thời trang (Fashion Sketch)."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) tinh tế và hiện đại cho thiết kế váy liền thân nữ mùa hè",
+              "source_ids": [],
+              "reason": "Các phần tóm tắt thiết kế, thời trang, nghệ thuật và văn hóa hoàn toàn bám sát nội dung image prompt."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "ornament_composition",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Họa tiết hoa sen bố trí dọc tà váy tạo hiệu ứng thị giác kéo dài chiều cao, hài hòa với phom chiết eo gọn."
+            },
+            {
+              "criterion_id": "color_language",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Bảng màu pastel hồng phấn thanh lịch, nhẹ nhàng, tạo nét nữ tính và phù hợp với trang phục mùa hè."
+            },
+            {
+              "criterion_id": "form_surface_integration",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Chất liệu lụa linen cao cấp hỗ trợ tốt cho đường nẹp cổ ngũ thân cách tân và phom chiết eo gọn."
+            },
+            {
+              "criterion_id": "purposeful_originality",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Sáng tạo có chủ đích trong việc chuyển hóa cổ áo ngũ thân thành đường nẹp hiện đại và bố trí hoa văn dọc tà váy."
+            }
+          ],
+          "strengths": [
+            "Phom chiết eo gọn gàng kết hợp đường nẹp cổ ngũ thân cách tân tinh tế.",
+            "Bảng màu hồng phấn pastel nhẹ nhàng, thanh lịch.",
+            "Họa tiết thêu sen dọc tà váy tạo điểm nhấn sang trọng.",
+            "Phong cách bản vẽ Fashion Sketch chuẩn mực."
+          ],
+          "concerns": [],
+          "suggested_fixes": [
+            "Lưu ý thể hiện rõ nét đường nẹp cổ ngũ thân trong nét vẽ phác thảo."
+          ],
+          "summary": "Phương án R2-B1-C2 thể hiện sự kết hợp tuyệt vời giữa phom dáng chiết eo gọn và chi tiết cổ ngũ thân cách tân.",
+          "score": 100.0,
+          "score_reason": "Đạt điểm tuyệt đối nhờ bố cục cân đối, màu sắc hài hòa và cách tân ý nghĩa Việt phục hợp lý."
+        }
+      },
+      "R2-B1-C3": {
+        "fashion": {
+          "candidate_id": "R2-B1-C3",
+          "candidate_revision": 2,
+          "content_hash": "46e67c8d4d648b66d1491fb0508a00f0bf023bf8c6dde8316660185d3c1bc9b1",
+          "role": "fashion",
+          "checks": [
+            {
+              "check_id": "locked:atom_dress_type_context",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Prompt explicitly states the required context, dress type, and theme."
+            },
+            {
+              "check_id": "locked:atom_usability_and_style",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "mang lại cảm giác mát mẻ, sang trọng... thoải mái, dễ mặc... chuẩn thời trang quốc tế.",
+              "source_ids": [],
+              "reason": "Prompt captures all aspects of usability, comfort, luxury, and international style."
+            },
+            {
+              "check_id": "locked:atom_opt_co_ao_doi_lap",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "chi tiết cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh mở rộng nhẹ nhàng, gọn gàng và tiện dụng.",
+              "source_ids": [],
+              "reason": "Prompt accurately reflects the relaxed wide giao lĩnh collar adaptation."
+            },
+            {
+              "check_id": "locked:atom_opt_silk_linen",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu lụa tơ tằm kết hợp linen cao cấp",
+              "source_ids": [],
+              "reason": "Prompt includes the specified silk and linen blend."
+            },
+            {
+              "check_id": "locked:atom_opt_pastel_nhe_nhang",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu pastel kem sữa nhẹ nhàng, thanh lịch phù hợp mùa hè.",
+              "source_ids": [],
+              "reason": "Prompt specifies the cream milk pastel palette."
+            },
+            {
+              "check_id": "locked:atom_opt_hoa_tiet_sen_cach_dieu",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Họa tiết hoa sen cách điệu thêu tối giản được điểm xuyết tinh tế ở phần cổ áo và ngực.",
+              "source_ids": [],
+              "reason": "Prompt accurately includes the minimal lotus embroidery on the collar and chest."
+            },
+            {
+              "check_id": "locked:atom_opt_fashion_illustration",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)",
+              "source_ids": [],
+              "reason": "Prompt designates the fashion sketch style."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "fashion",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) sang trọng cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang theo chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "All summary details and design sections correspond precisely with the image prompt."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "need_fit",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Hoàn toàn đáp ứng các lựa chọn về phom suông nhẹ, cổ giao lĩnh mở rộng và màu kem sữa."
+            },
+            {
+              "criterion_id": "silhouette_structure",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Phom suông nhẹ cùng cổ giao lĩnh mở rộng tạo sự thoáng đãng, cấu trúc hài hòa và sang trọng."
+            },
+            {
+              "criterion_id": "material_technique",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Sử dụng lụa tơ tằm kết hợp linen cao cấp mang lại cảm giác mát mẻ, phù hợp trang phục hè."
+            },
+            {
+              "criterion_id": "contextual_usability",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Tính ứng dụng cao, chuẩn mực thời trang quốc tế và phù hợp với sự kiện thời trang cao cấp."
+            }
+          ],
+          "strengths": [
+            "Cổ áo giao lĩnh mở rộng nhẹ nhàng mang lại nét phóng khoáng nhưng vẫn giữ bản sắc Việt phục.",
+            "Tông màu kem sữa pastel thanh lịch, dễ phối hợp phụ kiện.",
+            "Điểm thêu hoa sen ở cổ và ngực tạo sự kết nối hài hòa."
+          ],
+          "concerns": [
+            "Phom suông nhẹ kết hợp cổ mở rộng cần được định hình rõ nét để tránh cảm giác quá rộng trên bản vẽ."
+          ],
+          "suggested_fixes": [
+            "Đảm bảo đường nét phác thảo ôm nhẹ theo đường cong cơ thể một cách tự nhiên."
+          ],
+          "summary": "Phương án R2-B1-C3 hoàn thiện tốt yêu cầu với phong cách thanh lịch, màu kem sữa và chi tiết thêu tinh tế.",
+          "score": 100.0,
+          "score_reason": "Đạt điểm tối đa nhờ tuân thủ tuyệt đối các ràng buộc và tiêu chuẩn thẩm mỹ thời trang."
+        },
+        "culture": {
+          "candidate_id": "R2-B1-C3",
+          "candidate_revision": 2,
+          "content_hash": "46e67c8d4d648b66d1491fb0508a00f0bf023bf8c6dde8316660185d3c1bc9b1",
+          "role": "culture",
+          "checks": [
+            {
+              "check_id": "locked:atom_dress_type_context",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang theo chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Thể hiện đúng ngữ cảnh thiết kế váy liền thân nữ mùa hè cho sự kiện thời trang."
+            },
+            {
+              "check_id": "locked:atom_usability_and_style",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "mang lại cảm giác mát mẻ, sang trọng... thoải mái, dễ mặc... chuẩn thời trang quốc tế.",
+              "source_ids": [],
+              "reason": "Đáp ứng đầy đủ tiêu chí thoải mái, dễ mặc, sang trọng và chuẩn thời trang quốc tế."
+            },
+            {
+              "check_id": "locked:atom_opt_co_ao_doi_lap",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "chi tiết cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh mở rộng nhẹ nhàng, gọn gàng và tiện dụng.",
+              "source_ids": [],
+              "reason": "Tận dụng cảm hứng từ cổ áo giao lĩnh mở rộng, được cách tân gọn gàng và tiện dụng."
+            },
+            {
+              "check_id": "locked:atom_opt_silk_linen",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu lụa tơ tằm kết hợp linen cao cấp",
+              "source_ids": [],
+              "reason": "Sử dụng đúng chất liệu lụa tơ tằm kết hợp linen cao cấp."
+            },
+            {
+              "check_id": "locked:atom_opt_pastel_nhe_nhang",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu pastel kem sữa nhẹ nhàng, thanh lịch phù hợp mùa hè.",
+              "source_ids": [],
+              "reason": "Áp dụng bảng màu pastel kem sữa thanh lịch cho mùa hè đúng lựa chọn."
+            },
+            {
+              "check_id": "locked:atom_opt_hoa_tiet_sen_cach_dieu",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Họa tiết hoa sen cách điệu thêu tối giản được điểm xuyết tinh tế ở phần cổ áo và ngực.",
+              "source_ids": [],
+              "reason": "Bố trí họa tiết hoa sen cách điệu thêu tối giản ở cổ và ngực áo rất tinh tế."
+            },
+            {
+              "check_id": "locked:atom_opt_fashion_illustration",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)",
+              "source_ids": [],
+              "reason": "Trình bày đúng phong cách bản minh họa thiết kế thời trang (Fashion Sketch)."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) sang trọng cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang theo chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Phần tóm tắt và mô tả hoàn toàn nhất quán với nội dung image_prompt."
+            },
+            {
+              "check_id": "claim_support",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Claims rỗng, không có phát biểu lịch sử thiếu căn cứ, bám sát mức cảm hứng."
+            },
+            {
+              "check_id": "historical_scope",
+              "owner_role": "culture",
+              "severity": "hard",
+              "status": "not_applicable",
+              "prompt_quote": "",
+              "source_ids": [],
+              "reason": "Do thiết kế ở chế độ inspired, tiêu chuẩn kiểm tra lịch sử khắt khe không áp dụng."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "mode_fidelity",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Thể hiện trọn vẹn tinh thần cách tân truyền thống trong khuôn khổ cảm hứng đã định."
+            },
+            {
+              "criterion_id": "evidence_scope",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Giới hạn phạm vi hợp lý, không đưa ra tuyên bố lịch sử ngoại lai."
+            },
+            {
+              "criterion_id": "cultural_integration",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Cổ áo giao lĩnh mở rộng kết hợp cùng họa tiết hoa sen điểm xuyết mang lại dấu ấn Việt Nam rất duyên dáng."
+            },
+            {
+              "criterion_id": "claim_transparency",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Minh bạch trong mọi lựa chọn thiết kế sáng tạo."
+            }
+          ],
+          "strengths": [
+            "Cổ áo giao lĩnh mở rộng nhẹ nhàng mang lại nét thanh lịch, hiện đại và dễ mặc.",
+            "Tông màu kem sữa pastel kết hợp lụa linen tạo cảm giác sang trọng, cao cấp.",
+            "Điểm thêu hoa sen tối giản ở cổ và ngực áo tạo sự đồng bộ và điểm nhấn thu hút."
+          ],
+          "concerns": [],
+          "suggested_fixes": [],
+          "summary": "Phương án R2-B1-C3 kết hợp hài hòa các yếu tố Việt phục qua lăng kính thời trang đương đại, đảm bảo tính thẩm mỹ và ứng dụng cao.",
+          "score": 100.0,
+          "score_reason": "Đạt điểm tối đa nhờ tuân thủ hoàn hảo các tiêu chí về văn hóa, sự nhất quán và tính minh bạch sáng tạo."
+        },
+        "art": {
+          "candidate_id": "R2-B1-C3",
+          "candidate_revision": 2,
+          "content_hash": "46e67c8d4d648b66d1491fb0508a00f0bf023bf8c6dde8316660185d3c1bc9b1",
+          "role": "art",
+          "checks": [
+            {
+              "check_id": "locked:atom_dress_type_context",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang theo chủ đề kết hợp truyền thống và hiện đại.",
+              "source_ids": [],
+              "reason": "Image prompt nêu đúng bối cảnh váy liền thân nữ mùa hè cho sự kiện thời trang giao thoa truyền thống - hiện đại."
+            },
+            {
+              "check_id": "locked:atom_usability_and_style",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "mang lại cảm giác mát mẻ, sang trọng... thoải mái, dễ mặc... chuẩn thời trang quốc tế.",
+              "source_ids": [],
+              "reason": "Image prompt đáp ứng đầy đủ yêu cầu về sự thoải mái, dễ mặc, sang trọng và chuẩn thời trang quốc tế."
+            },
+            {
+              "check_id": "locked:atom_opt_co_ao_doi_lap",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "chi tiết cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh mở rộng nhẹ nhàng, gọn gàng và tiện dụng.",
+              "source_ids": [],
+              "reason": "Image prompt thể hiện chi tiết cổ áo giao lĩnh cách tân mở rộng nhẹ nhàng, gọn gàng."
+            },
+            {
+              "check_id": "locked:atom_opt_silk_linen",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Chất liệu lụa tơ tằm kết hợp linen cao cấp",
+              "source_ids": [],
+              "reason": "Image prompt sử dụng chất liệu lụa tơ tằm kết hợp linen cao cấp."
+            },
+            {
+              "check_id": "locked:atom_opt_pastel_nhe_nhang",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Bảng màu pastel kem sữa nhẹ nhàng, thanh lịch phù hợp mùa hè.",
+              "source_ids": [],
+              "reason": "Image prompt áp dụng bảng màu pastel kem sữa đúng tùy chọn."
+            },
+            {
+              "check_id": "locked:atom_opt_hoa_tiet_sen_cach_dieu",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Họa tiết hoa sen cách điệu thêu tối giản được điểm xuyết tinh tế ở phần cổ áo và ngực.",
+              "source_ids": [],
+              "reason": "Image prompt điểm xuyết họa tiết hoa sen cách điệu thêu tối giản ở phần cổ và ngực áo."
+            },
+            {
+              "check_id": "locked:atom_opt_fashion_illustration",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "bản minh họa thiết kế thời trang (Fashion Sketch)",
+              "source_ids": [],
+              "reason": "Image prompt quy định phong cách trình bày dưới dạng bản minh họa thiết kế thời trang (Fashion Sketch)."
+            },
+            {
+              "check_id": "summary_prompt_consistency",
+              "owner_role": "art",
+              "severity": "hard",
+              "status": "pass",
+              "prompt_quote": "Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) sang trọng cho thiết kế váy liền thân nữ mùa hè",
+              "source_ids": [],
+              "reason": "Toàn bộ tóm tắt thiết kế, thời trang, nghệ thuật và văn hóa phản ánh chính xác và nhất quán với nội dung image prompt."
+            }
+          ],
+          "criterion_ratings": [
+            {
+              "criterion_id": "ornament_composition",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Điểm xuyết hoa sen thêu ở cổ và ngực áo tạo nhịp điệu cân đối, làm nổi bật phần cổ áo cách tân."
+            },
+            {
+              "criterion_id": "color_language",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Màu kem sữa pastel mang lại vẻ sang trọng, thanh lịch và rất phù hợp với phong cách thời trang hè cao cấp."
+            },
+            {
+              "criterion_id": "form_surface_integration",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Sự kết hợp lụa linen cao cấp kết hợp hoàn hảo với phom suông nhẹ và chi tiết cổ áo giao lĩnh mở rộng."
+            },
+            {
+              "criterion_id": "purposeful_originality",
+              "applicable": true,
+              "rating": 5,
+              "reason": "Sáng tạo tinh tế khi kết hợp cổ giao lĩnh mở rộng với vị trí thêu hoa sen đồng bộ ở cổ và ngực."
+            }
+          ],
+          "strengths": [
+            "Phom suông nhẹ kết hợp cổ giao lĩnh mở rộng mang tính ứng dụng cao.",
+            "Bảng màu kem sữa pastel sang trọng và thanh lịch.",
+            "Họa tiết thêu sen điểm xuyết tinh tế ở cổ và ngực áo.",
+            "Phong cách minh họa Fashion Sketch cao cấp."
+          ],
+          "concerns": [],
+          "suggested_fixes": [
+            "Duy trì độ sắc sảo của đường nét phom suông khi kết hợp chất liệu lụa linen."
+          ],
+          "summary": "Phương án R2-B1-C3 hoàn thiện tốt với gam màu kem sữa sang trọng, bố cục hài hòa và chi tiết thêu tinh tế.",
+          "score": 100.0,
+          "score_reason": "Đạt điểm tuyệt đối nhờ sự kết hợp hài hòa giữa màu sắc, chất liệu, bố cục hoa văn và tinh thần thời trang quốc tế."
+        }
+      }
+    },
+    "VALIDATED_GATE_SUMMARY": {
+      "R2-B1-C1": [],
+      "R2-B1-C2": [],
+      "R2-B1-C3": []
+    },
+    "HARMONY_RUBRIC": {
+      "version": "vp-rubric-2.1.0",
+      "role": "harmony",
+      "rating_min": 0,
+      "rating_max": 5,
+      "criteria": [
+        {
+          "criterion_id": "cross_domain_coherence",
+          "weight": 35,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "focal_balance",
+          "weight": 25,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "contextual_coherence",
+          "weight": 20,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "conflict_resolution",
+          "weight": 20,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        }
+      ]
+    },
+    "SCORING_CONFIG": {
+      "profile": "balanced",
+      "weights": {
+        "fashion": 30,
+        "culture": 25,
+        "art": 25,
+        "harmony": 20
+      },
+      "minimum_total": 70
+    },
+    "REFERENCE_BUNDLE": {
+      "references": [],
+      "provider_metadata": [
+        {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "MXTBauf0C7mf2roPhoPq2AM"
+        }
+      ],
+      "reference_mode": "text_only",
+      "availability": "unavailable_by_user_choice"
+    }
+  },
+  "prompt": "TASK: AUDIT_HARMONY_AND_PROPOSE_FINAL_SCORE\n\nThông tin ứng dụng cấp: {\"request_id\": \"d718733c-9d6d-467e-a90c-d1e8b21ed401\", \"revision\": 2}\nNhu cầu đã chốt: {\"request_id\": \"d718733c-9d6d-467e-a90c-d1e8b21ed401\", \"revision\": 2, \"resolved_text\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và thời trang quốc tế. Cụ thể, thiết kế sử dụng phom váy liền thân kết hợp cổ áo đối lập hiện đại lấy cảm hứng từ cổ áo giao lĩnh hoặc áo ngũ thân, chất liệu lụa tơ tằm kết hợp linen cao cấp, bảng màu pastel nhẹ nhàng cho mùa hè, họa tiết hoa sen cách điệu thêu tối giản, cùng phong cách trình bày ảnh minh họa thiết kế thời trang (Fashion Sketch).\", \"domains\": [{\"domain_id\": \"bối_cảnh_và_chủ_đề\", \"label\": \"Bối cảnh & Chủ đề\", \"summary\": \"Thông tin về loại trang phục, mùa, sự kiện và chủ đề thiết kế kết hợp truyền thống và hiện đại.\", \"related_domain_ids\": [\"phom_dáng_và_chi_tiết\"]}, {\"domain_id\": \"phom_dáng_và_chi_tiết\", \"label\": \"Phom dáng & Chi tiết Việt phục\", \"summary\": \"Yêu cầu gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí theo hướng hiện đại, gọn gàng và tiện dụng.\", \"related_domain_ids\": [\"bối_cảnh_và_chủ_đề\", \"tiêu_chí_thẩm_mỹ_và_sử_dụng\"]}, {\"domain_id\": \"tiêu_chí_thẩm_mỹ_và_sử_dụng\", \"label\": \"Tiêu chí thẩm mỹ & Sử dụng\", \"summary\": \"Yêu cầu về độ thoải mái, dễ mặc, sang trọng và phong cách thời trang quốc tế.\", \"related_domain_ids\": [\"phom_dáng_và_chi_tiết\"]}], \"atoms\": [{\"atom_id\": \"atom_dress_type_context\", \"domain_ids\": [\"bối_cảnh_và_chủ_đề\"], \"meaning\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_viet_phuc_inspiration\", \"domain_ids\": [\"phom_dáng_và_chi_tiết\"], \"meaning\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_usability_and_style\", \"domain_ids\": [\"tiêu_chí_thẩm_mỹ_và_sử_dụng\"], \"meaning\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_opt_co_ao_doi_lap\", \"domain_ids\": [\"phom_dáng_và_chi_tiết\"], \"meaning\": \"Chọn phom váy liền thân kết hợp chi tiết cổ áo cách tân từ Việt phục truyền thống (sử dụng phom váy liền thân suông nhẹ hoặc chiết eo gọn, điểm nhấn là thiết kế cổ áo lấy cảm hứng từ cổ áo giao lĩnh hoặc áo ngũ thân nhưng cách tân gọn gàng).\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn phom váy liền thân kết hợp chi tiết cổ áo cách tân từ Việt phục truyền thống.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_opt_silk_linen\", \"domain_ids\": [\"tiêu_chí_thẩm_mỹ_và_sử_dụng\"], \"meaning\": \"Chọn chất liệu lụa tơ tằm kết hợp linen cao cấp (lụa tơ tằm mềm mại, thoáng khí kết hợp linen cao cấp tạo độ đứng phom tự nhiên, mang lại cảm giác mát mẻ và sang trọng).\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn chất liệu lụa tơ tằm kết hợp linen cao cấp.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_opt_pastel_nhe_nhang\", \"domain_ids\": [\"tiêu_chí_thẩm_mỹ_và_sử_dụng\"], \"meaning\": \"Chọn bảng màu pastel nhẹ nhàng cho mùa hè (xanh ngọc, hồng phấn, kem sữa mang lại cảm giác mát mẻ, thanh lịch).\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn bảng màu pastel nhẹ nhàng cho mùa hè.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_opt_hoa_tiet_sen_cach_dieu\", \"domain_ids\": [\"phom_dáng_và_chi_tiết\"], \"meaning\": \"Chọn họa tiết hoa sen cách điệu thêu tối giản (ứng dụng motif hoa sen cách điệu theo đường nét hiện đại, thêu tay tinh xảo ở một góc ngực áo hoặc tà váy).\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn họa tiết hoa sen cách điệu thêu tối giản.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_opt_fashion_illustration\", \"domain_ids\": [\"bối_cảnh_và_chủ_đề\"], \"meaning\": \"Chọn phong cách bản minh họa thiết kế thời trang (Fashion Sketch) (tranh phác thảo thời trang nghệ thuật thể hiện rõ đường nét phom dáng, chất liệu và chi tiết độc đáo).\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn phong cách bản minh họa thiết kế thời trang.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}], \"locked_atom_ids\": [\"atom_dress_type_context\", \"atom_usability_and_style\", \"atom_opt_co_ao_doi_lap\", \"atom_opt_silk_linen\", \"atom_opt_pastel_nhe_nhang\", \"atom_opt_hoa_tiet_sen_cach_dieu\", \"atom_opt_fashion_illustration\"], \"delegated_atom_ids\": [], \"creative_space\": [{\"domain_id\": \"phom_dáng_và_chi_tiết\", \"description\": \"Biên độ sáng tạo cho phép điều chỉnh chi tiết nhỏ của cổ áo cách tân và họa tiết thêu sen tối giản sao cho hài hòa với tổng thể phom suông nhẹ hoặc chiết eo gọn.\", \"allowed_variations\": [\"Biến tấu nhẹ độ cao và độ ôm của cổ áo giao lĩnh/ngũ thân cách tân\", \"Vị trí đặt họa tiết thêu sen ở ngực áo hoặc tà váy\"]}], \"reference_ids\": [], \"historical_mode\": \"inspired\", \"decisions\": [{\"group_id\": \"group_dress_silhouettes_and_inspiration\", \"option_ids\": [\"opt_co_ao_doi_lap\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_opt_co_ao_doi_lap\"]}, {\"group_id\": \"group_fabric_and_materials\", \"option_ids\": [\"opt_silk_linen\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_opt_silk_linen\"]}, {\"group_id\": \"group_color_palette\", \"option_ids\": [\"opt_pastel_nhe_nhang\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_opt_pastel_nhe_nhang\"]}, {\"group_id\": \"group_ornaments_and_motifs\", \"option_ids\": [\"opt_hoa_tiet_sen_cach_dieu\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_opt_hoa_tiet_sen_cach_dieu\"]}, {\"group_id\": \"group_image_presentation_style\", \"option_ids\": [\"opt_fashion_illustration\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_opt_fashion_illustration\"]}], \"conflicts\": [], \"status\": \"ready\"}\nCác phương án với image_prompt nguyên văn và hash: [{\"candidate_id\": \"R2-B1-C1\", \"batch_id\": \"B1\", \"revision\": 2, \"title\": \"Váy Liền Thân Cổ Giao Lĩnh Cách Tân - Xanh Ngọc Lụa Linen\", \"image_prompt\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) thanh lịch, sắc nét cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang, mang chủ đề kết hợp truyền thống và hiện đại. Thiết kế váy liền thân suông nhẹ, điểm nhấn phần cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đan chéo tinh tế, gọn gàng và hiện đại. Chất liệu kết hợp lụa tơ tằm mềm mại và linen cao cấp tạo độ đứng phom tự nhiên. Bảng màu pastel xanh ngọc nhẹ nhàng, mát mẻ. Họa tiết hoa sen cách điệu theo đường nét tối giản được thêu tay tinh xảo ở một bên ngực áo. Trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng và thời trang quốc tế. Khung hình đơn, một bộ trang phục duy nhất trên nền giấy phác thảo thời trang chuyên nghiệp, ánh sáng tự nhiên mềm mại.\", \"design_sections\": [{\"domain_id\": \"bối_cảnh_và_chủ_đề\", \"description\": \"Thiết kế váy liền thân nữ mùa hè phục vụ sự kiện thời trang với chủ đề giao thoa truyền thống và hiện đại, thể hiện dưới dạng bản minh họa thiết kế thời trang (Fashion Sketch).\", \"related_atom_ids\": [\"atom_dress_type_context\", \"atom_opt_fashion_illustration\"]}, {\"domain_id\": \"phom_dáng_và_chi_tiết\", \"description\": \"Phom váy liền thân suông nhẹ kết hợp cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đan chéo gọn gàng; họa tiết hoa sen cách điệu thêu tối giản đặt ở một bên ngực áo.\", \"related_atom_ids\": [\"atom_viet_phuc_inspiration\", \"atom_opt_co_ao_doi_lap\", \"atom_opt_hoa_tiet_sen_cach_dieu\"]}, {\"domain_id\": \"tiêu_chí_thẩm_mỹ_và_sử_dụng\", \"description\": \"Sử dụng chất liệu lụa tơ tằm kết hợp linen cao cấp, bảng màu pastel xanh ngọc nhẹ nhàng cho mùa hè, đảm bảo độ thoải mái, dễ mặc, sang trọng và mang phong cách thời trang quốc tế.\", \"related_atom_ids\": [\"atom_usability_and_style\", \"atom_opt_silk_linen\", \"atom_opt_pastel_nhe_nhang\"]}], \"fashion_summary\": \"Váy liền thân phom suông nhẹ, cổ giao lĩnh cách tân gọn gàng, chất liệu lụa pha linen đứng phom nhưng thoáng mát.\", \"art_summary\": \"Phong cách bản minh họa thời trang (Fashion Sketch), tông màu xanh ngọc pastel, họa tiết hoa sen thêu tối giản một bên ngực.\", \"culture_summary\": \"Lấy cảm hứng từ cổ áo giao lĩnh của Việt phục, cách tân theo hướng hiện đại, tinh gọn và ứng dụng cao trong thời trang quốc tế.\", \"choices_made\": [\"Chọn phom váy liền thân suông nhẹ\", \"Chọn cổ áo giao lĩnh cách tân gọn gàng\", \"Chọn chất liệu lụa tơ tằm kết hợp linen cao cấp\", \"Chọn bảng màu pastel xanh ngọc\", \"Chọn họa tiết hoa sen cách điệu thêu tối giản ở ngực áo\", \"Chọn phong cách minh họa thiết kế thời trang (Fashion Sketch)\"], \"claims\": [], \"locked_coverage\": [{\"atom_id\": \"atom_dress_type_context\", \"prompt_quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"}, {\"atom_id\": \"atom_usability_and_style\", \"prompt_quote\": \"Trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng và thời trang quốc tế.\"}, {\"atom_id\": \"atom_opt_co_ao_doi_lap\", \"prompt_quote\": \"phần cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đan chéo tinh tế, gọn gàng và hiện đại\"}, {\"atom_id\": \"atom_opt_silk_linen\", \"prompt_quote\": \"Chất liệu kết hợp lụa tơ tằm mềm mại và linen cao cấp tạo độ đứng phom tự nhiên.\"}, {\"atom_id\": \"atom_opt_pastel_nhe_nhang\", \"prompt_quote\": \"Bảng màu pastel xanh ngọc nhẹ nhàng, mát mẻ.\"}, {\"atom_id\": \"atom_opt_hoa_tiet_sen_cach_dieu\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu theo đường nét tối giản được thêu tay tinh xảo ở một bên ngực áo.\"}, {\"atom_id\": \"atom_opt_fashion_illustration\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\"}], \"assumptions\": [\"Sử dụng gam màu xanh ngọc trong dải pastel nhẹ nhàng cho mùa hè.\", \"Vị trí thêu hoa sen tối giản được đặt ở ngực áo để tạo điểm nhấn cân đối với phom suông.\"], \"limitations\": [\"Chất liệu lụa tơ tằm và linen cần xử lý độ rũ và độ đứng phom phù hợp trong bản vẽ minh họa.\"], \"content_hash\": \"4c702fd1fad96ab76379a1def9bd535e892f78c341c0573ccfd5d268e7909e3d\"}, {\"candidate_id\": \"R2-B1-C2\", \"batch_id\": \"B1\", \"revision\": 2, \"title\": \"Váy Liền Thân Cổ Ngũ Thân Cách Tân - Hồng Phấn Lụa Linen\", \"image_prompt\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) tinh tế và hiện đại cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang kết hợp truyền thống và hiện đại. Thiết kế váy liền thân chiết eo gọn gàng, điểm nhấn cổ áo cách tân lấy cảm hứng từ cổ áo ngũ thân truyền thống với đường nẹp chạy dọc tinh tế. Chất liệu lụa tơ tằm kết hợp linen cao cấp mang lại sự thoải mái, thoáng mát và sang trọng. Bảng màu pastel hồng phấn nhẹ nhàng, thanh lịch cho mùa hè. Họa tiết hoa sen cách điệu thêu tối giản được bố trí dọc theo tà váy. Phong cách trình bày dạng bản vẽ phác thảo thời trang chuẩn mực, một khung hình duy nhất, chi tiết rõ ràng, thời trang quốc tế.\", \"design_sections\": [{\"domain_id\": \"bối_cảnh_và_chủ_đề\", \"description\": \"Thiết kế váy liền thân nữ mùa hè phục vụ sự kiện thời trang chủ đề giao thoa truyền thống - hiện đại, thể hiện qua phong cách minh họa thiết kế thời trang (Fashion Sketch).\", \"related_atom_ids\": [\"atom_dress_type_context\", \"atom_opt_fashion_illustration\"]}, {\"domain_id\": \"phom_dáng_và_chi_tiết\", \"description\": \"Phom váy liền thân chiết eo gọn, cổ áo cách tân lấy cảm hứng từ áo ngũ thân; họa tiết hoa sen cách điệu thêu tối giản đặt ở tà váy.\", \"related_atom_ids\": [\"atom_viet_phuc_inspiration\", \"atom_opt_co_ao_doi_lap\", \"atom_opt_hoa_tiet_sen_cach_dieu\"]}, {\"domain_id\": \"tiêu_chí_thẩm_mỹ_và_sử_dụng\", \"description\": \"Chất liệu lụa tơ tằm kết hợp linen cao cấp, tông màu hồng phấn pastel nhẹ nhàng, đảm bảo tính thoải mái, dễ mặc, sang trọng và phong cách quốc tế.\", \"related_atom_ids\": [\"atom_usability_and_style\", \"atom_opt_silk_linen\", \"atom_opt_pastel_nhe_nhang\"]}], \"fashion_summary\": \"Váy liền thân chiết eo gọn, cổ ngũ thân cách tân với đường nẹp hiện đại, chất liệu lụa linen cao cấp.\", \"art_summary\": \"Bản minh họa thời trang (Fashion Sketch), gam màu hồng phấn pastel, họa tiết hoa sen thêu tối giản dọc tà váy.\", \"culture_summary\": \"Khai thác đường nét cổ áo ngũ thân Việt phục, chuyển hóa thành chi tiết cổ áo hiện đại, gọn gàng và ứng dụng.\", \"choices_made\": [\"Chọn phom váy liền thân chiết eo gọn\", \"Chọn cổ áo ngũ thân cách tân với đường nẹp\", \"Chọn chất liệu lụa tơ tằm kết hợp linen cao cấp\", \"Chọn bảng màu pastel hồng phấn\", \"Chọn họa tiết hoa sen cách điệu thêu tối giản ở tà váy\", \"Chọn phong cách minh họa thiết kế thời trang (Fashion Sketch)\"], \"claims\": [], \"locked_coverage\": [{\"atom_id\": \"atom_dress_type_context\", \"prompt_quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"}, {\"atom_id\": \"atom_usability_and_style\", \"prompt_quote\": \"mang lại sự thoải mái, thoáng mát và sang trọng... thời trang quốc tế.\"}, {\"atom_id\": \"atom_opt_co_ao_doi_lap\", \"prompt_quote\": \"cổ áo cách tân lấy cảm hứng từ cổ áo ngũ thân truyền thống với đường nẹp chạy dọc tinh tế\"}, {\"atom_id\": \"atom_opt_silk_linen\", \"prompt_quote\": \"Chất liệu lụa tơ tằm kết hợp linen cao cấp\"}, {\"atom_id\": \"atom_opt_pastel_nhe_nhang\", \"prompt_quote\": \"Bảng màu pastel hồng phấn nhẹ nhàng, thanh lịch cho mùa hè.\"}, {\"atom_id\": \"atom_opt_hoa_tiet_sen_cach_dieu\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu thêu tối giản được bố trí dọc theo tà váy.\"}, {\"atom_id\": \"atom_opt_fashion_illustration\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\"}], \"assumptions\": [\"Sử dụng màu hồng phấn trong dải pastel nhẹ nhàng.\", \"Vị trí thêu sen tối giản chạy dọc tà váy để làm nổi bật chiều cao và đường nét thiết kế.\"], \"limitations\": [\"Đường nẹp cổ ngũ thân cách tân cần được thể hiện rõ ràng trong nét vẽ phác thảo.\"], \"content_hash\": \"c89d52b80af4dcd3cb8687243fb2faf2ddb880de052dff68bb236f252c7c7ad7\"}, {\"candidate_id\": \"R2-B1-C3\", \"batch_id\": \"B1\", \"revision\": 2, \"title\": \"Váy Liền Thân Cổ Giao Lĩnh Thanh Lịch - Kem Sữa Lụa Linen\", \"image_prompt\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) sang trọng cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang theo chủ đề kết hợp truyền thống và hiện đại. Phom váy liền thân suông nhẹ kết hợp chi tiết cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh mở rộng nhẹ nhàng, gọn gàng và tiện dụng. Chất liệu lụa tơ tằm kết hợp linen cao cấp mang lại cảm giác mát mẻ, sang trọng. Bảng màu pastel kem sữa nhẹ nhàng, thanh lịch phù hợp mùa hè. Họa tiết hoa sen cách điệu thêu tối giản được điểm xuyết tinh tế ở phần cổ áo và ngực. Trình bày dưới dạng bản vẽ phác thảo thời trang chuyên nghiệp, một khung hình đơn, phong cách quốc tế.\", \"design_sections\": [{\"domain_id\": \"bối_cảnh_và_chủ_đề\", \"description\": \"Thiết kế váy liền thân nữ mùa hè phục vụ sự kiện thời trang chủ đề kết hợp truyền thống - hiện đại, thể hiện qua phong cách minh họa thiết kế thời trang (Fashion Sketch).\", \"related_atom_ids\": [\"atom_dress_type_context\", \"atom_opt_fashion_illustration\"]}, {\"domain_id\": \"phom_dáng_và_chi_tiết\", \"description\": \"Phom váy liền thân suông nhẹ, cổ áo giao lĩnh cách tân mở rộng nhẹ; họa tiết hoa sen cách điệu thêu tối giản ở phần cổ và ngực áo.\", \"related_atom_ids\": [\"atom_viet_phuc_inspiration\", \"atom_opt_co_ao_doi_lap\", \"atom_opt_hoa_tiet_sen_cach_dieu\"]}, {\"domain_id\": \"tiêu_chí_thẩm_mỹ_và_sử_dụng\", \"description\": \"Sử dụng lụa tơ tằm kết hợp linen cao cấp, màu pastel kem sữa thanh lịch, mang lại sự thoải mái, dễ mặc, sang trọng và chuẩn thời trang quốc tế.\", \"related_atom_ids\": [\"atom_usability_and_style\", \"atom_opt_silk_linen\", \"atom_opt_pastel_nhe_nhang\"]}], \"fashion_summary\": \"Váy liền thân suông nhẹ, cổ giao lĩnh cách tân mở rộng, chất liệu lụa pha linen cao cấp.\", \"art_summary\": \"Bản minh họa thời trang (Fashion Sketch), gam màu kem sữa pastel, họa tiết hoa sen thêu tối giản ở cổ và ngực áo.\", \"culture_summary\": \"Gợi nhắc di sản cổ giao lĩnh Việt phục qua góc nhìn thiết kế đương đại, gọn gàng và mang tính ứng dụng quốc tế.\", \"choices_made\": [\"Chọn phom váy liền thân suông nhẹ\", \"Chọn cổ áo giao lĩnh cách tân mở rộng\", \"Chọn chất liệu lụa tơ tằm kết hợp linen cao cấp\", \"Chọn bảng màu pastel kem sữa\", \"Chọn họa tiết hoa sen cách điệu thêu tối giản ở cổ và ngực áo\", \"Chọn phong cách minh họa thiết kế thời trang (Fashion Sketch)\"], \"claims\": [], \"locked_coverage\": [{\"atom_id\": \"atom_dress_type_context\", \"prompt_quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"}, {\"atom_id\": \"atom_usability_and_style\", \"prompt_quote\": \"mang lại cảm giác mát mẻ, sang trọng... thoải mái, dễ mặc... chuẩn thời trang quốc tế.\"}, {\"atom_id\": \"atom_opt_co_ao_doi_lap\", \"prompt_quote\": \"chi tiết cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh mở rộng nhẹ nhàng, gọn gàng và tiện dụng.\"}, {\"atom_id\": \"atom_opt_silk_linen\", \"prompt_quote\": \"Chất liệu lụa tơ tằm kết hợp linen cao cấp\"}, {\"atom_id\": \"atom_opt_pastel_nhe_nhang\", \"prompt_quote\": \"Bảng màu pastel kem sữa nhẹ nhàng, thanh lịch phù hợp mùa hè.\"}, {\"atom_id\": \"atom_opt_hoa_tiet_sen_cach_dieu\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu thêu tối giản được điểm xuyết tinh tế ở phần cổ áo và ngực.\"}, {\"atom_id\": \"atom_opt_fashion_illustration\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\"}], \"assumptions\": [\"Sử dụng màu kem sữa trong bảng màu pastel nhẹ nhàng.\", \"Điểm thêu sen tối giản kết hợp ở cổ và ngực để tạo điểm nhấn đồng bộ.\"], \"limitations\": [\"Phom suông nhẹ kết hợp chất liệu lụa linen cần giữ được đường nét sắc sảo đặc trưng của dòng sketch thời trang cao cấp.\"], \"content_hash\": \"46e67c8d4d648b66d1491fb0508a00f0bf023bf8c6dde8316660185d3c1bc9b1\"}]\nBa bản đánh giá riêng, được ứng dụng kiểm tra và tính điểm: {\"R2-B1-C1\": {\"fashion\": {\"candidate_id\": \"R2-B1-C1\", \"candidate_revision\": 2, \"content_hash\": \"4c702fd1fad96ab76379a1def9bd535e892f78c341c0573ccfd5d268e7909e3d\", \"role\": \"fashion\", \"checks\": [{\"check_id\": \"locked:atom_dress_type_context\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Image prompt explicitly includes the exact sentence defining the dress type, summer context, fashion event, and traditional-modern fusion theme.\"}, {\"check_id\": \"locked:atom_usability_and_style\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng và thời trang quốc tế.\", \"source_ids\": [], \"reason\": \"Image prompt fully captures the usability and styling requirements regarding comfort, wearability, luxury, and international fashion appeal.\"}, {\"check_id\": \"locked:atom_opt_co_ao_doi_lap\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"phần cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đان chéo tinh tế, gọn gàng và hiện đại\", \"source_ids\": [], \"reason\": \"Image prompt correctly specifies the updated collar inspired by the overlapping collar (giao lĩnh) tailored cleanly and modernly.\"}, {\"check_id\": \"locked:atom_opt_silk_linen\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Chất liệu kết hợp lụa tơ tằm mềm mại và linen cao cấp tạo độ đứng phom tự nhiên.\", \"source_ids\": [], \"reason\": \"Image prompt accurately integrates the combination of soft silk and premium linen with natural structural stiffness.\"}, {\"check_id\": \"locked:atom_opt_pastel_nhe_nhang\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Bảng màu pastel xanh ngọc nhẹ nhàng, mát mẻ.\", \"source_ids\": [], \"reason\": \"Image prompt states the soft jade green pastel palette suitable for summer.\"}, {\"check_id\": \"locked:atom_opt_hoa_tiet_sen_cach_dieu\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu theo đường nét tối giản được thêu tay tinh xảo ở một bên ngực áo.\", \"source_ids\": [], \"reason\": \"Image prompt incorporates the stylized minimal lotus embroidery on one side of the chest.\"}, {\"check_id\": \"locked:atom_opt_fashion_illustration\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\", \"source_ids\": [], \"reason\": \"Image prompt explicitly designates the fashion sketch presentation style.\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) thanh lịch, sắc nét cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang, mang chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"All summary elements, design sections, and choices made are fully aligned and verified against the image prompt text.\"}], \"criterion_ratings\": [{\"criterion_id\": \"need_fit\", \"applicable\": true, \"rating\": 5, \"reason\": \"Đáp ứng hoàn hảo mọi yêu cầu cốt lõi và lựa chọn đã chốt bao gồm kiểu váy liền thân, cổ giao lĩnh cách tân và bảng màu pastel xanh ngọc.\"}, {\"criterion_id\": \"silhouette_structure\", \"applicable\": true, \"rating\": 5, \"reason\": \"Phom suông nhẹ kết hợp cổ áo giao lĩnh đan chéo mang lại cấu trúc rõ ràng, hiện đại và thanh lịch.\"}, {\"criterion_id\": \"material_technique\", \"applicable\": true, \"rating\": 5, \"reason\": \"Sự kết hợp giữa lụa tơ tằm và linen cao cấp được miêu tả rõ ràng, đảm bảo độ rủ mềm mại và độ đứng phom tự nhiên.\"}, {\"criterion_id\": \"contextual_usability\", \"applicable\": true, \"rating\": 5, \"reason\": \"Trang phục phù hợp cho sự kiện thời trang mùa hè, mang phong cách quốc tế, thoải mái và dễ ứng dụng.\"}], \"strengths\": [\"Sự kết hợp ăn ý giữa cổ giao lĩnh cách tân và phom suông nhẹ.\", \"Chất liệu lụa linen và màu xanh ngọc pastel mang lại cảm giác mát mẻ, sang trọng cho mùa hè.\", \"Chi tiết thêu hoa sen tối giản đặt ở ngực áo tạo điểm nhấn tinh tế.\"], \"concerns\": [\"Cần kiểm soát độ cứng phom của linen khi pha với lụa để không làm mất đi độ bay bổng cần thiết trong bản phác thảo.\"], \"suggested_fixes\": [\"Giữ nguyên các thông số chi tiết và đảm bảo nét vẽ phác thảo làm nổi bật chất liệu lụa pha linen.\"], \"summary\": \"Phương án R2-B1-C1 đáp ứng xuất sắc các tiêu chí thời trang, cấu trúc và thẩm mỹ với thiết kế váy liền thân cổ giao lĩnh xanh ngọc.\", \"score\": 100.0, \"score_reason\": \"Đạt điểm tối đa (100/100) nhờ tuân thủ đầy đủ và chính xác tất cả các yêu cầu về nhu cầu, phom dáng, chất liệu, màu sắc và phong cách trình bày.\"}, \"culture\": {\"candidate_id\": \"R2-B1-C1\", \"candidate_revision\": 2, \"content_hash\": \"4c702fd1fad96ab76379a1def9bd535e892f78c341c0573ccfd5d268e7909e3d\", \"role\": \"culture\", \"checks\": [{\"check_id\": \"locked:atom_dress_type_context\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang, mang chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Ứng dụng và phản ánh chính xác ngữ cảnh thiết kế váy liền thân nữ mùa hè cho sự kiện thời trang với chủ đề truyền thống kết hợp hiện đại.\"}, {\"check_id\": \"locked:atom_usability_and_style\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng và thời trang quốc tế.\", \"source_ids\": [], \"reason\": \"Đáp ứng đúng yêu cầu về độ thoải mái, dễ mặc, sang trọng và mang phong cách thời trang quốc tế.\"}, {\"check_id\": \"locked:atom_opt_co_ao_doi_lap\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"phần cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đان chéo tinh tế, gọn gàng và hiện đại\", \"source_ids\": [], \"reason\": \"Khai thác thành công yếu tố cổ áo giao lĩnh của Việt phục, được cách tân gọn gàng, tinh tế và phù hợp với định hướng thiết kế hiện đại.\"}, {\"check_id\": \"locked:atom_opt_silk_linen\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Chất liệu kết hợp lụa tơ tằm mềm mại và linen cao cấp tạo độ đứng phom tự nhiên.\", \"source_ids\": [], \"reason\": \"Sử dụng đúng chất liệu lụa tơ tằm kết hợp linen cao cấp theo đúng lựa chọn đã chốt.\"}, {\"check_id\": \"locked:atom_opt_pastel_nhe_nhang\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Bảng màu pastel xanh ngọc nhẹ nhàng, mát mẻ.\", \"source_ids\": [], \"reason\": \"Áp dụng bảng màu pastel xanh ngọc nhẹ nhàng đúng với lựa chọn cho mùa hè.\"}, {\"check_id\": \"locked:atom_opt_hoa_tiet_sen_cach_dieu\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu theo đường nét tối giản được thêu tay tinh xảo ở một bên ngực áo.\", \"source_ids\": [], \"reason\": \"Tích hợp họa tiết hoa sen cách điệu thêu tối giản đúng theo lựa chọn thiết kế đã chốt.\"}, {\"check_id\": \"locked:atom_opt_fashion_illustration\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\", \"source_ids\": [], \"reason\": \"Thực hiện đúng định dạng phong cách bản minh họa thiết kế thời trang (Fashion Sketch).\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) thanh lịch, sắc nét cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang, mang chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Các phần tóm tắt và mô tả thiết kế phản ánh hoàn toàn nhất quán với nội dung image_prompt đã kiểm tra.\"}, {\"check_id\": \"claim_support\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"\", \"source_ids\": [], \"reason\": \"Đã kiểm tra claims rỗng và xác nhận không có phát biểu lịch sử hay nguồn gốc chưa được khai báo; nội dung giữ đúng tinh thần cảm hứng (inspired) không đưa ra các khẳng định phục dựng sai lệch.\"}, {\"check_id\": \"historical_scope\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"not_applicable\", \"prompt_quote\": \"\", \"source_ids\": [], \"reason\": \"Chế độ lịch sử được thiết lập là inspired, không yêu cầu tái hiện nguyên bản lịch sử khắt khe.\"}], \"criterion_ratings\": [{\"criterion_id\": \"mode_fidelity\", \"applicable\": true, \"rating\": 5, \"reason\": \"Tôn trọng tuyệt đối mức độ cảm hứng (inspired) đã chốt, kết hợp khéo léo yếu tố truyền thống và hiện đại.\"}, {\"criterion_id\": \"evidence_scope\", \"applicable\": true, \"rating\": 5, \"reason\": \"Không có phát biểu lịch sử ngoại lai, mọi chi tiết cách tân đều nằm trong biên độ sáng tạo cho phép.\"}, {\"criterion_id\": \"cultural_integration\", \"applicable\": true, \"rating\": 5, \"reason\": \"Cổ áo giao lĩnh và họa tiết hoa sen được lồng ghép rất tinh tế, gọn gàng và ứng dụng cao.\"}, {\"criterion_id\": \"claim_transparency\", \"applicable\": true, \"rating\": 5, \"reason\": \"Minh bạch trong định hướng thiết kế, không tự ý gán nhãn phục dựng chính xác.\"}], \"strengths\": [\"Khai thác thành công cổ áo giao lĩnh truyền thống theo hướng hiện đại, gọn gàng.\", \"Sự kết hợp chất liệu lụa tơ tằm và linen cùng bảng màu xanh ngọc pastel mang lại cảm giác mùa hè thanh lịch.\", \"Họa tiết hoa sen cách điệu thêu tối giản tạo điểm nhấn trang nhã, đúng chủ đề.\"], \"concerns\": [], \"suggested_fixes\": [], \"summary\": \"Phương án R2-B1-C1 thể hiện sự giao thoa nhịp nhàng giữa di sản cổ giao lĩnh Việt phục và thời trang hiện đại, đáp ứng xuất sắc các tiêu chí văn hóa và thẩm mỹ.\", \"score\": 100.0, \"score_reason\": \"Đạt điểm tuyệt đối trên tất cả 4 tiêu chí do tuân thủ hoàn hảo chế độ inspired, tích hợp văn hóa chính xác và minh bạch.\"}, \"art\": {\"candidate_id\": \"R2-B1-C1\", \"candidate_revision\": 2, \"content_hash\": \"4c702fd1fad96ab76379a1def9bd535e892f78c341c0573ccfd5d268e7909e3d\", \"role\": \"art\", \"checks\": [{\"check_id\": \"locked:atom_dress_type_context\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang, mang chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Image prompt đã nêu rõ yêu cầu về thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"}, {\"check_id\": \"locked:atom_usability_and_style\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng và thời trang quốc tế.\", \"source_ids\": [], \"reason\": \"Image prompt bảo đảm tiêu chí thẩm mỹ, sự thoải mái, dễ mặc và phong cách thời trang quốc tế đúng yêu cầu.\"}, {\"check_id\": \"locked:atom_opt_co_ao_doi_lap\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"phần cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh đان chéo tinh tế, gọn gàng và hiện đại\", \"source_ids\": [], \"reason\": \"Image prompt thể hiện rõ chi tiết cổ áo cách tân lấy cảm hứng từ cổ giao lĩnh gọn gàng và hiện đại.\"}, {\"check_id\": \"locked:atom_opt_silk_linen\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Chất liệu kết hợp lụa tơ tằm mềm mại và linen cao cấp tạo độ đứng phom tự nhiên.\", \"source_ids\": [], \"reason\": \"Image prompt chỉ định rõ sự kết hợp giữa lụa tơ tằm và linen cao cấp.\"}, {\"check_id\": \"locked:atom_opt_pastel_nhe_nhang\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Bảng màu pastel xanh ngọc nhẹ nhàng, mát mẻ.\", \"source_ids\": [], \"reason\": \"Image prompt sử dụng bảng màu pastel xanh ngọc đúng theo tùy chọn đã chọn.\"}, {\"check_id\": \"locked:atom_opt_hoa_tiet_sen_cach_dieu\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu theo đường nét tối giản được thêu tay tinh xảo ở một bên ngực áo.\", \"source_ids\": [], \"reason\": \"Image prompt tích hợp họa tiết hoa sen cách điệu thêu tối giản ở ngực áo phù hợp tùy chọn.\"}, {\"check_id\": \"locked:atom_opt_fashion_illustration\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\", \"source_ids\": [], \"reason\": \"Image prompt quy định phong cách trình bày dưới dạng bản minh họa thiết kế thời trang (Fashion Sketch).\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) thanh lịch, sắc nét cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang\", \"source_ids\": [], \"reason\": \"Toàn bộ tóm tắt thời trang, mỹ thuật và văn hóa đều phản ánh nhất quán và khớp với nội dung chi tiết trong image prompt.\"}], \"criterion_ratings\": [{\"criterion_id\": \"ornament_composition\", \"applicable\": true, \"rating\": 5, \"reason\": \"Bố cục hoa sen cách điệu thêu tối giản ở ngực áo hài hòa, tạo điểm nhấn tinh tế trên nền váy suông nhẹ.\"}, {\"criterion_id\": \"color_language\", \"applicable\": true, \"rating\": 5, \"reason\": \"Bảng màu pastel xanh ngọc đồng nhất, mang lại cảm giác mát mẻ, thanh lịch và đúng tinh thần trang phục mùa hè.\"}, {\"criterion_id\": \"form_surface_integration\", \"applicable\": true, \"rating\": 5, \"reason\": \"Sự kết hợp giữa chất liệu lụa tơ tằm và linen cao cấp hỗ trợ tốt cho phom suông nhẹ và độ đứng phom tự nhiên.\"}, {\"criterion_id\": \"purposeful_originality\", \"applicable\": true, \"rating\": 5, \"reason\": \"Cách tân cổ áo giao lĩnh và bố trí họa tiết tối giản thể hiện sự sáng tạo có chủ đích, giữ được nét truyền thống kết hợp hiện đại.\"}], \"strengths\": [\"Phom dáng và chi tiết cổ giao lĩnh cách tân gọn gàng, hiện đại.\", \"Sử dụng chất liệu lụa linen cao cấp phù hợp với mùa hè.\", \"Bảng màu pastel xanh ngọc nhẹ nhàng, thanh lịch.\", \"Phong cách minh họa Fashion Sketch sắc nét và chuyên nghiệp.\"], \"concerns\": [], \"suggested_fixes\": [\"Tiếp tục duy trì sự rõ nét của đường nét phom dáng trong bản vẽ phác thảo.\"], \"summary\": \"Phương án R2-B1-C1 đáp ứng xuất sắc các tiêu chí về mỹ thuật, bố cục, bảng màu và sự chuyển hóa truyền thống - hiện đại.\", \"score\": 100.0, \"score_reason\": \"Đạt điểm tuyệt đối nhờ sự đồng bộ hoàn hảo giữa yêu cầu người dùng, chi tiết tạo hình, màu sắc, chất liệu và phong cách minh họa.\"}}, \"R2-B1-C2\": {\"fashion\": {\"candidate_id\": \"R2-B1-C2\", \"candidate_revision\": 2, \"content_hash\": \"c89d52b80af4dcd3cb8687243fb2faf2ddb880de052dff68bb236f252c7c7ad7\", \"role\": \"fashion\", \"checks\": [{\"check_id\": \"locked:atom_dress_type_context\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Prompt explicitly states the dress type, summer context, fashion event, and traditional-modern fusion theme.\"}, {\"check_id\": \"locked:atom_usability_and_style\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"mang lại sự thoải mái, thoáng mát và sang trọng... thời trang quốc tế.\", \"source_ids\": [], \"reason\": \"Prompt appropriately addresses usability, comfort, luxury, and international fashion style.\"}, {\"check_id\": \"locked:atom_opt_co_ao_doi_lap\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"cổ áo cách tân lấy cảm hứng từ cổ áo ngũ thân truyền thống với đường nẹp chạy dọc tinh tế\", \"source_ids\": [], \"reason\": \"Prompt accurately reflects the updated collar inspired by the ngũ thân tradition with vertical detailing.\"}, {\"check_id\": \"locked:atom_opt_silk_linen\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Chất liệu lụa tơ tằm kết hợp linen cao cấp\", \"source_ids\": [], \"reason\": \"Prompt includes the specified high-end silk and linen material combination.\"}, {\"check_id\": \"locked:atom_opt_pastel_nhe_nhang\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Bảng màu pastel hồng phấn nhẹ nhàng, thanh lịch cho mùa hè.\", \"source_ids\": [], \"reason\": \"Prompt includes the soft pink pastel palette.\"}, {\"check_id\": \"locked:atom_opt_hoa_tiet_sen_cach_dieu\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu thêu tối giản được bố trí dọc theo tà váy.\", \"source_ids\": [], \"reason\": \"Prompt accurately incorporates the minimalist stylized lotus motif along the dress skirt.\"}, {\"check_id\": \"locked:atom_opt_fashion_illustration\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\", \"source_ids\": [], \"reason\": \"Prompt specifies the fashion sketch illustration style.\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) tinh tế và hiện đại cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"All summary elements, sections, and choices match the image prompt contents.\"}], \"criterion_ratings\": [{\"criterion_id\": \"need_fit\", \"applicable\": true, \"rating\": 5, \"reason\": \"Đáp ứng trọn vẹn yêu cầu thiết kế váy liền thân chiết eo gọn cùng cổ áo ngũ thân cách tân.\"}, {\"criterion_id\": \"silhouette_structure\", \"applicable\": true, \"rating\": 5, \"reason\": \"Phom chiết eo gọn kết hợp đường nẹp dọc cổ ngũ thân tạo tỷ lệ cơ thể đẹp và cấu trúc sắc nét.\"}, {\"criterion_id\": \"material_technique\", \"applicable\": true, \"rating\": 5, \"reason\": \"Chất liệu lụa tơ tằm kết hợp linen cao cấp đáp ứng tốt tiêu chí thoáng mát và sang trọng.\"}, {\"criterion_id\": \"contextual_usability\", \"applicable\": true, \"rating\": 5, \"reason\": \"Rất phù hợp cho sự kiện thời trang mùa hè với phong cách thanh lịch và hiện đại.\"}], \"strengths\": [\"Thiết kế chiết eo tôn dáng kết hợp cổ ngũ thân cách tân độc đáo.\", \"Màu hồng phấn pastel mang lại vẻ đẹp nữ tính, thanh lịch.\", \"Họa tiết hoa sen dọc tà váy tạo hiệu ứng thị giác kéo dài chiều cao.\"], \"concerns\": [\"Cần chú ý kỹ thuật thể hiện đường nẹp dọc trong tranh phác thảo để không bị nhầm lẫn với khuy áo truyền thống quá rườm rà.\"], \"suggested_fixes\": [\"Giữ nguyên định hướng hiện đại hóa chi tiết cổ áo ngũ thân trong quá trình dựng hình.\"], \"summary\": \"Phương án R2-B1-C2 thể hiện sự sáng tạo tinh tế trong việc chuyển hóa cổ áo ngũ thân thành chi tiết thời trang hiện đại.\", \"score\": 100.0, \"score_reason\": \"Đạt điểm tối đa nhờ tuân thủ hoàn hảo các yêu cầu kỹ thuật, thẩm mỹ và quy chế thiết kế.\"}, \"culture\": {\"candidate_id\": \"R2-B1-C2\", \"candidate_revision\": 2, \"content_hash\": \"c89d52b80af4dcd3cb8687243fb2faf2ddb880de052dff68bb236f252c7c7ad7\", \"role\": \"culture\", \"checks\": [{\"check_id\": \"locked:atom_dress_type_context\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Phản ánh đúng ngữ cảnh thiết kế váy liền thân nữ mùa hè cho sự kiện thời trang theo chủ đề đã chọn.\"}, {\"check_id\": \"locked:atom_usability_and_style\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"mang lại sự thoải mái, thoáng mát và sang trọng... thời trang quốc tế.\", \"source_ids\": [], \"reason\": \"Đáp ứng tiêu chí thoải mái, thoáng mát, sang trọng và mang phong cách quốc tế.\"}, {\"check_id\": \"locked:atom_opt_co_ao_doi_lap\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"cổ áo cách tân lấy cảm hứng từ cổ áo ngũ thân truyền thống với đường nẹp chạy dọc tinh tế\", \"source_ids\": [], \"reason\": \"Khai thác đường nét cổ áo ngũ thân Việt phục với đường nẹp chạy dọc hiện đại, gọn gàng.\"}, {\"check_id\": \"locked:atom_opt_silk_linen\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Chất liệu lụa tơ tằm kết hợp linen cao cấp\", \"source_ids\": [], \"reason\": \"Sử dụng chính xác chất liệu lụa tơ tằm và linen cao cấp đã chọn.\"}, {\"check_id\": \"locked:atom_opt_pastel_nhe_nhang\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Bảng màu pastel hồng phấn nhẹ nhàng, thanh lịch cho mùa hè.\", \"source_ids\": [], \"reason\": \"Áp dụng bảng màu pastel hồng phấn đúng yêu cầu.\"}, {\"check_id\": \"locked:atom_opt_hoa_tiet_sen_cach_dieu\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu thêu tối giản được bố trí dọc theo tà váy.\", \"source_ids\": [], \"reason\": \"Tích hợp họa tiết hoa sen cách điệu thêu tối giản ở tà váy đúng lựa chọn.\"}, {\"check_id\": \"locked:atom_opt_fashion_illustration\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\", \"source_ids\": [], \"reason\": \"Định dạng phong cách bản minh họa thiết kế thời trang (Fashion Sketch) được thể hiện chuẩn xác.\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) tinh tế và hiện đại cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Tóm tắt và thiết kế các phần hoàn toàn đồng nhất với nội dung prompt.\"}, {\"check_id\": \"claim_support\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"\", \"source_ids\": [], \"reason\": \"Claims rỗng, không phát hiện phát biểu lịch sử sai lệch; hoàn toàn phù hợp với chế độ cảm hứng.\"}, {\"check_id\": \"historical_scope\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"not_applicable\", \"prompt_quote\": \"\", \"source_ids\": [], \"reason\": \"Chế độ lịch sử là inspired nên không áp dụng kiểm tra khắt khe của historical mode.\"}], \"criterion_ratings\": [{\"criterion_id\": \"mode_fidelity\", \"applicable\": true, \"rating\": 5, \"reason\": \"Phản ánh đúng mức độ cảm hứng (inspired) với cách tân chi tiết cổ áo ngũ thân tinh tế.\"}, {\"criterion_id\": \"evidence_scope\", \"applicable\": true, \"rating\": 5, \"reason\": \"Giới hạn mô tả hợp lý, không đưa ra các tuyên bố lịch sử không có căn cứ.\"}, {\"criterion_id\": \"cultural_integration\", \"applicable\": true, \"rating\": 5, \"reason\": \"Đưa chi tiết cổ áo ngũ thân vào váy chiết eo hiện đại một cách uyển chuyển và có chủ ý.\"}, {\"criterion_id\": \"claim_transparency\", \"applicable\": true, \"rating\": 5, \"reason\": \"Minh bạch và rõ ràng trong định hướng thiết kế sáng tạo.\"}], \"strengths\": [\"Ý tưởng cách tân cổ áo ngũ thân với đường nẹp dọc tạo điểm nhấn độc đáo và thanh lịch.\", \"Sự kết hợp màu hồng phấn pastel và chất liệu lụa linen phù hợp hoàn hảo với trang phục mùa hè.\", \"Bố trí họa tiết hoa sen dọc tà váy giúp tôn lên chiều cao và đường nét thanh thoát.\"], \"concerns\": [], \"suggested_fixes\": [], \"summary\": \"Phương án R2-B1-C2 khai thác tốt cảm hứng từ áo ngũ thân truyền thống, chuyển hóa thành phom dáng váy liền thân hiện đại, sang trọng.\", \"score\": 100.0, \"score_reason\": \"Đạt điểm tối đa do đáp ứng trọn vẹn các tiêu chí chuyên môn văn hóa và tuân thủ chặt chẽ cấu trúc prompt.\"}, \"art\": {\"candidate_id\": \"R2-B1-C2\", \"candidate_revision\": 2, \"content_hash\": \"c89d52b80af4dcd3cb8687243fb2faf2ddb880de052dff68bb236f252c7c7ad7\", \"role\": \"art\", \"checks\": [{\"check_id\": \"locked:atom_dress_type_context\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang\", \"source_ids\": [], \"reason\": \"Image prompt đề cập đầy đủ bối cảnh váy liền thân nữ mùa hè cho sự kiện thời trang kết hợp truyền thống và hiện đại.\"}, {\"check_id\": \"locked:atom_usability_and_style\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"mang lại sự thoải mái, thoáng mát và sang trọng... thời trang quốc tế.\", \"source_ids\": [], \"reason\": \"Image prompt bảo đảm tiêu chí sử dụng thoải mái, thoáng mát, sang trọng và phong cách quốc tế.\"}, {\"check_id\": \"locked:atom_opt_co_ao_doi_lap\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"cổ áo cách tân lấy cảm hứng từ cổ áo ngũ thân truyền thống với đường nẹp chạy dọc tinh tế\", \"source_ids\": [], \"reason\": \"Image prompt thể hiện rõ chi tiết cổ áo ngũ thân cách tân với đường nẹp chạy dọc tinh tế.\"}, {\"check_id\": \"locked:atom_opt_silk_linen\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Chất liệu lụa tơ tằm kết hợp linen cao cấp\", \"source_ids\": [], \"reason\": \"Image prompt sử dụng chất liệu lụa tơ tằm kết hợp linen cao cấp.\"}, {\"check_id\": \"locked:atom_opt_pastel_nhe_nhang\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Bảng màu pastel hồng phấn nhẹ nhàng, thanh lịch cho mùa hè.\", \"source_ids\": [], \"reason\": \"Image prompt chỉ định bảng màu pastel hồng phấn đúng theo tùy chọn.\"}, {\"check_id\": \"locked:atom_opt_hoa_tiet_sen_cach_dieu\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu thêu tối giản được bố trí dọc theo tà váy.\", \"source_ids\": [], \"reason\": \"Image prompt bố trí họa tiết hoa sen cách điệu thêu tối giản dọc theo tà váy.\"}, {\"check_id\": \"locked:atom_opt_fashion_illustration\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\", \"source_ids\": [], \"reason\": \"Image prompt quy định phong cách trình bày dưới dạng bản minh họa thiết kế thời trang (Fashion Sketch).\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) tinh tế và hiện đại cho thiết kế váy liền thân nữ mùa hè\", \"source_ids\": [], \"reason\": \"Các phần tóm tắt thiết kế, thời trang, nghệ thuật và văn hóa hoàn toàn bám sát nội dung image prompt.\"}], \"criterion_ratings\": [{\"criterion_id\": \"ornament_composition\", \"applicable\": true, \"rating\": 5, \"reason\": \"Họa tiết hoa sen bố trí dọc tà váy tạo hiệu ứng thị giác kéo dài chiều cao, hài hòa với phom chiết eo gọn.\"}, {\"criterion_id\": \"color_language\", \"applicable\": true, \"rating\": 5, \"reason\": \"Bảng màu pastel hồng phấn thanh lịch, nhẹ nhàng, tạo nét nữ tính và phù hợp với trang phục mùa hè.\"}, {\"criterion_id\": \"form_surface_integration\", \"applicable\": true, \"rating\": 5, \"reason\": \"Chất liệu lụa linen cao cấp hỗ trợ tốt cho đường nẹp cổ ngũ thân cách tân và phom chiết eo gọn.\"}, {\"criterion_id\": \"purposeful_originality\", \"applicable\": true, \"rating\": 5, \"reason\": \"Sáng tạo có chủ đích trong việc chuyển hóa cổ áo ngũ thân thành đường nẹp hiện đại và bố trí hoa văn dọc tà váy.\"}], \"strengths\": [\"Phom chiết eo gọn gàng kết hợp đường nẹp cổ ngũ thân cách tân tinh tế.\", \"Bảng màu hồng phấn pastel nhẹ nhàng, thanh lịch.\", \"Họa tiết thêu sen dọc tà váy tạo điểm nhấn sang trọng.\", \"Phong cách bản vẽ Fashion Sketch chuẩn mực.\"], \"concerns\": [], \"suggested_fixes\": [\"Lưu ý thể hiện rõ nét đường nẹp cổ ngũ thân trong nét vẽ phác thảo.\"], \"summary\": \"Phương án R2-B1-C2 thể hiện sự kết hợp tuyệt vời giữa phom dáng chiết eo gọn và chi tiết cổ ngũ thân cách tân.\", \"score\": 100.0, \"score_reason\": \"Đạt điểm tuyệt đối nhờ bố cục cân đối, màu sắc hài hòa và cách tân ý nghĩa Việt phục hợp lý.\"}}, \"R2-B1-C3\": {\"fashion\": {\"candidate_id\": \"R2-B1-C3\", \"candidate_revision\": 2, \"content_hash\": \"46e67c8d4d648b66d1491fb0508a00f0bf023bf8c6dde8316660185d3c1bc9b1\", \"role\": \"fashion\", \"checks\": [{\"check_id\": \"locked:atom_dress_type_context\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Prompt explicitly states the required context, dress type, and theme.\"}, {\"check_id\": \"locked:atom_usability_and_style\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"mang lại cảm giác mát mẻ, sang trọng... thoải mái, dễ mặc... chuẩn thời trang quốc tế.\", \"source_ids\": [], \"reason\": \"Prompt captures all aspects of usability, comfort, luxury, and international style.\"}, {\"check_id\": \"locked:atom_opt_co_ao_doi_lap\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"chi tiết cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh mở rộng nhẹ nhàng, gọn gàng và tiện dụng.\", \"source_ids\": [], \"reason\": \"Prompt accurately reflects the relaxed wide giao lĩnh collar adaptation.\"}, {\"check_id\": \"locked:atom_opt_silk_linen\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Chất liệu lụa tơ tằm kết hợp linen cao cấp\", \"source_ids\": [], \"reason\": \"Prompt includes the specified silk and linen blend.\"}, {\"check_id\": \"locked:atom_opt_pastel_nhe_nhang\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Bảng màu pastel kem sữa nhẹ nhàng, thanh lịch phù hợp mùa hè.\", \"source_ids\": [], \"reason\": \"Prompt specifies the cream milk pastel palette.\"}, {\"check_id\": \"locked:atom_opt_hoa_tiet_sen_cach_dieu\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu thêu tối giản được điểm xuyết tinh tế ở phần cổ áo và ngực.\", \"source_ids\": [], \"reason\": \"Prompt accurately includes the minimal lotus embroidery on the collar and chest.\"}, {\"check_id\": \"locked:atom_opt_fashion_illustration\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\", \"source_ids\": [], \"reason\": \"Prompt designates the fashion sketch style.\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"fashion\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) sang trọng cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang theo chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"All summary details and design sections correspond precisely with the image prompt.\"}], \"criterion_ratings\": [{\"criterion_id\": \"need_fit\", \"applicable\": true, \"rating\": 5, \"reason\": \"Hoàn toàn đáp ứng các lựa chọn về phom suông nhẹ, cổ giao lĩnh mở rộng và màu kem sữa.\"}, {\"criterion_id\": \"silhouette_structure\", \"applicable\": true, \"rating\": 5, \"reason\": \"Phom suông nhẹ cùng cổ giao lĩnh mở rộng tạo sự thoáng đãng, cấu trúc hài hòa và sang trọng.\"}, {\"criterion_id\": \"material_technique\", \"applicable\": true, \"rating\": 5, \"reason\": \"Sử dụng lụa tơ tằm kết hợp linen cao cấp mang lại cảm giác mát mẻ, phù hợp trang phục hè.\"}, {\"criterion_id\": \"contextual_usability\", \"applicable\": true, \"rating\": 5, \"reason\": \"Tính ứng dụng cao, chuẩn mực thời trang quốc tế và phù hợp với sự kiện thời trang cao cấp.\"}], \"strengths\": [\"Cổ áo giao lĩnh mở rộng nhẹ nhàng mang lại nét phóng khoáng nhưng vẫn giữ bản sắc Việt phục.\", \"Tông màu kem sữa pastel thanh lịch, dễ phối hợp phụ kiện.\", \"Điểm thêu hoa sen ở cổ và ngực tạo sự kết nối hài hòa.\"], \"concerns\": [\"Phom suông nhẹ kết hợp cổ mở rộng cần được định hình rõ nét để tránh cảm giác quá rộng trên bản vẽ.\"], \"suggested_fixes\": [\"Đảm bảo đường nét phác thảo ôm nhẹ theo đường cong cơ thể một cách tự nhiên.\"], \"summary\": \"Phương án R2-B1-C3 hoàn thiện tốt yêu cầu với phong cách thanh lịch, màu kem sữa và chi tiết thêu tinh tế.\", \"score\": 100.0, \"score_reason\": \"Đạt điểm tối đa nhờ tuân thủ tuyệt đối các ràng buộc và tiêu chuẩn thẩm mỹ thời trang.\"}, \"culture\": {\"candidate_id\": \"R2-B1-C3\", \"candidate_revision\": 2, \"content_hash\": \"46e67c8d4d648b66d1491fb0508a00f0bf023bf8c6dde8316660185d3c1bc9b1\", \"role\": \"culture\", \"checks\": [{\"check_id\": \"locked:atom_dress_type_context\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang theo chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Thể hiện đúng ngữ cảnh thiết kế váy liền thân nữ mùa hè cho sự kiện thời trang.\"}, {\"check_id\": \"locked:atom_usability_and_style\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"mang lại cảm giác mát mẻ, sang trọng... thoải mái, dễ mặc... chuẩn thời trang quốc tế.\", \"source_ids\": [], \"reason\": \"Đáp ứng đầy đủ tiêu chí thoải mái, dễ mặc, sang trọng và chuẩn thời trang quốc tế.\"}, {\"check_id\": \"locked:atom_opt_co_ao_doi_lap\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"chi tiết cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh mở rộng nhẹ nhàng, gọn gàng và tiện dụng.\", \"source_ids\": [], \"reason\": \"Tận dụng cảm hứng từ cổ áo giao lĩnh mở rộng, được cách tân gọn gàng và tiện dụng.\"}, {\"check_id\": \"locked:atom_opt_silk_linen\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Chất liệu lụa tơ tằm kết hợp linen cao cấp\", \"source_ids\": [], \"reason\": \"Sử dụng đúng chất liệu lụa tơ tằm kết hợp linen cao cấp.\"}, {\"check_id\": \"locked:atom_opt_pastel_nhe_nhang\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Bảng màu pastel kem sữa nhẹ nhàng, thanh lịch phù hợp mùa hè.\", \"source_ids\": [], \"reason\": \"Áp dụng bảng màu pastel kem sữa thanh lịch cho mùa hè đúng lựa chọn.\"}, {\"check_id\": \"locked:atom_opt_hoa_tiet_sen_cach_dieu\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu thêu tối giản được điểm xuyết tinh tế ở phần cổ áo và ngực.\", \"source_ids\": [], \"reason\": \"Bố trí họa tiết hoa sen cách điệu thêu tối giản ở cổ và ngực áo rất tinh tế.\"}, {\"check_id\": \"locked:atom_opt_fashion_illustration\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\", \"source_ids\": [], \"reason\": \"Trình bày đúng phong cách bản minh họa thiết kế thời trang (Fashion Sketch).\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) sang trọng cho thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang theo chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Phần tóm tắt và mô tả hoàn toàn nhất quán với nội dung image_prompt.\"}, {\"check_id\": \"claim_support\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"\", \"source_ids\": [], \"reason\": \"Claims rỗng, không có phát biểu lịch sử thiếu căn cứ, bám sát mức cảm hứng.\"}, {\"check_id\": \"historical_scope\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"status\": \"not_applicable\", \"prompt_quote\": \"\", \"source_ids\": [], \"reason\": \"Do thiết kế ở chế độ inspired, tiêu chuẩn kiểm tra lịch sử khắt khe không áp dụng.\"}], \"criterion_ratings\": [{\"criterion_id\": \"mode_fidelity\", \"applicable\": true, \"rating\": 5, \"reason\": \"Thể hiện trọn vẹn tinh thần cách tân truyền thống trong khuôn khổ cảm hứng đã định.\"}, {\"criterion_id\": \"evidence_scope\", \"applicable\": true, \"rating\": 5, \"reason\": \"Giới hạn phạm vi hợp lý, không đưa ra tuyên bố lịch sử ngoại lai.\"}, {\"criterion_id\": \"cultural_integration\", \"applicable\": true, \"rating\": 5, \"reason\": \"Cổ áo giao lĩnh mở rộng kết hợp cùng họa tiết hoa sen điểm xuyết mang lại dấu ấn Việt Nam rất duyên dáng.\"}, {\"criterion_id\": \"claim_transparency\", \"applicable\": true, \"rating\": 5, \"reason\": \"Minh bạch trong mọi lựa chọn thiết kế sáng tạo.\"}], \"strengths\": [\"Cổ áo giao lĩnh mở rộng nhẹ nhàng mang lại nét thanh lịch, hiện đại và dễ mặc.\", \"Tông màu kem sữa pastel kết hợp lụa linen tạo cảm giác sang trọng, cao cấp.\", \"Điểm thêu hoa sen tối giản ở cổ và ngực áo tạo sự đồng bộ và điểm nhấn thu hút.\"], \"concerns\": [], \"suggested_fixes\": [], \"summary\": \"Phương án R2-B1-C3 kết hợp hài hòa các yếu tố Việt phục qua lăng kính thời trang đương đại, đảm bảo tính thẩm mỹ và ứng dụng cao.\", \"score\": 100.0, \"score_reason\": \"Đạt điểm tối đa nhờ tuân thủ hoàn hảo các tiêu chí về văn hóa, sự nhất quán và tính minh bạch sáng tạo.\"}, \"art\": {\"candidate_id\": \"R2-B1-C3\", \"candidate_revision\": 2, \"content_hash\": \"46e67c8d4d648b66d1491fb0508a00f0bf023bf8c6dde8316660185d3c1bc9b1\", \"role\": \"art\", \"checks\": [{\"check_id\": \"locked:atom_dress_type_context\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang theo chủ đề kết hợp truyền thống và hiện đại.\", \"source_ids\": [], \"reason\": \"Image prompt nêu đúng bối cảnh váy liền thân nữ mùa hè cho sự kiện thời trang giao thoa truyền thống - hiện đại.\"}, {\"check_id\": \"locked:atom_usability_and_style\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"mang lại cảm giác mát mẻ, sang trọng... thoải mái, dễ mặc... chuẩn thời trang quốc tế.\", \"source_ids\": [], \"reason\": \"Image prompt đáp ứng đầy đủ yêu cầu về sự thoải mái, dễ mặc, sang trọng và chuẩn thời trang quốc tế.\"}, {\"check_id\": \"locked:atom_opt_co_ao_doi_lap\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"chi tiết cổ áo cách tân lấy cảm hứng từ cổ áo giao lĩnh mở rộng nhẹ nhàng, gọn gàng và tiện dụng.\", \"source_ids\": [], \"reason\": \"Image prompt thể hiện chi tiết cổ áo giao lĩnh cách tân mở rộng nhẹ nhàng, gọn gàng.\"}, {\"check_id\": \"locked:atom_opt_silk_linen\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Chất liệu lụa tơ tằm kết hợp linen cao cấp\", \"source_ids\": [], \"reason\": \"Image prompt sử dụng chất liệu lụa tơ tằm kết hợp linen cao cấp.\"}, {\"check_id\": \"locked:atom_opt_pastel_nhe_nhang\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Bảng màu pastel kem sữa nhẹ nhàng, thanh lịch phù hợp mùa hè.\", \"source_ids\": [], \"reason\": \"Image prompt áp dụng bảng màu pastel kem sữa đúng tùy chọn.\"}, {\"check_id\": \"locked:atom_opt_hoa_tiet_sen_cach_dieu\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Họa tiết hoa sen cách điệu thêu tối giản được điểm xuyết tinh tế ở phần cổ áo và ngực.\", \"source_ids\": [], \"reason\": \"Image prompt điểm xuyết họa tiết hoa sen cách điệu thêu tối giản ở phần cổ và ngực áo.\"}, {\"check_id\": \"locked:atom_opt_fashion_illustration\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"bản minh họa thiết kế thời trang (Fashion Sketch)\", \"source_ids\": [], \"reason\": \"Image prompt quy định phong cách trình bày dưới dạng bản minh họa thiết kế thời trang (Fashion Sketch).\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"art\", \"severity\": \"hard\", \"status\": \"pass\", \"prompt_quote\": \"Tạo một bản minh họa thiết kế thời trang (Fashion Sketch) sang trọng cho thiết kế váy liền thân nữ mùa hè\", \"source_ids\": [], \"reason\": \"Toàn bộ tóm tắt thiết kế, thời trang, nghệ thuật và văn hóa phản ánh chính xác và nhất quán với nội dung image prompt.\"}], \"criterion_ratings\": [{\"criterion_id\": \"ornament_composition\", \"applicable\": true, \"rating\": 5, \"reason\": \"Điểm xuyết hoa sen thêu ở cổ và ngực áo tạo nhịp điệu cân đối, làm nổi bật phần cổ áo cách tân.\"}, {\"criterion_id\": \"color_language\", \"applicable\": true, \"rating\": 5, \"reason\": \"Màu kem sữa pastel mang lại vẻ sang trọng, thanh lịch và rất phù hợp với phong cách thời trang hè cao cấp.\"}, {\"criterion_id\": \"form_surface_integration\", \"applicable\": true, \"rating\": 5, \"reason\": \"Sự kết hợp lụa linen cao cấp kết hợp hoàn hảo với phom suông nhẹ và chi tiết cổ áo giao lĩnh mở rộng.\"}, {\"criterion_id\": \"purposeful_originality\", \"applicable\": true, \"rating\": 5, \"reason\": \"Sáng tạo tinh tế khi kết hợp cổ giao lĩnh mở rộng với vị trí thêu hoa sen đồng bộ ở cổ và ngực.\"}], \"strengths\": [\"Phom suông nhẹ kết hợp cổ giao lĩnh mở rộng mang tính ứng dụng cao.\", \"Bảng màu kem sữa pastel sang trọng và thanh lịch.\", \"Họa tiết thêu sen điểm xuyết tinh tế ở cổ và ngực áo.\", \"Phong cách minh họa Fashion Sketch cao cấp.\"], \"concerns\": [], \"suggested_fixes\": [\"Duy trì độ sắc sảo của đường nét phom suông khi kết hợp chất liệu lụa linen.\"], \"summary\": \"Phương án R2-B1-C3 hoàn thiện tốt với gam màu kem sữa sang trọng, bố cục hài hòa và chi tiết thêu tinh tế.\", \"score\": 100.0, \"score_reason\": \"Đạt điểm tuyệt đối nhờ sự kết hợp hài hòa giữa màu sắc, chất liệu, bố cục hoa văn và tinh thần thời trang quốc tế.\"}}}\nTrạng thái điều bắt buộc do ứng dụng tổng hợp: {\"R2-B1-C1\": [], \"R2-B1-C2\": [], \"R2-B1-C3\": []}\nRubric hài hòa đã khóa: {\"version\": \"vp-rubric-2.1.0\", \"role\": \"harmony\", \"rating_min\": 0, \"rating_max\": 5, \"criteria\": [{\"criterion_id\": \"cross_domain_coherence\", \"weight\": 35, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"focal_balance\", \"weight\": 25, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"contextual_coherence\", \"weight\": 20, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"conflict_resolution\", \"weight\": 20, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}]}\nBộ trọng số và quy tắc công thức đã khóa: {\"profile\": \"balanced\", \"weights\": {\"fashion\": 30, \"culture\": 25, \"art\": 25, \"harmony\": 20}, \"minimum_total\": 70}\nNguồn liên quan để đối chiếu xung đột: {\"references\": [], \"provider_metadata\": [{\"groundingMetadata\": {}, \"urlContextMetadata\": {}, \"modelVersion\": \"gemini-3.5-flash-lite\", \"responseId\": \"MXTBauf0C7mf2roPhoPq2AM\"}], \"reference_mode\": \"text_only\", \"availability\": \"unavailable_by_user_choice\"}\n\nVAI TRÒ\nBạn là người đánh giá hài hòa tổng thể của kế hoạch thiết kế. Chỉ thực hiện sau khi mỗi candidate có đủ nhận xét fashion, culture, art đúng phiên bản/hash. Không tạo chuyên môn còn thiếu; không sửa điểm ba vai trò đầu hoặc sửa image_prompt.\n\nTHỰC HIỆN\n1. Đọc prompt thật và cả ba nhận xét. Xem phom, chất liệu, kỹ thuật, hoa văn, màu và bối cảnh cùng hỗ trợ một ý tưởng hay cạnh tranh nhau.\n2. Đối chiếu mâu thuẫn giữa chuyên môn: mô-típ nổi bật nhưng phá phom, đắp nổi quá nặng cho chất liệu nhẹ, ý nghĩa được mô tả vượt nguồn, bối cảnh tối giản nhưng quá nhiều điểm nhấn. Dẫn chi tiết cụ thể; không chỉ lấy trung bình ba điểm rồi gọi là hài hòa.\n3. Phân biệt mâu thuẫn thẩm mỹ mềm với vi phạm điều bắt buộc. Không giảm severity hoặc đổi uncertain sang pass khi VALIDATED_GATE_SUMMARY đã chỉ ra thiếu căn cứ bắt buộc.\n4. Xung đột dữ kiện lịch sử chỉ giải quyết bằng đoạn nguồn đúng phạm vi. Thiếu nguồn thì ghi chưa giải quyết; không dùng đa số vai trò như chứng minh sự thật.\n5. Chấm bốn tiêu chí hài hòa:\n   - cross_domain_coherence: phom–hoa văn–chất liệu–ngôn ngữ văn hóa nhất quán.\n   - focal_balance: điểm nhấn, tiết chế và tỉ lệ tổng thể.\n   - contextual_coherence: phù hợp dịp dùng và nhu cầu đã chốt.\n   - conflict_resolution: kết hợp đúng ba nhận xét, nêu rõ xung đột còn lại.\n   Rating 0–5 và reason cụ thể theo HARMONY_RUBRIC. Không nhận xét như đã nhìn thấy ảnh hoặc đã thử may.\n6. Tính harmony_score theo rubric: tổng trọng số tiêu chí × rating/5 trên các tiêu chí áp dụng. Tiêu chí không áp dụng phải có điều kiện hợp lệ, không tự loại điểm yếu khỏi mẫu số.\n7. Sao chép source_scores chính xác từ VALIDATED_SPECIALIST_AUDITS. Giữ null cho chuyên môn không áp dụng hợp lệ, không đổi thành 0 hay 100.\n8. proposed_total = round(tổng trọng số chuyên môn × điểm / tổng trọng số chuyên môn áp dụng, 2), gồm fashion/culture/art/harmony theo SCORING_CONFIG. Không tự thay bộ trọng số. Backend lưu nguyên điểm và kết luận Gemini, không tính lại phép tính.\n9. recommendation=eligible chỉ khi không vi phạm/thiếu điều bắt buộc, đủ đánh giá, đáp ứng ngưỡng và cross_domain_conflicts=[]. cross_domain_conflicts chỉ chứa mâu thuẫn giữa các miền còn thực sự tồn tại trong phương án, chưa được giải quyết và khiến kế hoạch chưa đủ điều kiện. Nếu danh sách này không rỗng, recommendation phải là ineligible hoặc unresolved theo căn cứ. ineligible khi có vi phạm đã rõ; unresolved khi phần bắt buộc chưa kết luận. Không quyết định top 3 ở bước này; ứng dụng xếp hạng sau.\n10. Summary chỉ nêu vì sao phương án hài hòa hoặc chưa hài hòa, ưu/nhược nổi bật. Không viết lại prompt thắng cuộc hay thêm claim lịch sử vào caption.\n11. Không coi suggested_fixes, concerns hoặc limitations là chi tiết đã được thực hiện trong image_prompt. Nếu một vai trò yêu cầu thêm lớp lót mà prompt chưa có, không viết “đã kiểm soát lớp lót”. Nêu xung đột còn lại, giữ uncertain cho điều bắt buộc chưa kết luận. Điểm 5 cần căn cứ cụ thể; tránh kết luận “hài hòa tuyệt đối” chỉ vì ba vai trò cho điểm cao.\n\nTrả đúng HarmonyAuditBatch với đủ tập mã đầu vào. Mỗi audit giữ candidate_revision/content_hash, source_scores, harmony_ratings, harmony_score, proposed_total, cross_domain_conflicts, recommendation và summary. Không thêm phản hồi ngoài JSON.\n\nPHÂN BIỆT XUNG ĐỘT CÒN TỒN TẠI VÀ LƯU Ý THI CÔNG\n- cross_domain_conflicts không phải danh sách mọi nhược điểm, concerns, limitations hay công việc thường lệ khi may. Lưu ý chung như lanh dễ nhăn, cần kiểm soát nếp xếp ly, cần làm nẹp đúng kỹ thuật không tự chứng minh phương án mâu thuẫn. Nêu lưu ý này trong reason của tiêu chí tương ứng hoặc summary; chỉ ghi vào cross_domain_conflicts nếu đọc prompt và ba đánh giá cho thấy một sự không tương thích thực tế còn chưa được giải quyết.\n- Ví dụ: chất liệu có nhược điểm tự nhiên nhưng phương án đã mô tả cách bố trí/kỹ thuật tương thích thì có thể giảm rating phù hợp, không tạo xung đột giả. Ngược lại, thêu/đắp quá nặng trên vải mỏng không có giải pháp đỡ phù hợp, hoặc điều bắt buộc kín đáo chưa có lớp lót, là vấn đề còn tồn tại; giữ đúng xung đột/uncertain và không cho eligible.\n- Không xóa mâu thuẫn thật để lấy eligible; không coi suggested_fixes chưa được viết vào image_prompt là đã thực hiện. Nếu không tìm thấy mâu thuẫn thực tế còn tồn tại, trả cross_domain_conflicts=[].\n- Kiểm tra tính nhất quán cuối: eligible => cross_domain_conflicts=[] và VALIDATED_GATE_SUMMARY của candidate rỗng; cross_domain_conflicts không rỗng => không eligible. Mọi kết luận phải bám prompt bất biến và các nhận xét đang có.\n\nSCORING_CONFIG.profile=creative được tự suy ra từ mức Khám phá: ưu tiên sự sáng tạo chuyển thể có chủ đích và quan hệ giữa các miền, không áp tiêu chuẩn phục dựng cho inspired. Điều khóa, giới hạn phụ kiện và các gate bắt buộc vẫn giữ nguyên.\n\nCHẾ ĐỘ KIỂM ĐỊNH QUA API (ƯU TIÊN KHI CÓ CHỈ DẪN CŨ KHÁC)\nTừ VP04 đến VP08, backend không kiểm định schema hoặc nội dung response, quote, coverage, mã/hash, nguồn hay điểm; không sửa quote và không loại phương án bằng gate, ngưỡng điểm hoặc so trùng. JSON schema vẫn gửi tới API để định dạng dữ liệu cho giao diện. Giữ đúng mã và trường đã cấp để ứng dụng liên kết kết quả. Các trường tên VALIDATED là tên giao tiếp cũ, không có nghĩa backend đã xác nhận đúng. Auditor tự đọc prompt, đối chiếu yêu cầu và nguồn, nêu rõ fail/uncertain cùng lý do; không bịa chứng cứ. VP08 tự chấm harmony_score/proposed_total và recommendation; backend hiển thị nhận xét và xếp ba phương án theo proposed_total, không xác nhận chất lượng hoặc điều kiện đạt. Không ép prompt thành bản sao câu đầu vào chỉ để có quote.\n\nTỔNG HỢP THEO TỪNG CANDIDATE\nVới từng image_prompt, đọc đủ ba audit trong VALIDATED_SPECIALIST_AUDITS: score, score_reason, criterion_ratings/reasons, checks, strengths, concerns, suggested_fixes và summary. Tên VALIDATED là tên trường giao tiếp, không phải xác nhận backend. Sao chép source_scores từ score từng vai trò; không tự tính lại điểm chuyên môn. Đối chiếu các ý kiến với prompt để đưa ra kết luận tổng hợp độc lập trong summary, nêu ưu điểm, hạn chế, bất đồng và phần chưa xác định. Tự chấm harmony_ratings, harmony_score, proposed_total và recommendation theo rubric/trọng số đã cấp. Điểm tối đa cần giải thích cụ thể; không mặc định 5/5 vì các vai trò trước đều cho điểm cao. Không coi đây là đánh giá ảnh đã tạo.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "audits": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "candidate_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "candidate_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "content_hash": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "source_scores": {
+              "type": "object",
+              "properties": {
+                "fashion": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "culture": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "art": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "required": [
+                "fashion",
+                "culture",
+                "art"
+              ],
+              "additionalProperties": false
+            },
+            "harmony_ratings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "criterion_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "applicable": {
+                    "type": "boolean"
+                  },
+                  "rating": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 5
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "criterion_id",
+                  "applicable",
+                  "rating",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 4,
+              "minItems": 4
+            },
+            "harmony_score": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100
+            },
+            "proposed_total": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100
+            },
+            "cross_domain_conflicts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "recommendation": {
+              "type": "string",
+              "enum": [
+                "eligible",
+                "ineligible",
+                "unresolved"
+              ]
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            }
+          },
+          "required": [
+            "candidate_id",
+            "candidate_revision",
+            "content_hash",
+            "source_scores",
+            "harmony_ratings",
+            "harmony_score",
+            "proposed_total",
+            "cross_domain_conflicts",
+            "recommendation",
+            "summary"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 3,
+        "minItems": 1
+      }
+    },
+    "required": [
+      "audits"
+    ],
+    "additionalProperties": false
+  },
+  "config": {
+    "timeout_seconds": 45,
+    "max_output_tokens": 14000,
+    "sampling_policy": "model_default",
+    "web_tools": false,
+    "structured": true
+  }
+}

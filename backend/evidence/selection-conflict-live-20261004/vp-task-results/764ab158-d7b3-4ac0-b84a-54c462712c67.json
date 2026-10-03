@@ -1,0 +1,73 @@
+{
+  "evidence_id": "764ab158-d7b3-4ac0-b84a-54c462712c67",
+  "recorded_at": 1791056318.928222,
+  "request_id": "c7af53c4-cbfa-4b2f-9480-a70c655ccfa9",
+  "attempt_id": "bd8da797-4397-41ea-b17e-a3e6ba56480f",
+  "trace": {
+    "task": "VP02C",
+    "phase": "design",
+    "attempt_id": "bd8da797-4397-41ea-b17e-a3e6ba56480f",
+    "revision": 2,
+    "role": null,
+    "batch_id": null,
+    "cache_hit": false,
+    "duration_ms": 2285,
+    "provider_call_id": "75735c06-5642-4844-86fe-6dc1874d4242",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 10682,
+      "candidatesTokenCount": 469,
+      "totalTokenCount": 11151,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 10682
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "vVnBasKPC4Xu2roPnouMiA8"
+    },
+    "input_hash": "c61d15f795895a5c6e18f581b10c2ee3f61c2d1891dac0cc33f949b47e7c80a3",
+    "output_hash": "e359daa78e875561cf56db98a51ca4485228f81d0ad39247093f3103f42fe35c",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "request_id": "c7af53c4-cbfa-4b2f-9480-a70c655ccfa9",
+    "revision": 2,
+    "form_id": "01bcaff9-b392-4c97-9e71-ad782a5eac26",
+    "status": "conflict",
+    "conflicts": [
+      {
+        "conflict_id": "conf_acc_1_5",
+        "severity": "severe",
+        "summary": "Mâu thuẫn trong việc có hay không sử dụng phụ kiện truyền thống đi kèm.",
+        "reason": "Người dùng đồng thời chọn kết hợp túi xách mây tre đan cách điệu quai ngọc và chọn không sử dụng thêm phụ kiện truyền thống đi kèm, hai yêu cầu này phủ định lẫn nhau trên cùng một nhóm phụ kiện.",
+        "same_feature": "Nhóm phụ kiện đi kèm (group_accessories)",
+        "evidence": [
+          {
+            "kind": "option",
+            "group_id": "group_accessories",
+            "option_id": "opt_acc_1",
+            "atom_id": "",
+            "quote": "Kết hợp túi xách mây tre đan cách điệu quai ngọc."
+          },
+          {
+            "kind": "option",
+            "group_id": "group_accessories",
+            "option_id": "opt_acc_5",
+            "atom_id": "",
+            "quote": "Không sử dụng thêm phụ kiện truyền thống đi kèm."
+          }
+        ],
+        "suggested_fix": "Vui lòng chọn lại một trong hai phương án: hoặc sử dụng phụ kiện truyền thống (như túi xách mây tre đan), hoặc chọn không dùng thêm phụ kiện."
+      }
+    ],
+    "summary": "Phát hiện 1 mâu thuẫn nghiêm trọng trong nhóm phụ kiện đi kèm do người dùng vừa chọn dùng phụ kiện vừa chọn không dùng phụ kiện."
+  }
+}

@@ -1,0 +1,855 @@
+{
+  "evidence_id": "1b8a795d-8b02-493a-b6b7-c917cf67d736",
+  "recorded_at": 1791054768.74838,
+  "request_id": "09607fb7-4676-497e-ac4c-005583da6bdb",
+  "revision": 1,
+  "attempt_id": "d59b7e51-2ef6-4ab6-9cec-a28b7e178ae1",
+  "task": "VP02",
+  "payload": {
+    "REQUEST_METADATA": {
+      "request_id": "09607fb7-4676-497e-ac4c-005583da6bdb",
+      "revision": 1
+    },
+    "USER_TURNS": [
+      {
+        "id": "T1",
+        "text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. "
+      }
+    ],
+    "CLEAN_PROMPT": {
+      "request_id": "09607fb7-4676-497e-ac4c-005583da6bdb",
+      "revision": 1,
+      "clean_text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.",
+      "domains": [
+        {
+          "domain_id": "domain_context",
+          "label": "Bối cảnh & Mục đích",
+          "summary": "Yêu cầu về bối cảnh sử dụng trang phục là sự kiện thời trang mùa hè với chủ đề kết hợp truyền thống và hiện đại.",
+          "related_domain_ids": [
+            "domain_structure",
+            "domain_aesthetics"
+          ]
+        },
+        {
+          "domain_id": "domain_structure",
+          "label": "Cấu trúc & Phom dáng",
+          "summary": "Thiết kế váy liền thân nữ, có sự gợi nhắc nét Việt qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí được xử lý hiện đại, gọn gàng và tiện dụng.",
+          "related_domain_ids": [
+            "domain_context",
+            "domain_aesthetics"
+          ]
+        },
+        {
+          "domain_id": "domain_aesthetics",
+          "label": "Mỹ thuật & Trải nghiệm",
+          "summary": "Yêu cầu trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng, bắt kịp xu hướng và mang tính kết hợp giữa truyền thống với hiện đại.",
+          "related_domain_ids": [
+            "domain_context",
+            "domain_structure"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_01",
+          "domain_ids": [
+            "domain_context"
+          ],
+          "meaning": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_02",
+          "domain_ids": [
+            "domain_context",
+            "domain_aesthetics"
+          ],
+          "meaning": "Chủ đề thiết kế kết hợp giữa truyền thống và hiện đại.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "với chủ đề kết hợp truyền thống và hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_03",
+          "domain_ids": [
+            "domain_structure"
+          ],
+          "meaning": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, xử lý theo hướng hiện đại, gọn gàng và tiện dụng.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_04",
+          "domain_ids": [
+            "domain_aesthetics"
+          ],
+          "meaning": "Váy cần thoải mái, dễ mặc, toát lên vẻ sang trọng và bắt kịp xu hướng.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "relations": [
+        {
+          "from_atom_id": "atom_01",
+          "to_atom_id": "atom_02",
+          "relation": "context_theme",
+          "reason": "Sự kiện thời trang gắn liền với chủ đề kết hợp truyền thống và hiện đại."
+        },
+        {
+          "from_atom_id": "atom_03",
+          "to_atom_id": "atom_04",
+          "relation": "design_execution",
+          "reason": "Cách xử lý hiện đại, gọn gàng, tiện dụng của chi tiết Việt phục hỗ trợ cho tiêu chí thoải mái, dễ mặc và sang trọng."
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. "
+          },
+          "atom_ids": [
+            "atom_01",
+            "atom_02",
+            "atom_03",
+            "atom_04"
+          ],
+          "disposition": "retained",
+          "reason": "Đã bảo lưu toàn bộ các ý định về bối cảnh, chủ đề, cách gợi nhắc Việt phục hiện đại và các tiêu chí thẩm mỹ, công năng của trang phục."
+        }
+      ]
+    },
+    "DOMAIN_GUIDANCE": [
+      {
+        "domain_id": "domain_context",
+        "label": "Bối cảnh & Mục đích"
+      },
+      {
+        "domain_id": "domain_structure",
+        "label": "Cấu trúc & Phom dáng"
+      },
+      {
+        "domain_id": "domain_aesthetics",
+        "label": "Mỹ thuật & Trải nghiệm"
+      }
+    ],
+    "REFERENCE_BUNDLE": {
+      "references": [],
+      "provider_metadata": [],
+      "reference_mode": "text_only",
+      "availability": "unavailable_by_user_choice"
+    },
+    "REFERENCE_DISCOVERY_CONFIG": {
+      "mode": "unavailable",
+      "tools": [],
+      "reason": "Người dùng chọn chế độ API cơ bản không tìm web. references=[] và mọi reference_ids=[]; không sinh URL từ trí nhớ. Ghi rõ thiếu nguồn; gợi ý hiện đại vẫn được phép, tái hiện lịch sử cần căn cứ."
+    },
+    "PREVIOUS_CHECKLIST_AND_CHOICES": {
+      "checklist": null,
+      "choices": null,
+      "unresolved": null
+    },
+    "FORM_CONFIG": {
+      "form_id": "8efcdf39-d9d8-4205-9e60-099bb17a7742",
+      "open_groups_initial": 6,
+      "concrete_options_min": 5,
+      "options_max": 8,
+      "ai_delegate_required": true,
+      "custom_required": true
+    }
+  },
+  "prompt": "TASK: REVIEW_COVERAGE_AND_PROPOSE_DOMAIN_CHECKLIST\n\nThông tin ứng dụng cấp: {\"request_id\": \"09607fb7-4676-497e-ac4c-005583da6bdb\", \"revision\": 1}\nLời người dùng nguyên văn: [{\"id\": \"T1\", \"text\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. \"}]\nBản chuẩn hóa cần đối chiếu: {\"request_id\": \"09607fb7-4676-497e-ac4c-005583da6bdb\", \"revision\": 1, \"clean_text\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.\", \"domains\": [{\"domain_id\": \"domain_context\", \"label\": \"Bối cảnh & Mục đích\", \"summary\": \"Yêu cầu về bối cảnh sử dụng trang phục là sự kiện thời trang mùa hè với chủ đề kết hợp truyền thống và hiện đại.\", \"related_domain_ids\": [\"domain_structure\", \"domain_aesthetics\"]}, {\"domain_id\": \"domain_structure\", \"label\": \"Cấu trúc & Phom dáng\", \"summary\": \"Thiết kế váy liền thân nữ, có sự gợi nhắc nét Việt qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí được xử lý hiện đại, gọn gàng và tiện dụng.\", \"related_domain_ids\": [\"domain_context\", \"domain_aesthetics\"]}, {\"domain_id\": \"domain_aesthetics\", \"label\": \"Mỹ thuật & Trải nghiệm\", \"summary\": \"Yêu cầu trang phục thoải mái, dễ mặc, toát lên vẻ sang trọng, bắt kịp xu hướng và mang tính kết hợp giữa truyền thống với hiện đại.\", \"related_domain_ids\": [\"domain_context\", \"domain_structure\"]}], \"atoms\": [{\"atom_id\": \"atom_01\", \"domain_ids\": [\"domain_context\"], \"meaning\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_02\", \"domain_ids\": [\"domain_context\", \"domain_aesthetics\"], \"meaning\": \"Chủ đề thiết kế kết hợp giữa truyền thống và hiện đại.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"với chủ đề kết hợp truyền thống và hiện đại.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_03\", \"domain_ids\": [\"domain_structure\"], \"meaning\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_04\", \"domain_ids\": [\"domain_aesthetics\"], \"meaning\": \"Váy cần thoải mái, dễ mặc, toát lên vẻ sang trọng và bắt kịp xu hướng.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}], \"relations\": [{\"from_atom_id\": \"atom_01\", \"to_atom_id\": \"atom_02\", \"relation\": \"context_theme\", \"reason\": \"Sự kiện thời trang gắn liền với chủ đề kết hợp truyền thống và hiện đại.\"}, {\"from_atom_id\": \"atom_03\", \"to_atom_id\": \"atom_04\", \"relation\": \"design_execution\", \"reason\": \"Cách xử lý hiện đại, gọn gàng, tiện dụng của chi tiết Việt phục hỗ trợ cho tiêu chí thoải mái, dễ mặc và sang trọng.\"}], \"conflicts\": [], \"coverage\": [{\"source_ref\": {\"turn_id\": \"T1\", \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. \"}, \"atom_ids\": [\"atom_01\", \"atom_02\", \"atom_03\", \"atom_04\"], \"disposition\": \"retained\", \"reason\": \"Đã bảo lưu toàn bộ các ý định về bối cảnh, chủ đề, cách gợi nhắc Việt phục hiện đại và các tiêu chí thẩm mỹ, công năng của trang phục.\"}]}\nThông tin miền nghiệp vụ mở: [{\"domain_id\": \"domain_context\", \"label\": \"Bối cảnh & Mục đích\"}, {\"domain_id\": \"domain_structure\", \"label\": \"Cấu trúc & Phom dáng\"}, {\"domain_id\": \"domain_aesthetics\", \"label\": \"Mỹ thuật & Trải nghiệm\"}]\nKết quả tham khảo Gemini đã tìm trước đó nếu có (có thể rỗng, không phải catalog bắt buộc): {\"references\": [], \"provider_metadata\": [], \"reference_mode\": \"text_only\", \"availability\": \"unavailable_by_user_choice\"}\nKhả năng tìm web/đọc URL đã bật, hoặc chế độ dùng kết quả VP02R: {\"mode\": \"unavailable\", \"tools\": [], \"reason\": \"Người dùng chọn chế độ API cơ bản không tìm web. references=[] và mọi reference_ids=[]; không sinh URL từ trí nhớ. Ghi rõ thiếu nguồn; gợi ý hiện đại vẫn được phép, tái hiện lịch sử cần căn cứ.\"}\nBảng và lựa chọn đã có nếu có: {\"checklist\": null, \"choices\": null, \"unresolved\": null}\nMã form mới và giới hạn hiển thị do ứng dụng cấp: {\"form_id\": \"8efcdf39-d9d8-4205-9e60-099bb17a7742\", \"open_groups_initial\": 6, \"concrete_options_min\": 5, \"options_max\": 8, \"ai_delegate_required\": true, \"custom_required\": true}\n\nMỤC TIÊU\nĐọc lại raw và clean để bảo đảm giữ ý, sau đó xây form lựa chọn theo đúng những quyết định còn mơ hồ, đủ giúp thiết kế Việt phục tốt nhất trong phạm vi nhu cầu. Không hỏi tất cả nhóm theo danh sách cố định.\n\nĐỐI CHIẾU\n- So từng ý của USER_TURNS với CLEAN_PROMPT, không tin riêng coverage do bước trước tự khai.\n- Sửa clean_prompt trong bản trả về nếu bỏ ý, hiểu sai hoặc biến sở thích/ví dụ thành bắt buộc; giữ căn cứ từ nguyên văn và mã ý còn đúng.\n- Phân biệt thông tin người dùng đã quyết định, thiếu thật sự, mâu thuẫn và phần người dùng đã giao AI đề xuất. Không yêu cầu người dùng chọn lại điều đã rõ.\n\nTHIẾT KẾ BẢNG THEO MIỀN\n1. Xem xét nhóm trang phục đề xuất, bối cảnh, phom/cấu trúc, chất liệu/kỹ thuật, bảng màu, mỹ thuật/hoa văn, văn hóa/lịch sử, cách thể hiện ảnh và miền khác nếu thực sự cần. Chỉ tạo nhóm liên quan.\n2. Mỗi nhóm ghi domain_ids, related_atom_ids, question, why_it_matters, status và selection_mode. Dùng single cho các lựa chọn thay nhau; multiple chỉ khi kết hợp có nghĩa. Ghi min/max hợp lý theo FORM_CONFIG, không cắt ý gốc để đủ giới hạn hiển thị.\n3. Lựa chọn phải phù hợp với nền trang phục và hoàn cảnh. Không đưa phom váy A-line/Column thành lựa chọn mặc định cho người yêu cầu âu phục. Nếu phù hợp với váy, label có thể là “Chữ A (A-line)” và “Dáng cột (Column)”, kèm mô tả dễ hiểu.\n4. Tách nguồn cảm hứng/mô-típ khỏi kỹ thuật thể hiện: sen/rồng/mây là nội dung có thể lựa chọn; thêu, thêu nổi, đắp nổi là cách đưa lên trang phục. Tách vị trí/độ phủ khi những quyết định đó ảnh hưởng thiết kế.\n5. Tách lấy cảm hứng đương đại khỏi tái hiện có căn cứ. Chưa có nguồn đúng phạm vi thì không ghi một option là “chuẩn lịch sử”. Không gán niên đại hoặc ý nghĩa từ trí nhớ.\n6. Có “Để AI tự quyết” cho nhóm có thể giao AI chọn, đánh dấu is_ai_delegate=true. Nếu người dùng đã giao quyền, ghi lựa chọn đó là đề xuất để họ kiểm tra, không đặt thành blocker bắt họ tự chọn.\n7. Mỗi nhóm needs_choice/optional có ít nhất 5 gợi ý CỤ THỂ khác nhau, thêm đúng một option “Để AI tự quyết” (is_ai_delegate=true), tối đa 8 options theo FORM_CONFIG. allows_custom=true để giao diện hiển thị lựa chọn thứ hai “Tự điền thông tin” bằng ô nhập custom_text; KHÔNG tạo option giả cho custom. AI/custom không tính vào 5 gợi ý cụ thể. Nhóm locked có thể options=[] và allows_custom=false; người dùng sửa nhóm đã hiểu bằng thay đổi yêu cầu rõ ràng riêng. Một giá trị thiếu không tự trở thành option đã chọn. is_recommended chỉ là khuyến nghị, không phải đồng ý của người dùng.\n8. Lập phụ thuộc và quan hệ loại trừ bằng mã option/group. Không tạo vòng phụ thuộc. Không cho “không hoa văn” đi cùng một hoa văn cụ thể. Khi nhóm nền thay đổi, chỉ rõ nhóm phụ cần xét lại.\n9. Nhóm đã rõ có status=locked để hiển thị “Đã hiểu”; không yêu cầu chọn lại. Điều kiện cần làm rõ thật sự có status=needs_choice. Các phần giúp tinh chỉnh có status=optional.\n\nTHAM KHẢO DO GEMINI ĐẢM NHIỆM\n- Tự quyết định cần tìm gì theo miền và từng option; dùng tìm web tích hợp Gemini để tìm URL thật, đọc nội dung liên quan bằng khả năng đọc trang nếu có. Không cần catalog, không yêu cầu người dùng tự đi tìm hay đội vận hành nhập link.\n- Trả references[] gồm reference_id duy nhất, domains, label, description, url, source_type, scope, supporting_excerpt nếu thực sự đọc được và discovery_status. Option gắn reference_ids tới references này hoặc nguồn Gemini đã tìm trong REFERENCE_BUNDLE.\n- Với mỗi option chuyên môn cụ thể, cố gắng cung cấp trang đúng kiểu để xem: phom dáng, kỹ thuật thêu/đắp nổi, mô-típ hoặc hiện vật liên quan. Không dùng một link chung cho mọi option và không coi link tìm kiếm chung là nguồn đã đọc.\n- Nguồn thời trang/cách làm minh họa đúng hình thức; phát biểu văn hóa/lịch sử cần trang có nội dung hỗ trợ đúng phạm vi. Không che thiếu tài liệu lịch sử bằng link váy/thêu.\n- preview_url chỉ trả nếu công cụ/nội dung trang thực sự cung cấp ảnh liên quan; không đoán đường dẫn ảnh. Có thể null; giải thích và URL trang vẫn đủ để người dùng xem chi tiết.\n- origin=gemini_suggestion cho option; nguồn link vẫn ghi source_type thật. Không tự khai chuyên gia duyệt. tool_grounded chỉ khi có dấu dẫn nguồn/kết quả công cụ; chưa tìm được thì not_found, URL chưa đọc được phải mô tả đúng giới hạn.\n- Nếu REFERENCE_DISCOVERY_CONFIG là chế độ format_only sau VP02R, chỉ dùng nguồn trong REFERENCE_BUNDLE và giữ đúng URL/đoạn trích; không tạo link mới không có xuất xứ.\n- Nếu REFERENCE_DISCOVERY_CONFIG.mode=unavailable do người dùng chọn API cơ bản, không gọi web và bắt buộc references=[] cùng mọi reference_ids=[]. Ghi rõ chưa có nguồn/link đã kiểm chứng trong giải thích. Vẫn đề xuất ý tưởng đương đại, không xác nhận nguồn gốc hay tái hiện lịch sử. Đây là chế độ có giới hạn do người dùng chọn, không thay thế luồng tìm nguồn mặc định.\n- Thiếu link phù hợp thì reference_ids=[] và ghi chưa tìm được; không bịa để lấp đủ form. Nếu công cụ tìm nguồn không sẵn sàng, báo giới hạn đó, không tự chuyển sang catalog thủ công.\n\nTrả đúng ClarificationChecklist gồm clean_prompt đã đối chiếu, form_id do ứng dụng cấp, groups, references và open_conflicts. Không tạo thiết kế cuối hoặc điểm ở bước này.\n\nNHÓM TRANG PHỤC VÀ PHỤ KIỆN\n- Nếu nền Việt phục chưa được chốt, tạo nhóm “Trang phục đề xuất” với ít nhất 5 hướng phù hợp, ví dụ áo dài cách tân, áo tứ thân chuyển thể, áo ngũ thân chuyển thể, áo giao lĩnh chuyển thể, áo yếm phối lớp ngoài. Đây là ví dụ mở, không phải danh mục bắt buộc. Với áo gọn + chân váy dài đã khóa, các hướng phải giữ cấu trúc đó (áo ngắn lấy đường nét áo dài, áo tứ thân rút gọn, v.v.), không thay thành áo dài nguyên bộ hoặc váy liền. Khi loại trang phục đã chốt rõ, hiển thị nhóm locked thay vì hỏi lại.\n- Mỗi miền còn mở cần ít nhất 5 hướng có mô tả khác biệt thực chất và hợp yêu cầu; không dùng các nhãn gần nghĩa để lấp đủ số. Gợi ý màu cần bảng màu cụ thể; chất liệu cần tổ hợp vải; mỹ thuật cần ngôn ngữ tạo hình + vị trí + độ phủ.\n- Phụ kiện có thể mở rộng sang nón lá, nón quai thao, khăn vấn, túi mây tre, quạt, trang sức lấy cảm hứng dân gian. Đàn bầu/đàn tranh là đạo cụ trình diễn hoặc nguồn cảm hứng cho hình dáng túi/trang sức, không mặc định là phụ kiện đeo hay đồ mang đi sự kiện. Nêu rõ cách dùng và tính ứng dụng.\n- Giữ giới hạn phụ kiện người dùng nêu; gợi ý nhiều lựa chọn không có nghĩa dùng tất cả. Nếu yêu cầu 1–2 phụ kiện, đặt max<=2; không lén thêm đạo cụ vào prompt để vượt giới hạn. Không khẳng định xuất xứ/ý nghĩa dân gian nếu thiếu nguồn.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "request_id": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120
+      },
+      "revision": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "clean_prompt": {
+        "type": "object",
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "clean_text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 18000
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "domain_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "summary": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "related_domain_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "maxItems": 100,
+                  "minItems": 0,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "domain_id",
+                "label",
+                "summary",
+                "related_domain_ids"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 40,
+            "minItems": 1
+          },
+          "atoms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "atom_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "domain_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "maxItems": 100,
+                  "minItems": 0,
+                  "uniqueItems": true
+                },
+                "meaning": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 6000
+                },
+                "intent_type": {
+                  "type": "string",
+                  "enum": [
+                    "must",
+                    "avoid",
+                    "preference",
+                    "example",
+                    "delegated",
+                    "context",
+                    "unknown"
+                  ]
+                },
+                "polarity": {
+                  "type": "string",
+                  "enum": [
+                    "positive",
+                    "negative",
+                    "neutral"
+                  ]
+                },
+                "source_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "turn_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 120
+                      },
+                      "quote": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 6000
+                      }
+                    },
+                    "required": [
+                      "turn_id",
+                      "quote"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 30,
+                  "minItems": 1
+                },
+                "resolution": {
+                  "type": "string",
+                  "enum": [
+                    "explicit",
+                    "inferred",
+                    "open",
+                    "conflicting"
+                  ]
+                },
+                "supersedes_atom_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "maxItems": 100,
+                  "minItems": 0,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "atom_id",
+                "domain_ids",
+                "meaning",
+                "intent_type",
+                "polarity",
+                "source_refs",
+                "resolution",
+                "supersedes_atom_ids"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 100,
+            "minItems": 1
+          },
+          "relations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "from_atom_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "to_atom_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "relation": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                }
+              },
+              "required": [
+                "from_atom_id",
+                "to_atom_id",
+                "relation",
+                "reason"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 100,
+            "minItems": 0
+          },
+          "conflicts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "maxItems": 100,
+            "minItems": 0
+          },
+          "coverage": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_ref": {
+                  "type": "object",
+                  "properties": {
+                    "turn_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "quote": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 6000
+                    }
+                  },
+                  "required": [
+                    "turn_id",
+                    "quote"
+                  ],
+                  "additionalProperties": false
+                },
+                "atom_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "maxItems": 100,
+                  "minItems": 0,
+                  "uniqueItems": true
+                },
+                "disposition": {
+                  "type": "string",
+                  "enum": [
+                    "retained",
+                    "example",
+                    "unclear"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                }
+              },
+              "required": [
+                "source_ref",
+                "atom_ids",
+                "disposition",
+                "reason"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 200,
+            "minItems": 1
+          }
+        },
+        "required": [
+          "request_id",
+          "revision",
+          "clean_text",
+          "domains",
+          "atoms",
+          "relations",
+          "conflicts",
+          "coverage"
+        ],
+        "additionalProperties": false
+      },
+      "form_id": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120
+      },
+      "groups": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "group_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "domain_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "question": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "why_it_matters": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "locked",
+                "needs_choice",
+                "optional"
+              ]
+            },
+            "selection_mode": {
+              "type": "string",
+              "enum": [
+                "single",
+                "multiple"
+              ]
+            },
+            "min": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "max": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "related_atom_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "depends_on": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "group_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "option_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "group_id",
+                  "option_ids"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 40,
+              "minItems": 0
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "option_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  },
+                  "decision_text": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  },
+                  "reference_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  },
+                  "origin": {
+                    "type": "string",
+                    "enum": [
+                      "gemini_suggestion"
+                    ]
+                  },
+                  "is_recommended": {
+                    "type": "boolean"
+                  },
+                  "is_ai_delegate": {
+                    "type": "boolean"
+                  },
+                  "compatible_option_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  },
+                  "incompatible_option_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "option_id",
+                  "label",
+                  "description",
+                  "decision_text",
+                  "reference_ids",
+                  "origin",
+                  "is_recommended",
+                  "is_ai_delegate",
+                  "compatible_option_ids",
+                  "incompatible_option_ids"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 8,
+              "minItems": 0
+            },
+            "allows_custom": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "group_id",
+            "domain_ids",
+            "label",
+            "question",
+            "why_it_matters",
+            "status",
+            "selection_mode",
+            "min",
+            "max",
+            "related_atom_ids",
+            "depends_on",
+            "options",
+            "allows_custom"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 40,
+        "minItems": 0
+      },
+      "references": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "reference_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "domains": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 0,
+              "maxLength": 3000
+            },
+            "preview_url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 0,
+              "maxLength": 3000
+            },
+            "source_type": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "scope": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "supporting_excerpt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 0,
+              "maxLength": 10000
+            },
+            "discovery_status": {
+              "type": "string",
+              "enum": [
+                "tool_grounded",
+                "not_found",
+                "unconfirmed"
+              ]
+            },
+            "discovered_at": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "tool_citation_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "maxItems": 100,
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "reference_id",
+            "domains",
+            "label",
+            "description",
+            "url",
+            "preview_url",
+            "source_type",
+            "scope",
+            "supporting_excerpt",
+            "discovery_status",
+            "discovered_at",
+            "tool_citation_ids"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 80,
+        "minItems": 0
+      },
+      "open_conflicts": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "maxItems": 100,
+        "minItems": 0
+      }
+    },
+    "required": [
+      "request_id",
+      "revision",
+      "clean_prompt",
+      "form_id",
+      "groups",
+      "references",
+      "open_conflicts"
+    ],
+    "additionalProperties": false
+  },
+  "config": {
+    "timeout_seconds": 60,
+    "max_output_tokens": 20000,
+    "sampling_policy": "model_default",
+    "web_tools": false,
+    "structured": true
+  }
+}

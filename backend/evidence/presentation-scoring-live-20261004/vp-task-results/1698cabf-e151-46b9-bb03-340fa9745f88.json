@@ -1,0 +1,173 @@
+{
+  "evidence_id": "1698cabf-e151-46b9-bb03-340fa9745f88",
+  "recorded_at": 1791062846.4496908,
+  "request_id": "ce6c0b69-afe5-44cd-b418-818b84ad19c3",
+  "attempt_id": "176c1306-cbab-4fcd-8eb9-58c1908888df",
+  "trace": {
+    "task": "VP08",
+    "phase": "design",
+    "attempt_id": "176c1306-cbab-4fcd-8eb9-58c1908888df",
+    "revision": 2,
+    "role": null,
+    "batch_id": "B1",
+    "cache_hit": false,
+    "duration_ms": 6100,
+    "provider_call_id": "6e861128-0ae9-42f8-a782-ddf6a72bea77",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 23936,
+      "candidatesTokenCount": 1818,
+      "totalTokenCount": 25754,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 23936
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "OXPBau3UBpWUvr0Pi8Hs-Qk"
+    },
+    "input_hash": "7f8b51ca700bc0b30d2aec462f5d3a20181f5869a2680fc0e76d2256f5e31128",
+    "output_hash": "48f691d8d9a0671b2fdcf32bb903e734abe1e8c0aafda2d39a9cc7c0cf0edf6d",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "audits": [
+      {
+        "candidate_id": "R2-B1-C1",
+        "candidate_revision": 2,
+        "content_hash": "630b0ff8b27d9c36d0862d756fee9b3cc9a61fae219f7830c7b558930d0e53fe",
+        "source_scores": {
+          "fashion": 67.5,
+          "culture": 80.0,
+          "art": 100.0
+        },
+        "harmony_ratings": [
+          {
+            "criterion_id": "cross_domain_coherence",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Phom dáng chữ A nhẹ, chất liệu lụa tơ tằm phối lót cotton và các yếu tố thêu hoa sen, cổ lập lĩnh, băng đô lụa liên kết chặt chẽ với nhau, tạo sự hài hòa rõ nét giữa cấu trúc, mỹ thuật và văn hóa."
+          },
+          {
+            "criterion_id": "focal_balance",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Điểm nhấn thêu hoa sen ở viền cổ và vạt áo cùng điểm nhấn xanh ngọc bích được tiết chế hợp lý trên nền trắng ngà, giữ được tỷ lệ cân đối."
+          },
+          {
+            "criterion_id": "contextual_coherence",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Phù hợp với bối cảnh sự kiện thời trang mùa hè mang tính quốc tế theo đúng yêu cầu đã chốt."
+          },
+          {
+            "criterion_id": "conflict_resolution",
+            "applicable": true,
+            "rating": 3,
+            "reason": "Đã giải quyết tốt phần lớn thiết kế nhưng vẫn còn tồn tại các trạng thái check uncertain do thiếu exact_prompt_excerpts trong dữ liệu đầu vào."
+          }
+        ],
+        "harmony_score": 77.5,
+        "proposed_total": 81.0,
+        "cross_domain_conflicts": [
+          "Tồn tại các check uncertain do dữ liệu đầu vào thiếu exact_prompt_excerpts cho một số điều kiện bắt buộc."
+        ],
+        "recommendation": "unresolved",
+        "summary": "Phương án R2-B1-C1 có sự kết hợp mỹ thuật và cấu trúc rất tốt, tuy nhiên vẫn còn tồn tại các check uncertain chưa được giải quyết triệt để ở mức dữ liệu đầu vào, dẫn đến trạng thái chưa đủ điều kiện đạt hoàn toàn."
+      },
+      {
+        "candidate_id": "R2-B1-C2",
+        "candidate_revision": 2,
+        "content_hash": "aa6b366d8bc39b26933e7a9c30ff9ad74e6041caf9fb2714792dacf5488b5a09",
+        "source_scores": {
+          "fashion": 80.0,
+          "culture": 80.0,
+          "art": 100.0
+        },
+        "harmony_ratings": [
+          {
+            "criterion_id": "cross_domain_coherence",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Sự đồng bộ giữa phom dáng chữ A, cổ lập lĩnh cách điệu, chất liệu lụa lót cotton và họa tiết hoa sen tối giản thể hiện sự nhất quán cao giữa các miền chuyên môn."
+          },
+          {
+            "criterion_id": "focal_balance",
+            "applicable": true,
+            "rating": 5,
+            "reason": "Điểm nhấn xanh ngọc bích sắc nét ở đường viền kết hợp băng đô lụa cách tân tạo nên sự cân bằng thị giác hoàn hảo và tinh tế."
+          },
+          {
+            "criterion_id": "contextual_coherence",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Đáp ứng tốt yêu cầu về trang phục mùa hè dành cho sự kiện thời trang quốc tế, thoải mái, dễ mặc và sang trọng."
+          },
+          {
+            "criterion_id": "conflict_resolution",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Đã khắc phục tốt các yếu tố thiết kế, tuy nhiên vẫn còn tồn tại check uncertain liên quan đến bảng màu (atom_s_ms) trong dữ liệu đầu vào."
+          }
+        ],
+        "harmony_score": 87.5,
+        "proposed_total": 87.5,
+        "cross_domain_conflicts": [
+          "Còn tồn tại trạng thái uncertain đối với check bảng màu (atom_s_ms) do thiếu exact_prompt_excerpts."
+        ],
+        "recommendation": "unresolved",
+        "summary": "Phương án R2-B1-C2 đạt chất lượng thiết kế và mỹ thuật rất cao, bố cục cân đối và hài hòa, nhưng chưa thể eligible hoàn toàn do còn check uncertain chưa được khép lại trong dữ liệu kiểm tra."
+      },
+      {
+        "candidate_id": "R2-B1-C3",
+        "candidate_revision": 2,
+        "content_hash": "13be6c8936fa6405df4cfb88c07a724ad8971b1f6759fb9cac8749bc06d9944a",
+        "source_scores": {
+          "fashion": 75.0,
+          "culture": 80.0,
+          "art": 100.0
+        },
+        "harmony_ratings": [
+          {
+            "criterion_id": "cross_domain_coherence",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Các yếu tố cấu trúc, chất liệu và văn hóa hòa quyện chặt chẽ, tạo nên một tổng thể mang đậm tinh thần thời trang quốc tế kết hợp truyền thống."
+          },
+          {
+            "criterion_id": "focal_balance",
+            "applicable": true,
+            "rating": 5,
+            "reason": "Sự phân bố màu sắc trắng ngà tinh khôi phối điểm nhấn xanh ngọc bích cùng chi tiết thêu hoa sen tối giản đạt tỷ lệ thị giác xuất sắc."
+          },
+          {
+            "criterion_id": "contextual_coherence",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Hoàn toàn phù hợp với bối cảnh sự kiện thời trang mùa hè, toát lên vẻ sang trọng và tiện dụng."
+          },
+          {
+            "criterion_id": "conflict_resolution",
+            "applicable": true,
+            "rating": 3,
+            "reason": "Vẫn còn tồn tại các check uncertain đối với chất liệu và màu sắc do thiếu exact_prompt_excerpts trong dữ liệu đầu vào."
+          }
+        ],
+        "harmony_score": 82.5,
+        "proposed_total": 84.0,
+        "cross_domain_conflicts": [
+          "Tồn tại các check uncertain đối với chất liệu (atom_s_cl) và màu sắc (atom_s_ms) do thiếu trích dẫn chứng cứ trong dữ liệu."
+        ],
+        "recommendation": "unresolved",
+        "summary": "Phương án R2-B1-C3 sở hữu ngôn ngữ thiết kế và mỹ thuật rất ấn tượng, độ cân đối focal tốt, nhưng vẫn xếp vào trạng thái unresolved do còn các check uncertain cần được làm rõ."
+      }
+    ]
+  }
+}

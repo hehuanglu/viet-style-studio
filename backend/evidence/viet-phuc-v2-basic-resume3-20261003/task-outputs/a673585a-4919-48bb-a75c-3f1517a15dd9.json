@@ -1,0 +1,87 @@
+{
+  "evidence_id": "a673585a-4919-48bb-a75c-3f1517a15dd9",
+  "recorded_at": 1791040577.1962051,
+  "request_id": "d8338bb7-d9d1-40d1-b746-687aaf25c50b",
+  "revision": 8,
+  "task": "P06",
+  "attempt": 1,
+  "output": {
+    "audits": [
+      {
+        "artifact_id": "23e014bd-ca51-4492-a2dc-b262814fb398",
+        "findings": [
+          {
+            "finding_id": "f_visible_user_constraints_1",
+            "gate_id": "visible_user_constraints",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Chủ thể nữ mặc áo dài xanh ngọc nhạt tân thời dáng suông nhẹ, bối cảnh tiệc cưới buổi chiều.",
+            "reason": "Hình ảnh thể hiện đầy đủ chủ thể, màu sắc, phom dáng và bối cảnh theo yêu cầu người dùng.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_visible_invariants_1",
+            "gate_id": "visible_invariants",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Giữ đúng áo dài tân thời màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, không phục dựng lịch sử.",
+            "reason": "Các tiêu chí cố định và không phục dựng lịch sử đều được bảo đảm.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_major_visual_defects_1",
+            "gate_id": "major_visual_defects",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Ảnh sắc nét, bố cục ba khung hình rõ ràng, không có lỗi biến dạng lớn.",
+            "reason": "Chất lượng hình ảnh đạt yêu cầu thị giác, không phát hiện lỗi tạo hình nghiêm trọng.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_edit_preservation_1",
+            "gate_id": "edit_preservation",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "fail",
+            "evidence": "Túi cầm tay màu be vẫn còn xuất hiện ở cả ba khung hình trên ảnh đầu ra.",
+            "reason": "Yêu cầu chỉnh sửa bỏ chiếc túi cầm tay màu be chưa được thực hiện, ảnh giữ nguyên chi tiết cũ.",
+            "minimal_fix": "Xóa chiếc túi cầm tay màu be và điều chỉnh bàn tay ở trạng thái tự nhiên."
+          }
+        ],
+        "visual_quality": 3,
+        "quality_reason": "Hình ảnh có chất lượng thẩm mỹ và chi tiết tốt, nhưng chưa thực hiện đúng yêu cầu chỉnh sửa loại bỏ túi xách."
+      }
+    ]
+  },
+  "usage": {
+    "promptTokenCount": 14433,
+    "candidatesTokenCount": 752,
+    "totalTokenCount": 15185,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 12273
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2160
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

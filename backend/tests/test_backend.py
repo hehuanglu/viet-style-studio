@@ -94,7 +94,7 @@ class BackendTests(unittest.TestCase):
         self.temp.cleanup()
 
     def engine(self, provider=None, **kwargs):
-        engine = Engine(provider or MockProvider(), Path(self.temp.name) / str(len(self.engines)), allow_mock_requests=True, **kwargs)
+        engine = Engine(provider or MockProvider(), Path(self.temp.name) / str(len(self.engines)), allow_mock_requests=True, default_workflow_version=1, **kwargs)
         self.engines.append(engine)
         return engine
 

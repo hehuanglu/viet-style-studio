@@ -1,0 +1,214 @@
+{
+  "date": "2026-10-03",
+  "scope": "Basic-resume continuation only; earlier live-ux evidence is separate",
+  "application_generateContent_attempts": 42,
+  "application_http_200": 42,
+  "tasks": {
+    "VP01": 5,
+    "VP02": 5,
+    "VP03": 7,
+    "VP04": 9,
+    "VP06": 6,
+    "VP05": 3,
+    "VP07": 3,
+    "VP08": 2,
+    "P06": 2
+  },
+  "usage_reported": {
+    "promptTokenCount": 305765,
+    "candidatesTokenCount": 150124,
+    "thoughtsTokenCount": 0,
+    "totalTokenCount": 455889
+  },
+  "diagnostics": [
+    {
+      "operation": "listModels",
+      "http_status": 200,
+      "attempts": 1,
+      "evidence": "backend/evidence/viet-phuc-v2-basic-resume-20261003/models-list.json"
+    },
+    {
+      "operation": "generateContent with Google Search capability probe",
+      "model": "gemini-2.5-flash-lite",
+      "http_status": 404,
+      "attempts": 1,
+      "evidence": "backend/evidence/viet-phuc-v2-basic-resume-20261003/probe-gemini-2.5-flash-lite.json"
+    }
+  ],
+  "all_generateContent_attempts_including_probe": 43,
+  "all_google_http_operations_including_list": 44,
+  "gemini_website_submissions": {
+    "create_image": 1,
+    "edit_image_with_two_attachments": 1,
+    "api_accounting": false
+  },
+  "final_request_budget_experiment": {
+    "design_attempts_limit": 32,
+    "default_unchanged": 26,
+    "deadline_seconds": 240,
+    "media_attempts_limit": 13,
+    "media_deadline_seconds": 90,
+    "reason": "Bounded recovery after measured semantic-output failures; not evidence to change production default"
+  },
+  "requests": [
+    {
+      "directory": "backend/evidence/viet-phuc-v2-basic-resume-20261003",
+      "provider_http_200_responses": 3,
+      "usage_reported": {
+        "promptTokenCount": 12302,
+        "candidatesTokenCount": 14130,
+        "thoughtsTokenCount": 0,
+        "totalTokenCount": 26432
+      },
+      "jobs": [
+        {
+          "request_id": "4738dbc5-4e58-468e-8220-881d114de9f2",
+          "status": "failed",
+          "revision": 1,
+          "metrics": {
+            "provider_calls": 3,
+            "actual_api_calls": 3,
+            "cache_hits": 0,
+            "active_seconds": 38.336,
+            "design": {
+              "attempts": 3,
+              "actual_api_calls": 3,
+              "active_seconds": 38.336,
+              "search_queries_reported": 0
+            },
+            "media": {
+              "attempts": 0,
+              "actual_api_calls": 0,
+              "active_seconds": 0.0
+            },
+            "cards_ready_seconds": null,
+            "image_ready_seconds": null,
+            "manual_image_prompts": 0,
+            "manual_images_received": 0,
+            "manual_audit_prompts": 0,
+            "manual_audits_received": 0
+          },
+          "tasks": {
+            "VP01": 1,
+            "VP02": 2
+          },
+          "semantic_or_task_errors": {
+            "semantic_invalid": 2
+          },
+          "error": {
+            "code": "semantic_invalid",
+            "message": "Nhóm lựa chọn cần hai đến năm options"
+          }
+        }
+      ]
+    },
+    {
+      "directory": "backend/evidence/viet-phuc-v2-basic-resume2-20261003",
+      "provider_http_200_responses": 6,
+      "usage_reported": {
+        "promptTokenCount": 33036,
+        "candidatesTokenCount": 23947,
+        "thoughtsTokenCount": 0,
+        "totalTokenCount": 56983
+      },
+      "jobs": [
+        {
+          "request_id": "1d9318d6-6491-4189-adc2-cd9a409cfed9",
+          "status": "failed",
+          "revision": 2,
+          "metrics": {
+            "provider_calls": 6,
+            "actual_api_calls": 6,
+            "cache_hits": 0,
+            "active_seconds": 67.512,
+            "design": {
+              "attempts": 6,
+              "actual_api_calls": 6,
+              "active_seconds": 67.512,
+              "search_queries_reported": 0
+            },
+            "media": {
+              "attempts": 0,
+              "actual_api_calls": 0,
+              "active_seconds": 0.0
+            },
+            "cards_ready_seconds": null,
+            "image_ready_seconds": null,
+            "manual_image_prompts": 0,
+            "manual_images_received": 0,
+            "manual_audit_prompts": 0,
+            "manual_audits_received": 0
+          },
+          "tasks": {
+            "VP01": 2,
+            "VP02": 2,
+            "VP03": 2
+          },
+          "semantic_or_task_errors": {
+            "semantic_invalid": 4
+          },
+          "error": {
+            "code": "semantic_invalid",
+            "message": "Mất ý đã giữ: atom_motifs_optional"
+          }
+        }
+      ]
+    },
+    {
+      "directory": "backend/evidence/viet-phuc-v2-basic-resume3-20261003",
+      "provider_http_200_responses": 33,
+      "usage_reported": {
+        "promptTokenCount": 260427,
+        "candidatesTokenCount": 112047,
+        "thoughtsTokenCount": 0,
+        "totalTokenCount": 372474
+      },
+      "jobs": [
+        {
+          "request_id": "d8338bb7-d9d1-40d1-b746-687aaf25c50b",
+          "status": "complete",
+          "revision": 8,
+          "metrics": {
+            "provider_calls": 33,
+            "actual_api_calls": 33,
+            "cache_hits": 0,
+            "active_seconds": 216.683,
+            "design": {
+              "attempts": 31,
+              "actual_api_calls": 31,
+              "active_seconds": 206.201,
+              "search_queries_reported": 0
+            },
+            "media": {
+              "attempts": 2,
+              "actual_api_calls": 2,
+              "active_seconds": 10.482
+            },
+            "cards_ready_seconds": 205.503,
+            "image_ready_seconds": null,
+            "manual_image_prompts": 2,
+            "manual_images_received": 2,
+            "manual_audit_prompts": 0,
+            "manual_audits_received": 0
+          },
+          "tasks": {
+            "VP01": 2,
+            "VP02": 1,
+            "VP03": 5,
+            "VP04": 9,
+            "VP06": 6,
+            "VP05": 3,
+            "VP07": 3,
+            "VP08": 2,
+            "P06": 2
+          },
+          "semantic_or_task_errors": {
+            "semantic_invalid": 18
+          },
+          "error": null
+        }
+      ]
+    }
+  ],
+  "billing_note": "Tokens are provider reported; 404 has no reported usage. HTTP200 does not mean semantic validity; no inference about billed amount or quota tier."
+}

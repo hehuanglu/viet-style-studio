@@ -25,7 +25,7 @@ class TextAPIRequiredTests(unittest.TestCase):
         self.temp.cleanup()
 
     def engine(self, provider, **kwargs):
-        engine = Engine(provider, self.temp.name, **kwargs)
+        engine = Engine(provider, self.temp.name, default_workflow_version=1, **kwargs)
         self.engines.append(engine)
         return engine
 
@@ -69,15 +69,19 @@ class TextAPIRequiredTests(unittest.TestCase):
                 provider._request(provider.text_model, {}, 1)
         self.assertEqual(transport.call_count, 20)
 
-    def test_explicit_experiment_call_budget_is_still_enforced(self):
+    def test_legacy_limit_does_not_block_and_each_hundred_calls_warns(self):
         provider = GeminiProvider("fake-test-key", session_call_limit=2)
+        warnings = []
+        provider.observe_attempt(lambda _: warnings.append(provider.last_call_warning) if provider.last_call_warning else None)
         with patch("urllib.request.urlopen", side_effect=lambda *a, **k: io.BytesIO(b'{}')) as transport:
-            provider._request(provider.text_model, {}, 1)
-            provider._request(provider.text_model, {}, 1)
-            with self.assertRaises(ArenaError) as error:
+            for _ in range(201):
                 provider._request(provider.text_model, {}, 1)
-        self.assertEqual(error.exception.code, "session_budget_exhausted")
-        self.assertEqual(transport.call_count, 2)
+        self.assertEqual(transport.call_count, 201)
+        self.assertEqual(len(warnings), 2)
+        self.assertIn('100', warnings[0])
+        self.assertIn('200', warnings[1])
+        self.assertEqual(provider.api_call_usage['blocking_limit'], None)
+        self.assertEqual(provider.api_call_usage['calls'], 201)
 
     def test_ui_key_switches_to_real_text_adapter(self):
         engine = self.engine(GeminiProvider(None, allow_unconfigured=True))

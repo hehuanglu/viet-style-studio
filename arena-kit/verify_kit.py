@@ -132,6 +132,24 @@ def main():
     require(len({case["id"] for case in cases}) == len(cases), "Duplicate eval ID")
     require(all(case["expected"] for case in cases), "Empty eval expectation")
 
+    import sys
+    sys.path.insert(0, str(ROOT.parent / "backend"))
+    from arena_backend.core import Contracts
+    from arena_backend.viet_phuc import DATA, VPPrompts, SCHEMAS, total_score
+    v2 = json.loads((DATA / "config.json").read_text())
+    v2_contracts, v2_prompts = Contracts(DATA / "contracts.json"), VPPrompts()
+    for name in SCHEMAS.values():
+        v2_contracts.schema(name)
+    for role, weights in v2["rubrics"].items():
+        require(len(weights) == 4 and sum(weights.values()) == 100, "Invalid VP rubric: " + role)
+    for weights in v2["profiles"].values():
+        require(set(weights) == {"fashion", "culture", "art", "harmony"} and sum(weights.values()) == 100, "Invalid VP scoring profile")
+    require(total_score({"fashion": 82, "culture": 78, "art": 90}, 84, v2["profiles"]["creative"]) == 84.4, "VP score differs")
+    default_pack = json.loads((ROOT.parent / "backend/packs/viet-phuc-v2.json").read_text())
+    require(not default_pack["sources"] and not default_pack["rules"] and not default_pack["knowledge_units"], "V2 default has prepared sources")
+    from arena_backend.core import Prompts
+    require(Prompts(ROOT / "image-audit.md").templates["P06"] == Prompts().templates["P06"], "P06 was modified")
+
     print(json.dumps({
         "status": "passed",
         "json_files_checked": 4,
@@ -140,7 +158,10 @@ def main():
         "schema_references_checked": len(references),
         "task_excerpts_checked": len(pack["knowledge_units"]),
         "behavioral_cases_prepared_not_api_run": len(cases),
-        "live_gemini_calls": 0
+        "live_gemini_calls": 0,
+        "v2": {"templates_checked": len(v2_prompts.templates), "schema_version": v2_contracts.document["version"],
+                 "rubric_version": v2["rubric_version"], "design_budget": v2["design_budget"], "media_budget": v2["media_budget"],
+                 "cultural_accuracy_verified": False}
     }, ensure_ascii=False, indent=2))
 
 

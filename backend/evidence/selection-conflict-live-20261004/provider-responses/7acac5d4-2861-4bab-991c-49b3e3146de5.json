@@ -1,0 +1,38 @@
+{
+  "evidence_id": "7acac5d4-2861-4bab-991c-49b3e3146de5",
+  "recorded_at": 1791060206.969003,
+  "model": "gemini-3.5-flash-lite",
+  "call_id": "ce4ad9e8-6aa9-4306-930d-aba42fc1dcef",
+  "request_hash": "492a99e36c56dd6db170ddcdc10b6d774b6cda46986ad2454964a77c02d5e7ec",
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"request_id\": \"60cc725c-7eff-48ba-bccd-3f01cd7ad17b\",\n  \"revision\": 1,\n  \"clean_text\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.\",\n  \"domains\": [\n    {\n      \"domain_id\": \"dom_context\",\n      \"label\": \"Bối cảnh sử dụng\",\n      \"summary\": \"Mục đích thiết kế trang phục cho sự kiện thời trang vào mùa hè.\",\n      \"related_domain_ids\": [\"dom_structure\"]\n    },\n    {\n      \"domain_id\": \"dom_structure\",\n      \"label\": \"Cấu trúc & Kiểu dáng\",\n      \"summary\": \"Thiết kế váy liền thân nữ với các yếu tố hiện đại, gọn gàng, tiện dụng, thoải mái và dễ mặc.\",\n      \"related_domain_ids\": [\"dom_context\", \"dom_culture\"]\n    },\n    {\n      \"domain_id\": \"dom_culture\",\n      \"label\": \"Yếu tố văn hóa & Việt phục\",\n      \"summary\": \"Chủ đề kết hợp truyền thống và hiện đại, gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí.\",\n      \"related_domain_ids\": [\"dom_structure\"]\n    },\n    {\n      \"domain_id\": \"dom_aesthetic\",\n      \"label\": \"Mỹ thuật & Phong cách\",\n      \"summary\": \"Định hướng thẩm mỹ sang trọng, bắt kịp xu hướng, xử lý theo hướng hiện đại.\",\n      \"related_domain_ids\": [\"dom_structure\", \"dom_culture\"]\n    }\n  ],\n  \"atoms\": [\n    {\n      \"atom_id\": \"atom_01\",\n      \"domain_ids\": [\"dom_context\", \"dom_structure\"],\n      \"meaning\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang.\",\n      \"intent_type\": \"must\",\n      \"polarity\": \"positive\",\n      \"source_refs\": [\n        {\n          \"turn_id\": \"T1\",\n          \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại.\"\n        }\n      ],\n      \"resolution\": \"explicit\",\n      \"supersedes_atom_ids\": []\n    },\n    {\n      \"atom_id\": \"atom_02\",\n      \"domain_ids\": [\"dom_culture\"],\n      \"meaning\": \"Chủ đề kết hợp truyền thống và hiện đại, gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí.\",\n      \"intent_type\": \"must\",\n      \"polarity\": \"positive\",\n      \"source_refs\": [\n        {\n          \"turn_id\": \"T1\",\n          \"quote\": \"với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí,\"\n        }\n      ],\n      \"resolution\": \"explicit\",\n      \"supersedes_atom_ids\": []\n    },\n    {\n      \"atom_id\": \"atom_03\",\n      \"domain_ids\": [\"dom_structure\", \"dom_aesthetic\"],\n      \"meaning\": \"Xử lý các yếu tố Việt phục theo hướng hiện đại, gọn gàng và tiện dụng.\",\n      \"intent_type\": \"must\",\n      \"polarity\": \"positive\",\n      \"source_refs\": [\n        {\n          \"turn_id\": \"T1\",\n          \"quote\": \"nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\"\n        }\n      ],\n      \"resolution\": \"explicit\",\n      \"supersedes_atom_ids\": []\n    },\n    {\n      \"atom_id\": \"atom_04\",\n      \"domain_ids\": [\"dom_structure\", \"dom_aesthetic\"],\n      \"meaning\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.\",\n      \"intent_type\": \"must\",\n      \"polarity\": \"positive\",\n      \"source_refs\": [\n        {\n          \"turn_id\": \"T1\",\n          \"quote\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng.\"\n        }\n      ],\n      \"resolution\": \"explicit\",\n      \"supersedes_atom_ids\": []\n    }\n  ],\n  \"relations\": [\n    {\n      \"from_atom_id\": \"atom_02\",\n      \"to_atom_id\": \"atom_03\",\n      \"relation\": \"modifier\",\n      \"reason\": \"Yếu tố gợi nhắc Việt phục cần được xử lý theo định hướng hiện đại, gọn gàng và tiện dụng.\"\n    }\n  ],\n  \"conflicts\": [],\n  \"coverage\": [\n    {\n      \"source_ref\": {\n        \"turn_id\": \"T1\",\n        \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và bắt kịp xu hướng. \"\n      },\n      \"atom_ids\": [\"atom_01\", \"atom_02\", \"atom_03\", \"atom_04\"],\n      \"disposition\": \"retained\",\n      \"reason\": \"Tất cả các ý chính về bối cảnh, cấu trúc váy, yếu tố văn hóa và phong cách thẩm mỹ trong yêu cầu gốc đều được giữ trọn vẹn vào các atom.\"\n    }\n  ]\n}",
+              "thoughtSignature": "EmAKXgFpFH0TBF7t8IBBKcPbQFGWIvK952leufk6M1l/kF0D/22/mMCQMGZD8kOlBBBaUDOlFHQ+LXXIZ5QYtdpTRTm/8fbUnxFybkk0zVVz6tILRw1IIBYW+A+Cd6j4D4A="
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 2127,
+      "candidatesTokenCount": 1408,
+      "totalTokenCount": 3535,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2127
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "62jBar3zEr6e2roPheqlsAQ"
+  }
+}

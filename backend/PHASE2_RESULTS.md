@@ -1,3 +1,5 @@
+> Phạm vi tài liệu: hồ sơ theo thời điểm, không phải hướng dẫn runtime hiện hành. Các số đo/kết luận bên dưới thuộc phiên hoặc kế hoạch được mô tả; cơ chế có thể đã thay đổi. Xem [README hiện hành](../README.md) và đối chiếu mã/cấu hình trước khi áp dụng.
+
 # Kết quả Đợt 2 — 02/10/2026
 
 **Đã hoàn tất phần triển khai và kiểm chứng có thể chạy với quota người dùng quyết định giữ nguyên.** 57 kiểm thử local qua; bộ 20 tình huống Gemini đã chạy, bốn ca lỗi ban đầu được sửa và chạy lại đều đạt. Audit thị giác chạy trên ảnh tham chiếu thật đạt ba trường hợp và một lượt cache. **Tạo/sửa ảnh Gemini thật chưa nghiệm thu: Google trả quota ảnh `limit: 0`.**

@@ -1,6 +1,7 @@
 import copy
 import hashlib
 import json
+import math
 import re
 import sqlite3
 import threading
@@ -85,7 +86,12 @@ class Contracts:
                 for index, item in enumerate(current):
                     visit(schema.get("items", {}), item, f"{path}[{index}]")
             elif isinstance(current, (int, float)) and not isinstance(current, bool):
+                require(math.isfinite(current), f"{path}: số không hữu hạn", "schema_invalid", 502)
                 require(schema.get("minimum", -float("inf")) <= current <= schema.get("maximum", float("inf")), f"{path}: ngoài giới hạn", "schema_invalid", 502)
+            elif isinstance(current, str):
+                require(schema.get("minLength", 0) <= len(current) <= schema.get("maxLength", float("inf")), f"{path}: độ dài không hợp lệ", "schema_invalid", 502)
+            if isinstance(current, list) and schema.get("uniqueItems"):
+                require(len({digest(v) for v in current}) == len(current), f"{path}: phần tử trùng", "schema_invalid", 502)
         visit(self.schema(name), value, name)
         return value
 
@@ -141,6 +147,8 @@ class Store:
             old = self.db.execute("SELECT value FROM jobs WHERE id=?", (job["request_id"],)).fetchone()
             if old and json.loads(old[0])["status"] == "cancelled" and job["status"] != "cancelled":
                 raise ArenaError("cancelled", "Request đã được hủy", 409)
+            if old and json.loads(old[0])["revision"] > job["revision"]:
+                raise ArenaError("cancelled", "Không ghi đè revision mới bằng kết quả cũ", 409)
             self.db.execute("INSERT OR REPLACE INTO jobs VALUES (?,?)", (job["request_id"], json.dumps(job, ensure_ascii=False)))
 
     def cache_get(self, key):
@@ -158,23 +166,33 @@ class Store:
 
 
 class Budget:
-    def __init__(self, job, policy):
+    def __init__(self, job, policy, phase=None):
         self.job, self.policy = job, policy
+        self.phase = phase
+        self.limits = policy.get(phase + "_budget", policy["request_budget"]) if phase else policy["request_budget"]
+        self.metrics = job["metrics"].setdefault(phase, {"attempts": 0, "active_seconds": 0.0}) if phase else job["metrics"]
         self.started = time.monotonic()
-        self.base_seconds = job["metrics"]["active_seconds"]
+        self.base_seconds = self.metrics["active_seconds"]
+
+    def calls_remaining(self):
+        return self.limits["total_provider_calls_max"] - self.metrics["attempts" if self.phase else "provider_calls"]
 
     def remaining_seconds(self):
         spent = self.base_seconds + time.monotonic() - self.started
-        return self.policy["request_budget"]["active_processing_deadline_seconds"] - spent
+        return self.limits["active_processing_deadline_seconds"] - spent
 
     def reserve(self, timeout):
-        require(self.job["metrics"]["provider_calls"] < self.policy["request_budget"]["total_provider_calls_max"], "Đã hết ngân sách lượt gọi", "budget_exhausted", 409)
+        require(self.calls_remaining() > 0, "Đã hết ngân sách lượt gọi", "budget_exhausted", 409)
         require(self.remaining_seconds() > 0, "Đã hết thời gian xử lý chủ động", "deadline_exceeded", 408)
         self.job["metrics"]["provider_calls"] += 1
+        if self.phase:
+            self.metrics["attempts"] += 1
         return min(timeout, self.remaining_seconds())
 
     def finish(self):
-        self.job["metrics"]["active_seconds"] = round(self.base_seconds + time.monotonic() - self.started, 3)
+        self.metrics["active_seconds"] = round(self.base_seconds + time.monotonic() - self.started, 3)
+        if self.phase:
+            self.job["metrics"]["active_seconds"] = round(sum(self.job["metrics"].get(p, {}).get("active_seconds", 0) for p in ("design", "media")), 3)
 
 
 def canonical_task_payload(payload):

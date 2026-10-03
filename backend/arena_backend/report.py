@@ -3,6 +3,7 @@
 PURPOSES = {"P02": "Hiểu và chuẩn hóa yêu cầu", "P03": "Đề xuất phương án", "P04": "Audit phương án",
             "P10": "Kiểm tra và bổ sung thông tin đã nhận diện",
             "P08": "Sửa phương án", "P09": "Viết prompt tạo ảnh bằng API", "P06": "Audit ảnh", "image": "Tạo ảnh", "image_repair": "Sửa ảnh"}
+PURPOSES.update(VP02C="Kiểm tra xung đột nghiêm trọng trong lựa chọn", VP01="Giữ ý và phân miền mở", VP02="Đối chiếu lời gốc, tìm nguồn và lập checklist", VP02R="Gemini tìm và đọc nguồn", VP03="Tổng hợp lựa chọn đã chốt", VP04="Sinh batch prompt ảnh", VP05="Đánh giá thời trang", VP06="Đánh giá văn hóa/lịch sử", VP07="Đánh giá hội họa/mỹ thuật", VP08="Đánh giá hài hòa và đối chiếu tổng điểm")
 GATES = {"visible_user_constraints": "Yêu cầu và ràng buộc nhìn thấy", "visible_invariants": "Chi tiết cần giữ",
          "major_visual_defects": "Lỗi tạo hình lớn", "edit_preservation": "Giữ phần không cần sửa so với ảnh gốc",
          "user_constraints": "Ràng buộc người dùng", "applicable_cultural_rules": "Quy tắc có căn cứ",
@@ -24,6 +25,8 @@ OUTCOMES = {"complete": "Hoàn tất", "cards_only": "Chỉ có thẻ đề xu�
 
 
 def user_report(job, policy):
+    if job.get("workflow_version") == 2:
+        return v2_report(job, policy)
     brief = job.get("brief") or {}
     metrics = job["metrics"]
     steps, calls = [], []
@@ -132,3 +135,45 @@ def user_report(job, policy):
             "limits": ["Có thể tiếp tục phác thảo và gửi ảnh hoàn thiện nhiều lượt; không có bước so sánh hay chọn giữ. Kiểm tra API vẫn dùng ngân sách còn lại của request." if job.get("audit_mode") == "background" or current_ids else str(len(job.get("image_prompts", [])) or 1) + " prompt, mỗi phương án một ảnh; tối đa một vòng sửa ảnh tự động trong request; đã dùng " + str(job.get("repair_counts", {}).get("image", 0)) + " lượt sửa.",
                        "Audit là kết quả hỗ trợ, chưa thay thế đánh giá của chuyên gia.",
                        *job.get("warnings", []), *([job["error"]["message"]] if job.get("error") else [])]}
+
+
+def v2_report(job, policy):
+    import copy
+    legacy = copy.deepcopy(job)
+    legacy["workflow_version"] = 1
+    legacy["proposed_candidates"] = []
+    report = user_report(legacy, policy)
+    resolved = job.get("resolved_brief") or {}
+    report["agreed"] = [resolved["resolved_text"]] if resolved else []
+    report["clean_text"] = (job.get("clean_prompt") or {}).get("clean_text")
+    report["choices"] = job.get("choices")
+    report["references"] = job.get("references", [])
+    report["generation_batches"] = [{"batch_id": bid, "direction": b["direction"], "count": len(b["candidates"]), "supplemental": b["supplemental"]} for bid, b in job["generation_batches"].items()]
+    report["api"]["phases"] = {key: job["metrics"][key] for key in ("design", "media")}
+    # An actual HTTP call may still be in flight, or have ended during a restart.
+    totals = report["api"]["totals"]
+    totals["actual"] = job["metrics"]["actual_api_calls"]
+    totals["inflight"] = max(0, totals["actual"] - totals["success"] - totals["failed"] - totals["interrupted"])
+    selected = set(job.get("selected_prompt_ids", []))
+    rejected = {r["candidate_id"]: r["reason"] for r in (job.get("ranking") or {}).get("rejected", [])}
+    report["candidates"] = [{"title": c["title"], "description": c["fashion_summary"], "reason": rejected.get(c["candidate_id"], "Thuộc ba điểm cao nhất" if c["candidate_id"] in selected else "Không thuộc ba điểm cao nhất"), "content_hash": c["content_hash"]} for c in job["prompt_pool"]]
+    report["candidate_audits"] = []
+    for candidate in job["prompt_pool"]:
+        cid = candidate["candidate_id"]
+        for role, audit in job["specialist_audits"].get(cid, {}).items():
+            report["candidate_audits"].append({"title": candidate["title"] + " · " + role, "is_repair": False, "findings": [audit["summary"], *[f"{c['check_id']}: {STATUSES[c['status']]}. {c['reason']}" for c in audit["checks"]]], "score": audit["score"]})
+        harmony = job["harmony_audits"].get(cid)
+        if harmony:
+            report["candidate_audits"].append({"title": candidate["title"] + " · hài hòa", "is_repair": False, "findings": [harmony["summary"], "Điểm số được lưu nội bộ; giao diện trình bày kết luận và nhận xét."], "score": harmony["score_100"]})
+    report["selection_reason"] = "Xếp tổng điểm giảm dần, bằng điểm theo candidate_id; kết quả phiên api_only dùng điểm API và không lọc bằng backend."
+    if job.get("image_target_ids"):
+        report["selection_reason"] += " Người dùng chọn riêng phương án để tạo ảnh."
+    # Older saved sessions predate budget_config; an explicit audit retry recorded
+    # its runtime design limit. Preserve that fact when server defaults change.
+    recorded_design = next((h['design_budget'] for h in reversed(job.get('audit_retry_history', [])) if h.get('design_budget')), None)
+    budgets = job.get('budget_config') or {'design': recorded_design or policy['design_budget'], 'media': policy['media_budget']}
+    design = budgets['design']; media = budgets['media']
+    report['api']['budgets'] = copy.deepcopy(budgets)
+    report['warning_history'] = copy.deepcopy(job.get('warning_history', []))
+    report["limits"] = ["Ba góc nhìn và hài hòa là hỗ trợ AI về prompt; chưa xác nhận đúng văn hóa, may thực tế hoặc ảnh thực tế.", "Nguồn Gemini có metadata công cụ không đồng nghĩa nguồn hoặc trích đoạn đã được chuyên gia xác minh.", f"Design budget: {design['total_provider_calls_max']} attempts/{design['active_processing_deadline_seconds']} giây; media budget riêng: {media['total_provider_calls_max']} attempts/{media['active_processing_deadline_seconds']} giây. Thời gian chờ lựa chọn và tạo ảnh thủ công không tính.", *job.get("warnings", []), *([job["error"]["message"]] if job.get("error") else [])]
+    return report

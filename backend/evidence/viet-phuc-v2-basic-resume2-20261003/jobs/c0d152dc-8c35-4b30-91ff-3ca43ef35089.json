@@ -1,0 +1,2801 @@
+{
+  "evidence_id": "c0d152dc-8c35-4b30-91ff-3ca43ef35089",
+  "recorded_at": 1791037967.675702,
+  "event": "failed",
+  "job": {
+    "request_id": "1d9318d6-6491-4189-adc2-cd9a409cfed9",
+    "session_id": "05171d63-7b4b-4ba2-87aa-ab7e778c2440",
+    "workflow_version": 2,
+    "revision": 2,
+    "status": "failed",
+    "provider": "gemini",
+    "creative_level": "explore",
+    "scoring_profile": "creative",
+    "image_mode": "gemini_manual",
+    "audit_mode": "background",
+    "render_image": true,
+    "reference_mode": "text_only",
+    "raw_prompt": "Mình là nữ, muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều. Mình thích màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại. Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Mình không cần phục dựng trang phục lịch sử. Bạn cứ đề xuất những phần mình chưa biết, nhưng tránh nhiều phụ kiện và đừng làm giống váy cô dâu. Mình muốn xem hình để dễ chọn.",
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Mình là nữ, muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều. Mình thích màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại. Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Mình không cần phục dựng trang phục lịch sử. Bạn cứ đề xuất những phần mình chưa biết, nhưng tránh nhiều phụ kiện và đừng làm giống váy cô dâu. Mình muốn xem hình để dễ chọn."
+      },
+      {
+        "id": "S1",
+        "text": "Chọn áo dài cách tân phom suông nhẹ, dễ đi lại.\nChọn chất liệu lụa mềm nhẹ.\nChọn điểm xuyết họa tiết hoa sen cách điệu tối giản."
+      }
+    ],
+    "brief": null,
+    "questions": [],
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "image_prompts": [],
+    "error": {
+      "code": "semantic_invalid",
+      "message": "Mất ý đã giữ: atom_motifs_optional"
+    },
+    "warnings": [
+      "Chế độ cơ bản: không tìm/đọc web, không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử."
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "cleaning",
+        "brief_revision": 1,
+        "timestamp": 1791037831.6943831
+      },
+      {
+        "sequence": 2,
+        "stage": "designing_checklist",
+        "brief_revision": 1,
+        "timestamp": 1791037849.713168
+      },
+      {
+        "sequence": 3,
+        "stage": "awaiting_choices",
+        "brief_revision": 1,
+        "timestamp": 1791037881.791893
+      },
+      {
+        "sequence": 4,
+        "stage": "resolving_choices",
+        "brief_revision": 2,
+        "timestamp": 1791037950.29796
+      },
+      {
+        "sequence": 5,
+        "stage": "failed",
+        "brief_revision": 2,
+        "timestamp": 1791037967.6756659
+      }
+    ],
+    "trace": [
+      {
+        "task": "VP01",
+        "phase": "design",
+        "attempt_id": "c4722ab5-1a80-4ada-9480-638054808016",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 9376,
+        "provider_call_id": "31775f6a-45b5-4ee5-9026-3d609c73c6be",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 2045,
+          "candidatesTokenCount": 2776,
+          "totalTokenCount": 4821,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2045
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "iBHBaqfLOJ_j1e8P5KXoyQ4"
+        },
+        "input_hash": "20e0a886c5b8f15f05d81f0d7a099d99a9ad16d5bfdc903607fed119ad309feb",
+        "output_hash": "67a86e5077141280ddf06b6cf925b48162e52da6f3e5dc5fcb40106492ffd083",
+        "error_code": "semantic_invalid",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP01",
+        "phase": "design",
+        "attempt_id": "30634b32-a0eb-4f64-b612-f8458a69b0da",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 8598,
+        "provider_call_id": "17ad25a3-4df3-4d44-8c2e-d3302ce544eb",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 2070,
+          "candidatesTokenCount": 3214,
+          "totalTokenCount": 5284,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2070
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "kRHBavqVKsKA1e8PirKJ0Q4"
+        },
+        "input_hash": "20e0a886c5b8f15f05d81f0d7a099d99a9ad16d5bfdc903607fed119ad309feb",
+        "output_hash": "f7f02d79f121b666642bb59f9469847ca72d953d40e986c631b979d562baed76",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP02",
+        "phase": "design",
+        "attempt_id": "2f712e6a-c7e3-42e5-aaaf-71606e00b87e",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 16050,
+        "provider_call_id": "405fef58-ce47-4672-a501-5a198aebf068",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 5383,
+          "candidatesTokenCount": 5948,
+          "totalTokenCount": 11331,
+          "cachedContentTokenCount": 2287,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 5383
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2287
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "mhHBaoayG6mRvr0Pr6y7iAY"
+        },
+        "input_hash": "5f6a0c083f4e14579cd5f7ba2aa66eb9faaacf5b8d5d101ee14ed0e06626a2bf",
+        "output_hash": "1569f46522058b52e2ad648ebcbc12291e664a6b661d161b9382a3509acd9bad",
+        "error_code": "semantic_invalid",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP02",
+        "phase": "design",
+        "attempt_id": "4a76ce0c-ab16-4561-aee2-7f8188f224f8",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 16006,
+        "provider_call_id": "506269ad-e5d0-40d0-8a32-f2250c10269c",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 5409,
+          "candidatesTokenCount": 5848,
+          "totalTokenCount": 11257,
+          "cachedContentTokenCount": 2292,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 5409
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2292
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "qhHBaveEGJzY9tMP-9zl-Q0"
+        },
+        "input_hash": "5f6a0c083f4e14579cd5f7ba2aa66eb9faaacf5b8d5d101ee14ed0e06626a2bf",
+        "output_hash": "5db94ec8a411e77a1ed32b3ea31c5217b773a4d9e3338886e13a25ac5b66fb27",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP03",
+        "phase": "design",
+        "attempt_id": "4a8759d2-32fb-4327-a0d8-5cb3034b9788",
+        "revision": 2,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 8784,
+        "provider_call_id": "cc90570b-bb62-48c9-9e53-3ab2f81966fd",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 9049,
+          "candidatesTokenCount": 3050,
+          "totalTokenCount": 12099,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 9049
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "_xHBauWJCp_W1e8PrfGKkA8"
+        },
+        "input_hash": "c411b1ad71a0bfec546b72362e3916a03e872c48beba2e82fdfecf0bdb6d1671",
+        "output_hash": "0de6a7cf33591fab6352b45c157925eac7ac7a16f58fd467916fca7ed36ac665",
+        "error_code": "semantic_invalid",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP03",
+        "phase": "design",
+        "attempt_id": "4ac1a693-c108-4745-a7c8-993ab9b5a535",
+        "revision": 2,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 8546,
+        "provider_call_id": "d744a5d4-5879-4e5c-9abb-f97271c9c219",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 9080,
+          "candidatesTokenCount": 3111,
+          "totalTokenCount": 12191,
+          "cachedContentTokenCount": 6585,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 9080
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6585
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "BxLBauntLYaL0-kPvI2TwQQ"
+        },
+        "input_hash": "c411b1ad71a0bfec546b72362e3916a03e872c48beba2e82fdfecf0bdb6d1671",
+        "output_hash": "3253b5fded9f999072a32cf7b38cc59ea229f63f7b16637f2854375400924ed7",
+        "error_code": "semantic_invalid",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      }
+    ],
+    "workflow_steps": [
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP01",
+          "phase": "design",
+          "attempt_id": "c4722ab5-1a80-4ada-9480-638054808016",
+          "revision": 1,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 9376,
+          "provider_call_id": "31775f6a-45b5-4ee5-9026-3d609c73c6be",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 2045,
+            "candidatesTokenCount": 2776,
+            "totalTokenCount": 4821,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2045
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "iBHBaqfLOJ_j1e8P5KXoyQ4"
+          },
+          "input_hash": "20e0a886c5b8f15f05d81f0d7a099d99a9ad16d5bfdc903607fed119ad309feb",
+          "output_hash": "67a86e5077141280ddf06b6cf925b48162e52da6f3e5dc5fcb40106492ffd083",
+          "error_code": "semantic_invalid",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP01",
+          "phase": "design",
+          "attempt_id": "30634b32-a0eb-4f64-b612-f8458a69b0da",
+          "revision": 1,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 8598,
+          "provider_call_id": "17ad25a3-4df3-4d44-8c2e-d3302ce544eb",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 2070,
+            "candidatesTokenCount": 3214,
+            "totalTokenCount": 5284,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2070
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "kRHBavqVKsKA1e8PirKJ0Q4"
+          },
+          "input_hash": "20e0a886c5b8f15f05d81f0d7a099d99a9ad16d5bfdc903607fed119ad309feb",
+          "output_hash": "f7f02d79f121b666642bb59f9469847ca72d953d40e986c631b979d562baed76",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP02",
+          "phase": "design",
+          "attempt_id": "2f712e6a-c7e3-42e5-aaaf-71606e00b87e",
+          "revision": 1,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 16050,
+          "provider_call_id": "405fef58-ce47-4672-a501-5a198aebf068",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 5383,
+            "candidatesTokenCount": 5948,
+            "totalTokenCount": 11331,
+            "cachedContentTokenCount": 2287,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 5383
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2287
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "mhHBaoayG6mRvr0Pr6y7iAY"
+          },
+          "input_hash": "5f6a0c083f4e14579cd5f7ba2aa66eb9faaacf5b8d5d101ee14ed0e06626a2bf",
+          "output_hash": "1569f46522058b52e2ad648ebcbc12291e664a6b661d161b9382a3509acd9bad",
+          "error_code": "semantic_invalid",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP02",
+          "phase": "design",
+          "attempt_id": "4a76ce0c-ab16-4561-aee2-7f8188f224f8",
+          "revision": 1,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 16006,
+          "provider_call_id": "506269ad-e5d0-40d0-8a32-f2250c10269c",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 5409,
+            "candidatesTokenCount": 5848,
+            "totalTokenCount": 11257,
+            "cachedContentTokenCount": 2292,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 5409
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2292
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "qhHBaveEGJzY9tMP-9zl-Q0"
+          },
+          "input_hash": "5f6a0c083f4e14579cd5f7ba2aa66eb9faaacf5b8d5d101ee14ed0e06626a2bf",
+          "output_hash": "5db94ec8a411e77a1ed32b3ea31c5217b773a4d9e3338886e13a25ac5b66fb27",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "app",
+        "purpose": "Chốt lựa chọn có căn cứ từ form",
+        "detail": "Chọn áo dài cách tân phom suông nhẹ, dễ đi lại.\nChọn chất liệu lụa mềm nhẹ.\nChọn điểm xuyết họa tiết hoa sen cách điệu tối giản."
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP03",
+          "phase": "design",
+          "attempt_id": "4a8759d2-32fb-4327-a0d8-5cb3034b9788",
+          "revision": 2,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 8784,
+          "provider_call_id": "cc90570b-bb62-48c9-9e53-3ab2f81966fd",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 9049,
+            "candidatesTokenCount": 3050,
+            "totalTokenCount": 12099,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9049
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "_xHBauWJCp_W1e8PrfGKkA8"
+          },
+          "input_hash": "c411b1ad71a0bfec546b72362e3916a03e872c48beba2e82fdfecf0bdb6d1671",
+          "output_hash": "0de6a7cf33591fab6352b45c157925eac7ac7a16f58fd467916fca7ed36ac665",
+          "error_code": "semantic_invalid",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP03",
+          "phase": "design",
+          "attempt_id": "4ac1a693-c108-4745-a7c8-993ab9b5a535",
+          "revision": 2,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 8546,
+          "provider_call_id": "d744a5d4-5879-4e5c-9abb-f97271c9c219",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 9080,
+            "candidatesTokenCount": 3111,
+            "totalTokenCount": 12191,
+            "cachedContentTokenCount": 6585,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9080
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6585
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "BxLBauntLYaL0-kPvI2TwQQ"
+          },
+          "input_hash": "c411b1ad71a0bfec546b72362e3916a03e872c48beba2e82fdfecf0bdb6d1671",
+          "output_hash": "3253b5fded9f999072a32cf7b38cc59ea229f63f7b16637f2854375400924ed7",
+          "error_code": "semantic_invalid",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "app",
+        "purpose": "Dừng vì lỗi",
+        "detail": ""
+      }
+    ],
+    "created_at": 1791037831.688396,
+    "clean_prompt": {
+      "request_id": "1d9318d6-6491-4189-adc2-cd9a409cfed9",
+      "revision": 1,
+      "clean_text": "Người dùng là nữ, muốn một bộ áo dài hiện đại để đi dự đám cưới bạn vào buổi chiều. Yêu cầu trang phục có màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ nhàng và dễ di chuyển. Về họa tiết, hoa sen hoặc các nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Trang phục không cần phục dựng lịch sử. Người dùng giao AI đề xuất những phần chưa biết, nhưng lưu ý tránh dùng nhiều phụ kiện và không làm thiết kế giống váy cô dâu. Người dùng cũng muốn xem hình ảnh để dễ lựa chọn.",
+      "domains": [
+        {
+          "domain_id": "domain_context_purpose",
+          "label": "Bối cảnh và Mục đích",
+          "summary": "Thông tin về người mặc, sự kiện và thời gian diễn ra để định hình phong cách phù hợp.",
+          "related_domain_ids": [
+            "domain_style_form"
+          ]
+        },
+        {
+          "domain_id": "domain_style_form",
+          "label": "Cấu trúc và Kiểu dáng",
+          "summary": "Kiểu trang phục áo dài hiện đại, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+          "related_domain_ids": [
+            "domain_context_purpose",
+            "domain_color_material"
+          ]
+        },
+        {
+          "domain_id": "domain_color_material",
+          "label": "Màu sắc và Cảm giác",
+          "summary": "Màu xanh ngọc nhạt, cảm giác nhẹ nhàng, thoải mái.",
+          "related_domain_ids": [
+            "domain_style_form",
+            "domain_art_details"
+          ]
+        },
+        {
+          "domain_id": "domain_art_details",
+          "label": "Mỹ thuật và Họa tiết",
+          "summary": "Các ý tưởng về họa tiết như hoa sen, nét gợi mây mang tính tùy chọn.",
+          "related_domain_ids": [
+            "domain_color_material",
+            "domain_constraints"
+          ]
+        },
+        {
+          "domain_id": "domain_constraints",
+          "label": "Quy định và Giới hạn",
+          "summary": "Không cần phục dựng lịch sử, tránh dùng nhiều phụ kiện và không làm giống váy cô dâu.",
+          "related_domain_ids": [
+            "domain_art_details",
+            "domain_presentation"
+          ]
+        },
+        {
+          "domain_id": "domain_presentation",
+          "label": "Thể hiện và Đề xuất",
+          "summary": "Giao AI đề xuất các phần chưa biết và mong muốn xem hình ảnh minh họa.",
+          "related_domain_ids": [
+            "domain_constraints"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_gender",
+          "domain_ids": [
+            "domain_context_purpose"
+          ],
+          "meaning": "Người dùng là nữ.",
+          "intent_type": "context",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình là nữ,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_garment_type",
+          "domain_ids": [
+            "domain_style_form"
+          ],
+          "meaning": "Muốn một bộ áo dài hiện đại.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "muốn một bộ áo dài hiện đại"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_occasion",
+          "domain_ids": [
+            "domain_context_purpose"
+          ],
+          "meaning": "Mặc đi đám cưới bạn vào buổi chiều.",
+          "intent_type": "context",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "đi đám cưới bạn vào buổi chiều."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_color",
+          "domain_ids": [
+            "domain_color_material"
+          ],
+          "meaning": "Thích màu xanh ngọc nhạt.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình thích màu xanh ngọc nhạt,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_silhouette_comfort",
+          "domain_ids": [
+            "domain_style_form"
+          ],
+          "meaning": "Dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_motifs_optional",
+          "domain_ids": [
+            "domain_art_details"
+          ],
+          "meaning": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết.",
+          "intent_type": "example",
+          "polarity": "neutral",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_no_historical",
+          "domain_ids": [
+            "domain_constraints"
+          ],
+          "meaning": "Không cần phục dựng trang phục lịch sử.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình không cần phục dựng trang phục lịch sử."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_delegated_details",
+          "domain_ids": [
+            "domain_presentation"
+          ],
+          "meaning": "Giao AI đề xuất những phần chưa biết.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_avoid_accessories",
+          "domain_ids": [
+            "domain_constraints"
+          ],
+          "meaning": "Tránh nhiều phụ kiện.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "nhưng tránh nhiều phụ kiện"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_avoid_bridal",
+          "domain_ids": [
+            "domain_constraints"
+          ],
+          "meaning": "Đừng làm giống váy cô dâu.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "và đừng làm giống váy cô dâu."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_want_images",
+          "domain_ids": [
+            "domain_presentation"
+          ],
+          "meaning": "Muốn xem hình để dễ chọn.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Mình muốn xem hình để dễ chọn."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "relations": [
+        {
+          "from_atom_id": "atom_garment_type",
+          "to_atom_id": "atom_silhouette_comfort",
+          "relation": "mô tả chi tiết",
+          "reason": "Các tiêu chí về dáng, độ nhẹ và sự thoải mái làm rõ hơn cho áo dài hiện đại."
+        },
+        {
+          "from_atom_id": "atom_avoid_accessories",
+          "to_atom_id": "atom_delegated_details",
+          "relation": "giới hạn đề xuất",
+          "reason": "Quy định tránh nhiều phụ kiện giới hạn phạm vi các phần do AI đề xuất."
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Mình là nữ,"
+          },
+          "atom_ids": [
+            "atom_gender"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận thông tin giới tính người mặc."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "muốn một bộ áo dài hiện đại"
+          },
+          "atom_ids": [
+            "atom_garment_type"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận loại trang phục yêu cầu."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "đi đám cưới bạn vào buổi chiều."
+          },
+          "atom_ids": [
+            "atom_occasion"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận bối cảnh sử dụng."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Mình thích màu xanh ngọc nhạt,"
+          },
+          "atom_ids": [
+            "atom_color"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận sở thích màu sắc."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+          },
+          "atom_ids": [
+            "atom_silhouette_comfort"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận yêu cầu về phom dáng và sự thoải mái."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+          },
+          "atom_ids": [
+            "atom_motifs_optional"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận ý thích họa tiết mang tính tùy chọn."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Mình không cần phục dựng trang phục lịch sử."
+          },
+          "atom_ids": [
+            "atom_no_historical"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận yêu cầu không cần phục dựng lịch sử."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+          },
+          "atom_ids": [
+            "atom_delegated_details"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận quyền quyết định giao cho AI."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "nhưng tránh nhiều phụ kiện"
+          },
+          "atom_ids": [
+            "atom_avoid_accessories"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận điều cấm tránh nhiều phụ kiện."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "và đừng làm giống váy cô dâu."
+          },
+          "atom_ids": [
+            "atom_avoid_bridal"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận điều cấm không làm giống váy cô dâu."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Mình muốn xem hình để dễ chọn."
+          },
+          "atom_ids": [
+            "atom_want_images"
+          ],
+          "disposition": "retained",
+          "reason": "Đã ghi nhận mong muốn xem hình ảnh."
+        }
+      ]
+    },
+    "checklist": {
+      "request_id": "1d9318d6-6491-4189-adc2-cd9a409cfed9",
+      "revision": 1,
+      "clean_prompt": {
+        "request_id": "1d9318d6-6491-4189-adc2-cd9a409cfed9",
+        "revision": 1,
+        "clean_text": "Người dùng là nữ, muốn một bộ áo dài hiện đại để đi dự đám cưới bạn vào buổi chiều. Yêu cầu trang phục có màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ nhàng và dễ di chuyển. Về họa tiết, hoa sen hoặc các nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Trang phục không cần phục dựng lịch sử. Người dùng giao AI đề xuất những phần chưa biết, nhưng lưu ý tránh dùng nhiều phụ kiện và không làm thiết kế giống váy cô dâu. Người dùng cũng muốn xem hình ảnh để dễ lựa chọn.",
+        "domains": [
+          {
+            "domain_id": "domain_context_purpose",
+            "label": "Bối cảnh và Mục đích",
+            "summary": "Thông tin về người mặc, sự kiện và thời gian diễn ra để định hình phong cách phù hợp.",
+            "related_domain_ids": [
+              "domain_style_form"
+            ]
+          },
+          {
+            "domain_id": "domain_style_form",
+            "label": "Cấu trúc và Kiểu dáng",
+            "summary": "Kiểu trang phục áo dài hiện đại, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+            "related_domain_ids": [
+              "domain_context_purpose",
+              "domain_color_material"
+            ]
+          },
+          {
+            "domain_id": "domain_color_material",
+            "label": "Màu sắc và Cảm giác",
+            "summary": "Màu xanh ngọc nhạt, cảm giác nhẹ nhàng, thoải mái.",
+            "related_domain_ids": [
+              "domain_style_form",
+              "domain_art_details"
+            ]
+          },
+          {
+            "domain_id": "domain_art_details",
+            "label": "Mỹ thuật và Họa tiết",
+            "summary": "Các ý tưởng về họa tiết như hoa sen, nét gợi mây mang tính tùy chọn.",
+            "related_domain_ids": [
+              "domain_color_material",
+              "domain_constraints"
+            ]
+          },
+          {
+            "domain_id": "domain_constraints",
+            "label": "Quy định và Giới hạn",
+            "summary": "Không cần phục dựng lịch sử, tránh dùng nhiều phụ kiện và không làm giống váy cô dâu.",
+            "related_domain_ids": [
+              "domain_art_details",
+              "domain_presentation"
+            ]
+          },
+          {
+            "domain_id": "domain_presentation",
+            "label": "Thể hiện và Đề xuất",
+            "summary": "Giao AI đề xuất các phần chưa biết và mong muốn xem hình ảnh minh họa.",
+            "related_domain_ids": [
+              "domain_constraints"
+            ]
+          }
+        ],
+        "atoms": [
+          {
+            "atom_id": "atom_gender",
+            "domain_ids": [
+              "domain_context_purpose"
+            ],
+            "meaning": "Người dùng là nữ.",
+            "intent_type": "context",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Mình là nữ,"
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_garment_type",
+            "domain_ids": [
+              "domain_style_form"
+            ],
+            "meaning": "Muốn một bộ áo dài hiện đại.",
+            "intent_type": "must",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "muốn một bộ áo dài hiện đại"
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_occasion",
+            "domain_ids": [
+              "domain_context_purpose"
+            ],
+            "meaning": "Mặc đi đám cưới bạn vào buổi chiều.",
+            "intent_type": "context",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "đi đám cưới bạn vào buổi chiều."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_color",
+            "domain_ids": [
+              "domain_color_material"
+            ],
+            "meaning": "Thích màu xanh ngọc nhạt.",
+            "intent_type": "preference",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Mình thích màu xanh ngọc nhạt,"
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_silhouette_comfort",
+            "domain_ids": [
+              "domain_style_form"
+            ],
+            "meaning": "Dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+            "intent_type": "must",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_motifs_optional",
+            "domain_ids": [
+              "domain_art_details"
+            ],
+            "meaning": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết.",
+            "intent_type": "example",
+            "polarity": "neutral",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_no_historical",
+            "domain_ids": [
+              "domain_constraints"
+            ],
+            "meaning": "Không cần phục dựng trang phục lịch sử.",
+            "intent_type": "avoid",
+            "polarity": "negative",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Mình không cần phục dựng trang phục lịch sử."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_delegated_details",
+            "domain_ids": [
+              "domain_presentation"
+            ],
+            "meaning": "Giao AI đề xuất những phần chưa biết.",
+            "intent_type": "delegated",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_avoid_accessories",
+            "domain_ids": [
+              "domain_constraints"
+            ],
+            "meaning": "Tránh nhiều phụ kiện.",
+            "intent_type": "avoid",
+            "polarity": "negative",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "nhưng tránh nhiều phụ kiện"
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_avoid_bridal",
+            "domain_ids": [
+              "domain_constraints"
+            ],
+            "meaning": "Đừng làm giống váy cô dâu.",
+            "intent_type": "avoid",
+            "polarity": "negative",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "và đừng làm giống váy cô dâu."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_want_images",
+            "domain_ids": [
+              "domain_presentation"
+            ],
+            "meaning": "Muốn xem hình để dễ chọn.",
+            "intent_type": "preference",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Mình muốn xem hình để dễ chọn."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          }
+        ],
+        "relations": [
+          {
+            "from_atom_id": "atom_garment_type",
+            "to_atom_id": "atom_silhouette_comfort",
+            "relation": "mô tả chi tiết",
+            "reason": "Các tiêu chí về dáng, độ nhẹ và sự thoải mái làm rõ hơn cho áo dài hiện đại."
+          },
+          {
+            "from_atom_id": "atom_avoid_accessories",
+            "to_atom_id": "atom_delegated_details",
+            "relation": "giới hạn đề xuất",
+            "reason": "Quy định tránh nhiều phụ kiện giới hạn phạm vi các phần do AI đề xuất."
+          }
+        ],
+        "conflicts": [],
+        "coverage": [
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Mình là nữ,"
+            },
+            "atom_ids": [
+              "atom_gender"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận thông tin giới tính người mặc."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "muốn một bộ áo dài hiện đại"
+            },
+            "atom_ids": [
+              "atom_garment_type"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận loại trang phục yêu cầu."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "đi đám cưới bạn vào buổi chiều."
+            },
+            "atom_ids": [
+              "atom_occasion"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận bối cảnh sử dụng."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Mình thích màu xanh ngọc nhạt,"
+            },
+            "atom_ids": [
+              "atom_color"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận sở thích màu sắc."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+            },
+            "atom_ids": [
+              "atom_silhouette_comfort"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận yêu cầu về phom dáng và sự thoải mái."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+            },
+            "atom_ids": [
+              "atom_motifs_optional"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận ý thích họa tiết mang tính tùy chọn."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Mình không cần phục dựng trang phục lịch sử."
+            },
+            "atom_ids": [
+              "atom_no_historical"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận yêu cầu không cần phục dựng lịch sử."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+            },
+            "atom_ids": [
+              "atom_delegated_details"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận quyền quyết định giao cho AI."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "nhưng tránh nhiều phụ kiện"
+            },
+            "atom_ids": [
+              "atom_avoid_accessories"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận điều cấm tránh nhiều phụ kiện."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "và đừng làm giống váy cô dâu."
+            },
+            "atom_ids": [
+              "atom_avoid_bridal"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận điều cấm không làm giống váy cô dâu."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Mình muốn xem hình để dễ chọn."
+            },
+            "atom_ids": [
+              "atom_want_images"
+            ],
+            "disposition": "retained",
+            "reason": "Đã ghi nhận mong muốn xem hình ảnh."
+          }
+        ]
+      },
+      "form_id": "8f0942ca-789e-4e94-9fe7-fb19f2c74f87",
+      "groups": [
+        {
+          "group_id": "group_context_purpose",
+          "domain_ids": [
+            "domain_context_purpose"
+          ],
+          "label": "Bối cảnh và Sự kiện",
+          "question": "Trang phục mặc đi dự đám cưới bạn vào buổi chiều với tiêu chí thoải mái, thanh lịch.",
+          "why_it_matters": "Xác định rõ không gian tiệc chiều để chọn độ dày và chất liệu vải phù hợp, tránh quá rườm rà.",
+          "status": "locked",
+          "selection_mode": "single",
+          "min": 1,
+          "max": 1,
+          "related_atom_ids": [
+            "atom_gender",
+            "atom_occasion"
+          ],
+          "depends_on": [],
+          "options": [],
+          "allows_custom": false
+        },
+        {
+          "group_id": "group_style_form",
+          "domain_ids": [
+            "domain_style_form"
+          ],
+          "label": "Kiểu dáng Áo dài Hiện đại",
+          "question": "Lựa chọn phom dáng áo dài hiện đại đáp ứng tiêu chí thanh lịch, kín đáo, nhẹ nhàng và dễ di chuyển.",
+          "why_it_matters": "Giúp người mặc thoải mái tham gia tiệc cưới buổi chiều mà vẫn giữ được nét trang nhã.",
+          "status": "needs_choice",
+          "selection_mode": "single",
+          "min": 1,
+          "max": 1,
+          "related_atom_ids": [
+            "atom_garment_type",
+            "atom_silhouette_comfort"
+          ],
+          "depends_on": [],
+          "options": [
+            {
+              "option_id": "opt_style_modern_standard",
+              "label": "Áo dài cách tân phom suông nhẹ",
+              "description": "Phom dáng suông nhẹ hiện đại, tà vừa phải, thoải mái di chuyển, đảm bảo độ kín đáo và thanh lịch.",
+              "decision_text": "Chọn áo dài cách tân phom suông nhẹ, dễ đi lại.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": true,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [
+                "opt_material_light_silk",
+                "opt_motif_lotus_subtle"
+              ],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_style_modern_slim",
+              "label": "Áo dài hiện đại chiết eo nhẹ",
+              "description": "Tôn dáng thanh lịch nhưng không quá bó sát, chất liệu nhẹ giúp giữ sự thoải mái suốt buổi chiều.",
+              "decision_text": "Chọn áo dài hiện đại chiết eo nhẹ thanh lịch.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": false,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [
+                "opt_material_light_organza",
+                "opt_motif_cloud_subtle"
+              ],
+              "incompatible_option_ids": []
+            }
+          ],
+          "allows_custom": true
+        },
+        {
+          "group_id": "group_color_material",
+          "domain_ids": [
+            "domain_color_material"
+          ],
+          "label": "Chất liệu và Cảm giác vải",
+          "question": "Lựa chọn chất liệu vải mang lại cảm giác nhẹ nhàng, phù hợp với màu xanh ngọc nhạt đã chọn.",
+          "why_it_matters": "Chất liệu quyết định độ rủ, trọng lượng và sự thoáng mát khi mặc dự tiệc.",
+          "status": "needs_choice",
+          "selection_mode": "single",
+          "min": 1,
+          "max": 1,
+          "related_atom_ids": [
+            "atom_color"
+          ],
+          "depends_on": [],
+          "options": [
+            {
+              "option_id": "opt_material_light_silk",
+              "label": "Lụa mềm nhẹ",
+              "description": "Chất liệu lụa tổng hợp hoặc lụa cát mềm mại, có độ rủ tự nhiên, nhẹ nhàng cho tiệc chiều.",
+              "decision_text": "Chọn chất liệu lụa mềm nhẹ.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": true,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [
+                "opt_style_modern_standard"
+              ],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_material_light_organza",
+              "label": "Voan tơ / Organza nhẹ",
+              "description": "Chất liệu bay bổng, thoáng nhẹ, tạo cảm giác thanh thoát.",
+              "decision_text": "Chọn chất liệu voan tơ hoặc organza nhẹ.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": false,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [
+                "opt_style_modern_slim"
+              ],
+              "incompatible_option_ids": []
+            }
+          ],
+          "allows_custom": true
+        },
+        {
+          "group_id": "group_art_details",
+          "domain_ids": [
+            "domain_art_details"
+          ],
+          "label": "Họa tiết trang trí (Tùy chọn)",
+          "question": "Bạn có muốn áp dụng hoa sen, nét gợi mây hoặc để trống theo sở thích không bắt buộc?",
+          "why_it_matters": "Giúp cá nhân hóa hoa văn trên nền áo xanh ngọc nhạt mà không làm trang phục quá rườm rà.",
+          "status": "optional",
+          "selection_mode": "single",
+          "min": 0,
+          "max": 1,
+          "related_atom_ids": [
+            "atom_motifs_optional"
+          ],
+          "depends_on": [],
+          "options": [
+            {
+              "option_id": "opt_motif_lotus_subtle",
+              "label": "Họa tiết hoa sen cách điệu tối giản",
+              "description": "Thêu chìm hoặc in mờ họa tiết hoa sen nhỏ tinh tế ở dọc tà áo.",
+              "decision_text": "Chọn điểm xuyết họa tiết hoa sen cách điệu tối giản.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": false,
+              "is_ai_delegate": true,
+              "compatible_option_ids": [
+                "opt_style_modern_standard"
+              ],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_motif_cloud_subtle",
+              "label": "Nét gợi mây nhẹ nhàng",
+              "description": "Đường nét mây uốn lượn nhẹ ở cổ áo hoặc cổ tay.",
+              "decision_text": "Chọn điểm xuyết nét gợi mây nhẹ nhàng.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": false,
+              "is_ai_delegate": true,
+              "compatible_option_ids": [
+                "opt_style_modern_slim"
+              ],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_motif_none",
+              "label": "Trơn hoàn toàn",
+              "description": "Không dùng họa tiết để giữ sự tối giản tuyệt đối.",
+              "decision_text": "Giữ áo trơn không họa tiết.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": true,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [],
+              "incompatible_option_ids": []
+            }
+          ],
+          "allows_custom": true
+        },
+        {
+          "group_id": "group_constraints",
+          "domain_ids": [
+            "domain_constraints"
+          ],
+          "label": "Giới hạn thiết kế",
+          "question": "Xác nhận các nguyên tắc: không phục dựng lịch sử, tránh nhiều phụ kiện và không làm giống váy cô dâu.",
+          "why_it_matters": "Bảo đảm đúng định hướng thiết kế hiện đại, tinh gọn và tôn trọng vai trò khách dự tiệc.",
+          "status": "locked",
+          "selection_mode": "single",
+          "min": 1,
+          "max": 1,
+          "related_atom_ids": [
+            "atom_no_historical",
+            "atom_avoid_accessories",
+            "atom_avoid_bridal"
+          ],
+          "depends_on": [],
+          "options": [],
+          "allows_custom": false
+        },
+        {
+          "group_id": "group_presentation",
+          "domain_ids": [
+            "domain_presentation"
+          ],
+          "label": "Đề xuất và Hình ảnh",
+          "question": "Giao AI hoàn thiện các phần chưa biết và cung cấp hình ảnh minh họa theo yêu cầu.",
+          "why_it_matters": "Hỗ trợ trực quan hóa thiết kế để dễ dàng lựa chọn.",
+          "status": "locked",
+          "selection_mode": "single",
+          "min": 1,
+          "max": 1,
+          "related_atom_ids": [
+            "atom_delegated_details",
+            "atom_want_images"
+          ],
+          "depends_on": [],
+          "options": [],
+          "allows_custom": false
+        }
+      ],
+      "references": [],
+      "open_conflicts": []
+    },
+    "resolved_brief": null,
+    "choices": {
+      "revision": 1,
+      "form_id": "8f0942ca-789e-4e94-9fe7-fb19f2c74f87",
+      "idempotency_key": "40a49825-1f38-4f7d-909b-92274e524b89",
+      "selections": [
+        {
+          "group_id": "group_style_form",
+          "option_ids": [
+            "opt_style_modern_standard"
+          ],
+          "custom_text": ""
+        },
+        {
+          "group_id": "group_color_material",
+          "option_ids": [
+            "opt_material_light_silk"
+          ],
+          "custom_text": ""
+        },
+        {
+          "group_id": "group_art_details",
+          "option_ids": [
+            "opt_motif_lotus_subtle"
+          ],
+          "custom_text": ""
+        }
+      ],
+      "explicit_changes": [],
+      "turn_id": "S1"
+    },
+    "references": [],
+    "reference_metadata": [
+      {
+        "groundingMetadata": {},
+        "urlContextMetadata": {},
+        "modelVersion": "gemini-3.5-flash-lite",
+        "responseId": "qhHBaveEGJzY9tMP-9zl-Q0"
+      }
+    ],
+    "checkpoints": {
+      "24ae481c70a995b0186ba7792dd5528bd4e8686dc425f8583bc88b0637e08402": {
+        "task": "VP01",
+        "value": {
+          "request_id": "1d9318d6-6491-4189-adc2-cd9a409cfed9",
+          "revision": 1,
+          "clean_text": "Người dùng là nữ, muốn một bộ áo dài hiện đại để đi dự đám cưới bạn vào buổi chiều. Yêu cầu trang phục có màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ nhàng và dễ di chuyển. Về họa tiết, hoa sen hoặc các nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Trang phục không cần phục dựng lịch sử. Người dùng giao AI đề xuất những phần chưa biết, nhưng lưu ý tránh dùng nhiều phụ kiện và không làm thiết kế giống váy cô dâu. Người dùng cũng muốn xem hình ảnh để dễ lựa chọn.",
+          "domains": [
+            {
+              "domain_id": "domain_context_purpose",
+              "label": "Bối cảnh và Mục đích",
+              "summary": "Thông tin về người mặc, sự kiện và thời gian diễn ra để định hình phong cách phù hợp.",
+              "related_domain_ids": [
+                "domain_style_form"
+              ]
+            },
+            {
+              "domain_id": "domain_style_form",
+              "label": "Cấu trúc và Kiểu dáng",
+              "summary": "Kiểu trang phục áo dài hiện đại, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+              "related_domain_ids": [
+                "domain_context_purpose",
+                "domain_color_material"
+              ]
+            },
+            {
+              "domain_id": "domain_color_material",
+              "label": "Màu sắc và Cảm giác",
+              "summary": "Màu xanh ngọc nhạt, cảm giác nhẹ nhàng, thoải mái.",
+              "related_domain_ids": [
+                "domain_style_form",
+                "domain_art_details"
+              ]
+            },
+            {
+              "domain_id": "domain_art_details",
+              "label": "Mỹ thuật và Họa tiết",
+              "summary": "Các ý tưởng về họa tiết như hoa sen, nét gợi mây mang tính tùy chọn.",
+              "related_domain_ids": [
+                "domain_color_material",
+                "domain_constraints"
+              ]
+            },
+            {
+              "domain_id": "domain_constraints",
+              "label": "Quy định và Giới hạn",
+              "summary": "Không cần phục dựng lịch sử, tránh dùng nhiều phụ kiện và không làm giống váy cô dâu.",
+              "related_domain_ids": [
+                "domain_art_details",
+                "domain_presentation"
+              ]
+            },
+            {
+              "domain_id": "domain_presentation",
+              "label": "Thể hiện và Đề xuất",
+              "summary": "Giao AI đề xuất các phần chưa biết và mong muốn xem hình ảnh minh họa.",
+              "related_domain_ids": [
+                "domain_constraints"
+              ]
+            }
+          ],
+          "atoms": [
+            {
+              "atom_id": "atom_gender",
+              "domain_ids": [
+                "domain_context_purpose"
+              ],
+              "meaning": "Người dùng là nữ.",
+              "intent_type": "context",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Mình là nữ,"
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_garment_type",
+              "domain_ids": [
+                "domain_style_form"
+              ],
+              "meaning": "Muốn một bộ áo dài hiện đại.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "muốn một bộ áo dài hiện đại"
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_occasion",
+              "domain_ids": [
+                "domain_context_purpose"
+              ],
+              "meaning": "Mặc đi đám cưới bạn vào buổi chiều.",
+              "intent_type": "context",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "đi đám cưới bạn vào buổi chiều."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_color",
+              "domain_ids": [
+                "domain_color_material"
+              ],
+              "meaning": "Thích màu xanh ngọc nhạt.",
+              "intent_type": "preference",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Mình thích màu xanh ngọc nhạt,"
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_silhouette_comfort",
+              "domain_ids": [
+                "domain_style_form"
+              ],
+              "meaning": "Dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_motifs_optional",
+              "domain_ids": [
+                "domain_art_details"
+              ],
+              "meaning": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết.",
+              "intent_type": "example",
+              "polarity": "neutral",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_no_historical",
+              "domain_ids": [
+                "domain_constraints"
+              ],
+              "meaning": "Không cần phục dựng trang phục lịch sử.",
+              "intent_type": "avoid",
+              "polarity": "negative",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Mình không cần phục dựng trang phục lịch sử."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_delegated_details",
+              "domain_ids": [
+                "domain_presentation"
+              ],
+              "meaning": "Giao AI đề xuất những phần chưa biết.",
+              "intent_type": "delegated",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_avoid_accessories",
+              "domain_ids": [
+                "domain_constraints"
+              ],
+              "meaning": "Tránh nhiều phụ kiện.",
+              "intent_type": "avoid",
+              "polarity": "negative",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "nhưng tránh nhiều phụ kiện"
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_avoid_bridal",
+              "domain_ids": [
+                "domain_constraints"
+              ],
+              "meaning": "Đừng làm giống váy cô dâu.",
+              "intent_type": "avoid",
+              "polarity": "negative",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "và đừng làm giống váy cô dâu."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_want_images",
+              "domain_ids": [
+                "domain_presentation"
+              ],
+              "meaning": "Muốn xem hình để dễ chọn.",
+              "intent_type": "preference",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Mình muốn xem hình để dễ chọn."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            }
+          ],
+          "relations": [
+            {
+              "from_atom_id": "atom_garment_type",
+              "to_atom_id": "atom_silhouette_comfort",
+              "relation": "mô tả chi tiết",
+              "reason": "Các tiêu chí về dáng, độ nhẹ và sự thoải mái làm rõ hơn cho áo dài hiện đại."
+            },
+            {
+              "from_atom_id": "atom_avoid_accessories",
+              "to_atom_id": "atom_delegated_details",
+              "relation": "giới hạn đề xuất",
+              "reason": "Quy định tránh nhiều phụ kiện giới hạn phạm vi các phần do AI đề xuất."
+            }
+          ],
+          "conflicts": [],
+          "coverage": [
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Mình là nữ,"
+              },
+              "atom_ids": [
+                "atom_gender"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận thông tin giới tính người mặc."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "muốn một bộ áo dài hiện đại"
+              },
+              "atom_ids": [
+                "atom_garment_type"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận loại trang phục yêu cầu."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "đi đám cưới bạn vào buổi chiều."
+              },
+              "atom_ids": [
+                "atom_occasion"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận bối cảnh sử dụng."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Mình thích màu xanh ngọc nhạt,"
+              },
+              "atom_ids": [
+                "atom_color"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận sở thích màu sắc."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+              },
+              "atom_ids": [
+                "atom_silhouette_comfort"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận yêu cầu về phom dáng và sự thoải mái."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+              },
+              "atom_ids": [
+                "atom_motifs_optional"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận ý thích họa tiết mang tính tùy chọn."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Mình không cần phục dựng trang phục lịch sử."
+              },
+              "atom_ids": [
+                "atom_no_historical"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận yêu cầu không cần phục dựng lịch sử."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+              },
+              "atom_ids": [
+                "atom_delegated_details"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận quyền quyết định giao cho AI."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "nhưng tránh nhiều phụ kiện"
+              },
+              "atom_ids": [
+                "atom_avoid_accessories"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận điều cấm tránh nhiều phụ kiện."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "và đừng làm giống váy cô dâu."
+              },
+              "atom_ids": [
+                "atom_avoid_bridal"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận điều cấm không làm giống váy cô dâu."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Mình muốn xem hình để dễ chọn."
+              },
+              "atom_ids": [
+                "atom_want_images"
+              ],
+              "disposition": "retained",
+              "reason": "Đã ghi nhận mong muốn xem hình ảnh."
+            }
+          ]
+        },
+        "metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "kRHBavqVKsKA1e8PirKJ0Q4"
+        },
+        "usage": {
+          "promptTokenCount": 2070,
+          "candidatesTokenCount": 3214,
+          "totalTokenCount": 5284,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2070
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      },
+      "0b157e560d53ea61c23ff9688b5f43f6b78a4bb45e8f969524aaffdcd40ec829": {
+        "task": "VP02",
+        "value": {
+          "request_id": "1d9318d6-6491-4189-adc2-cd9a409cfed9",
+          "revision": 1,
+          "clean_prompt": {
+            "request_id": "1d9318d6-6491-4189-adc2-cd9a409cfed9",
+            "revision": 1,
+            "clean_text": "Người dùng là nữ, muốn một bộ áo dài hiện đại để đi dự đám cưới bạn vào buổi chiều. Yêu cầu trang phục có màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ nhàng và dễ di chuyển. Về họa tiết, hoa sen hoặc các nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Trang phục không cần phục dựng lịch sử. Người dùng giao AI đề xuất những phần chưa biết, nhưng lưu ý tránh dùng nhiều phụ kiện và không làm thiết kế giống váy cô dâu. Người dùng cũng muốn xem hình ảnh để dễ lựa chọn.",
+            "domains": [
+              {
+                "domain_id": "domain_context_purpose",
+                "label": "Bối cảnh và Mục đích",
+                "summary": "Thông tin về người mặc, sự kiện và thời gian diễn ra để định hình phong cách phù hợp.",
+                "related_domain_ids": [
+                  "domain_style_form"
+                ]
+              },
+              {
+                "domain_id": "domain_style_form",
+                "label": "Cấu trúc và Kiểu dáng",
+                "summary": "Kiểu trang phục áo dài hiện đại, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+                "related_domain_ids": [
+                  "domain_context_purpose",
+                  "domain_color_material"
+                ]
+              },
+              {
+                "domain_id": "domain_color_material",
+                "label": "Màu sắc và Cảm giác",
+                "summary": "Màu xanh ngọc nhạt, cảm giác nhẹ nhàng, thoải mái.",
+                "related_domain_ids": [
+                  "domain_style_form",
+                  "domain_art_details"
+                ]
+              },
+              {
+                "domain_id": "domain_art_details",
+                "label": "Mỹ thuật và Họa tiết",
+                "summary": "Các ý tưởng về họa tiết như hoa sen, nét gợi mây mang tính tùy chọn.",
+                "related_domain_ids": [
+                  "domain_color_material",
+                  "domain_constraints"
+                ]
+              },
+              {
+                "domain_id": "domain_constraints",
+                "label": "Quy định và Giới hạn",
+                "summary": "Không cần phục dựng lịch sử, tránh dùng nhiều phụ kiện và không làm giống váy cô dâu.",
+                "related_domain_ids": [
+                  "domain_art_details",
+                  "domain_presentation"
+                ]
+              },
+              {
+                "domain_id": "domain_presentation",
+                "label": "Thể hiện và Đề xuất",
+                "summary": "Giao AI đề xuất các phần chưa biết và mong muốn xem hình ảnh minh họa.",
+                "related_domain_ids": [
+                  "domain_constraints"
+                ]
+              }
+            ],
+            "atoms": [
+              {
+                "atom_id": "atom_gender",
+                "domain_ids": [
+                  "domain_context_purpose"
+                ],
+                "meaning": "Người dùng là nữ.",
+                "intent_type": "context",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Mình là nữ,"
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_garment_type",
+                "domain_ids": [
+                  "domain_style_form"
+                ],
+                "meaning": "Muốn một bộ áo dài hiện đại.",
+                "intent_type": "must",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "muốn một bộ áo dài hiện đại"
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_occasion",
+                "domain_ids": [
+                  "domain_context_purpose"
+                ],
+                "meaning": "Mặc đi đám cưới bạn vào buổi chiều.",
+                "intent_type": "context",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "đi đám cưới bạn vào buổi chiều."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_color",
+                "domain_ids": [
+                  "domain_color_material"
+                ],
+                "meaning": "Thích màu xanh ngọc nhạt.",
+                "intent_type": "preference",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Mình thích màu xanh ngọc nhạt,"
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_silhouette_comfort",
+                "domain_ids": [
+                  "domain_style_form"
+                ],
+                "meaning": "Dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+                "intent_type": "must",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_motifs_optional",
+                "domain_ids": [
+                  "domain_art_details"
+                ],
+                "meaning": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết.",
+                "intent_type": "example",
+                "polarity": "neutral",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_no_historical",
+                "domain_ids": [
+                  "domain_constraints"
+                ],
+                "meaning": "Không cần phục dựng trang phục lịch sử.",
+                "intent_type": "avoid",
+                "polarity": "negative",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Mình không cần phục dựng trang phục lịch sử."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_delegated_details",
+                "domain_ids": [
+                  "domain_presentation"
+                ],
+                "meaning": "Giao AI đề xuất những phần chưa biết.",
+                "intent_type": "delegated",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_avoid_accessories",
+                "domain_ids": [
+                  "domain_constraints"
+                ],
+                "meaning": "Tránh nhiều phụ kiện.",
+                "intent_type": "avoid",
+                "polarity": "negative",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "nhưng tránh nhiều phụ kiện"
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_avoid_bridal",
+                "domain_ids": [
+                  "domain_constraints"
+                ],
+                "meaning": "Đừng làm giống váy cô dâu.",
+                "intent_type": "avoid",
+                "polarity": "negative",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "và đừng làm giống váy cô dâu."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_want_images",
+                "domain_ids": [
+                  "domain_presentation"
+                ],
+                "meaning": "Muốn xem hình để dễ chọn.",
+                "intent_type": "preference",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Mình muốn xem hình để dễ chọn."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              }
+            ],
+            "relations": [
+              {
+                "from_atom_id": "atom_garment_type",
+                "to_atom_id": "atom_silhouette_comfort",
+                "relation": "mô tả chi tiết",
+                "reason": "Các tiêu chí về dáng, độ nhẹ và sự thoải mái làm rõ hơn cho áo dài hiện đại."
+              },
+              {
+                "from_atom_id": "atom_avoid_accessories",
+                "to_atom_id": "atom_delegated_details",
+                "relation": "giới hạn đề xuất",
+                "reason": "Quy định tránh nhiều phụ kiện giới hạn phạm vi các phần do AI đề xuất."
+              }
+            ],
+            "conflicts": [],
+            "coverage": [
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Mình là nữ,"
+                },
+                "atom_ids": [
+                  "atom_gender"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận thông tin giới tính người mặc."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "muốn một bộ áo dài hiện đại"
+                },
+                "atom_ids": [
+                  "atom_garment_type"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận loại trang phục yêu cầu."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "đi đám cưới bạn vào buổi chiều."
+                },
+                "atom_ids": [
+                  "atom_occasion"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận bối cảnh sử dụng."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Mình thích màu xanh ngọc nhạt,"
+                },
+                "atom_ids": [
+                  "atom_color"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận sở thích màu sắc."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+                },
+                "atom_ids": [
+                  "atom_silhouette_comfort"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận yêu cầu về phom dáng và sự thoải mái."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+                },
+                "atom_ids": [
+                  "atom_motifs_optional"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận ý thích họa tiết mang tính tùy chọn."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Mình không cần phục dựng trang phục lịch sử."
+                },
+                "atom_ids": [
+                  "atom_no_historical"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận yêu cầu không cần phục dựng lịch sử."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+                },
+                "atom_ids": [
+                  "atom_delegated_details"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận quyền quyết định giao cho AI."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "nhưng tránh nhiều phụ kiện"
+                },
+                "atom_ids": [
+                  "atom_avoid_accessories"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận điều cấm tránh nhiều phụ kiện."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "và đừng làm giống váy cô dâu."
+                },
+                "atom_ids": [
+                  "atom_avoid_bridal"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận điều cấm không làm giống váy cô dâu."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Mình muốn xem hình để dễ chọn."
+                },
+                "atom_ids": [
+                  "atom_want_images"
+                ],
+                "disposition": "retained",
+                "reason": "Đã ghi nhận mong muốn xem hình ảnh."
+              }
+            ]
+          },
+          "form_id": "8f0942ca-789e-4e94-9fe7-fb19f2c74f87",
+          "groups": [
+            {
+              "group_id": "group_context_purpose",
+              "domain_ids": [
+                "domain_context_purpose"
+              ],
+              "label": "Bối cảnh và Sự kiện",
+              "question": "Trang phục mặc đi dự đám cưới bạn vào buổi chiều với tiêu chí thoải mái, thanh lịch.",
+              "why_it_matters": "Xác định rõ không gian tiệc chiều để chọn độ dày và chất liệu vải phù hợp, tránh quá rườm rà.",
+              "status": "locked",
+              "selection_mode": "single",
+              "min": 1,
+              "max": 1,
+              "related_atom_ids": [
+                "atom_gender",
+                "atom_occasion"
+              ],
+              "depends_on": [],
+              "options": [],
+              "allows_custom": false
+            },
+            {
+              "group_id": "group_style_form",
+              "domain_ids": [
+                "domain_style_form"
+              ],
+              "label": "Kiểu dáng Áo dài Hiện đại",
+              "question": "Lựa chọn phom dáng áo dài hiện đại đáp ứng tiêu chí thanh lịch, kín đáo, nhẹ nhàng và dễ di chuyển.",
+              "why_it_matters": "Giúp người mặc thoải mái tham gia tiệc cưới buổi chiều mà vẫn giữ được nét trang nhã.",
+              "status": "needs_choice",
+              "selection_mode": "single",
+              "min": 1,
+              "max": 1,
+              "related_atom_ids": [
+                "atom_garment_type",
+                "atom_silhouette_comfort"
+              ],
+              "depends_on": [],
+              "options": [
+                {
+                  "option_id": "opt_style_modern_standard",
+                  "label": "Áo dài cách tân phom suông nhẹ",
+                  "description": "Phom dáng suông nhẹ hiện đại, tà vừa phải, thoải mái di chuyển, đảm bảo độ kín đáo và thanh lịch.",
+                  "decision_text": "Chọn áo dài cách tân phom suông nhẹ, dễ đi lại.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": true,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [
+                    "opt_material_light_silk",
+                    "opt_motif_lotus_subtle"
+                  ],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_style_modern_slim",
+                  "label": "Áo dài hiện đại chiết eo nhẹ",
+                  "description": "Tôn dáng thanh lịch nhưng không quá bó sát, chất liệu nhẹ giúp giữ sự thoải mái suốt buổi chiều.",
+                  "decision_text": "Chọn áo dài hiện đại chiết eo nhẹ thanh lịch.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": false,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [
+                    "opt_material_light_organza",
+                    "opt_motif_cloud_subtle"
+                  ],
+                  "incompatible_option_ids": []
+                }
+              ],
+              "allows_custom": true
+            },
+            {
+              "group_id": "group_color_material",
+              "domain_ids": [
+                "domain_color_material"
+              ],
+              "label": "Chất liệu và Cảm giác vải",
+              "question": "Lựa chọn chất liệu vải mang lại cảm giác nhẹ nhàng, phù hợp với màu xanh ngọc nhạt đã chọn.",
+              "why_it_matters": "Chất liệu quyết định độ rủ, trọng lượng và sự thoáng mát khi mặc dự tiệc.",
+              "status": "needs_choice",
+              "selection_mode": "single",
+              "min": 1,
+              "max": 1,
+              "related_atom_ids": [
+                "atom_color"
+              ],
+              "depends_on": [],
+              "options": [
+                {
+                  "option_id": "opt_material_light_silk",
+                  "label": "Lụa mềm nhẹ",
+                  "description": "Chất liệu lụa tổng hợp hoặc lụa cát mềm mại, có độ rủ tự nhiên, nhẹ nhàng cho tiệc chiều.",
+                  "decision_text": "Chọn chất liệu lụa mềm nhẹ.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": true,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [
+                    "opt_style_modern_standard"
+                  ],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_material_light_organza",
+                  "label": "Voan tơ / Organza nhẹ",
+                  "description": "Chất liệu bay bổng, thoáng nhẹ, tạo cảm giác thanh thoát.",
+                  "decision_text": "Chọn chất liệu voan tơ hoặc organza nhẹ.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": false,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [
+                    "opt_style_modern_slim"
+                  ],
+                  "incompatible_option_ids": []
+                }
+              ],
+              "allows_custom": true
+            },
+            {
+              "group_id": "group_art_details",
+              "domain_ids": [
+                "domain_art_details"
+              ],
+              "label": "Họa tiết trang trí (Tùy chọn)",
+              "question": "Bạn có muốn áp dụng hoa sen, nét gợi mây hoặc để trống theo sở thích không bắt buộc?",
+              "why_it_matters": "Giúp cá nhân hóa hoa văn trên nền áo xanh ngọc nhạt mà không làm trang phục quá rườm rà.",
+              "status": "optional",
+              "selection_mode": "single",
+              "min": 0,
+              "max": 1,
+              "related_atom_ids": [
+                "atom_motifs_optional"
+              ],
+              "depends_on": [],
+              "options": [
+                {
+                  "option_id": "opt_motif_lotus_subtle",
+                  "label": "Họa tiết hoa sen cách điệu tối giản",
+                  "description": "Thêu chìm hoặc in mờ họa tiết hoa sen nhỏ tinh tế ở dọc tà áo.",
+                  "decision_text": "Chọn điểm xuyết họa tiết hoa sen cách điệu tối giản.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": false,
+                  "is_ai_delegate": true,
+                  "compatible_option_ids": [
+                    "opt_style_modern_standard"
+                  ],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_motif_cloud_subtle",
+                  "label": "Nét gợi mây nhẹ nhàng",
+                  "description": "Đường nét mây uốn lượn nhẹ ở cổ áo hoặc cổ tay.",
+                  "decision_text": "Chọn điểm xuyết nét gợi mây nhẹ nhàng.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": false,
+                  "is_ai_delegate": true,
+                  "compatible_option_ids": [
+                    "opt_style_modern_slim"
+                  ],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_motif_none",
+                  "label": "Trơn hoàn toàn",
+                  "description": "Không dùng họa tiết để giữ sự tối giản tuyệt đối.",
+                  "decision_text": "Giữ áo trơn không họa tiết.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": true,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [],
+                  "incompatible_option_ids": []
+                }
+              ],
+              "allows_custom": true
+            },
+            {
+              "group_id": "group_constraints",
+              "domain_ids": [
+                "domain_constraints"
+              ],
+              "label": "Giới hạn thiết kế",
+              "question": "Xác nhận các nguyên tắc: không phục dựng lịch sử, tránh nhiều phụ kiện và không làm giống váy cô dâu.",
+              "why_it_matters": "Bảo đảm đúng định hướng thiết kế hiện đại, tinh gọn và tôn trọng vai trò khách dự tiệc.",
+              "status": "locked",
+              "selection_mode": "single",
+              "min": 1,
+              "max": 1,
+              "related_atom_ids": [
+                "atom_no_historical",
+                "atom_avoid_accessories",
+                "atom_avoid_bridal"
+              ],
+              "depends_on": [],
+              "options": [],
+              "allows_custom": false
+            },
+            {
+              "group_id": "group_presentation",
+              "domain_ids": [
+                "domain_presentation"
+              ],
+              "label": "Đề xuất và Hình ảnh",
+              "question": "Giao AI hoàn thiện các phần chưa biết và cung cấp hình ảnh minh họa theo yêu cầu.",
+              "why_it_matters": "Hỗ trợ trực quan hóa thiết kế để dễ dàng lựa chọn.",
+              "status": "locked",
+              "selection_mode": "single",
+              "min": 1,
+              "max": 1,
+              "related_atom_ids": [
+                "atom_delegated_details",
+                "atom_want_images"
+              ],
+              "depends_on": [],
+              "options": [],
+              "allows_custom": false
+            }
+          ],
+          "references": [],
+          "open_conflicts": []
+        },
+        "metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "qhHBaveEGJzY9tMP-9zl-Q0"
+        },
+        "usage": {
+          "promptTokenCount": 5409,
+          "candidatesTokenCount": 5848,
+          "totalTokenCount": 11257,
+          "cachedContentTokenCount": 2292,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 5409
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2292
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      }
+    },
+    "call_records": {
+      "c4722ab5-1a80-4ada-9480-638054808016": {
+        "task_key": "24ae481c70a995b0186ba7792dd5528bd4e8686dc425f8583bc88b0637e08402",
+        "task": "VP01",
+        "stage": "cleaning",
+        "role": null,
+        "revision": 1,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791037831.719978,
+        "timeout_seconds": 40,
+        "provider_call_id": "31775f6a-45b5-4ee5-9026-3d609c73c6be",
+        "finished_at": 1791037841.095317
+      },
+      "30634b32-a0eb-4f64-b612-f8458a69b0da": {
+        "task_key": "24ae481c70a995b0186ba7792dd5528bd4e8686dc425f8583bc88b0637e08402",
+        "task": "VP01",
+        "stage": "cleaning",
+        "role": null,
+        "revision": 1,
+        "batch_id": null,
+        "status": "complete",
+        "started_at": 1791037841.097436,
+        "timeout_seconds": 40,
+        "provider_call_id": "17ad25a3-4df3-4d44-8c2e-d3302ce544eb",
+        "finished_at": 1791037849.6956449
+      },
+      "2f712e6a-c7e3-42e5-aaaf-71606e00b87e": {
+        "task_key": "0b157e560d53ea61c23ff9688b5f43f6b78a4bb45e8f969524aaffdcd40ec829",
+        "task": "VP02",
+        "stage": "designing_checklist",
+        "role": null,
+        "revision": 1,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791037849.719813,
+        "timeout_seconds": 60,
+        "provider_call_id": "405fef58-ce47-4672-a501-5a198aebf068",
+        "finished_at": 1791037865.770026
+      },
+      "4a76ce0c-ab16-4561-aee2-7f8188f224f8": {
+        "task_key": "0b157e560d53ea61c23ff9688b5f43f6b78a4bb45e8f969524aaffdcd40ec829",
+        "task": "VP02",
+        "stage": "designing_checklist",
+        "role": null,
+        "revision": 1,
+        "batch_id": null,
+        "status": "complete",
+        "started_at": 1791037865.774049,
+        "timeout_seconds": 60,
+        "provider_call_id": "506269ad-e5d0-40d0-8a32-f2250c10269c",
+        "finished_at": 1791037881.7801101
+      },
+      "4a8759d2-32fb-4327-a0d8-5cb3034b9788": {
+        "task_key": "457e1eab9db612df604241e2d17ed244c18c93340b5fe02a3ac95973bb23f4e5",
+        "task": "VP03",
+        "stage": "resolving_choices",
+        "role": null,
+        "revision": 2,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791037950.326124,
+        "timeout_seconds": 40,
+        "provider_call_id": "cc90570b-bb62-48c9-9e53-3ab2f81966fd",
+        "finished_at": 1791037959.1087291
+      },
+      "4ac1a693-c108-4745-a7c8-993ab9b5a535": {
+        "task_key": "457e1eab9db612df604241e2d17ed244c18c93340b5fe02a3ac95973bb23f4e5",
+        "task": "VP03",
+        "stage": "resolving_choices",
+        "role": null,
+        "revision": 2,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791037959.1158779,
+        "timeout_seconds": 40,
+        "provider_call_id": "d744a5d4-5879-4e5c-9abb-f97271c9c219",
+        "finished_at": 1791037967.66104
+      }
+    },
+    "selection_receipts": {
+      "40a49825-1f38-4f7d-909b-92274e524b89": {
+        "fingerprint": "a008ca565e1a9ebb8d31961250d5799b87cea4c9ff885c8b5595137f3125464d",
+        "result": {
+          "request_id": "1d9318d6-6491-4189-adc2-cd9a409cfed9",
+          "revision": 2,
+          "status": "queued"
+        }
+      }
+    },
+    "generation_batches": {},
+    "prompt_pool": [],
+    "specialist_audits": {},
+    "harmony_audits": {},
+    "supplemental_batches": 0,
+    "checklist_round": 1,
+    "metrics": {
+      "provider_calls": 6,
+      "actual_api_calls": 6,
+      "cache_hits": 0,
+      "active_seconds": 67.489,
+      "design": {
+        "attempts": 6,
+        "actual_api_calls": 6,
+        "active_seconds": 67.489,
+        "search_queries_reported": 0
+      },
+      "media": {
+        "attempts": 0,
+        "actual_api_calls": 0,
+        "active_seconds": 0.0
+      },
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null,
+      "manual_image_prompts": 0,
+      "manual_images_received": 0,
+      "manual_audit_prompts": 0,
+      "manual_audits_received": 0
+    },
+    "manifest": {
+      "kit_hash": "bde6f3ac71dc90072b4760b1f40585f49950d2ca0127cc1129af9f5868f8b9d1",
+      "vp_hash": "b95d5f739aac41d5144972b03f7c632e54b1f5b6721a1a6394929be406003fe5",
+      "template_version": "8448719eedd44970089fdb9b4b377fedfbc119f1df70a1cd6e832fe61348ca6b",
+      "schema_version": "viet-phuc-2.0.0",
+      "rubric_version": "vp-rubric-2.0.0",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image",
+      "pack_hash": "5eefbd3c6bef7b07444cbad8f51d2e535b0a032dbc05d962bbf232185855ee38"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "design_clock": {
+      "started_at": 1791037950.279271,
+      "checkpoint_at": 1791037967.662912,
+      "base": 50.106
+    },
+    "failed_stage": "resolving_choices"
+  }
+}

@@ -1,0 +1,845 @@
+{
+  "evidence_id": "7947785e-9ab6-4965-a183-482b391aaba4",
+  "recorded_at": 1791062800.7407172,
+  "request_id": "ce6c0b69-afe5-44cd-b418-818b84ad19c3",
+  "revision": 2,
+  "attempt_id": "bff1b42a-4387-4fbb-bc49-6b692777b79c",
+  "task": "VP04",
+  "payload": {
+    "REQUEST_METADATA": {
+      "request_id": "ce6c0b69-afe5-44cd-b418-818b84ad19c3",
+      "revision": 2
+    },
+    "USER_TURNS": [
+      {
+        "id": "T1",
+        "text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế."
+      },
+      {
+        "id": "S1",
+        "text": "Sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại.\nSử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng.\nSử dụng bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích.\nSử dụng thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo.\nSử dụng khăn vấn tóc cách tân dạng băng đô lụa.\nTrình bày dưới dạng bản minh họa thiết kế thời trang."
+      }
+    ],
+    "RESOLVED_BRIEF": {
+      "request_id": "ce6c0b69-afe5-44cd-b418-818b84ad19c3",
+      "revision": 2,
+      "resolved_text": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, cụ thể sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại, được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Trang phục sử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng, bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích, cùng điểm nhấn thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo. Phụ kiện đi kèm gồm khăn vấn tóc cách tân dạng băng đô lụa. Trình bày dưới dạng bản minh họa thiết kế thời trang. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và thời trang quốc tế.",
+      "domains": [
+        {
+          "domain_id": "dom_bocanh",
+          "label": "Bối cảnh & Chủ đề",
+          "summary": "Mục đích sử dụng cho sự kiện thời trang mùa hè với chủ đề kết hợp truyền thống và hiện đại, mang tính thời trang quốc tế. Phong cách trình bày dưới dạng bản minh họa thiết kế thời trang.",
+          "related_domain_ids": [
+            "dom_cautruc",
+            "dom_mythuat"
+          ]
+        },
+        {
+          "domain_id": "dom_cautruc",
+          "label": "Cấu trúc & Phom dáng",
+          "summary": "Thiết kế váy liền thân nữ dáng chữ A nhẹ, kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại, xử lý gọn gàng và tiện dụng cho mùa hè.",
+          "related_domain_ids": [
+            "dom_bocanh",
+            "dom_mythuat"
+          ]
+        },
+        {
+          "domain_id": "dom_mythuat",
+          "label": "Mỹ thuật & Phong cách",
+          "summary": "Chi tiết trang trí và chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng, bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích, thêu tay tối giản hoa sen cách điệu, giữ độ thoải mái, sang trọng.",
+          "related_domain_ids": [
+            "dom_bocanh",
+            "dom_cautruc"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_01",
+          "domain_ids": [
+            "dom_bocanh"
+          ],
+          "meaning": "Thiết kế trang phục là váy liền thân nữ dành cho mùa hè và tham gia sự kiện thời trang.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_02",
+          "domain_ids": [
+            "dom_bocanh",
+            "dom_mythuat"
+          ],
+          "meaning": "Chủ đề thiết kế kết hợp giữa truyền thống và hiện đại, hướng tới thời trang quốc tế.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "với chủ đề kết hợp truyền thống và hiện đại."
+            },
+            {
+              "turn_id": "T1",
+              "quote": "và thời trang quốc tế."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_03",
+          "domain_ids": [
+            "dom_cautruc",
+            "dom_mythuat"
+          ],
+          "meaning": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_04",
+          "domain_ids": [
+            "dom_cautruc",
+            "dom_mythuat"
+          ],
+          "meaning": "Xử lý theo hướng hiện đại, gọn gàng và tiện dụng.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_05",
+          "domain_ids": [
+            "dom_cautruc",
+            "dom_mythuat"
+          ],
+          "meaning": "Váy cần thoải mái, dễ mặc và toát lên vẻ sang trọng.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_s_tp",
+          "domain_ids": [
+            "dom_cautruc"
+          ],
+          "meaning": "Sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_s_cl",
+          "domain_ids": [
+            "dom_cautruc",
+            "dom_mythuat"
+          ],
+          "meaning": "Sử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Sử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_s_ms",
+          "domain_ids": [
+            "dom_mythuat"
+          ],
+          "meaning": "Sử dụng bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Sử dụng bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_s_mt",
+          "domain_ids": [
+            "dom_mythuat"
+          ],
+          "meaning": "Sử dụng thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Sử dụng thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_s_pk",
+          "domain_ids": [
+            "dom_bocanh",
+            "dom_mythuat"
+          ],
+          "meaning": "Sử dụng khăn vấn tóc cách tân dạng băng đô lụa.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Sử dụng khăn vấn tóc cách tân dạng băng đô lụa."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_s_tb",
+          "domain_ids": [
+            "dom_bocanh"
+          ],
+          "meaning": "Trình bày dưới dạng bản minh họa thiết kế thời trang.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Trình bày dưới dạng bản minh họa thiết kế thời trang."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "locked_atom_ids": [
+        "atom_01",
+        "atom_02",
+        "atom_04",
+        "atom_05",
+        "atom_s_tp",
+        "atom_s_cl",
+        "atom_s_ms",
+        "atom_s_mt",
+        "atom_s_pk",
+        "atom_s_tb"
+      ],
+      "delegated_atom_ids": [],
+      "creative_space": [
+        {
+          "domain_id": "dom_bocanh",
+          "description": "Không gian sáng tạo cho phép điều chỉnh nhẹ nhàng chi tiết phụ kiện hoặc góc độ thể hiện trong bản minh họa nếu cần thiết để tối ưu hóa tính thẩm mỹ quốc tế.",
+          "allowed_variations": [
+            "Tinh chỉnh nhỏ về chi tiết nét vẽ minh họa",
+            "Gia giảm mức độ điểm nhấn phụ kiện băng đô lụa cho hài hòa"
+          ]
+        }
+      ],
+      "reference_ids": [],
+      "historical_mode": "inspired",
+      "decisions": [
+        {
+          "group_id": "grp_trang_phuc",
+          "option_ids": [
+            "opt_tp_1"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_s_tp"
+          ]
+        },
+        {
+          "group_id": "grp_chat_lieu",
+          "option_ids": [
+            "opt_cl_1"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_s_cl"
+          ]
+        },
+        {
+          "group_id": "grp_mau_sac",
+          "option_ids": [
+            "opt_ms_1"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_s_ms"
+          ]
+        },
+        {
+          "group_id": "grp_my_thuat",
+          "option_ids": [
+            "opt_mt_1"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_s_mt"
+          ]
+        },
+        {
+          "group_id": "grp_phu_kien",
+          "option_ids": [
+            "opt_pk_1"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_s_pk"
+          ]
+        },
+        {
+          "group_id": "grp_trinh_bay_anh",
+          "option_ids": [
+            "opt_tb_1"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_s_tb"
+          ]
+        }
+      ],
+      "conflicts": [],
+      "status": "ready"
+    },
+    "GENERATION_DIRECTION": {
+      "direction_id": "D1",
+      "label": "Khám phá 1",
+      "focus_domain_ids": [
+        "dom_bocanh"
+      ],
+      "allowed_variations": [
+        {
+          "domain_id": "dom_bocanh",
+          "description": "Không gian sáng tạo cho phép điều chỉnh nhẹ nhàng chi tiết phụ kiện hoặc góc độ thể hiện trong bản minh họa nếu cần thiết để tối ưu hóa tính thẩm mỹ quốc tế.",
+          "allowed_variations": [
+            "Tinh chỉnh nhỏ về chi tiết nét vẽ minh họa",
+            "Gia giảm mức độ điểm nhấn phụ kiện băng đô lụa cho hài hòa"
+          ],
+          "exploration_offset": 0
+        }
+      ],
+      "locked_atom_ids": [
+        "atom_01",
+        "atom_02",
+        "atom_04",
+        "atom_05",
+        "atom_s_tp",
+        "atom_s_cl",
+        "atom_s_ms",
+        "atom_s_mt",
+        "atom_s_pk",
+        "atom_s_tb"
+      ],
+      "creative_level": "explore",
+      "instruction": "Khám phá các tổ hợp mới có chủ đích của ít nhất hai quyết định còn mở, công bố giới hạn nếu không đủ tự do. Nhóm này khám phá các biến thể kế tiếp, không thay điều khóa."
+    },
+    "CREATIVITY_CONFIG": {
+      "level": "explore",
+      "spaces": [
+        {
+          "domain_id": "dom_bocanh",
+          "description": "Không gian sáng tạo cho phép điều chỉnh nhẹ nhàng chi tiết phụ kiện hoặc góc độ thể hiện trong bản minh họa nếu cần thiết để tối ưu hóa tính thẩm mỹ quốc tế.",
+          "allowed_variations": [
+            "Tinh chỉnh nhỏ về chi tiết nét vẽ minh họa",
+            "Gia giảm mức độ điểm nhấn phụ kiện băng đô lụa cho hài hòa"
+          ]
+        }
+      ]
+    },
+    "CANDIDATE_SLOTS": {
+      "batch_id": "B1",
+      "slots": [
+        {
+          "candidate_id": "R2-B1-C1",
+          "revision": 2
+        },
+        {
+          "candidate_id": "R2-B1-C2",
+          "revision": 2
+        },
+        {
+          "candidate_id": "R2-B1-C3",
+          "revision": 2
+        }
+      ]
+    },
+    "REFERENCE_BUNDLE": {
+      "references": [],
+      "provider_metadata": [
+        {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "0HLBaobQBcXs2roP9_G78QY"
+        }
+      ],
+      "reference_mode": "text_only",
+      "availability": "unavailable_by_user_choice"
+    },
+    "PREVIOUS_DESIGN_DIGESTS": [],
+    "LOCKED_REQUIREMENTS": [
+      {
+        "atom_id": "atom_01",
+        "domain_ids": [
+          "dom_bocanh"
+        ],
+        "meaning": "Thiết kế trang phục là váy liền thân nữ dành cho mùa hè và tham gia sự kiện thời trang.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_02",
+        "domain_ids": [
+          "dom_bocanh",
+          "dom_mythuat"
+        ],
+        "meaning": "Chủ đề thiết kế kết hợp giữa truyền thống và hiện đại, hướng tới thời trang quốc tế.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "với chủ đề kết hợp truyền thống và hiện đại."
+          },
+          {
+            "turn_id": "T1",
+            "quote": "và thời trang quốc tế."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_04",
+        "domain_ids": [
+          "dom_cautruc",
+          "dom_mythuat"
+        ],
+        "meaning": "Xử lý theo hướng hiện đại, gọn gàng và tiện dụng.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_05",
+        "domain_ids": [
+          "dom_cautruc",
+          "dom_mythuat"
+        ],
+        "meaning": "Váy cần thoải mái, dễ mặc và toát lên vẻ sang trọng.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng,"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_s_tp",
+        "domain_ids": [
+          "dom_cautruc"
+        ],
+        "meaning": "Sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "S1",
+            "quote": "Sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_s_cl",
+        "domain_ids": [
+          "dom_cautruc",
+          "dom_mythuat"
+        ],
+        "meaning": "Sử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "S1",
+            "quote": "Sử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_s_ms",
+        "domain_ids": [
+          "dom_mythuat"
+        ],
+        "meaning": "Sử dụng bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "S1",
+            "quote": "Sử dụng bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_s_mt",
+        "domain_ids": [
+          "dom_mythuat"
+        ],
+        "meaning": "Sử dụng thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "S1",
+            "quote": "Sử dụng thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_s_pk",
+        "domain_ids": [
+          "dom_bocanh",
+          "dom_mythuat"
+        ],
+        "meaning": "Sử dụng khăn vấn tóc cách tân dạng băng đô lụa.",
+        "intent_type": "preference",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "S1",
+            "quote": "Sử dụng khăn vấn tóc cách tân dạng băng đô lụa."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_s_tb",
+        "domain_ids": [
+          "dom_bocanh"
+        ],
+        "meaning": "Trình bày dưới dạng bản minh họa thiết kế thời trang.",
+        "intent_type": "preference",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "S1",
+            "quote": "Trình bày dưới dạng bản minh họa thiết kế thời trang."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      }
+    ]
+  },
+  "prompt": "TASK: GENERATE_VIET_PHUC_IMAGE_PROMPT_BATCH\n\nThông tin ứng dụng cấp: {\"request_id\": \"ce6c0b69-afe5-44cd-b418-818b84ad19c3\", \"revision\": 2}\nLời người dùng để đối chiếu: [{\"id\": \"T1\", \"text\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng, và thời trang quốc tế.\"}, {\"id\": \"S1\", \"text\": \"Sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại.\\nSử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng.\\nSử dụng bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích.\\nSử dụng thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo.\\nSử dụng khăn vấn tóc cách tân dạng băng đô lụa.\\nTrình bày dưới dạng bản minh họa thiết kế thời trang.\"}]\nNhu cầu đã chốt: {\"request_id\": \"ce6c0b69-afe5-44cd-b418-818b84ad19c3\", \"revision\": 2, \"resolved_text\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang với chủ đề kết hợp truyền thống và hiện đại. Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí, cụ thể sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại, được xử lý theo hướng hiện đại, gọn gàng và tiện dụng. Trang phục sử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng, bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích, cùng điểm nhấn thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo. Phụ kiện đi kèm gồm khăn vấn tóc cách tân dạng băng đô lụa. Trình bày dưới dạng bản minh họa thiết kế thời trang. Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng và thời trang quốc tế.\", \"domains\": [{\"domain_id\": \"dom_bocanh\", \"label\": \"Bối cảnh & Chủ đề\", \"summary\": \"Mục đích sử dụng cho sự kiện thời trang mùa hè với chủ đề kết hợp truyền thống và hiện đại, mang tính thời trang quốc tế. Phong cách trình bày dưới dạng bản minh họa thiết kế thời trang.\", \"related_domain_ids\": [\"dom_cautruc\", \"dom_mythuat\"]}, {\"domain_id\": \"dom_cautruc\", \"label\": \"Cấu trúc & Phom dáng\", \"summary\": \"Thiết kế váy liền thân nữ dáng chữ A nhẹ, kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại, xử lý gọn gàng và tiện dụng cho mùa hè.\", \"related_domain_ids\": [\"dom_bocanh\", \"dom_mythuat\"]}, {\"domain_id\": \"dom_mythuat\", \"label\": \"Mỹ thuật & Phong cách\", \"summary\": \"Chi tiết trang trí và chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng, bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích, thêu tay tối giản hoa sen cách điệu, giữ độ thoải mái, sang trọng.\", \"related_domain_ids\": [\"dom_bocanh\", \"dom_cautruc\"]}], \"atoms\": [{\"atom_id\": \"atom_01\", \"domain_ids\": [\"dom_bocanh\"], \"meaning\": \"Thiết kế trang phục là váy liền thân nữ dành cho mùa hè và tham gia sự kiện thời trang.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_02\", \"domain_ids\": [\"dom_bocanh\", \"dom_mythuat\"], \"meaning\": \"Chủ đề thiết kế kết hợp giữa truyền thống và hiện đại, hướng tới thời trang quốc tế.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"với chủ đề kết hợp truyền thống và hiện đại.\"}, {\"turn_id\": \"T1\", \"quote\": \"và thời trang quốc tế.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_03\", \"domain_ids\": [\"dom_cautruc\", \"dom_mythuat\"], \"meaning\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Gợi nhắc Việt phục qua phom dáng, cổ áo, tay áo hoặc chi tiết trang trí,\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_04\", \"domain_ids\": [\"dom_cautruc\", \"dom_mythuat\"], \"meaning\": \"Xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_05\", \"domain_ids\": [\"dom_cautruc\", \"dom_mythuat\"], \"meaning\": \"Váy cần thoải mái, dễ mặc và toát lên vẻ sang trọng.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng,\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_tp\", \"domain_ids\": [\"dom_cautruc\"], \"meaning\": \"Sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_cl\", \"domain_ids\": [\"dom_cautruc\", \"dom_mythuat\"], \"meaning\": \"Sử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Sử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_ms\", \"domain_ids\": [\"dom_mythuat\"], \"meaning\": \"Sử dụng bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Sử dụng bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_mt\", \"domain_ids\": [\"dom_mythuat\"], \"meaning\": \"Sử dụng thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Sử dụng thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_pk\", \"domain_ids\": [\"dom_bocanh\", \"dom_mythuat\"], \"meaning\": \"Sử dụng khăn vấn tóc cách tân dạng băng đô lụa.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Sử dụng khăn vấn tóc cách tân dạng băng đô lụa.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_tb\", \"domain_ids\": [\"dom_bocanh\"], \"meaning\": \"Trình bày dưới dạng bản minh họa thiết kế thời trang.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Trình bày dưới dạng bản minh họa thiết kế thời trang.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}], \"locked_atom_ids\": [\"atom_01\", \"atom_02\", \"atom_04\", \"atom_05\", \"atom_s_tp\", \"atom_s_cl\", \"atom_s_ms\", \"atom_s_mt\", \"atom_s_pk\", \"atom_s_tb\"], \"delegated_atom_ids\": [], \"creative_space\": [{\"domain_id\": \"dom_bocanh\", \"description\": \"Không gian sáng tạo cho phép điều chỉnh nhẹ nhàng chi tiết phụ kiện hoặc góc độ thể hiện trong bản minh họa nếu cần thiết để tối ưu hóa tính thẩm mỹ quốc tế.\", \"allowed_variations\": [\"Tinh chỉnh nhỏ về chi tiết nét vẽ minh họa\", \"Gia giảm mức độ điểm nhấn phụ kiện băng đô lụa cho hài hòa\"]}], \"reference_ids\": [], \"historical_mode\": \"inspired\", \"decisions\": [{\"group_id\": \"grp_trang_phuc\", \"option_ids\": [\"opt_tp_1\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_s_tp\"]}, {\"group_id\": \"grp_chat_lieu\", \"option_ids\": [\"opt_cl_1\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_s_cl\"]}, {\"group_id\": \"grp_mau_sac\", \"option_ids\": [\"opt_ms_1\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_s_ms\"]}, {\"group_id\": \"grp_my_thuat\", \"option_ids\": [\"opt_mt_1\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_s_mt\"]}, {\"group_id\": \"grp_phu_kien\", \"option_ids\": [\"opt_pk_1\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_s_pk\"]}, {\"group_id\": \"grp_trinh_bay_anh\", \"option_ids\": [\"opt_tb_1\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_s_tb\"]}], \"conflicts\": [], \"status\": \"ready\"}\nHướng khám phá cho lượt này: {\"direction_id\": \"D1\", \"label\": \"Khám phá 1\", \"focus_domain_ids\": [\"dom_bocanh\"], \"allowed_variations\": [{\"domain_id\": \"dom_bocanh\", \"description\": \"Không gian sáng tạo cho phép điều chỉnh nhẹ nhàng chi tiết phụ kiện hoặc góc độ thể hiện trong bản minh họa nếu cần thiết để tối ưu hóa tính thẩm mỹ quốc tế.\", \"allowed_variations\": [\"Tinh chỉnh nhỏ về chi tiết nét vẽ minh họa\", \"Gia giảm mức độ điểm nhấn phụ kiện băng đô lụa cho hài hòa\"], \"exploration_offset\": 0}], \"locked_atom_ids\": [\"atom_01\", \"atom_02\", \"atom_04\", \"atom_05\", \"atom_s_tp\", \"atom_s_cl\", \"atom_s_ms\", \"atom_s_mt\", \"atom_s_pk\", \"atom_s_tb\"], \"creative_level\": \"explore\", \"instruction\": \"Khám phá các tổ hợp mới có chủ đích của ít nhất hai quyết định còn mở, công bố giới hạn nếu không đủ tự do. Nhóm này khám phá các biến thể kế tiếp, không thay điều khóa.\"}\nMức sáng tạo và phần được phép đổi: {\"level\": \"explore\", \"spaces\": [{\"domain_id\": \"dom_bocanh\", \"description\": \"Không gian sáng tạo cho phép điều chỉnh nhẹ nhàng chi tiết phụ kiện hoặc góc độ thể hiện trong bản minh họa nếu cần thiết để tối ưu hóa tính thẩm mỹ quốc tế.\", \"allowed_variations\": [\"Tinh chỉnh nhỏ về chi tiết nét vẽ minh họa\", \"Gia giảm mức độ điểm nhấn phụ kiện băng đô lụa cho hài hòa\"]}]}\nMã batch và các mã phương án do ứng dụng cấp: {\"batch_id\": \"B1\", \"slots\": [{\"candidate_id\": \"R2-B1-C1\", \"revision\": 2}, {\"candidate_id\": \"R2-B1-C2\", \"revision\": 2}, {\"candidate_id\": \"R2-B1-C3\", \"revision\": 2}]}\nTài liệu/tham khảo được phép dùng: {\"references\": [], \"provider_metadata\": [{\"groundingMetadata\": {}, \"urlContextMetadata\": {}, \"modelVersion\": \"gemini-3.5-flash-lite\", \"responseId\": \"0HLBaobQBcXs2roP9_G78QY\"}], \"reference_mode\": \"text_only\", \"availability\": \"unavailable_by_user_choice\"}\nPhương án trước đó để tránh lặp ý: []\nĐiều bắt buộc và bộ kiểm tra đã khóa: [{\"atom_id\": \"atom_01\", \"domain_ids\": [\"dom_bocanh\"], \"meaning\": \"Thiết kế trang phục là váy liền thân nữ dành cho mùa hè và tham gia sự kiện thời trang.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Thiết kế váy liền thân nữ mùa hè dành cho sự kiện thời trang\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_02\", \"domain_ids\": [\"dom_bocanh\", \"dom_mythuat\"], \"meaning\": \"Chủ đề thiết kế kết hợp giữa truyền thống và hiện đại, hướng tới thời trang quốc tế.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"với chủ đề kết hợp truyền thống và hiện đại.\"}, {\"turn_id\": \"T1\", \"quote\": \"và thời trang quốc tế.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_04\", \"domain_ids\": [\"dom_cautruc\", \"dom_mythuat\"], \"meaning\": \"Xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"nhưng được xử lý theo hướng hiện đại, gọn gàng và tiện dụng.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_05\", \"domain_ids\": [\"dom_cautruc\", \"dom_mythuat\"], \"meaning\": \"Váy cần thoải mái, dễ mặc và toát lên vẻ sang trọng.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Váy cần thoải mái, dễ mặc, vẫn toát lên vẻ sang trọng,\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_tp\", \"domain_ids\": [\"dom_cautruc\"], \"meaning\": \"Sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Sử dụng phom chữ A nhẹ kết hợp cổ lập lĩnh cách điệu và tay áo hiện đại.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_cl\", \"domain_ids\": [\"dom_cautruc\", \"dom_mythuat\"], \"meaning\": \"Sử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Sử dụng chất liệu lụa tơ tằm tự nhiên phối lót cotton mỏng.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_ms\", \"domain_ids\": [\"dom_mythuat\"], \"meaning\": \"Sử dụng bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Sử dụng bảng màu trắng ngà kết hợp điểm nhấn xanh ngọc bích.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_mt\", \"domain_ids\": [\"dom_mythuat\"], \"meaning\": \"Sử dụng thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Sử dụng thêu tay tối giản hoa sen cách điệu ở viền cổ và vạt áo.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_pk\", \"domain_ids\": [\"dom_bocanh\", \"dom_mythuat\"], \"meaning\": \"Sử dụng khăn vấn tóc cách tân dạng băng đô lụa.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Sử dụng khăn vấn tóc cách tân dạng băng đô lụa.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s_tb\", \"domain_ids\": [\"dom_bocanh\"], \"meaning\": \"Trình bày dưới dạng bản minh họa thiết kế thời trang.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Trình bày dưới dạng bản minh họa thiết kế thời trang.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}]\n\nMỤC TIÊU\nMục tiêu toàn yêu cầu là khoảng sáu prompt ảnh trước đánh giá bốn góc nhìn, thông thường hai lượt, mỗi lượt ba. Lượt này tạo đúng số phương án ứng dụng yêu cầu trong CANDIDATE_SLOTS; không sinh sáu cho mỗi lượt nếu slots chỉ có ba. Mỗi phương án là một thiết kế có thể hình dung và một image_prompt hoàn chỉnh để người dùng sao chép sang Gemini tạo ảnh. Không tạo ảnh, không tự chấm điểm.\n\nTHIẾT KẾ\n1. Giữ đầy đủ nhu cầu, các lựa chọn đã chốt và sở thích; chỉ sáng tạo trong creative_space và hướng khám phá. Không hy sinh điều khóa để làm khác biệt.\n2. Khác biệt thực sự về xử lý thiết kế, không chỉ đổi tên hoặc cách diễn đạt. Nếu còn tự do, thay có chủ đích ít nhất hai quyết định thiết kế: vị trí/tỉ lệ mô-típ, nhịp bố cục, độ phủ, độ tương phản, kỹ thuật hoặc cấu trúc lớp. Hai quyết định phải thuộc phần được phép đổi.\n3. Nếu tự do quá hẹp để tạo đủ biến thể khác nhau, mô tả giới hạn thật trong limitations; không tự đổi phom, màu khóa hoặc lịch sử. Ứng dụng sẽ xử lý bản trùng và phần thiếu.\n4. Nền trang phục phải đúng, kể cả váy/âu phục/kiểu mới. Khi lai với Việt phục, chỉ rõ chi tiết cấu trúc hoặc ngôn ngữ tạo hình Việt được chuyển vào thiết kế; không thay ý định lai phom bằng việc thêm họa tiết chung chung.\n5. Với hoa văn: nêu mô-típ thực sự chọn, vị trí, tỉ lệ, mật độ, quan hệ với đường cắt và cách làm như thêu/đắp nổi. Nếu user cho ví dụ để chọn, dùng một/vài lựa chọn hợp lý và ghi choices_made, không bắt dùng tất cả.\n6. Chất liệu và kỹ thuật phải tương thích ở mức đề xuất, không tuyên bố đã kiểm chứng may mặc. Nếu có tính phi thực tế, ghi limitation; không dùng lời hoa mỹ để bỏ qua.\n   Nếu yêu cầu kín đáo mà chọn vải xuyên thấu, nêu giải pháp lớp lót/độ che phủ ngay trong image_prompt. Limitation nói cần lớp lót không thay thế mô tả giải pháp trong prompt.\n7. Không suy giới tính/người mẫu chưa được nêu. Dùng minh họa riêng trang phục hoặc cách trình bày đã chốt nếu chưa chỉ định người mặc.\n\nIMAGE PROMPT\n- Viết bằng tiếng Việt đầy đủ để tạo đúng một ảnh cho phương án đó: trang phục/phom, chất liệu, màu, hoa văn và cách thể hiện, bối cảnh, góc nhìn, ánh sáng nếu đã được quyết định, điều giữ và điều tránh.\n- Không đòi chữ, watermark, bảng so sánh hoặc nhiều thiết kế trong một ảnh. Nêu đủ chi tiết cần nhìn thấy để đối chiếu.\n- Ghi trực tiếp trong image_prompt: một khung hình, một chủ thể hoặc một bộ trang phục theo nhu cầu, không ghép ba góc nhìn, không collage, không lặp người mẫu. Nếu người dùng yêu cầu nhiều góc nhìn rõ ràng thì làm theo yêu cầu đó.\n- Phần tóm tắt chuyên môn phải trùng với prompt. Không ghi một mô-típ chỉ trong art_summary mà bỏ khỏi image_prompt.\n- Với inspired: diễn đạt là thiết kế sáng tạo lấy cảm hứng, không gọi phục dựng chính xác. Mô tả bằng hình dạng cụ thể, không dựa riêng vào tên triều đại để model tự đoán.\n- claims chỉ chứa phát biểu thực tế có nguồn và đoạn hỗ trợ đúng phạm vi; không có nguồn thì để [], không chế ý nghĩa biểu tượng. Giải thích thiết kế vẫn được phép không có claim lịch sử.\n- locked_coverage ghi những atom có thể đối chiếu với prompt. Danh sách tự khai này sẽ được auditor kiểm tra, không tự biến thành đạt.\n- locked_coverage là ghi chú tự khai hỗ trợ auditor, không phải chứng nhận đạt. Ưu tiên prompt tự nhiên, thể hiện đầy đủ nhu cầu và lựa chọn; không nhét câu nguyên văn đầu vào vào prompt chỉ để đáp ứng quote. Nếu trích được đoạn phù hợp, dùng đoạn đó; không bịa chứng cứ. VP05–07 sẽ đọc image_prompt và tự đánh giá từng ý đã khóa, kể cả khi coverage thiếu hoặc sai.\n\nTrả đúng ImagePromptBatch: candidate_id/batch_id/revision theo CANDIDATE_SLOTS, title, image_prompt, design_sections mở theo miền, fashion_summary, art_summary, culture_summary, choices_made, claims, locked_coverage, assumptions, limitations. Không tự audit, không viết điểm hoặc lời khẳng định “đã duyệt”.\n\nPHỤ KIỆN VÀ CHUYỂN THỂ\nGiữ đúng hướng trang phục đã chọn; chuyển thể cấu trúc Việt phục vào áo gọn/chân váy nếu đó là nhu cầu khóa. Phụ kiện dân gian được chọn có chủ đích, ghi số lượng cụ thể theo giới hạn người dùng. Đàn bầu là đạo cụ hoặc cảm hứng hình dáng, không tự thêm đàn thật vào bộ đồ ứng dụng. Không thêm mũ/túi/trang sức/đạo cụ ngoài số lượng đã chốt.\n\nKIỂM TRA ĐẦU RA TRƯỚC KHI TRẢ\n1. Dùng đúng batch_id của CANDIDATE_SLOTS cho mọi candidate; candidate_id và revision sao chép từ slot tương ứng, không suy revision từ số lượt S hoặc mã form. Các đoạn ví dụ/lịch sử không phải mã của lượt hiện tại.\n2. Kiểm tra prompt thể hiện nhu cầu và lựa chọn đã chốt; không tự chấm đạt.\n3. Coverage chỉ là ghi chú hỗ trợ; claims=[] nếu không có claim được nguồn hỗ trợ; không bịa căn cứ để đủ trường.\n\nCHẾ ĐỘ KIỂM ĐỊNH QUA API (ƯU TIÊN KHI CÓ CHỈ DẪN CŨ KHÁC)\nTừ VP04 đến VP08, backend không kiểm định schema hoặc nội dung response, quote, coverage, mã/hash, nguồn hay điểm; không sửa quote và không loại phương án bằng gate, ngưỡng điểm hoặc so trùng. JSON schema vẫn gửi tới API để định dạng dữ liệu cho giao diện. Giữ đúng mã và trường đã cấp để ứng dụng liên kết kết quả. Các trường tên VALIDATED là tên giao tiếp cũ, không có nghĩa backend đã xác nhận đúng. Auditor tự đọc prompt, đối chiếu yêu cầu và nguồn, nêu rõ fail/uncertain cùng lý do; không bịa chứng cứ. VP08 tự chấm harmony_score/proposed_total và recommendation; backend hiển thị nhận xét và xếp ba phương án theo proposed_total, không xác nhận chất lượng hoặc điều kiện đạt. Không ép prompt thành bản sao câu đầu vào chỉ để có quote.\n\nThể hiện phong cách trình bày ảnh đã chọn (minh họa thiết kế thời trang, đời thường, lookbook, trình diễn, bản vẽ kỹ thuật hoặc custom) trong image_prompt bằng ngôn ngữ tạo hình cụ thể. Nếu optional bỏ qua, chọn phong cách phù hợp và ghi assumption; không tự đổi phong cách đã khóa. image_prompt bắt đầu bằng yêu cầu trực tiếp “Tạo một hình ảnh…” hoặc “Tạo một bản minh họa…” phù hợp, chỉ rõ đầu ra là ảnh, không phải bài phân tích thiết kế.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "candidates": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "candidate_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "batch_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "image_prompt": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 18000
+            },
+            "design_sections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "domain_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 6000
+                  },
+                  "related_atom_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "domain_id",
+                  "description",
+                  "related_atom_ids"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 40,
+              "minItems": 1
+            },
+            "fashion_summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "art_summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "culture_summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "choices_made": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "claims": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "claim_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  },
+                  "source_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "reference_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "excerpt": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 10000
+                  },
+                  "scope": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "claim_id",
+                  "text",
+                  "source_id",
+                  "reference_id",
+                  "excerpt",
+                  "scope"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 30,
+              "minItems": 0
+            },
+            "locked_coverage": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "atom_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "prompt_quote": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 18000
+                  }
+                },
+                "required": [
+                  "atom_id",
+                  "prompt_quote"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 150,
+              "minItems": 0
+            },
+            "assumptions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "limitations": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            }
+          },
+          "required": [
+            "candidate_id",
+            "batch_id",
+            "revision",
+            "title",
+            "image_prompt",
+            "design_sections",
+            "fashion_summary",
+            "art_summary",
+            "culture_summary",
+            "choices_made",
+            "claims",
+            "locked_coverage",
+            "assumptions",
+            "limitations"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 3,
+        "minItems": 0
+      },
+      "limitations": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "maxItems": 100,
+        "minItems": 0
+      }
+    },
+    "required": [
+      "candidates",
+      "limitations"
+    ],
+    "additionalProperties": false
+  },
+  "config": {
+    "timeout_seconds": 60,
+    "max_output_tokens": 20000,
+    "sampling_policy": "model_default",
+    "web_tools": false,
+    "structured": true
+  }
+}

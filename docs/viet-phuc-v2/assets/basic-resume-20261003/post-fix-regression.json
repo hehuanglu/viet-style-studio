@@ -1,0 +1,35 @@
+{
+  "scope": "Local fixture regressions and read-only reload, no Gemini/user workflow rerun",
+  "python_full_suite": {
+    "tests": 156,
+    "seconds": 86.074,
+    "result": "OK"
+  },
+  "additional_focused_checks": {
+    "tests": 2,
+    "seconds": 0.668,
+    "result": "OK",
+    "new_test": "older saved session preserves experimental budget in report",
+    "extended_test": "recovery archives warnings and preserves budget"
+  },
+  "distinct_python_tests_checked": 157,
+  "frontend_fixture_suites": [
+    "request-state.test.cjs: passed",
+    "viet-phuc-v2.test.cjs: passed"
+  ],
+  "kit_verification": "passed",
+  "syntax_compile_diff_checks": "passed",
+  "new_google_calls": 0,
+  "protected_files": {
+    "frontend/image-editor.js": {
+      "byte_equal_HEAD": true,
+      "sha256": "3cb67e04c5e17972b0b3d01aed8d1d7963a2ff46995aa4aef89a2b06ba459785"
+    },
+    "arena-kit/image-edit-template.txt": {
+      "byte_equal_HEAD": true,
+      "sha256": "dc6f4c8566efd115fdc878dac132ee88e2021955efd449c9310442d0026d61f9"
+    }
+  },
+  "current_server": "http://127.0.0.1:8799",
+  "local_reload_evidence": "local-reload-checks.json"
+}

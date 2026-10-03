@@ -1,0 +1,80 @@
+{
+  "evidence_id": "43ff078c-4393-4c0c-bd6d-f4c4c334ed02",
+  "recorded_at": 1791056372.11488,
+  "request_id": "c7af53c4-cbfa-4b2f-9480-a70c655ccfa9",
+  "attempt_id": "e6094dc2-9d3d-47f9-8f23-1b025beeb17a",
+  "trace": {
+    "task": "VP02C",
+    "phase": "design",
+    "attempt_id": "e6094dc2-9d3d-47f9-8f23-1b025beeb17a",
+    "revision": 3,
+    "role": null,
+    "batch_id": null,
+    "cache_hit": false,
+    "duration_ms": 2681,
+    "provider_call_id": "e80830bb-0f68-49ae-ba3a-a76e3a5624aa",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 10739,
+      "candidatesTokenCount": 523,
+      "totalTokenCount": 11262,
+      "cachedContentTokenCount": 7582,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 10739
+        }
+      ],
+      "cacheTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 7582
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "8VnBarfLOoaj9tMPm-bh4Qk"
+    },
+    "input_hash": "63bc36c70520db8c97de93bf56be5159a34a46b023e2c57ba1be67c9fbe3db7b",
+    "output_hash": "0b63570f2889ff62df90376cb4b58f4182cbba3cf8023d1cd6998f3875cd92d8",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "request_id": "c7af53c4-cbfa-4b2f-9480-a70c655ccfa9",
+    "revision": 3,
+    "form_id": "01bcaff9-b392-4c97-9e71-ad782a5eac26",
+    "status": "conflict",
+    "conflicts": [
+      {
+        "conflict_id": "conflict_collar_shape_position",
+        "severity": "severe",
+        "summary": "Mâu thuẫn trực tiếp về thiết kế cổ áo: vừa kín cao ôm sát cổ lại vừa khoét chữ V sâu xuống ngực trên cùng một lớp váy và vị trí.",
+        "reason": "Yêu cầu kỹ thuật không thể đồng thời thực hiện trên cùng một chi tiết, cùng một lớp vải và cùng một vị trí cổ áo: vừa phải kín cao ôm sát cổ, vừa phải khoét chữ V sâu xuống ngực không có lớp lót hay áo trong.",
+        "same_feature": "Vị trí cổ áo của lớp váy liền thân",
+        "evidence": [
+          {
+            "kind": "custom",
+            "group_id": "group_viet_phuc_elements",
+            "option_id": "",
+            "atom_id": "",
+            "quote": "Trên cùng một lớp váy và cùng một cổ áo: cổ phải kín cao ôm sát cổ; đồng thời chính cổ đó phải khoét chữ V sâu xuống ngực, không có lớp lót hoặc áo trong."
+          },
+          {
+            "kind": "atom",
+            "group_id": "",
+            "option_id": "",
+            "atom_id": "atom_03",
+            "quote": "Dạng váy liền thân nữ."
+          }
+        ],
+        "suggested_fix": "Điều chỉnh lại yêu cầu về cổ áo, chọn một kiểu thiết kế duy nhất (hoặc cổ kín cao, hoặc cổ khoét chữ V) hoặc phân tách thành các lớp áo/phần trang phục khác nhau."
+      }
+    ],
+    "summary": "Phát hiện 1 mâu thuẫn nghiêm trọng (severe) trong lựa chọn của người dùng liên quan đến thiết kế cổ áo trên cùng một lớp váy không thể đồng thời thực hiện."
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "version": "viet-phuc-2.0.0",
+  "rubric_version": "vp-rubric-2.1.0",
+  "status": "initial_unbenchmarked",
+  "generation": {
+    "batch_size": 3,
+    "initial_batches": 2,
+    "supplemental_batches_max": 1,
+    "generation_concurrency": 2,
+    "specialist_concurrency": 3
+  },
+  "design_budget": {
+    "total_provider_calls_max": 30,
+    "active_processing_deadline_seconds": 320,
+    "retry_per_task_max": 1
+  },
+  "media_budget": {
+    "total_provider_calls_max": 13,
+    "active_processing_deadline_seconds": 90
+  },
+  "profiles": {
+    "balanced": {
+      "fashion": 30,
+      "culture": 25,
+      "art": 25,
+      "harmony": 20
+    },
+    "creative": {
+      "fashion": 25,
+      "culture": 20,
+      "art": 35,
+      "harmony": 20
+    }
+  },
+  "minimum_total": 70,
+  "default_creative_level": "explore",
+  "rubrics": {
+    "fashion": {
+      "need_fit": 30,
+      "silhouette_structure": 30,
+      "material_technique": 25,
+      "contextual_usability": 15
+    },
+    "culture": {
+      "mode_fidelity": 25,
+      "evidence_scope": 35,
+      "cultural_integration": 25,
+      "claim_transparency": 15
+    },
+    "art": {
+      "ornament_composition": 25,
+      "color_language": 25,
+      "form_surface_integration": 20,
+      "purposeful_originality": 30
+    },
+    "harmony": {
+      "cross_domain_coherence": 35,
+      "focal_balance": 25,
+      "contextual_coherence": 20,
+      "conflict_resolution": 20
+    }
+  },
+  "tasks": {
+    "VP01": {
+      "timeout_seconds": 40,
+      "max_output_tokens": 16000,
+      "sampling_policy": "model_default"
+    },
+    "VP02": {
+      "timeout_seconds": 60,
+      "max_output_tokens": 20000,
+      "sampling_policy": "model_default"
+    },
+    "VP02R": {
+      "timeout_seconds": 60,
+      "max_output_tokens": 16000,
+      "sampling_policy": "model_default"
+    },
+    "VP03": {
+      "timeout_seconds": 40,
+      "max_output_tokens": 16000,
+      "sampling_policy": "model_default"
+    },
+    "VP04": {
+      "timeout_seconds": 60,
+      "max_output_tokens": 20000,
+      "sampling_policy": "model_default"
+    },
+    "VP05": {
+      "timeout_seconds": 45,
+      "max_output_tokens": 14000,
+      "sampling_policy": "model_default"
+    },
+    "VP06": {
+      "timeout_seconds": 45,
+      "max_output_tokens": 14000,
+      "sampling_policy": "model_default"
+    },
+    "VP07": {
+      "timeout_seconds": 45,
+      "max_output_tokens": 14000,
+      "sampling_policy": "model_default"
+    },
+    "VP08": {
+      "timeout_seconds": 45,
+      "max_output_tokens": 14000,
+      "sampling_policy": "model_default"
+    },
+    "VP02C": {
+      "timeout_seconds": 40,
+      "max_output_tokens": 10000,
+      "sampling_policy": "model_default"
+    }
+  },
+  "reference_discovery": "auto",
+  "google_docs_checked_at": "2026-10-03",
+  "google_docs": [
+    "https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5",
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite",
+    "https://ai.google.dev/gemini-api/docs/gemini-3#temperature",
+    "https://ai.google.dev/gemini-api/docs/structured-output",
+    "https://ai.google.dev/gemini-api/docs/url-context",
+    "https://ai.google.dev/gemini-api/docs/google-search"
+  ],
+  "scoring_by_creative_level": {
+    "explore": "creative",
+    "balanced": "balanced",
+    "moderate": "balanced"
+  },
+  "checklist": {
+    "concrete_options_min": 5,
+    "options_max": 8,
+    "ai_delegate_required": true,
+    "custom_required": true
+  },
+  "selection_review": {
+    "mode": "api",
+    "blocking_severity": "severe",
+    "reuse_checklist_on_conflict": true
+  },
+  "output_validation": {
+    "from_task": "VP04",
+    "mode": "api_only",
+    "backend_schema_validation": false,
+    "backend_semantic_validation": false,
+    "backend_eligibility_filter": false
+  }
+}

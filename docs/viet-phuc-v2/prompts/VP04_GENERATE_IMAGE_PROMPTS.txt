@@ -1,0 +1,51 @@
+TASK: GENERATE_VIET_PHUC_IMAGE_PROMPT_BATCH
+
+Thông tin ứng dụng cấp: {{REQUEST_METADATA}}
+Lời người dùng để đối chiếu: {{USER_TURNS}}
+Nhu cầu đã chốt: {{RESOLVED_BRIEF}}
+Hướng khám phá cho lượt này: {{GENERATION_DIRECTION}}
+Mức sáng tạo và phần được phép đổi: {{CREATIVITY_CONFIG}}
+Mã batch và các mã phương án do ứng dụng cấp: {{CANDIDATE_SLOTS}}
+Tài liệu/tham khảo được phép dùng: {{REFERENCE_BUNDLE}}
+Phương án trước đó để tránh lặp ý: {{PREVIOUS_DESIGN_DIGESTS}}
+Điều bắt buộc và bộ kiểm tra đã khóa: {{LOCKED_REQUIREMENTS}}
+
+MỤC TIÊU
+Mục tiêu toàn yêu cầu là khoảng sáu prompt ảnh trước đánh giá bốn góc nhìn, thông thường hai lượt, mỗi lượt ba. Lượt này tạo đúng số phương án ứng dụng yêu cầu trong CANDIDATE_SLOTS; không sinh sáu cho mỗi lượt nếu slots chỉ có ba. Mỗi phương án là một thiết kế có thể hình dung và một image_prompt hoàn chỉnh để người dùng sao chép sang Gemini tạo ảnh. Không tạo ảnh, không tự chấm điểm.
+
+THIẾT KẾ
+1. Giữ đầy đủ nhu cầu, các lựa chọn đã chốt và sở thích; chỉ sáng tạo trong creative_space và hướng khám phá. Không hy sinh điều khóa để làm khác biệt.
+2. Khác biệt thực sự về xử lý thiết kế, không chỉ đổi tên hoặc cách diễn đạt. Nếu còn tự do, thay có chủ đích ít nhất hai quyết định thiết kế: vị trí/tỉ lệ mô-típ, nhịp bố cục, độ phủ, độ tương phản, kỹ thuật hoặc cấu trúc lớp. Hai quyết định phải thuộc phần được phép đổi.
+3. Nếu tự do quá hẹp để tạo đủ biến thể khác nhau, mô tả giới hạn thật trong limitations; không tự đổi phom, màu khóa hoặc lịch sử. Ứng dụng sẽ xử lý bản trùng và phần thiếu.
+4. Nền trang phục phải đúng, kể cả váy/âu phục/kiểu mới. Khi lai với Việt phục, chỉ rõ chi tiết cấu trúc hoặc ngôn ngữ tạo hình Việt được chuyển vào thiết kế; không thay ý định lai phom bằng việc thêm họa tiết chung chung.
+5. Với hoa văn: nêu mô-típ thực sự chọn, vị trí, tỉ lệ, mật độ, quan hệ với đường cắt và cách làm như thêu/đắp nổi. Nếu user cho ví dụ để chọn, dùng một/vài lựa chọn hợp lý và ghi choices_made, không bắt dùng tất cả.
+6. Chất liệu và kỹ thuật phải tương thích ở mức đề xuất, không tuyên bố đã kiểm chứng may mặc. Nếu có tính phi thực tế, ghi limitation; không dùng lời hoa mỹ để bỏ qua.
+   Nếu yêu cầu kín đáo mà chọn vải xuyên thấu, nêu giải pháp lớp lót/độ che phủ ngay trong image_prompt. Limitation nói cần lớp lót không thay thế mô tả giải pháp trong prompt.
+7. Dùng một người mẫu duy nhất để thể hiện trang phục theo quy ước hai góc nhìn bên dưới. Không tự gán giới tính, tuổi hoặc dáng người chưa được nêu; dùng cách thể hiện trung tính khi chưa xác định người mặc. Giữ phong cách trình bày đã chốt.
+
+IMAGE PROMPT
+- Viết bằng tiếng Việt đầy đủ để tạo đúng một ảnh cho phương án đó: trang phục/phom, chất liệu, màu, hoa văn và cách thể hiện, bối cảnh, góc nhìn, ánh sáng nếu đã được quyết định, điều giữ và điều tránh.
+- Không đòi chữ, watermark, bảng so sánh hoặc nhiều thiết kế trong một ảnh. Nêu đủ chi tiết cần nhìn thấy để đối chiếu.
+- Ghi trực tiếp trong mỗi image_prompt: “Tạo một ảnh trình bày duy nhất một người mẫu mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.” Hai ô là hai góc nhìn của cùng một người mẫu, không phải hai người khác nhau.
+- Giữ danh tính người mẫu, tỷ lệ cơ thể, tóc, màu sắc, chất liệu, phụ kiện và thiết kế đồng nhất giữa hai ô. Mô tả riêng chi tiết mặt trước và mặt sau: cổ, vai, tay, thân, eo, tà/gấu, đường may và vị trí trang trí theo phương án; hai mặt nối tiếp hợp lý quanh cùng bộ trang phục, không sao chép máy móc họa tiết mặt trước ra mặt sau.
+- Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục và không che khuất chi tiết chính. Không thêm người mẫu khác, đám đông, góc nhìn thứ ba, biến thể thiết kế, chữ, nhãn hoặc watermark. Đây là bản trình bày trước/sau của trang phục, không phải bảng so sánh nhiều phương án.
+- Phần tóm tắt chuyên môn phải trùng với prompt. Không ghi một mô-típ chỉ trong art_summary mà bỏ khỏi image_prompt.
+- Với inspired: diễn đạt là thiết kế sáng tạo lấy cảm hứng, không gọi phục dựng chính xác. Mô tả bằng hình dạng cụ thể, không dựa riêng vào tên triều đại để model tự đoán.
+- claims chỉ chứa phát biểu thực tế có nguồn và đoạn hỗ trợ đúng phạm vi; không có nguồn thì để [], không chế ý nghĩa biểu tượng. Giải thích thiết kế vẫn được phép không có claim lịch sử.
+- locked_coverage ghi những atom có thể đối chiếu với prompt. Danh sách tự khai này sẽ được auditor kiểm tra, không tự biến thành đạt.
+- locked_coverage là ghi chú tự khai hỗ trợ auditor, không phải chứng nhận đạt. Ưu tiên prompt tự nhiên, thể hiện đầy đủ nhu cầu và lựa chọn; không nhét câu nguyên văn đầu vào vào prompt chỉ để đáp ứng quote. Nếu trích được đoạn phù hợp, dùng đoạn đó; không bịa chứng cứ. VP05–07 sẽ đọc image_prompt và tự đánh giá từng ý đã khóa, kể cả khi coverage thiếu hoặc sai.
+
+Trả đúng ImagePromptBatch: candidate_id/batch_id/revision theo CANDIDATE_SLOTS, title, image_prompt, design_sections mở theo miền, fashion_summary, art_summary, culture_summary, choices_made, claims, locked_coverage, assumptions, limitations. Không tự audit, không viết điểm hoặc lời khẳng định “đã duyệt”.
+
+PHỤ KIỆN VÀ CHUYỂN THỂ
+Giữ đúng hướng trang phục đã chọn; chuyển thể cấu trúc Việt phục vào áo gọn/chân váy nếu đó là nhu cầu khóa. Phụ kiện dân gian được chọn có chủ đích, ghi số lượng cụ thể theo giới hạn người dùng. Đàn bầu là đạo cụ hoặc cảm hứng hình dáng, không tự thêm đàn thật vào bộ đồ ứng dụng. Không thêm mũ/túi/trang sức/đạo cụ ngoài số lượng đã chốt.
+
+KIỂM TRA ĐẦU RA TRƯỚC KHI TRẢ
+1. Dùng đúng batch_id của CANDIDATE_SLOTS cho mọi candidate; candidate_id và revision sao chép từ slot tương ứng, không suy revision từ số lượt S hoặc mã form. Các đoạn ví dụ/lịch sử không phải mã của lượt hiện tại.
+2. Kiểm tra prompt thể hiện nhu cầu và lựa chọn đã chốt; không tự chấm đạt.
+3. Coverage chỉ là ghi chú hỗ trợ; claims=[] nếu không có claim được nguồn hỗ trợ; không bịa căn cứ để đủ trường.
+
+CHẾ ĐỘ KIỂM ĐỊNH QUA API (ƯU TIÊN KHI CÓ CHỈ DẪN CŨ KHÁC)
+Từ VP04 đến VP08, backend không kiểm định schema hoặc nội dung response, quote, coverage, mã/hash, nguồn hay điểm; không sửa quote và không loại phương án bằng gate, ngưỡng điểm hoặc so trùng. JSON schema vẫn gửi tới API để định dạng dữ liệu cho giao diện. Giữ đúng mã và trường đã cấp để ứng dụng liên kết kết quả. Các trường tên VALIDATED là tên giao tiếp cũ, không có nghĩa backend đã xác nhận đúng. Auditor tự đọc prompt, đối chiếu yêu cầu và nguồn, nêu rõ fail/uncertain cùng lý do; không bịa chứng cứ. VP08 tự chấm harmony_score/proposed_total và recommendation; backend hiển thị nhận xét và xếp ba phương án theo proposed_total, không xác nhận chất lượng hoặc điều kiện đạt. Không ép prompt thành bản sao câu đầu vào chỉ để có quote.
+
+Thể hiện phong cách trình bày ảnh đã chọn (minh họa thiết kế thời trang, đời thường, lookbook, trình diễn, bản vẽ kỹ thuật hoặc custom) trong image_prompt bằng ngôn ngữ tạo hình cụ thể. Nếu optional bỏ qua, chọn phong cách phù hợp và ghi assumption; không tự đổi phong cách đã khóa. image_prompt bắt đầu bằng yêu cầu trực tiếp “Tạo một hình ảnh…” hoặc “Tạo một bản minh họa…” phù hợp, chỉ rõ đầu ra là ảnh, không phải bài phân tích thiết kế.

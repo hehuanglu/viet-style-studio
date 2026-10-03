@@ -13,9 +13,25 @@ from .evidence import Evidence
 
 
 class ProviderError(ArenaError):
-    def __init__(self, code, message, http_status=502, retryable=False):
+    def __init__(self, code, message, http_status=502, retryable=False, retry_after_seconds=None):
         super().__init__(code, message, http_status)
         self.retryable = retryable
+        self.retry_after_seconds = retry_after_seconds
+
+
+def google_retry_delay(detail):
+    """A quota denial without RetryInfo should not trigger an immediate repeat."""
+    for item in detail.get("details", []) or []:
+        if not isinstance(item, dict):
+            continue
+        if item.get("@type", "").endswith("google.rpc.RetryInfo"):
+            try:
+                value = float(str(item.get("retryDelay", "")).removesuffix("s"))
+                if 0 <= value < float("inf"):
+                    return max(1.0, value)
+            except (ValueError, TypeError):
+                pass
+    return None
 
 
 def tls_context():
@@ -23,6 +39,38 @@ def tls_context():
     if ssl.get_default_verify_paths().cafile is None and Path("/etc/ssl/cert.pem").is_file():
         context.load_verify_locations(cafile="/etc/ssl/cert.pem")
     return context
+
+
+def gemini_wire_schema(schema):
+    """Keep local validation strict; send Google's supported JSON Schema subset.
+
+    Property names are data, so a field named ``minLength`` must survive.
+    https://ai.google.dev/gemini-api/docs/structured-output#supported-json-schema
+    """
+    # Large nested array bounds also make Google's grammar reject otherwise
+    # supported schemas (observed on the full VP01 contract). Keep these in
+    # descriptions and enforce the original bounds at the application boundary.
+    unsupported = {"minLength", "maxLength", "uniqueItems", "minItems", "maxItems"}
+    def visit(node):
+        if isinstance(node, list):
+            return [visit(item) for item in node]
+        if not isinstance(node, dict):
+            return copy.deepcopy(node)
+        result = {}
+        for key, value in node.items():
+            if key in unsupported:
+                continue
+            if key in ("properties", "$defs", "definitions"):
+                result[key] = {name: visit(child) for name, child in value.items()}
+            elif key in ("enum", "const", "default", "examples"):
+                result[key] = copy.deepcopy(value)
+            else:
+                result[key] = visit(value)
+        constraints = [f"{key}={node[key]}" for key in sorted(unsupported) if key in node]
+        if constraints:
+            result["description"] = (result.get("description", "") + " Local validation constraints: " + ", ".join(constraints) + ".").strip()
+        return result
+    return visit(schema)
 
 
 class GeminiProvider:
@@ -36,10 +84,21 @@ class GeminiProvider:
         require(allow_unconfigured or isinstance(key, str) and bool(key.strip()), "Cần Gemini API key để hiểu yêu cầu", "missing_api_key", 409)
         self._key = (key or "").strip().replace("\\_", "_")
         self.text_model, self.image_model = text_model, image_model
-        self._lock, self._calls, self.session_call_limit = threading.Lock(), 0, session_call_limit
+        self._lock, self._calls = threading.Lock(), 0
+        # Legacy session_call_limit is accepted for callers, but never blocks operations.
+        self.call_warning_interval = 100
         self.context = tls_context()
         self.evidence = Evidence(evidence_dir)
         self._local = threading.local()
+
+    @property
+    def api_call_usage(self):
+        with self._lock:
+            return {"calls": self._calls, "warning_interval": self.call_warning_interval, "blocking_limit": None}
+
+    @property
+    def last_call_warning(self):
+        return getattr(self._local, "call_warning", None)
 
     @property
     def configured(self):
@@ -56,6 +115,16 @@ class GeminiProvider:
 
     def prepare_attempt(self):
         self._local.call_id = None
+        self._local.response_usage = {}
+        self._local.response_metadata = {}
+
+    @property
+    def last_response_usage(self):
+        return getattr(self._local, 'response_usage', {})
+
+    @property
+    def last_response_metadata(self):
+        return getattr(self._local, 'response_metadata', {})
 
     def observe_attempt(self, callback):
         self._local.on_request = callback
@@ -67,9 +136,12 @@ class GeminiProvider:
     def _request(self, model, body, timeout):
         require(self.configured, "Kết nối Gemini API key trước khi gửi yêu cầu; chế độ ảnh thủ công vẫn cần API văn bản", "missing_api_key", 409)
         with self._lock:
-            require(self.session_call_limit is None or self._calls < self.session_call_limit,
-                    "Đã hết trần API calls được cấu hình cho tiến trình thử nghiệm", "session_budget_exhausted", 409)
             self._calls += 1
+            count = self._calls
+        self._local.call_warning = (
+            f"Tiến trình đã thực hiện {count} lượt gọi Gemini API. Có thể phát sinh chi phí theo cấu hình Google; quy trình vẫn tiếp tục."
+            if count % self.call_warning_interval == 0 else None
+        )
         request = urllib.request.Request(
             f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
             data=json.dumps(body, ensure_ascii=False).encode(),
@@ -88,15 +160,18 @@ class GeminiProvider:
             self.evidence.write("provider-responses", {"model": model, "call_id": call_id, "request_hash": digest_request(body), "response": result})
             return result
         except urllib.error.HTTPError as error:
+            detail = {}
             try:
                 detail = json.loads(error.read().decode()).get("error", {})
                 message = str(detail.get("message", "Google từ chối request"))
             except (ValueError, UnicodeDecodeError):
                 message = "Google từ chối request"
             message = message.replace(self._key, "[REDACTED]")
-            self.evidence.write("provider-errors", {"model": model, "call_id": call_id, "request_hash": digest_request(body), "code": error.code, "message": message})
+            safe_detail = json.loads(json.dumps(detail, ensure_ascii=False).replace(self._key, "[REDACTED]"))
+            delay = google_retry_delay(detail)
+            self.evidence.write("provider-errors", {"model": model, "call_id": call_id, "request_hash": digest_request(body), "code": error.code, "message": message, "status": detail.get("status"), "details": safe_detail.get("details", []), "retry_after_seconds": delay})
             quota_zero = error.code == 429 and "limit: 0" in message
-            raise ProviderError(f"google_http_{error.code}", message, retryable=(error.code == 429 and not quota_zero) or error.code >= 500) from None
+            raise ProviderError(f"google_http_{error.code}", message, retryable=(error.code == 429 and not quota_zero and delay is not None) or error.code >= 500, retry_after_seconds=delay) from None
         except (urllib.error.URLError, TimeoutError, OSError):
             self.evidence.write("provider-errors", {"model": model, "call_id": call_id, "request_hash": digest_request(body), "code": "network_error"})
             raise ProviderError("provider_network_error", "Không nhận được phản hồi HTTPS hợp lệ từ Google", retryable=True) from None
@@ -110,8 +185,11 @@ class GeminiProvider:
             "contents": [{"role": "user", "parts": parts}],
             "generationConfig": {"temperature": self.generation_config["planning_temperature"] if task == "P03" else self.generation_config["other_temperature"],
                                  "maxOutputTokens": self.generation_config["max_output_tokens"],
-                                 "responseFormat": {"text": {"mimeType": "APPLICATION_JSON", "schema": schema}}},
+                                 "responseFormat": {"text": {"mimeType": "APPLICATION_JSON", "schema": gemini_wire_schema(schema)}}},
         }
+        # Current Google guidance for all Gemini 3.x: omit sampling overrides.
+        if self.text_model.startswith("gemini-3"):
+            body["generationConfig"].pop("temperature", None)
         result = self._request(self.text_model, body, timeout)
         candidates = result.get("candidates", [])
         require(bool(candidates), "Gemini không trả candidate text", "provider_empty_output", 502)
@@ -123,6 +201,43 @@ class GeminiProvider:
         except ValueError:
             raise ArenaError("provider_invalid_json", "Gemini trả JSON không đọc được", 502) from None
         return value, result.get("usageMetadata", {})
+
+    def structured_v2(self, task, system, prompt, schema, payload, timeout, config):
+        """VP tasks keep full text, task limits and provider-owned tool metadata."""
+        generation = {"maxOutputTokens": config["max_output_tokens"]}
+        # Use model defaults; design exploration is expressed in VP04 inputs.
+        if config.get("structured", True):
+            generation["responseFormat"] = {"text": {"mimeType": "APPLICATION_JSON", "schema": gemini_wire_schema(schema)}}
+        else:
+            prompt += "\nTrả JSON theo hợp đồng này (không Markdown): " + json.dumps(schema, ensure_ascii=False)
+        body = {"systemInstruction": {"parts": [{"text": system}]},
+                "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+                "generationConfig": generation}
+        if config.get("web_tools"):
+            body["tools"] = [{"googleSearch": {}}, {"urlContext": {}}]
+        result = self._request(self.text_model, body, timeout)
+        self._local.response_usage = result.get("usageMetadata", {})
+        candidates = result.get("candidates", [])
+        require(bool(candidates), "Gemini không trả nội dung VP", "provider_empty_output", 502)
+        candidate = candidates[0]
+        metadata = {key: copy.deepcopy(candidate.get(key, {})) for key in ("groundingMetadata", "urlContextMetadata")}
+        metadata["modelVersion"] = result.get("modelVersion")
+        metadata["responseId"] = result.get("responseId")
+        self._local.response_metadata = metadata
+        require(candidate.get("finishReason") in (None, "STOP"), "Gemini dừng trước khi hoàn tất VP JSON", "provider_incomplete_output", 502)
+        output = "".join(p.get("text", "") for p in candidate.get("content", {}).get("parts", []) if not p.get("thought")).strip()
+        if output.startswith("```"):
+            output = output.removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        try:
+            def invalid_constant(value):
+                raise ValueError(value)
+            def pairs(items):
+                require(len({k for k, _ in items}) == len(items), "JSON có field trùng", "provider_invalid_json", 502)
+                return dict(items)
+            value = json.loads(output, parse_constant=invalid_constant, object_pairs_hook=pairs)
+        except ValueError:
+            raise ArenaError("provider_invalid_json", "Gemini trả VP JSON không đọc được", 502) from None
+        return value, result.get("usageMetadata", {}), metadata
 
     def image(self, prompt, timeout, reference=None):
         parts = [{"text": prompt}]
@@ -147,6 +262,10 @@ class MockProvider:
     name, text_model, image_model = "mock", "mock-text-v1", "mock-image-v1"
     generation_config = {"fixture_version": 1}
     image_generation_config = {"fixture_version": 1}
+
+    def structured_v2(self, task, system, prompt, schema, payload, timeout, config):
+        from .viet_phuc_fixtures import fixture_response
+        return fixture_response(task, payload)
 
     def structured(self, task, system, prompt, schema, payload, timeout, images=None):
         if task == "P10":

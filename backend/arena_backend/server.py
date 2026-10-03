@@ -57,9 +57,16 @@ def create_server(engine, host="127.0.0.1", port=8787):
                 if url.path == "/health":
                     return self.send_json(200, engine.health())
                 if url.path == "/config":
-                    return self.send_json(200, {"policy": engine.policy, "input_fields": engine.domain.pack["input_fields"], "schemas": list(engine.contracts.document["$defs"]), "scope": "experimental_backend"})
+                    return self.send_json(200, {"workflow_version": 2, "config": engine.vp_config, "schemas": list(engine.vp_contracts.document["$defs"]), "scope": "viet_phuc"})
+                if len(parts) == 4 and parts[0] == "requests" and parts[2] == "references":
+                    job = engine.store.get_job(parts[1])
+                    engine._assert_v2_prompts(job)
+                    reference = next((r for r in job.get("references", []) if r["reference_id"] == parts[3]), None)
+                    require(reference is not None, "Tham khảo không tồn tại", "not_found", 404)
+                    return self.send_json(200, reference)
                 if len(parts) in (2, 3) and parts[0] == "requests":
                     job = engine.store.get_job(parts[1])
+                    engine._assert_v2_prompts(job)
                     if len(parts) == 3:
                         require(parts[2] == "events", "Endpoint không tồn tại", "not_found", 404)
                         try:
@@ -68,6 +75,10 @@ def create_server(engine, host="127.0.0.1", port=8787):
                             raise ArenaError("invalid_input", "since cần là số nguyên") from None
                         return self.send_json(200, {"request_id": job["request_id"], "revision": job["revision"], "status": job["status"], "events": [e for e in job["events"] if e["sequence"] > since]})
                     job["user_report"] = user_report(job, engine.policy)
+                    if job.get("workflow_version") == 2:
+                        # Internal checkpoint/inputs remain persisted, not sent on every poll.
+                        for key in ("checkpoints", "selection_receipts", "design_clock"):
+                            job.pop(key, None)
                     return self.send_json(200, job)
                 if len(parts) == 2 and parts[0] == "artifacts":
                     import uuid
@@ -104,6 +115,14 @@ def create_server(engine, host="127.0.0.1", port=8787):
                 if parts == ["requests"]:
                     return self.send_json(202, engine.create(self.body()))
                 if len(parts) == 3 and parts[0] == "requests":
+                    if parts[2] == "selections":
+                        return self.send_json(202, engine.selections(parts[1], self.body()))
+                    if parts[2] == "retry-resolution":
+                        return self.send_json(202, engine.retry_resolution(parts[1], self.body()))
+                    if parts[2] == "retry-audits":
+                        return self.send_json(202, engine.retry_audits(parts[1], self.body()))
+                    if parts[2] == "revise":
+                        return self.send_json(202, engine.reopen_choices(parts[1], self.body()))
                     if parts[2] == "image-candidate":
                         return self.send_json(200, engine.choose_image_candidate(parts[1], self.body()))
                     if parts[2] == "images":

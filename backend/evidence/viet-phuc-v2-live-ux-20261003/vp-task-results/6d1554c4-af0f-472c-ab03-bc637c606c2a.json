@@ -1,0 +1,403 @@
+{
+  "evidence_id": "6d1554c4-af0f-472c-ab03-bc637c606c2a",
+  "recorded_at": 1791028879.03071,
+  "request_id": "af4df8b8-d374-45bc-ae57-f0e4124e3bd0",
+  "attempt_id": "202eda98-6c72-4db6-abaa-1840a5b4dd32",
+  "trace": {
+    "task": "VP01",
+    "phase": "design",
+    "attempt_id": "202eda98-6c72-4db6-abaa-1840a5b4dd32",
+    "revision": 1,
+    "role": null,
+    "batch_id": null,
+    "cache_hit": false,
+    "duration_ms": 10795,
+    "provider_call_id": "c0a1a92b-b466-4701-a799-3396a7e30363",
+    "provider_called": true,
+    "usage": {
+      "promptTokenCount": 2035,
+      "candidatesTokenCount": 3225,
+      "totalTokenCount": 5260,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2035
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "tool_metadata": {
+      "groundingMetadata": {},
+      "urlContextMetadata": {},
+      "modelVersion": "gemini-3.5-flash-lite",
+      "responseId": "he7Aau3FBoLV9tMP963DkAg"
+    },
+    "input_hash": "bed6b1770751d080753c313a5fc70eeeb50aeda4a7884aa99ee5503d16a9e20e",
+    "output_hash": "81ec6945661268f223de9cc020d236e083a42c0330a6d55ed0504689219ccf7b",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "value": {
+    "request_id": "af4df8b8-d374-45bc-ae57-f0e4124e3bd0",
+    "revision": 1,
+    "clean_text": "Người dùng là nữ, muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều. Khách thích màu xanh ngọc nhạt, dáng thanh lịch, kín đáo, nhẹ và dễ đi lại. Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết. Người dùng không cần phục dựng trang phục lịch sử. Đồng thời muốn ứng dụng đề xuất những phần chưa biết, nhưng tránh dùng nhiều phụ kiện và đừng làm giống váy cô dâu, ngoài ra mong muốn được xem hình để dễ chọn.",
+    "domains": [
+      {
+        "domain_id": "DOMAIN_CONTEXT",
+        "label": "Bối cảnh sử dụng",
+        "summary": "Thông tin về giới tính người mặc và sự kiện tham dự.",
+        "related_domain_ids": [
+          "DOMAIN_STYLE"
+        ]
+      },
+      {
+        "domain_id": "DOMAIN_STYLE",
+        "label": "Phom dáng và phong cách",
+        "summary": "Yêu cầu về kiểu áo dài hiện đại, dáng thanh lịch, kín đáo, nhẹ, dễ đi lại và tránh giống váy cô dâu.",
+        "related_domain_ids": [
+          "DOMAIN_CONTEXT",
+          "DOMAIN_COLOR",
+          "DOMAIN_ART"
+        ]
+      },
+      {
+        "domain_id": "DOMAIN_COLOR",
+        "label": "Màu sắc",
+        "summary": "Yêu cầu về màu xanh ngọc nhạt.",
+        "related_domain_ids": [
+          "DOMAIN_STYLE"
+        ]
+      },
+      {
+        "domain_id": "DOMAIN_ART",
+        "label": "Họa tiết và mỹ thuật",
+        "summary": "Ý thích về hoa sen hoặc các nét gợi mây nhưng không bắt buộc dùng hết.",
+        "related_domain_ids": [
+          "DOMAIN_STYLE"
+        ]
+      },
+      {
+        "domain_id": "DOMAIN_HISTORY",
+        "label": "Tính lịch sử",
+        "summary": "Không yêu cầu phục dựng trang phục lịch sử.",
+        "related_domain_ids": []
+      },
+      {
+        "domain_id": "DOMAIN_ACCESSORY",
+        "label": "Phụ kiện",
+        "summary": "Tránh dùng nhiều phụ kiện và không làm giống váy cô dâu.",
+        "related_domain_ids": [
+          "DOMAIN_STYLE"
+        ]
+      },
+      {
+        "domain_id": "DOMAIN_DELEGATION",
+        "label": "Đề xuất và trực quan hóa",
+        "summary": "Giao AI đề xuất các phần chưa biết và yêu cầu xem hình ảnh để dễ chọn.",
+        "related_domain_ids": []
+      }
+    ],
+    "atoms": [
+      {
+        "atom_id": "ATOM_GENDER",
+        "domain_ids": [
+          "DOMAIN_CONTEXT"
+        ],
+        "meaning": "Người dùng là nữ.",
+        "intent_type": "context",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Mình là nữ,"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "ATOM_OCCASION",
+        "domain_ids": [
+          "DOMAIN_CONTEXT"
+        ],
+        "meaning": "Mặc đi đám cưới bạn vào buổi chiều.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "ATOM_AO_DAI_MODERN",
+        "domain_ids": [
+          "DOMAIN_STYLE"
+        ],
+        "meaning": "Trang phục là áo dài hiện đại.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "muốn một bộ áo dài hiện đại"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "ATOM_COLOR_LIGHT_JADE",
+        "domain_ids": [
+          "DOMAIN_COLOR"
+        ],
+        "meaning": "Thích màu xanh ngọc nhạt.",
+        "intent_type": "preference",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Mình thích màu xanh ngọc nhạt,"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "ATOM_SILHOUETTE_STYLE",
+        "domain_ids": [
+          "DOMAIN_STYLE"
+        ],
+        "meaning": "Dáng thanh lịch, kín đáo, nhẹ và dễ đi lại.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "ATOM_MOTIF_PREFERENCE",
+        "domain_ids": [
+          "DOMAIN_ART"
+        ],
+        "meaning": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết.",
+        "intent_type": "example",
+        "polarity": "neutral",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "ATOM_NO_HISTORICAL_RESTORATION",
+        "domain_ids": [
+          "DOMAIN_HISTORY"
+        ],
+        "meaning": "Không cần phục dựng trang phục lịch sử.",
+        "intent_type": "avoid",
+        "polarity": "negative",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Mình không cần phục dựng trang phục lịch sử."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "ATOM_DELEGATE_UNKNOWN",
+        "domain_ids": [
+          "DOMAIN_DELEGATION"
+        ],
+        "meaning": "Giao AI đề xuất những phần chưa biết.",
+        "intent_type": "delegated",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "ATOM_AVOID_EXCESS_ACCESSORIES",
+        "domain_ids": [
+          "DOMAIN_ACCESSORY"
+        ],
+        "meaning": "Tránh nhiều phụ kiện.",
+        "intent_type": "avoid",
+        "polarity": "negative",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "nhưng tránh nhiều phụ kiện"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "ATOM_AVOID_BRIDE_DRESS",
+        "domain_ids": [
+          "DOMAIN_STYLE",
+          "DOMAIN_ACCESSORY"
+        ],
+        "meaning": "Đừng làm giống váy cô dâu.",
+        "intent_type": "avoid",
+        "polarity": "negative",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "và đừng làm giống váy cô dâu."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "ATOM_WANT_IMAGES",
+        "domain_ids": [
+          "DOMAIN_DELEGATION"
+        ],
+        "meaning": "Muốn xem hình để dễ chọn.",
+        "intent_type": "preference",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Mình muốn xem hình để dễ chọn."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      }
+    ],
+    "relations": [
+      {
+        "from_atom_id": "ATOM_AO_DAI_MODERN",
+        "to_atom_id": "ATOM_AVOID_BRIDE_DRESS",
+        "relation": "constraint_refinement",
+        "reason": "Áo dài hiện đại đi dự tiệc cưới cần tránh nhầm lẫn hoặc trùng lặp với trang phục của cô dâu."
+      }
+    ],
+    "conflicts": [],
+    "coverage": [
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Mình là nữ,"
+        },
+        "atom_ids": [
+          "ATOM_GENDER"
+        ],
+        "disposition": "retained",
+        "reason": "Xác định giới tính người mặc."
+      },
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "muốn một bộ áo dài hiện đại để đi đám cưới bạn vào buổi chiều."
+        },
+        "atom_ids": [
+          "ATOM_OCCASION",
+          "ATOM_AO_DAI_MODERN"
+        ],
+        "disposition": "retained",
+        "reason": "Ghi nhận bối cảnh sự kiện và loại trang phục."
+      },
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Mình thích màu xanh ngọc nhạt,"
+        },
+        "atom_ids": [
+          "ATOM_COLOR_LIGHT_JADE"
+        ],
+        "disposition": "retained",
+        "reason": "Sở thích về màu sắc."
+      },
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "dáng thanh lịch, kín đáo, nhẹ và dễ đi lại."
+        },
+        "atom_ids": [
+          "ATOM_SILHOUETTE_STYLE"
+        ],
+        "disposition": "retained",
+        "reason": "Yêu cầu về phom dáng và đặc tính trang phục."
+      },
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Hoa sen hoặc những nét gợi mây chỉ là ý thích, không nhất thiết phải dùng hết."
+        },
+        "atom_ids": [
+          "ATOM_MOTIF_PREFERENCE"
+        ],
+        "disposition": "example",
+        "reason": "Ý kiến tham khảo về họa tiết mang tính tùy chọn."
+      },
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Mình không cần phục dựng trang phục lịch sử."
+        },
+        "atom_ids": [
+          "ATOM_NO_HISTORICAL_RESTORATION"
+        ],
+        "disposition": "retained",
+        "reason": "Loại bỏ yêu cầu phục dựng lịch sử."
+      },
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Bạn cứ đề xuất những phần mình chưa biết,"
+        },
+        "atom_ids": [
+          "ATOM_DELEGATE_UNKNOWN"
+        ],
+        "disposition": "retained",
+        "reason": "Trao quyền cho AI đề xuất các phần chưa rõ."
+      },
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "nhưng tránh nhiều phụ kiện và đừng làm giống váy cô dâu."
+        },
+        "atom_ids": [
+          "ATOM_AVOID_EXCESS_ACCESSORIES",
+          "ATOM_AVOID_BRIDE_DRESS"
+        ],
+        "disposition": "retained",
+        "reason": "Các điều cần tránh đối với phụ kiện và phong cách váy cưới."
+      },
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Mình muốn xem hình để dễ chọn."
+        },
+        "atom_ids": [
+          "ATOM_WANT_IMAGES"
+        ],
+        "disposition": "retained",
+        "reason": "Mong muốn xem hình ảnh trực quan."
+      }
+    ]
+  }
+}

@@ -23,6 +23,7 @@ const context = vm.createContext({
   },
   localStorage: {getItem(key) { return key === 'arena-session-id' ? 'test' : null; }, setItem() {}},
   location: {search: ''}, URLSearchParams, AbortController, crypto: {randomUUID() { return 'test'; }},
+  setTimeout() { return 0; }, clearTimeout() {},
   setInterval(fn) { timers.set(++timerId, fn); return timerId; },
   clearInterval(id) { timers.delete(id); },
   fetch(url) {

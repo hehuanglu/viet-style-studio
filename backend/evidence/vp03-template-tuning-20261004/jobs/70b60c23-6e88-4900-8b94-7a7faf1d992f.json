@@ -1,0 +1,2913 @@
+{
+  "evidence_id": "70b60c23-6e88-4900-8b94-7a7faf1d992f",
+  "recorded_at": 1791050775.414858,
+  "event": "resolving_choices",
+  "job": {
+    "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+    "session_id": "05171d63-7b4b-4ba2-87aa-ab7e778c2440",
+    "workflow_version": 2,
+    "revision": 5,
+    "status": "resolving_choices",
+    "provider": "gemini",
+    "creative_level": "explore",
+    "scoring_profile": "balanced",
+    "image_mode": "gemini_manual",
+    "audit_mode": "api",
+    "render_image": true,
+    "reference_mode": "text_only",
+    "raw_prompt": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại. Tôi cần một bộ trang phục mùa hè, cho nữ, lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng. Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam. Có thể là áo phối với chân váy dài hoặc váy liền thân. Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục. Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+    "turns": [
+      {
+        "id": "T1",
+        "text": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại. Tôi cần một bộ trang phục mùa hè, cho nữ, lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng. Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam. Có thể là áo phối với chân váy dài hoặc váy liền thân. Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục. Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài."
+      },
+      {
+        "id": "S1",
+        "text": "Chọn thiết kế áo phối với chân váy dài.\nChọn cảm hứng từ tranh khắc gỗ dân gian.\nChọn khuyên tai tối giản."
+      }
+    ],
+    "brief": null,
+    "questions": [],
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "image_prompts": [],
+    "error": null,
+    "warnings": [
+      "Chế độ cơ bản: không tìm/đọc web, không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử."
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "cleaning",
+        "brief_revision": 1,
+        "timestamp": 1791049696.130889
+      },
+      {
+        "sequence": 2,
+        "stage": "designing_checklist",
+        "brief_revision": 1,
+        "timestamp": 1791049703.560565
+      },
+      {
+        "sequence": 3,
+        "stage": "awaiting_choices",
+        "brief_revision": 1,
+        "timestamp": 1791049731.722282
+      },
+      {
+        "sequence": 4,
+        "stage": "resolving_choices",
+        "brief_revision": 2,
+        "timestamp": 1791049985.295163
+      },
+      {
+        "sequence": 5,
+        "stage": "failed",
+        "brief_revision": 2,
+        "timestamp": 1791049999.7769191
+      },
+      {
+        "sequence": 6,
+        "stage": "resolving_choices",
+        "brief_revision": 3,
+        "timestamp": 1791050013.6227908
+      },
+      {
+        "sequence": 7,
+        "stage": "failed",
+        "brief_revision": 3,
+        "timestamp": 1791050028.9772391
+      },
+      {
+        "sequence": 8,
+        "stage": "resolving_choices",
+        "brief_revision": 4,
+        "timestamp": 1791050666.045055
+      },
+      {
+        "sequence": 9,
+        "stage": "failed",
+        "brief_revision": 4,
+        "timestamp": 1791050681.2387662
+      },
+      {
+        "sequence": 10,
+        "stage": "resolving_choices",
+        "brief_revision": 5,
+        "timestamp": 1791050775.410342
+      }
+    ],
+    "trace": [
+      {
+        "task": "VP01",
+        "phase": "design",
+        "attempt_id": "524fe563-e213-4a2d-8a80-cedd8814ba2f",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 7418,
+        "provider_call_id": "3b4284c5-cb2f-4cad-bada-a8086e961c92",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 2284,
+          "candidatesTokenCount": 2739,
+          "totalTokenCount": 5023,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2284
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "4D_Bat2HMIGN1e8P98qO-QU"
+        },
+        "input_hash": "1e01a88a1f9642644ebbaed8b998b7f9673e53d5911bf932d01268ef0c6b9f47",
+        "output_hash": "9bc66a8d94dfd337aa7461c56970e1181d6ba09e599c92223a78f3de708e67a6",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP02",
+        "phase": "design",
+        "attempt_id": "4f14e940-3b68-4f87-851d-d877be74f686",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 13778,
+        "provider_call_id": "619c3ba4-f7ec-4a4a-b2ad-9f2c3afe5862",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 5245,
+          "candidatesTokenCount": 5324,
+          "totalTokenCount": 10569,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 5245
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "6D_Bau3lCfTTrfcP8-6-8QQ"
+        },
+        "input_hash": "9f3255cc902df9eeea76a366c40768cedbcf9d4163f7f72e797332c881d7384f",
+        "output_hash": "d3b3931df9ac5440c0cd93cec488c09737f9c4286f01cb14e1ceb909b424cef8",
+        "error_code": "semantic_invalid",
+        "error_message": "Option phụ thuộc mã không tồn tại",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP02",
+        "phase": "design",
+        "attempt_id": "b576fa4d-1166-412f-b7b3-013a64026c2e",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 14366,
+        "provider_call_id": "10c55848-a8f0-40a7-88b4-b0aebf67c22d",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 5270,
+          "candidatesTokenCount": 5405,
+          "totalTokenCount": 10675,
+          "cachedContentTokenCount": 2266,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 5270
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2266
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "9T_BaqeVObWj9tMPgqmY2Qk"
+        },
+        "input_hash": "9f3255cc902df9eeea76a366c40768cedbcf9d4163f7f72e797332c881d7384f",
+        "output_hash": "700aed65e0500b283753d3a0ec3266efc5d3f2ad2f5b3bf767dd3372ffe511e8",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP03",
+        "phase": "design",
+        "attempt_id": "ef054351-169a-4f31-a5e8-e960fa7d410a",
+        "revision": 2,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 7320,
+        "provider_call_id": "6168d192-c28b-4d4d-bad0-66699f7d63b9",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 9307,
+          "candidatesTokenCount": 2770,
+          "totalTokenCount": 12077,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 9307
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "AUHBap_JNruM1e8P3fyu8AU"
+        },
+        "input_hash": "c2f88c378f544bd63e44512b90c210325a6e0e412f96054431ba5a10f1450b90",
+        "output_hash": "c490c7f90cbac421b459c94f0f4653b9ec75ac1f701bf578e64fe63e98f5cb4f",
+        "error_code": "semantic_invalid",
+        "error_message": "Tự thay yêu cầu chưa có thay đổi rõ ràng",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP03",
+        "phase": "design",
+        "attempt_id": "a2c13f52-a6b9-444c-9379-1b6b416d1d78",
+        "revision": 2,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 7143,
+        "provider_call_id": "ce3bebb3-d6fb-467e-b874-c07a94eb2447",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 9336,
+          "candidatesTokenCount": 2689,
+          "totalTokenCount": 12025,
+          "cachedContentTokenCount": 6621,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 9336
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6621
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "CUHBau-iDYaj9tMPm-bh4Qk"
+        },
+        "input_hash": "c2f88c378f544bd63e44512b90c210325a6e0e412f96054431ba5a10f1450b90",
+        "output_hash": "6c23c86ba68579e7d014b2f9efe4d711fe94049a9419372588ae48e29d8c6ad7",
+        "error_code": "semantic_invalid",
+        "error_message": "Tự thay yêu cầu chưa có thay đổi rõ ràng",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP03",
+        "phase": "design",
+        "attempt_id": "e8ea10eb-a9a7-475f-99ad-0eecfaca69b0",
+        "revision": 3,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 7873,
+        "provider_call_id": "4fef48de-8236-4f8e-a59c-6e09d9038c87",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 9307,
+          "candidatesTokenCount": 2880,
+          "totalTokenCount": 12187,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 9307
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "HkHBatHXDv7f1e8Pj7vN8Ak"
+        },
+        "input_hash": "c290f515b41f87d63dcfd444e5a966ff778191c7a1f9ae1ac672fc79db44315e",
+        "output_hash": "7bba8843d834d4c08ac86c78556aaf852acbf4820333a6bf56cd1c4202321c70",
+        "error_code": "semantic_invalid",
+        "error_message": "Tự thay yêu cầu chưa có thay đổi rõ ràng",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP03",
+        "phase": "design",
+        "attempt_id": "3acac781-68a8-4b1e-843b-8f5b5a1179a1",
+        "revision": 3,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 7461,
+        "provider_call_id": "d8554cce-0add-41d5-b134-7ac86ee4ba76",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 9336,
+          "candidatesTokenCount": 2785,
+          "totalTokenCount": 12121,
+          "cachedContentTokenCount": 6621,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 9336
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6621
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "JkHBasCZCdykvr0Pz6TnsAw"
+        },
+        "input_hash": "c290f515b41f87d63dcfd444e5a966ff778191c7a1f9ae1ac672fc79db44315e",
+        "output_hash": "25a1896c23fb708e2a3fac24127c53b7aa68fe137977300c2d9705537dbad11a",
+        "error_code": "semantic_invalid",
+        "error_message": "Tự thay yêu cầu chưa có thay đổi rõ ràng",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP03",
+        "phase": "design",
+        "attempt_id": "ba19d9ce-4fa9-443a-9400-f3c0732c664d",
+        "revision": 4,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 7848,
+        "provider_call_id": "2725b0ab-0aa0-4449-aafd-d55dcc8e021d",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 9551,
+          "candidatesTokenCount": 2675,
+          "totalTokenCount": 12226,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 9551
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "qkPBasvdJcOm1e8P9qDVkQY"
+        },
+        "input_hash": "bcafe780e8ed9b45cab1105827c241593d3c333359e4cd9345c03b3d684a906e",
+        "output_hash": "f6eae535b84b39c2b2ef9c693543b8defbd45de4e6fc368b6cef5a5a70c53121",
+        "error_code": "semantic_invalid",
+        "error_message": "Quyết định chưa được khóa/giao AI",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      },
+      {
+        "task": "VP03",
+        "phase": "design",
+        "attempt_id": "04351188-533e-4639-bfaa-f336b999997b",
+        "revision": 4,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 7325,
+        "provider_call_id": "f6dcffd0-9608-44f4-b6e1-fb2559ae3e1e",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 9579,
+          "candidatesTokenCount": 2608,
+          "totalTokenCount": 12187,
+          "cachedContentTokenCount": 6653,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 9579
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6653
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "skPBapnCHfSVvr0P7s3zmQU"
+        },
+        "input_hash": "bcafe780e8ed9b45cab1105827c241593d3c333359e4cd9345c03b3d684a906e",
+        "output_hash": "77321632586b37eaed83d2a4c654cfa7af05853e921206a0c581ff2861e24767",
+        "error_code": "semantic_invalid",
+        "error_message": "Quyết định chưa được khóa/giao AI",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      }
+    ],
+    "workflow_steps": [
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP01",
+          "phase": "design",
+          "attempt_id": "524fe563-e213-4a2d-8a80-cedd8814ba2f",
+          "revision": 1,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 7418,
+          "provider_call_id": "3b4284c5-cb2f-4cad-bada-a8086e961c92",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 2284,
+            "candidatesTokenCount": 2739,
+            "totalTokenCount": 5023,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2284
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "4D_Bat2HMIGN1e8P98qO-QU"
+          },
+          "input_hash": "1e01a88a1f9642644ebbaed8b998b7f9673e53d5911bf932d01268ef0c6b9f47",
+          "output_hash": "9bc66a8d94dfd337aa7461c56970e1181d6ba09e599c92223a78f3de708e67a6",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP02",
+          "phase": "design",
+          "attempt_id": "4f14e940-3b68-4f87-851d-d877be74f686",
+          "revision": 1,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 13778,
+          "provider_call_id": "619c3ba4-f7ec-4a4a-b2ad-9f2c3afe5862",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 5245,
+            "candidatesTokenCount": 5324,
+            "totalTokenCount": 10569,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 5245
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "6D_Bau3lCfTTrfcP8-6-8QQ"
+          },
+          "input_hash": "9f3255cc902df9eeea76a366c40768cedbcf9d4163f7f72e797332c881d7384f",
+          "output_hash": "d3b3931df9ac5440c0cd93cec488c09737f9c4286f01cb14e1ceb909b424cef8",
+          "error_code": "semantic_invalid",
+          "error_message": "Option phụ thuộc mã không tồn tại",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP02",
+          "phase": "design",
+          "attempt_id": "b576fa4d-1166-412f-b7b3-013a64026c2e",
+          "revision": 1,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 14366,
+          "provider_call_id": "10c55848-a8f0-40a7-88b4-b0aebf67c22d",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 5270,
+            "candidatesTokenCount": 5405,
+            "totalTokenCount": 10675,
+            "cachedContentTokenCount": 2266,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 5270
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2266
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "9T_BaqeVObWj9tMPgqmY2Qk"
+          },
+          "input_hash": "9f3255cc902df9eeea76a366c40768cedbcf9d4163f7f72e797332c881d7384f",
+          "output_hash": "700aed65e0500b283753d3a0ec3266efc5d3f2ad2f5b3bf767dd3372ffe511e8",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "app",
+        "purpose": "Chốt lựa chọn có căn cứ từ form",
+        "detail": "Chọn thiết kế áo phối với chân váy dài.\nChọn cảm hứng từ tranh khắc gỗ dân gian.\nChọn khuyên tai tối giản."
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP03",
+          "phase": "design",
+          "attempt_id": "ef054351-169a-4f31-a5e8-e960fa7d410a",
+          "revision": 2,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 7320,
+          "provider_call_id": "6168d192-c28b-4d4d-bad0-66699f7d63b9",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 9307,
+            "candidatesTokenCount": 2770,
+            "totalTokenCount": 12077,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9307
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "AUHBap_JNruM1e8P3fyu8AU"
+          },
+          "input_hash": "c2f88c378f544bd63e44512b90c210325a6e0e412f96054431ba5a10f1450b90",
+          "output_hash": "c490c7f90cbac421b459c94f0f4653b9ec75ac1f701bf578e64fe63e98f5cb4f",
+          "error_code": "semantic_invalid",
+          "error_message": "Tự thay yêu cầu chưa có thay đổi rõ ràng",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP03",
+          "phase": "design",
+          "attempt_id": "a2c13f52-a6b9-444c-9379-1b6b416d1d78",
+          "revision": 2,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 7143,
+          "provider_call_id": "ce3bebb3-d6fb-467e-b874-c07a94eb2447",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 9336,
+            "candidatesTokenCount": 2689,
+            "totalTokenCount": 12025,
+            "cachedContentTokenCount": 6621,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9336
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6621
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "CUHBau-iDYaj9tMPm-bh4Qk"
+          },
+          "input_hash": "c2f88c378f544bd63e44512b90c210325a6e0e412f96054431ba5a10f1450b90",
+          "output_hash": "6c23c86ba68579e7d014b2f9efe4d711fe94049a9419372588ae48e29d8c6ad7",
+          "error_code": "semantic_invalid",
+          "error_message": "Tự thay yêu cầu chưa có thay đổi rõ ràng",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "app",
+        "purpose": "Dừng vì lỗi",
+        "detail": ""
+      },
+      {
+        "kind": "app",
+        "purpose": "Tiếp tục tổng hợp lựa chọn",
+        "detail": "Giữ lựa chọn và ngân sách đã dùng; tăng revision để chặn kết quả cũ."
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP03",
+          "phase": "design",
+          "attempt_id": "e8ea10eb-a9a7-475f-99ad-0eecfaca69b0",
+          "revision": 3,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 7873,
+          "provider_call_id": "4fef48de-8236-4f8e-a59c-6e09d9038c87",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 9307,
+            "candidatesTokenCount": 2880,
+            "totalTokenCount": 12187,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9307
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "HkHBatHXDv7f1e8Pj7vN8Ak"
+          },
+          "input_hash": "c290f515b41f87d63dcfd444e5a966ff778191c7a1f9ae1ac672fc79db44315e",
+          "output_hash": "7bba8843d834d4c08ac86c78556aaf852acbf4820333a6bf56cd1c4202321c70",
+          "error_code": "semantic_invalid",
+          "error_message": "Tự thay yêu cầu chưa có thay đổi rõ ràng",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP03",
+          "phase": "design",
+          "attempt_id": "3acac781-68a8-4b1e-843b-8f5b5a1179a1",
+          "revision": 3,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 7461,
+          "provider_call_id": "d8554cce-0add-41d5-b134-7ac86ee4ba76",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 9336,
+            "candidatesTokenCount": 2785,
+            "totalTokenCount": 12121,
+            "cachedContentTokenCount": 6621,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9336
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6621
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "JkHBasCZCdykvr0Pz6TnsAw"
+          },
+          "input_hash": "c290f515b41f87d63dcfd444e5a966ff778191c7a1f9ae1ac672fc79db44315e",
+          "output_hash": "25a1896c23fb708e2a3fac24127c53b7aa68fe137977300c2d9705537dbad11a",
+          "error_code": "semantic_invalid",
+          "error_message": "Tự thay yêu cầu chưa có thay đổi rõ ràng",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "app",
+        "purpose": "Dừng vì lỗi",
+        "detail": ""
+      },
+      {
+        "kind": "app",
+        "purpose": "Tiếp tục tổng hợp lựa chọn",
+        "detail": "Giữ lựa chọn và ngân sách đã dùng; tăng revision để chặn kết quả cũ."
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP03",
+          "phase": "design",
+          "attempt_id": "ba19d9ce-4fa9-443a-9400-f3c0732c664d",
+          "revision": 4,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 7848,
+          "provider_call_id": "2725b0ab-0aa0-4449-aafd-d55dcc8e021d",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 9551,
+            "candidatesTokenCount": 2675,
+            "totalTokenCount": 12226,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9551
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "qkPBasvdJcOm1e8P9qDVkQY"
+          },
+          "input_hash": "bcafe780e8ed9b45cab1105827c241593d3c333359e4cd9345c03b3d684a906e",
+          "output_hash": "f6eae535b84b39c2b2ef9c693543b8defbd45de4e6fc368b6cef5a5a70c53121",
+          "error_code": "semantic_invalid",
+          "error_message": "Quyết định chưa được khóa/giao AI",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "provider",
+        "trace": {
+          "task": "VP03",
+          "phase": "design",
+          "attempt_id": "04351188-533e-4639-bfaa-f336b999997b",
+          "revision": 4,
+          "role": null,
+          "batch_id": null,
+          "cache_hit": false,
+          "duration_ms": 7325,
+          "provider_call_id": "f6dcffd0-9608-44f4-b6e1-fb2559ae3e1e",
+          "provider_called": true,
+          "usage": {
+            "promptTokenCount": 9579,
+            "candidatesTokenCount": 2608,
+            "totalTokenCount": 12187,
+            "cachedContentTokenCount": 6653,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9579
+              }
+            ],
+            "cacheTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6653
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "tool_metadata": {
+            "groundingMetadata": {},
+            "urlContextMetadata": {},
+            "modelVersion": "gemini-3.5-flash-lite",
+            "responseId": "skPBapnCHfSVvr0P7s3zmQU"
+          },
+          "input_hash": "bcafe780e8ed9b45cab1105827c241593d3c333359e4cd9345c03b3d684a906e",
+          "output_hash": "77321632586b37eaed83d2a4c654cfa7af05853e921206a0c581ff2861e24767",
+          "error_code": "semantic_invalid",
+          "error_message": "Quyết định chưa được khóa/giao AI",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite"
+        }
+      },
+      {
+        "kind": "app",
+        "purpose": "Dừng vì lỗi",
+        "detail": ""
+      },
+      {
+        "kind": "app",
+        "purpose": "Tiếp tục tổng hợp lựa chọn",
+        "detail": "Giữ lựa chọn và ngân sách đã dùng; tăng revision để chặn kết quả cũ."
+      }
+    ],
+    "created_at": 1791049696.121569,
+    "budget_config": {
+      "design": {
+        "total_provider_calls_max": 26,
+        "active_processing_deadline_seconds": 240,
+        "retry_per_task_max": 1
+      },
+      "media": {
+        "total_provider_calls_max": 13,
+        "active_processing_deadline_seconds": 90
+      }
+    },
+    "clean_prompt": {
+      "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+      "revision": 5,
+      "clean_text": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại. Tôi cần một bộ trang phục mùa hè, cho nữ, lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng. Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam. Có thể là áo phối với chân váy dài hoặc váy liền thân. Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục. Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+      "domains": [
+        {
+          "domain_id": "dom_context",
+          "label": "Bối cảnh và Đối tượng",
+          "summary": "Thông tin về sự kiện thời trang, mùa mặc và đối tượng sử dụng trang phục.",
+          "related_domain_ids": [
+            "dom_structure"
+          ]
+        },
+        {
+          "domain_id": "dom_structure",
+          "label": "Cấu trúc và Thiết kế",
+          "summary": "Kiểu dáng, đường nét, cấu trúc trang phục (áo phối chân váy dài hoặc váy liền thân) cùng phong cách truyền thống kết hợp hiện đại.",
+          "related_domain_ids": [
+            "dom_context",
+            "dom_art",
+            "dom_accessories"
+          ]
+        },
+        {
+          "domain_id": "dom_art",
+          "label": "Mỹ thuật và Cảm hứng",
+          "summary": "Cảm hứng từ Việt phục truyền thống và mỹ thuật hội họa truyền thống Việt Nam.",
+          "related_domain_ids": [
+            "dom_structure"
+          ]
+        },
+        {
+          "domain_id": "dom_accessories",
+          "label": "Phụ kiện",
+          "summary": "Các loại phụ kiện đi kèm như khuyên tai, vòng cổ, mũ, túi xách với số lượng vừa đủ.",
+          "related_domain_ids": [
+            "dom_structure"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_context_event",
+          "domain_ids": [
+            "dom_context"
+          ],
+          "meaning": "Đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại.",
+          "intent_type": "context",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_context_season_gender",
+          "domain_ids": [
+            "dom_context"
+          ],
+          "meaning": "Trang phục mùa hè, dành cho nữ.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Tôi cần một bộ trang phục mùa hè, cho nữ"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_structure_inspiration",
+          "domain_ids": [
+            "dom_structure",
+            "dom_art"
+          ],
+          "meaning": "Lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_structure_lines_qualities",
+          "domain_ids": [
+            "dom_structure"
+          ],
+          "meaning": "Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_art_painting",
+          "domain_ids": [
+            "dom_art"
+          ],
+          "meaning": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_structure_silhouette_options",
+          "domain_ids": [
+            "dom_structure"
+          ],
+          "meaning": "Có thể là áo phối với chân váy dài hoặc váy liền thân.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Có thể là áo phối với chân váy dài hoặc váy liền thân."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_accessories_types",
+          "domain_ids": [
+            "dom_accessories"
+          ],
+          "meaning": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_accessories_quantity",
+          "domain_ids": [
+            "dom_accessories"
+          ],
+          "meaning": "Không cần quá nhiều phụ kiện, chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "relations": [
+        {
+          "from_atom_id": "atom_structure_inspiration",
+          "to_atom_id": "atom_art_painting",
+          "relation": "complement",
+          "reason": "Cảm hứng từ Việt phục truyền thống và mỹ thuật hội họa truyền thống kết hợp bổ trợ cho tính thẩm mỹ chung của trang phục."
+        },
+        {
+          "from_atom_id": "atom_accessories_types",
+          "to_atom_id": "atom_accessories_quantity",
+          "relation": "constraint",
+          "reason": "Giới hạn số lượng phụ kiện (vừa đủ, không quá nhiều) áp dụng cho các lựa chọn phụ kiện."
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại."
+          },
+          "atom_ids": [
+            "atom_context_event"
+          ],
+          "disposition": "retained",
+          "reason": "Đã chuyển hóa thành atom về bối cảnh sự kiện."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Tôi cần một bộ trang phục mùa hè, cho nữ"
+          },
+          "atom_ids": [
+            "atom_context_season_gender"
+          ],
+          "disposition": "retained",
+          "reason": "Đã chuyển hóa thành atom về mùa và giới tính."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng."
+          },
+          "atom_ids": [
+            "atom_structure_inspiration"
+          ],
+          "disposition": "retained",
+          "reason": "Đã chuyển hóa thành atom về định hướng phong cách và cảm hứng."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+          },
+          "atom_ids": [
+            "atom_structure_lines_qualities"
+          ],
+          "disposition": "retained",
+          "reason": "Đã chuyển hóa thành atom về đặc điểm đường nét và tiêu chí thiết kế."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam."
+          },
+          "atom_ids": [
+            "atom_art_painting"
+          ],
+          "disposition": "retained",
+          "reason": "Đã chuyển hóa thành atom về chi tiết mỹ thuật hội họa."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Có thể là áo phối với chân váy dài hoặc váy liền thân."
+          },
+          "atom_ids": [
+            "atom_structure_silhouette_options"
+          ],
+          "disposition": "retained",
+          "reason": "Đã chuyển hóa thành atom="
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục."
+          },
+          "atom_ids": [
+            "atom_accessories_types"
+          ],
+          "disposition": "retained",
+          "reason": "Đã chuyển hóa thành atom về các loại phụ kiện."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài."
+          },
+          "atom_ids": [
+            "atom_accessories_quantity"
+          ],
+          "disposition": "retained",
+          "reason": "Đã chuyển hóa thành atom về yêu cầu số lượng phụ kiện."
+        }
+      ]
+    },
+    "checklist": {
+      "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+      "revision": 5,
+      "clean_prompt": {
+        "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+        "revision": 5,
+        "clean_text": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại. Tôi cần một bộ trang phục mùa hè, cho nữ, lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng. Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam. Có thể là áo phối với chân váy dài hoặc váy liền thân. Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục. Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+        "domains": [
+          {
+            "domain_id": "dom_context",
+            "label": "Bối cảnh và Đối tượng",
+            "summary": "Thông tin về sự kiện thời trang, mùa mặc và đối tượng sử dụng trang phục.",
+            "related_domain_ids": [
+              "dom_structure"
+            ]
+          },
+          {
+            "domain_id": "dom_structure",
+            "label": "Cấu trúc và Thiết kế",
+            "summary": "Kiểu dáng, đường nét, cấu trúc trang phục (áo phối chân váy dài hoặc váy liền thân) cùng phong cách truyền thống kết hợp hiện đại.",
+            "related_domain_ids": [
+              "dom_context",
+              "dom_art",
+              "dom_accessories"
+            ]
+          },
+          {
+            "domain_id": "dom_art",
+            "label": "Mỹ thuật và Cảm hứng",
+            "summary": "Cảm hứng từ Việt phục truyền thống và mỹ thuật hội họa truyền thống Việt Nam.",
+            "related_domain_ids": [
+              "dom_structure"
+            ]
+          },
+          {
+            "domain_id": "dom_accessories",
+            "label": "Phụ kiện",
+            "summary": "Các loại phụ kiện đi kèm như khuyên tai, vòng cổ, mũ, túi xách với số lượng vừa đủ.",
+            "related_domain_ids": [
+              "dom_structure"
+            ]
+          }
+        ],
+        "atoms": [
+          {
+            "atom_id": "atom_context_event",
+            "domain_ids": [
+              "dom_context"
+            ],
+            "meaning": "Đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại.",
+            "intent_type": "context",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_context_season_gender",
+            "domain_ids": [
+              "dom_context"
+            ],
+            "meaning": "Trang phục mùa hè, dành cho nữ.",
+            "intent_type": "must",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Tôi cần một bộ trang phục mùa hè, cho nữ"
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_structure_inspiration",
+            "domain_ids": [
+              "dom_structure",
+              "dom_art"
+            ],
+            "meaning": "Lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng.",
+            "intent_type": "preference",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_structure_lines_qualities",
+            "domain_ids": [
+              "dom_structure"
+            ],
+            "meaning": "Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.",
+            "intent_type": "must",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_art_painting",
+            "domain_ids": [
+              "dom_art"
+            ],
+            "meaning": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam.",
+            "intent_type": "preference",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_structure_silhouette_options",
+            "domain_ids": [
+              "dom_structure"
+            ],
+            "meaning": "Có thể là áo phối với chân váy dài hoặc váy liền thân.",
+            "intent_type": "delegated",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Có thể là áo phối với chân váy dài hoặc váy liền thân."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_accessories_types",
+            "domain_ids": [
+              "dom_accessories"
+            ],
+            "meaning": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục.",
+            "intent_type": "delegated",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          },
+          {
+            "atom_id": "atom_accessories_quantity",
+            "domain_ids": [
+              "dom_accessories"
+            ],
+            "meaning": "Không cần quá nhiều phụ kiện, chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+            "intent_type": "must",
+            "polarity": "positive",
+            "source_refs": [
+              {
+                "turn_id": "T1",
+                "quote": "Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài."
+              }
+            ],
+            "resolution": "explicit",
+            "supersedes_atom_ids": []
+          }
+        ],
+        "relations": [
+          {
+            "from_atom_id": "atom_structure_inspiration",
+            "to_atom_id": "atom_art_painting",
+            "relation": "complement",
+            "reason": "Cảm hứng từ Việt phục truyền thống và mỹ thuật hội họa truyền thống kết hợp bổ trợ cho tính thẩm mỹ chung của trang phục."
+          },
+          {
+            "from_atom_id": "atom_accessories_types",
+            "to_atom_id": "atom_accessories_quantity",
+            "relation": "constraint",
+            "reason": "Giới hạn số lượng phụ kiện (vừa đủ, không quá nhiều) áp dụng cho các lựa chọn phụ kiện."
+          }
+        ],
+        "conflicts": [],
+        "coverage": [
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại."
+            },
+            "atom_ids": [
+              "atom_context_event"
+            ],
+            "disposition": "retained",
+            "reason": "Đã chuyển hóa thành atom về bối cảnh sự kiện."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Tôi cần một bộ trang phục mùa hè, cho nữ"
+            },
+            "atom_ids": [
+              "atom_context_season_gender"
+            ],
+            "disposition": "retained",
+            "reason": "Đã chuyển hóa thành atom về mùa và giới tính."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng."
+            },
+            "atom_ids": [
+              "atom_structure_inspiration"
+            ],
+            "disposition": "retained",
+            "reason": "Đã chuyển hóa thành atom về định hướng phong cách và cảm hứng."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+            },
+            "atom_ids": [
+              "atom_structure_lines_qualities"
+            ],
+            "disposition": "retained",
+            "reason": "Đã chuyển hóa thành atom về đặc điểm đường nét và tiêu chí thiết kế."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam."
+            },
+            "atom_ids": [
+              "atom_art_painting"
+            ],
+            "disposition": "retained",
+            "reason": "Đã chuyển hóa thành atom về chi tiết mỹ thuật hội họa."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Có thể là áo phối với chân váy dài hoặc váy liền thân."
+            },
+            "atom_ids": [
+              "atom_structure_silhouette_options"
+            ],
+            "disposition": "retained",
+            "reason": "Đã chuyển hóa thành atom="
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục."
+            },
+            "atom_ids": [
+              "atom_accessories_types"
+            ],
+            "disposition": "retained",
+            "reason": "Đã chuyển hóa thành atom về các loại phụ kiện."
+          },
+          {
+            "source_ref": {
+              "turn_id": "T1",
+              "quote": "Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài."
+            },
+            "atom_ids": [
+              "atom_accessories_quantity"
+            ],
+            "disposition": "retained",
+            "reason": "Đã chuyển hóa thành atom về yêu cầu số lượng phụ kiện."
+          }
+        ]
+      },
+      "form_id": "bca614d8-b4b7-4a59-afef-17b9439c0e84",
+      "groups": [
+        {
+          "group_id": "grp_context_locked",
+          "domain_ids": [
+            "dom_context"
+          ],
+          "label": "Bối cảnh và Yêu cầu cơ bản",
+          "question": "Xác nhận bối cảnh sự kiện thời trang, trang phục mùa hè cho nữ?",
+          "why_it_matters": "Đảm bảo trang phục phù hợp với sự kiện thời trang kết hợp truyền thống - hiện đại và thời tiết mùa hè.",
+          "status": "locked",
+          "selection_mode": "single",
+          "min": 1,
+          "max": 1,
+          "related_atom_ids": [
+            "atom_context_event",
+            "atom_context_season_gender"
+          ],
+          "depends_on": [],
+          "options": [],
+          "allows_custom": false
+        },
+        {
+          "group_id": "grp_structure_silhouette",
+          "domain_ids": [
+            "dom_structure"
+          ],
+          "label": "Phom dáng trang phục",
+          "question": "Bạn muốn chọn cấu trúc phom dáng nào cho bộ trang phục?",
+          "why_it_matters": "Người dùng đã đưa ra định hướng mở, cần chốt phom dáng cụ thể (áo phối chân váy dài hoặc váy liền thân) để thiết kế.",
+          "status": "needs_choice",
+          "selection_mode": "single",
+          "min": 1,
+          "max": 1,
+          "related_atom_ids": [
+            "atom_structure_silhouette_options",
+            "atom_structure_lines_qualities"
+          ],
+          "depends_on": [],
+          "options": [
+            {
+              "option_id": "opt_silhouette_ao_chanvay",
+              "label": "Áo cách tân phối chân váy dài",
+              "description": "Áo lấy cảm hứng từ tấc/ngũ thân hoặc áo dài cách tân nhẹ nhàng, kết hợp cùng chân váy dài suông hoặc xếp ly thoáng mát.",
+              "decision_text": "Chọn thiết kế áo phối với chân váy dài.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": true,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [
+                "opt_art_tranh_khac",
+                "opt_acc_khuyen_tai"
+              ],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_silhouette_vay_lienthan",
+              "label": "Váy liền thân mang âm hưởng Việt phục",
+              "description": "Váy liền thân dáng suông hoặcết eo nhẹ, kết hợp cổ áo truyền thống và đường cắt hiện đại gọn gàng.",
+              "decision_text": "Chọn thiết kế váy liền thân.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": false,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [
+                "opt_art_hoa_tiet_dong_ho",
+                "opt_acc_vong_co"
+              ],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_silhouette_ai_delegate",
+              "label": "Để AI đề xuất phom dáng phù hợp nhất",
+              "description": "AI sẽ tự động cân đối giữa áo kết hợp chân váy dài và váy liền thân dựa trên xu hướng mùa hè.",
+              "decision_text": "Giao AI quyết định phom dáng.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": false,
+              "is_ai_delegate": true,
+              "compatible_option_ids": [],
+              "incompatible_option_ids": []
+            }
+          ],
+          "allows_custom": true
+        },
+        {
+          "group_id": "grp_art_inspiration",
+          "domain_ids": [
+            "dom_art",
+            "dom_structure"
+          ],
+          "label": "Cảm hứng mỹ thuật hội họa truyền thống",
+          "question": "Bạn ưu tiên chi tiết hội họa hoặc họa tiết truyền thống nào cho trang phục?",
+          "why_it_matters": "Giúp định hình chi tiết điểm nhấn mang đậm bản sắc mỹ thuật truyền thống Việt Nam cho bộ đồ.",
+          "status": "needs_choice",
+          "selection_mode": "single",
+          "min": 1,
+          "max": 1,
+          "related_atom_ids": [
+            "atom_art_painting",
+            "atom_structure_inspiration"
+          ],
+          "depends_on": [],
+          "options": [
+            {
+              "option_id": "opt_art_tranh_khac",
+              "label": "Cảm hứng từ tranh khắc gỗ dân gian (Hàng Trống, Đông Hồ)",
+              "description": "Đường nét mảng khối mạnh mẽ, khoáng đạt, phù hợp làm họa tiết cách điệu trên viền áo hoặc chân váy.",
+              "decision_text": "Chọn cảm hứng từ tranh khắc gỗ dân gian.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": true,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [
+                "opt_silhouette_ao_chanvay"
+              ],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_art_hoa_tiet_dong_ho",
+              "label": "Họa tiết hoa sen, mây sóng từ mỹ thuật thời Lý - Trần",
+              "description": "Đường nét uốn lượn mềm mại, thanh thoát, mang tính biểu tượng cao và rất hợp với thời trang hiện đại.",
+              "decision_text": "Chọn cảm hứng hoa sen và mây sóng truyền thống.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": false,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [
+                "opt_silhouette_vay_lienthan"
+              ],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_art_ai_delegate",
+              "label": "Để AI đề xuất họa tiết phù hợp",
+              "description": "AI sẽ lựa chọn chi tiết mỹ thuật hội họa phù hợp nhất với phong cách trang phục sự kiện.",
+              "decision_text": "Giao AI quyết định họa tiết hội họa.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": false,
+              "is_ai_delegate": true,
+              "compatible_option_ids": [],
+              "incompatible_option_ids": []
+            }
+          ],
+          "allows_custom": true
+        },
+        {
+          "group_id": "grp_accessories_selection",
+          "domain_ids": [
+            "dom_accessories"
+          ],
+          "label": "Phụ kiện đi kèm",
+          "question": "Bạn muốn chọn loại phụ kiện nào để kết hợp vừa đủ với trang phục?",
+          "why_it_matters": "Đảm bảo đúng tiêu chí 'không cần quá nhiều phụ kiện, vừa đủ và phù hợp' mà người dùng yêu cầu.",
+          "status": "needs_choice",
+          "selection_mode": "multiple",
+          "min": 1,
+          "max": 2,
+          "related_atom_ids": [
+            "atom_accessories_types",
+            "atom_accessories_quantity"
+          ],
+          "depends_on": [],
+          "options": [
+            {
+              "option_id": "opt_acc_khuyen_tai",
+              "label": "Khuyên tai thiết kế tối giản",
+              "description": "Khuyên tai nhỏ gọn lấy cảm hứng từ hoa sen hoặc đồng xu cổ.",
+              "decision_text": "Chọn khuyên tai tối giản.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": true,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [
+                "opt_silhouette_ao_chanvay"
+              ],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_acc_vong_co",
+              "label": "Vòng cổ tinh tế",
+              "description": "Dây chuyền mảnh kết hợp mặt dây lấy cảm hứng từ họa tiết truyền thống.",
+              "decision_text": "Chọn vòng cổ tinh tế.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": false,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [
+                "opt_silhouette_vay_lienthan"
+              ],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_acc_tui_xach",
+              "label": "Túi xách cầm tay nhỏ gọn",
+              "description": "Túi xách phom dáng hiện đại kết hợp chất liệu mây tre đan hoặc chi tiết thêu tay.",
+              "decision_text": "Chọn túi xách cầm tay nhỏ gọn.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": true,
+              "is_ai_delegate": false,
+              "compatible_option_ids": [],
+              "incompatible_option_ids": []
+            },
+            {
+              "option_id": "opt_acc_ai_delegate",
+              "label": "Để AI phối hợp phụ kiện vừa đủ",
+              "description": "AI sẽ tự động chọn 1-2 món phụ kiện gọn gàng, phù hợp nhất với tổng thể.",
+              "decision_text": "Giao AI quyết định phụ kiện vừa đủ.",
+              "reference_ids": [],
+              "origin": "gemini_suggestion",
+              "is_recommended": false,
+              "is_ai_delegate": true,
+              "compatible_option_ids": [],
+              "incompatible_option_ids": []
+            }
+          ],
+          "allows_custom": true
+        }
+      ],
+      "references": [],
+      "open_conflicts": []
+    },
+    "resolved_brief": null,
+    "choices": {
+      "revision": 5,
+      "form_id": "bca614d8-b4b7-4a59-afef-17b9439c0e84",
+      "idempotency_key": "b76defdc-4fac-4009-9d68-66dec2607851",
+      "selections": [
+        {
+          "group_id": "grp_structure_silhouette",
+          "option_ids": [
+            "opt_silhouette_ao_chanvay"
+          ],
+          "custom_text": ""
+        },
+        {
+          "group_id": "grp_art_inspiration",
+          "option_ids": [
+            "opt_art_tranh_khac"
+          ],
+          "custom_text": ""
+        },
+        {
+          "group_id": "grp_accessories_selection",
+          "option_ids": [
+            "opt_acc_khuyen_tai"
+          ],
+          "custom_text": ""
+        }
+      ],
+      "explicit_changes": [],
+      "turn_id": "S1"
+    },
+    "references": [],
+    "reference_metadata": [
+      {
+        "groundingMetadata": {},
+        "urlContextMetadata": {},
+        "modelVersion": "gemini-3.5-flash-lite",
+        "responseId": "9T_BaqeVObWj9tMPgqmY2Qk"
+      }
+    ],
+    "checkpoints": {
+      "1ded4b4fe7b200caaa16167ad4fff649b85306d8536e2d3a37b1bf23a011f837": {
+        "task": "VP01",
+        "value": {
+          "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+          "revision": 1,
+          "clean_text": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại. Tôi cần một bộ trang phục mùa hè, cho nữ, lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng. Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam. Có thể là áo phối với chân váy dài hoặc váy liền thân. Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục. Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+          "domains": [
+            {
+              "domain_id": "dom_context",
+              "label": "Bối cảnh và Đối tượng",
+              "summary": "Thông tin về sự kiện thời trang, mùa mặc và đối tượng sử dụng trang phục.",
+              "related_domain_ids": [
+                "dom_structure"
+              ]
+            },
+            {
+              "domain_id": "dom_structure",
+              "label": "Cấu trúc và Thiết kế",
+              "summary": "Kiểu dáng, đường nét, cấu trúc trang phục (áo phối chân váy dài hoặc váy liền thân) cùng phong cách truyền thống kết hợp hiện đại.",
+              "related_domain_ids": [
+                "dom_context",
+                "dom_art",
+                "dom_accessories"
+              ]
+            },
+            {
+              "domain_id": "dom_art",
+              "label": "Mỹ thuật và Cảm hứng",
+              "summary": "Cảm hứng từ Việt phục truyền thống và mỹ thuật hội họa truyền thống Việt Nam.",
+              "related_domain_ids": [
+                "dom_structure"
+              ]
+            },
+            {
+              "domain_id": "dom_accessories",
+              "label": "Phụ kiện",
+              "summary": "Các loại phụ kiện đi kèm như khuyên tai, vòng cổ, mũ, túi xách với số lượng vừa đủ.",
+              "related_domain_ids": [
+                "dom_structure"
+              ]
+            }
+          ],
+          "atoms": [
+            {
+              "atom_id": "atom_context_event",
+              "domain_ids": [
+                "dom_context"
+              ],
+              "meaning": "Đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại.",
+              "intent_type": "context",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_context_season_gender",
+              "domain_ids": [
+                "dom_context"
+              ],
+              "meaning": "Trang phục mùa hè, dành cho nữ.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Tôi cần một bộ trang phục mùa hè, cho nữ"
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_structure_inspiration",
+              "domain_ids": [
+                "dom_structure",
+                "dom_art"
+              ],
+              "meaning": "Lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng.",
+              "intent_type": "preference",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_structure_lines_qualities",
+              "domain_ids": [
+                "dom_structure"
+              ],
+              "meaning": "Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_art_painting",
+              "domain_ids": [
+                "dom_art"
+              ],
+              "meaning": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam.",
+              "intent_type": "preference",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_structure_silhouette_options",
+              "domain_ids": [
+                "dom_structure"
+              ],
+              "meaning": "Có thể là áo phối với chân váy dài hoặc váy liền thân.",
+              "intent_type": "delegated",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Có thể là áo phối với chân váy dài hoặc váy liền thân."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_accessories_types",
+              "domain_ids": [
+                "dom_accessories"
+              ],
+              "meaning": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục.",
+              "intent_type": "delegated",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            },
+            {
+              "atom_id": "atom_accessories_quantity",
+              "domain_ids": [
+                "dom_accessories"
+              ],
+              "meaning": "Không cần quá nhiều phụ kiện, chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+              "intent_type": "must",
+              "polarity": "positive",
+              "source_refs": [
+                {
+                  "turn_id": "T1",
+                  "quote": "Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài."
+                }
+              ],
+              "resolution": "explicit",
+              "supersedes_atom_ids": []
+            }
+          ],
+          "relations": [
+            {
+              "from_atom_id": "atom_structure_inspiration",
+              "to_atom_id": "atom_art_painting",
+              "relation": "complement",
+              "reason": "Cảm hứng từ Việt phục truyền thống và mỹ thuật hội họa truyền thống kết hợp bổ trợ cho tính thẩm mỹ chung của trang phục."
+            },
+            {
+              "from_atom_id": "atom_accessories_types",
+              "to_atom_id": "atom_accessories_quantity",
+              "relation": "constraint",
+              "reason": "Giới hạn số lượng phụ kiện (vừa đủ, không quá nhiều) áp dụng cho các lựa chọn phụ kiện."
+            }
+          ],
+          "conflicts": [],
+          "coverage": [
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại."
+              },
+              "atom_ids": [
+                "atom_context_event"
+              ],
+              "disposition": "retained",
+              "reason": "Đã chuyển hóa thành atom về bối cảnh sự kiện."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Tôi cần một bộ trang phục mùa hè, cho nữ"
+              },
+              "atom_ids": [
+                "atom_context_season_gender"
+              ],
+              "disposition": "retained",
+              "reason": "Đã chuyển hóa thành atom về mùa và giới tính."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng."
+              },
+              "atom_ids": [
+                "atom_structure_inspiration"
+              ],
+              "disposition": "retained",
+              "reason": "Đã chuyển hóa thành atom về định hướng phong cách và cảm hứng."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+              },
+              "atom_ids": [
+                "atom_structure_lines_qualities"
+              ],
+              "disposition": "retained",
+              "reason": "Đã chuyển hóa thành atom về đặc điểm đường nét và tiêu chí thiết kế."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam."
+              },
+              "atom_ids": [
+                "atom_art_painting"
+              ],
+              "disposition": "retained",
+              "reason": "Đã chuyển hóa thành atom về chi tiết mỹ thuật hội họa."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Có thể là áo phối với chân váy dài hoặc váy liền thân."
+              },
+              "atom_ids": [
+                "atom_structure_silhouette_options"
+              ],
+              "disposition": "retained",
+              "reason": "Đã chuyển hóa thành atom về lựa chọn phom dáng trang phục."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục."
+              },
+              "atom_ids": [
+                "atom_accessories_types"
+              ],
+              "disposition": "retained",
+              "reason": "Đã chuyển hóa thành atom về các loại phụ kiện."
+            },
+            {
+              "source_ref": {
+                "turn_id": "T1",
+                "quote": "Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài."
+              },
+              "atom_ids": [
+                "atom_accessories_quantity"
+              ],
+              "disposition": "retained",
+              "reason": "Đã chuyển hóa thành atom về yêu cầu số lượng phụ kiện."
+            }
+          ]
+        },
+        "metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "4D_Bat2HMIGN1e8P98qO-QU"
+        },
+        "usage": {
+          "promptTokenCount": 2284,
+          "candidatesTokenCount": 2739,
+          "totalTokenCount": 5023,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2284
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      },
+      "cb0575a03ad748dd1cca2b6c1aaec62b6d4f09bb7fdfe4bee7dffdad412bf1fb": {
+        "task": "VP02",
+        "value": {
+          "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+          "revision": 1,
+          "clean_prompt": {
+            "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+            "revision": 1,
+            "clean_text": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại. Tôi cần một bộ trang phục mùa hè, cho nữ, lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng. Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng. Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam. Có thể là áo phối với chân váy dài hoặc váy liền thân. Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục. Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+            "domains": [
+              {
+                "domain_id": "dom_context",
+                "label": "Bối cảnh và Đối tượng",
+                "summary": "Thông tin về sự kiện thời trang, mùa mặc và đối tượng sử dụng trang phục.",
+                "related_domain_ids": [
+                  "dom_structure"
+                ]
+              },
+              {
+                "domain_id": "dom_structure",
+                "label": "Cấu trúc và Thiết kế",
+                "summary": "Kiểu dáng, đường nét, cấu trúc trang phục (áo phối chân váy dài hoặc váy liền thân) cùng phong cách truyền thống kết hợp hiện đại.",
+                "related_domain_ids": [
+                  "dom_context",
+                  "dom_art",
+                  "dom_accessories"
+                ]
+              },
+              {
+                "domain_id": "dom_art",
+                "label": "Mỹ thuật và Cảm hứng",
+                "summary": "Cảm hứng từ Việt phục truyền thống và mỹ thuật hội họa truyền thống Việt Nam.",
+                "related_domain_ids": [
+                  "dom_structure"
+                ]
+              },
+              {
+                "domain_id": "dom_accessories",
+                "label": "Phụ kiện",
+                "summary": "Các loại phụ kiện đi kèm như khuyên tai, vòng cổ, mũ, túi xách với số lượng vừa đủ.",
+                "related_domain_ids": [
+                  "dom_structure"
+                ]
+              }
+            ],
+            "atoms": [
+              {
+                "atom_id": "atom_context_event",
+                "domain_ids": [
+                  "dom_context"
+                ],
+                "meaning": "Đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại.",
+                "intent_type": "context",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_context_season_gender",
+                "domain_ids": [
+                  "dom_context"
+                ],
+                "meaning": "Trang phục mùa hè, dành cho nữ.",
+                "intent_type": "must",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Tôi cần một bộ trang phục mùa hè, cho nữ"
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_structure_inspiration",
+                "domain_ids": [
+                  "dom_structure",
+                  "dom_art"
+                ],
+                "meaning": "Lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng.",
+                "intent_type": "preference",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_structure_lines_qualities",
+                "domain_ids": [
+                  "dom_structure"
+                ],
+                "meaning": "Đường nét, thiết kế trang phục thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng.",
+                "intent_type": "must",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_art_painting",
+                "domain_ids": [
+                  "dom_art"
+                ],
+                "meaning": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam.",
+                "intent_type": "preference",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_structure_silhouette_options",
+                "domain_ids": [
+                  "dom_structure"
+                ],
+                "meaning": "Có thể là áo phối với chân váy dài hoặc váy liền thân.",
+                "intent_type": "delegated",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Có thể là áo phối với chân váy dài hoặc váy liền thân."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_accessories_types",
+                "domain_ids": [
+                  "dom_accessories"
+                ],
+                "meaning": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục.",
+                "intent_type": "delegated",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              },
+              {
+                "atom_id": "atom_accessories_quantity",
+                "domain_ids": [
+                  "dom_accessories"
+                ],
+                "meaning": "Không cần quá nhiều phụ kiện, chỉ cần đảm bảo vừa đủ và phù hợp với đề bài.",
+                "intent_type": "must",
+                "polarity": "positive",
+                "source_refs": [
+                  {
+                    "turn_id": "T1",
+                    "quote": "Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài."
+                  }
+                ],
+                "resolution": "explicit",
+                "supersedes_atom_ids": []
+              }
+            ],
+            "relations": [
+              {
+                "from_atom_id": "atom_structure_inspiration",
+                "to_atom_id": "atom_art_painting",
+                "relation": "complement",
+                "reason": "Cảm hứng từ Việt phục truyền thống và mỹ thuật hội họa truyền thống kết hợp bổ trợ cho tính thẩm mỹ chung của trang phục."
+              },
+              {
+                "from_atom_id": "atom_accessories_types",
+                "to_atom_id": "atom_accessories_quantity",
+                "relation": "constraint",
+                "reason": "Giới hạn số lượng phụ kiện (vừa đủ, không quá nhiều) áp dụng cho các lựa chọn phụ kiện."
+              }
+            ],
+            "conflicts": [],
+            "coverage": [
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "tôi đang chuẩn bị đi dự một sự kiện thời trang với chủ đề trang phục kết hợp giữa truyền thống và hiện đại."
+                },
+                "atom_ids": [
+                  "atom_context_event"
+                ],
+                "disposition": "retained",
+                "reason": "Đã chuyển hóa thành atom về bối cảnh sự kiện."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Tôi cần một bộ trang phục mùa hè, cho nữ"
+                },
+                "atom_ids": [
+                  "atom_context_season_gender"
+                ],
+                "disposition": "retained",
+                "reason": "Đã chuyển hóa thành atom về mùa và giới tính."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "lấy cảm hứng từ Việt phục truyền thống nhưng vẫn có nét hiện đại và mang tính xu hướng."
+                },
+                "atom_ids": [
+                  "atom_structure_inspiration"
+                ],
+                "disposition": "retained",
+                "reason": "Đã chuyển hóa thành atom về định hướng phong cách và cảm hứng."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Đường nét, thiết kế trang phục cần thoải mái, dễ ứng dụng trong đời sống nhưng vẫn giữ được nét sang trọng, gọn gàng."
+                },
+                "atom_ids": [
+                  "atom_structure_lines_qualities"
+                ],
+                "disposition": "retained",
+                "reason": "Đã chuyển hóa thành atom về đặc điểm đường nét và tiêu chí thiết kế."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Các chi tiết ưu tiên lấy cảm hứng từ mỹ thuật hội hoạ truyền thống Việt Nam."
+                },
+                "atom_ids": [
+                  "atom_art_painting"
+                ],
+                "disposition": "retained",
+                "reason": "Đã chuyển hóa thành atom về chi tiết mỹ thuật hội họa."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Có thể là áo phối với chân váy dài hoặc váy liền thân."
+                },
+                "atom_ids": [
+                  "atom_structure_silhouette_options"
+                ],
+                "disposition": "retained",
+                "reason": "Đã chuyển hóa thành atom="
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Phụ kiện kèm theo là khuyên tai hoặc vòng cổ/ mũ/ túi xách phù hợp với trang phục."
+                },
+                "atom_ids": [
+                  "atom_accessories_types"
+                ],
+                "disposition": "retained",
+                "reason": "Đã chuyển hóa thành atom về các loại phụ kiện."
+              },
+              {
+                "source_ref": {
+                  "turn_id": "T1",
+                  "quote": "Không cần quá nhiều phụ kiện. Chỉ cần đảm bảo vừa đủ và phù hợp với đề bài."
+                },
+                "atom_ids": [
+                  "atom_accessories_quantity"
+                ],
+                "disposition": "retained",
+                "reason": "Đã chuyển hóa thành atom về yêu cầu số lượng phụ kiện."
+              }
+            ]
+          },
+          "form_id": "bca614d8-b4b7-4a59-afef-17b9439c0e84",
+          "groups": [
+            {
+              "group_id": "grp_context_locked",
+              "domain_ids": [
+                "dom_context"
+              ],
+              "label": "Bối cảnh và Yêu cầu cơ bản",
+              "question": "Xác nhận bối cảnh sự kiện thời trang, trang phục mùa hè cho nữ?",
+              "why_it_matters": "Đảm bảo trang phục phù hợp với sự kiện thời trang kết hợp truyền thống - hiện đại và thời tiết mùa hè.",
+              "status": "locked",
+              "selection_mode": "single",
+              "min": 1,
+              "max": 1,
+              "related_atom_ids": [
+                "atom_context_event",
+                "atom_context_season_gender"
+              ],
+              "depends_on": [],
+              "options": [],
+              "allows_custom": false
+            },
+            {
+              "group_id": "grp_structure_silhouette",
+              "domain_ids": [
+                "dom_structure"
+              ],
+              "label": "Phom dáng trang phục",
+              "question": "Bạn muốn chọn cấu trúc phom dáng nào cho bộ trang phục?",
+              "why_it_matters": "Người dùng đã đưa ra định hướng mở, cần chốt phom dáng cụ thể (áo phối chân váy dài hoặc váy liền thân) để thiết kế.",
+              "status": "needs_choice",
+              "selection_mode": "single",
+              "min": 1,
+              "max": 1,
+              "related_atom_ids": [
+                "atom_structure_silhouette_options",
+                "atom_structure_lines_qualities"
+              ],
+              "depends_on": [],
+              "options": [
+                {
+                  "option_id": "opt_silhouette_ao_chanvay",
+                  "label": "Áo cách tân phối chân váy dài",
+                  "description": "Áo lấy cảm hứng từ tấc/ngũ thân hoặc áo dài cách tân nhẹ nhàng, kết hợp cùng chân váy dài suông hoặc xếp ly thoáng mát.",
+                  "decision_text": "Chọn thiết kế áo phối với chân váy dài.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": true,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [
+                    "opt_art_tranh_khac",
+                    "opt_acc_khuyen_tai"
+                  ],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_silhouette_vay_lienthan",
+                  "label": "Váy liền thân mang âm hưởng Việt phục",
+                  "description": "Váy liền thân dáng suông hoặcết eo nhẹ, kết hợp cổ áo truyền thống và đường cắt hiện đại gọn gàng.",
+                  "decision_text": "Chọn thiết kế váy liền thân.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": false,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [
+                    "opt_art_hoa_tiet_dong_ho",
+                    "opt_acc_vong_co"
+                  ],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_silhouette_ai_delegate",
+                  "label": "Để AI đề xuất phom dáng phù hợp nhất",
+                  "description": "AI sẽ tự động cân đối giữa áo kết hợp chân váy dài và váy liền thân dựa trên xu hướng mùa hè.",
+                  "decision_text": "Giao AI quyết định phom dáng.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": false,
+                  "is_ai_delegate": true,
+                  "compatible_option_ids": [],
+                  "incompatible_option_ids": []
+                }
+              ],
+              "allows_custom": true
+            },
+            {
+              "group_id": "grp_art_inspiration",
+              "domain_ids": [
+                "dom_art",
+                "dom_structure"
+              ],
+              "label": "Cảm hứng mỹ thuật hội họa truyền thống",
+              "question": "Bạn ưu tiên chi tiết hội họa hoặc họa tiết truyền thống nào cho trang phục?",
+              "why_it_matters": "Giúp định hình chi tiết điểm nhấn mang đậm bản sắc mỹ thuật truyền thống Việt Nam cho bộ đồ.",
+              "status": "needs_choice",
+              "selection_mode": "single",
+              "min": 1,
+              "max": 1,
+              "related_atom_ids": [
+                "atom_art_painting",
+                "atom_structure_inspiration"
+              ],
+              "depends_on": [],
+              "options": [
+                {
+                  "option_id": "opt_art_tranh_khac",
+                  "label": "Cảm hứng từ tranh khắc gỗ dân gian (Hàng Trống, Đông Hồ)",
+                  "description": "Đường nét mảng khối mạnh mẽ, khoáng đạt, phù hợp làm họa tiết cách điệu trên viền áo hoặc chân váy.",
+                  "decision_text": "Chọn cảm hứng từ tranh khắc gỗ dân gian.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": true,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [
+                    "opt_silhouette_ao_chanvay"
+                  ],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_art_hoa_tiet_dong_ho",
+                  "label": "Họa tiết hoa sen, mây sóng từ mỹ thuật thời Lý - Trần",
+                  "description": "Đường nét uốn lượn mềm mại, thanh thoát, mang tính biểu tượng cao và rất hợp với thời trang hiện đại.",
+                  "decision_text": "Chọn cảm hứng hoa sen và mây sóng truyền thống.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": false,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [
+                    "opt_silhouette_vay_lienthan"
+                  ],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_art_ai_delegate",
+                  "label": "Để AI đề xuất họa tiết phù hợp",
+                  "description": "AI sẽ lựa chọn chi tiết mỹ thuật hội họa phù hợp nhất với phong cách trang phục sự kiện.",
+                  "decision_text": "Giao AI quyết định họa tiết hội họa.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": false,
+                  "is_ai_delegate": true,
+                  "compatible_option_ids": [],
+                  "incompatible_option_ids": []
+                }
+              ],
+              "allows_custom": true
+            },
+            {
+              "group_id": "grp_accessories_selection",
+              "domain_ids": [
+                "dom_accessories"
+              ],
+              "label": "Phụ kiện đi kèm",
+              "question": "Bạn muốn chọn loại phụ kiện nào để kết hợp vừa đủ với trang phục?",
+              "why_it_matters": "Đảm bảo đúng tiêu chí 'không cần quá nhiều phụ kiện, vừa đủ và phù hợp' mà người dùng yêu cầu.",
+              "status": "needs_choice",
+              "selection_mode": "multiple",
+              "min": 1,
+              "max": 2,
+              "related_atom_ids": [
+                "atom_accessories_types",
+                "atom_accessories_quantity"
+              ],
+              "depends_on": [],
+              "options": [
+                {
+                  "option_id": "opt_acc_khuyen_tai",
+                  "label": "Khuyên tai thiết kế tối giản",
+                  "description": "Khuyên tai nhỏ gọn lấy cảm hứng từ hoa sen hoặc đồng xu cổ.",
+                  "decision_text": "Chọn khuyên tai tối giản.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": true,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [
+                    "opt_silhouette_ao_chanvay"
+                  ],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_acc_vong_co",
+                  "label": "Vòng cổ tinh tế",
+                  "description": "Dây chuyền mảnh kết hợp mặt dây lấy cảm hứng từ họa tiết truyền thống.",
+                  "decision_text": "Chọn vòng cổ tinh tế.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": false,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [
+                    "opt_silhouette_vay_lienthan"
+                  ],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_acc_tui_xach",
+                  "label": "Túi xách cầm tay nhỏ gọn",
+                  "description": "Túi xách phom dáng hiện đại kết hợp chất liệu mây tre đan hoặc chi tiết thêu tay.",
+                  "decision_text": "Chọn túi xách cầm tay nhỏ gọn.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": true,
+                  "is_ai_delegate": false,
+                  "compatible_option_ids": [],
+                  "incompatible_option_ids": []
+                },
+                {
+                  "option_id": "opt_acc_ai_delegate",
+                  "label": "Để AI phối hợp phụ kiện vừa đủ",
+                  "description": "AI sẽ tự động chọn 1-2 món phụ kiện gọn gàng, phù hợp nhất với tổng thể.",
+                  "decision_text": "Giao AI quyết định phụ kiện vừa đủ.",
+                  "reference_ids": [],
+                  "origin": "gemini_suggestion",
+                  "is_recommended": false,
+                  "is_ai_delegate": true,
+                  "compatible_option_ids": [],
+                  "incompatible_option_ids": []
+                }
+              ],
+              "allows_custom": true
+            }
+          ],
+          "references": [],
+          "open_conflicts": []
+        },
+        "metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "9T_BaqeVObWj9tMPgqmY2Qk"
+        },
+        "usage": {
+          "promptTokenCount": 5270,
+          "candidatesTokenCount": 5405,
+          "totalTokenCount": 10675,
+          "cachedContentTokenCount": 2266,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 5270
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2266
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      }
+    },
+    "call_records": {
+      "524fe563-e213-4a2d-8a80-cedd8814ba2f": {
+        "task_key": "1ded4b4fe7b200caaa16167ad4fff649b85306d8536e2d3a37b1bf23a011f837",
+        "task": "VP01",
+        "stage": "cleaning",
+        "role": null,
+        "revision": 1,
+        "batch_id": null,
+        "status": "complete",
+        "started_at": 1791049696.138994,
+        "timeout_seconds": 40,
+        "provider_call_id": "3b4284c5-cb2f-4cad-bada-a8086e961c92",
+        "finished_at": 1791049703.556565
+      },
+      "4f14e940-3b68-4f87-851d-d877be74f686": {
+        "task_key": "cb0575a03ad748dd1cca2b6c1aaec62b6d4f09bb7fdfe4bee7dffdad412bf1fb",
+        "task": "VP02",
+        "stage": "designing_checklist",
+        "role": null,
+        "revision": 1,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791049703.56565,
+        "timeout_seconds": 60,
+        "provider_call_id": "619c3ba4-f7ec-4a4a-b2ad-9f2c3afe5862",
+        "finished_at": 1791049717.343489
+      },
+      "b576fa4d-1166-412f-b7b3-013a64026c2e": {
+        "task_key": "cb0575a03ad748dd1cca2b6c1aaec62b6d4f09bb7fdfe4bee7dffdad412bf1fb",
+        "task": "VP02",
+        "stage": "designing_checklist",
+        "role": null,
+        "revision": 1,
+        "batch_id": null,
+        "status": "complete",
+        "started_at": 1791049717.347301,
+        "timeout_seconds": 60,
+        "provider_call_id": "10c55848-a8f0-40a7-88b4-b0aebf67c22d",
+        "finished_at": 1791049731.7126982
+      },
+      "ef054351-169a-4f31-a5e8-e960fa7d410a": {
+        "task_key": "eb0241f717deb434f1bd25ec176189f481a8b7cab94e1bdbd9cf962bef3c6441",
+        "task": "VP03",
+        "stage": "resolving_choices",
+        "role": null,
+        "revision": 2,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791049985.303089,
+        "timeout_seconds": 40,
+        "provider_call_id": "6168d192-c28b-4d4d-bad0-66699f7d63b9",
+        "finished_at": 1791049992.6222148
+      },
+      "a2c13f52-a6b9-444c-9379-1b6b416d1d78": {
+        "task_key": "eb0241f717deb434f1bd25ec176189f481a8b7cab94e1bdbd9cf962bef3c6441",
+        "task": "VP03",
+        "stage": "resolving_choices",
+        "role": null,
+        "revision": 2,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791049992.6288588,
+        "timeout_seconds": 40,
+        "provider_call_id": "ce3bebb3-d6fb-467e-b874-c07a94eb2447",
+        "finished_at": 1791049999.771084
+      },
+      "e8ea10eb-a9a7-475f-99ad-0eecfaca69b0": {
+        "task_key": "d9e134ddb47f2bf4a1e156a205d8e0cc62a98b436235d0a4843aa20a1a6bc43f",
+        "task": "VP03",
+        "stage": "resolving_choices",
+        "role": null,
+        "revision": 3,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791050013.630157,
+        "timeout_seconds": 40,
+        "provider_call_id": "4fef48de-8236-4f8e-a59c-6e09d9038c87",
+        "finished_at": 1791050021.502537
+      },
+      "3acac781-68a8-4b1e-843b-8f5b5a1179a1": {
+        "task_key": "d9e134ddb47f2bf4a1e156a205d8e0cc62a98b436235d0a4843aa20a1a6bc43f",
+        "task": "VP03",
+        "stage": "resolving_choices",
+        "role": null,
+        "revision": 3,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791050021.5091782,
+        "timeout_seconds": 40,
+        "provider_call_id": "d8554cce-0add-41d5-b134-7ac86ee4ba76",
+        "finished_at": 1791050028.9693089
+      },
+      "ba19d9ce-4fa9-443a-9400-f3c0732c664d": {
+        "task_key": "7616bbab65a29d7588840fea287d0a89cfe3a506945bacd28922ea6e0c6f30ab",
+        "task": "VP03",
+        "stage": "resolving_choices",
+        "role": null,
+        "revision": 4,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791050666.053885,
+        "timeout_seconds": 40,
+        "provider_call_id": "2725b0ab-0aa0-4449-aafd-d55dcc8e021d",
+        "finished_at": 1791050673.901767
+      },
+      "04351188-533e-4639-bfaa-f336b999997b": {
+        "task_key": "7616bbab65a29d7588840fea287d0a89cfe3a506945bacd28922ea6e0c6f30ab",
+        "task": "VP03",
+        "stage": "resolving_choices",
+        "role": null,
+        "revision": 4,
+        "batch_id": null,
+        "status": "failed",
+        "started_at": 1791050673.9062002,
+        "timeout_seconds": 40,
+        "provider_call_id": "f6dcffd0-9608-44f4-b6e1-fb2559ae3e1e",
+        "finished_at": 1791050681.231027
+      }
+    },
+    "selection_receipts": {
+      "b76defdc-4fac-4009-9d68-66dec2607851": {
+        "fingerprint": "b2c75bf0a24bd3c024cd653579f3bd628064bf340c033d9d36bd350ec6634c7e",
+        "result": {
+          "request_id": "5621740e-7b15-4dc0-a3ad-7c94016f438a",
+          "revision": 2,
+          "status": "queued"
+        }
+      }
+    },
+    "generation_batches": {},
+    "prompt_pool": [],
+    "specialist_audits": {},
+    "harmony_audits": {},
+    "supplemental_batches": 0,
+    "checklist_round": 1,
+    "metrics": {
+      "provider_calls": 9,
+      "actual_api_calls": 9,
+      "cache_hits": 0,
+      "active_seconds": 80.661,
+      "design": {
+        "attempts": 9,
+        "actual_api_calls": 9,
+        "active_seconds": 80.661,
+        "search_queries_reported": 0
+      },
+      "media": {
+        "attempts": 0,
+        "actual_api_calls": 0,
+        "active_seconds": 0.0
+      },
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null,
+      "manual_image_prompts": 0,
+      "manual_images_received": 0,
+      "manual_audit_prompts": 0,
+      "manual_audits_received": 0
+    },
+    "manifest": {
+      "kit_hash": "ef56fb05aef8ca990c73f863d94c73a02e19227e694a33bdd4467728e93e30ad",
+      "vp_hash": "1b0373d92695a877e1deb4205c1fa58483fca032dee7052d10ccdd1effbe8b53",
+      "template_version": "6a4a33005f102312429eca11528435b19ef0e5f6fb2a8c8b0d819648a631299e",
+      "schema_version": "viet-phuc-2.0.0",
+      "rubric_version": "vp-rubric-2.0.0",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image",
+      "pack_hash": "5eefbd3c6bef7b07444cbad8f51d2e535b0a032dbc05d962bbf232185855ee38"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "resolution_retry_history": [
+      {
+        "revision": 2,
+        "manifest": {
+          "kit_hash": "ef56fb05aef8ca990c73f863d94c73a02e19227e694a33bdd4467728e93e30ad",
+          "vp_hash": "c7c2124b8703a897975f675c6a2a4cf3eca1353429cdcc41fcfb35ede50f61d2",
+          "template_version": "0f47d8b9af73416322fbfa4217bd0ed86e791bc4ea86e13cd50256ed95f618d5",
+          "schema_version": "viet-phuc-2.0.0",
+          "rubric_version": "vp-rubric-2.0.0",
+          "text_model": "gemini-3.5-flash-lite",
+          "image_model": "gemini-3.1-flash-image",
+          "pack_hash": "5eefbd3c6bef7b07444cbad8f51d2e535b0a032dbc05d962bbf232185855ee38"
+        },
+        "error": {
+          "code": "semantic_invalid",
+          "message": "Tự thay yêu cầu chưa có thay đổi rõ ràng"
+        },
+        "choices": {
+          "revision": 1,
+          "form_id": "bca614d8-b4b7-4a59-afef-17b9439c0e84",
+          "idempotency_key": "b76defdc-4fac-4009-9d68-66dec2607851",
+          "selections": [
+            {
+              "group_id": "grp_structure_silhouette",
+              "option_ids": [
+                "opt_silhouette_ao_chanvay"
+              ],
+              "custom_text": ""
+            },
+            {
+              "group_id": "grp_art_inspiration",
+              "option_ids": [
+                "opt_art_tranh_khac"
+              ],
+              "custom_text": ""
+            },
+            {
+              "group_id": "grp_accessories_selection",
+              "option_ids": [
+                "opt_acc_khuyen_tai"
+              ],
+              "custom_text": ""
+            }
+          ],
+          "explicit_changes": [],
+          "turn_id": "S1"
+        },
+        "resolved_brief": null,
+        "generation_batches": {},
+        "supplemental_batches": 0
+      },
+      {
+        "revision": 3,
+        "manifest": {
+          "kit_hash": "ef56fb05aef8ca990c73f863d94c73a02e19227e694a33bdd4467728e93e30ad",
+          "vp_hash": "c7c2124b8703a897975f675c6a2a4cf3eca1353429cdcc41fcfb35ede50f61d2",
+          "template_version": "0f47d8b9af73416322fbfa4217bd0ed86e791bc4ea86e13cd50256ed95f618d5",
+          "schema_version": "viet-phuc-2.0.0",
+          "rubric_version": "vp-rubric-2.0.0",
+          "text_model": "gemini-3.5-flash-lite",
+          "image_model": "gemini-3.1-flash-image",
+          "pack_hash": "5eefbd3c6bef7b07444cbad8f51d2e535b0a032dbc05d962bbf232185855ee38"
+        },
+        "error": {
+          "code": "semantic_invalid",
+          "message": "Tự thay yêu cầu chưa có thay đổi rõ ràng"
+        },
+        "choices": {
+          "revision": 3,
+          "form_id": "bca614d8-b4b7-4a59-afef-17b9439c0e84",
+          "idempotency_key": "b76defdc-4fac-4009-9d68-66dec2607851",
+          "selections": [
+            {
+              "group_id": "grp_structure_silhouette",
+              "option_ids": [
+                "opt_silhouette_ao_chanvay"
+              ],
+              "custom_text": ""
+            },
+            {
+              "group_id": "grp_art_inspiration",
+              "option_ids": [
+                "opt_art_tranh_khac"
+              ],
+              "custom_text": ""
+            },
+            {
+              "group_id": "grp_accessories_selection",
+              "option_ids": [
+                "opt_acc_khuyen_tai"
+              ],
+              "custom_text": ""
+            }
+          ],
+          "explicit_changes": [],
+          "turn_id": "S1"
+        },
+        "resolved_brief": null,
+        "generation_batches": {},
+        "supplemental_batches": 0
+      },
+      {
+        "revision": 4,
+        "manifest": {
+          "kit_hash": "ef56fb05aef8ca990c73f863d94c73a02e19227e694a33bdd4467728e93e30ad",
+          "vp_hash": "36d8326483544d1759b9340469994239e5e26bbe6a9b1ac4651b15acc20d8645",
+          "template_version": "db3a9c57240eb6ee9d92b4e21fe3b1edfe6f3ed1023b7d699b9460fb71d562ca",
+          "schema_version": "viet-phuc-2.0.0",
+          "rubric_version": "vp-rubric-2.0.0",
+          "text_model": "gemini-3.5-flash-lite",
+          "image_model": "gemini-3.1-flash-image",
+          "pack_hash": "5eefbd3c6bef7b07444cbad8f51d2e535b0a032dbc05d962bbf232185855ee38"
+        },
+        "error": {
+          "code": "semantic_invalid",
+          "message": "Quyết định chưa được khóa/giao AI"
+        },
+        "choices": {
+          "revision": 4,
+          "form_id": "bca614d8-b4b7-4a59-afef-17b9439c0e84",
+          "idempotency_key": "b76defdc-4fac-4009-9d68-66dec2607851",
+          "selections": [
+            {
+              "group_id": "grp_structure_silhouette",
+              "option_ids": [
+                "opt_silhouette_ao_chanvay"
+              ],
+              "custom_text": ""
+            },
+            {
+              "group_id": "grp_art_inspiration",
+              "option_ids": [
+                "opt_art_tranh_khac"
+              ],
+              "custom_text": ""
+            },
+            {
+              "group_id": "grp_accessories_selection",
+              "option_ids": [
+                "opt_acc_khuyen_tai"
+              ],
+              "custom_text": ""
+            }
+          ],
+          "explicit_changes": [],
+          "turn_id": "S1"
+        },
+        "resolved_brief": null,
+        "generation_batches": {},
+        "supplemental_batches": 0
+      }
+    ],
+    "warning_history": [
+      {
+        "revision": 2,
+        "warnings": [
+          "Chế độ cơ bản: không tìm/đọc web, không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử."
+        ]
+      },
+      {
+        "revision": 3,
+        "warnings": [
+          "Chế độ cơ bản: không tìm/đọc web, không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử."
+        ]
+      },
+      {
+        "revision": 4,
+        "warnings": [
+          "Chế độ cơ bản: không tìm/đọc web, không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử."
+        ]
+      }
+    ],
+    "design_clock": {
+      "started_at": 1791050775.406068,
+      "checkpoint_at": 1791050775.406079,
+      "base": 80.661
+    }
+  }
+}
