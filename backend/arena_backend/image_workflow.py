@@ -192,6 +192,24 @@ class ImageWorkflow:
         self.executor.submit(self._run, job["request_id"])
         return {"request_id": job["request_id"], "status": "queued", "revision": job["revision"]}
 
+    def choose_image_candidate(self, request_id, payload):
+        with self.lock:
+            job = self.store.get_job(request_id)
+            self._pending(job, payload, {"awaiting_image"})
+            require(not job["artifacts"], "Chọn phương án trước khi gửi ảnh đầu tiên", "image_selection_started", 409)
+            candidate_id = payload.get("candidate_id")
+            entry = next((p for p in job.get("image_prompts", []) if p["candidate_id"] == candidate_id), None)
+            require(entry is not None, "Phương án không thuộc yêu cầu này", "invalid_candidate")
+            job["image_target_ids"] = [candidate_id]
+            job["compiled_image_prompt"] = entry["prompt"]
+            job["image_workflow"] = {"phase": "generate", "prompt": entry["prompt"],
+                                     "parent_artifact_id": None, "candidate_id": candidate_id, "candidate_index": 0}
+            job.pop("pending_manual", None)
+            self._journal(job, "manual", "Chọn phương án để tạo ảnh", entry["title"])
+            self._wait_manual(job, "generate", entry["prompt"], candidate_id=candidate_id, candidate_index=0)
+            self.store.save_job(job)
+            return {"request_id": request_id, "status": job["status"], "revision": job["revision"]}
+
     def submit_image(self, request_id, payload):
         with self.lock:
             job = self.store.get_job(request_id)
@@ -335,6 +353,8 @@ class ImageWorkflow:
         state = job["image_workflow"]
         # Older saved requests contain a single compiled prompt.
         prompts = job.get("image_prompts", [])
+        if job.get("image_target_ids"):
+            prompts = [p for p in prompts if p["candidate_id"] in job["image_target_ids"]]
         index = state.get("candidate_index", 0) + 1
         if index >= len(prompts):
             state["phase"] = "done"

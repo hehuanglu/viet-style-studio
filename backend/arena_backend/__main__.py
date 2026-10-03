@@ -17,7 +17,8 @@ def main():
     parser.add_argument("--data-dir", type=Path)
     parser.add_argument("--text-model", default="gemini-3.5-flash-lite")
     parser.add_argument("--image-model", default="gemini-3.1-flash-image")
-    parser.add_argument("--max-api-calls", type=int, default=12)
+    parser.add_argument("--max-api-calls", type=int, default=None,
+                        help="Trần API cho toàn bộ tiến trình (chỉ dùng khi thử nghiệm); mặc định dùng ngân sách riêng từng request")
     parser.add_argument("--images", action="store_true")
     parser.add_argument("--prompt-key", action="store_true")
     parser.add_argument("--pack", type=Path)

@@ -253,6 +253,7 @@ function renderCards(job) {
       ${tags.length ? `<div class="tag-list">${tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>` : ""}
       ${(card.caveats || []).map((item) => `<p>${escapeHtml(item)}</p>`).join("")}
       <div class="option-prompt">
+        ${job.status === "awaiting_image" && !(job.artifacts || []).length ? `<button type="button" class="button button-accent small-button" data-select-option="${index}" ${job.image_target_ids?.includes(card.candidate_id) ? "disabled" : ""}>${job.image_target_ids?.includes(card.candidate_id) ? "Đã chọn tạo ảnh" : "Chọn phương án này"}</button>` : ""}
         <button type="button" class="button button-dark" data-copy-option="${index}" aria-label="Nhận prompt phương án ${index + 1}" aria-controls="option-prompt-${index}" aria-expanded="false" ${prompt ? "" : "disabled"}>Nhận prompt</button>
         <div id="option-prompt-${index}" hidden><label for="option-prompt-text-${index}">Prompt tạo ảnh · phương án ${index + 1}</label><textarea id="option-prompt-text-${index}" rows="8" readonly>${escapeHtml(prompt)}</textarea></div>
         <span role="status">${prompt ? "" : "Đang chuẩn bị prompt…"}</span>
@@ -260,6 +261,18 @@ function renderCards(job) {
       ${sources.length ? `<p class="source-line">Nguồn: ${sources.join(" · ")}</p>` : ""}
     </article>`;
   }).join("");
+  $("#cards").querySelectorAll("[data-select-option]").forEach((button) => button.addEventListener("click", async () => {
+    button.disabled = true;
+    try {
+      const candidate = cards[Number(button.dataset.selectOption)];
+      await api(`/requests/${job.request_id}/image-candidate`, {method: "POST", body: JSON.stringify({
+        revision: job.revision, step_id: job.pending_manual.step_id, candidate_id: candidate.candidate_id,
+      })});
+      renderedManualKey = null;
+      uploadDrafts.clear();
+      await refreshJob();
+    } catch (error) { showRequestError(error.message); button.disabled = false; }
+  }));
   $("#cards").querySelectorAll("[data-copy-option]").forEach((button) => button.addEventListener("click", async () => {
     const panel = button.parentElement.querySelector("div");
     panel.hidden = !panel.hidden;
@@ -393,7 +406,7 @@ function renderManual(job) {
   const candidateId = pending.candidate_id || job.image_workflow?.candidate_id || cards[0]?.candidate_id;
   const candidateIndex = Math.max(0, cards.findIndex(card => card.candidate_id === candidateId));
   const card = cards[candidateIndex];
-  const heading = (title) => `<div class="manual-heading"><div><h3>${title}</h3><p class="manual-option">${escapeHtml(card?.title || `Phương án ${candidateIndex + 1}`)}</p></div><span class="manual-count">${String(candidateIndex + 1).padStart(2, "0")} / ${String(cards.length || 1).padStart(2, "0")}</span></div>`;
+  const heading = (title) => `<div class="manual-heading"><div><h3>${title}</h3><p class="manual-option">${escapeHtml(card?.title || `Phương án ${candidateIndex + 1}`)}</p></div><span class="manual-count">${job.image_target_ids ? "PHƯƠNG ÁN " : ""}${String(candidateIndex + 1).padStart(2, "0")}${job.image_target_ids ? "" : ` / ${String(cards.length || 1).padStart(2, "0")}`}</span></div>`;
   if (pending.kind === "audit_choice") {
     box.innerHTML = `${heading("Kiểm tra ảnh")}<p>Kiểm tra tự động chưa khả dụng. Bạn có thể tiếp tục chỉnh sửa trực tiếp trên ảnh.</p><button class="button button-accent" id="choose-background-audit">Tiếp tục chỉnh sửa trực tiếp</button><details class="manual-help"><summary>Audit JSON nâng cao</summary><button class="button button-dark" id="choose-manual-audit">Kiểm tra trên Gemini</button><p>${escapeHtml(job.audit_api_error?.message || "Hãy kiểm tra ảnh trên Gemini rồi gửi kết quả.")}</p></details>`;
     box.querySelector("#choose-background-audit").addEventListener("click", () => resumeStep(job, "background-audit-mode"));
@@ -406,7 +419,7 @@ function renderManual(job) {
     ? "Copy hướng dẫn, mở Gemini và đính kèm ảnh cần kiểm tra. Dán kết quả JSON Gemini trả về vào đây. Với ảnh sửa, đính kèm ảnh sửa trước, ảnh gốc sau."
     : repair
       ? "Copy yêu cầu sửa và tiếp tục cuộc trò chuyện Gemini đã tạo ảnh. Đính kèm ảnh gốc, tải ảnh sửa về rồi gửi tại đây."
-      : "Nhận prompt ở ô phương án phía trên, dán vào Gemini để tạo ảnh. Tải ảnh về rồi gửi tại đây. Lần lượt thực hiện cho từng phương án.";
+      : "Chọn phương án bạn muốn, nhận prompt ở thẻ đó rồi dán vào Gemini. Gửi ảnh về đúng phương án đang hiển thị ở đây. Nếu không chọn riêng, ứng dụng sẽ lần lượt nhận ảnh cho cả ba phương án.";
   const relevant = (job.artifacts || []).filter((a) => a.artifact_id === pending.artifact_id || a.artifact_id === pending.parent_artifact_id);
   relevant.sort((a, b) => Number(b.artifact_id === pending.artifact_id) - Number(a.artifact_id === pending.artifact_id));
   box.innerHTML = `${heading(audit ? "Kiểm tra ảnh" : repair ? "Sửa ảnh" : "Tạo ảnh với Gemini")}
@@ -553,7 +566,7 @@ async function refreshJob() {
     updateSubmitState();
     $("#mock-request-notice").hidden = job.provider !== "mock";
     $("#result-title").textContent = statusLabels[job.status] || job.status;
-    const subjectLabel = {au_phuc: "âu phục", ao_dai: "áo dài", ao_tu_than: "áo tứ thân", ao_ngu_than: "áo ngũ thân"}[job.brief?.subject?.value] || job.brief?.subject?.value;
+    const subjectLabel = {au_phuc: "âu phục", ao_dai: "áo dài", ao_tu_than: "áo tứ thân", ao_ngu_than: "áo ngũ thân", ao_va_chan_vay: "áo phối chân váy", vay_lien: "váy liền thân"}[job.brief?.subject?.value] || job.brief?.subject?.value;
     $("#result-summary").textContent = subjectLabel ? `Đối tượng: ${subjectLabel}${job.brief.mode ? ` · ${job.brief.mode === "historical" ? "theo hướng lịch sử" : "lấy cảm hứng"}` : ""}` : "";
     $("#progress").classList.toggle("done", terminal.has(job.status));
     $("#cancel-request").hidden = terminal.has(job.status);

@@ -158,6 +158,9 @@ Khả năng đã bật: {{ENABLED_CAPABILITIES}}
    Số phụ kiện: accessories với at_most/at_least/equals và value là số nguyên;
    equals "0" có nghĩa danh sách phụ kiện rỗng. Màu sắc/phụ kiện cụ thể dùng
    include/exclude/equals với tên hoặc mảng JSON dạng chuỗi.
+   Không tự gán số từ "không cần quá nhiều", "vừa đủ", "tối giản": ghi
+   accessories trong preferences, giữ danh sách lựa chọn người dùng cho phép.
+   Chỉ tạo giới hạn số lượng cứng khi lời người dùng có số tương ứng.
 4. Phân biệt missing và conflicting. Ghi assumption khi dùng default.
 5. Đề xuất tối đa 2 câu hỏi ở vòng đầu, tối đa 1 ở vòng hai.
    Chỉ hỏi trường ảnh hưởng nhánh xử lý, luật áp dụng hoặc hard constraint.
@@ -221,6 +224,14 @@ allowed_changes, claims, assumptions và caveats.
 Trong design ghi palette/accessories/composition/scene và mô tả chủ thể
 đủ cho renderer. Với domain khác, dùng extension của domain thay vì bịa
 chi tiết trang phục.
+Mỗi preference đã nhận diện cần có biểu hiện cụ thể trong thiết kế của
+TỪNG phương án. Với cảm hứng hội họa/mỹ thuật: ghi họa tiết sáng tạo,
+nét vẽ, mảng màu, vị trí và độ phủ trên trang phục trong subject_description
+và design.extensions (ví dụ motif_design). Không chỉ ghi trong assumptions
+hoặc caveats, không để mất yếu tố hội họa ở phương án 2/3. Với mùa hè:
+mô tả vật liệu thoáng nhẹ, cấu trúc gọn và thoải mái. Đây là ý tưởng thiết
+kế lấy cảm hứng; thiếu nguồn không cấm thiết kế sáng tạo, nhưng không
+được khẳng định họa tiết là phục dựng chính xác hay bịa ý nghĩa lịch sử.
 
 Claims văn hóa phải có knowledge_id, source_id và supporting_excerpt
 đúng phạm vi. Không có nguồn thì để claims rỗng, ghi caveat tương ứng.

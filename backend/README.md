@@ -236,3 +236,25 @@ chờ. API key chỉ nằm trong tiến trình và cần cấp lại khi restart
 Giao diện khi audit thủ công hiển thị “Prompt audit đã sẵn sàng — chờ bạn gửi kết quả” cùng link mở prompt/ô JSON. Trạng thái HTTP cũ không được ghi đè bước mới; timer polling dừng ở bước thủ công. Kiểm tra race và polling: `node frontend/tests/request-state.test.cjs`.
 
 Có thể nhập lại hoặc đổi Gemini API key khi request đang chờ ảnh, câu trả lời hay audit thủ công. Tiến độ và số lượt API đã dùng được giữ nguyên. Nhập lại cùng key luôn được chấp nhận; đổi key trong lúc một bước API thực sự đang chạy cần chờ bước đó hoàn tất.
+
+## Chọn riêng một phương án và vận hành nhiều yêu cầu
+
+Máy chủ thông thường không có trần 12 API cho toàn bộ thời gian chạy.
+Ngân sách calls/deadline của từng request vẫn được kiểm soát theo policy.
+`--max-api-calls N` chỉ đặt trần tổng khi chủ động chạy thử nghiệm/probe.
+
+Trước khi gửi ảnh đầu tiên, bấm **Chọn phương án này** trên thẻ mong muốn.
+Ứng dụng chuyển bước gửi ảnh và audit sang đúng candidate, chỉ tạo/sửa
+ảnh cho phương án đã chọn; không cần tạo cả ba ảnh. Cả ba prompt vẫn
+được giữ để tham khảo. Nếu không chọn riêng, quy trình cũ vẫn xử lý lần
+lượt cả ba phương án. Chọn lại trước upload sẽ thay step ID để chặn gửi
+nhầm ảnh bằng một bước đã cũ. Lựa chọn được giữ sau refresh/restart.
+
+Trong trình sửa, sau **Chuẩn bị ảnh và prompt**, có thể dùng **Copy ảnh gốc**
+và **Copy ảnh phác thảo** rồi dán từng ảnh vào Gemini. Đây là cách thay
+thế chọn tệp khi trình duyệt không mở hộp upload. Dán ảnh gốc trước,
+ảnh phác thảo sau, rồi dán prompt sửa. Nếu clipboard ảnh không được
+hỗ trợ, các nút tải ảnh vẫn dùng được.
+
+Form nền sáng tạo hỗ trợ cả váy liền thân và áo phối chân váy; các nhãn
+này không phải nguồn chứng minh lịch sử hay ý nghĩa họa tiết.

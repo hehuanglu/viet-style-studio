@@ -104,6 +104,8 @@ def create_server(engine, host="127.0.0.1", port=8787):
                 if parts == ["requests"]:
                     return self.send_json(202, engine.create(self.body()))
                 if len(parts) == 3 and parts[0] == "requests":
+                    if parts[2] == "image-candidate":
+                        return self.send_json(200, engine.choose_image_candidate(parts[1], self.body()))
                     if parts[2] == "images":
                         return self.send_json(202, engine.submit_image(parts[1], self.body(42 * 1024 * 1024)))
                     if parts[2] == "image-edit-prompt":

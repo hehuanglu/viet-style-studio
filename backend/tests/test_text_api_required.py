@@ -50,6 +50,35 @@ class TextAPIRequiredTests(unittest.TestCase):
         self.assertFalse(engine.health()["simulation_enabled"])
         self.assertEqual(list(engine.store.jobs()), [])
 
+    def test_vague_accessory_preference_does_not_justify_numeric_hard_limit(self):
+        import copy
+        engine = self.engine(MockProvider(), allow_mock_requests=True)
+        created = engine.create({"input": "Áo dài xanh hiện đại, không cần quá nhiều phụ kiện."})
+        job = wait(engine, created["request_id"])
+        brief = copy.deepcopy(job["brief"])
+        brief["hard_constraints"] = [{"id":"C-INVENTED", "field":"accessories", "operator":"at_most",
+            "value":"1", "provenance":"user_provided", "evidence_quote":"không cần quá nhiều phụ kiện", "rule_id":None}]
+        with self.assertRaises(ArenaError) as error:
+            engine.domain.validate_brief(brief, job)
+        self.assertEqual(error.exception.code, "semantic_invalid")
+
+    def test_normal_server_does_not_exhaust_lifetime_call_budget(self):
+        provider = GeminiProvider("fake-test-key")
+        with patch("urllib.request.urlopen", side_effect=lambda *a, **k: io.BytesIO(b'{}')) as transport:
+            for _ in range(20):
+                provider._request(provider.text_model, {}, 1)
+        self.assertEqual(transport.call_count, 20)
+
+    def test_explicit_experiment_call_budget_is_still_enforced(self):
+        provider = GeminiProvider("fake-test-key", session_call_limit=2)
+        with patch("urllib.request.urlopen", side_effect=lambda *a, **k: io.BytesIO(b'{}')) as transport:
+            provider._request(provider.text_model, {}, 1)
+            provider._request(provider.text_model, {}, 1)
+            with self.assertRaises(ArenaError) as error:
+                provider._request(provider.text_model, {}, 1)
+        self.assertEqual(error.exception.code, "session_budget_exhausted")
+        self.assertEqual(transport.call_count, 2)
+
     def test_ui_key_switches_to_real_text_adapter(self):
         engine = self.engine(GeminiProvider(None, allow_unconfigured=True))
         health = engine.configure_api_key("fake-test-key")

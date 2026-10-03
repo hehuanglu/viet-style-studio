@@ -14,6 +14,7 @@ FIELDS.update(event="Dịp sử dụng", period="Thời kỳ", region="Vùng", s
 FIELDS.update(base_garment="Form dáng nền", design_intent="Ý định cách tân", motifs="Họa tiết gợi ý", motif_policy="Cách chọn họa tiết")
 VALUES = {"create_look": "tạo cách phối", "explore": "khám phá lựa chọn", "ao_dai": "áo dài", "ao_tu_than": "áo tứ thân", "ao_ngu_than": "áo ngũ thân", "inspired": "lấy cảm hứng", "historical": "theo phạm vi lịch sử"}
 VALUES["au_phuc"] = "âu phục"
+VALUES.update(ao_va_chan_vay="áo phối chân váy", vay_lien="váy liền thân")
 OPERATORS = {"include": "phải có", "exclude": "không có", "equals": "là", "preserve": "giữ", "at_most": "tối đa", "at_least": "tối thiểu"}
 OUTCOMES = {"complete": "Hoàn tất", "cards_only": "Chỉ có thẻ đề xuất; chưa có ảnh đạt",
             "cancelled": "Đã hủy", "failed": "Bị lỗi", "needs_evidence": "Thiếu căn cứ để tiếp tục",
@@ -69,7 +70,9 @@ def user_report(job, policy):
         agreed.append("Hướng thực hiện: " + {"inspired": "lấy cảm hứng", "historical": "tái hiện trong phạm vi có căn cứ", "unresolved": "chưa chốt"}.get(brief["mode"], brief["mode"]))
     all_candidates = job.get("proposed_candidates", [])
     ranking = job.get("ranking") or {}
-    selected = job["cards"][0] if job.get("cards") else None
+    targets = job.get("image_target_ids", [])
+    selected = next((card for card in job.get("cards", []) if card["candidate_id"] in targets), None) or (job["cards"][0] if job.get("cards") else None)
+    image_count = len(targets) or len(job.get("image_prompts", [])) or 1
     rejected = {r["candidate_id"]: r for r in ranking.get("rejected", [])}
     candidates = []
     for candidate in all_candidates:
@@ -104,7 +107,7 @@ def user_report(job, policy):
     final_artifact = next((a for a in job["artifacts"] if a["artifact_id"] == job.get("selected_artifact_id")), None)
     if final_artifact:
         count = len(job.get("selected_artifact_ids", [final_artifact["artifact_id"]]))
-        total = len(job.get("image_prompts", [])) or 1
+        total = image_count
         final = f"Có {count}/{total} phương án có ảnh qua audit" if final_artifact["check_status"] == "passed" else f"Có {count}/{total} phương án có ảnh đã kiểm tra luồng bằng mock; chưa kiểm tra chất lượng ảnh thật"
     elif job["status"] == "complete" and job["cards"]:
         final = "Hoàn tất thẻ đề xuất; không yêu cầu tạo ảnh"
@@ -113,8 +116,10 @@ def user_report(job, policy):
         current_images = [a for a in job["artifacts"] if a["artifact_id"] in current_ids]
         final_artifact = current_images[0]
         checked = sum(a["check_status"] == "passed" for a in current_images)
-        final = f"Đã nhận ảnh cho {len(current_images)}/{len(job.get('image_prompts', [])) or 1} phương án; {checked} ảnh qua kiểm tra thị giác. Ảnh hoàn thiện được cập nhật ngay."
+        final = f"Đã nhận ảnh cho {len(current_images)}/{image_count} phương án; {checked} ảnh qua kiểm tra thị giác. Ảnh hoàn thiện được cập nhật ngay."
     selection_reason = "Ứng dụng chọn phương án đã qua các điều bắt buộc, theo điểm có trọng số và ưu tiên phù hợp nhu cầu, dễ sử dụng khi điểm gần nhau."
+    if targets:
+        selection_reason = "Người dùng chọn phương án này để tạo và chỉnh sửa ảnh."
     return {"inputs": {"initial": job["turns"][0]["text"], "answers": [t["text"] for t in job["turns"][1:]],
                        "images": [{"name": a.get("filename", "Ảnh mock" if a["output_origin"] == "mock" else "Ảnh API"), "source": {"gemini": "API Gemini", "mock": "Mock"}.get(a["output_origin"], a["output_origin"]), "role": "Ảnh sửa" if a["parent_artifact_id"] else "Ảnh tạo"} for a in job["artifacts"]],
                        "manual_audits": [f"{a['image']}: {a['quality']}. " + "; ".join(a["findings"]) for a in audits if a["via"] == "Người dùng chuyển kết quả từ Gemini"]},

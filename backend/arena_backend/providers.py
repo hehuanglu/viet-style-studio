@@ -32,7 +32,7 @@ class GeminiProvider:
 
     image_generation_config = {"responseModalities": ["TEXT", "IMAGE"]}
 
-    def __init__(self, key, text_model="gemini-3.5-flash-lite", image_model="gemini-3.1-flash-image", session_call_limit=12, evidence_dir=None, allow_unconfigured=False):
+    def __init__(self, key, text_model="gemini-3.5-flash-lite", image_model="gemini-3.1-flash-image", session_call_limit=None, evidence_dir=None, allow_unconfigured=False):
         require(allow_unconfigured or isinstance(key, str) and bool(key.strip()), "Cần Gemini API key để hiểu yêu cầu", "missing_api_key", 409)
         self._key = (key or "").strip().replace("\\_", "_")
         self.text_model, self.image_model = text_model, image_model
@@ -67,7 +67,8 @@ class GeminiProvider:
     def _request(self, model, body, timeout):
         require(self.configured, "Kết nối Gemini API key trước khi gửi yêu cầu; chế độ ảnh thủ công vẫn cần API văn bản", "missing_api_key", 409)
         with self._lock:
-            require(self._calls < self.session_call_limit, "Đã hết trần API calls của tiến trình thử nghiệm", "session_budget_exhausted", 409)
+            require(self.session_call_limit is None or self._calls < self.session_call_limit,
+                    "Đã hết trần API calls được cấu hình cho tiến trình thử nghiệm", "session_budget_exhausted", 409)
             self._calls += 1
         request = urllib.request.Request(
             f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",

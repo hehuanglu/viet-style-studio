@@ -133,6 +133,12 @@ class Domain:
                 actual = next((match for text in turns.values() if (match := original_quote(quote, text)) is not None), None)
                 require(actual is not None, f"Evidence constraint {constraint['id']} ({constraint['field']}) không khớp: {quote!r}. Chép đoạn ngắn nguyên văn, không sửa chính tả trong evidence_quote", "semantic_invalid", 502)
                 constraint["evidence_quote"] = actual
+                if constraint["field"] in {"accessories", "accessory_count", "palette", "palette_count"} and constraint["operator"] in {"at_most", "at_least"}:
+                    number_words = {"không": 0, "một": 1, "hai": 2, "ba": 3, "bốn": 4, "năm": 5, "sáu": 6, "bảy": 7, "tám": 8, "chín": 9, "mười": 10}
+                    counts = {int(n) for n in re.findall(r"\b\d+\b", actual)}
+                    counts.update(n for word, n in number_words.items() if word != "không" and re.search(r"\b" + word + r"\b", actual, re.I))
+                    require(str(constraint["value"]).isdigit() and int(constraint["value"]) in counts,
+                            "Không tự đặt giới hạn số lượng từ 'vừa đủ', 'không quá nhiều' hoặc 'tối giản'. Giữ ý này trong preferences; chỉ tạo at_most/at_least khi người dùng nói rõ số lượng tương ứng.", "semantic_invalid", 502)
             else:
                 require(any(r["id"] == constraint["rule_id"] and r.get("enabled") for r in self.pack["rules"]), "Constraint dùng rule không tồn tại", "semantic_invalid", 502)
         previous = job.get("brief")

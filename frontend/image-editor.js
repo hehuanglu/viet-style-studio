@@ -69,6 +69,7 @@ class ArenaImageEditor {
         <button type="button" class="button button-accent" data-prepare>Chuẩn bị ảnh và prompt</button>
         <div data-packet hidden><p class="muted">Đính kèm ảnh gốc trước, ảnh phác thảo sau, rồi dán prompt vào Gemini.</p><div class="editor-packet-actions">
           <button type="button" class="button button-quiet" data-original>Tải ảnh gốc</button><button type="button" class="button button-quiet" data-guide>Tải ảnh phác thảo</button>
+          <button type="button" class="button button-quiet" data-copy-original>Copy ảnh gốc</button><button type="button" class="button button-quiet" data-copy-guide>Copy ảnh phác thảo</button>
           <button type="button" class="button button-dark" data-copy>Copy prompt sửa</button><a class="button button-quiet" href="https://gemini.google.com/" target="_blank" rel="noreferrer">Mở Gemini ↗</a>
         </div><details><summary>Xem / sửa prompt</summary><textarea data-prompt rows="9" maxlength="30000" aria-label="Prompt sửa ảnh"></textarea></details>
         <div class="editor-return"><strong>Nhận ảnh hoàn thiện</strong><p class="muted">Dán ảnh Gemini trả về. Ảnh mới được cập nhật ngay.</p><button type="button" class="button button-accent" data-paste-result>Dán ảnh hoàn thiện</button>
@@ -102,6 +103,21 @@ class ArenaImageEditor {
     q("[data-prepare]").addEventListener("click", () => this.prepare());
     q("[data-original]").addEventListener("click", () => this.download(this.source.image, "01-anh-goc", this.packet.original_url));
     q("[data-guide]").addEventListener("click", () => this.download(this.packet.guide, "02-anh-phac-thao", this.packet.guide_url));
+    for (const [selector, role] of [["[data-copy-original]", "gốc"], ["[data-copy-guide]", "phác thảo"]]) {
+      q(selector).addEventListener("click", async () => {
+        try {
+          if (!navigator.clipboard?.write || !window.ClipboardItem) throw new Error("Trình duyệt chưa hỗ trợ copy ảnh. Hãy tải ảnh và chọn tệp trong Gemini.");
+          const canvas = document.createElement("canvas");
+          const image = role === "gốc" ? this.q(".editor-stage img") : await createImageBitmap(new Blob([Uint8Array.from(atob(this.packet.guide.data), c => c.charCodeAt(0))], {type: this.packet.guide.mime_type}));
+          canvas.width = image.naturalWidth || image.width; canvas.height = image.naturalHeight || image.height;
+          canvas.getContext("2d").drawImage(image, 0, 0);
+          const blob = new Promise(resolve => canvas.toBlob(resolve, "image/png"));
+          await navigator.clipboard.write([new ClipboardItem({"image/png": blob})]);
+          image.close?.();
+          this.message(`Đã copy ảnh ${role}. Mở Gemini và dán bằng Ctrl+V / ⌘V.`);
+        } catch (error) { this.message(error.message, true); }
+      });
+    }
     q("[data-copy]").addEventListener("click", async () => {
       try { await copyPrompt(q("[data-prompt]").value, q("[data-prompt]")); this.message("Đã copy prompt. Đính kèm hai ảnh theo đúng thứ tự."); }
       catch (_) { q("[data-packet] details").open = true; q("[data-prompt]").focus(); q("[data-prompt]").select(); this.message("Dùng Ctrl+C / ⌘C để copy prompt."); }
@@ -213,7 +229,7 @@ class ArenaImageEditor {
       const {prompt} = assets;
       this.packet = {...description, ...assets, strokes: structuredClone(this.strokes), prompt, guide: guide.image, original: this.source.image};
       this.q("[data-prompt]").value = prompt; this.q("[data-packet]").hidden = false;
-      this.message("Bộ ảnh và prompt đã sẵn sàng. Tải hai ảnh để đính kèm vào Gemini.");
+      this.message("Bộ ảnh và prompt đã sẵn sàng. Tải hoặc copy ảnh gốc trước, ảnh phác thảo sau để đính kèm vào Gemini.");
     } catch (error) { this.message(error.message, true); }
     finally { this.setBusy(false); }
   }

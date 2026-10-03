@@ -121,6 +121,34 @@ class ManualWorkflowTests(unittest.TestCase):
         self.assertEqual(job["metrics"]["manual_images_received"], 3)
         self.assertEqual(job["metrics"]["manual_audits_received"], 3)
 
+    def test_user_can_choose_third_option_before_upload_and_finish_that_option(self):
+        engine = self.engine(candidate_limit=3)
+        job = self.start(engine, audit_mode="background")
+        third = job["cards"][2]
+        old_step = job["pending_manual"]["step_id"]
+        engine.choose_image_candidate(job["request_id"], self.payload(job, candidate_id=third["candidate_id"]))
+        job = engine.store.get_job(job["request_id"])
+        self.assertNotEqual(job["pending_manual"]["step_id"], old_step)
+        self.assertEqual(job["pending_manual"]["prompt"], third["image_prompt"])
+        self.assertEqual(job["pending_manual"]["candidate_id"], third["candidate_id"])
+        engine = self.restart(engine)
+        job = engine.store.get_job(job["request_id"])
+        job = self.upload(engine, job)
+        self.assertEqual(job["status"], "complete")
+        self.assertEqual(len(job["artifacts"]), 1)
+        self.assertEqual(job["artifacts"][0]["candidate_id"], third["candidate_id"])
+        from arena_backend.report import user_report
+        report = user_report(job, engine.policy)
+        self.assertIn("1/1", report["final"])
+        self.assertEqual(report["selected"], third["title"])
+
+    def test_candidate_selection_rejects_unknown_candidate_without_changing_step(self):
+        engine = self.engine(candidate_limit=3)
+        job = self.start(engine)
+        with self.assertRaises(ArenaError):
+            engine.choose_image_candidate(job["request_id"], self.payload(job, candidate_id="outside-request"))
+        self.assertEqual(engine.store.get_job(job["request_id"])["pending_manual"], job["pending_manual"])
+
     def test_failed_option_does_not_stop_remaining_options(self):
         engine = self.engine(candidate_limit=3)
         job = self.start(engine)
