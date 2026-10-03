@@ -1,0 +1,137 @@
+{
+  "evidence_id": "bec0e400-e989-4a4b-bb5e-27a953428682",
+  "recorded_at": 1790929327.420081,
+  "event": "retrieving",
+  "job": {
+    "request_id": "f05906d6-8b58-4df3-9b13-3065cfbb8bf3",
+    "session_id": "benchmark-20-01-P2-05",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài lấy cảm hứng hiện đại cho sự kiện trường. Bắt buộc toàn bộ bảng màu chỉ có xanh, không thêm màu khác. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "f05906d6-8b58-4df3-9b13-3065cfbb8bf3",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài lấy cảm hứng hiện đại cho sự kiện trường.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "cho sự kiện trường.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [],
+      "hard_constraints": [
+        {
+          "id": "hc_1",
+          "field": "palette",
+          "operator": "include",
+          "value": "xanh",
+          "provenance": "user_provided",
+          "evidence_quote": "Bắt buộc toàn bộ bảng màu chỉ có xanh, không thêm màu khác.",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929325.111882
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929327.419136
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2304,
+        "usage": {
+          "promptTokenCount": 1442,
+          "candidatesTokenCount": 473,
+          "totalTokenCount": 1915,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1442
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "6135d041d05375d8c65f1972dc240b76911b90410282c49323f53ebddfb23721",
+        "output_hash": "1a68bccdadede686ef47cf2a460d042a612456186934529e3b89024d012a47b2"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.003,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929325.1078
+  }
+}

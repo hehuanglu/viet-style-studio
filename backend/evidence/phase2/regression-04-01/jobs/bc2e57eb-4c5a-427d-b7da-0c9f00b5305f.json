@@ -1,0 +1,160 @@
+{
+  "evidence_id": "bc2e57eb-4c5a-427d-b7da-0c9f00b5305f",
+  "recorded_at": 1790929780.721112,
+  "event": "retrieving",
+  "job": {
+    "request_id": "f21e119d-7e8f-4a7c-a67f-f89e0752cac5",
+    "session_id": "regression-04-01-P2-18",
+    "revision": 2,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối trang phục lấy cảm hứng hiện đại nhưng chưa chọn loại nào. Cho tôi thẻ gợi ý."
+      },
+      {
+        "id": "T2",
+        "text": "Để ứng dụng gợi ý, bỏ qua câu hỏi."
+      }
+    ],
+    "brief": {
+      "request_id": "f21e119d-7e8f-4a7c-a67f-f89e0752cac5",
+      "revision": 2,
+      "goal": {
+        "field": "goal",
+        "value": "explore",
+        "status": "inferred",
+        "evidence_quote": "Tôi muốn phối trang phục lấy cảm hứng hiện đại nhưng chưa chọn loại nào. Cho tôi thẻ gợi ý.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "default",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "context": [],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối trang phục lấy cảm hứng hiện đại nhưng chưa chọn loại nào.",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [],
+      "hard_constraints": [],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [
+        "Sử dụng chế độ lấy cảm hứng (inspired) theo yêu cầu của người dùng.",
+        "Mục tiêu là khám phá (explore) do người dùng chưa chọn loại trang phục và yêu cầu thẻ gợi ý.",
+        "Người dùng chọn bỏ qua câu hỏi nên áp dụng chính sách default cho loại trang phục (subject).",
+        "Ứng dụng chọn áo dài theo mặc định của pack vì người dùng bỏ qua câu hỏi; không phải phục dựng lịch sử."
+      ],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 1,
+    "skip": true,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929776.058539
+      },
+      {
+        "sequence": 2,
+        "stage": "awaiting_user",
+        "brief_revision": 1,
+        "timestamp": 1790929778.393787
+      },
+      {
+        "sequence": 3,
+        "stage": "normalizing",
+        "brief_revision": 2,
+        "timestamp": 1790929778.524645
+      },
+      {
+        "sequence": 4,
+        "stage": "retrieving",
+        "brief_revision": 2,
+        "timestamp": 1790929780.719275
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2331,
+        "usage": {
+          "promptTokenCount": 1554,
+          "candidatesTokenCount": 480,
+          "totalTokenCount": 2034,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1554
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "3ec9cf055ccd01cb57a8230bedb2eaa6082d8b6a030646c76cbd573d4de54472",
+        "output_hash": "8eeac7fc84a233263d34993e15f5880b789b148096965733881544186943dc48"
+      },
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2188,
+        "usage": {
+          "promptTokenCount": 1911,
+          "candidatesTokenCount": 404,
+          "totalTokenCount": 2315,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1911
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "53608561784c485547419c3da863373e84b530f4af675bdb82c32e366e29e9d1",
+        "output_hash": "561c7dd4e19c161fd2af11e97d4f5b29c1d79b2b1d56a959ea1acbc6f68a0e3c"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 2,
+      "cache_hits": 0,
+      "active_seconds": 2.341,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "80654e4558723fa5b82f929cc2d282f222f9cd25e058eb06a09f3bfeeb3eea26",
+      "kit_hash": "c8d7dcc931093527ee9ac9e36f04c97fc4ef31a5fd3b5b33a7a7b7c3759f3597",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929776.0547369
+  }
+}

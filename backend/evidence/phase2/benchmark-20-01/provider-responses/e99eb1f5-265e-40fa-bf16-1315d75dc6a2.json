@@ -1,0 +1,37 @@
+{
+  "evidence_id": "e99eb1f5-265e-40fa-bf16-1315d75dc6a2",
+  "recorded_at": 1790929393.008513,
+  "model": "gemini-3.5-flash-lite",
+  "request_hash": "75fd3a01f206e03eeb47ea8900a27f0a1616fc4f1cc8d1260e9078b89ea5e7a8",
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"audits\": [\n    {\n      \"candidate_id\": \"cand_1\",\n      \"gate_findings\": [\n        {\n          \"finding_id\": \"f_uc_1\",\n          \"gate_id\": \"user_constraints\",\n          \"rule_id\": null,\n          \"constraint_id\": \"hc_1\",\n          \"source_id\": \"S-BRIEF\",\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"accessories: []\",\n          \"reason\": \"Candidate không dùng phụ kiện nào, thỏa mãn ràng buộc số accessories bằng 0.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_ac_1\",\n          \"gate_id\": \"applicable_cultural_rules\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"not_applicable\",\n          \"evidence\": \"Gate applicable_cultural_rules áp dụng false trong trường hợp này.\",\n          \"reason\": \"Không có quy tắc văn hóa bắt buộc áp dụng qua rule_id.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_cs_1\",\n          \"gate_id\": \"claim_support\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-VNAT-AD\",\n          \"knowledge_id\": \"K-AD-PANTS\",\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Áo dài hiện đại được mặc cùng quần.\",\n          \"reason\": \"Claim có nguồn S-VNAT-AD hỗ trợ chính xác theo knowledge_id.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_hs_1\",\n          \"gate_id\": \"historical_scope\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"not_applicable\",\n          \"evidence\": \"Gate historical_scope áp dụng false.\",\n          \"reason\": \"Chế độ hiện tại là inspired, không thuộc phạm vi lịch sử.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_rnd_1\",\n          \"gate_id\": \"renderability\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-BRIEF\",\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Bố cục đứng toàn thân, nổi bật tà áo dài trắng...\",\n          \"reason\": \"Mô tả thiết kế đủ chi tiết để dựng hình.\",\n          \"minimal_fix\": null\n        }\n      ],\n      \"ratings\": {\n        \"need_fit\": 3,\n        \"usability\": 3,\n        \"aesthetics\": 3,\n        \"originality\": 3,\n        \"grounded_explanation\": 3\n      },\n      \"rating_evidence\": {\n        \"need_fit\": \"Đáp ứng tốt yêu cầu phối áo dài trắng đi sự kiện trường.\",\n        \"usability\": \"Thiết kế khả thi, tuân thủ ràng buộc không phụ kiện.\",\n        \"aesthetics\": \"Phối màu trắng thanh lịch, phù hợp môi trường học đường.\",\n        \"originality\": \"Thể hiện tốt cảm hứng hiện đại trên nền áo dài truyền thống.\",\n        \"grounded_explanation\": \"Các claims sử dụng đúng nguồn hỗ trợ đã kiểm chứng.\"\n      }\n    }\n  ]\n}",
+              "thoughtSignature": "EmAKXgFpFH0T4TLO0Av2P3BcdDqugiKdO/03dcpMbxC9/ei6FXsfCWO5xMUDzYXAsQiOqDktMBQ6D8te9IYtpYZWgYBvZBXb85xKxqyqJU84b28TTXOTb4EhMAfuTYY+5XQ="
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 3794,
+      "candidatesTokenCount": 892,
+      "totalTokenCount": 4686,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 3794
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "7mm_apSXFLnt2roPmbTpkQ8"
+  }
+}

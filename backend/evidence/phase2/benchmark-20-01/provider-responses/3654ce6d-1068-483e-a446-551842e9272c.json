@@ -1,0 +1,37 @@
+{
+  "evidence_id": "3654ce6d-1068-483e-a446-551842e9272c",
+  "recorded_at": 1790929313.054104,
+  "model": "gemini-3.5-flash-lite",
+  "request_hash": "2931271f8d35adae3ab9f833d59adf8c6b86b61c7c049f1a50902f392735ea40",
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"audits\": [\n    {\n      \"candidate_id\": \"cand-1\",\n      \"gate_findings\": [\n        {\n          \"finding_id\": \"f-1-1\",\n          \"gate_id\": \"user_constraints\",\n          \"rule_id\": null,\n          \"constraint_id\": \"HC1\",\n          \"source_id\": \"S-BRIEF\",\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"palette: ['đỏ', 'trắng']\",\n          \"reason\": \"Candidate bao gồm màu đỏ theo yêu cầu HC1.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f-1-2\",\n          \"gate_id\": \"applicable_cultural_rules\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"not_applicable\",\n          \"evidence\": \"applicable: false\",\n          \"reason\": \"Gate không áp dụng cho cấu hình hiện tại.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f-1-3\",\n          \"gate_id\": \"claim_support\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-VNAT-AD\",\n          \"knowledge_id\": \"K-AD-PANTS\",\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Áo dài hiện đại được mặc cùng quần.\",\n          \"reason\": \"Claim được hỗ trợ trực tiếp bởi nguồn S-VNAT-AD với knowledge_id tương ứng.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f-1-4\",\n          \"gate_id\": \"historical_scope\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"not_applicable\",\n          \"evidence\": \"applicable: false\",\n          \"reason\": \"Chế độ là inspired hiện đại, không thuộc phạm vi lịch sử.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f-1-5\",\n          \"gate_id\": \"renderability\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-BRIEF\",\n          \"knowledge_id\": \"K-TASK-03\",\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Thẻ gợi ý phối áo dài đỏ hiện đại\",\n          \"reason\": \"Đầu ra dạng thẻ gợi ý phù hợp với K-TASK-03.\",\n          \"minimal_fix\": null\n        }\n      ],\n      \"ratings\": {\n        \"need_fit\": 4,\n        \"usability\": 4,\n        \"aesthetics\": 3,\n        \"originality\": 3,\n        \"grounded_explanation\": 4\n      },\n      \"rating_evidence\": {\n        \"need_fit\": \"Đáp ứng đúng mục tiêu tạo thẻ gợi ý áo dài đỏ hiện đại.\",\n        \"usability\": \"Cấu trúc thẻ rõ ràng, dễ sử dụng cho buổi chụp ảnh.\",\n        \"aesthetics\": \"Phối màu đỏ và trắng hài hòa, phù hợp bối cảnh studio.\",\n        \"originality\": \"Thể hiện phong cách sáng tạo trong phụ kiện và bối cảnh.\",\n        \"grounded_explanation\": \"Các claim văn hóa đều có nguồn hỗ trợ chính xác.\"\n      }\n    },\n    {\n      \"candidate_id\": \"cand-2\",\n      \"gate_findings\": [\n        {\n          \"finding_id\": \"f-2-1\",\n          \"gate_id\": \"user_constraints\",\n          \"rule_id\": null,\n          \"constraint_id\": \"HC1\",\n          \"source_id\": \"S-BRIEF\",\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"palette: ['đỏ', 'đen']\",\n          \"reason\": \"Candidate bao gồm màu đỏ theo yêu cầu HC1.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f-2-2\",\n          \"gate_id\": \"applicable_cultural_rules\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"not_applicable\",\n          \"evidence\": \"applicable: false\",\n          \"reason\": \"Gate không áp dụng cho cấu hình hiện tại.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f-2-3\",\n          \"gate_id\": \"claim_support\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-VNAT-AD\",\n          \"knowledge_id\": \"K-AD-PANTS\",\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Áo dài hiện đại được mặc cùng quần.\",\n          \"reason\": \"Claim được hỗ trợ trực tiếp bởi nguồn S-VNAT-AD.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f-2-4\",\n          \"gate_id\": \"historical_scope\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"not_applicable\",\n          \"evidence\": \"applicable: false\",\n          \"reason\": \"Chế độ là inspired hiện đại, không thuộc phạm vi lịch sử.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f-2-5\",\n          \"gate_id\": \"renderability\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-BRIEF\",\n          \"knowledge_id\": \"K-TASK-03\",\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Thẻ gợi ý phối áo dài đỏ hiện đại\",\n          \"reason\": \"Đầu ra dạng thẻ gợi ý phù hợp với K-TASK-03.\",\n          \"minimal_fix\": null\n        }\n      ],\n      \"ratings\": {\n        \"need_fit\": 4,\n        \"usability\": 4,\n        \"aesthetics\": 3,\n        \"originality\": 3,\n        \"grounded_explanation\": 4\n      },\n      \"rating_evidence\": {\n        \"need_fit\": \"Đáp ứng tốt yêu cầu tạo thẻ gợi ý cho chụp ảnh nghệ thuật.\",\n        \"usability\": \"Thông tin thiết kế rõ ràng và có tính ứng dụng cao.\",\n        \"aesthetics\": \"Phối màu đỏ và đen tạo cảm giác phá cách, nghệ thuật.\",\n        \"originality\": \"Có nét độc đáo trong bối cảnh ngoại cảnh đô thị.\",\n        \"grounded_explanation\": \"Trích dẫn và nguồn dữ liệu văn hóa được tuân thủ tốt.\"\n      }\n    }\n  ]\n}",
+              "thoughtSignature": "EmAKXgFpFH0TqXFP4Y0F5fSPIohOEj3N4snol5+4x2tiQrxdQZyRdrfaPfna1Gkouje/OPknHF61ZHr3c46ZBloAl8kNSlJSUt45puC7frLyUCDefbx8lVbK0Oev8A4nigQ="
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 4191,
+      "candidatesTokenCount": 1752,
+      "totalTokenCount": 5943,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4191
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "nGm_aru2HtLNrfcPwq7uuAs"
+  }
+}

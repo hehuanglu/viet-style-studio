@@ -1,0 +1,164 @@
+{
+  "evidence_id": "959c0aec-c78f-4f3a-a42f-bb9f3ab036a4",
+  "recorded_at": 1790929496.2464151,
+  "event": "awaiting_user",
+  "job": {
+    "request_id": "4bfc914b-c6a8-4bd9-aac0-ab35d6bcac2b",
+    "session_id": "benchmark-20-01-P2-17",
+    "revision": 1,
+    "status": "awaiting_user",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài lấy cảm hứng hiện đại. Bắt buộc có túi nhỏ, đồng thời tuyệt đối không được có túi nhỏ."
+      }
+    ],
+    "brief": {
+      "request_id": "4bfc914b-c6a8-4bd9-aac0-ab35d6bcac2b",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài lấy cảm hứng hiện đại.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài lấy cảm hứng hiện đại.",
+        "evidence_turn_id": "T1"
+      },
+      "context": [],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [],
+      "hard_constraints": [
+        {
+          "id": "hc_1",
+          "field": "pocket",
+          "operator": "include",
+          "value": "túi nhỏ",
+          "provenance": "user_provided",
+          "evidence_quote": "Bắt buộc có túi nhỏ",
+          "rule_id": null
+        },
+        {
+          "id": "hc_2",
+          "field": "pocket",
+          "operator": "exclude",
+          "value": "túi nhỏ",
+          "provenance": "user_provided",
+          "evidence_quote": "đồng thời tuyệt đối không được có túi nhỏ.",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [
+        "Sử dụng thiết lập cân bằng (balanced) do chưa có định hướng ưu tiên."
+      ],
+      "conflicts": [
+        "Mâu thuẫn trực tiếp giữa việc bắt buộc có túi nhỏ và tuyệt đối không được có túi nhỏ."
+      ],
+      "proposed_questions": [
+        {
+          "field": "pocket",
+          "text": "Bạn có muốn thiết kế áo dài có túi nhỏ hay không?",
+          "options": [
+            "Có túi nhỏ",
+            "Không có túi nhỏ"
+          ],
+          "reason": "Người dùng đưa ra hai yêu cầu trái ngược nhau về việc có hay không có túi nhỏ.",
+          "impact": "blocking"
+        }
+      ],
+      "status": "needs_resolution"
+    },
+    "questions": [
+      {
+        "field": "pocket",
+        "text": "Bạn có muốn thiết kế áo dài có túi nhỏ hay không?",
+        "options": [
+          "Có túi nhỏ",
+          "Không có túi nhỏ"
+        ],
+        "reason": "Người dùng đưa ra hai yêu cầu trái ngược nhau về việc có hay không có túi nhỏ.",
+        "impact": "blocking"
+      }
+    ],
+    "question_rounds": 1,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929493.6730108
+      },
+      {
+        "sequence": 2,
+        "stage": "awaiting_user",
+        "brief_revision": 1,
+        "timestamp": 1790929496.246339
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2568,
+        "usage": {
+          "promptTokenCount": 1429,
+          "candidatesTokenCount": 628,
+          "totalTokenCount": 2057,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1429
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "e337348498adfc2b269b473ed04bc4b5c8be54896a8f9d2b1d83ab93525cb0bc",
+        "output_hash": "378eccd46c6894cf3bb3476be940ade6b38175425a9752fdbdf6713ab7883125"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.003,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929493.668951
+  }
+}

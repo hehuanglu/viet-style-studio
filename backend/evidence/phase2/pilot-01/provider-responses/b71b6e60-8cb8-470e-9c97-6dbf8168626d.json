@@ -1,0 +1,37 @@
+{
+  "evidence_id": "b71b6e60-8cb8-470e-9c97-6dbf8168626d",
+  "recorded_at": 1790928588.213944,
+  "model": "gemini-3.5-flash-lite",
+  "request_hash": "e9a928cabadf5e8e408ae4c6707d13870d68947db38c71e506b63b7f8ff41a3c",
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"audits\": [\n    {\n      \"candidate_id\": \"c1\",\n      \"gate_findings\": [\n        {\n          \"finding_id\": \"f_hc_subject\",\n          \"gate_id\": \"user_constraints\",\n          \"rule_id\": null,\n          \"constraint_id\": \"hc_subject\",\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"subject: ao_dai\",\n          \"reason\": \"Ứng viên đáp ứng đúng subject là áo dài.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_hc_palette\",\n          \"gate_id\": \"user_constraints\",\n          \"rule_id\": null,\n          \"constraint_id\": \"hc_palette\",\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"palette: [\\\"Xanh dương\\\", \\\"Trắng\\\"]\",\n          \"reason\": \"Màu sắc bao gồm màu xanh theo yêu cầu.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_hc_style\",\n          \"gate_id\": \"user_constraints\",\n          \"rule_id\": null,\n          \"constraint_id\": \"hc_style\",\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"extensions: style: tối giản\",\n          \"reason\": \"Phong cách tối giản được tuân thủ.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_cultural\",\n          \"gate_id\": \"applicable_cultural_rules\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"not_applicable\",\n          \"evidence\": \"applicable: false\",\n          \"reason\": \"Gate cultural rules không áp dụng cho cấu hình hiện tại.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_claim_support\",\n          \"gate_id\": \"claim_support\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-VNAT-AD\",\n          \"knowledge_id\": \"K-AD-PANTS\",\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"supporting_excerpt: áo dài over pants or trousers\",\n          \"reason\": \"Các claim đều có nguồn hỗ trợ chính xác từ knowledge unit đã verify.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_historical\",\n          \"gate_id\": \"historical_scope\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"not_applicable\",\n          \"evidence\": \"applicable: false\",\n          \"reason\": \"Chế độ là inspired hiện đại, không áp dụng historical scope.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f_renderability\",\n          \"gate_id\": \"renderability\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": null,\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"composition và scene đầy đủ\",\n          \"reason\": \"Mô tả bố cục và cảnh rõ ràng, có thể render thẻ gợi ý.\",\n          \"minimal_fix\": null\n        }\n      ],\n      \"ratings\": {\n        \"need_fit\": 4,\n        \"usability\": 3,\n        \"aesthetics\": 3,\n        \"originality\": 3,\n        \"grounded_explanation\": 4\n      },\n      \"rating_evidence\": {\n        \"need_fit\": \"Đáp ứng hoàn toàn các yêu cầu về subject, palette và style.\",\n        \"usability\": \"Phù hợp để làm thẻ gợi ý đi sự kiện trường.\",\n        \"aesthetics\": \"Màu sắc và phụ kiện hài hòa, tối giản.\",\n        \"originality\": \"Thể hiện tốt cảm hứng hiện đại cho áo dài.\",\n        \"grounded_explanation\": \"Các claim trích dẫn đúng nguồn cultural fact.\"\n      }\n    }\n  ]\n}",
+              "thoughtSignature": "EmAKXgFpFH0TSbB7gQutkOGlBu4NUTrudtsYE/Y5TGpr3eKCUwOoB6iijx9FbDlitqnBRkZBIiAqQDnN2cpivS0r6PnvApi/lOeVMEoA0gwlRFgho34AiudwU0HPtPECFnA="
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 4106,
+      "candidatesTokenCount": 1095,
+      "totalTokenCount": 5201,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4106
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "yGa_atTtObWfvr0P67HMsQg"
+  }
+}

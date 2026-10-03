@@ -1,0 +1,141 @@
+{
+  "evidence_id": "c667360c-6675-4d55-b3a1-251e7ad6630e",
+  "recorded_at": 1790929359.097147,
+  "request_id": "8cc4988a-b5b9-4ef3-8ff6-d1d21685c339",
+  "revision": 1,
+  "task": "P03",
+  "attempt": 1,
+  "output": {
+    "status": "ready",
+    "candidates": [
+      {
+        "candidate_id": "CAND-AD-1",
+        "revision": 1,
+        "title": "Áo dài hiện đại pastel đi sự kiện trường",
+        "target_need": "Phối áo dài hiện đại màu pastel nhẹ nhàng, thanh lịch cho sự kiện trường học, đáp ứng yêu cầu có túi nhỏ.",
+        "subject": "ao_dai",
+        "design_mode": "inspired",
+        "design": {
+          "subject_description": "Áo dài hiện đại phom dáng trẻ trung, kết hợp mặc cùng quần.",
+          "palette": [
+            "Trắng",
+            "Hồng pastel",
+            "Xanh nhạt"
+          ],
+          "accessories": [
+            "túi nhỏ",
+            "giày búp bê"
+          ],
+          "composition": "Toàn thân, góc nhìn chính diện.",
+          "scene": "Sân trường hoặc hội trường trong sự kiện học sinh.",
+          "extensions": [
+            {
+              "key": "style_choice",
+              "value": "Người mặc tự chọn phong cách và màu sắc riêng theo sở thích."
+            }
+          ]
+        },
+        "keep_invariants": [
+          "Trang phục áo dài mặc cùng quần",
+          "Có túi nhỏ trong phụ kiện theo hard constraint HC-1"
+        ],
+        "allowed_changes": [
+          "accent_palette",
+          "accessory_selection"
+        ],
+        "claims": [
+          {
+            "text": "Áo dài hiện đại được mặc cùng quần.",
+            "knowledge_id": "K-AD-PANTS",
+            "source_id": "S-VNAT-AD",
+            "supporting_excerpt": "áo dài over pants or trousers"
+          },
+          {
+            "text": "Trong hướng dẫn mặc áo dài hiện đại, người mặc có thể chọn phong cách và màu sắc riêng.",
+            "knowledge_id": "K-AD-CHOICE",
+            "source_id": "S-VNAT-AD",
+            "supporting_excerpt": "choose your own style and colours"
+          }
+        ],
+        "assumptions": [
+          "Sự kiện trường học phù hợp với tông màu pastel tươi sáng."
+        ],
+        "caveats": [
+          "Chỉ mang tính chất gợi ý phối đồ hiện đại, không đại diện cho trang phục lịch sử triều Nguyễn."
+        ]
+      },
+      {
+        "candidate_id": "CAND-AD-2",
+        "revision": 1,
+        "title": "Áo dài hiện đại cá tính cho sự kiện trường",
+        "target_need": "Phối áo dài hiện đại năng động, hiện đại cho sự kiện trường học, tuân thủ ràng buộc có túi nhỏ.",
+        "subject": "ao_dai",
+        "design_mode": "inspired",
+        "design": {
+          "subject_description": "Áo dài cách tân với điểm nhấn màu sắc nổi bật, kết hợp mặc cùng quần.",
+          "palette": [
+            "Vàng",
+            "Trắng",
+            "Đen"
+          ],
+          "accessories": [
+            "túi nhỏ",
+            "giày sneaker"
+          ],
+          "composition": "Góc nhìn bán thân, nổi bật trang phục.",
+          "scene": "Sân khấu sự kiện trường học.",
+          "extensions": [
+            {
+              "key": "style_choice",
+              "value": "Người mặc tự do thể hiện phong cách cá nhân và màu sắc ưa thích."
+            }
+          ]
+        },
+        "keep_invariants": [
+          "Trang phục áo dài mặc cùng quần",
+          "Có túi nhỏ trong phụ kiện theo hard constraint HC-1"
+        ],
+        "allowed_changes": [
+          "accent_palette",
+          "formality",
+          "composition"
+        ],
+        "claims": [
+          {
+            "text": "Áo dài hiện đại được mặc cùng quần.",
+            "knowledge_id": "K-AD-PANTS",
+            "source_id": "S-VNAT-AD",
+            "supporting_excerpt": "áo dài over pants or trousers"
+          },
+          {
+            "text": "Áo dài được mặc bởi cả nam và nữ.",
+            "knowledge_id": "K-AD-GENDER",
+            "source_id": "S-VNAT-AD",
+            "supporting_excerpt": "both men and women"
+          }
+        ],
+        "assumptions": [
+          "Sự kiện năng động cho phép phong cách giày sneaker kết hợp áo dài."
+        ],
+        "caveats": [
+          "Đề xuất mang tính sáng tạo hiện đại, không phải tài liệu khảo cổ."
+        ]
+      }
+    ],
+    "limitations": [
+      "Chỉ hỗ trợ dữ liệu xác thực cho áo dài hiện đại mặc cùng quần; không đủ nguồn cho áo ngũ thân hay tứ thân."
+    ]
+  },
+  "usage": {
+    "promptTokenCount": 3156,
+    "candidatesTokenCount": 1113,
+    "totalTokenCount": 4269,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3156
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

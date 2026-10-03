@@ -1,0 +1,322 @@
+{
+  "evidence_id": "a8d241b9-1f8f-4cf6-bfdb-a959a49b582d",
+  "recorded_at": 1790929439.238178,
+  "job": {
+    "request_id": "f66e5be5-9c17-4d55-b8e7-7d001d645dfa",
+    "session_id": "benchmark-20-01-P2-13",
+    "revision": 1,
+    "status": "needs_evidence",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn. Cho tôi thẻ gợi ý dựa trên nguồn đã xác minh."
+      }
+    ],
+    "brief": {
+      "request_id": "f66e5be5-9c17-4d55-b8e7-7d001d645dfa",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "inferred",
+        "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_ngu_than",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "region",
+          "value": "Huế",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "period",
+          "value": "thời triều Nguyễn",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "historical",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "historical",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [],
+      "hard_constraints": [
+        {
+          "id": "hc_1",
+          "field": "mode",
+          "operator": "equals",
+          "value": "historical",
+          "provenance": "user_provided",
+          "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+          "rule_id": null
+        },
+        {
+          "id": "hc_2",
+          "field": "region",
+          "operator": "equals",
+          "value": "Huế",
+          "provenance": "user_provided",
+          "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+          "rule_id": null
+        },
+        {
+          "id": "hc_3",
+          "field": "period",
+          "operator": "equals",
+          "value": "thời triều Nguyễn",
+          "provenance": "user_provided",
+          "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "heritage",
+      "assumptions": [
+        "Sử dụng scoring profile heritage cho mục đích tái hiện lịch sử."
+      ],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [
+      "Nguồn chưa đủ cho phạm vi tái hiện đã yêu cầu; giữ nguyên chế độ và trả thiếu bằng chứng."
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929436.3390331
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929439.23545
+      },
+      {
+        "sequence": 3,
+        "stage": "needs_evidence",
+        "brief_revision": 1,
+        "timestamp": 1790929439.237283
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2892,
+        "usage": {
+          "promptTokenCount": 1435,
+          "candidatesTokenCount": 769,
+          "totalTokenCount": 2204,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1435
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "571afc90038f82f12abd5c9441153008cf8a7334e504b3ec000dbcc2a9e66dcc",
+        "output_hash": "a881549be2356b02215ca133433ca8127fc1203496aa9df922c9afa569988d59"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 2.9,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929436.3349,
+    "retrieval_bundle": {
+      "subject_id": "ao_ngu_than",
+      "knowledge_units": [
+        {
+          "id": "K-TASK-01",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn loại trang phục hoặc sự kiện.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn loại trang phục hoặc sự kiện.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-02",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn màu sắc, phụ kiện hoặc phong cách.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn màu sắc, phụ kiện hoặc phong cách.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-03",
+          "kind": "task_fact",
+          "claim": "Đầu ra có thể là hình ảnh, thẻ gợi ý hoặc mockup.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Xem kết quả phối đồ dưới dạng hình ảnh, thẻ gợi ý hoặc mockup.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-04",
+          "kind": "task_fact",
+          "claim": "Demo cần có thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Đọc thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        }
+      ],
+      "rules": [
+        {
+          "id": "R-TASK-CARD",
+          "kind": "task_requirement",
+          "severity": "hard",
+          "knowledge_ids": [
+            "K-TASK-03"
+          ],
+          "applies_when": {
+            "all_requests": true
+          },
+          "check": "Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.",
+          "visual_checkable": false,
+          "status": "verified",
+          "enabled": true,
+          "applicability_uncertain": false
+        }
+      ],
+      "cultural_units": [],
+      "sources": [
+        {
+          "id": "S-BRIEF",
+          "kind": "task_brief",
+          "path": "../de-thi-viet-phuc-remix.md",
+          "authority_scope": "product_requirements",
+          "review_status": "read_against_supplied_file"
+        },
+        {
+          "id": "S-VNAT-AD",
+          "kind": "official_tourism",
+          "url": "https://vietnam.travel/node/1216",
+          "title": "All about ao dai: Vietnam's national dress",
+          "authority_scope": "contemporary_ao_dai_wear_advice",
+          "review_status": "agent_excerpt_checked",
+          "reviewer": "Codex (source cross-check; not human specialist)",
+          "human_specialist_review": "not_performed",
+          "snapshot_path": "vnat-ao-dai.source.json",
+          "snapshot_sha256": "34d6ff961a2e29dde6c4b68da482184b24c22b9394467c36c612c1963584f1df"
+        }
+      ],
+      "ontology": [
+        {
+          "id": "ao_dai",
+          "type": "garment",
+          "label": "áo dài",
+          "aliases": [
+            "ao dai"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [
+            "Mặc cùng quần trong phạm vi tái hiện áo dài hiện đại của pack."
+          ],
+          "cultural_knowledge_status": "contemporary_advice_source_checked"
+        },
+        {
+          "id": "ao_tu_than",
+          "type": "garment",
+          "label": "áo tứ thân",
+          "aliases": [
+            "ao tu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_ngu_than",
+          "type": "garment",
+          "label": "áo ngũ thân",
+          "aliases": [
+            "ao ngu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        }
+      ],
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "historical_scope_supported": false,
+      "historical_coverage": [
+        {
+          "entity_id": "ao_dai",
+          "period": "hiện đại",
+          "region": null,
+          "covers": [
+            "mặc cùng quần"
+          ],
+          "limitations": [
+            "Chỉ minh họa cấu trúc áo mặc cùng quần; không xác minh mọi đường may/nút/cổ.",
+            "Không đủ nguồn cho áo ngũ thân/tứ thân hoặc triều Nguyễn."
+          ]
+        }
+      ]
+    },
+    "evidence_status": "missing_cultural_sources"
+  }
+}

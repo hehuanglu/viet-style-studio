@@ -1,0 +1,88 @@
+{
+  "evidence_id": "a161491f-a0a8-45d0-b5e7-09c6e4bee493",
+  "recorded_at": 1790929476.211391,
+  "request_id": "923ca75f-6891-4661-a678-06aba8df124f",
+  "revision": 1,
+  "task": "P02",
+  "attempt": 1,
+  "output": {
+    "request_id": "923ca75f-6891-4661-a678-06aba8df124f",
+    "revision": 1,
+    "goal": {
+      "field": "goal",
+      "value": null,
+      "status": "missing",
+      "evidence_quote": null,
+      "evidence_turn_id": null
+    },
+    "subject": {
+      "field": "subject",
+      "value": null,
+      "status": "missing",
+      "evidence_quote": null,
+      "evidence_turn_id": null
+    },
+    "context": [],
+    "mode": "inspired",
+    "mode_evidence": {
+      "field": "mode",
+      "value": "inspired",
+      "status": "default",
+      "evidence_quote": null,
+      "evidence_turn_id": null
+    },
+    "preferences": [
+      {
+        "field": "style",
+        "value": "đẹp và độc đáo",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn đẹp và độc đáo.",
+        "evidence_turn_id": "T1"
+      }
+    ],
+    "hard_constraints": [],
+    "output": "cards",
+    "scoring_profile": "balanced",
+    "assumptions": [
+      "Sử dụng chế độ lấy cảm hứng (inspired) do không có ý định lịch sử rõ ràng.",
+      "Mặc định mục tiêu là khám phá hoặc tạo trang phục dựa theo sở thích chung."
+    ],
+    "conflicts": [],
+    "proposed_questions": [
+      {
+        "field": "goal",
+        "text": "Bạn muốn khám phá thông tin hay tạo một bộ trang phục cụ thể?",
+        "options": [
+          "Khám phá",
+          "Tạo trang phục"
+        ],
+        "reason": "Mục tiêu (goal) là bắt buộc để định hướng xử lý tiếp theo.",
+        "impact": "blocking"
+      },
+      {
+        "field": "subject",
+        "text": "Bạn muốn chọn trang phục nào cho thiết kế của mình?",
+        "options": [
+          "Áo dài",
+          "Áo tứ thân",
+          "Áo ngũ thân"
+        ],
+        "reason": "Chưa xác định đối tượng trang phục (subject) để áp dụng quy tắc thiết kế.",
+        "impact": "blocking"
+      }
+    ],
+    "status": "needs_clarification"
+  },
+  "usage": {
+    "promptTokenCount": 1412,
+    "candidatesTokenCount": 590,
+    "totalTokenCount": 2002,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1412
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

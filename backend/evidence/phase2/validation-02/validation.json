@@ -1,0 +1,28 @@
+{
+  "runs": [
+    {
+      "name": "unit-tests",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "backend/tests",
+        "-v"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 2.585
+    },
+    {
+      "name": "kit",
+      "command": [
+        "python3",
+        "arena-kit/verify_kit.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.048
+    }
+  ],
+  "passed": false
+}

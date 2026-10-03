@@ -1,0 +1,161 @@
+{
+  "evidence_id": "4f42bacc-c064-410b-a2ec-4f4bb97c9ed4",
+  "recorded_at": 1790929315.7774742,
+  "event": "retrieving",
+  "job": {
+    "request_id": "0f0b1b1f-4e12-42c3-a22d-d99bca2497ed",
+    "session_id": "benchmark-20-01-P2-04",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài tím lấy cảm hứng hiện đại để đi học, ưu tiên dễ vận động và phụ kiện đơn giản. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "0f0b1b1f-4e12-42c3-a22d-d99bca2497ed",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài tím lấy cảm hứng hiện đại để đi học, ưu tiên dễ vận động và phụ kiện đơn giản. Cho tôi thẻ gợi ý.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài tím lấy cảm hứng hiện đại để đi học",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "đi học",
+          "status": "explicit",
+          "evidence_quote": "để đi học",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "tím",
+          "status": "explicit",
+          "evidence_quote": "áo dài tím",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "mobility",
+          "value": "dễ vận động",
+          "status": "explicit",
+          "evidence_quote": "ưu tiên dễ vận động",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "accessories",
+          "value": "đơn giản",
+          "status": "explicit",
+          "evidence_quote": "phụ kiện đơn giản",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "hc_1",
+          "field": "palette",
+          "operator": "include",
+          "value": "tím",
+          "provenance": "user_provided",
+          "evidence_quote": "áo dài tím",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [
+        "Sử dụng cấu hình điểm cân bằng (balanced) theo mặc định."
+      ],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929313.150044
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929315.7763772
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2622,
+        "usage": {
+          "promptTokenCount": 1439,
+          "candidatesTokenCount": 686,
+          "totalTokenCount": 2125,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1439
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "75b97b58ab67b4725a4bb0e9b7016226eec43ab5696eb865f62640f16b426496",
+        "output_hash": "ea1ff42e092e76946b66d95f20de28ce2641f3f034d7f95f1eea47b731f23d05"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.004,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929313.144365
+  }
+}

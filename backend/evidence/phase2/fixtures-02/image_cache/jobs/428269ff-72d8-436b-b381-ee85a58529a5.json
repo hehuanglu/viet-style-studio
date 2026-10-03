@@ -1,0 +1,143 @@
+{
+  "evidence_id": "428269ff-72d8-436b-b381-ee85a58529a5",
+  "recorded_at": 1790934006.54423,
+  "event": "retrieving",
+  "job": {
+    "request_id": "326caa79-26f9-44cd-85ee-c436d3dec17e",
+    "session_id": "image_cache",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "mock",
+    "render_image": true,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường"
+      }
+    ],
+    "brief": {
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "default",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "period",
+          "value": "hiện đại",
+          "status": "explicit",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "C-COLOR",
+          "field": "palette",
+          "operator": "include",
+          "value": "xanh",
+          "provenance": "user_provided",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "rule_id": null
+        }
+      ],
+      "output": "image",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "request_id": "326caa79-26f9-44cd-85ee-c436d3dec17e",
+      "revision": 1,
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790934006.516342
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790934006.543282
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "cache_hit": true,
+        "cache_key": "85ec5f52c9825604caac4a071c48ae667421a11242322469bcb6bba821e023b2",
+        "duration_ms": 0,
+        "usage": {
+          "mock": true,
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      }
+    ],
+    "metrics": {
+      "provider_calls": 0,
+      "cache_hits": 1,
+      "active_seconds": 0.0,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "daced72167b66f829c343beedee3396845ff752507bfb9eec46b466f726e1ab0",
+      "kit_hash": "23d8187ad919f568b84ec3307028940198db8265435a48bb4a1d58091d7930ba",
+      "text_model": "mock-text-v1",
+      "image_model": "mock-image-v1"
+    },
+    "server_images_enabled": true,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790934006.514693
+  }
+}

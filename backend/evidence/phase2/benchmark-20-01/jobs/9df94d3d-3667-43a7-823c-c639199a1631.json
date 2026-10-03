@@ -1,0 +1,152 @@
+{
+  "evidence_id": "9df94d3d-3667-43a7-823c-c639199a1631",
+  "recorded_at": 1790929303.624953,
+  "event": "retrieving",
+  "job": {
+    "request_id": "5009088d-1d94-402d-907b-1393890f5900",
+    "session_id": "benchmark-20-01-P2-03",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài đỏ, lấy cảm hứng hiện đại, phong cách sáng tạo cho buổi chụp ảnh. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "5009088d-1d94-402d-907b-1393890f5900",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài đỏ, lấy cảm hứng hiện đại, phong cách sáng tạo cho buổi chụp ảnh. Cho tôi thẻ gợi ý.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài đỏ",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "buổi chụp ảnh",
+          "status": "explicit",
+          "evidence_quote": "cho buổi chụp ảnh",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "style",
+          "value": "sáng tạo",
+          "status": "explicit",
+          "evidence_quote": "phong cách sáng tạo",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "palette",
+          "value": "đỏ",
+          "status": "explicit",
+          "evidence_quote": "áo dài đỏ",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "HC1",
+          "field": "palette",
+          "operator": "include",
+          "value": "đỏ",
+          "provenance": "user_provided",
+          "evidence_quote": "áo dài đỏ",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "creative",
+      "assumptions": [],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929300.971275
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929303.623281
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2645,
+        "usage": {
+          "promptTokenCount": 1437,
+          "candidatesTokenCount": 596,
+          "totalTokenCount": 2033,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1437
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "094551d2c2edb6ec22cc4240aab095edd20fc6bdbb32593057b32de1c59fb9c8",
+        "output_hash": "4a757e13f5d129302dd9265541d651b3a3e163c30dbaabfd6c1be1b312739ff7"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.004,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929300.968252
+  }
+}

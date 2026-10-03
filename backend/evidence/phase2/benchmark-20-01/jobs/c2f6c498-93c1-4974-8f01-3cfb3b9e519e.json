@@ -1,0 +1,164 @@
+{
+  "evidence_id": "c2f6c498-93c1-4974-8f01-3cfb3b9e519e",
+  "recorded_at": 1790929439.236293,
+  "event": "retrieving",
+  "job": {
+    "request_id": "f66e5be5-9c17-4d55-b8e7-7d001d645dfa",
+    "session_id": "benchmark-20-01-P2-13",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn. Cho tôi thẻ gợi ý dựa trên nguồn đã xác minh."
+      }
+    ],
+    "brief": {
+      "request_id": "f66e5be5-9c17-4d55-b8e7-7d001d645dfa",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "inferred",
+        "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_ngu_than",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "region",
+          "value": "Huế",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "period",
+          "value": "thời triều Nguyễn",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "historical",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "historical",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [],
+      "hard_constraints": [
+        {
+          "id": "hc_1",
+          "field": "mode",
+          "operator": "equals",
+          "value": "historical",
+          "provenance": "user_provided",
+          "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+          "rule_id": null
+        },
+        {
+          "id": "hc_2",
+          "field": "region",
+          "operator": "equals",
+          "value": "Huế",
+          "provenance": "user_provided",
+          "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+          "rule_id": null
+        },
+        {
+          "id": "hc_3",
+          "field": "period",
+          "operator": "equals",
+          "value": "thời triều Nguyễn",
+          "provenance": "user_provided",
+          "evidence_quote": "Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn.",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "heritage",
+      "assumptions": [
+        "Sử dụng scoring profile heritage cho mục đích tái hiện lịch sử."
+      ],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929436.3390331
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929439.23545
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2892,
+        "usage": {
+          "promptTokenCount": 1435,
+          "candidatesTokenCount": 769,
+          "totalTokenCount": 2204,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1435
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "571afc90038f82f12abd5c9441153008cf8a7334e504b3ec000dbcc2a9e66dcc",
+        "output_hash": "a881549be2356b02215ca133433ca8127fc1203496aa9df922c9afa569988d59"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.003,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929436.3349
+  }
+}

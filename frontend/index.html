@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f1e9" />
+    <title>AI Arena · Phối đồ</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="AI Arena trang chủ">
+          <span class="brand-mark">A</span>
+          <span>AI ARENA <small>STUDIO</small></span>
+        </a>
+        <div class="server-state"><span class="status-dot"></span><span id="server-label">Đang kết nối backend…</span></div>
+      </header>
+
+      <section class="intro">
+        <div class="eyebrow">THỬ NGHIỆM · PHỐI TRANG PHỤC</div>
+        <h1>Tìm một cách phối<br /><em>thật hợp với bạn.</em></h1>
+        <p>Mô tả trang phục, màu sắc và dịp bạn cần. AI Arena sẽ hỏi thêm khi cần rồi đưa ra các gợi ý có thể so sánh.</p>
+      </section>
+
+      <section class="setup panel" aria-labelledby="setup-title">
+        <div class="panel-heading">
+          <div><div class="eyebrow">KẾT NỐI MÔ HÌNH</div><h2 id="setup-title">Gemini API key</h2></div>
+          <span id="provider-badge" class="badge">Đang kiểm tra</span>
+        </div>
+        <p class="muted">Key chỉ được giữ trong bộ nhớ backend đang chạy, không lưu trong trình duyệt hay cơ sở dữ liệu.</p>
+        <form id="key-form" class="key-row">
+          <label class="sr-only" for="api-key">Gemini API key</label>
+          <input id="api-key" type="password" autocomplete="off" placeholder="Dán Gemini API key" spellcheck="false" />
+          <button id="key-submit" type="submit" class="button button-dark">Kết nối</button>
+        </form>
+        <div id="key-message" class="inline-message" role="status"></div>
+        <p id="text-api-note" class="inline-message" role="status">Cần kết nối Gemini API để hiểu yêu cầu, tạo và audit phương án.</p>
+        <label id="simulation-option" class="check-row" hidden><input id="simulation-mode" type="checkbox" />Chạy mô phỏng để kiểm thử (không gọi API, không đánh giá yêu cầu thật)</label>
+      </section>
+
+      <section class="workspace">
+        <div class="panel composer">
+          <div class="panel-heading">
+            <div><div class="eyebrow">YÊU CẦU CỦA BẠN</div><h2>Bạn muốn phối thế nào?</h2></div>
+            <span class="step-number">01</span>
+          </div>
+          <form id="request-form">
+            <label class="sr-only" for="request-input">Mô tả yêu cầu</label>
+            <textarea id="request-input" rows="5" maxlength="6000" placeholder="Ví dụ: Phối áo dài xanh cho sự kiện ở trường, phong cách hiện đại và tối giản…"></textarea>
+            <div class="mode-options">
+              <label for="image-mode">Tạo / sửa ảnh
+                <select id="image-mode"><option value="gemini_manual">Gemini thủ công</option><option value="api">API hiện có</option></select>
+              </label>
+              <label for="audit-mode">Kiểm tra ảnh
+                <select id="audit-mode"><option value="background">Tự động hỗ trợ chỉnh sửa</option><option value="api">Audit bắt buộc qua API (nâng cao)</option><option value="gemini_manual">Audit JSON thủ công (nâng cao)</option></select>
+              </label>
+            </div>
+            <p class="muted">Tạo ảnh trên Gemini rồi dán vào đây. Mở ảnh để khoanh vùng, phác thảo và nhận prompt sửa. Dán ảnh hoàn thiện để cập nhật ngay. Kiểm tra tự động hỗ trợ phát hiện lỗi; bạn không cần chuyển kết quả JSON.</p>
+            <div class="form-footer">
+              <label class="check-row">
+                <input id="render-image" type="checkbox" disabled />
+                <span>Tạo ảnh minh họa</span>
+                <span id="image-note" class="tiny-note">Chưa bật trên backend</span>
+              </label>
+              <button id="submit-request" type="submit" class="button button-accent" disabled>Tạo gợi ý <span aria-hidden="true">↗</span></button>
+            </div>
+          </form>
+          <div class="examples"><span>Gợi ý:</span><button type="button" data-example="Áo dài xanh cho sự kiện trường, phong cách hiện đại và tối giản">Áo dài đi học</button><button type="button" data-example="Tôi muốn phối đồ nổi bật cho buổi biểu diễn cuối tuần">Đi biểu diễn</button></div>
+        </div>
+
+        <aside class="side-note">
+          <div class="note-icon">✳</div>
+          <h3>Gợi ý có căn cứ</h3>
+          <p>Ứng dụng phân biệt lời khuyên phối đồ với thông tin lịch sử. Nếu nguồn chưa đủ, hệ thống sẽ thông báo thay vì tự khẳng định.</p>
+          <div class="scope" id="pack-label">Đang tải phạm vi dữ liệu…</div>
+        </aside>
+      </section>
+
+      <section id="result-section" class="result-section" hidden>
+        <div class="result-heading">
+          <div><div class="eyebrow">KẾT QUẢ ARENA</div><h2 id="result-title">Đang xử lý yêu cầu</h2><p id="result-summary" class="muted"></p></div>
+          <button id="cancel-request" type="button" class="button button-quiet" hidden>Hủy yêu cầu</button>
+        </div>
+        <div id="progress" class="progress-track"><span></span></div>
+        <div id="request-error" class="error-box" hidden></div>
+        <div id="next-action" class="question-card" hidden aria-live="polite"></div>
+        <div id="mock-request-notice" class="error-box" hidden>Request này được xử lý bằng mock; thông tin và câu hỏi là mô phỏng, chưa được Gemini nhận diện. Để phân tích thật, dừng bản mô phỏng, kết nối API key rồi gửi lại yêu cầu gốc.<button id="retry-real-request" type="button" class="button button-quiet">Dừng mô phỏng và nhập lại yêu cầu gốc</button></div>
+        <div id="question-card" class="question-card" hidden></div>
+        <div id="warnings" class="warnings"></div>
+        <div id="cards" class="cards-grid"></div>
+        <div id="manual-step" class="panel manual-step" hidden aria-live="polite"></div>
+        <div id="image-result"></div>
+        <section id="report" class="panel user-report" hidden aria-label="Báo cáo request"></section>
+        <details id="details" class="details" hidden>
+          <summary>Thông tin xử lý</summary>
+          <div id="details-content"></div>
+        </details>
+      </section>
+
+      <footer><span>AI ARENA</span><span>Prototype · Kết quả cần được con người xem xét</span></footer>
+    </main>
+    <script src="/image-editor.js" defer></script>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

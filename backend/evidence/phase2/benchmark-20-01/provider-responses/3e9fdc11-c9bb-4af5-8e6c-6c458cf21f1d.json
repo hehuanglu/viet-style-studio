@@ -1,0 +1,37 @@
+{
+  "evidence_id": "3e9fdc11-c9bb-4af5-8e6c-6c458cf21f1d",
+  "recorded_at": 1790929376.4507678,
+  "model": "gemini-3.5-flash-lite",
+  "request_hash": "e322dcb69e82d82929a6d21dd1bad90a285d846f0228a31c1a2c964fab794020",
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"audits\": [\n    {\n      \"candidate_id\": \"cand-1\",\n      \"gate_findings\": [\n        {\n          \"finding_id\": \"f1\",\n          \"gate_id\": \"user_constraints\",\n          \"rule_id\": null,\n          \"constraint_id\": \"HC-1\",\n          \"source_id\": \"S-BRIEF\",\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"accessories: ['túi xách nhỏ']\",\n          \"reason\": \"Số lượng phụ kiện là 1, thỏa mãn giới hạn at_most 1.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f2\",\n          \"gate_id\": \"claim_support\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-VNAT-AD\",\n          \"knowledge_id\": \"K-AD-PANTS\",\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Áo dài hiện đại được mặc cùng quần.\",\n          \"reason\": \"Claim được hỗ trợ bởi S-VNAT-AD.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f3\",\n          \"gate_id\": \"claim_support\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-VNAT-AD\",\n          \"knowledge_id\": \"K-AD-CHOICE\",\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Trong hướng dẫn mặc áo dài hiện đại, người mặc có thể chọn phong cách và màu sắc riêng.\",\n          \"reason\": \"Claim được hỗ trợ bởi S-VNAT-AD.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f4\",\n          \"gate_id\": \"renderability\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-BRIEF\",\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Áo dài hiện đại màu xanh lam tươi sáng, phom dáng trẻ trung.\",\n          \"reason\": \"Mô tả thiết kế đầy đủ chi tiết để render.\",\n          \"minimal_fix\": null\n        }\n      ],\n      \"ratings\": {\n        \"need_fit\": 4,\n        \"usability\": 4,\n        \"aesthetics\": 3,\n        \"originality\": 3,\n        \"grounded_explanation\": 4\n      },\n      \"rating_evidence\": {\n        \"need_fit\": \"Đúng yêu cầu phối áo dài xanh đi sự kiện trường.\",\n        \"usability\": \"Tuân thủ chặt chẽ giới hạn phụ kiện và cấu trúc trang phục.\",\n        \"aesthetics\": \"Phối màu xanh lam và trắng tươi sáng, phù hợp môi trường học đường.\",\n        \"originality\": \"Thể hiện phong cách hiện đại trẻ trung.\",\n        \"grounded_explanation\": \"Các phát biểu đều có căn cứ từ nguồn dữ liệu.\"\n      }\n    },\n    {\n      \"candidate_id\": \"cand-2\",\n      \"gate_findings\": [\n        {\n          \"finding_id\": \"f5\",\n          \"gate_id\": \"user_constraints\",\n          \"rule_id\": null,\n          \"constraint_id\": \"HC-1\",\n          \"source_id\": \"S-BRIEF\",\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"accessories: ['vòng tay']\",\n          \"reason\": \"Số lượng phụ kiện là 1, thỏa mãn giới hạn at_most 1.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f6\",\n          \"gate_id\": \"claim_support\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-VNAT-AD\",\n          \"knowledge_id\": \"K-AD-PANTS\",\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Áo dài hiện đại được mặc cùng quần.\",\n          \"reason\": \"Claim được hỗ trợ bởi S-VNAT-AD.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f7\",\n          \"gate_id\": \"claim_support\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-VNAT-AD\",\n          \"knowledge_id\": \"K-AD-GENDER\",\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Áo dài được mặc bởi cả nam và nữ.\",\n          \"reason\": \"Claim được hỗ trợ bởi S-VNAT-AD.\",\n          \"minimal_fix\": null\n        },\n        {\n          \"finding_id\": \"f8\",\n          \"gate_id\": \"renderability\",\n          \"rule_id\": null,\n          \"constraint_id\": null,\n          \"source_id\": \"S-BRIEF\",\n          \"knowledge_id\": null,\n          \"severity\": \"hard\",\n          \"status\": \"pass\",\n          \"evidence\": \"Áo dài hiện đại màu xanh đậm, thiết kế tối giản thanh lịch.\",\n          \"reason\": \"Mô tả thiết kế đầy đủ chi tiết để render.\",\n          \"minimal_fix\": null\n        }\n      ],\n      \"ratings\": {\n        \"need_fit\": 4,\n        \"usability\": 4,\n        \"aesthetics\": 3,\n        \"originality\": 3,\n        \"grounded_explanation\": 4\n      },\n      \"rating_evidence\": {\n        \"need_fit\": \"Đúng yêu cầu phối áo dài xanh đi sự kiện trường.\",\n        \"usability\": \"Tuân thủ giới hạn phụ kiện.\",\n        \"aesthetics\": \"Màu xanh đậm và đen tạo vẻ lịch sự tối giản.\",\n        \"originality\": \"Thiết kế tối giản thanh lịch.\",\n        \"grounded_explanation\": \"Các phát biểu đều có nguồn hỗ trợ xác thực.\"\n      }\n    }\n  ]\n}",
+              "thoughtSignature": "EmAKXgFpFH0TPx4ppo/5niNk7qBtpCZ/irZO3SK0gsD8FVgwryydAiBWXl2oz8JC3TMklxmj78SiB+gLzh6P69MHeSyH0wWgBZj6lwfzMOUQrdil5dNbwZjEDhaf7t/Ms9E="
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 4088,
+      "candidatesTokenCount": 1489,
+      "totalTokenCount": 5577,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4088
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "22m_aobGH7KNvr0P3_nOgQI"
+  }
+}

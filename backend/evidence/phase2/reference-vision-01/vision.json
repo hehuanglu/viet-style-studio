@@ -1,0 +1,605 @@
+{
+  "provider": "gemini",
+  "controlled_P06_probe": true,
+  "generated_or_edited_image": false,
+  "source": {
+    "page_url": "https://vietnam.travel/node/1216",
+    "image_url": "https://vietnam.travel/sites/default/files/inline-images/traditional%20clothes%20vietnam_1.jpg",
+    "attribution": "Photography by Aaron Joel Santos, as credited on the VNAT page",
+    "purpose": "Local backend vision evaluation; not a Gemini-generated image or a cultural ground-truth annotation",
+    "retrieved_at": "2026-10-02",
+    "sha256": "9776a0406b77f9ba00d546a0b516eed4ba9eeb4cc1ffa714a9534def160f328f",
+    "byte_length": 324004
+  },
+  "observations": {
+    "reviewer": "Codex",
+    "not_cultural_expert_review": true,
+    "foreground_upper_garment": "pink",
+    "back_visible": false,
+    "expected": {
+      "pink": "pass",
+      "green": "fail",
+      "back_buttons": "uncertain"
+    },
+    "input_origin": "public source photograph, not Gemini-generated",
+    "image_sha256": "9776a0406b77f9ba00d546a0b516eed4ba9eeb4cc1ffa714a9534def160f328f"
+  },
+  "kit_hash": "23d8187ad919f568b84ec3307028940198db8265435a48bb4a1d58091d7930ba",
+  "runs": [
+    {
+      "case": "pink",
+      "checks": {
+        "expected_status": true
+      },
+      "passed": true,
+      "input": {
+        "IMAGE_ARTIFACTS": [
+          {
+            "artifact_id": "cc62b518-51a7-48ba-a00b-aa62cdc05b67",
+            "hash": "9776a0406b77f9ba00d546a0b516eed4ba9eeb4cc1ffa714a9534def160f328f",
+            "reference_hash": null
+          }
+        ],
+        "APPROVED_CONCEPTS": [
+          {
+            "candidate_id": "REF-C1",
+            "revision": 1,
+            "subject": "ao_dai",
+            "design_mode": "inspired",
+            "design": {
+              "subject_description": "Foreground seated woman only",
+              "palette": [
+                "hồng"
+              ],
+              "accessories": [],
+              "composition": "Foreground seated woman, front/three-quarter view",
+              "scene": "public source photograph",
+              "extensions": []
+            },
+            "keep_invariants": [],
+            "allowed_changes": [],
+            "claims": [],
+            "assumptions": [],
+            "caveats": []
+          }
+        ],
+        "NORMALIZED_BRIEF": {
+          "goal": {
+            "field": "goal",
+            "value": "create_look",
+            "status": "default",
+            "evidence_quote": null,
+            "evidence_turn_id": null
+          },
+          "subject": {
+            "field": "subject",
+            "value": "ao_dai",
+            "status": "explicit",
+            "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+            "evidence_turn_id": "T1"
+          },
+          "context": [],
+          "mode": "inspired",
+          "mode_evidence": {
+            "field": "mode",
+            "value": "inspired",
+            "status": "explicit",
+            "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+            "evidence_turn_id": "T1"
+          },
+          "preferences": [],
+          "hard_constraints": [],
+          "output": "image",
+          "scoring_profile": "balanced",
+          "assumptions": [
+            "Controlled photo audit: inspect ONLY the seated woman nearest the camera; ignore background subjects."
+          ],
+          "conflicts": [],
+          "request_id": "a0d0b95e-85a8-45a2-80cd-459ec4fdfca2",
+          "revision": 1,
+          "proposed_questions": [],
+          "status": "ready"
+        },
+        "VISIBLE_RULES": [],
+        "EXPECTED_IMAGE_GATES": [
+          {
+            "gate_id": "visible_user_constraints",
+            "constraint_id": "REF-pink",
+            "rule_id": null,
+            "severity": "hard",
+            "applicable": true,
+            "check": "ONLY check that the upper áo dài garment of the foreground seated woman nearest the camera is pink. Ignore trousers, instruments, headpiece and background subjects."
+          }
+        ]
+      },
+      "result": {
+        "audits": [
+          {
+            "artifact_id": "cc62b518-51a7-48ba-a00b-aa62cdc05b67",
+            "findings": [
+              {
+                "finding_id": "f-01",
+                "gate_id": "visible_user_constraints",
+                "rule_id": null,
+                "constraint_id": "REF-pink",
+                "source_id": null,
+                "knowledge_id": null,
+                "severity": "hard",
+                "status": "pass",
+                "evidence": "Áo dài của người phụ nữ ngồi ở tiền cảnh có màu hồng rõ ràng.",
+                "reason": "Áo dài mặc trên người nữ chính ở tiền cảnh đúng màu hồng yêu cầu.",
+                "minimal_fix": null
+              }
+            ],
+            "visual_quality": 3,
+            "quality_reason": "Bố cục và ánh sáng tốt, hình ảnh sắc nét và tập trung vào chủ thể."
+          }
+        ]
+      },
+      "metrics": {
+        "provider_calls": 1,
+        "cache_hits": 0,
+        "active_seconds": 2.698
+      },
+      "trace": [
+        {
+          "task": "P06",
+          "attempt": 1,
+          "cache_hit": false,
+          "duration_ms": 2691,
+          "usage": {
+            "promptTokenCount": 2268,
+            "candidatesTokenCount": 248,
+            "totalTokenCount": 2516,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1188
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1080
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "provider_call_id": "c0cbc996-dba8-4c12-8c90-f9effbdc97d9",
+          "input_hash": "594c3f82e5cbcaff577841ed8eb3e742fe796bf7782680e3538453098a7f0142",
+          "output_hash": "f417512c63166fcaa502736a5815bf19ebb299a7181e2afcf97cdae1f856f1a8"
+        }
+      ]
+    },
+    {
+      "case": "green",
+      "checks": {
+        "expected_status": true
+      },
+      "passed": true,
+      "input": {
+        "IMAGE_ARTIFACTS": [
+          {
+            "artifact_id": "cff1bec3-769f-402e-9f4a-81a178afdf8a",
+            "hash": "9776a0406b77f9ba00d546a0b516eed4ba9eeb4cc1ffa714a9534def160f328f",
+            "reference_hash": null
+          }
+        ],
+        "APPROVED_CONCEPTS": [
+          {
+            "candidate_id": "REF-C1",
+            "revision": 1,
+            "subject": "ao_dai",
+            "design_mode": "inspired",
+            "design": {
+              "subject_description": "Foreground seated woman only",
+              "palette": [
+                "xanh lá"
+              ],
+              "accessories": [],
+              "composition": "Foreground seated woman, front/three-quarter view",
+              "scene": "public source photograph",
+              "extensions": []
+            },
+            "keep_invariants": [],
+            "allowed_changes": [],
+            "claims": [],
+            "assumptions": [],
+            "caveats": []
+          }
+        ],
+        "NORMALIZED_BRIEF": {
+          "goal": {
+            "field": "goal",
+            "value": "create_look",
+            "status": "default",
+            "evidence_quote": null,
+            "evidence_turn_id": null
+          },
+          "subject": {
+            "field": "subject",
+            "value": "ao_dai",
+            "status": "explicit",
+            "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+            "evidence_turn_id": "T1"
+          },
+          "context": [],
+          "mode": "inspired",
+          "mode_evidence": {
+            "field": "mode",
+            "value": "inspired",
+            "status": "explicit",
+            "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+            "evidence_turn_id": "T1"
+          },
+          "preferences": [],
+          "hard_constraints": [],
+          "output": "image",
+          "scoring_profile": "balanced",
+          "assumptions": [
+            "Controlled photo audit: inspect ONLY the seated woman nearest the camera; ignore background subjects."
+          ],
+          "conflicts": [],
+          "request_id": "4df88e6c-4db2-4c59-9abf-3f76f23faca3",
+          "revision": 1,
+          "proposed_questions": [],
+          "status": "ready"
+        },
+        "VISIBLE_RULES": [],
+        "EXPECTED_IMAGE_GATES": [
+          {
+            "gate_id": "visible_user_constraints",
+            "constraint_id": "REF-green",
+            "rule_id": null,
+            "severity": "hard",
+            "applicable": true,
+            "check": "ONLY check that the upper áo dài garment of the foreground seated woman nearest the camera is green. Ignore trousers, instruments, headpiece and background subjects."
+          }
+        ]
+      },
+      "result": {
+        "audits": [
+          {
+            "artifact_id": "cff1bec3-769f-402e-9f4a-81a178afdf8a",
+            "findings": [
+              {
+                "finding_id": "f1",
+                "gate_id": "visible_user_constraints",
+                "rule_id": null,
+                "constraint_id": "REF-green",
+                "source_id": null,
+                "knowledge_id": null,
+                "severity": "hard",
+                "status": "fail",
+                "evidence": "Áo dài của người phụ nữ ngồi ở tiền cảnh có màu hồng thay vì màu xanh.",
+                "reason": "Vi phạm ràng buộc bắt buộc áo dài phải có màu xanh.",
+                "minimal_fix": "Đổi màu áo dài của người phụ nữ ở tiền cảnh thành màu xanh lá."
+              }
+            ],
+            "visual_quality": 3,
+            "quality_reason": "Bố cục và ánh sáng rõ ràng, nhưng không tuân thủ quy tắc màu sắc đã chọn."
+          }
+        ]
+      },
+      "metrics": {
+        "provider_calls": 1,
+        "cache_hits": 0,
+        "active_seconds": 2.459
+      },
+      "trace": [
+        {
+          "task": "P06",
+          "attempt": 1,
+          "cache_hit": false,
+          "duration_ms": 2453,
+          "usage": {
+            "promptTokenCount": 2268,
+            "candidatesTokenCount": 262,
+            "totalTokenCount": 2530,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1080
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 1188
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "provider_call_id": "45fe8749-96f7-42f5-b0bc-07196157520a",
+          "input_hash": "be14a09d98f3344e1d8822a55281bc881053b12fc8bde3443375b8012caa3b8d",
+          "output_hash": "8fc142c6637c2c0ee3b1555f342d4b5fa576cd36dbf9ef3e7b2d6a7159c31b0e"
+        }
+      ]
+    },
+    {
+      "case": "back_buttons",
+      "checks": {
+        "expected_status": true
+      },
+      "passed": true,
+      "input": {
+        "IMAGE_ARTIFACTS": [
+          {
+            "artifact_id": "68cc1876-0758-40aa-8f06-622ad88d611a",
+            "hash": "9776a0406b77f9ba00d546a0b516eed4ba9eeb4cc1ffa714a9534def160f328f",
+            "reference_hash": null
+          }
+        ],
+        "APPROVED_CONCEPTS": [
+          {
+            "candidate_id": "REF-C1",
+            "revision": 1,
+            "subject": "ao_dai",
+            "design_mode": "inspired",
+            "design": {
+              "subject_description": "Foreground seated woman only",
+              "palette": [
+                "hồng"
+              ],
+              "accessories": [],
+              "composition": "Foreground seated woman, front/three-quarter view",
+              "scene": "public source photograph",
+              "extensions": []
+            },
+            "keep_invariants": [],
+            "allowed_changes": [],
+            "claims": [],
+            "assumptions": [],
+            "caveats": []
+          }
+        ],
+        "NORMALIZED_BRIEF": {
+          "goal": {
+            "field": "goal",
+            "value": "create_look",
+            "status": "default",
+            "evidence_quote": null,
+            "evidence_turn_id": null
+          },
+          "subject": {
+            "field": "subject",
+            "value": "ao_dai",
+            "status": "explicit",
+            "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+            "evidence_turn_id": "T1"
+          },
+          "context": [],
+          "mode": "inspired",
+          "mode_evidence": {
+            "field": "mode",
+            "value": "inspired",
+            "status": "explicit",
+            "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+            "evidence_turn_id": "T1"
+          },
+          "preferences": [],
+          "hard_constraints": [],
+          "output": "image",
+          "scoring_profile": "balanced",
+          "assumptions": [
+            "Controlled photo audit: inspect ONLY the seated woman nearest the camera; ignore background subjects."
+          ],
+          "conflicts": [],
+          "request_id": "6dca5337-ca60-4be0-8777-98c87df39362",
+          "revision": 1,
+          "proposed_questions": [],
+          "status": "ready"
+        },
+        "VISIBLE_RULES": [],
+        "EXPECTED_IMAGE_GATES": [
+          {
+            "gate_id": "visible_user_constraints",
+            "constraint_id": "REF-back_buttons",
+            "rule_id": null,
+            "severity": "hard",
+            "applicable": true,
+            "check": "Check whether the BACK of the foreground woman's garment has exactly five buttons. If the back is not visible, status MUST be uncertain; do not infer button absence or count from the front, the prompt, or cultural knowledge."
+          }
+        ]
+      },
+      "result": {
+        "audits": [
+          {
+            "artifact_id": "68cc1876-0758-40aa-8f06-622ad88d611a",
+            "findings": [
+              {
+                "finding_id": "F1",
+                "gate_id": "visible_user_constraints",
+                "rule_id": null,
+                "constraint_id": "REF-back_buttons",
+                "source_id": null,
+                "knowledge_id": null,
+                "severity": "hard",
+                "status": "uncertain",
+                "evidence": "Nhân vật nữ ngồi hướng về phía trước, không nhìn thấy phần lưng áo.",
+                "reason": "Phần lưng áo bị che khuất hoàn toàn, không thể xác định số lượng cúc.",
+                "minimal_fix": "Cần chụp hoặc tạo góc nhìn phía sau để kiểm tra số lượng cúc áo."
+              }
+            ],
+            "visual_quality": 3,
+            "quality_reason": "Bố cục rõ ràng, ánh sáng tốt, nhân vật chính sắc nét nhưng màu sắc áo chưa đúng yêu cầu."
+          }
+        ]
+      },
+      "metrics": {
+        "provider_calls": 1,
+        "cache_hits": 0,
+        "active_seconds": 3.154
+      },
+      "trace": [
+        {
+          "task": "P06",
+          "attempt": 1,
+          "cache_hit": false,
+          "duration_ms": 3146,
+          "usage": {
+            "promptTokenCount": 2288,
+            "candidatesTokenCount": 275,
+            "totalTokenCount": 2563,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1080
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 1208
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "provider_call_id": "b1084f6c-9dd1-4dab-ad03-e4e8abedca39",
+          "input_hash": "ce897c5ad0f2041275cef85fbf596f2e8594a07ef76d31b09f69d7cb7fca1f80",
+          "output_hash": "d453fdd8027523f106da72c5571ac0d133b21f67065f882eaf5f2bb2338e60c9"
+        }
+      ]
+    },
+    {
+      "case": "pink_cache",
+      "checks": {
+        "expected_status": true,
+        "zero_calls": true,
+        "cache_hit": true,
+        "rebound_artifact": true
+      },
+      "passed": true,
+      "input": {
+        "IMAGE_ARTIFACTS": [
+          {
+            "artifact_id": "fb17e22b-6309-49ce-baba-d99b886a08cd",
+            "hash": "9776a0406b77f9ba00d546a0b516eed4ba9eeb4cc1ffa714a9534def160f328f",
+            "reference_hash": null
+          }
+        ],
+        "APPROVED_CONCEPTS": [
+          {
+            "candidate_id": "REF-C1",
+            "revision": 1,
+            "subject": "ao_dai",
+            "design_mode": "inspired",
+            "design": {
+              "subject_description": "Foreground seated woman only",
+              "palette": [
+                "hồng"
+              ],
+              "accessories": [],
+              "composition": "Foreground seated woman, front/three-quarter view",
+              "scene": "public source photograph",
+              "extensions": []
+            },
+            "keep_invariants": [],
+            "allowed_changes": [],
+            "claims": [],
+            "assumptions": [],
+            "caveats": []
+          }
+        ],
+        "NORMALIZED_BRIEF": {
+          "goal": {
+            "field": "goal",
+            "value": "create_look",
+            "status": "default",
+            "evidence_quote": null,
+            "evidence_turn_id": null
+          },
+          "subject": {
+            "field": "subject",
+            "value": "ao_dai",
+            "status": "explicit",
+            "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+            "evidence_turn_id": "T1"
+          },
+          "context": [],
+          "mode": "inspired",
+          "mode_evidence": {
+            "field": "mode",
+            "value": "inspired",
+            "status": "explicit",
+            "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+            "evidence_turn_id": "T1"
+          },
+          "preferences": [],
+          "hard_constraints": [],
+          "output": "image",
+          "scoring_profile": "balanced",
+          "assumptions": [
+            "Controlled photo audit: inspect ONLY the seated woman nearest the camera; ignore background subjects."
+          ],
+          "conflicts": [],
+          "request_id": "2342e204-c3c6-47d1-a338-e00f34552d41",
+          "revision": 1,
+          "proposed_questions": [],
+          "status": "ready"
+        },
+        "VISIBLE_RULES": [],
+        "EXPECTED_IMAGE_GATES": [
+          {
+            "gate_id": "visible_user_constraints",
+            "constraint_id": "REF-pink",
+            "rule_id": null,
+            "severity": "hard",
+            "applicable": true,
+            "check": "ONLY check that the upper áo dài garment of the foreground seated woman nearest the camera is pink. Ignore trousers, instruments, headpiece and background subjects."
+          }
+        ]
+      },
+      "result": {
+        "audits": [
+          {
+            "artifact_id": "fb17e22b-6309-49ce-baba-d99b886a08cd",
+            "findings": [
+              {
+                "finding_id": "f-01",
+                "gate_id": "visible_user_constraints",
+                "rule_id": null,
+                "constraint_id": "REF-pink",
+                "source_id": null,
+                "knowledge_id": null,
+                "severity": "hard",
+                "status": "pass",
+                "evidence": "Áo dài của người phụ nữ ngồi ở tiền cảnh có màu hồng rõ ràng.",
+                "reason": "Áo dài mặc trên người nữ chính ở tiền cảnh đúng màu hồng yêu cầu.",
+                "minimal_fix": null
+              }
+            ],
+            "visual_quality": 3,
+            "quality_reason": "Bố cục và ánh sáng tốt, hình ảnh sắc nét và tập trung vào chủ thể."
+          }
+        ]
+      },
+      "metrics": {
+        "provider_calls": 0,
+        "cache_hits": 1,
+        "active_seconds": 0.003
+      },
+      "trace": [
+        {
+          "task": "P06",
+          "cache_hit": true,
+          "cache_key": "895f848865a1c3a61496e52eb62b3129b30d293fb974171b1d598e9850c23e95",
+          "duration_ms": 0,
+          "usage": {
+            "promptTokenCount": 2268,
+            "candidatesTokenCount": 248,
+            "totalTokenCount": 2516,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1188
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1080
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "actual_http_attempts": 3,
+  "created_at": 1790934012.736104
+}

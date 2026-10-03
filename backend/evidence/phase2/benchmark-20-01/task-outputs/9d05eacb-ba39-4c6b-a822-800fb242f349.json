@@ -1,0 +1,89 @@
+{
+  "evidence_id": "9d05eacb-ba39-4c6b-a822-800fb242f349",
+  "recorded_at": 1790929496.242618,
+  "request_id": "4bfc914b-c6a8-4bd9-aac0-ab35d6bcac2b",
+  "revision": 1,
+  "task": "P02",
+  "attempt": 1,
+  "output": {
+    "request_id": "4bfc914b-c6a8-4bd9-aac0-ab35d6bcac2b",
+    "revision": 1,
+    "goal": {
+      "field": "goal",
+      "value": "create_look",
+      "status": "explicit",
+      "evidence_quote": "Tôi muốn phối áo dài lấy cảm hứng hiện đại.",
+      "evidence_turn_id": "T1"
+    },
+    "subject": {
+      "field": "subject",
+      "value": "ao_dai",
+      "status": "explicit",
+      "evidence_quote": "Tôi muốn phối áo dài lấy cảm hứng hiện đại.",
+      "evidence_turn_id": "T1"
+    },
+    "context": [],
+    "mode": "inspired",
+    "mode_evidence": {
+      "field": "mode",
+      "value": "inspired",
+      "status": "explicit",
+      "evidence_quote": "lấy cảm hứng hiện đại",
+      "evidence_turn_id": "T1"
+    },
+    "preferences": [],
+    "hard_constraints": [
+      {
+        "id": "hc_1",
+        "field": "pocket",
+        "operator": "include",
+        "value": "túi nhỏ",
+        "provenance": "user_provided",
+        "evidence_quote": "Bắt buộc có túi nhỏ",
+        "rule_id": null
+      },
+      {
+        "id": "hc_2",
+        "field": "pocket",
+        "operator": "exclude",
+        "value": "túi nhỏ",
+        "provenance": "user_provided",
+        "evidence_quote": "đồng thời tuyệt đối không được có túi nhỏ.",
+        "rule_id": null
+      }
+    ],
+    "output": "cards",
+    "scoring_profile": "balanced",
+    "assumptions": [
+      "Sử dụng thiết lập cân bằng (balanced) do chưa có định hướng ưu tiên."
+    ],
+    "conflicts": [
+      "Mâu thuẫn trực tiếp giữa việc bắt buộc có túi nhỏ và tuyệt đối không được có túi nhỏ."
+    ],
+    "proposed_questions": [
+      {
+        "field": "pocket",
+        "text": "Bạn có muốn thiết kế áo dài có túi nhỏ hay không?",
+        "options": [
+          "Có túi nhỏ",
+          "Không có túi nhỏ"
+        ],
+        "reason": "Người dùng đưa ra hai yêu cầu trái ngược nhau về việc có hay không có túi nhỏ.",
+        "impact": "blocking"
+      }
+    ],
+    "status": "needs_resolution"
+  },
+  "usage": {
+    "promptTokenCount": 1429,
+    "candidatesTokenCount": 628,
+    "totalTokenCount": 2057,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1429
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

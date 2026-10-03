@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "status": "initial_design_unbenchmarked",
+  "dimensions": ["need_fit", "usability", "aesthetics", "originality", "grounded_explanation"],
+  "profiles": {
+    "balanced": {"need_fit": 35, "usability": 25, "aesthetics": 25, "originality": 10, "grounded_explanation": 5},
+    "creative": {"need_fit": 30, "usability": 15, "aesthetics": 30, "originality": 20, "grounded_explanation": 5},
+    "practical": {"need_fit": 35, "usability": 40, "aesthetics": 15, "originality": 5, "grounded_explanation": 5},
+    "heritage": {"need_fit": 30, "usability": 20, "aesthetics": 15, "originality": 5, "grounded_explanation": 30}
+  },
+  "scoring": {
+    "rating_min": 0,
+    "rating_max": 4,
+    "formula": "sum(weight[dimension] * rating[dimension] / 4)",
+    "minimum_total": 65,
+    "minimum_ratings": {"need_fit": 3, "usability": 2},
+    "historical_minimum_ratings": {"grounded_explanation": 3},
+    "historical_profile": "heritage",
+    "near_tie_margin": 3,
+    "minimum_changed_attributes_for_second_option": 2
+  },
+  "gates": {
+    "hard_statuses_allowed": ["pass", "not_applicable"],
+    "not_applicable_requires_verified_scope": true,
+    "hard_uncertain_action": "resolve_or_fallback",
+    "soft_uncertain_action": "display_caveat",
+    "missing_audit_action": "unverified",
+    "gate_ids": ["user_constraints", "applicable_cultural_rules", "claim_support", "historical_scope", "renderability"],
+    "image_gate_ids": ["visible_user_constraints", "visible_invariants", "major_visual_defects", "edit_preservation"]
+  },
+  "request_budget": {
+    "candidate_limit": 3,
+    "default_image_count": 3,
+    "compare_image_count": 3,
+    "clarification_rounds_max": 2,
+    "questions_round_one_max": 2,
+    "questions_round_two_max": 1,
+    "concept_repair_max": 1,
+    "image_repair_max": 1,
+    "transport_retry_per_step_max": 1,
+    "total_provider_calls_max": 13,
+    "active_processing_deadline_seconds": 90,
+    "human_wait_counts_toward_processing_deadline": false,
+    "text_timeout_seconds": 15,
+    "image_timeout_seconds": 45,
+    "image_audit_timeout_seconds": 15,
+    "text_concurrency": 2,
+    "image_concurrency": 1
+  },
+  "cache": {
+    "pack": "immutable_versioned_source_of_truth",
+    "retrieval": "invalidate_on_pack_or_retriever_change",
+    "session_ttl_seconds": 7200,
+    "candidate_audit_ttl_seconds": 1800,
+    "image_ttl_seconds": 86400,
+    "weather_ttl_seconds": 900,
+    "error_dedup_ttl_seconds": 10,
+    "semantic_output_cache_enabled": false,
+    "gemini_explicit_cache_enabled": false,
+    "personalized_cache_scope": "session",
+    "common_key_fields": ["task", "canonical_input_hash", "pack_hash", "prompt_version", "schema_version", "rubric_version", "model_id", "generation_config", "external_context_hash"],
+    "image_audit_extra_key_fields": ["image_bytes_hash", "rule_bundle_hash"],
+    "edit_extra_key_fields": ["parent_artifact_hash", "reference_image_hashes", "annotation_hash"]
+  },
+  "ux_targets_unmeasured": {
+    "client_ack_ms": 200,
+    "audited_cards_p50_seconds": 12,
+    "audited_cards_p95_seconds": 20,
+    "first_audited_image_p50_seconds": 45,
+    "first_audited_image_p95_seconds": 75
+  },
+  "capability_requirements": {
+    "text": ["structured_output"],
+    "image_auditor": ["image_input"],
+    "image_generator": ["image_output"],
+    "image_editor": ["image_input", "image_output", "tested_edit_preservation"]
+  },
+  "fallbacks": {
+    "image_failure": "audited_cards_only",
+    "missing_cultural_evidence": "omit_unsubstantiated_claim_and_label_gap",
+    "historical_scope_unresolved": "needs_evidence_without_mode_switch",
+    "unresolved_hard_constraint": "needs_resolution_without_silent_override",
+    "no_passing_candidate": "repair_once_if_budget_allows_else_explain_limit",
+    "late_response_from_old_revision": "history_only_do_not_overwrite_current_ui"
+  }
+}

@@ -1,0 +1,536 @@
+{
+  "evidence_id": "edfab927-1ec0-4b5d-9b64-c873c5794a05",
+  "recorded_at": 1790929450.429975,
+  "event": "auditing",
+  "job": {
+    "request_id": "1b1b6373-4bb5-4b1a-9965-efcc78e8bf84",
+    "session_id": "benchmark-20-01-P2-15",
+    "revision": 1,
+    "status": "auditing",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam, chỉ trong phạm vi áo mặc cùng quần đã có nguồn. Dùng màu xanh, hiển thị quần rõ. Cho tôi thẻ gợi ý; không yêu cầu chi tiết đường may hay nút theo triều đại."
+      }
+    ],
+    "brief": {
+      "request_id": "1b1b6373-4bb5-4b1a-9965-efcc78e8bf84",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "region",
+          "value": "Việt Nam",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "period",
+          "value": "hiện đại",
+          "status": "explicit",
+          "evidence_quote": "giai đoạn hiện đại",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "historical",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "historical",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "Dùng màu xanh",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "hc-1",
+          "field": "subject",
+          "operator": "include",
+          "value": "áo mặc cùng quần",
+          "provenance": "user_provided",
+          "evidence_quote": "chỉ trong phạm vi áo mặc cùng quần đã có nguồn",
+          "rule_id": null
+        },
+        {
+          "id": "hc-2",
+          "field": "subject",
+          "operator": "preserve",
+          "value": "hiển thị quần rõ",
+          "provenance": "user_provided",
+          "evidence_quote": "hiển thị quần rõ",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "heritage",
+      "assumptions": [],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929442.574074
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929445.399453
+      },
+      {
+        "sequence": 3,
+        "stage": "planning",
+        "brief_revision": 1,
+        "timestamp": 1790929445.400954
+      },
+      {
+        "sequence": 4,
+        "stage": "auditing",
+        "brief_revision": 1,
+        "timestamp": 1790929450.428353
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2823,
+        "usage": {
+          "promptTokenCount": 1461,
+          "candidatesTokenCount": 690,
+          "totalTokenCount": 2151,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1461
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "715a57b08561fa4ae631a3afb76369e102dc76ecf2efe27fab7f714c266cc6b7",
+        "output_hash": "a98a495509e2ed2df7007b4c78507030986362f872f79c6e782854a4f63c5dff"
+      },
+      {
+        "task": "P03",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 5023,
+        "usage": {
+          "promptTokenCount": 3656,
+          "candidatesTokenCount": 1407,
+          "totalTokenCount": 5063,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 3656
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "1714945e970eca0629d52ca5492faa2743a0bf4cbbfd87954ffd384da327a8fc",
+        "output_hash": "1836498c25f0ff2dd7a1f1586f3454e11ca55eee10c0923b6eec943dce6cced3"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 2,
+      "cache_hits": 0,
+      "active_seconds": 2.829,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929442.571987,
+    "retrieval_bundle": {
+      "subject_id": "ao_dai",
+      "knowledge_units": [
+        {
+          "id": "K-TASK-01",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn loại trang phục hoặc sự kiện.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn loại trang phục hoặc sự kiện.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-02",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn màu sắc, phụ kiện hoặc phong cách.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn màu sắc, phụ kiện hoặc phong cách.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-03",
+          "kind": "task_fact",
+          "claim": "Đầu ra có thể là hình ảnh, thẻ gợi ý hoặc mockup.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Xem kết quả phối đồ dưới dạng hình ảnh, thẻ gợi ý hoặc mockup.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-04",
+          "kind": "task_fact",
+          "claim": "Demo cần có thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Đọc thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-AD-PANTS",
+          "kind": "cultural_fact",
+          "claim": "Áo dài hiện đại được mặc cùng quần.",
+          "source_id": "S-VNAT-AD",
+          "source_excerpt": "áo dài over pants or trousers",
+          "scope": {
+            "entity_ids": [
+              "ao_dai"
+            ],
+            "region": null,
+            "period": null
+          },
+          "status": "verified",
+          "verification_method": "agent_literal_excerpt_cross_check",
+          "scope_limit": "contemporary_wear_only"
+        },
+        {
+          "id": "K-AD-CHOICE",
+          "kind": "cultural_fact",
+          "claim": "Trong hướng dẫn mặc áo dài hiện đại, người mặc có thể chọn phong cách và màu sắc riêng.",
+          "source_id": "S-VNAT-AD",
+          "source_excerpt": "choose your own style and colours",
+          "scope": {
+            "entity_ids": [
+              "ao_dai"
+            ],
+            "region": null,
+            "period": null
+          },
+          "status": "verified",
+          "verification_method": "agent_literal_excerpt_cross_check",
+          "scope_limit": "contemporary_wear_only"
+        },
+        {
+          "id": "K-AD-GENDER",
+          "kind": "cultural_fact",
+          "claim": "Áo dài được mặc bởi cả nam và nữ.",
+          "source_id": "S-VNAT-AD",
+          "source_excerpt": "both men and women",
+          "scope": {
+            "entity_ids": [
+              "ao_dai"
+            ],
+            "region": null,
+            "period": null
+          },
+          "status": "verified",
+          "verification_method": "agent_literal_excerpt_cross_check",
+          "scope_limit": "contemporary_wear_only"
+        }
+      ],
+      "rules": [
+        {
+          "id": "R-TASK-CARD",
+          "kind": "task_requirement",
+          "severity": "hard",
+          "knowledge_ids": [
+            "K-TASK-03"
+          ],
+          "applies_when": {
+            "all_requests": true
+          },
+          "check": "Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.",
+          "visual_checkable": false,
+          "status": "verified",
+          "enabled": true,
+          "applicability_uncertain": false
+        },
+        {
+          "id": "R-AD-MODERN-PANTS",
+          "kind": "cultural_rule",
+          "severity": "hard",
+          "knowledge_ids": [
+            "K-AD-PANTS"
+          ],
+          "applies_when": {
+            "subject": "ao_dai",
+            "mode": "historical",
+            "period": "hiện đại"
+          },
+          "check": "Trong phạm vi tái hiện áo dài hiện đại, concept phải mô tả mặc cùng quần, giữ quần nhìn thấy rõ khi tạo ảnh. Ghi design.extensions key bottom_garment với value quần. Không suy ra nút/đường may/niên đại khác.",
+          "check_spec": {
+            "field": "bottom_garment",
+            "operator": "include",
+            "value": "quần"
+          },
+          "visual_checkable": true,
+          "status": "verified",
+          "enabled": true,
+          "severity_reason": "Hard fidelity requirement only when the user selects this reconstruction scope; inspired mode is not forbidden from remixing.",
+          "applicability_uncertain": false
+        }
+      ],
+      "cultural_units": [
+        {
+          "id": "K-AD-PANTS",
+          "kind": "cultural_fact",
+          "claim": "Áo dài hiện đại được mặc cùng quần.",
+          "source_id": "S-VNAT-AD",
+          "source_excerpt": "áo dài over pants or trousers",
+          "scope": {
+            "entity_ids": [
+              "ao_dai"
+            ],
+            "region": null,
+            "period": null
+          },
+          "status": "verified",
+          "verification_method": "agent_literal_excerpt_cross_check",
+          "scope_limit": "contemporary_wear_only"
+        },
+        {
+          "id": "K-AD-CHOICE",
+          "kind": "cultural_fact",
+          "claim": "Trong hướng dẫn mặc áo dài hiện đại, người mặc có thể chọn phong cách và màu sắc riêng.",
+          "source_id": "S-VNAT-AD",
+          "source_excerpt": "choose your own style and colours",
+          "scope": {
+            "entity_ids": [
+              "ao_dai"
+            ],
+            "region": null,
+            "period": null
+          },
+          "status": "verified",
+          "verification_method": "agent_literal_excerpt_cross_check",
+          "scope_limit": "contemporary_wear_only"
+        },
+        {
+          "id": "K-AD-GENDER",
+          "kind": "cultural_fact",
+          "claim": "Áo dài được mặc bởi cả nam và nữ.",
+          "source_id": "S-VNAT-AD",
+          "source_excerpt": "both men and women",
+          "scope": {
+            "entity_ids": [
+              "ao_dai"
+            ],
+            "region": null,
+            "period": null
+          },
+          "status": "verified",
+          "verification_method": "agent_literal_excerpt_cross_check",
+          "scope_limit": "contemporary_wear_only"
+        }
+      ],
+      "sources": [
+        {
+          "id": "S-BRIEF",
+          "kind": "task_brief",
+          "path": "../de-thi-viet-phuc-remix.md",
+          "authority_scope": "product_requirements",
+          "review_status": "read_against_supplied_file"
+        },
+        {
+          "id": "S-VNAT-AD",
+          "kind": "official_tourism",
+          "url": "https://vietnam.travel/node/1216",
+          "title": "All about ao dai: Vietnam's national dress",
+          "authority_scope": "contemporary_ao_dai_wear_advice",
+          "review_status": "agent_excerpt_checked",
+          "reviewer": "Codex (source cross-check; not human specialist)",
+          "human_specialist_review": "not_performed",
+          "snapshot_path": "vnat-ao-dai.source.json",
+          "snapshot_sha256": "34d6ff961a2e29dde6c4b68da482184b24c22b9394467c36c612c1963584f1df"
+        }
+      ],
+      "ontology": [
+        {
+          "id": "ao_dai",
+          "type": "garment",
+          "label": "áo dài",
+          "aliases": [
+            "ao dai"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [
+            "Mặc cùng quần trong phạm vi tái hiện áo dài hiện đại của pack."
+          ],
+          "cultural_knowledge_status": "contemporary_advice_source_checked"
+        },
+        {
+          "id": "ao_tu_than",
+          "type": "garment",
+          "label": "áo tứ thân",
+          "aliases": [
+            "ao tu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_ngu_than",
+          "type": "garment",
+          "label": "áo ngũ thân",
+          "aliases": [
+            "ao ngu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        }
+      ],
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "historical_scope_supported": true,
+      "historical_coverage": [
+        {
+          "entity_id": "ao_dai",
+          "period": "hiện đại",
+          "region": null,
+          "covers": [
+            "mặc cùng quần"
+          ],
+          "limitations": [
+            "Chỉ minh họa cấu trúc áo mặc cùng quần; không xác minh mọi đường may/nút/cổ.",
+            "Không đủ nguồn cho áo ngũ thân/tứ thân hoặc triều Nguyễn."
+          ]
+        }
+      ]
+    },
+    "evidence_status": "has_verified_cultural_units",
+    "gate_manifest": [
+      {
+        "gate_id": "user_constraints",
+        "rule_id": null,
+        "constraint_id": "hc-1",
+        "applicable": true,
+        "severity": "hard",
+        "constraint": {
+          "id": "hc-1",
+          "field": "subject",
+          "operator": "include",
+          "value": "áo mặc cùng quần",
+          "provenance": "user_provided",
+          "evidence_quote": "chỉ trong phạm vi áo mặc cùng quần đã có nguồn",
+          "rule_id": null
+        }
+      },
+      {
+        "gate_id": "user_constraints",
+        "rule_id": null,
+        "constraint_id": "hc-2",
+        "applicable": true,
+        "severity": "hard",
+        "constraint": {
+          "id": "hc-2",
+          "field": "subject",
+          "operator": "preserve",
+          "value": "hiển thị quần rõ",
+          "provenance": "user_provided",
+          "evidence_quote": "hiển thị quần rõ",
+          "rule_id": null
+        }
+      },
+      {
+        "gate_id": "applicable_cultural_rules",
+        "rule_id": "R-AD-MODERN-PANTS",
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard",
+        "applicability_uncertain": false,
+        "check": "Trong phạm vi tái hiện áo dài hiện đại, concept phải mô tả mặc cùng quần, giữ quần nhìn thấy rõ khi tạo ảnh. Ghi design.extensions key bottom_garment với value quần. Không suy ra nút/đường may/niên đại khác."
+      },
+      {
+        "gate_id": "claim_support",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard",
+        "check": "Claims rỗng thì pass vì không công bố phát biểu lịch sử; không dùng not_applicable cho gate này. Claims có nội dung thì phải có nguồn hỗ trợ."
+      },
+      {
+        "gate_id": "historical_scope",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "renderability",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard"
+      }
+    ]
+  }
+}

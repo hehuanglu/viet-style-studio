@@ -1,0 +1,147 @@
+{
+  "evidence_id": "942be99a-fd2c-4bbb-8789-773dc34b9335",
+  "recorded_at": 1790929354.725027,
+  "event": "retrieving",
+  "job": {
+    "request_id": "8cc4988a-b5b9-4ef3-8ff6-d1d21685c339",
+    "session_id": "benchmark-20-01-P2-07",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài lấy cảm hứng hiện đại đi sự kiện trường. Bắt buộc có túi nhỏ trong phụ kiện. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "8cc4988a-b5b9-4ef3-8ff6-d1d21685c339",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài lấy cảm hứng hiện đại đi sự kiện trường.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài lấy cảm hứng hiện đại đi sự kiện trường.",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài lấy cảm hứng hiện đại đi sự kiện trường.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "accessory",
+          "value": "túi nhỏ",
+          "status": "explicit",
+          "evidence_quote": "Bắt buộc có túi nhỏ trong phụ kiện.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "HC-1",
+          "field": "accessory",
+          "operator": "include",
+          "value": "túi nhỏ",
+          "provenance": "user_provided",
+          "evidence_quote": "Bắt buộc có túi nhỏ trong phụ kiện.",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [
+        "Sử dụng cấu hình cân bằng (balanced) cho profile chấm điểm."
+      ],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929352.162735
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929354.723257
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2556,
+        "usage": {
+          "promptTokenCount": 1437,
+          "candidatesTokenCount": 577,
+          "totalTokenCount": 2014,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1437
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "ca28f0e383384e058198e2ca7e7572d528c3c611518ae32f56efe817b324a8b1",
+        "output_hash": "b19a68b5c4d506c786b823393b3a9fb08f405dca5ed302a3882966983dd0a591"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.003,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929352.158491
+  }
+}

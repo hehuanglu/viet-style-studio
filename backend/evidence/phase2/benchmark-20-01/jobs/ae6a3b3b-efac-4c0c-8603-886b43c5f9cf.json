@@ -1,0 +1,145 @@
+{
+  "evidence_id": "ae6a3b3b-efac-4c0c-8603-886b43c5f9cf",
+  "recorded_at": 1790929383.70333,
+  "event": "retrieving",
+  "job": {
+    "request_id": "40ad575e-c6a3-4758-9275-ad5adcf44dde",
+    "session_id": "benchmark-20-01-P2-09",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài trắng lấy cảm hứng hiện đại đi sự kiện trường. Không dùng phụ kiện nào; số accessories phải bằng 0. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "40ad575e-c6a3-4758-9275-ad5adcf44dde",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài trắng lấy cảm hứng hiện đại đi sự kiện trường.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài trắng lấy cảm hứng hiện đại đi sự kiện trường.",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài trắng lấy cảm hứng hiện đại đi sự kiện trường.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "trắng",
+          "status": "explicit",
+          "evidence_quote": "áo dài trắng",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "hc_1",
+          "field": "accessories",
+          "operator": "equals",
+          "value": "0",
+          "provenance": "user_provided",
+          "evidence_quote": "Không dùng phụ kiện nào; số accessories phải bằng 0.",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929381.2970188
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929383.702393
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2402,
+        "usage": {
+          "promptTokenCount": 1438,
+          "candidatesTokenCount": 548,
+          "totalTokenCount": 1986,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1438
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "a17b9e1a866296f8c5cc761a547f5440fcda0e50ff4a00059e963920d987494a",
+        "output_hash": "6200d0449647e9363ffe199e07125c240282b73252159b77842b5deead422621"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.002,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929381.293026
+  }
+}

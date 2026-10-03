@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "scope": "20 representative backend scenarios; image quota is retained at zero, so the image-request case checks cards fallback without a new image call",
+  "cases": [
+    {"id":"P2-01","group":"text_fresh","input":"Tôi muốn phối áo dài xanh, tối giản, lấy cảm hứng hiện đại, đi sự kiện ở trường. Cho tôi thẻ gợi ý.","expected":"complete","session":"repeat"},
+    {"id":"P2-02","group":"text_cache","input":"Tôi muốn phối áo dài xanh, tối giản, lấy cảm hứng hiện đại, đi sự kiện ở trường. Cho tôi thẻ gợi ý.","expected":"complete","session":"repeat","expect_zero_calls":true},
+    {"id":"P2-03","group":"text_fresh","input":"Tôi muốn phối áo dài đỏ, lấy cảm hứng hiện đại, phong cách sáng tạo cho buổi chụp ảnh. Cho tôi thẻ gợi ý.","expected":"complete"},
+    {"id":"P2-04","group":"text_fresh","input":"Tôi muốn phối áo dài tím lấy cảm hứng hiện đại để đi học, ưu tiên dễ vận động và phụ kiện đơn giản. Cho tôi thẻ gợi ý.","expected":"complete"},
+    {"id":"P2-05","group":"typed_constraint","input":"Tôi muốn phối áo dài lấy cảm hứng hiện đại cho sự kiện trường. Bắt buộc toàn bộ bảng màu chỉ có xanh, không thêm màu khác. Cho tôi thẻ gợi ý.","expected":"complete"},
+    {"id":"P2-06","group":"typed_constraint","input":"Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường; tuyệt đối không dùng màu đỏ. Cho tôi thẻ gợi ý.","expected":"complete"},
+    {"id":"P2-07","group":"typed_constraint","input":"Tôi muốn phối áo dài lấy cảm hứng hiện đại đi sự kiện trường. Bắt buộc có túi nhỏ trong phụ kiện. Cho tôi thẻ gợi ý.","expected":"complete"},
+    {"id":"P2-08","group":"typed_constraint","input":"Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại đi sự kiện trường. Số phụ kiện tối đa là 1; ghi at_most cho accessories với value 1. Cho tôi thẻ gợi ý.","expected":"complete"},
+    {"id":"P2-09","group":"typed_constraint","input":"Tôi muốn phối áo dài trắng lấy cảm hứng hiện đại đi sự kiện trường. Không dùng phụ kiện nào; số accessories phải bằng 0. Cho tôi thẻ gợi ý.","expected":"complete"},
+    {"id":"P2-10","group":"typed_constraint","input":"Tôi muốn phối áo dài lấy cảm hứng hiện đại đi sự kiện trường. Bảng màu bắt buộc có cả xanh và trắng. Cho tôi thẻ gợi ý.","expected":"complete"},
+    {"id":"P2-11","group":"missing_source_inspired","input":"Tôi muốn phối áo tứ thân xanh, lấy cảm hứng hiện đại, đi sự kiện trường. Chỉ gợi ý thiết kế, không công bố nguồn gốc lịch sử. Cho tôi thẻ gợi ý.","expected":"complete","expect_no_cultural_claims":true},
+    {"id":"P2-12","group":"missing_source_inspired","input":"Tôi muốn phối áo ngũ thân tím, lấy cảm hứng hiện đại, đi sự kiện trường. Chỉ gợi ý thiết kế, không công bố nguồn gốc lịch sử. Cho tôi thẻ gợi ý.","expected":"complete","expect_no_cultural_claims":true},
+    {"id":"P2-13","group":"historical_gap","input":"Tôi muốn tái hiện chính xác áo ngũ thân ở Huế thời triều Nguyễn. Cho tôi thẻ gợi ý dựa trên nguồn đã xác minh.","expected":"needs_evidence"},
+    {"id":"P2-14","group":"historical_gap","input":"Tôi muốn tái hiện chính xác áo dài thời triều Nguyễn, không chuyển sang lấy cảm hứng. Cho tôi thẻ gợi ý dựa trên nguồn đã xác minh.","expected":"needs_evidence"},
+    {"id":"P2-15","group":"historical_supported","input":"Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam, chỉ trong phạm vi áo mặc cùng quần đã có nguồn. Dùng màu xanh, hiển thị quần rõ. Cho tôi thẻ gợi ý; không yêu cầu chi tiết đường may hay nút theo triều đại.","expected":"complete","expect_rule":"R-AD-MODERN-PANTS"},
+    {"id":"P2-16","group":"clarification","input":"Tôi muốn đẹp và độc đáo.","answer":"Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường. Cho tôi thẻ gợi ý.","expected_first":"awaiting_user","expected":"complete"},
+    {"id":"P2-17","group":"conflict","input":"Tôi muốn phối áo dài lấy cảm hứng hiện đại. Bắt buộc có túi nhỏ, đồng thời tuyệt đối không được có túi nhỏ.","expected":"awaiting_user"},
+    {"id":"P2-18","group":"clarification_skip","input":"Tôi muốn phối trang phục lấy cảm hứng hiện đại nhưng chưa chọn loại nào. Cho tôi thẻ gợi ý.","skip":true,"expected_first":"awaiting_user","expected":"complete"},
+    {"id":"P2-19","group":"image_quota_fallback","input":"Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường; tôi muốn ảnh minh họa toàn thân chính diện.","render_image":true,"expected":"cards_only"},
+    {"id":"P2-20","group":"idempotency","input":"Tôi muốn phối áo dài vàng lấy cảm hứng hiện đại đi sự kiện trường. Cho tôi thẻ gợi ý.","expected":"complete","idempotency_repeat":true}
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "evidence_id": "64033568-a51c-4eca-836e-e2109ee4adef",
+  "recorded_at": 1790929393.011043,
+  "request_id": "40ad575e-c6a3-4758-9275-ad5adcf44dde",
+  "revision": 1,
+  "task": "P04",
+  "attempt": 2,
+  "output": {
+    "audits": [
+      {
+        "candidate_id": "cand_1",
+        "gate_findings": [
+          {
+            "finding_id": "f_uc_1",
+            "gate_id": "user_constraints",
+            "rule_id": null,
+            "constraint_id": "hc_1",
+            "source_id": "S-BRIEF",
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "accessories: []",
+            "reason": "Candidate không dùng phụ kiện nào, thỏa mãn ràng buộc số accessories bằng 0.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_ac_1",
+            "gate_id": "applicable_cultural_rules",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "not_applicable",
+            "evidence": "Gate applicable_cultural_rules áp dụng false trong trường hợp này.",
+            "reason": "Không có quy tắc văn hóa bắt buộc áp dụng qua rule_id.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_cs_1",
+            "gate_id": "claim_support",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": "S-VNAT-AD",
+            "knowledge_id": "K-AD-PANTS",
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Áo dài hiện đại được mặc cùng quần.",
+            "reason": "Claim có nguồn S-VNAT-AD hỗ trợ chính xác theo knowledge_id.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_hs_1",
+            "gate_id": "historical_scope",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "not_applicable",
+            "evidence": "Gate historical_scope áp dụng false.",
+            "reason": "Chế độ hiện tại là inspired, không thuộc phạm vi lịch sử.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_rnd_1",
+            "gate_id": "renderability",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": "S-BRIEF",
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Bố cục đứng toàn thân, nổi bật tà áo dài trắng...",
+            "reason": "Mô tả thiết kế đủ chi tiết để dựng hình.",
+            "minimal_fix": null
+          }
+        ],
+        "ratings": {
+          "need_fit": 3,
+          "usability": 3,
+          "aesthetics": 3,
+          "originality": 3,
+          "grounded_explanation": 3
+        },
+        "rating_evidence": {
+          "need_fit": "Đáp ứng tốt yêu cầu phối áo dài trắng đi sự kiện trường.",
+          "usability": "Thiết kế khả thi, tuân thủ ràng buộc không phụ kiện.",
+          "aesthetics": "Phối màu trắng thanh lịch, phù hợp môi trường học đường.",
+          "originality": "Thể hiện tốt cảm hứng hiện đại trên nền áo dài truyền thống.",
+          "grounded_explanation": "Các claims sử dụng đúng nguồn hỗ trợ đã kiểm chứng."
+        }
+      }
+    ]
+  },
+  "usage": {
+    "promptTokenCount": 3794,
+    "candidatesTokenCount": 892,
+    "totalTokenCount": 4686,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3794
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

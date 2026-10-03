@@ -1,0 +1,856 @@
+{
+  "evidence_id": "82b06855-84a6-4cda-875a-089bd94d5b10",
+  "recorded_at": 1790929423.8039339,
+  "event": "cards_ready",
+  "job": {
+    "request_id": "e4a2783e-b797-4115-81ea-afd620c6a150",
+    "session_id": "benchmark-20-01-P2-11",
+    "revision": 1,
+    "status": "cards_ready",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo tứ thân xanh, lấy cảm hứng hiện đại, đi sự kiện trường. Chỉ gợi ý thiết kế, không công bố nguồn gốc lịch sử. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "e4a2783e-b797-4115-81ea-afd620c6a150",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo tứ thân xanh, lấy cảm hứng hiện đại, đi sự kiện trường.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_tu_than",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo tứ thân xanh",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "đi sự kiện trường.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "áo tứ thân xanh",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "HC-1",
+          "field": "mode",
+          "operator": "equals",
+          "value": "inspired",
+          "provenance": "user_provided",
+          "evidence_quote": "lấy cảm hứng hiện đại",
+          "rule_id": null
+        },
+        {
+          "id": "HC-2",
+          "field": "historical_source_disclosure",
+          "operator": "exclude",
+          "value": "công bố nguồn gốc lịch sử",
+          "provenance": "user_provided",
+          "evidence_quote": "không công bố nguồn gốc lịch sử.",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [
+      {
+        "candidate_id": "cand-1",
+        "revision": 1,
+        "title": "Áo tứ thân xanh phong cách hiện đại cho sự kiện trường",
+        "target_need": "Phối áo tứ thân xanh, cảm hứng hiện đại, đi sự kiện trường.",
+        "subject": "ao_tu_than",
+        "design_mode": "inspired",
+        "design": {
+          "subject_description": "Áo tứ thân màu xanh hiện đại, kết hợp phom dáng truyền thống với chi tiết cách tân nhẹ nhàng phù hợp học sinh sinh viên.",
+          "palette": [
+            "Xanh dương",
+            "Trắng",
+            "Xám nhạt"
+          ],
+          "accessories": [
+            "Túi vải canvas",
+            "Giày sneaker trắng"
+          ],
+          "composition": "Chân dung toàn thân, đứng tự nhiên trong khuôn viên trường học.",
+          "scene": "Sân trường đại học buổi sáng, nhiều ánh sáng tự nhiên.",
+          "extensions": []
+        },
+        "keep_invariants": [
+          "Trang phục áo tứ thân",
+          "Màu xanh"
+        ],
+        "allowed_changes": [
+          "accent_palette",
+          "accessory_selection",
+          "formality"
+        ],
+        "claims": [],
+        "assumptions": [
+          "Sự kiện trường mang tính chất trẻ trung, năng động."
+        ],
+        "caveats": [
+          "Thiếu thông tin lịch sử chi tiết về áo tứ thân trong bundle; thiết kế mang tính cảm hứng hiện đại."
+        ],
+        "score": 75.0,
+        "ratings": {
+          "need_fit": 3,
+          "usability": 3,
+          "aesthetics": 3,
+          "originality": 3,
+          "grounded_explanation": 3
+        },
+        "audit_caveats": [],
+        "output_origin": "gemini",
+        "source_caption": []
+      },
+      {
+        "candidate_id": "cand-2",
+        "revision": 1,
+        "title": "Áo tứ thân xanh phối phụ kiện tối giản",
+        "target_need": "Phối áo tứ thân xanh, cảm hứng hiện đại, đi sự kiện trường.",
+        "subject": "ao_tu_than",
+        "design_mode": "inspired",
+        "design": {
+          "subject_description": "Áo tứ thân sắc xanh thanh lịch, phối cùng phụ kiện tối giản cho sự kiện học thuật.",
+          "palette": [
+            "Xanh ngọc",
+            "Be",
+            "Đen"
+          ],
+          "accessories": [
+            "Đồng hồ dây da",
+            "Giày búp bê"
+          ],
+          "composition": "Bán thân, góc chụp thanh lịch và trang nhã.",
+          "scene": "Hội trường sự kiện trong nhà với ánh đèn vàng ấm áp.",
+          "extensions": []
+        },
+        "keep_invariants": [
+          "Trang phục áo tứ thân",
+          "Màu xanh"
+        ],
+        "allowed_changes": [
+          "accent_palette",
+          "accessory_selection",
+          "composition"
+        ],
+        "claims": [],
+        "assumptions": [
+          "Phù hợp với không gian sự kiện trong nhà."
+        ],
+        "caveats": [
+          "Thiếu thông tin lịch sử chi tiết về áo tứ thân trong bundle; thiết kế mang tính cảm hứng hiện đại."
+        ],
+        "score": 75.0,
+        "ratings": {
+          "need_fit": 3,
+          "usability": 3,
+          "aesthetics": 3,
+          "originality": 3,
+          "grounded_explanation": 3
+        },
+        "audit_caveats": [],
+        "output_origin": "gemini",
+        "source_caption": []
+      }
+    ],
+    "ranking": {
+      "profile": "balanced",
+      "ranked": [
+        {
+          "candidate": {
+            "candidate_id": "cand-1",
+            "revision": 1,
+            "title": "Áo tứ thân xanh phong cách hiện đại cho sự kiện trường",
+            "target_need": "Phối áo tứ thân xanh, cảm hứng hiện đại, đi sự kiện trường.",
+            "subject": "ao_tu_than",
+            "design_mode": "inspired",
+            "design": {
+              "subject_description": "Áo tứ thân màu xanh hiện đại, kết hợp phom dáng truyền thống với chi tiết cách tân nhẹ nhàng phù hợp học sinh sinh viên.",
+              "palette": [
+                "Xanh dương",
+                "Trắng",
+                "Xám nhạt"
+              ],
+              "accessories": [
+                "Túi vải canvas",
+                "Giày sneaker trắng"
+              ],
+              "composition": "Chân dung toàn thân, đứng tự nhiên trong khuôn viên trường học.",
+              "scene": "Sân trường đại học buổi sáng, nhiều ánh sáng tự nhiên.",
+              "extensions": []
+            },
+            "keep_invariants": [
+              "Trang phục áo tứ thân",
+              "Màu xanh"
+            ],
+            "allowed_changes": [
+              "accent_palette",
+              "accessory_selection",
+              "formality"
+            ],
+            "claims": [],
+            "assumptions": [
+              "Sự kiện trường mang tính chất trẻ trung, năng động."
+            ],
+            "caveats": [
+              "Thiếu thông tin lịch sử chi tiết về áo tứ thân trong bundle; thiết kế mang tính cảm hứng hiện đại."
+            ]
+          },
+          "score": 75.0,
+          "ratings": {
+            "need_fit": 3,
+            "usability": 3,
+            "aesthetics": 3,
+            "originality": 3,
+            "grounded_explanation": 3
+          },
+          "caveats": []
+        },
+        {
+          "candidate": {
+            "candidate_id": "cand-2",
+            "revision": 1,
+            "title": "Áo tứ thân xanh phối phụ kiện tối giản",
+            "target_need": "Phối áo tứ thân xanh, cảm hứng hiện đại, đi sự kiện trường.",
+            "subject": "ao_tu_than",
+            "design_mode": "inspired",
+            "design": {
+              "subject_description": "Áo tứ thân sắc xanh thanh lịch, phối cùng phụ kiện tối giản cho sự kiện học thuật.",
+              "palette": [
+                "Xanh ngọc",
+                "Be",
+                "Đen"
+              ],
+              "accessories": [
+                "Đồng hồ dây da",
+                "Giày búp bê"
+              ],
+              "composition": "Bán thân, góc chụp thanh lịch và trang nhã.",
+              "scene": "Hội trường sự kiện trong nhà với ánh đèn vàng ấm áp.",
+              "extensions": []
+            },
+            "keep_invariants": [
+              "Trang phục áo tứ thân",
+              "Màu xanh"
+            ],
+            "allowed_changes": [
+              "accent_palette",
+              "accessory_selection",
+              "composition"
+            ],
+            "claims": [],
+            "assumptions": [
+              "Phù hợp với không gian sự kiện trong nhà."
+            ],
+            "caveats": [
+              "Thiếu thông tin lịch sử chi tiết về áo tứ thân trong bundle; thiết kế mang tính cảm hứng hiện đại."
+            ]
+          },
+          "score": 75.0,
+          "ratings": {
+            "need_fit": 3,
+            "usability": 3,
+            "aesthetics": 3,
+            "originality": 3,
+            "grounded_explanation": 3
+          },
+          "caveats": []
+        }
+      ],
+      "rejected": [],
+      "selection_decisions": [
+        {
+          "kind": "near_tie",
+          "margin": 3,
+          "candidates": [
+            "cand-1",
+            "cand-2"
+          ],
+          "order_by": [
+            "need_fit",
+            "usability",
+            "score",
+            "candidate_id"
+          ]
+        }
+      ]
+    },
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [
+      "Gói hiện tại chỉ hỗ trợ minh họa lấy cảm hứng; chưa đáp ứng caption nguồn gốc/ý nghĩa của bài nộp."
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929411.4009259
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929413.775768
+      },
+      {
+        "sequence": 3,
+        "stage": "planning",
+        "brief_revision": 1,
+        "timestamp": 1790929413.77762
+      },
+      {
+        "sequence": 4,
+        "stage": "auditing",
+        "brief_revision": 1,
+        "timestamp": 1790929418.1281338
+      },
+      {
+        "sequence": 5,
+        "stage": "cards_ready",
+        "brief_revision": 1,
+        "timestamp": 1790929423.801613
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2372,
+        "usage": {
+          "promptTokenCount": 1445,
+          "candidatesTokenCount": 617,
+          "totalTokenCount": 2062,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1445
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "6ca292a51b674a91502614b0400d9c8b9d7e4aa57dfafd1721c8442579712b15",
+        "output_hash": "4548a469bb06a787d80cae92f3b92fc29fbb07a6a2474deba9d5698e6f777bfb"
+      },
+      {
+        "task": "P03",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 405,
+        "error_code": "google_http_429",
+        "usage": {}
+      },
+      {
+        "task": "P03",
+        "attempt": 2,
+        "cache_hit": false,
+        "duration_ms": 3429,
+        "usage": {
+          "promptTokenCount": 2606,
+          "candidatesTokenCount": 690,
+          "totalTokenCount": 3296,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2606
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "fbd706d88c58c346930a9c5aad159f87ebbdead23ae18c090de6a61c95be9494",
+        "output_hash": "ddbbb89bd5a0790e6f700cbd2233270e1c5a8dc0b5e0329ffb2745eb867721ff"
+      },
+      {
+        "task": "P04",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 5666,
+        "usage": {
+          "promptTokenCount": 3354,
+          "candidatesTokenCount": 1999,
+          "totalTokenCount": 5353,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 3354
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "c3e047b42c804e01ed76bd748a393e8844e139cbccdaa31916d87fd42075db84",
+        "output_hash": "1ba159ee5a6c9a477651592f4bbf1edbf5b7716603aa3e7c3a360290d5a573de"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 4,
+      "cache_hits": 0,
+      "active_seconds": 6.731,
+      "cards_ready_seconds": 12.4,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929411.399134,
+    "retrieval_bundle": {
+      "subject_id": "ao_tu_than",
+      "knowledge_units": [
+        {
+          "id": "K-TASK-01",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn loại trang phục hoặc sự kiện.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn loại trang phục hoặc sự kiện.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-02",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn màu sắc, phụ kiện hoặc phong cách.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn màu sắc, phụ kiện hoặc phong cách.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-03",
+          "kind": "task_fact",
+          "claim": "Đầu ra có thể là hình ảnh, thẻ gợi ý hoặc mockup.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Xem kết quả phối đồ dưới dạng hình ảnh, thẻ gợi ý hoặc mockup.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-04",
+          "kind": "task_fact",
+          "claim": "Demo cần có thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Đọc thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        }
+      ],
+      "rules": [
+        {
+          "id": "R-TASK-CARD",
+          "kind": "task_requirement",
+          "severity": "hard",
+          "knowledge_ids": [
+            "K-TASK-03"
+          ],
+          "applies_when": {
+            "all_requests": true
+          },
+          "check": "Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.",
+          "visual_checkable": false,
+          "status": "verified",
+          "enabled": true,
+          "applicability_uncertain": false
+        }
+      ],
+      "cultural_units": [],
+      "sources": [
+        {
+          "id": "S-BRIEF",
+          "kind": "task_brief",
+          "path": "../de-thi-viet-phuc-remix.md",
+          "authority_scope": "product_requirements",
+          "review_status": "read_against_supplied_file"
+        },
+        {
+          "id": "S-VNAT-AD",
+          "kind": "official_tourism",
+          "url": "https://vietnam.travel/node/1216",
+          "title": "All about ao dai: Vietnam's national dress",
+          "authority_scope": "contemporary_ao_dai_wear_advice",
+          "review_status": "agent_excerpt_checked",
+          "reviewer": "Codex (source cross-check; not human specialist)",
+          "human_specialist_review": "not_performed",
+          "snapshot_path": "vnat-ao-dai.source.json",
+          "snapshot_sha256": "34d6ff961a2e29dde6c4b68da482184b24c22b9394467c36c612c1963584f1df"
+        }
+      ],
+      "ontology": [
+        {
+          "id": "ao_dai",
+          "type": "garment",
+          "label": "áo dài",
+          "aliases": [
+            "ao dai"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [
+            "Mặc cùng quần trong phạm vi tái hiện áo dài hiện đại của pack."
+          ],
+          "cultural_knowledge_status": "contemporary_advice_source_checked"
+        },
+        {
+          "id": "ao_tu_than",
+          "type": "garment",
+          "label": "áo tứ thân",
+          "aliases": [
+            "ao tu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_ngu_than",
+          "type": "garment",
+          "label": "áo ngũ thân",
+          "aliases": [
+            "ao ngu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        }
+      ],
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "historical_scope_supported": false,
+      "historical_coverage": [
+        {
+          "entity_id": "ao_dai",
+          "period": "hiện đại",
+          "region": null,
+          "covers": [
+            "mặc cùng quần"
+          ],
+          "limitations": [
+            "Chỉ minh họa cấu trúc áo mặc cùng quần; không xác minh mọi đường may/nút/cổ.",
+            "Không đủ nguồn cho áo ngũ thân/tứ thân hoặc triều Nguyễn."
+          ]
+        }
+      ]
+    },
+    "evidence_status": "missing_cultural_sources",
+    "gate_manifest": [
+      {
+        "gate_id": "user_constraints",
+        "rule_id": null,
+        "constraint_id": "HC-1",
+        "applicable": true,
+        "severity": "hard",
+        "constraint": {
+          "id": "HC-1",
+          "field": "mode",
+          "operator": "equals",
+          "value": "inspired",
+          "provenance": "user_provided",
+          "evidence_quote": "lấy cảm hứng hiện đại",
+          "rule_id": null
+        }
+      },
+      {
+        "gate_id": "user_constraints",
+        "rule_id": null,
+        "constraint_id": "HC-2",
+        "applicable": true,
+        "severity": "hard",
+        "constraint": {
+          "id": "HC-2",
+          "field": "historical_source_disclosure",
+          "operator": "exclude",
+          "value": "công bố nguồn gốc lịch sử",
+          "provenance": "user_provided",
+          "evidence_quote": "không công bố nguồn gốc lịch sử.",
+          "rule_id": null
+        }
+      },
+      {
+        "gate_id": "applicable_cultural_rules",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "claim_support",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard",
+        "check": "Claims rỗng thì pass vì không công bố phát biểu lịch sử; không dùng not_applicable cho gate này. Claims có nội dung thì phải có nguồn hỗ trợ."
+      },
+      {
+        "gate_id": "historical_scope",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "renderability",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard"
+      }
+    ],
+    "audits": {
+      "audits": [
+        {
+          "candidate_id": "cand-2",
+          "gate_findings": [
+            {
+              "finding_id": "f-cand2-1",
+              "gate_id": "user_constraints",
+              "rule_id": null,
+              "constraint_id": "HC-1",
+              "source_id": "S-BRIEF",
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "design_mode: inspired",
+              "reason": "Ứng viên tuân thủ chế độ cảm hứng hiện đại theo yêu cầu.",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "f-cand2-2",
+              "gate_id": "user_constraints",
+              "rule_id": null,
+              "constraint_id": "HC-2",
+              "source_id": "S-BRIEF",
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "claims: []",
+              "reason": "Ứng viên không công bố nguồn gốc lịch sử, tuân thủ ràng buộc HC-2.",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "f-cand2-3",
+              "gate_id": "applicable_cultural_rules",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Không có quy tắc văn hóa áp dụng cho áo tứ thân trong bundle.",
+              "reason": "Gate không áp dụng do thiếu dữ kiện lịch sử cho áo tứ thân.",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "f-cand2-4",
+              "gate_id": "claim_support",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "claims: []",
+              "reason": "Claims rỗng nên pass theo quy tắc kiểm tra.",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "f-cand2-5",
+              "gate_id": "historical_scope",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "historical_scope_supported: false",
+              "reason": "Phạm vi lịch sử không áp dụng cho chế độ inspired này.",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "f-cand2-6",
+              "gate_id": "renderability",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": "S-BRIEF",
+              "knowledge_id": "K-TASK-03",
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "output: cards",
+              "reason": "Đầu ra dưới dạng thẻ gợi ý phù hợp với yêu cầu.",
+              "minimal_fix": null
+            }
+          ],
+          "ratings": {
+            "need_fit": 3,
+            "usability": 3,
+            "aesthetics": 3,
+            "originality": 3,
+            "grounded_explanation": 3
+          },
+          "rating_evidence": {
+            "need_fit": "Đáp ứng tốt yêu cầu phối áo tứ thân xanh đi sự kiện trường.",
+            "usability": "Thiết kế rõ ràng, phụ kiện tối giản phù hợp đi học/sự kiện.",
+            "aesthetics": "Phối màu nhã nhặn (Xanh ngọc, Be, Đen).",
+            "originality": "Thể hiện tốt cảm hứng hiện đại.",
+            "grounded_explanation": "Giải thích rõ ràng và tuân thủ các ràng buộc."
+          }
+        },
+        {
+          "candidate_id": "cand-1",
+          "gate_findings": [
+            {
+              "finding_id": "f-cand1-1",
+              "gate_id": "user_constraints",
+              "rule_id": null,
+              "constraint_id": "HC-1",
+              "source_id": "S-BRIEF",
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "design_mode: inspired",
+              "reason": "Ứng viên tuân thủ chế độ cảm hứng hiện đại.",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "f-cand1-2",
+              "gate_id": "user_constraints",
+              "rule_id": null,
+              "constraint_id": "HC-2",
+              "source_id": "S-BRIEF",
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "claims: []",
+              "reason": "Ứng viên không công bố nguồn gốc lịch sử, tuân thủ ràng buộc HC-2.",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "f-cand1-3",
+              "gate_id": "applicable_cultural_rules",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Không có quy tắc văn hóa áp dụng cho áo tứ thân trong bundle.",
+              "reason": "Gate không áp dụng do thiếu dữ kiện lịch sử cho áo tứ thân.",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "f-cand1-4",
+              "gate_id": "claim_support",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "claims: []",
+              "reason": "Claims rỗng nên pass theo quy tắc kiểm tra.",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "f-cand1-5",
+              "gate_id": "historical_scope",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "historical_scope_supported: false",
+              "reason": "Phạm vi lịch sử không áp dụng cho chế độ inspired này.",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "f-cand1-6",
+              "gate_id": "renderability",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": "S-BRIEF",
+              "knowledge_id": "K-TASK-03",
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "output: cards",
+              "reason": "Đầu ra dưới dạng thẻ gợi ý phù hợp với yêu cầu.",
+              "minimal_fix": null
+            }
+          ],
+          "ratings": {
+            "need_fit": 3,
+            "usability": 3,
+            "aesthetics": 3,
+            "originality": 3,
+            "grounded_explanation": 3
+          },
+          "rating_evidence": {
+            "need_fit": "Đáp ứng tốt yêu cầu phối áo tứ thân xanh cho học sinh sinh viên.",
+            "usability": "Phụ kiện thực tế như túi canvas và giày sneaker phù hợp sự kiện trường.",
+            "aesthetics": "Phối màu trẻ trung, năng động.",
+            "originality": "Sáng tạo trong việc kết hợp phong cách học đường.",
+            "grounded_explanation": "Tuân thủ đầy đủ các ràng buộc và thiết kế mạch lạc."
+          }
+        }
+      ]
+    }
+  }
+}

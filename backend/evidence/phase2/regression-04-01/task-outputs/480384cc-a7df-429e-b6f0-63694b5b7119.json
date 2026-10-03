@@ -1,0 +1,108 @@
+{
+  "evidence_id": "480384cc-a7df-429e-b6f0-63694b5b7119",
+  "recorded_at": 1790929760.704185,
+  "request_id": "3bd62240-b488-4194-b26e-6c00843bf568",
+  "revision": 1,
+  "task": "P04",
+  "attempt": 1,
+  "output": {
+    "audits": [
+      {
+        "candidate_id": "c1",
+        "gate_findings": [
+          {
+            "finding_id": "f1",
+            "gate_id": "user_constraints",
+            "rule_id": null,
+            "constraint_id": "hc_acc",
+            "source_id": "S-BRIEF",
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "accessories: []",
+            "reason": "Ứng viên tuân thủ ràng buộc không dùng phụ kiện (số lượng bằng 0).",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f2",
+            "gate_id": "applicable_cultural_rules",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "not_applicable",
+            "evidence": "Không có luật văn hóa bắt buộc áp dụng cho gói này.",
+            "reason": "Gate này không áp dụng do không có rule văn hóa cụ thể nào được kích hoạt.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f3",
+            "gate_id": "claim_support",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": "S-VNAT-AD",
+            "knowledge_id": "K-AD-PANTS",
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Áo dài hiện đại được mặc cùng quần. / choose your own style and colours",
+            "reason": "Các phát biểu được hỗ trợ đầy đủ bởi các đơn vị kiến thức đã xác thực.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f4",
+            "gate_id": "historical_scope",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "not_applicable",
+            "evidence": "historical_scope_supported: false",
+            "reason": "Phạm vi lịch sử không được áp dụng trong bối cảnh hiện đại này.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f5",
+            "gate_id": "renderability",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "composition: Toàn thân, đứng thẳng, góc nhìn chính diện.",
+            "reason": "Mô tả bố cục rõ ràng, đáp ứng yêu cầu render cơ bản.",
+            "minimal_fix": null
+          }
+        ],
+        "ratings": {
+          "need_fit": 4,
+          "usability": 4,
+          "aesthetics": 3,
+          "originality": 3,
+          "grounded_explanation": 4
+        },
+        "rating_evidence": {
+          "need_fit": "Đáp ứng hoàn toàn yêu cầu phối áo dài trắng hiện đại đi sự kiện trường.",
+          "usability": "Thiết kế rõ ràng, tuân thủ tuyệt đối các ràng buộc người dùng.",
+          "aesthetics": "Phong cách tối giản hiện đại phù hợp với bối cảnh học đường.",
+          "originality": "Sử dụng bảng màu trắng và bạc tạo điểm nhấn hiện đại.",
+          "grounded_explanation": "Các claims được căn cứ tốt từ nguồn chính thống đã xác thực."
+        }
+      }
+    ]
+  },
+  "usage": {
+    "promptTokenCount": 3876,
+    "candidatesTokenCount": 898,
+    "totalTokenCount": 4774,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3876
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

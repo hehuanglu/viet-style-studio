@@ -1,0 +1,91 @@
+{
+  "evidence_id": "de583dbb-7141-4738-bfc0-616382eb1e17",
+  "recorded_at": 1790929478.986848,
+  "request_id": "923ca75f-6891-4661-a678-06aba8df124f",
+  "revision": 2,
+  "task": "P02",
+  "attempt": 1,
+  "output": {
+    "request_id": "923ca75f-6891-4661-a678-06aba8df124f",
+    "revision": 2,
+    "goal": {
+      "field": "goal",
+      "value": "create_look",
+      "status": "inferred",
+      "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường.",
+      "evidence_turn_id": "T2"
+    },
+    "subject": {
+      "field": "subject",
+      "value": "ao_dai",
+      "status": "explicit",
+      "evidence_quote": "Tôi muốn phối áo dài xanh",
+      "evidence_turn_id": "T2"
+    },
+    "context": [
+      {
+        "field": "event",
+        "value": "sự kiện trường",
+        "status": "explicit",
+        "evidence_quote": "cho sự kiện trường.",
+        "evidence_turn_id": "T2"
+      }
+    ],
+    "mode": "inspired",
+    "mode_evidence": {
+      "field": "mode",
+      "value": "inspired",
+      "status": "explicit",
+      "evidence_quote": "lấy cảm hứng hiện đại",
+      "evidence_turn_id": "T2"
+    },
+    "preferences": [
+      {
+        "field": "style",
+        "value": "đẹp và độc đáo",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn đẹp và độc đáo.",
+        "evidence_turn_id": "T1"
+      },
+      {
+        "field": "palette",
+        "value": "xanh",
+        "status": "explicit",
+        "evidence_quote": "áo dài xanh",
+        "evidence_turn_id": "T2"
+      }
+    ],
+    "hard_constraints": [
+      {
+        "id": "HC-1",
+        "field": "subject",
+        "operator": "include",
+        "value": "ao_dai",
+        "provenance": "user_provided",
+        "evidence_quote": "áo dài xanh",
+        "rule_id": null
+      }
+    ],
+    "output": "cards",
+    "scoring_profile": "balanced",
+    "assumptions": [
+      "Sử dụng chế độ lấy cảm hứng (inspired) theo yêu cầu rõ ràng của người dùng.",
+      "Mục tiêu được suy luận là tạo trang phục dựa trên ý muốn phối đồ cụ thể."
+    ],
+    "conflicts": [],
+    "proposed_questions": [],
+    "status": "ready"
+  },
+  "usage": {
+    "promptTokenCount": 1864,
+    "candidatesTokenCount": 634,
+    "totalTokenCount": 2498,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1864
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "evidence_id": "f1108a41-10fe-42e8-8b3a-6bf9131f09ae",
+  "recorded_at": 1790934005.9682539,
+  "event": "auditing",
+  "job": {
+    "request_id": "8e7d7457-c0d2-4154-9da1-6820b430297e",
+    "session_id": "restart-probe",
+    "revision": 1,
+    "status": "auditing",
+    "provider": "mock",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường"
+      }
+    ],
+    "brief": {
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "default",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "period",
+          "value": "hiện đại",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [],
+      "output": "image",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "request_id": "8e7d7457-c0d2-4154-9da1-6820b430297e",
+      "revision": 1,
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [
+      "Gói hiện tại chỉ hỗ trợ minh họa lấy cảm hứng; chưa đáp ứng caption nguồn gốc/ý nghĩa của bài nộp.",
+      "Phục hồi sau restart: giữ budget đã ghi; tái dùng output đã cache. Call đang bay trước khi ngắt có thể đã hoàn tất ở provider.",
+      "Gói hiện tại chỉ hỗ trợ minh họa lấy cảm hứng; chưa đáp ứng caption nguồn gốc/ý nghĩa của bài nộp."
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790934005.795728
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790934005.800992
+      },
+      {
+        "sequence": 3,
+        "stage": "planning",
+        "brief_revision": 1,
+        "timestamp": 1790934005.801934
+      },
+      {
+        "sequence": 4,
+        "stage": "queued",
+        "brief_revision": 1,
+        "timestamp": 1790934005.954546
+      },
+      {
+        "sequence": 5,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790934005.956724
+      },
+      {
+        "sequence": 6,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790934005.960038
+      },
+      {
+        "sequence": 7,
+        "stage": "planning",
+        "brief_revision": 1,
+        "timestamp": 1790934005.961498
+      },
+      {
+        "sequence": 8,
+        "stage": "auditing",
+        "brief_revision": 1,
+        "timestamp": 1790934005.967252
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 3,
+        "usage": {
+          "mock": true,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        "provider_call_id": null,
+        "input_hash": "3d4823c0e18f05d0378b639eeeacd8a9b6cc9a1abc805cf81c8621d50af755d2",
+        "output_hash": "0d095f1ef92ee1d899d34e6d5a5c0749d6b0852f552a3e98659b632e0b29e46a"
+      },
+      {
+        "task": "P03",
+        "interrupted": true,
+        "active_seconds_estimated": 0.151,
+        "cache_hit": false,
+        "usage": {}
+      },
+      {
+        "task": "P02",
+        "checkpoint_hit": true,
+        "cache_hit": false,
+        "duration_ms": 0,
+        "usage": {}
+      },
+      {
+        "task": "P03",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2,
+        "usage": {
+          "mock": true,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        "provider_call_id": null,
+        "input_hash": "ecfaa21ca90c70e9f351e999690901e058b50ae39111d6dde260bdf68b749f27",
+        "output_hash": "3cf02bb40978f126814e7b4ce9d9ca98ee8488c67c8d5e99cdab58f7c4201f23"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 3,
+      "cache_hits": 0,
+      "active_seconds": 0.169,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null,
+      "checkpoint_hits": 1
+    },
+    "manifest": {
+      "pack_hash": "daced72167b66f829c343beedee3396845ff752507bfb9eec46b466f726e1ab0",
+      "kit_hash": "23d8187ad919f568b84ec3307028940198db8265435a48bb4a1d58091d7930ba",
+      "text_model": "mock-text-v1",
+      "image_model": "mock-image-v1"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 1,
+    "created_at": 1790934005.793108,
+    "retrieval_bundle": {
+      "subject_id": "ao_dai",
+      "knowledge_units": [
+        {
+          "id": "K-TASK-01",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn loại trang phục hoặc sự kiện.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn loại trang phục hoặc sự kiện.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-02",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn màu sắc, phụ kiện hoặc phong cách.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn màu sắc, phụ kiện hoặc phong cách.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-03",
+          "kind": "task_fact",
+          "claim": "Đầu ra có thể là hình ảnh, thẻ gợi ý hoặc mockup.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Xem kết quả phối đồ dưới dạng hình ảnh, thẻ gợi ý hoặc mockup.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-04",
+          "kind": "task_fact",
+          "claim": "Demo cần có thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Đọc thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        }
+      ],
+      "rules": [
+        {
+          "id": "R-TASK-CARD",
+          "kind": "task_requirement",
+          "severity": "hard",
+          "knowledge_ids": [
+            "K-TASK-03"
+          ],
+          "applies_when": {
+            "all_requests": true
+          },
+          "check": "Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.",
+          "visual_checkable": false,
+          "status": "verified",
+          "enabled": true,
+          "applicability_uncertain": false
+        }
+      ],
+      "cultural_units": [],
+      "sources": [
+        {
+          "id": "S-BRIEF",
+          "kind": "task_brief",
+          "path": "../de-thi-viet-phuc-remix.md",
+          "authority_scope": "product_requirements",
+          "review_status": "read_against_supplied_file"
+        }
+      ],
+      "ontology": [
+        {
+          "id": "ao_dai",
+          "type": "garment",
+          "label": "áo dài",
+          "aliases": [
+            "ao dai"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_tu_than",
+          "type": "garment",
+          "label": "áo tứ thân",
+          "aliases": [
+            "ao tu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_ngu_than",
+          "type": "garment",
+          "label": "áo ngũ thân",
+          "aliases": [
+            "ao ngu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        }
+      ],
+      "pack_hash": "daced72167b66f829c343beedee3396845ff752507bfb9eec46b466f726e1ab0",
+      "historical_scope_supported": false,
+      "historical_coverage": []
+    },
+    "evidence_status": "missing_cultural_sources",
+    "gate_manifest": [
+      {
+        "gate_id": "user_constraints",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "applicable_cultural_rules",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "claim_support",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard",
+        "check": "Claims rỗng thì pass vì không công bố phát biểu lịch sử; không dùng not_applicable cho gate này. Claims có nội dung thì phải có nguồn hỗ trợ."
+      },
+      {
+        "gate_id": "historical_scope",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "renderability",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard"
+      }
+    ]
+  }
+}

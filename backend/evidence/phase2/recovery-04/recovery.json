@@ -1,0 +1,1236 @@
+{
+  "provider": "mock",
+  "actual_os_restart": true,
+  "not_live_google": true,
+  "passed": true,
+  "terminated_returncode": -15,
+  "before_crash": {
+    "request_id": "219df552-b256-4660-94cb-3d46953bdbce",
+    "session_id": "restart-probe",
+    "revision": 1,
+    "status": "planning",
+    "provider": "mock",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường"
+      }
+    ],
+    "brief": {
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "default",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "period",
+          "value": "hiện đại",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [],
+      "output": "image",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "request_id": "219df552-b256-4660-94cb-3d46953bdbce",
+      "revision": 1,
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [
+      "Gói hiện tại chỉ hỗ trợ minh họa lấy cảm hứng; chưa đáp ứng caption nguồn gốc/ý nghĩa của bài nộp."
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790934716.2186408
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790934716.224031
+      },
+      {
+        "sequence": 3,
+        "stage": "planning",
+        "brief_revision": 1,
+        "timestamp": 1790934716.224889
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 3,
+        "usage": {
+          "mock": true,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        "provider_call_id": null,
+        "input_hash": "9c390913fedfbcb91aa661cb7c25083739b5ab27e64b36d6e8d769f2a211c940",
+        "output_hash": "4fbba4a1e99cdba0060d908e1afdf322da1ea3f0ab56b2ef57314402aed59679"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 2,
+      "cache_hits": 0,
+      "active_seconds": 0.008,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "daced72167b66f829c343beedee3396845ff752507bfb9eec46b466f726e1ab0",
+      "kit_hash": "7027050b267cc67a0504389f1fee43acf69508e86ba14f969430fc75b101b35a",
+      "text_model": "mock-text-v1",
+      "image_model": "mock-image-v1"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790934716.2164211,
+    "retrieval_bundle": {
+      "subject_id": "ao_dai",
+      "knowledge_units": [
+        {
+          "id": "K-TASK-01",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn loại trang phục hoặc sự kiện.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn loại trang phục hoặc sự kiện.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-02",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn màu sắc, phụ kiện hoặc phong cách.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn màu sắc, phụ kiện hoặc phong cách.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-03",
+          "kind": "task_fact",
+          "claim": "Đầu ra có thể là hình ảnh, thẻ gợi ý hoặc mockup.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Xem kết quả phối đồ dưới dạng hình ảnh, thẻ gợi ý hoặc mockup.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-04",
+          "kind": "task_fact",
+          "claim": "Demo cần có thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Đọc thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        }
+      ],
+      "rules": [
+        {
+          "id": "R-TASK-CARD",
+          "kind": "task_requirement",
+          "severity": "hard",
+          "knowledge_ids": [
+            "K-TASK-03"
+          ],
+          "applies_when": {
+            "all_requests": true
+          },
+          "check": "Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.",
+          "visual_checkable": false,
+          "status": "verified",
+          "enabled": true,
+          "applicability_uncertain": false
+        }
+      ],
+      "cultural_units": [],
+      "sources": [
+        {
+          "id": "S-BRIEF",
+          "kind": "task_brief",
+          "path": "../de-thi-viet-phuc-remix.md",
+          "authority_scope": "product_requirements",
+          "review_status": "read_against_supplied_file"
+        }
+      ],
+      "ontology": [
+        {
+          "id": "ao_dai",
+          "type": "garment",
+          "label": "áo dài",
+          "aliases": [
+            "ao dai"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_tu_than",
+          "type": "garment",
+          "label": "áo tứ thân",
+          "aliases": [
+            "ao tu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_ngu_than",
+          "type": "garment",
+          "label": "áo ngũ thân",
+          "aliases": [
+            "ao ngu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        }
+      ],
+      "pack_hash": "daced72167b66f829c343beedee3396845ff752507bfb9eec46b466f726e1ab0",
+      "historical_scope_supported": false,
+      "historical_coverage": []
+    },
+    "evidence_status": "missing_cultural_sources",
+    "gate_manifest": [
+      {
+        "gate_id": "user_constraints",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "applicable_cultural_rules",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "claim_support",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard",
+        "check": "Claims rỗng thì pass vì không công bố phát biểu lịch sử; không dùng not_applicable cho gate này. Claims có nội dung thì phải có nguồn hỗ trợ."
+      },
+      {
+        "gate_id": "historical_scope",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "renderability",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard"
+      }
+    ],
+    "inflight": {
+      "task": "P03",
+      "started_at": 1790934716.226532,
+      "timeout_seconds": 15
+    }
+  },
+  "after_restart": {
+    "request_id": "219df552-b256-4660-94cb-3d46953bdbce",
+    "session_id": "restart-probe",
+    "revision": 1,
+    "status": "complete",
+    "provider": "mock",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường"
+      }
+    ],
+    "brief": {
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "default",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "period",
+          "value": "hiện đại",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [],
+      "output": "image",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "request_id": "219df552-b256-4660-94cb-3d46953bdbce",
+      "revision": 1,
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [
+      {
+        "candidate_id": "C1",
+        "revision": 1,
+        "title": "Tối giản",
+        "target_need": "Phối đồ cho bối cảnh đã chọn",
+        "subject": "ao_dai",
+        "design_mode": "inspired",
+        "design": {
+          "subject_description": "Minh họa trang phục lấy cảm hứng, trên mannequin",
+          "palette": [
+            "xanh",
+            "be"
+          ],
+          "accessories": [
+            "giày đơn giản"
+          ],
+          "composition": "mannequin chính diện",
+          "scene": "sự kiện trường",
+          "extensions": []
+        },
+        "keep_invariants": [
+          "Giữ chủ thể và yêu cầu màu chính"
+        ],
+        "allowed_changes": [
+          "màu nhấn",
+          "phụ kiện",
+          "bố cục"
+        ],
+        "claims": [],
+        "assumptions": [],
+        "caveats": [
+          "Chưa có nguồn văn hóa để xác minh nguồn gốc hoặc đặc trưng lịch sử."
+        ],
+        "score": 81.25,
+        "ratings": {
+          "need_fit": 3,
+          "usability": 3,
+          "aesthetics": 4,
+          "originality": 3,
+          "grounded_explanation": 3
+        },
+        "audit_caveats": [],
+        "output_origin": "mock",
+        "source_caption": []
+      },
+      {
+        "candidate_id": "C2",
+        "revision": 1,
+        "title": "Nổi bật",
+        "target_need": "Phối đồ cho bối cảnh đã chọn",
+        "subject": "ao_dai",
+        "design_mode": "inspired",
+        "design": {
+          "subject_description": "Minh họa trang phục lấy cảm hứng, trên mannequin",
+          "palette": [
+            "xanh",
+            "trắng"
+          ],
+          "accessories": [
+            "túi nhỏ"
+          ],
+          "composition": "mannequin toàn thân",
+          "scene": "sự kiện trường",
+          "extensions": []
+        },
+        "keep_invariants": [
+          "Giữ chủ thể và yêu cầu màu chính"
+        ],
+        "allowed_changes": [
+          "màu nhấn",
+          "phụ kiện",
+          "bố cục"
+        ],
+        "claims": [],
+        "assumptions": [],
+        "caveats": [
+          "Chưa có nguồn văn hóa để xác minh nguồn gốc hoặc đặc trưng lịch sử."
+        ],
+        "score": 75.0,
+        "ratings": {
+          "need_fit": 3,
+          "usability": 3,
+          "aesthetics": 3,
+          "originality": 3,
+          "grounded_explanation": 3
+        },
+        "audit_caveats": [],
+        "output_origin": "mock",
+        "source_caption": []
+      },
+      {
+        "candidate_id": "C3",
+        "revision": 1,
+        "title": "Trang trọng",
+        "target_need": "Phối đồ cho bối cảnh đã chọn",
+        "subject": "ao_dai",
+        "design_mode": "inspired",
+        "design": {
+          "subject_description": "Minh họa trang phục lấy cảm hứng, trên mannequin",
+          "palette": [
+            "xanh",
+            "đen"
+          ],
+          "accessories": [
+            "phụ kiện tối giản"
+          ],
+          "composition": "bản phác toàn thân",
+          "scene": "sự kiện trường",
+          "extensions": []
+        },
+        "keep_invariants": [
+          "Giữ chủ thể và yêu cầu màu chính"
+        ],
+        "allowed_changes": [
+          "màu nhấn",
+          "phụ kiện",
+          "bố cục"
+        ],
+        "claims": [],
+        "assumptions": [],
+        "caveats": [
+          "Chưa có nguồn văn hóa để xác minh nguồn gốc hoặc đặc trưng lịch sử."
+        ],
+        "score": 75.0,
+        "ratings": {
+          "need_fit": 3,
+          "usability": 3,
+          "aesthetics": 3,
+          "originality": 3,
+          "grounded_explanation": 3
+        },
+        "audit_caveats": [],
+        "output_origin": "mock",
+        "source_caption": []
+      }
+    ],
+    "ranking": {
+      "profile": "balanced",
+      "ranked": [
+        {
+          "candidate": {
+            "candidate_id": "C1",
+            "revision": 1,
+            "title": "Tối giản",
+            "target_need": "Phối đồ cho bối cảnh đã chọn",
+            "subject": "ao_dai",
+            "design_mode": "inspired",
+            "design": {
+              "subject_description": "Minh họa trang phục lấy cảm hứng, trên mannequin",
+              "palette": [
+                "xanh",
+                "be"
+              ],
+              "accessories": [
+                "giày đơn giản"
+              ],
+              "composition": "mannequin chính diện",
+              "scene": "sự kiện trường",
+              "extensions": []
+            },
+            "keep_invariants": [
+              "Giữ chủ thể và yêu cầu màu chính"
+            ],
+            "allowed_changes": [
+              "màu nhấn",
+              "phụ kiện",
+              "bố cục"
+            ],
+            "claims": [],
+            "assumptions": [],
+            "caveats": [
+              "Chưa có nguồn văn hóa để xác minh nguồn gốc hoặc đặc trưng lịch sử."
+            ]
+          },
+          "score": 81.25,
+          "ratings": {
+            "need_fit": 3,
+            "usability": 3,
+            "aesthetics": 4,
+            "originality": 3,
+            "grounded_explanation": 3
+          },
+          "caveats": []
+        },
+        {
+          "candidate": {
+            "candidate_id": "C2",
+            "revision": 1,
+            "title": "Nổi bật",
+            "target_need": "Phối đồ cho bối cảnh đã chọn",
+            "subject": "ao_dai",
+            "design_mode": "inspired",
+            "design": {
+              "subject_description": "Minh họa trang phục lấy cảm hứng, trên mannequin",
+              "palette": [
+                "xanh",
+                "trắng"
+              ],
+              "accessories": [
+                "túi nhỏ"
+              ],
+              "composition": "mannequin toàn thân",
+              "scene": "sự kiện trường",
+              "extensions": []
+            },
+            "keep_invariants": [
+              "Giữ chủ thể và yêu cầu màu chính"
+            ],
+            "allowed_changes": [
+              "màu nhấn",
+              "phụ kiện",
+              "bố cục"
+            ],
+            "claims": [],
+            "assumptions": [],
+            "caveats": [
+              "Chưa có nguồn văn hóa để xác minh nguồn gốc hoặc đặc trưng lịch sử."
+            ]
+          },
+          "score": 75.0,
+          "ratings": {
+            "need_fit": 3,
+            "usability": 3,
+            "aesthetics": 3,
+            "originality": 3,
+            "grounded_explanation": 3
+          },
+          "caveats": []
+        },
+        {
+          "candidate": {
+            "candidate_id": "C3",
+            "revision": 1,
+            "title": "Trang trọng",
+            "target_need": "Phối đồ cho bối cảnh đã chọn",
+            "subject": "ao_dai",
+            "design_mode": "inspired",
+            "design": {
+              "subject_description": "Minh họa trang phục lấy cảm hứng, trên mannequin",
+              "palette": [
+                "xanh",
+                "đen"
+              ],
+              "accessories": [
+                "phụ kiện tối giản"
+              ],
+              "composition": "bản phác toàn thân",
+              "scene": "sự kiện trường",
+              "extensions": []
+            },
+            "keep_invariants": [
+              "Giữ chủ thể và yêu cầu màu chính"
+            ],
+            "allowed_changes": [
+              "màu nhấn",
+              "phụ kiện",
+              "bố cục"
+            ],
+            "claims": [],
+            "assumptions": [],
+            "caveats": [
+              "Chưa có nguồn văn hóa để xác minh nguồn gốc hoặc đặc trưng lịch sử."
+            ]
+          },
+          "score": 75.0,
+          "ratings": {
+            "need_fit": 3,
+            "usability": 3,
+            "aesthetics": 3,
+            "originality": 3,
+            "grounded_explanation": 3
+          },
+          "caveats": []
+        }
+      ],
+      "rejected": [],
+      "selection_decisions": []
+    },
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [
+      "Gói hiện tại chỉ hỗ trợ minh họa lấy cảm hứng; chưa đáp ứng caption nguồn gốc/ý nghĩa của bài nộp.",
+      "Phục hồi sau restart: giữ budget đã ghi; tái dùng output đã cache. Call đang bay trước khi ngắt có thể đã hoàn tất ở provider.",
+      "Gói hiện tại chỉ hỗ trợ minh họa lấy cảm hứng; chưa đáp ứng caption nguồn gốc/ý nghĩa của bài nộp."
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790934716.2186408
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790934716.224031
+      },
+      {
+        "sequence": 3,
+        "stage": "planning",
+        "brief_revision": 1,
+        "timestamp": 1790934716.224889
+      },
+      {
+        "sequence": 4,
+        "stage": "queued",
+        "brief_revision": 1,
+        "timestamp": 1790934716.371588
+      },
+      {
+        "sequence": 5,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790934716.374012
+      },
+      {
+        "sequence": 6,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790934716.3776572
+      },
+      {
+        "sequence": 7,
+        "stage": "planning",
+        "brief_revision": 1,
+        "timestamp": 1790934716.379115
+      },
+      {
+        "sequence": 8,
+        "stage": "auditing",
+        "brief_revision": 1,
+        "timestamp": 1790934716.384991
+      },
+      {
+        "sequence": 9,
+        "stage": "cards_ready",
+        "brief_revision": 1,
+        "timestamp": 1790934716.3928268
+      },
+      {
+        "sequence": 10,
+        "stage": "complete",
+        "brief_revision": 1,
+        "timestamp": 1790934716.394597
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 3,
+        "usage": {
+          "mock": true,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        "provider_call_id": null,
+        "input_hash": "9c390913fedfbcb91aa661cb7c25083739b5ab27e64b36d6e8d769f2a211c940",
+        "output_hash": "4fbba4a1e99cdba0060d908e1afdf322da1ea3f0ab56b2ef57314402aed59679"
+      },
+      {
+        "task": "P03",
+        "interrupted": true,
+        "active_seconds_estimated": 0.145,
+        "cache_hit": false,
+        "usage": {}
+      },
+      {
+        "task": "P02",
+        "checkpoint_hit": true,
+        "cache_hit": false,
+        "duration_ms": 0,
+        "usage": {}
+      },
+      {
+        "task": "P03",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 3,
+        "usage": {
+          "mock": true,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        "provider_call_id": null,
+        "input_hash": "8c8b3f3f0d29ed7db3994469d52f68918af4cdece8a1f87f971d84b465ee4b8c",
+        "output_hash": "3cf02bb40978f126814e7b4ce9d9ca98ee8488c67c8d5e99cdab58f7c4201f23"
+      },
+      {
+        "task": "P04",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2,
+        "usage": {
+          "mock": true,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        "provider_call_id": null,
+        "input_hash": "42d0b4602b2919591fff4d8b075ef933cff1974da254318cbb3a32a2646bf4d9",
+        "output_hash": "1e69eb525df98cdf61954b1192020e5f908ff604a6770e490c72929c960146bc"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 4,
+      "cache_hits": 0,
+      "active_seconds": 0.174,
+      "cards_ready_seconds": 0.172,
+      "image_ready_seconds": null,
+      "checkpoint_hits": 1
+    },
+    "manifest": {
+      "pack_hash": "daced72167b66f829c343beedee3396845ff752507bfb9eec46b466f726e1ab0",
+      "kit_hash": "7027050b267cc67a0504389f1fee43acf69508e86ba14f969430fc75b101b35a",
+      "text_model": "mock-text-v1",
+      "image_model": "mock-image-v1"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 1,
+    "created_at": 1790934716.2164211,
+    "retrieval_bundle": {
+      "subject_id": "ao_dai",
+      "knowledge_units": [
+        {
+          "id": "K-TASK-01",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn loại trang phục hoặc sự kiện.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn loại trang phục hoặc sự kiện.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-02",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn màu sắc, phụ kiện hoặc phong cách.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn màu sắc, phụ kiện hoặc phong cách.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-03",
+          "kind": "task_fact",
+          "claim": "Đầu ra có thể là hình ảnh, thẻ gợi ý hoặc mockup.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Xem kết quả phối đồ dưới dạng hình ảnh, thẻ gợi ý hoặc mockup.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-04",
+          "kind": "task_fact",
+          "claim": "Demo cần có thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Đọc thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        }
+      ],
+      "rules": [
+        {
+          "id": "R-TASK-CARD",
+          "kind": "task_requirement",
+          "severity": "hard",
+          "knowledge_ids": [
+            "K-TASK-03"
+          ],
+          "applies_when": {
+            "all_requests": true
+          },
+          "check": "Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.",
+          "visual_checkable": false,
+          "status": "verified",
+          "enabled": true,
+          "applicability_uncertain": false
+        }
+      ],
+      "cultural_units": [],
+      "sources": [
+        {
+          "id": "S-BRIEF",
+          "kind": "task_brief",
+          "path": "../de-thi-viet-phuc-remix.md",
+          "authority_scope": "product_requirements",
+          "review_status": "read_against_supplied_file"
+        }
+      ],
+      "ontology": [
+        {
+          "id": "ao_dai",
+          "type": "garment",
+          "label": "áo dài",
+          "aliases": [
+            "ao dai"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_tu_than",
+          "type": "garment",
+          "label": "áo tứ thân",
+          "aliases": [
+            "ao tu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_ngu_than",
+          "type": "garment",
+          "label": "áo ngũ thân",
+          "aliases": [
+            "ao ngu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        }
+      ],
+      "pack_hash": "daced72167b66f829c343beedee3396845ff752507bfb9eec46b466f726e1ab0",
+      "historical_scope_supported": false,
+      "historical_coverage": []
+    },
+    "evidence_status": "missing_cultural_sources",
+    "gate_manifest": [
+      {
+        "gate_id": "user_constraints",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "applicable_cultural_rules",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "claim_support",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard",
+        "check": "Claims rỗng thì pass vì không công bố phát biểu lịch sử; không dùng not_applicable cho gate này. Claims có nội dung thì phải có nguồn hỗ trợ."
+      },
+      {
+        "gate_id": "historical_scope",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": false,
+        "severity": "hard"
+      },
+      {
+        "gate_id": "renderability",
+        "rule_id": null,
+        "constraint_id": null,
+        "applicable": true,
+        "severity": "hard"
+      }
+    ],
+    "audits": {
+      "audits": [
+        {
+          "candidate_id": "C3",
+          "gate_findings": [
+            {
+              "finding_id": "F-C3-0",
+              "gate_id": "user_constraints",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C3-1",
+              "gate_id": "applicable_cultural_rules",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C3-2",
+              "gate_id": "claim_support",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C3-3",
+              "gate_id": "historical_scope",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C3-4",
+              "gate_id": "renderability",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            }
+          ],
+          "ratings": {
+            "need_fit": 3,
+            "usability": 3,
+            "aesthetics": 3,
+            "originality": 3,
+            "grounded_explanation": 3
+          },
+          "rating_evidence": {
+            "need_fit": "MOCK: căn cứ giả lập",
+            "usability": "MOCK: căn cứ giả lập",
+            "aesthetics": "MOCK: căn cứ giả lập",
+            "originality": "MOCK: căn cứ giả lập",
+            "grounded_explanation": "MOCK: căn cứ giả lập"
+          }
+        },
+        {
+          "candidate_id": "C1",
+          "gate_findings": [
+            {
+              "finding_id": "F-C1-0",
+              "gate_id": "user_constraints",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C1-1",
+              "gate_id": "applicable_cultural_rules",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C1-2",
+              "gate_id": "claim_support",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C1-3",
+              "gate_id": "historical_scope",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C1-4",
+              "gate_id": "renderability",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            }
+          ],
+          "ratings": {
+            "need_fit": 3,
+            "usability": 3,
+            "aesthetics": 4,
+            "originality": 3,
+            "grounded_explanation": 3
+          },
+          "rating_evidence": {
+            "need_fit": "MOCK: căn cứ giả lập",
+            "usability": "MOCK: căn cứ giả lập",
+            "aesthetics": "MOCK: căn cứ giả lập",
+            "originality": "MOCK: căn cứ giả lập",
+            "grounded_explanation": "MOCK: căn cứ giả lập"
+          }
+        },
+        {
+          "candidate_id": "C2",
+          "gate_findings": [
+            {
+              "finding_id": "F-C2-0",
+              "gate_id": "user_constraints",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C2-1",
+              "gate_id": "applicable_cultural_rules",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C2-2",
+              "gate_id": "claim_support",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C2-3",
+              "gate_id": "historical_scope",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "not_applicable",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            },
+            {
+              "finding_id": "F-C2-4",
+              "gate_id": "renderability",
+              "rule_id": null,
+              "constraint_id": null,
+              "source_id": null,
+              "knowledge_id": null,
+              "severity": "hard",
+              "status": "pass",
+              "evidence": "Kiểm tra giả lập",
+              "reason": "MOCK: gate theo manifest",
+              "minimal_fix": null
+            }
+          ],
+          "ratings": {
+            "need_fit": 3,
+            "usability": 3,
+            "aesthetics": 3,
+            "originality": 3,
+            "grounded_explanation": 3
+          },
+          "rating_evidence": {
+            "need_fit": "MOCK: căn cứ giả lập",
+            "usability": "MOCK: căn cứ giả lập",
+            "aesthetics": "MOCK: căn cứ giả lập",
+            "originality": "MOCK: căn cứ giả lập",
+            "grounded_explanation": "MOCK: căn cứ giả lập"
+          }
+        }
+      ]
+    },
+    "compiled_image_prompt": "Create one visual illustration of \"Minh họa trang phục lấy cảm hứng, trên mannequin\".\nRequired visible features: [\"Giữ chủ thể và yêu cầu màu chính\"].\nDesign choices: {\"subject_description\": \"Minh họa trang phục lấy cảm hứng, trên mannequin\", \"palette\": [\"xanh\", \"be\"], \"accessories\": [\"giày đơn giản\"], \"composition\": \"mannequin chính diện\", \"scene\": \"sự kiện trường\", \"extensions\": []}.\nScene and use context: \"sự kiện trường\".\nFraming and composition: \"mannequin chính diện\".\nVariation is allowed only in: [\"màu nhấn\", \"phụ kiện\", \"bố cục\"].\nAvoid: [\"khẳng định phục dựng lịch sử ngoài phạm vi nguồn\", \"đổi yêu cầu đã khóa\"].\nShow the required features clearly enough to inspect.\nUse a coherent silhouette, plausible anatomy and readable details.\nDo not place explanatory captions, citations or watermarks in the composition.\n"
+  },
+  "interpretation": "P02 completed; first P03 was charged before termination. Restart reused the normalized checkpoint and charged a new P03 plus P04. No lost budget and no promise of exactly-once remote API execution."
+}

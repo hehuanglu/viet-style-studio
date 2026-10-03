@@ -1,0 +1,146 @@
+{
+  "evidence_id": "6fb45d3f-87a3-4540-956a-eff0aa72163a",
+  "recorded_at": 1790929778.393843,
+  "event": "awaiting_user",
+  "job": {
+    "request_id": "f21e119d-7e8f-4a7c-a67f-f89e0752cac5",
+    "session_id": "regression-04-01-P2-18",
+    "revision": 1,
+    "status": "awaiting_user",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối trang phục lấy cảm hứng hiện đại nhưng chưa chọn loại nào. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "f21e119d-7e8f-4a7c-a67f-f89e0752cac5",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "explore",
+        "status": "inferred",
+        "evidence_quote": "Tôi muốn phối trang phục lấy cảm hứng hiện đại nhưng chưa chọn loại nào. Cho tôi thẻ gợi ý.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": null,
+        "status": "missing",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "context": [],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối trang phục lấy cảm hứng hiện đại nhưng chưa chọn loại nào.",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [],
+      "hard_constraints": [],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [
+        "Sử dụng chế độ lấy cảm hứng (inspired) theo yêu cầu của người dùng.",
+        "Mục tiêu là khám phá (explore) do người dùng chưa chọn loại trang phục và yêu cầu thẻ gợi ý."
+      ],
+      "conflicts": [],
+      "proposed_questions": [
+        {
+          "field": "subject",
+          "text": "Bạn muốn chọn loại trang phục nào để bắt đầu?",
+          "options": [
+            "áo dài",
+            "áo tứ thân",
+            "áo ngũ thân"
+          ],
+          "reason": "Chưa chọn loại trang phục cụ thể trong khi cần xác định đối tượng để gợi ý.",
+          "impact": "blocking"
+        }
+      ],
+      "status": "needs_clarification"
+    },
+    "questions": [
+      {
+        "field": "subject",
+        "text": "Bạn muốn chọn loại trang phục nào để bắt đầu?",
+        "options": [
+          "áo dài",
+          "áo tứ thân",
+          "áo ngũ thân"
+        ],
+        "reason": "Chưa chọn loại trang phục cụ thể trong khi cần xác định đối tượng để gợi ý.",
+        "impact": "blocking"
+      }
+    ],
+    "question_rounds": 1,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929776.058539
+      },
+      {
+        "sequence": 2,
+        "stage": "awaiting_user",
+        "brief_revision": 1,
+        "timestamp": 1790929778.393787
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2331,
+        "usage": {
+          "promptTokenCount": 1554,
+          "candidatesTokenCount": 480,
+          "totalTokenCount": 2034,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1554
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "3ec9cf055ccd01cb57a8230bedb2eaa6082d8b6a030646c76cbd573d4de54472",
+        "output_hash": "8eeac7fc84a233263d34993e15f5880b789b148096965733881544186943dc48"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.003,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "80654e4558723fa5b82f929cc2d282f222f9cd25e058eb06a09f3bfeeb3eea26",
+      "kit_hash": "c8d7dcc931093527ee9ac9e36f04c97fc4ef31a5fd3b5b33a7a7b7c3759f3597",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929776.0547369
+  }
+}

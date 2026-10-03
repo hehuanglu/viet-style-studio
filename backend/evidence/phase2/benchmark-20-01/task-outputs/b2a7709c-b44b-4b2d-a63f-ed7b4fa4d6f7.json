@@ -1,0 +1,83 @@
+{
+  "evidence_id": "b2a7709c-b44b-4b2d-a63f-ed7b4fa4d6f7",
+  "recorded_at": 1790929342.699337,
+  "request_id": "8dc3c922-eee7-4f31-a16e-108d4a489743",
+  "revision": 1,
+  "task": "P02",
+  "attempt": 1,
+  "output": {
+    "request_id": "8dc3c922-eee7-4f31-a16e-108d4a489743",
+    "revision": 1,
+    "goal": {
+      "field": "goal",
+      "value": "create_look",
+      "status": "inferred",
+      "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường; tuyệt đối không dùng màu đỏ. Cho tôi thẻ gợi ý.",
+      "evidence_turn_id": "T1"
+    },
+    "subject": {
+      "field": "subject",
+      "value": "ao_dai",
+      "status": "explicit",
+      "evidence_quote": "Tôi muốn phối áo dài xanh",
+      "evidence_turn_id": "T1"
+    },
+    "context": [
+      {
+        "field": "event",
+        "value": "sự kiện trường",
+        "status": "explicit",
+        "evidence_quote": "cho sự kiện trường",
+        "evidence_turn_id": "T1"
+      }
+    ],
+    "mode": "inspired",
+    "mode_evidence": {
+      "field": "mode",
+      "value": "inspired",
+      "status": "explicit",
+      "evidence_quote": "lấy cảm hứng hiện đại",
+      "evidence_turn_id": "T1"
+    },
+    "preferences": [
+      {
+        "field": "palette",
+        "value": "xanh",
+        "status": "explicit",
+        "evidence_quote": "áo dài xanh",
+        "evidence_turn_id": "T1"
+      }
+    ],
+    "hard_constraints": [
+      {
+        "id": "hc_1",
+        "field": "palette",
+        "operator": "exclude",
+        "value": "đỏ",
+        "provenance": "user_provided",
+        "evidence_quote": "tuyệt đối không dùng màu đỏ",
+        "rule_id": null
+      }
+    ],
+    "output": "cards",
+    "scoring_profile": "balanced",
+    "assumptions": [
+      "Sử dụng scoring_profile mặc định 'balanced' do chưa có chỉ định cụ thể."
+    ],
+    "conflicts": [],
+    "proposed_questions": [],
+    "status": "ready"
+  },
+  "usage": {
+    "promptTokenCount": 1435,
+    "candidatesTokenCount": 568,
+    "totalTokenCount": 2003,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1435
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

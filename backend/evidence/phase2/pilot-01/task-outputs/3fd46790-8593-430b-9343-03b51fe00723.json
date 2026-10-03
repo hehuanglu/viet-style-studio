@@ -1,0 +1,134 @@
+{
+  "evidence_id": "3fd46790-8593-430b-9343-03b51fe00723",
+  "recorded_at": 1790928588.216043,
+  "request_id": "4e47b9d1-7aa5-4201-89c8-66fa0fa0deb2",
+  "revision": 1,
+  "task": "P04",
+  "attempt": 1,
+  "output": {
+    "audits": [
+      {
+        "candidate_id": "c1",
+        "gate_findings": [
+          {
+            "finding_id": "f_hc_subject",
+            "gate_id": "user_constraints",
+            "rule_id": null,
+            "constraint_id": "hc_subject",
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "subject: ao_dai",
+            "reason": "Ứng viên đáp ứng đúng subject là áo dài.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_hc_palette",
+            "gate_id": "user_constraints",
+            "rule_id": null,
+            "constraint_id": "hc_palette",
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "palette: [\"Xanh dương\", \"Trắng\"]",
+            "reason": "Màu sắc bao gồm màu xanh theo yêu cầu.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_hc_style",
+            "gate_id": "user_constraints",
+            "rule_id": null,
+            "constraint_id": "hc_style",
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "extensions: style: tối giản",
+            "reason": "Phong cách tối giản được tuân thủ.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_cultural",
+            "gate_id": "applicable_cultural_rules",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "not_applicable",
+            "evidence": "applicable: false",
+            "reason": "Gate cultural rules không áp dụng cho cấu hình hiện tại.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_claim_support",
+            "gate_id": "claim_support",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": "S-VNAT-AD",
+            "knowledge_id": "K-AD-PANTS",
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "supporting_excerpt: áo dài over pants or trousers",
+            "reason": "Các claim đều có nguồn hỗ trợ chính xác từ knowledge unit đã verify.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_historical",
+            "gate_id": "historical_scope",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "not_applicable",
+            "evidence": "applicable: false",
+            "reason": "Chế độ là inspired hiện đại, không áp dụng historical scope.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_renderability",
+            "gate_id": "renderability",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "composition và scene đầy đủ",
+            "reason": "Mô tả bố cục và cảnh rõ ràng, có thể render thẻ gợi ý.",
+            "minimal_fix": null
+          }
+        ],
+        "ratings": {
+          "need_fit": 4,
+          "usability": 3,
+          "aesthetics": 3,
+          "originality": 3,
+          "grounded_explanation": 4
+        },
+        "rating_evidence": {
+          "need_fit": "Đáp ứng hoàn toàn các yêu cầu về subject, palette và style.",
+          "usability": "Phù hợp để làm thẻ gợi ý đi sự kiện trường.",
+          "aesthetics": "Màu sắc và phụ kiện hài hòa, tối giản.",
+          "originality": "Thể hiện tốt cảm hứng hiện đại cho áo dài.",
+          "grounded_explanation": "Các claim trích dẫn đúng nguồn cultural fact."
+        }
+      }
+    ]
+  },
+  "usage": {
+    "promptTokenCount": 4106,
+    "candidatesTokenCount": 1095,
+    "totalTokenCount": 5201,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 4106
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

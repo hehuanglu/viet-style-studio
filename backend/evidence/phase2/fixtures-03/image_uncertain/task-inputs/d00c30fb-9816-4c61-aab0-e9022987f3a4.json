@@ -1,0 +1,522 @@
+{
+  "evidence_id": "d00c30fb-9816-4c61-aab0-e9022987f3a4",
+  "recorded_at": 1790934116.8283038,
+  "request_id": "24061eec-de01-4905-b6ca-b3ac5e503ada",
+  "revision": 1,
+  "task": "P02",
+  "attempt": 1,
+  "payload": {
+    "REQUEST_METADATA": {
+      "request_id": "24061eec-de01-4905-b6ca-b3ac5e503ada",
+      "revision": 1
+    },
+    "CURRENT_TURN": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+    "TURN_ID": "T1",
+    "PREVIOUS_BRIEF": null,
+    "DOMAIN_FIELDS": [
+      {
+        "id": "goal",
+        "type": "enum",
+        "values": [
+          "explore",
+          "create_look"
+        ],
+        "required_when": "always",
+        "default_policy": "ask_if_intent_unresolved"
+      },
+      {
+        "id": "subject",
+        "type": "entity_id",
+        "required_when": "event_does_not_allow_subject_recommendation",
+        "default_policy": "offer_known_options",
+        "allowed_entities": [
+          {
+            "id": "ao_dai",
+            "type": "garment",
+            "label": "áo dài",
+            "aliases": [
+              "ao dai"
+            ],
+            "source_id": "S-BRIEF",
+            "visual_invariants": [],
+            "cultural_knowledge_status": "missing"
+          },
+          {
+            "id": "ao_tu_than",
+            "type": "garment",
+            "label": "áo tứ thân",
+            "aliases": [
+              "ao tu than"
+            ],
+            "source_id": "S-BRIEF",
+            "visual_invariants": [],
+            "cultural_knowledge_status": "missing"
+          },
+          {
+            "id": "ao_ngu_than",
+            "type": "garment",
+            "label": "áo ngũ thân",
+            "aliases": [
+              "ao ngu than"
+            ],
+            "source_id": "S-BRIEF",
+            "visual_invariants": [],
+            "cultural_knowledge_status": "missing"
+          }
+        ]
+      },
+      {
+        "id": "event",
+        "type": "string",
+        "required_when": "event_specific_rules_or_user_constraint",
+        "default_policy": "general_context_with_disclosed_assumption"
+      },
+      {
+        "id": "mode",
+        "type": "enum",
+        "values": [
+          "inspired",
+          "historical"
+        ],
+        "required_when": "historical_or_ritual_intent_is_ambiguous",
+        "default_policy": "inspired_if_no_historical_or_ritual_intent"
+      },
+      {
+        "id": "region",
+        "type": "string",
+        "required_when": "applicable_rule_requires_region",
+        "default_policy": "null_without_region_claim"
+      },
+      {
+        "id": "period",
+        "type": "string",
+        "required_when": "historical_scope_requires_period",
+        "default_policy": "needs_evidence_if_unresolved"
+      },
+      {
+        "id": "palette",
+        "type": "string_list",
+        "required_when": "explicit_color_constraint",
+        "default_policy": "suggest_three_palettes"
+      },
+      {
+        "id": "style",
+        "type": "string",
+        "required_when": "explicit_style_constraint",
+        "default_policy": "balanced"
+      }
+    ],
+    "QUESTION_STATE": {
+      "rounds_used": 0,
+      "max_rounds": 2,
+      "skip": false
+    },
+    "ENABLED_CAPABILITIES": [
+      "suggestion_cards",
+      "image_generation"
+    ]
+  },
+  "prompt": "TASK: NORMALIZE_USER_BRIEF\n\nRequest ID và revision do ứng dụng cấp, chỉ sao chép: {\"request_id\": \"24061eec-de01-4905-b6ca-b3ac5e503ada\", \"revision\": 1}\nLượt hiện tại: \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\"\nMã lượt: \"T1\"\nBrief trước đó, gồm evidence/assumptions: null\nTrường dữ liệu và chính sách default của domain: [{\"id\": \"goal\", \"type\": \"enum\", \"values\": [\"explore\", \"create_look\"], \"required_when\": \"always\", \"default_policy\": \"ask_if_intent_unresolved\"}, {\"id\": \"subject\", \"type\": \"entity_id\", \"required_when\": \"event_does_not_allow_subject_recommendation\", \"default_policy\": \"offer_known_options\", \"allowed_entities\": [{\"id\": \"ao_dai\", \"type\": \"garment\", \"label\": \"áo dài\", \"aliases\": [\"ao dai\"], \"source_id\": \"S-BRIEF\", \"visual_invariants\": [], \"cultural_knowledge_status\": \"missing\"}, {\"id\": \"ao_tu_than\", \"type\": \"garment\", \"label\": \"áo tứ thân\", \"aliases\": [\"ao tu than\"], \"source_id\": \"S-BRIEF\", \"visual_invariants\": [], \"cultural_knowledge_status\": \"missing\"}, {\"id\": \"ao_ngu_than\", \"type\": \"garment\", \"label\": \"áo ngũ thân\", \"aliases\": [\"ao ngu than\"], \"source_id\": \"S-BRIEF\", \"visual_invariants\": [], \"cultural_knowledge_status\": \"missing\"}]}, {\"id\": \"event\", \"type\": \"string\", \"required_when\": \"event_specific_rules_or_user_constraint\", \"default_policy\": \"general_context_with_disclosed_assumption\"}, {\"id\": \"mode\", \"type\": \"enum\", \"values\": [\"inspired\", \"historical\"], \"required_when\": \"historical_or_ritual_intent_is_ambiguous\", \"default_policy\": \"inspired_if_no_historical_or_ritual_intent\"}, {\"id\": \"region\", \"type\": \"string\", \"required_when\": \"applicable_rule_requires_region\", \"default_policy\": \"null_without_region_claim\"}, {\"id\": \"period\", \"type\": \"string\", \"required_when\": \"historical_scope_requires_period\", \"default_policy\": \"needs_evidence_if_unresolved\"}, {\"id\": \"palette\", \"type\": \"string_list\", \"required_when\": \"explicit_color_constraint\", \"default_policy\": \"suggest_three_palettes\"}, {\"id\": \"style\", \"type\": \"string\", \"required_when\": \"explicit_style_constraint\", \"default_policy\": \"balanced\"}]\nTrạng thái hỏi: {\"rounds_used\": 0, \"max_rounds\": 2, \"skip\": false}\nKhả năng đã bật: [\"suggestion_cards\", \"image_generation\"]\n\n1. Trích goal, subject, context, mode, preferences, hard_constraints,\n   output và scoring_profile. Giữ thông tin trước đó trừ khi bị sửa rõ.\n2. Mỗi slot có value, status và evidence_quote; evidence là câu thực tế\n   trong một lượt đã cung cấp. Không có evidence thì status không là explicit.\n3. Hard constraint đến từ điều bắt buộc/cấm người dùng nói rõ hoặc domain rule.\n   Sở thích nhẹ không tự thành luật cấm. Đừng bỏ sự phủ định hoặc mâu thuẫn.\n   field=subject chỉ dùng để khóa ID/tên loại trang phục, không dùng cho mô tả\n   quần hoặc góc nhìn. Mặc cùng quần: bottom_garment/include/quần.\n   Hiển thị rõ một chi tiết: composition hoặc subject_description.\n   Số phụ kiện: accessories với at_most/at_least/equals và value là số nguyên;\n   equals \"0\" có nghĩa danh sách phụ kiện rỗng. Màu sắc/phụ kiện cụ thể dùng\n   include/exclude/equals với tên hoặc mảng JSON dạng chuỗi.\n4. Phân biệt missing và conflicting. Ghi assumption khi dùng default.\n5. Đề xuất tối đa 2 câu hỏi ở vòng đầu, tối đa 1 ở vòng hai.\n   Chỉ hỏi trường ảnh hưởng nhánh xử lý, luật áp dụng hoặc hard constraint.\n   Ghi field, reason và impact=blocking|quality|optional.\n6. Nếu hết vòng hoặc người dùng skip, không đề xuất thêm câu hỏi.\n   Trường mềm dùng default; blocker không có default → needs_evidence\n   hoặc needs_resolution. Không tự đổi yêu cầu lịch sử thành lấy cảm hứng.\n7. Không xác thực phát biểu lịch sử từ raw input; chỉ ghi user_provided\n   trong constraint/context và để bước truy xuất/audit đối chiếu.\n8. Không tạo avatar/giới tính/tuổi/dáng người nếu chưa có nhu cầu rõ.\n\nTrả đúng NormalizedBrief. Bộ điều phối, không phải task này, tăng bộ đếm\nvà quyết định câu hỏi được hiển thị.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "request_id": {
+        "type": "string"
+      },
+      "revision": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "goal": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "explicit",
+              "inferred",
+              "default",
+              "missing",
+              "conflicting"
+            ]
+          },
+          "evidence_quote": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence_turn_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "field",
+          "value",
+          "status",
+          "evidence_quote",
+          "evidence_turn_id"
+        ],
+        "additionalProperties": false
+      },
+      "subject": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "explicit",
+              "inferred",
+              "default",
+              "missing",
+              "conflicting"
+            ]
+          },
+          "evidence_quote": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence_turn_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "field",
+          "value",
+          "status",
+          "evidence_quote",
+          "evidence_turn_id"
+        ],
+        "additionalProperties": false
+      },
+      "context": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "explicit",
+                "inferred",
+                "default",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "evidence_quote": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence_turn_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "field",
+            "value",
+            "status",
+            "evidence_quote",
+            "evidence_turn_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "mode": {
+        "type": "string",
+        "enum": [
+          "inspired",
+          "historical",
+          "unresolved"
+        ]
+      },
+      "mode_evidence": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "explicit",
+              "inferred",
+              "default",
+              "missing",
+              "conflicting"
+            ]
+          },
+          "evidence_quote": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence_turn_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "field",
+          "value",
+          "status",
+          "evidence_quote",
+          "evidence_turn_id"
+        ],
+        "additionalProperties": false
+      },
+      "preferences": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "explicit",
+                "inferred",
+                "default",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "evidence_quote": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence_turn_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "field",
+            "value",
+            "status",
+            "evidence_quote",
+            "evidence_turn_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "hard_constraints": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "field": {
+              "type": "string"
+            },
+            "operator": {
+              "type": "string",
+              "enum": [
+                "include",
+                "exclude",
+                "equals",
+                "at_most",
+                "at_least",
+                "preserve"
+              ]
+            },
+            "value": {
+              "type": "string"
+            },
+            "provenance": {
+              "type": "string",
+              "enum": [
+                "user_provided",
+                "domain_rule"
+              ]
+            },
+            "evidence_quote": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rule_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "field",
+            "operator",
+            "value",
+            "provenance",
+            "evidence_quote",
+            "rule_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "output": {
+        "type": "string",
+        "enum": [
+          "cards",
+          "image",
+          "mockup",
+          "unresolved"
+        ]
+      },
+      "scoring_profile": {
+        "type": "string",
+        "enum": [
+          "balanced",
+          "creative",
+          "practical",
+          "heritage"
+        ]
+      },
+      "assumptions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "conflicts": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "proposed_questions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 4
+            },
+            "reason": {
+              "type": "string"
+            },
+            "impact": {
+              "type": "string",
+              "enum": [
+                "blocking",
+                "quality",
+                "optional"
+              ]
+            }
+          },
+          "required": [
+            "field",
+            "text",
+            "options",
+            "reason",
+            "impact"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 2
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "ready",
+          "needs_clarification",
+          "needs_evidence",
+          "needs_resolution"
+        ]
+      }
+    },
+    "required": [
+      "request_id",
+      "revision",
+      "goal",
+      "subject",
+      "context",
+      "mode",
+      "mode_evidence",
+      "preferences",
+      "hard_constraints",
+      "output",
+      "scoring_profile",
+      "assumptions",
+      "conflicts",
+      "proposed_questions",
+      "status"
+    ],
+    "additionalProperties": false
+  },
+  "images": []
+}

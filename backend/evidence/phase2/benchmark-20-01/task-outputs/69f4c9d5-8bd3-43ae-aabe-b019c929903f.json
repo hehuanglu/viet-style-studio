@@ -1,0 +1,121 @@
+{
+  "evidence_id": "69f4c9d5-8bd3-43ae-aabe-b019c929903f",
+  "recorded_at": 1790929473.5485902,
+  "request_id": "1b1b6373-4bb5-4b1a-9965-efcc78e8bf84",
+  "revision": 1,
+  "task": "P04",
+  "attempt": 1,
+  "output": {
+    "audits": [
+      {
+        "candidate_id": "cand-2",
+        "gate_findings": [
+          {
+            "finding_id": "f-1",
+            "gate_id": "user_constraints",
+            "rule_id": null,
+            "constraint_id": "hc-1",
+            "source_id": "S-VNAT-AD",
+            "knowledge_id": "K-AD-PANTS",
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Áo dài hiện đại sắc xanh ngọc nhẹ nhàng, kết hợp quần ống rộng truyền thống rõ ràng.",
+            "reason": "Concept mô tả áo dài mặc cùng quần đáp ứng đúng ràng buộc người dùng.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f-2",
+            "gate_id": "user_constraints",
+            "rule_id": null,
+            "constraint_id": "hc-2",
+            "source_id": "S-VNAT-AD",
+            "knowledge_id": "K-AD-PANTS",
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Góc chụp chính diện, hiển thị rõ phần quần.",
+            "reason": "Concept đáp ứng yêu cầu hiển thị quần rõ.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f-3",
+            "gate_id": "applicable_cultural_rules",
+            "rule_id": "R-AD-MODERN-PANTS",
+            "constraint_id": null,
+            "source_id": "S-VNAT-AD",
+            "knowledge_id": "K-AD-PANTS",
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "extensions: [{'key': 'bottom_garment', 'value': 'quần'}]",
+            "reason": "Thỏa mãn quy tắc R-AD-MODERN-PANTS về việc ghi extension bottom_garment với value quần.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f-4",
+            "gate_id": "claim_support",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": "S-VNAT-AD",
+            "knowledge_id": "K-AD-PANTS",
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "claims chứa knowledge_id K-AD-PANTS và K-AD-CHOICE với trích dẫn khớp nguồn.",
+            "reason": "Các phát biểu lịch sử/văn hóa có nguồn hỗ trợ chính xác từ S-VNAT-AD.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f-5",
+            "gate_id": "historical_scope",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": "S-VNAT-AD",
+            "knowledge_id": "K-AD-PANTS",
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Phạm vi hiện đại với áo dài mặc cùng quần.",
+            "reason": "Phù hợp với giới hạn lịch sử hiện đại được hỗ trợ trong pack.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f-6",
+            "gate_id": "renderability",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Subject, palette, accessories và scene được mô tả rõ ràng đủ để dựng hình.",
+            "reason": "Thông số thiết kế đủ chi tiết để render.",
+            "minimal_fix": null
+          }
+        ],
+        "ratings": {
+          "need_fit": 4,
+          "usability": 4,
+          "aesthetics": 3,
+          "originality": 3,
+          "grounded_explanation": 4
+        },
+        "rating_evidence": {
+          "need_fit": "Đáp ứng đầy đủ các yêu cầu và ràng buộc cứng của người dùng về áo dài hiện đại màu xanh có quần.",
+          "usability": "Cấu trúc thiết kế rõ ràng, sẵn sàng để tạo thẻ gợi ý hoặc mockup.",
+          "aesthetics": "Phối màu xanh ngọc và kem nhã nhặn, bối cảnh phố cổ tối giản phù hợp.",
+          "originality": "Sử dụng các yếu tố truyền thống tái hiện hợp lý trong bối cảnh hiện đại.",
+          "grounded_explanation": "Các claim và quy tắc văn hóa đều được căn cứ chặt chẽ từ nguồn S-VNAT-AD."
+        }
+      }
+    ]
+  },
+  "usage": {
+    "promptTokenCount": 4410,
+    "candidatesTokenCount": 1151,
+    "totalTokenCount": 5561,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 4410
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

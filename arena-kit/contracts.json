@@ -1,0 +1,849 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-arena:contracts:1.0.0",
+  "description": "Application contracts. Select one task schema and adapt supported JSON Schema features before sending to Gemini.",
+  "$defs": {
+    "FieldSlot": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "value": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "explicit",
+            "inferred",
+            "default",
+            "missing",
+            "conflicting"
+          ]
+        },
+        "evidence_quote": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_turn_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "field",
+        "value",
+        "status",
+        "evidence_quote",
+        "evidence_turn_id"
+      ],
+      "additionalProperties": false
+    },
+    "HardConstraint": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "field": {
+          "type": "string"
+        },
+        "operator": {
+          "type": "string",
+          "enum": [
+            "include",
+            "exclude",
+            "equals",
+            "at_most",
+            "at_least",
+            "preserve"
+          ]
+        },
+        "value": {
+          "type": "string"
+        },
+        "provenance": {
+          "type": "string",
+          "enum": [
+            "user_provided",
+            "domain_rule"
+          ]
+        },
+        "evidence_quote": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rule_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "field",
+        "operator",
+        "value",
+        "provenance",
+        "evidence_quote",
+        "rule_id"
+      ],
+      "additionalProperties": false
+    },
+    "Question": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4
+        },
+        "reason": {
+          "type": "string"
+        },
+        "impact": {
+          "type": "string",
+          "enum": [
+            "blocking",
+            "quality",
+            "optional"
+          ]
+        }
+      },
+      "required": [
+        "field",
+        "text",
+        "options",
+        "reason",
+        "impact"
+      ],
+      "additionalProperties": false
+    },
+    "NormalizedBrief": {
+      "type": "object",
+      "properties": {
+        "request_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "goal": {
+          "$ref": "#/$defs/FieldSlot"
+        },
+        "subject": {
+          "$ref": "#/$defs/FieldSlot"
+        },
+        "context": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FieldSlot"
+          }
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "inspired",
+            "historical",
+            "unresolved"
+          ]
+        },
+        "mode_evidence": {
+          "$ref": "#/$defs/FieldSlot"
+        },
+        "preferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FieldSlot"
+          }
+        },
+        "hard_constraints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/HardConstraint"
+          }
+        },
+        "output": {
+          "type": "string",
+          "enum": [
+            "cards",
+            "image",
+            "mockup",
+            "unresolved"
+          ]
+        },
+        "scoring_profile": {
+          "type": "string",
+          "enum": [
+            "balanced",
+            "creative",
+            "practical",
+            "heritage"
+          ]
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "proposed_questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Question"
+          },
+          "maxItems": 2
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "needs_clarification",
+            "needs_evidence",
+            "needs_resolution"
+          ]
+        }
+      },
+      "required": [
+        "request_id",
+        "revision",
+        "goal",
+        "subject",
+        "context",
+        "mode",
+        "mode_evidence",
+        "preferences",
+        "hard_constraints",
+        "output",
+        "scoring_profile",
+        "assumptions",
+        "conflicts",
+        "proposed_questions",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "Claim": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "knowledge_id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "supporting_excerpt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "knowledge_id",
+        "source_id",
+        "supporting_excerpt"
+      ],
+      "additionalProperties": false
+    },
+    "Extension": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "Candidate": {
+      "type": "object",
+      "properties": {
+        "candidate_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string"
+        },
+        "target_need": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "design_mode": {
+          "type": "string",
+          "enum": [
+            "inspired",
+            "historical"
+          ]
+        },
+        "design": {
+          "type": "object",
+          "properties": {
+            "subject_description": {
+              "type": "string"
+            },
+            "palette": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "accessories": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "composition": {
+              "type": "string"
+            },
+            "scene": {
+              "type": "string"
+            },
+            "extensions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Extension"
+              }
+            }
+          },
+          "required": [
+            "subject_description",
+            "palette",
+            "accessories",
+            "composition",
+            "scene",
+            "extensions"
+          ],
+          "additionalProperties": false
+        },
+        "keep_invariants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allowed_changes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Claim"
+          }
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "caveats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "candidate_id",
+        "revision",
+        "title",
+        "target_need",
+        "subject",
+        "design_mode",
+        "design",
+        "keep_invariants",
+        "allowed_changes",
+        "claims",
+        "assumptions",
+        "caveats"
+      ],
+      "additionalProperties": false
+    },
+    "CandidateBatch": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "partial",
+            "needs_evidence",
+            "no_feasible_candidate"
+          ]
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Candidate"
+          },
+          "maxItems": 3
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "candidates",
+        "limitations"
+      ],
+      "additionalProperties": false
+    },
+    "Finding": {
+      "type": "object",
+      "properties": {
+        "finding_id": {
+          "type": "string"
+        },
+        "gate_id": {
+          "type": "string"
+        },
+        "rule_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "constraint_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "knowledge_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "hard",
+            "soft",
+            "advisory"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail",
+            "uncertain",
+            "not_applicable"
+          ]
+        },
+        "evidence": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "minimal_fix": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "finding_id",
+        "gate_id",
+        "rule_id",
+        "constraint_id",
+        "source_id",
+        "knowledge_id",
+        "severity",
+        "status",
+        "evidence",
+        "reason",
+        "minimal_fix"
+      ],
+      "additionalProperties": false
+    },
+    "Ratings": {
+      "type": "object",
+      "properties": {
+        "need_fit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "usability": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "aesthetics": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "originality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "grounded_explanation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        }
+      },
+      "required": [
+        "need_fit",
+        "usability",
+        "aesthetics",
+        "originality",
+        "grounded_explanation"
+      ],
+      "additionalProperties": false
+    },
+    "RatingEvidence": {
+      "type": "object",
+      "properties": {
+        "need_fit": {
+          "type": "string"
+        },
+        "usability": {
+          "type": "string"
+        },
+        "aesthetics": {
+          "type": "string"
+        },
+        "originality": {
+          "type": "string"
+        },
+        "grounded_explanation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "need_fit",
+        "usability",
+        "aesthetics",
+        "originality",
+        "grounded_explanation"
+      ],
+      "additionalProperties": false
+    },
+    "CandidateAudit": {
+      "type": "object",
+      "properties": {
+        "candidate_id": {
+          "type": "string"
+        },
+        "gate_findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Finding"
+          }
+        },
+        "ratings": {
+          "$ref": "#/$defs/Ratings"
+        },
+        "rating_evidence": {
+          "$ref": "#/$defs/RatingEvidence"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "gate_findings",
+        "ratings",
+        "rating_evidence"
+      ],
+      "additionalProperties": false
+    },
+    "CandidateAuditBatch": {
+      "type": "object",
+      "properties": {
+        "audits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CandidateAudit"
+          }
+        }
+      },
+      "required": [
+        "audits"
+      ],
+      "additionalProperties": false
+    },
+    "ImageAudit": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Finding"
+          }
+        },
+        "visual_quality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "quality_reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "findings",
+        "visual_quality",
+        "quality_reason"
+      ],
+      "additionalProperties": false
+    },
+    "ImageAuditBatch": {
+      "type": "object",
+      "properties": {
+        "audits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ImageAudit"
+          }
+        }
+      },
+      "required": [
+        "audits"
+      ],
+      "additionalProperties": false
+    },
+    "EditDelta": {
+      "type": "object",
+      "properties": {
+        "target_region": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string",
+          "enum": [
+            "recolor",
+            "replace",
+            "add",
+            "remove",
+            "restyle"
+          ]
+        },
+        "new_value": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "keep": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "target_region",
+        "operation",
+        "new_value",
+        "keep",
+        "reference_ids"
+      ],
+      "additionalProperties": false
+    },
+    "EditPlan": {
+      "type": "object",
+      "properties": {
+        "parent_artifact_id": {
+          "type": "string"
+        },
+        "parent_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "needs_resolution",
+            "blocked"
+          ]
+        },
+        "delta": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EditDelta"
+          }
+        },
+        "requires_retrieval": {
+          "type": "boolean"
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "caveats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "parent_artifact_id",
+        "parent_revision",
+        "status",
+        "delta",
+        "requires_retrieval",
+        "conflicts",
+        "caveats"
+      ],
+      "additionalProperties": false
+    },
+    "CandidateRepair": {
+      "type": "object",
+      "properties": {
+        "candidate": {
+          "$ref": "#/$defs/Candidate"
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "finding_id": {
+                "type": "string"
+              },
+              "change": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "finding_id",
+              "change"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "repaired",
+            "needs_evidence",
+            "unrepairable"
+          ]
+        }
+      },
+      "required": [
+        "candidate",
+        "changes",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ImagePrompt": {
+      "type": "object",
+      "properties": {
+        "candidate_id": {
+          "type": "string"
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 100,
+          "maxLength": 16000
+        },
+        "covered_requirement_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "candidate_id",
+        "prompt",
+        "covered_requirement_ids"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/NormalizedBrief"
+    },
+    {
+      "$ref": "#/$defs/CandidateBatch"
+    },
+    {
+      "$ref": "#/$defs/CandidateAuditBatch"
+    },
+    {
+      "$ref": "#/$defs/ImageAuditBatch"
+    },
+    {
+      "$ref": "#/$defs/EditPlan"
+    }
+  ]
+}

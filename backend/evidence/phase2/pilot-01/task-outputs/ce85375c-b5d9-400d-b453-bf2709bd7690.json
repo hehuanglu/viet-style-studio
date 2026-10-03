@@ -1,0 +1,106 @@
+{
+  "evidence_id": "ce85375c-b5d9-400d-b453-bf2709bd7690",
+  "recorded_at": 1790928581.220327,
+  "request_id": "4e47b9d1-7aa5-4201-89c8-66fa0fa0deb2",
+  "revision": 1,
+  "task": "P02",
+  "attempt": 1,
+  "output": {
+    "request_id": "4e47b9d1-7aa5-4201-89c8-66fa0fa0deb2",
+    "revision": 1,
+    "goal": {
+      "field": "goal",
+      "value": "create_look",
+      "status": "explicit",
+      "evidence_quote": "Tôi muốn phối áo dài xanh, tối giản, lấy cảm hứng hiện đại, đi sự kiện ở trường. Cho tôi thẻ gợi ý.",
+      "evidence_turn_id": "T1"
+    },
+    "subject": {
+      "field": "subject",
+      "value": "ao_dai",
+      "status": "explicit",
+      "evidence_quote": "Tôi muốn phối áo dài xanh, tối giản, lấy cảm hứng hiện đại, đi sự kiện ở trường. Cho tôi thẻ gợi ý.",
+      "evidence_turn_id": "T1"
+    },
+    "context": [
+      {
+        "field": "event",
+        "value": "sự kiện ở trường",
+        "status": "explicit",
+        "evidence_quote": "đi sự kiện ở trường",
+        "evidence_turn_id": "T1"
+      }
+    ],
+    "mode": "inspired",
+    "mode_evidence": {
+      "field": "mode",
+      "value": "inspired",
+      "status": "explicit",
+      "evidence_quote": "lấy cảm hứng hiện đại",
+      "evidence_turn_id": "T1"
+    },
+    "preferences": [
+      {
+        "field": "palette",
+        "value": "xanh",
+        "status": "explicit",
+        "evidence_quote": "áo dài xanh",
+        "evidence_turn_id": "T1"
+      },
+      {
+        "field": "style",
+        "value": "tối giản",
+        "status": "explicit",
+        "evidence_quote": "tối giản",
+        "evidence_turn_id": "T1"
+      }
+    ],
+    "hard_constraints": [
+      {
+        "id": "hc_subject",
+        "field": "subject",
+        "operator": "equals",
+        "value": "ao_dai",
+        "provenance": "user_provided",
+        "evidence_quote": "Tôi muốn phối áo dài xanh",
+        "rule_id": null
+      },
+      {
+        "id": "hc_palette",
+        "field": "palette",
+        "operator": "include",
+        "value": "xanh",
+        "provenance": "user_provided",
+        "evidence_quote": "áo dài xanh",
+        "rule_id": null
+      },
+      {
+        "id": "hc_style",
+        "field": "style",
+        "operator": "equals",
+        "value": "tối giản",
+        "provenance": "user_provided",
+        "evidence_quote": "tối giản",
+        "rule_id": null
+      }
+    ],
+    "output": "cards",
+    "scoring_profile": "balanced",
+    "assumptions": [],
+    "conflicts": [],
+    "proposed_questions": [],
+    "status": "ready"
+  },
+  "usage": {
+    "promptTokenCount": 1437,
+    "candidatesTokenCount": 762,
+    "totalTokenCount": 2199,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1437
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "evidence_id": "941802d7-9a9b-465d-b4b6-2bb1f0036237",
+  "recorded_at": 1790929290.9862359,
+  "event": "retrieving",
+  "job": {
+    "request_id": "3292985e-b29a-4a0c-a804-1d3e6803a811",
+    "session_id": "benchmark-20-01-repeat",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài xanh, tối giản, lấy cảm hứng hiện đại, đi sự kiện ở trường. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "3292985e-b29a-4a0c-a804-1d3e6803a811",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh, tối giản, lấy cảm hứng hiện đại, đi sự kiện ở trường. Cho tôi thẻ gợi ý.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện ở trường",
+          "status": "explicit",
+          "evidence_quote": "đi sự kiện ở trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "phối áo dài xanh",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "style",
+          "value": "tối giản",
+          "status": "explicit",
+          "evidence_quote": "tối giản",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "hc_1",
+          "field": "palette",
+          "operator": "include",
+          "value": "xanh",
+          "provenance": "user_provided",
+          "evidence_quote": "phối áo dài xanh",
+          "rule_id": null
+        },
+        {
+          "id": "hc_2",
+          "field": "style",
+          "operator": "equals",
+          "value": "tối giản",
+          "provenance": "user_provided",
+          "evidence_quote": "tối giản",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929288.1600509
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929290.985399
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2822,
+        "usage": {
+          "promptTokenCount": 1437,
+          "candidatesTokenCount": 674,
+          "totalTokenCount": 2111,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1437
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "215fd9a36372f7e828eeefcd32df9b6ecef33eed9d2ba76fe4d816142dd3d969",
+        "output_hash": "dc36dace2b3db5f12e8d1a8f54a23cc7717f2ceae3ad696d7cc4c237cebcc5a3"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.002,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929288.15812
+  }
+}

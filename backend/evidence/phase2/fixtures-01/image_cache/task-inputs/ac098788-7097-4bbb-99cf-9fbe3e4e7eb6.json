@@ -1,0 +1,295 @@
+{
+  "evidence_id": "ac098788-7097-4bbb-99cf-9fbe3e4e7eb6",
+  "recorded_at": 1790929408.1500921,
+  "request_id": "24931f5f-f836-46d6-9283-ee62bb29dee8",
+  "revision": 1,
+  "task": "P06",
+  "attempt": 1,
+  "payload": {
+    "IMAGE_ARTIFACTS": [
+      {
+        "artifact_id": "ea48625b-2850-49f6-a9a5-3530e7dd9f68",
+        "hash": "c054eec0ca71070d8406b12c9e0b1745c861d337f4818c5fe8334e1b4c0dc425",
+        "image_order": "first image is the only output to audit; optional second image is the original reference for edit_preservation",
+        "reference_hash": null
+      }
+    ],
+    "APPROVED_CONCEPTS": [
+      {
+        "candidate_id": "C1",
+        "revision": 1,
+        "title": "Tối giản",
+        "target_need": "Phối đồ cho bối cảnh đã chọn",
+        "subject": "ao_dai",
+        "design_mode": "inspired",
+        "design": {
+          "subject_description": "Minh họa trang phục lấy cảm hứng, trên mannequin",
+          "palette": [
+            "xanh",
+            "be"
+          ],
+          "accessories": [
+            "giày đơn giản"
+          ],
+          "composition": "mannequin chính diện",
+          "scene": "sự kiện trường",
+          "extensions": []
+        },
+        "keep_invariants": [
+          "Giữ chủ thể và yêu cầu màu chính"
+        ],
+        "allowed_changes": [
+          "màu nhấn",
+          "phụ kiện",
+          "bố cục"
+        ],
+        "claims": [],
+        "assumptions": [],
+        "caveats": [
+          "Chưa có nguồn văn hóa để xác minh nguồn gốc hoặc đặc trưng lịch sử."
+        ]
+      }
+    ],
+    "NORMALIZED_BRIEF": {
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "default",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "period",
+          "value": "hiện đại",
+          "status": "explicit",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "C-COLOR",
+          "field": "palette",
+          "operator": "include",
+          "value": "xanh",
+          "provenance": "user_provided",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "rule_id": null
+        }
+      ],
+      "output": "image",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "request_id": "24931f5f-f836-46d6-9283-ee62bb29dee8",
+      "revision": 1,
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "VISIBLE_RULES": [],
+    "EXPECTED_IMAGE_GATES": [
+      {
+        "gate_id": "visible_user_constraints",
+        "rule_id": null,
+        "constraint_id": null,
+        "severity": "hard",
+        "applicable": true,
+        "check": "Chủ thể, màu chính, bối cảnh và bố cục phải nhìn thấy rõ; không dùng prompt làm bằng chứng."
+      },
+      {
+        "gate_id": "visible_invariants",
+        "rule_id": null,
+        "constraint_id": null,
+        "severity": "hard",
+        "applicable": true
+      },
+      {
+        "gate_id": "major_visual_defects",
+        "rule_id": null,
+        "constraint_id": null,
+        "severity": "hard",
+        "applicable": true
+      },
+      {
+        "gate_id": "edit_preservation",
+        "rule_id": null,
+        "constraint_id": null,
+        "severity": "hard",
+        "applicable": false
+      },
+      {
+        "gate_id": "visible_user_constraints",
+        "rule_id": null,
+        "constraint_id": "C-COLOR",
+        "severity": "hard",
+        "applicable": true,
+        "constraint": {
+          "id": "C-COLOR",
+          "field": "palette",
+          "operator": "include",
+          "value": "xanh",
+          "provenance": "user_provided",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "rule_id": null
+        }
+      }
+    ]
+  },
+  "prompt": "TASK: INSPECT_GENERATED_IMAGES\n\nẢnh đính kèm và ID: [{\"artifact_id\": \"ea48625b-2850-49f6-a9a5-3530e7dd9f68\", \"hash\": \"c054eec0ca71070d8406b12c9e0b1745c861d337f4818c5fe8334e1b4c0dc425\", \"image_order\": \"first image is the only output to audit; optional second image is the original reference for edit_preservation\", \"reference_hash\": null}]\nConcept đã duyệt tương ứng: [{\"candidate_id\": \"C1\", \"revision\": 1, \"title\": \"Tối giản\", \"target_need\": \"Phối đồ cho bối cảnh đã chọn\", \"subject\": \"ao_dai\", \"design_mode\": \"inspired\", \"design\": {\"subject_description\": \"Minh họa trang phục lấy cảm hứng, trên mannequin\", \"palette\": [\"xanh\", \"be\"], \"accessories\": [\"giày đơn giản\"], \"composition\": \"mannequin chính diện\", \"scene\": \"sự kiện trường\", \"extensions\": []}, \"keep_invariants\": [\"Giữ chủ thể và yêu cầu màu chính\"], \"allowed_changes\": [\"màu nhấn\", \"phụ kiện\", \"bố cục\"], \"claims\": [], \"assumptions\": [], \"caveats\": [\"Chưa có nguồn văn hóa để xác minh nguồn gốc hoặc đặc trưng lịch sử.\"]}]\nBrief: {\"goal\": {\"field\": \"goal\", \"value\": \"create_look\", \"status\": \"default\", \"evidence_quote\": null, \"evidence_turn_id\": null}, \"subject\": {\"field\": \"subject\", \"value\": \"ao_dai\", \"status\": \"explicit\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"evidence_turn_id\": \"T1\"}, \"context\": [{\"field\": \"event\", \"value\": \"sự kiện trường\", \"status\": \"explicit\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"evidence_turn_id\": \"T1\"}, {\"field\": \"period\", \"value\": \"hiện đại\", \"status\": \"explicit\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"evidence_turn_id\": \"T1\"}], \"mode\": \"inspired\", \"mode_evidence\": {\"field\": \"mode\", \"value\": \"inspired\", \"status\": \"explicit\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"evidence_turn_id\": \"T1\"}, \"preferences\": [{\"field\": \"palette\", \"value\": \"xanh\", \"status\": \"explicit\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"evidence_turn_id\": \"T1\"}], \"hard_constraints\": [{\"id\": \"C-COLOR\", \"field\": \"palette\", \"operator\": \"include\", \"value\": \"xanh\", \"provenance\": \"user_provided\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"rule_id\": null}], \"output\": \"image\", \"scoring_profile\": \"balanced\", \"assumptions\": [], \"conflicts\": [], \"request_id\": \"24931f5f-f836-46d6-9283-ee62bb29dee8\", \"revision\": 1, \"proposed_questions\": [], \"status\": \"ready\"}\nLuật có thể nhìn thấy, kèm căn cứ/phạm vi: []\nGate ảnh phải kiểm tra: [{\"gate_id\": \"visible_user_constraints\", \"rule_id\": null, \"constraint_id\": null, \"severity\": \"hard\", \"applicable\": true, \"check\": \"Chủ thể, màu chính, bối cảnh và bố cục phải nhìn thấy rõ; không dùng prompt làm bằng chứng.\"}, {\"gate_id\": \"visible_invariants\", \"rule_id\": null, \"constraint_id\": null, \"severity\": \"hard\", \"applicable\": true}, {\"gate_id\": \"major_visual_defects\", \"rule_id\": null, \"constraint_id\": null, \"severity\": \"hard\", \"applicable\": true}, {\"gate_id\": \"edit_preservation\", \"rule_id\": null, \"constraint_id\": null, \"severity\": \"hard\", \"applicable\": false}, {\"gate_id\": \"visible_user_constraints\", \"rule_id\": null, \"constraint_id\": \"C-COLOR\", \"severity\": \"hard\", \"applicable\": true, \"constraint\": {\"id\": \"C-COLOR\", \"field\": \"palette\", \"operator\": \"include\", \"value\": \"xanh\", \"provenance\": \"user_provided\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"rule_id\": null}}]\n\nĐánh giá thứ thật sự nhìn thấy trong từng ảnh.\nKiểm tra chủ thể, màu/ràng buộc chính, invariants, phụ kiện, bối cảnh,\nlỗi tạo hình lớn và vùng cần giữ khi đây là một edit.\nKhông lấy mô tả prompt làm bằng chứng ảnh đã thể hiện đúng.\nKhông suy ra niên đại, nguồn gốc hoặc chi tiết bị che từ vẻ ngoài chung.\n\nVới mỗi gate: status=pass|fail|uncertain|not_applicable,\nevidence là quan sát ngắn từ ảnh, rule_id/constraint_id và minimal_fix.\nNếu chi tiết không thấy hoặc độ phân giải thiếu, status=uncertain.\nNếu ảnh đổi yếu tố đã khóa, status=fail dù hình ảnh hài hòa.\nCho visual_quality 0..4 với lý do cụ thể; điểm đẹp không bù hard fail.\n\nTrả đúng ImageAuditBatch theo artifact_id.\nỨng dụng tính final_status; task không tự khẳng định được chuyên gia xác minh.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "audits": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "artifact_id": {
+              "type": "string"
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "finding_id": {
+                    "type": "string"
+                  },
+                  "gate_id": {
+                    "type": "string"
+                  },
+                  "rule_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "constraint_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "source_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "knowledge_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "hard",
+                      "soft",
+                      "advisory"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "fail",
+                      "uncertain",
+                      "not_applicable"
+                    ]
+                  },
+                  "evidence": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "minimal_fix": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "finding_id",
+                  "gate_id",
+                  "rule_id",
+                  "constraint_id",
+                  "source_id",
+                  "knowledge_id",
+                  "severity",
+                  "status",
+                  "evidence",
+                  "reason",
+                  "minimal_fix"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "visual_quality": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "quality_reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "artifact_id",
+            "findings",
+            "visual_quality",
+            "quality_reason"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "audits"
+    ],
+    "additionalProperties": false
+  },
+  "images": [
+    {
+      "file": "images/c054eec0ca71070d8406b12c9e0b1745c861d337f4818c5fe8334e1b4c0dc425.png",
+      "sha256": "c054eec0ca71070d8406b12c9e0b1745c861d337f4818c5fe8334e1b4c0dc425",
+      "mime_type": "image/png",
+      "byte_length": 68
+    }
+  ]
+}

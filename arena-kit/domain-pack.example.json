@@ -1,0 +1,276 @@
+{
+  "pack_id": "viet-phuc-remix-demo",
+  "version": "0.1.1",
+  "status": "task_brief_only_not_cultural_knowledge_ready",
+  "description": "Gói khởi đầu từ đề mẫu; tên trang phục là thực thể được đề nhắc tới, không kèm khẳng định lịch sử.",
+  "sources": [
+    {
+      "id": "S-BRIEF",
+      "kind": "task_brief",
+      "path": "../de-thi-viet-phuc-remix.md",
+      "authority_scope": "product_requirements",
+      "review_status": "read_against_supplied_file"
+    },
+    {
+      "id": "S-CREATIVE-SCOPE",
+      "kind": "product_requirements",
+      "path": "creative-scope.md",
+      "authority_scope": "creative_base_garment_labels_only",
+      "review_status": "product_scope_not_cultural_evidence"
+    }
+  ],
+  "target_users": [
+    "học sinh",
+    "sinh viên"
+  ],
+  "use_cases": [
+    "khám phá trang phục",
+    "phối đồ cho sự kiện",
+    "phối theo phong cách cá nhân"
+  ],
+  "ontology": [
+    {
+      "id": "ao_dai",
+      "type": "garment",
+      "label": "áo dài",
+      "aliases": [
+        "ao dai"
+      ],
+      "source_id": "S-BRIEF",
+      "visual_invariants": [],
+      "cultural_knowledge_status": "missing"
+    },
+    {
+      "id": "ao_tu_than",
+      "type": "garment",
+      "label": "áo tứ thân",
+      "aliases": [
+        "ao tu than"
+      ],
+      "source_id": "S-BRIEF",
+      "visual_invariants": [],
+      "cultural_knowledge_status": "missing"
+    },
+    {
+      "id": "ao_ngu_than",
+      "type": "garment",
+      "label": "áo ngũ thân",
+      "aliases": [
+        "ao ngu than"
+      ],
+      "source_id": "S-BRIEF",
+      "visual_invariants": [],
+      "cultural_knowledge_status": "missing"
+    },
+    {
+      "id": "au_phuc",
+      "type": "garment",
+      "label": "âu phục",
+      "aliases": [
+        "au phuc",
+        "suit",
+        "âu phục cách tân",
+        "bộ suit",
+        "vest"
+      ],
+      "source_id": "S-CREATIVE-SCOPE",
+      "visual_invariants": [],
+      "cultural_knowledge_status": "creative_base_only_not_historical_evidence"
+    }
+  ],
+  "knowledge_units": [
+    {
+      "id": "K-TASK-01",
+      "kind": "task_fact",
+      "claim": "Demo cần cho phép chọn loại trang phục hoặc sự kiện.",
+      "source_id": "S-BRIEF",
+      "source_excerpt": "Chọn loại trang phục hoặc sự kiện.",
+      "scope": {
+        "entity_ids": [],
+        "region": null,
+        "period": null
+      },
+      "status": "verified"
+    },
+    {
+      "id": "K-TASK-02",
+      "kind": "task_fact",
+      "claim": "Demo cần cho phép chọn màu sắc, phụ kiện hoặc phong cách.",
+      "source_id": "S-BRIEF",
+      "source_excerpt": "Chọn màu sắc, phụ kiện hoặc phong cách.",
+      "scope": {
+        "entity_ids": [],
+        "region": null,
+        "period": null
+      },
+      "status": "verified"
+    },
+    {
+      "id": "K-TASK-03",
+      "kind": "task_fact",
+      "claim": "Đầu ra có thể là hình ảnh, thẻ gợi ý hoặc mockup.",
+      "source_id": "S-BRIEF",
+      "source_excerpt": "Xem kết quả phối đồ dưới dạng hình ảnh, thẻ gợi ý hoặc mockup.",
+      "scope": {
+        "entity_ids": [],
+        "region": null,
+        "period": null
+      },
+      "status": "verified"
+    },
+    {
+      "id": "K-TASK-04",
+      "kind": "task_fact",
+      "claim": "Demo cần có thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+      "source_id": "S-BRIEF",
+      "source_excerpt": "Đọc thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+      "scope": {
+        "entity_ids": [],
+        "region": null,
+        "period": null
+      },
+      "status": "verified"
+    }
+  ],
+  "rules": [
+    {
+      "id": "R-TASK-CARD",
+      "kind": "task_requirement",
+      "severity": "hard",
+      "knowledge_ids": [
+        "K-TASK-03"
+      ],
+      "applies_when": {
+        "all_requests": true
+      },
+      "check": "Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.",
+      "visual_checkable": false,
+      "status": "verified",
+      "enabled": true
+    },
+    {
+      "id": "R-TASK-ORIGIN",
+      "kind": "task_requirement",
+      "severity": "hard",
+      "knowledge_ids": [
+        "K-TASK-04"
+      ],
+      "applies_when": {
+        "submission_readiness": true
+      },
+      "check": "Demo có ít nhất một caption nguồn gốc/ý nghĩa với cultural_fact đã xác minh.",
+      "visual_checkable": false,
+      "status": "verified",
+      "enabled": true
+    }
+  ],
+  "input_fields": [
+    {
+      "id": "goal",
+      "type": "enum",
+      "values": [
+        "explore",
+        "create_look"
+      ],
+      "required_when": "always",
+      "default_policy": "ask_if_intent_unresolved"
+    },
+    {
+      "id": "subject",
+      "type": "entity_id",
+      "required_when": "event_does_not_allow_subject_recommendation",
+      "default_policy": "offer_known_options"
+    },
+    {
+      "id": "event",
+      "type": "string",
+      "required_when": "event_specific_rules_or_user_constraint",
+      "default_policy": "general_context_with_disclosed_assumption"
+    },
+    {
+      "id": "mode",
+      "type": "enum",
+      "values": [
+        "inspired",
+        "historical"
+      ],
+      "required_when": "historical_or_ritual_intent_is_ambiguous",
+      "default_policy": "inspired_if_no_historical_or_ritual_intent"
+    },
+    {
+      "id": "region",
+      "type": "string",
+      "required_when": "applicable_rule_requires_region",
+      "default_policy": "null_without_region_claim"
+    },
+    {
+      "id": "period",
+      "type": "string",
+      "required_when": "historical_scope_requires_period",
+      "default_policy": "needs_evidence_if_unresolved"
+    },
+    {
+      "id": "palette",
+      "type": "string_list",
+      "required_when": "explicit_color_constraint",
+      "default_policy": "suggest_three_palettes"
+    },
+    {
+      "id": "style",
+      "type": "string",
+      "required_when": "explicit_style_constraint",
+      "default_policy": "balanced"
+    }
+  ],
+  "design_config": {
+    "default_scoring_profile": "balanced",
+    "variation_axes": [
+      "accent_palette",
+      "accessory_selection",
+      "formality",
+      "composition"
+    ],
+    "candidate_directions": [
+      "tối giản",
+      "nổi bật",
+      "trang trọng"
+    ],
+    "directions_are": "design_suggestions_not_cultural_rules",
+    "recipes": [],
+    "missing_evidence_behavior": "inspired_illustration_without_historical_claims_or_historical_fallback"
+  },
+  "ux": {
+    "renderers": [
+      "suggestion_card",
+      "image",
+      "comparison"
+    ],
+    "enabled_features": [
+      "subject_or_event_choice",
+      "palette_style_accessory_choice",
+      "suggestion_cards",
+      "evidence_status"
+    ],
+    "optional_features": [
+      "image_generation",
+      "image_editing",
+      "annotated_region_editing",
+      "avatar",
+      "weather",
+      "lookbook"
+    ],
+    "cultural_caption_readiness": "blocked_until_verified_cultural_unit_added"
+  },
+  "missing_evidence": [
+    "Đặc trưng tạo hình cần giữ cho từng trang phục trong phạm vi đã chọn.",
+    "Nguồn gốc/ý nghĩa đủ căn cứ để đáp ứng caption của demo.",
+    "Luật theo địa phương, thời kỳ hoặc bối cảnh nếu demo có tuyên bố tương ứng."
+  ],
+  "human_activation_checklist": [
+    "Chọn phạm vi demo hẹp.",
+    "Nhập nguồn và đối chiếu phát biểu văn hóa với đoạn hỗ trợ.",
+    "Duyệt applicability/severity của luật; không gắn cảm nhận thẩm mỹ thành luật cấm.",
+    "Chỉ bật optional đã chạy thử với model và quota thực.",
+    "Tăng version khi thay knowledge/rule/config."
+  ]
+}

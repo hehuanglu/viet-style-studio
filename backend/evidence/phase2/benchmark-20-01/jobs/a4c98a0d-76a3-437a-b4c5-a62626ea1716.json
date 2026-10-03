@@ -1,0 +1,161 @@
+{
+  "evidence_id": "a4c98a0d-76a3-437a-b4c5-a62626ea1716",
+  "recorded_at": 1790929445.40028,
+  "event": "retrieving",
+  "job": {
+    "request_id": "1b1b6373-4bb5-4b1a-9965-efcc78e8bf84",
+    "session_id": "benchmark-20-01-P2-15",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam, chỉ trong phạm vi áo mặc cùng quần đã có nguồn. Dùng màu xanh, hiển thị quần rõ. Cho tôi thẻ gợi ý; không yêu cầu chi tiết đường may hay nút theo triều đại."
+      }
+    ],
+    "brief": {
+      "request_id": "1b1b6373-4bb5-4b1a-9965-efcc78e8bf84",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "region",
+          "value": "Việt Nam",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "period",
+          "value": "hiện đại",
+          "status": "explicit",
+          "evidence_quote": "giai đoạn hiện đại",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "historical",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "historical",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn tái hiện áo dài giai đoạn hiện đại ở Việt Nam",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "Dùng màu xanh",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "hc-1",
+          "field": "subject",
+          "operator": "include",
+          "value": "áo mặc cùng quần",
+          "provenance": "user_provided",
+          "evidence_quote": "chỉ trong phạm vi áo mặc cùng quần đã có nguồn",
+          "rule_id": null
+        },
+        {
+          "id": "hc-2",
+          "field": "subject",
+          "operator": "preserve",
+          "value": "hiển thị quần rõ",
+          "provenance": "user_provided",
+          "evidence_quote": "hiển thị quần rõ",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "heritage",
+      "assumptions": [],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929442.574074
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929445.399453
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2823,
+        "usage": {
+          "promptTokenCount": 1461,
+          "candidatesTokenCount": 690,
+          "totalTokenCount": 2151,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1461
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "715a57b08561fa4ae631a3afb76369e102dc76ecf2efe27fab7f714c266cc6b7",
+        "output_hash": "a98a495509e2ed2df7007b4c78507030986362f872f79c6e782854a4f63c5dff"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.002,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929442.571987
+  }
+}

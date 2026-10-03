@@ -1,0 +1,145 @@
+{
+  "evidence_id": "2861d1bc-e1cc-411b-bc11-152ad716e87f",
+  "recorded_at": 1790929519.695345,
+  "event": "retrieving",
+  "job": {
+    "request_id": "31065cff-c77d-4c9b-9a43-78aaaea7d1e8",
+    "session_id": "benchmark-20-01-P2-19",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": true,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường; tôi muốn ảnh minh họa toàn thân chính diện."
+      }
+    ],
+    "brief": {
+      "request_id": "31065cff-c77d-4c9b-9a43-78aaaea7d1e8",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường; tôi muốn ảnh minh họa toàn thân chính diện.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại cho sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "cho sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "áo dài xanh",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "hc_1",
+          "field": "output",
+          "operator": "equals",
+          "value": "image",
+          "provenance": "user_provided",
+          "evidence_quote": "tôi muốn ảnh minh họa toàn thân chính diện.",
+          "rule_id": null
+        }
+      ],
+      "output": "image",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929517.178277
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929519.694339
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2513,
+        "usage": {
+          "promptTokenCount": 1431,
+          "candidatesTokenCount": 547,
+          "totalTokenCount": 1978,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1431
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "b2231a7e6fd9898216ba72de4cb79ca22e6b8728b8fa3ca52b07762183809dbf",
+        "output_hash": "53c9cc1e2875c2591d3b62445f17830cc863e836aa7f1cf03e7f21ebc1d74a39"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.002,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929517.175682
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "evidence_id": "caa6b20a-f4c9-4844-81f0-2a70492fcaf6",
+  "recorded_at": 1790929496.240503,
+  "model": "gemini-3.5-flash-lite",
+  "request_hash": "5a533aed21833420dec8c316ed1c9e1fe4434cd6e15cabe396e04e5dcc542991",
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"request_id\": \"4bfc914b-c6a8-4bd9-aac0-ab35d6bcac2b\",\n  \"revision\": 1,\n  \"goal\": {\n    \"field\": \"goal\",\n    \"value\": \"create_look\",\n    \"status\": \"explicit\",\n    \"evidence_quote\": \"Tôi muốn phối áo dài lấy cảm hứng hiện đại.\",\n    \"evidence_turn_id\": \"T1\"\n  },\n  \"subject\": {\n    \"field\": \"subject\",\n    \"value\": \"ao_dai\",\n    \"status\": \"explicit\",\n    \"evidence_quote\": \"Tôi muốn phối áo dài lấy cảm hứng hiện đại.\",\n    \"evidence_turn_id\": \"T1\"\n  },\n  \"context\": [],\n  \"mode\": \"inspired\",\n  \"mode_evidence\": {\n    \"field\": \"mode\",\n    \"value\": \"inspired\",\n    \"status\": \"explicit\",\n    \"evidence_quote\": \"lấy cảm hứng hiện đại\",\n    \"evidence_turn_id\": \"T1\"\n  },\n  \"preferences\": [],\n  \"hard_constraints\": [\n    {\n      \"id\": \"hc_1\",\n      \"field\": \"pocket\",\n      \"operator\": \"include\",\n      \"value\": \"túi nhỏ\",\n      \"provenance\": \"user_provided\",\n      \"evidence_quote\": \"Bắt buộc có túi nhỏ\",\n      \"rule_id\": null\n    },\n    {\n      \"id\": \"hc_2\",\n      \"field\": \"pocket\",\n      \"operator\": \"exclude\",\n      \"value\": \"túi nhỏ\",\n      \"provenance\": \"user_provided\",\n      \"evidence_quote\": \"đồng thời tuyệt đối không được có túi nhỏ.\",\n      \"rule_id\": null\n    }\n  ],\n  \"output\": \"cards\",\n  \"scoring_profile\": \"balanced\",\n  \"assumptions\": [\n    \"Sử dụng thiết lập cân bằng (balanced) do chưa có định hướng ưu tiên.\"\n  ],\n  \"conflicts\": [\n    \"Mâu thuẫn trực tiếp giữa việc bắt buộc có túi nhỏ và tuyệt đối không được có túi nhỏ.\"\n  ],\n  \"proposed_questions\": [\n    {\n      \"field\": \"pocket\",\n      \"text\": \"Bạn có muốn thiết kế áo dài có túi nhỏ hay không?\",\n      \"options\": [\n        \"Có túi nhỏ\",\n        \"Không có túi nhỏ\"\n      ],\n      \"reason\": \"Người dùng đưa ra hai yêu cầu trái ngược nhau về việc có hay không có túi nhỏ.\",\n      \"impact\": \"blocking\"\n    }\n  ],\n  \"status\": \"needs_resolution\"\n}",
+              "thoughtSignature": "EmAKXgFpFH0T3Ncsq2Mg9lg7qRlV2Uqf5DYsnnRno/8YsaTfFypokSfVhkUwfL2KJSOAOK4AC6eYn/UOvAQDaUFiLkiyCKAqD9YZ3iSDfCy0/Ub5dEq6pLCu5HbN6Pduec4="
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 1429,
+      "candidatesTokenCount": 628,
+      "totalTokenCount": 2057,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1429
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "Vmq_arTIBNmd2roP6O7T4AY"
+  }
+}

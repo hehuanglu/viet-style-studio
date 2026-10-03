@@ -1,0 +1,156 @@
+{
+  "evidence_id": "c6f716b9-cd3a-4eb7-95bd-618aef4be94a",
+  "recorded_at": 1790929532.418886,
+  "event": "retrieving",
+  "job": {
+    "request_id": "88f91e83-465b-41a5-bb7c-e71b12d76605",
+    "session_id": "benchmark-20-01-P2-20",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài vàng lấy cảm hứng hiện đại đi sự kiện trường. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "88f91e83-465b-41a5-bb7c-e71b12d76605",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài vàng lấy cảm hứng hiện đại đi sự kiện trường. Cho tôi thẻ gợi ý.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài vàng",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "đi sự kiện trường.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "vàng",
+          "status": "explicit",
+          "evidence_quote": "áo dài vàng",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "hc_1",
+          "field": "subject",
+          "operator": "include",
+          "value": "ao_dai",
+          "provenance": "user_provided",
+          "evidence_quote": "áo dài",
+          "rule_id": null
+        },
+        {
+          "id": "hc_2",
+          "field": "palette",
+          "operator": "include",
+          "value": "vàng",
+          "provenance": "user_provided",
+          "evidence_quote": "vàng",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [
+        "Sử dụng phong cách cân bằng cho sự kiện trường."
+      ],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929529.740633
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929532.418257
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2675,
+        "usage": {
+          "promptTokenCount": 1430,
+          "candidatesTokenCount": 620,
+          "totalTokenCount": 2050,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1430
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "96e851d563004ee3b1a657f1dca95d9ad5dfaa8e8ac8e46390b76673b36ef54d",
+        "output_hash": "799915c3f5ae724699eb89946d8b2303ac33e70548aa07e833822b6e7b917b00"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.002,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929529.7377532
+  }
+}

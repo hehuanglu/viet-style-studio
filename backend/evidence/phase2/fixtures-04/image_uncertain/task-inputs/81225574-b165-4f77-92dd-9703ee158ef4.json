@@ -1,0 +1,410 @@
+{
+  "evidence_id": "81225574-b165-4f77-92dd-9703ee158ef4",
+  "recorded_at": 1790934716.819077,
+  "request_id": "82dab64b-2344-4301-b815-7263c0beb0b0",
+  "revision": 1,
+  "task": "P03",
+  "attempt": 1,
+  "payload": {
+    "NORMALIZED_BRIEF": {
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "default",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "period",
+          "value": "hiện đại",
+          "status": "explicit",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "C-COLOR",
+          "field": "palette",
+          "operator": "include",
+          "value": "xanh",
+          "provenance": "user_provided",
+          "evidence_quote": "Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường",
+          "rule_id": null
+        }
+      ],
+      "output": "image",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "request_id": "82dab64b-2344-4301-b815-7263c0beb0b0",
+      "revision": 1,
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "EVIDENCE_BUNDLE": {
+      "subject_id": "ao_dai",
+      "knowledge_units": [
+        {
+          "id": "K-TASK-01",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn loại trang phục hoặc sự kiện.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn loại trang phục hoặc sự kiện.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-02",
+          "kind": "task_fact",
+          "claim": "Demo cần cho phép chọn màu sắc, phụ kiện hoặc phong cách.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Chọn màu sắc, phụ kiện hoặc phong cách.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-03",
+          "kind": "task_fact",
+          "claim": "Đầu ra có thể là hình ảnh, thẻ gợi ý hoặc mockup.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Xem kết quả phối đồ dưới dạng hình ảnh, thẻ gợi ý hoặc mockup.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        },
+        {
+          "id": "K-TASK-04",
+          "kind": "task_fact",
+          "claim": "Demo cần có thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "source_id": "S-BRIEF",
+          "source_excerpt": "Đọc thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.",
+          "scope": {
+            "entity_ids": [],
+            "region": null,
+            "period": null
+          },
+          "status": "verified"
+        }
+      ],
+      "rules": [
+        {
+          "id": "R-TASK-CARD",
+          "kind": "task_requirement",
+          "severity": "hard",
+          "knowledge_ids": [
+            "K-TASK-03"
+          ],
+          "applies_when": {
+            "all_requests": true
+          },
+          "check": "Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.",
+          "visual_checkable": false,
+          "status": "verified",
+          "enabled": true,
+          "applicability_uncertain": false
+        }
+      ],
+      "cultural_units": [],
+      "sources": [
+        {
+          "id": "S-BRIEF",
+          "kind": "task_brief",
+          "path": "../de-thi-viet-phuc-remix.md",
+          "authority_scope": "product_requirements",
+          "review_status": "read_against_supplied_file"
+        }
+      ],
+      "ontology": [
+        {
+          "id": "ao_dai",
+          "type": "garment",
+          "label": "áo dài",
+          "aliases": [
+            "ao dai"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_tu_than",
+          "type": "garment",
+          "label": "áo tứ thân",
+          "aliases": [
+            "ao tu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        },
+        {
+          "id": "ao_ngu_than",
+          "type": "garment",
+          "label": "áo ngũ thân",
+          "aliases": [
+            "ao ngu than"
+          ],
+          "source_id": "S-BRIEF",
+          "visual_invariants": [],
+          "cultural_knowledge_status": "missing"
+        }
+      ],
+      "pack_hash": "daced72167b66f829c343beedee3396845ff752507bfb9eec46b466f726e1ab0",
+      "historical_scope_supported": false,
+      "historical_coverage": []
+    },
+    "APPLICABLE_RULES": [
+      {
+        "id": "R-TASK-CARD",
+        "kind": "task_requirement",
+        "severity": "hard",
+        "knowledge_ids": [
+          "K-TASK-03"
+        ],
+        "applies_when": {
+          "all_requests": true
+        },
+        "check": "Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.",
+        "visual_checkable": false,
+        "status": "verified",
+        "enabled": true,
+        "applicability_uncertain": false
+      }
+    ],
+    "VARIATION_AXES": [
+      "accent_palette",
+      "accessory_selection",
+      "formality",
+      "composition"
+    ],
+    "CANDIDATE_LIMIT": 3,
+    "ENABLED_CAPABILITIES": [
+      "suggestion_cards"
+    ]
+  },
+  "prompt": "TASK: PROPOSE_CANDIDATES\n\nBrief: {\"goal\": {\"field\": \"goal\", \"value\": \"create_look\", \"status\": \"default\", \"evidence_quote\": null, \"evidence_turn_id\": null}, \"subject\": {\"field\": \"subject\", \"value\": \"ao_dai\", \"status\": \"explicit\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"evidence_turn_id\": \"T1\"}, \"context\": [{\"field\": \"event\", \"value\": \"sự kiện trường\", \"status\": \"explicit\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"evidence_turn_id\": \"T1\"}, {\"field\": \"period\", \"value\": \"hiện đại\", \"status\": \"explicit\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"evidence_turn_id\": \"T1\"}], \"mode\": \"inspired\", \"mode_evidence\": {\"field\": \"mode\", \"value\": \"inspired\", \"status\": \"explicit\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"evidence_turn_id\": \"T1\"}, \"preferences\": [{\"field\": \"palette\", \"value\": \"xanh\", \"status\": \"explicit\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"evidence_turn_id\": \"T1\"}], \"hard_constraints\": [{\"id\": \"C-COLOR\", \"field\": \"palette\", \"operator\": \"include\", \"value\": \"xanh\", \"provenance\": \"user_provided\", \"evidence_quote\": \"Chỉ dùng màu xanh cho áo dài, lấy cảm hứng hiện đại, đi sự kiện trường\", \"rule_id\": null}], \"output\": \"image\", \"scoring_profile\": \"balanced\", \"assumptions\": [], \"conflicts\": [], \"request_id\": \"82dab64b-2344-4301-b815-7263c0beb0b0\", \"revision\": 1, \"proposed_questions\": [], \"status\": \"ready\"}\nKiến thức kèm nguồn đã duyệt: {\"subject_id\": \"ao_dai\", \"knowledge_units\": [{\"id\": \"K-TASK-01\", \"kind\": \"task_fact\", \"claim\": \"Demo cần cho phép chọn loại trang phục hoặc sự kiện.\", \"source_id\": \"S-BRIEF\", \"source_excerpt\": \"Chọn loại trang phục hoặc sự kiện.\", \"scope\": {\"entity_ids\": [], \"region\": null, \"period\": null}, \"status\": \"verified\"}, {\"id\": \"K-TASK-02\", \"kind\": \"task_fact\", \"claim\": \"Demo cần cho phép chọn màu sắc, phụ kiện hoặc phong cách.\", \"source_id\": \"S-BRIEF\", \"source_excerpt\": \"Chọn màu sắc, phụ kiện hoặc phong cách.\", \"scope\": {\"entity_ids\": [], \"region\": null, \"period\": null}, \"status\": \"verified\"}, {\"id\": \"K-TASK-03\", \"kind\": \"task_fact\", \"claim\": \"Đầu ra có thể là hình ảnh, thẻ gợi ý hoặc mockup.\", \"source_id\": \"S-BRIEF\", \"source_excerpt\": \"Xem kết quả phối đồ dưới dạng hình ảnh, thẻ gợi ý hoặc mockup.\", \"scope\": {\"entity_ids\": [], \"region\": null, \"period\": null}, \"status\": \"verified\"}, {\"id\": \"K-TASK-04\", \"kind\": \"task_fact\", \"claim\": \"Demo cần có thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.\", \"source_id\": \"S-BRIEF\", \"source_excerpt\": \"Đọc thông tin ngắn về nguồn gốc hoặc ý nghĩa của trang phục.\", \"scope\": {\"entity_ids\": [], \"region\": null, \"period\": null}, \"status\": \"verified\"}], \"rules\": [{\"id\": \"R-TASK-CARD\", \"kind\": \"task_requirement\", \"severity\": \"hard\", \"knowledge_ids\": [\"K-TASK-03\"], \"applies_when\": {\"all_requests\": true}, \"check\": \"Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.\", \"visual_checkable\": false, \"status\": \"verified\", \"enabled\": true, \"applicability_uncertain\": false}], \"cultural_units\": [], \"sources\": [{\"id\": \"S-BRIEF\", \"kind\": \"task_brief\", \"path\": \"../de-thi-viet-phuc-remix.md\", \"authority_scope\": \"product_requirements\", \"review_status\": \"read_against_supplied_file\"}], \"ontology\": [{\"id\": \"ao_dai\", \"type\": \"garment\", \"label\": \"áo dài\", \"aliases\": [\"ao dai\"], \"source_id\": \"S-BRIEF\", \"visual_invariants\": [], \"cultural_knowledge_status\": \"missing\"}, {\"id\": \"ao_tu_than\", \"type\": \"garment\", \"label\": \"áo tứ thân\", \"aliases\": [\"ao tu than\"], \"source_id\": \"S-BRIEF\", \"visual_invariants\": [], \"cultural_knowledge_status\": \"missing\"}, {\"id\": \"ao_ngu_than\", \"type\": \"garment\", \"label\": \"áo ngũ thân\", \"aliases\": [\"ao ngu than\"], \"source_id\": \"S-BRIEF\", \"visual_invariants\": [], \"cultural_knowledge_status\": \"missing\"}], \"pack_hash\": \"daced72167b66f829c343beedee3396845ff752507bfb9eec46b466f726e1ab0\", \"historical_scope_supported\": false, \"historical_coverage\": []}\nLuật áp dụng: [{\"id\": \"R-TASK-CARD\", \"kind\": \"task_requirement\", \"severity\": \"hard\", \"knowledge_ids\": [\"K-TASK-03\"], \"applies_when\": {\"all_requests\": true}, \"check\": \"Có ít nhất một đầu ra dùng được theo dạng ảnh, thẻ hoặc mockup.\", \"visual_checkable\": false, \"status\": \"verified\", \"enabled\": true, \"applicability_uncertain\": false}]\nTrục khác biệt được phép: [\"accent_palette\", \"accessory_selection\", \"formality\", \"composition\"]\nSố phương án tối đa: 3\nKhả năng đã bật: [\"suggestion_cards\"]\n\nMặc định sinh đủ số concept tối đa được yêu cầu, khác nhau theo ít nhất 2 thuộc tính được phép đổi,\ngiữ nguyên hard constraints. Chỉ dùng ID từ ontology/bundle.\nMỗi concept cần target_need, subject, design, keep_invariants,\nallowed_changes, claims, assumptions và caveats.\n\nTrong design ghi palette/accessories/composition/scene và mô tả chủ thể\nđủ cho renderer. Với domain khác, dùng extension của domain thay vì bịa\nchi tiết trang phục.\n\nClaims văn hóa phải có knowledge_id, source_id và supporting_excerpt\nđúng phạm vi. Không có nguồn thì để claims rỗng, ghi caveat tương ứng.\nCandidate.claims chỉ chứa phát biểu văn hóa/lịch sử; task_fact và\ndesign_suggestion đặt trong target_need/design/caveats, không đưa vào claims.\nThông tin về màu/phối là design suggestion, không cần giả làm lịch sử.\nKhông tự chấm điểm, không tuyên bố phương án đã qua audit.\nNếu historical thiếu nguồn cho phần yêu cầu tái hiện, trả status=needs_evidence;\nkhông tạo phục dựng giả. Có thể trả concept cho phần đã có căn cứ nếu\nkhông khiến người dùng hiểu nhầm toàn bộ yêu cầu được đáp ứng.\nNếu hard constraints không cho tạo đủ concept hợp lệ, trả ít hơn và giải thích\nconstraint nào làm giới hạn variation trong limitations; không tự giảm còn một concept để tiết kiệm output.\n\nTrả đúng CandidateBatch; không sinh final image prompt ở bước này.\n\nBundle không có cultural_fact verified. Mọi Candidate.claims bắt buộc là []. Task facts và design suggestions chỉ đặt trong target_need/design/caveats.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string",
+        "enum": [
+          "ready",
+          "partial",
+          "needs_evidence",
+          "no_feasible_candidate"
+        ]
+      },
+      "candidates": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "candidate_id": {
+              "type": "string"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "title": {
+              "type": "string"
+            },
+            "target_need": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "design_mode": {
+              "type": "string",
+              "enum": [
+                "inspired",
+                "historical"
+              ]
+            },
+            "design": {
+              "type": "object",
+              "properties": {
+                "subject_description": {
+                  "type": "string"
+                },
+                "palette": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "accessories": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "composition": {
+                  "type": "string"
+                },
+                "scene": {
+                  "type": "string"
+                },
+                "extensions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "key",
+                      "value"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "subject_description",
+                "palette",
+                "accessories",
+                "composition",
+                "scene",
+                "extensions"
+              ],
+              "additionalProperties": false
+            },
+            "keep_invariants": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "allowed_changes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "claims": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "knowledge_id": {
+                    "type": "string"
+                  },
+                  "source_id": {
+                    "type": "string"
+                  },
+                  "supporting_excerpt": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text",
+                  "knowledge_id",
+                  "source_id",
+                  "supporting_excerpt"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 0
+            },
+            "assumptions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "caveats": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "candidate_id",
+            "revision",
+            "title",
+            "target_need",
+            "subject",
+            "design_mode",
+            "design",
+            "keep_invariants",
+            "allowed_changes",
+            "claims",
+            "assumptions",
+            "caveats"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 3
+      },
+      "limitations": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "status",
+      "candidates",
+      "limitations"
+    ],
+    "additionalProperties": false
+  },
+  "images": []
+}

@@ -1,0 +1,154 @@
+{
+  "evidence_id": "a703de26-4caa-4d3c-b0ff-89f8e6116e25",
+  "recorded_at": 1790929413.776669,
+  "event": "retrieving",
+  "job": {
+    "request_id": "e4a2783e-b797-4115-81ea-afd620c6a150",
+    "session_id": "benchmark-20-01-P2-11",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo tứ thân xanh, lấy cảm hứng hiện đại, đi sự kiện trường. Chỉ gợi ý thiết kế, không công bố nguồn gốc lịch sử. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "e4a2783e-b797-4115-81ea-afd620c6a150",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo tứ thân xanh, lấy cảm hứng hiện đại, đi sự kiện trường.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_tu_than",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo tứ thân xanh",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "đi sự kiện trường.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "áo tứ thân xanh",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "HC-1",
+          "field": "mode",
+          "operator": "equals",
+          "value": "inspired",
+          "provenance": "user_provided",
+          "evidence_quote": "lấy cảm hứng hiện đại",
+          "rule_id": null
+        },
+        {
+          "id": "HC-2",
+          "field": "historical_source_disclosure",
+          "operator": "exclude",
+          "value": "công bố nguồn gốc lịch sử",
+          "provenance": "user_provided",
+          "evidence_quote": "không công bố nguồn gốc lịch sử.",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929411.4009259
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929413.775768
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2372,
+        "usage": {
+          "promptTokenCount": 1445,
+          "candidatesTokenCount": 617,
+          "totalTokenCount": 2062,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1445
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "6ca292a51b674a91502614b0400d9c8b9d7e4aa57dfafd1721c8442579712b15",
+        "output_hash": "4548a469bb06a787d80cae92f3b92fc29fbb07a6a2474deba9d5698e6f777bfb"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.002,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929411.399134
+  }
+}

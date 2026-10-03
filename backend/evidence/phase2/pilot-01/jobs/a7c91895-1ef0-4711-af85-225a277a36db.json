@@ -1,0 +1,170 @@
+{
+  "evidence_id": "a7c91895-1ef0-4711-af85-225a277a36db",
+  "recorded_at": 1790928581.2261188,
+  "event": "retrieving",
+  "job": {
+    "request_id": "4e47b9d1-7aa5-4201-89c8-66fa0fa0deb2",
+    "session_id": "experiment-1790928578311",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài xanh, tối giản, lấy cảm hứng hiện đại, đi sự kiện ở trường. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "4e47b9d1-7aa5-4201-89c8-66fa0fa0deb2",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh, tối giản, lấy cảm hứng hiện đại, đi sự kiện ở trường. Cho tôi thẻ gợi ý.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh, tối giản, lấy cảm hứng hiện đại, đi sự kiện ở trường. Cho tôi thẻ gợi ý.",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện ở trường",
+          "status": "explicit",
+          "evidence_quote": "đi sự kiện ở trường",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "lấy cảm hứng hiện đại",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "áo dài xanh",
+          "evidence_turn_id": "T1"
+        },
+        {
+          "field": "style",
+          "value": "tối giản",
+          "status": "explicit",
+          "evidence_quote": "tối giản",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "hc_subject",
+          "field": "subject",
+          "operator": "equals",
+          "value": "ao_dai",
+          "provenance": "user_provided",
+          "evidence_quote": "Tôi muốn phối áo dài xanh",
+          "rule_id": null
+        },
+        {
+          "id": "hc_palette",
+          "field": "palette",
+          "operator": "include",
+          "value": "xanh",
+          "provenance": "user_provided",
+          "evidence_quote": "áo dài xanh",
+          "rule_id": null
+        },
+        {
+          "id": "hc_style",
+          "field": "style",
+          "operator": "equals",
+          "value": "tối giản",
+          "provenance": "user_provided",
+          "evidence_quote": "tối giản",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790928578.313775
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790928581.224164
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2906,
+        "usage": {
+          "promptTokenCount": 1437,
+          "candidatesTokenCount": 762,
+          "totalTokenCount": 2199,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1437
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "55c33369e86817691650e31dba99f5e53ef3383902f9dfea7bf9cbf611ddb520",
+        "output_hash": "41354d268caf9db0fa61f1b988e7b494c68005ef507e45038c41f2ca8bce2260"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.001,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "9d08e8acb64f46b8f2c4ac1ab4fc714c7bf206e2fc2362aa089ede4de285ea8c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": true,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790928578.312029
+  }
+}

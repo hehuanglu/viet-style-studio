@@ -1,0 +1,147 @@
+{
+  "evidence_id": "c2359610-98c4-40cc-a96b-d42e7b755162",
+  "recorded_at": 1790929744.853444,
+  "event": "retrieving",
+  "job": {
+    "request_id": "4caa8a5a-4a81-406e-956b-1323bb20abd8",
+    "session_id": "regression-04-01-P2-08",
+    "revision": 1,
+    "status": "retrieving",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại đi sự kiện trường. Số phụ kiện tối đa là 1; ghi at_most cho accessories với value 1. Cho tôi thẻ gợi ý."
+      }
+    ],
+    "brief": {
+      "request_id": "4caa8a5a-4a81-406e-956b-1323bb20abd8",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": "create_look",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại đi sự kiện trường.",
+        "evidence_turn_id": "T1"
+      },
+      "subject": {
+        "field": "subject",
+        "value": "ao_dai",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại đi sự kiện trường.",
+        "evidence_turn_id": "T1"
+      },
+      "context": [
+        {
+          "field": "event",
+          "value": "sự kiện trường",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại đi sự kiện trường.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "explicit",
+        "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại đi sự kiện trường.",
+        "evidence_turn_id": "T1"
+      },
+      "preferences": [
+        {
+          "field": "palette",
+          "value": "xanh",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn phối áo dài xanh lấy cảm hứng hiện đại đi sự kiện trường.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [
+        {
+          "id": "HC-1",
+          "field": "accessories",
+          "operator": "at_most",
+          "value": "1",
+          "provenance": "user_provided",
+          "evidence_quote": "Số phụ kiện tối đa là 1; ghi at_most cho accessories với value 1.",
+          "rule_id": null
+        }
+      ],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [
+        "Sử dụng phong cách cân bằng cho sự kiện trường."
+      ],
+      "conflicts": [],
+      "proposed_questions": [],
+      "status": "ready"
+    },
+    "questions": [],
+    "question_rounds": 0,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929741.8362482
+      },
+      {
+        "sequence": 2,
+        "stage": "retrieving",
+        "brief_revision": 1,
+        "timestamp": 1790929744.8526468
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 3014,
+        "usage": {
+          "promptTokenCount": 1571,
+          "candidatesTokenCount": 597,
+          "totalTokenCount": 2168,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1571
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "1bbe1cca0bea615f77dbb56abae8f128a6d6208b94c814f75c51f3019d116a67",
+        "output_hash": "81d72a8f80cd38d74345809bd8cde2f85856f47e979728a47ed3fdf1db9c80f7"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.002,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "80654e4558723fa5b82f929cc2d282f222f9cd25e058eb06a09f3bfeeb3eea26",
+      "kit_hash": "c8d7dcc931093527ee9ac9e36f04c97fc4ef31a5fd3b5b33a7a7b7c3759f3597",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929741.833384
+  }
+}

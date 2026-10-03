@@ -1,0 +1,174 @@
+{
+  "evidence_id": "9e71179b-9316-4421-b49c-868654c993e0",
+  "recorded_at": 1790929476.213602,
+  "event": "awaiting_user",
+  "job": {
+    "request_id": "923ca75f-6891-4661-a678-06aba8df124f",
+    "session_id": "benchmark-20-01-P2-16",
+    "revision": 1,
+    "status": "awaiting_user",
+    "provider": "gemini",
+    "render_image": false,
+    "turns": [
+      {
+        "id": "T1",
+        "text": "Tôi muốn đẹp và độc đáo."
+      }
+    ],
+    "brief": {
+      "request_id": "923ca75f-6891-4661-a678-06aba8df124f",
+      "revision": 1,
+      "goal": {
+        "field": "goal",
+        "value": null,
+        "status": "missing",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "subject": {
+        "field": "subject",
+        "value": null,
+        "status": "missing",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "context": [],
+      "mode": "inspired",
+      "mode_evidence": {
+        "field": "mode",
+        "value": "inspired",
+        "status": "default",
+        "evidence_quote": null,
+        "evidence_turn_id": null
+      },
+      "preferences": [
+        {
+          "field": "style",
+          "value": "đẹp và độc đáo",
+          "status": "explicit",
+          "evidence_quote": "Tôi muốn đẹp và độc đáo.",
+          "evidence_turn_id": "T1"
+        }
+      ],
+      "hard_constraints": [],
+      "output": "cards",
+      "scoring_profile": "balanced",
+      "assumptions": [
+        "Sử dụng chế độ lấy cảm hứng (inspired) do không có ý định lịch sử rõ ràng.",
+        "Mặc định mục tiêu là khám phá hoặc tạo trang phục dựa theo sở thích chung."
+      ],
+      "conflicts": [],
+      "proposed_questions": [
+        {
+          "field": "goal",
+          "text": "Bạn muốn khám phá thông tin hay tạo một bộ trang phục cụ thể?",
+          "options": [
+            "Khám phá",
+            "Tạo trang phục"
+          ],
+          "reason": "Mục tiêu (goal) là bắt buộc để định hướng xử lý tiếp theo.",
+          "impact": "blocking"
+        },
+        {
+          "field": "subject",
+          "text": "Bạn muốn chọn trang phục nào cho thiết kế của mình?",
+          "options": [
+            "Áo dài",
+            "Áo tứ thân",
+            "Áo ngũ thân"
+          ],
+          "reason": "Chưa xác định đối tượng trang phục (subject) để áp dụng quy tắc thiết kế.",
+          "impact": "blocking"
+        }
+      ],
+      "status": "needs_clarification"
+    },
+    "questions": [
+      {
+        "field": "goal",
+        "text": "Bạn muốn khám phá thông tin hay tạo một bộ trang phục cụ thể?",
+        "options": [
+          "Khám phá",
+          "Tạo trang phục"
+        ],
+        "reason": "Mục tiêu (goal) là bắt buộc để định hướng xử lý tiếp theo.",
+        "impact": "blocking"
+      },
+      {
+        "field": "subject",
+        "text": "Bạn muốn chọn trang phục nào cho thiết kế của mình?",
+        "options": [
+          "Áo dài",
+          "Áo tứ thân",
+          "Áo ngũ thân"
+        ],
+        "reason": "Chưa xác định đối tượng trang phục (subject) để áp dụng quy tắc thiết kế.",
+        "impact": "blocking"
+      }
+    ],
+    "question_rounds": 1,
+    "skip": false,
+    "cards": [],
+    "ranking": null,
+    "artifacts": [],
+    "image_audit": null,
+    "error": null,
+    "warnings": [],
+    "events": [
+      {
+        "sequence": 1,
+        "stage": "normalizing",
+        "brief_revision": 1,
+        "timestamp": 1790929473.719407
+      },
+      {
+        "sequence": 2,
+        "stage": "awaiting_user",
+        "brief_revision": 1,
+        "timestamp": 1790929476.213558
+      }
+    ],
+    "trace": [
+      {
+        "task": "P02",
+        "attempt": 1,
+        "cache_hit": false,
+        "duration_ms": 2491,
+        "usage": {
+          "promptTokenCount": 1412,
+          "candidatesTokenCount": 590,
+          "totalTokenCount": 2002,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1412
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "input_hash": "19c084927165948f34f1267088dece23ea46673fafcb87a83c59519bc42b61ee",
+        "output_hash": "a4e9de7117fcc7862c571ca0852c45125b696824db259a9d33683c09f8b5d458"
+      }
+    ],
+    "metrics": {
+      "provider_calls": 1,
+      "cache_hits": 0,
+      "active_seconds": 0.002,
+      "cards_ready_seconds": null,
+      "image_ready_seconds": null
+    },
+    "manifest": {
+      "pack_hash": "d0ebe53e88dadd207cf7a2ab2f4624ac4b35645afc764c52f53d25409d98b299",
+      "kit_hash": "8244c6959966f083059031ff74d54cde0b9be43afa102dbfcfe39525d422489c",
+      "text_model": "gemini-3.5-flash-lite",
+      "image_model": "gemini-3.1-flash-image"
+    },
+    "server_images_enabled": false,
+    "repair_counts": {
+      "concept": 0,
+      "image": 0
+    },
+    "recovery_count": 0,
+    "created_at": 1790929473.717016
+  }
+}

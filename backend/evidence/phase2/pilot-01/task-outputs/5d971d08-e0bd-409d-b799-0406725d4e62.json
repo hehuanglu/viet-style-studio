@@ -1,0 +1,108 @@
+{
+  "evidence_id": "5d971d08-e0bd-409d-b799-0406725d4e62",
+  "recorded_at": 1790928601.323977,
+  "request_id": "d34fcf46-f6f0-4e5a-9a73-c26870db058e",
+  "revision": 1,
+  "task": "P04",
+  "attempt": 2,
+  "output": {
+    "audits": [
+      {
+        "candidate_id": "cand_1",
+        "gate_findings": [
+          {
+            "finding_id": "f_uc_1",
+            "gate_id": "user_constraints",
+            "rule_id": null,
+            "constraint_id": "hc_1",
+            "source_id": "S-BRIEF",
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Áo dài hiện đại màu xanh thanh lịch",
+            "reason": "Ứng viên đáp ứng yêu cầu phối áo dài màu xanh.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_cr_1",
+            "gate_id": "applicable_cultural_rules",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "not_applicable",
+            "evidence": "Gate không áp dụng cho cấu hình hiện tại.",
+            "reason": "Gate này không áp dụng theo điều kiện của brief.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_cs_1",
+            "gate_id": "claim_support",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": "S-VNAT-AD",
+            "knowledge_id": "K-AD-PANTS",
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "áo dài over pants or trousers",
+            "reason": "Claim có nguồn hỗ trợ đúng phạm vi.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_hs_1",
+            "gate_id": "historical_scope",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": null,
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "not_applicable",
+            "evidence": "Chế độ hiện tại không yêu cầu phạm vi lịch sử.",
+            "reason": "historical_scope không áp dụng cho inspired mode hiện đại.",
+            "minimal_fix": null
+          },
+          {
+            "finding_id": "f_rd_1",
+            "gate_id": "renderability",
+            "rule_id": null,
+            "constraint_id": null,
+            "source_id": "S-BRIEF",
+            "knowledge_id": null,
+            "severity": "hard",
+            "status": "pass",
+            "evidence": "Đầu ra dạng thẻ và hình ảnh mô tả.",
+            "reason": "Ứng viên đáp ứng yêu cầu renderability.",
+            "minimal_fix": null
+          }
+        ],
+        "ratings": {
+          "need_fit": 3,
+          "usability": 3,
+          "aesthetics": 3,
+          "originality": 3,
+          "grounded_explanation": 3
+        },
+        "rating_evidence": {
+          "need_fit": "Đáp ứng đúng yêu cầu phối áo dài xanh tối giản cho sự kiện trường.",
+          "usability": "Cấu trúc thiết kế rõ ràng, dễ áp dụng vào thực tế.",
+          "aesthetics": "Phối màu và phụ kiện hài hòa, thanh lịch.",
+          "originality": "Mang lại cách tiếp cận hiện đại hợp lý.",
+          "grounded_explanation": "Các claim được neo chặt vào nguồn chính thống."
+        }
+      }
+    ]
+  },
+  "usage": {
+    "promptTokenCount": 3839,
+    "candidatesTokenCount": 864,
+    "totalTokenCount": 4703,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3839
+      }
+    ],
+    "serviceTier": "standard"
+  }
+}
