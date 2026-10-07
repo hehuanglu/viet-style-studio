@@ -3,27 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f5f1e9" />
+    <meta name="theme-color" content="#FAF7F2" />
     <title>AI Arena · Việt phục</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="concept.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="shell">
       <header class="topbar">
         <a class="brand" href="/" aria-label="AI Arena trang chủ">
-          <span class="brand-mark">A</span>
+          <img src="mascot-waving.png?v=2" alt="" width="34" height="34" style="object-fit: contain;">
           <span>AI ARENA <small>STUDIO</small></span>
         </a>
         <div class="server-state"><span class="status-dot"></span><span id="server-label">Đang kết nối…</span></div>
       </header>
 
-      <section class="intro">
+      <!-- Hero -->
+      <section class="intro" aria-labelledby="hero-title">
         <div class="eyebrow">THIẾT KẾ VIỆT PHỤC</div>
-        <h1>Thiết kế trang phục<br /><em>theo yêu cầu của bạn.</em></h1>
+        <h1 id="hero-title">Thiết kế trang phục<br /><em>theo yêu cầu của bạn.</em></h1>
         <p>Mô tả về bộ đồ bạn muốn. Bạn sẽ chốt những chi tiết còn thiếu, xem tối đa ba gợi ý rồi chọn một để tạo ảnh trên Gemini.</p>
         <ol class="journey-guide"><li>Mô tả bộ đồ</li><li>Chọn phương án phù hợp</li><li>Tạo ảnh và chỉnh sửa</li></ol>
       </section>
 
+      <!-- Setup: API key -->
       <section class="setup panel" aria-labelledby="setup-title">
         <div class="panel-heading">
           <div><div class="eyebrow">THIẾT LẬP BAN ĐẦU</div><h2 id="setup-title">Kết nối Gemini</h2></div>
@@ -84,7 +87,7 @@
         </div>
 
         <aside class="side-note">
-          <div class="note-icon">✳</div>
+          <img src="mascot-grass.png?v=2" alt="Gợi ý" width="60" style="margin-bottom: 12px; max-width: 60px; object-fit: contain;">
           <h3>Gợi ý có căn cứ</h3>
           <p>Ứng dụng phân biệt lời khuyên phối đồ với thông tin lịch sử. Nếu nguồn chưa đủ, hệ thống sẽ thông báo thay vì tự khẳng định.</p>
           <div class="scope" id="pack-label">Đang tải phạm vi dữ liệu…</div>
@@ -114,6 +117,29 @@
       </section>
 
       <footer><span>AI ARENA</span><span>Prototype · Kết quả cần được con người xem xét</span></footer>
+      
+      <!-- Hộp thoại xác nhận hủy tiến trình -->
+      <dialog id="cancel-confirm-modal" class="confirm-modal">
+        <div class="confirm-content">
+          <div class="modal-heading">
+            <div class="modal-icon" style="background: transparent;">
+              <img src="mascot-thinking.png?v=2" alt="Trâu" width="100" height="100" style="max-width: 100px; max-height: 100px; object-fit: contain;">
+            </div>
+            <div class="modal-text">
+              <h2>Trâu dừng tìm kiếm ngay nhé?</h2>
+              <p>Mọi kết quả đang xử lý sẽ bị hủy.</p>
+            </div>
+          </div>
+          <div class="modal-summary" id="modal-summary-content">
+            <!-- Dynamically populated by app.js -->
+          </div>
+          <div class="modal-actions">
+            <button id="resume-request" type="button" class="button button-quiet">Quay lại chỉnh sửa</button>
+            <button id="confirm-cancel-request" type="button" class="button button-accent">Xác nhận Hủy ↗</button>
+          </div>
+        </div>
+      </dialog>
+
     </main>
     <script src="/image-editor.js" defer></script>
     <script src="/app.js" defer></script>
