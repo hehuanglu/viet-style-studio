@@ -422,13 +422,13 @@ function renderCards(job) {
       ${job.workflow_version !== 2 ? `<p class="design-detail">${escapeHtml(design.subject_description || "")} ${escapeHtml(design.scene || "")}</p>` : ""}
       ${tags.length ? `<div class="tag-list">${tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>` : ""}
       ${(card.caveats || []).map((item) => `<p>${escapeHtml(item)}</p>`).join("")}
-      <div class="option-prompt" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+      <div class="option-prompt-actions">
         ${job.status === "awaiting_image" && !hasCurrentImages ? `<button type="button" class="button-primary" data-select-option="${index}" ${job.image_target_ids?.includes(card.candidate_id) ? "disabled" : ""}>${job.image_target_ids?.includes(card.candidate_id) ? "Đã chọn" : "Chọn phương án này"}</button>` : ""}
         <button type="button" class="button-primary" data-copy-option="${index}" aria-label="Sao chép hướng dẫn phương án ${index + 1}" aria-controls="option-prompt-${index}" ${prompt ? "" : "disabled"}>Sao chép hướng dẫn</button>
         <button type="button" class="button-secondary" data-view-option="${index}" aria-expanded="false" aria-controls="option-prompt-${index}">Xem hướng dẫn</button>
-        <div id="option-prompt-${index}" hidden style="width: 100%; margin-top: 10px;"><label for="option-prompt-text-${index}">Hướng dẫn tạo ảnh · phương án ${index + 1}</label><textarea id="option-prompt-text-${index}" rows="8" readonly>${escapeHtml(prompt)}</textarea></div>
-        <span role="status" style="width: 100%; color: var(--muted); font-size: 13px;">${prompt ? "" : "Đang chuẩn bị prompt…"}</span>
       </div>
+      <div id="option-prompt-${index}" hidden class="option-prompt-textarea"><label for="option-prompt-text-${index}">Hướng dẫn tạo ảnh · phương án ${index + 1}</label><textarea id="option-prompt-text-${index}" rows="8" readonly>${escapeHtml(prompt)}</textarea></div>
+      <span role="status" class="option-prompt-status">${prompt ? "" : "Đang chuẩn bị prompt…"}</span>
       ${sources.length ? `<p class="source-line">Nguồn: ${sources.join(" · ")}</p>` : ""}
     </article>`;
   }).join("");
@@ -440,16 +440,16 @@ function renderCards(job) {
     } catch (error) { showRequestError(error); button.disabled = false; }
   }));
   $("#cards").querySelectorAll("[data-view-option]").forEach((button) => button.addEventListener("click", () => {
-    const panel = button.parentElement.querySelector("div");
+    const panel = button.closest(".idea-card").querySelector(".option-prompt-textarea");
     panel.hidden = !panel.hidden;
     button.setAttribute("aria-expanded", String(!panel.hidden));
     button.textContent = panel.hidden ? "Xem hướng dẫn" : "Ẩn hướng dẫn";
   }));
   $("#cards").querySelectorAll("[data-copy-option]").forEach((button) => button.addEventListener("click", async () => {
     const index = Number(button.dataset.copyOption), candidate = cards[index];
-    const panel = button.parentElement.querySelector("div");
+    const panel = button.closest(".idea-card").querySelector(".option-prompt-textarea");
     const textarea = panel.querySelector("textarea");
-    const message = button.parentElement.querySelector('[role="status"]');
+    const message = button.closest(".idea-card").querySelector(".option-prompt-status");
     button.disabled = true;
     try {
       await copyPrompt(candidatePrompt(job, candidate, index), textarea);
@@ -531,15 +531,21 @@ function renderImage(job) {
   };
   const imageMarkup = (artifact) => `<div class="image-result">
     <button type="button" class="image-open" data-edit-image="${escapeHtml(artifact.artifact_id)}" ${editable ? "" : "disabled"} aria-label="Mở ảnh để phác thảo"><img src="${escapeHtml(artifact.url)}" alt="${artifact.parent_artifact_id ? "Ảnh sửa" : "Ảnh tạo"}" /></button>
-    <p>${escapeHtml((job.cards || []).find(c => c.candidate_id === artifact.candidate_id)?.title || artifact.candidate_id || "")}<br /><strong>${artifact.parent_artifact_id ? "Ảnh sửa từ ảnh gốc của request này" : "Ảnh tạo ban đầu"}</strong><br />
-    ${escapeHtml(artifact.output_origin === "gemini" ? "API Gemini" : artifact.output_origin === "mock" ? "Ảnh mock" : artifact.output_origin)}<br />
-    ${escapeHtml(labels[artifact.check_status] || "Chưa kiểm tra")}<br />
-    ${(job.selected_artifact_ids || [job.selected_artifact_id]).includes(artifact.artifact_id) ? "Ảnh kết quả đã kiểm tra của phương án này.<br />" : ""}
-    <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-      <a class="button-secondary" href="${escapeHtml(artifact.url)}" download style="text-decoration: none;">Tải ảnh</a>
-      <button type="button" class="button-primary" data-edit-image="${escapeHtml(artifact.artifact_id)}" ${editable ? "" : "disabled"}>Mở ảnh / Phác thảo chỉnh sửa</button>
+    <div class="image-info" style="flex: 1;">
+      <p style="margin: 0 0 8px 0; font-size: 14px;"><strong>${escapeHtml((job.cards || []).find(c => c.candidate_id === artifact.candidate_id)?.title || artifact.candidate_id || "")}</strong></p>
+      <p style="margin: 0; font-size: 13px; color: var(--muted); line-height: 1.6;">
+        ${artifact.parent_artifact_id ? "Ảnh sửa từ ảnh gốc của request này" : "Ảnh tạo ban đầu"}<br />
+        Nguồn: ${escapeHtml(artifact.output_origin === "gemini" ? "API Gemini" : artifact.output_origin === "mock" ? "Ảnh mock" : artifact.output_origin)}<br />
+        Trạng thái: ${escapeHtml(labels[artifact.check_status] || "Chưa kiểm tra")}<br />
+        ${(job.selected_artifact_ids || [job.selected_artifact_id]).includes(artifact.artifact_id) ? "<span style='color: var(--forest); font-weight: 600;'>Đã chốt phương án này.</span><br />" : ""}
+      </p>
+      <div style="display: flex; gap: 10px; margin-top: 15px; margin-bottom: 10px; flex-wrap: wrap;">
+        <a class="button-secondary" href="${escapeHtml(artifact.url)}" download style="text-decoration: none;">Tải ảnh</a>
+        <button type="button" class="button-primary" data-edit-image="${escapeHtml(artifact.artifact_id)}" ${editable ? "" : "disabled"}>Mở ảnh / Phác thảo chỉnh sửa</button>
+      </div>
+      ${imageReview(artifact)}
     </div>
-    </p>${imageReview(artifact)}</div>`;
+  </div>`;
   const current = (job.artifacts || []).filter(a => currentIds.includes(a.artifact_id));
   const history = (job.artifacts || []).filter(a => !currentIds.includes(a.artifact_id));
   $("#image-result").innerHTML = current.map(imageMarkup).join("") + (history.length ? `<details class="details image-history"><summary>Lịch sử ảnh (${history.length})</summary>${history.map(a => `<p><a href="${escapeHtml(a.url)}" download>${escapeHtml(a.filename || "Ảnh trước chỉnh sửa")}</a></p>`).join("")}</details>` : "");
@@ -574,6 +580,7 @@ async function resumeStep(job, endpoint, data = {}) {
   const box = $("#manual-step");
   box.querySelectorAll("button,input,textarea").forEach((element) => { element.disabled = true; });
   $("#request-error").hidden = true;
+  $("#progress")?.scrollIntoView({ behavior: "smooth", block: "center" });
   try {
     await api(`/requests/${job.request_id}/${endpoint}`, {method: "POST", body: JSON.stringify({revision: job.revision, step_id: job.pending_manual.step_id, ...data})});
     renderedManualKey = null;
@@ -785,9 +792,11 @@ async function refreshJob() {
       setTimeout(() => {
         if (waiting.has(job.status)) {
           if (job.status === "awaiting_choices") $("#question-card")?.scrollIntoView({ behavior: "smooth", block: "start" });
-          else if (job.status === "awaiting_image" || job.status === "awaiting_manual_audit") $("#manual-step")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          else if (job.status === "awaiting_image") $("#cards")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          else if (job.status === "awaiting_manual_audit" || job.status === "awaiting_image_repair") $("#manual-step")?.scrollIntoView({ behavior: "smooth", block: "start" });
         } else if (terminal.has(job.status)) {
-          if (job.status === "complete" || job.status === "cards_only") $("#image-result")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (job.status === "complete") $("#image-result")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          else if (job.status === "cards_only") $("#cards")?.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }, 100);
     }
@@ -833,10 +842,11 @@ function selectionSummary(snapshot) {
     if (!group) return "";
     const labels = item.option_ids.map(id => group.options.find(o => o.option_id === id)).filter(Boolean).map(o => o.is_ai_delegate ? "Để AI đề xuất" : o.label);
     if (item.custom_text?.trim()) labels.push(`Yêu cầu riêng: ${item.custom_text}`);
-    return labels.length ? `<li><strong>${escapeHtml(group.label)}</strong>: ${labels.map(escapeHtml).join(" · ")}</li>` : "";
+    return labels.length ? `<div class="summary-bar"><span class="summary-label">${escapeHtml(group.label)}</span><span class="summary-value">${labels.map(escapeHtml).join(" · ")}</span></div>` : "";
   }).filter(Boolean);
-  const changes = (snapshot.choices.explicit_changes || []).map(c => `<li>Đã sửa yêu cầu: ${escapeHtml(c.replacement_text)}</li>`);
-  return `<ul>${rows.concat(changes).join("") || "<li>Giữ các thông tin đã hiểu, không thêm lựa chọn.</li>"}</ul>`;
+  const changes = (snapshot.choices.explicit_changes || []).map(c => `<div class="summary-bar"><span class="summary-label">Đã sửa yêu cầu</span><span class="summary-value">${escapeHtml(c.replacement_text)}</span></div>`);
+  const content = rows.concat(changes).join("") || `<div class="summary-bar"><span class="summary-value">Giữ các thông tin đã hiểu, không thêm lựa chọn.</span></div>`;
+  return `<div class="summary-container">${content}</div>`;
 }
 
 function renderChecklist(job) {
