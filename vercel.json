@@ -1,0 +1,39 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "python3 scripts/build_vercel.py",
+  "outputDirectory": "public",
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 300,
+      "includeFiles": "{backend/arena_backend/**,backend/viet_phuc/**,backend/packs/**,arena-kit/**,docs/viet-phuc-v2/prompts/**}",
+      "excludeFiles": "{.env,.env.*,.git/**,.venv/**,venv/**,.vercel/**,.vercel_python_packages/**,.agents/**,backend/evidence/**,backend/.data/**,backend/reports/**,backend/artifacts/**,backend/tests/**,frontend/**,docs/viet-phuc-v2/prompt-*/**}"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/health",
+      "destination": "/api/index?arena_path=/health"
+    },
+    {
+      "source": "/config",
+      "destination": "/api/index?arena_path=/config"
+    },
+    {
+      "source": "/session/:path*",
+      "destination": "/api/index?arena_path=/session/:path*"
+    },
+    {
+      "source": "/requests/:path*",
+      "destination": "/api/index?arena_path=/requests/:path*"
+    },
+    {
+      "source": "/artifacts/:path*",
+      "destination": "/api/index?arena_path=/artifacts/:path*"
+    },
+    {
+      "source": "/uploads/:path*",
+      "destination": "/api/index?arena_path=/uploads/:path*"
+    }
+  ],
+  "framework": null
+}

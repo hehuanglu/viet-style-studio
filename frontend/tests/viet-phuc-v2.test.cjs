@@ -7,7 +7,7 @@ const copies = [];
 const panel = {hidden:true, querySelector() {return {value:'Nguyên văn\nKhông tự đổi màu.',focus(){},select(){}};}};
 const status = {textContent:''};
 const parent = {querySelector(s){return s === '.option-prompt-textarea' ? panel : status;}};
-function button(dataset) {return {dataset, parentElement:parent, closest(){return parent;}, textContent:'Sao chép hướng dẫn', events:{}, setAttribute(){}, addEventListener(name, fn){this.events[name]=fn;}};}
+function button(dataset) {return {dataset, parentElement:parent, closest(){return parent;}, textContent:'Copy prompt', events:{}, setAttribute(){}, addEventListener(name, fn){this.events[name]=fn;}};}
 const copyButton=button({copyOption:'0'}), viewButton=button({viewOption:'0'});
 const cards = {innerHTML:'',querySelector(){return copyButton;},querySelectorAll(s){return s === '[data-copy-option]' ? [copyButton] : s === '[data-view-option]' ? [viewButton] : [];}};
 const context=vm.createContext({
@@ -26,6 +26,15 @@ assert.match(cards.innerHTML,/Văn hóa \/ lịch sử/);
 assert.match(cards.innerHTML,/Hội họa \/ mỹ thuật/);
 assert.doesNotMatch(cards.innerHTML,/\/100|class="score"|84\.4/);
 assert.match(cards.innerHTML,/<summary>Nhận xét AI<\/summary>/);
+assert.match(cards.innerHTML,/Câu chuyện thiết kế/);
+assert.doesNotMatch(cards.innerHTML,/Đánh giá tổng hợp/);
+assert.match(cards.innerHTML,/Chưa có câu chuyện thiết kế/);
+job.cards[0].design_story={origin_and_meaning:'Cảm hứng từ <áo> & nét Việt.',cultural_combination_warnings:['Không gán <biểu tượng> chưa xác minh.']};
+vm.runInContext('renderCards(fixture)',context);
+assert.match(cards.innerHTML,/Cảm hứng từ &lt;áo&gt; &amp; nét Việt\./);
+assert.match(cards.innerHTML,/Lưu ý kết hợp văn hóa/);
+assert.match(cards.innerHTML,/Không gán &lt;biểu tượng&gt; chưa xác minh\./);
+assert.doesNotMatch(cards.innerHTML,/<áo>|<biểu tượng>|Đánh giá tổng hợp/);
 context.usageFixture={workflow_version:2,status:'specialist_auditing',api_call_warnings:['Tiến trình đã thực hiện 100 lượt gọi Gemini API. Quy trình vẫn tiếp tục.'],warnings:[]};
 vm.runInContext('renderWarnings(usageFixture)',context);
 assert.match(selectors.get('#warnings').innerHTML, /role="status"/);
@@ -47,7 +56,7 @@ assert.equal(vm.runInContext('shouldChooseCopiedCandidate(thirdChoice, thirdChoi
 context.thirdChoice.artifacts=[{candidate_id:'old-revision'}];
 assert.equal(vm.runInContext('shouldChooseCopiedCandidate(thirdChoice, thirdChoice.cards[2])',context),true);
 job.status='awaiting_image';job.artifacts=[{candidate_id:'prior-revision'}];
-vm.runInContext('renderCards(fixture)',context);assert.match(cards.innerHTML,/Chọn phương án này/);
+vm.runInContext('renderCards(fixture)',context);assert.doesNotMatch(cards.innerHTML,/Chọn phương án này|data-view-option|Đánh giá AI hỗ trợ tham khảo/);assert.equal((cards.innerHTML.match(/<button /g)||[]).length,1);assert.match(cards.innerHTML,/>Copy prompt<\/button>/);
 job.artifacts=[{candidate_id:'c'}];vm.runInContext('renderCards(fixture)',context);assert.doesNotMatch(cards.innerHTML,/Chọn phương án này/);
 context.reference={label:'Fixture <chưa tìm>',description:'Giải thích vẫn đọc được',scope:'Chưa có nguồn',url:null,preview_url:null,discovery_status:'not_found'};
 const missing=vm.runInContext('referenceMarkup(reference)',context);
@@ -96,15 +105,14 @@ assert.equal(box.hidden,false);assert.match(box.innerHTML,/Lựa chọn đã ch�
   await copyButton.events.click();
   await copyButton.events.click();
   assert.deepEqual(copies,[job.cards[0].image_prompt,job.cards[0].image_prompt]);
-  assert.equal(panel.hidden,true);assert.equal(copyButton.textContent,'Sao chép hướng dẫn');
+  assert.equal(panel.hidden,true);assert.equal(copyButton.textContent,'Copy prompt');
   assert.equal(status.textContent,'Đã copy · dán vào Gemini');
-  await viewButton.events.click();assert.equal(panel.hidden,false);
-  await copyButton.events.click();assert.equal(panel.hidden,false);assert.equal(copies.length,3);
+  await copyButton.events.click();assert.equal(panel.hidden,true);assert.equal(copies.length,3);
   selectors.set('#request-error',{hidden:true});
   job.artifacts=[];job.pending_manual={step_id:"step"};
   vm.runInContext(`chooseImageCandidate = async (_job, candidate) => { activeJob = {image_target_ids:[candidate.candidate_id]}; };`,context);
   await copyButton.events.click();
-  assert.equal(status.textContent,'Đã sao chép hướng dẫn và chọn phương án');
+  assert.equal(status.textContent,'Đã copy · đang nhận ảnh cho phương án này');
   assert.equal(selectors.get('#request-error').hidden,true);
   console.log('Passed: specialist cards, repeated exact copy, revision selection, missing reference details, no defaults, recursive dependencies, AI/custom exclusivity.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

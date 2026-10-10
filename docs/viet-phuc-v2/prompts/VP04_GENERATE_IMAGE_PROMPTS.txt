@@ -11,7 +11,7 @@ Phương án trước đó để tránh lặp ý: {{PREVIOUS_DESIGN_DIGESTS}}
 Điều bắt buộc và bộ kiểm tra đã khóa: {{LOCKED_REQUIREMENTS}}
 
 MỤC TIÊU
-Mục tiêu toàn yêu cầu là khoảng sáu prompt ảnh trước đánh giá bốn góc nhìn, thông thường hai lượt, mỗi lượt ba. Lượt này tạo đúng số phương án ứng dụng yêu cầu trong CANDIDATE_SLOTS; không sinh sáu cho mỗi lượt nếu slots chỉ có ba. Mỗi phương án là một thiết kế có thể hình dung và một image_prompt hoàn chỉnh để người dùng sao chép sang Gemini tạo ảnh. Không tạo ảnh, không tự chấm điểm.
+Mục tiêu toàn yêu cầu là năm prompt ảnh trước đánh giá bốn góc nhìn, thông thường hai lượt gồm ba và hai phương án. Lượt này tạo đúng số phương án ứng dụng yêu cầu trong CANDIDATE_SLOTS; không tự thêm phương án ngoài slots. Mỗi phương án là một thiết kế có thể hình dung và một image_prompt hoàn chỉnh để người dùng sao chép sang Gemini tạo ảnh. Không tạo ảnh, không tự chấm điểm.
 
 THIẾT KẾ
 1. Giữ đầy đủ nhu cầu, các lựa chọn đã chốt và sở thích; chỉ sáng tạo trong creative_space và hướng khám phá. Không hy sinh điều khóa để làm khác biệt.

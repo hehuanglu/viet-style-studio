@@ -58,6 +58,11 @@ def fixture_response(task, p):
                            'checks': [{'check_id': x['check_id'], 'owner_role': role, 'severity': x['severity'], 'status': 'pass' if x['applicability'] else 'not_applicable', 'prompt_quote': c['image_prompt'] if x['applicability'] else '', 'source_ids': [], 'reason': 'Fixture; không xác minh chuyên môn'} for x in p['EXPECTED_CHECKS']],
                            'criterion_ratings': [{'criterion_id': x['criterion_id'], 'applicable': x['applicable'], 'rating': rating if x['applicable'] else None, 'reason': 'Fixture có điều kiện áp dụng'} for x in p['ROLE_RUBRIC']['criteria']], 'score': rating * 20 if any(x['applicable'] for x in p['ROLE_RUBRIC']['criteria']) else None, 'score_reason': 'Điểm fixture theo rubric; không đánh giá thật.', 'strengths': ['Fixture'], 'concerns': [], 'suggested_fixes': [], 'summary': 'Nhận xét fixture; chưa có xác nhận thật.'})
         value = {'role': role, 'audits': audits}
+    elif task == 'VP09':
+        c = p['CANDIDATE']
+        value = {'candidate_id': c['candidate_id'], 'candidate_revision': c['revision'], 'content_hash': c['content_hash'],
+                 'origin_and_meaning': 'Câu chuyện fixture từ prompt thiết kế; chưa có nguồn xác minh nguồn gốc hoặc ý nghĩa văn hóa.',
+                 'cultural_combination_warnings': ['Không gọi thiết kế chuyển thể là phục dựng lịch sử; fixture không xác minh cách phối văn hóa.']}
     elif task == 'VP08':
         audits = []
         for c in p['CANDIDATE_BATCH']:

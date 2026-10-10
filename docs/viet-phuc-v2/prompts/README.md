@@ -16,6 +16,8 @@ Snapshot 10/10/2026. Workflow phổ thông: [workflow](../../WORKFLOW_CHO_NGUOI_
 - [VP07_AUDIT_VISUAL_ART.txt](VP07_AUDIT_VISUAL_ART.txt): SpecialistAuditBatch art, visual composition/motif/color/intentional originality.
 - [VP08_AUDIT_HARMONY_SCORE.txt](VP08_AUDIT_HARMONY_SCORE.txt): HarmonyAuditBatch, toàn bộ3 specialist audits per candidate + original design; source_scores, summary, harmony_score/proposed_total/recommendation do Gemini trả.
 
+- [VP09_DESIGN_STORY.txt](VP09_DESIGN_STORY.txt): DesignStory; một lượt gọi văn bản riêng cho mỗi prompt thuộc top 3 sau xếp hạng. Diễn giải nguồn gốc/ý nghĩa và 1–3 lưu ý kết hợp văn hóa; không sửa prompt ảnh hoặc điểm. Thiếu nguồn phải nói rõ, không bịa lịch sử. Giao diện hiển thị `design_story` thay “Đánh giá tổng hợp”. VP09 dùng transport Gemini structured output hiện có, schema kiểm tra cấu trúc và mã/phiên bản/hash để gắn đúng thẻ; không xác minh sự thật văn hóa. Ba lượt dùng chung ngân sách thiết kế, checkpoint và retry hiện có. Ngân sách thiết kế tăng từ 30 lên 36 để chứa thêm ba lượt câu chuyện ở mỗi vòng thiết kế khi người dùng chọn lại; deadline và ngân sách ảnh giữ nguyên; lỗi được báo ở bước viết câu chuyện, không đánh dấu hoàn tất. Kết quả cũ không tự sinh lại câu chuyện; tạo yêu cầu mới sau khi restart backend.
+
 ## Prompt assembly
 
 VPPrompts đọc tệp riêng; VP00 ở system instruction, task template ở user content. `{{VARIABLE}}` nhận JSON-encoded payload; missing variable là lỗi trước dispatch. Không concatenate tất cả role templates vào một call. Model/task config/profile/schema được app cấp, không user prompt quyết định.

@@ -7,7 +7,7 @@ from .core import ArenaError, require
 from .report import user_report
 
 
-def create_server(engine, host="127.0.0.1", port=8787):
+def create_handler(engine):
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
             pass  # HTTP headers and API keys are never logged.
@@ -21,7 +21,7 @@ def create_server(engine, host="127.0.0.1", port=8787):
             self.wfile.write(data)
 
         def send_frontend(self, name):
-            files = {"": "index.html", "app.js": "app.js", "image-editor.js": "image-editor.js", "styles.css": "styles.css"}
+            files = {"": "index.html", "app.js": "app.js", "image-editor.js": "image-editor.js", "styles.css": "styles.css", "runtime-config.js": "runtime-config.js"}
             filename = files.get(name)
             if not filename:
                 raise ArenaError("not_found", "Tệp không tồn tại", 404)
@@ -52,7 +52,7 @@ def create_server(engine, host="127.0.0.1", port=8787):
             try:
                 url = urlsplit(self.path)
                 parts = url.path.strip("/").split("/")
-                if url.path == "/" or url.path in ("/app.js", "/image-editor.js", "/styles.css"):
+                if url.path == "/" or url.path in ("/app.js", "/image-editor.js", "/styles.css", "/runtime-config.js"):
                     return self.send_frontend("" if url.path == "/" else url.path[1:])
                 if url.path == "/health":
                     return self.send_json(200, engine.health())
@@ -77,7 +77,7 @@ def create_server(engine, host="127.0.0.1", port=8787):
                     job["user_report"] = user_report(job, engine.policy)
                     if job.get("workflow_version") == 2:
                         # Internal checkpoint/inputs remain persisted, not sent on every poll.
-                        for key in ("checkpoints", "selection_receipts", "design_clock"):
+                        for key in ("checkpoints", "selection_receipts", "design_clock", "generation_inputs", "generation_batches", "design_history"):
                             job.pop(key, None)
                     return self.send_json(200, job)
                 if len(parts) == 2 and parts[0] == "artifacts":
@@ -86,9 +86,7 @@ def create_server(engine, host="127.0.0.1", port=8787):
                         artifact_id = str(uuid.UUID(parts[1]))
                     except ValueError:
                         raise ArenaError("not_found", "Artifact không tồn tại", 404) from None
-                    path = engine.store.directory / f"{artifact_id}.image"
-                    require(path.is_file(), "Artifact không tồn tại", "not_found", 404)
-                    data = path.read_bytes()
+                    data = engine.store.read_asset(artifact_id)
                     mime = "image/png" if data.startswith(b"\x89PNG") else "image/jpeg" if data.startswith(b"\xff\xd8") else "image/webp"
                     self.send_response(200)
                     self.send_header("Content-Type", mime)
@@ -145,4 +143,8 @@ def create_server(engine, host="127.0.0.1", port=8787):
             except ArenaError as error:
                 self.send_json(error.http_status, {"error": {"code": error.code, "message": error.message}})
 
-    return ThreadingHTTPServer((host, port), Handler)
+    return Handler
+
+
+def create_server(engine, host="127.0.0.1", port=8800):
+    return ThreadingHTTPServer((host, port), create_handler(engine))

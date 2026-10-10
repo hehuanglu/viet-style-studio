@@ -145,9 +145,10 @@ class Store:
     def save_job(self, job):
         with self.lock, self.db:
             old = self.db.execute("SELECT value FROM jobs WHERE id=?", (job["request_id"],)).fetchone()
-            if old and json.loads(old[0])["status"] == "cancelled" and job["status"] != "cancelled":
+            previous = json.loads(old[0]) if old else None
+            if previous and previous["status"] == "cancelled" and job["status"] != "cancelled":
                 raise ArenaError("cancelled", "Request đã được hủy", 409)
-            if old and json.loads(old[0])["revision"] > job["revision"]:
+            if previous and previous["revision"] > job["revision"]:
                 raise ArenaError("cancelled", "Không ghi đè revision mới bằng kết quả cũ", 409)
             self.db.execute("INSERT OR REPLACE INTO jobs VALUES (?,?)", (job["request_id"], json.dumps(job, ensure_ascii=False)))
 
@@ -163,6 +164,21 @@ class Store:
     def close(self):
         with self.lock:
             self.db.close()
+
+    def write_asset(self, asset_id, data):
+        (self.directory / f"{asset_id}.image").write_bytes(data)
+
+    def read_asset(self, asset_id):
+        path = self.directory / f"{asset_id}.image"
+        require(path.is_file(), "Artifact không tồn tại", "not_found", 404)
+        return path.read_bytes()
+
+    def asset_info(self, asset_id):
+        data = self.read_asset(asset_id)
+        return len(data), data[:8]
+
+    def read_asset_part(self, asset_id, part):
+        return self.read_asset(asset_id)[part*1048576:(part+1)*1048576]
 
 
 class Budget:

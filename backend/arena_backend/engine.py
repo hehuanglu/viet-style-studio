@@ -20,18 +20,19 @@ TERMINAL = {"complete", "cards_only", "needs_evidence", "needs_resolution", "fai
 
 
 class Engine(VietPhucWorkflow, ImageWorkflow):
-    def __init__(self, provider, data_dir, enable_images=False, pack_path=None, policy=None, evidence_dir=None, allow_mock_requests=False, default_workflow_version=2, design_attempts_override=None):
+    def __init__(self, provider, data_dir, enable_images=False, pack_path=None, policy=None, evidence_dir=None, allow_mock_requests=False, default_workflow_version=2, design_attempts_override=None, store=None, executor=None, recover=True, runtime_config=None):
         self.provider, self.enable_images = provider, enable_images
         self.allow_mock_requests = allow_mock_requests
         self.default_workflow_version = default_workflow_version
         require(design_attempts_override is None or type(design_attempts_override) is int and 1 <= design_attempts_override <= 64, 'Trần thử nghiệm thiết kế cần là số nguyên 1–64')
         self.design_attempts_override = design_attempts_override
-        self.store = Store(data_dir)
+        self.store = store if store is not None else Store(data_dir)
+        self.runtime_config = runtime_config or {}
         self.policy = copy.deepcopy(policy) if policy else read_json(KIT / "policy.json")
         self.domain = Domain(pack_path) if pack_path else Domain() if default_workflow_version == 1 else Domain(KIT.parent / "backend" / "packs" / "viet-phuc-v2.json")
         self.contracts = Contracts()
         self.prompts = Prompts() if default_workflow_version == 1 else Prompts(KIT / "image-audit.md")
-        self.executor = ThreadPoolExecutor(max_workers=4)
+        self.executor = executor if executor is not None else ThreadPoolExecutor(max_workers=4)
         self.text_slots = threading.Semaphore(self.policy["request_budget"]["text_concurrency"])
         self.image_slots = threading.Semaphore(self.policy["request_budget"]["image_concurrency"])
         self.lock = threading.RLock()
@@ -52,7 +53,8 @@ class Engine(VietPhucWorkflow, ImageWorkflow):
         self.policy["design_budget"] = self.vp_config["design_budget"]
         self.policy["media_budget"] = self.vp_config["media_budget"]
         self.evidence.write("vp-runtime", {"version": self.vp_version, "config": self.vp_config, "contracts": self.vp_contracts.document, "templates": self.vp_prompts.templates, "system": self.vp_prompts.system})
-        self._recover()
+        if recover:
+            self._recover()
 
     def _recover(self):
         for job in self.store.jobs():

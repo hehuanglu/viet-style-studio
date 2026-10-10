@@ -1,0 +1,726 @@
+{
+  "task": "VP07",
+  "payload": {
+    "REQUEST_METADATA": {
+      "request_id": "13920343-ddc9-4374-8b62-e59e989a4d89",
+      "revision": 2
+    },
+    "RESOLVED_BRIEF": {
+      "request_id": "13920343-ddc9-4374-8b62-e59e989a4d89",
+      "revision": 2,
+      "resolved_text": "Thiết kế đồ nữ đi học đại học, kín đáo và thoải mái, lấy cảm hứng từ Việt phục với kiểu dáng thiết kế dựa trên áo ngũ thân tay chẽn phối vạt hiện đại. Chất liệu trang phục do AI tự quyết định để tối ưu sự thoải mái và phù hợp phom dáng. Phụ kiện đi kèm gồm túi vải mộc hoặc túi mây tre đan cỡ trung. Phong cách trình bày ảnh minh họa là lookbook studio tối giản.",
+      "domains": [
+        {
+          "domain_id": "bocanh",
+          "label": "Bối cảnh sử dụng",
+          "summary": "Mục đích và hoàn cảnh mặc trang phục là đi học đại học.",
+          "related_domain_ids": [
+            "thietke",
+            "phongcachanh"
+          ]
+        },
+        {
+          "domain_id": "thietke",
+          "label": "Đặc điểm thiết kế",
+          "summary": "Yêu cầu trang phục dành cho nữ, lấy cảm hứng từ Việt phục, đảm bảo tính kín đáo, thoải mái, kiểu dáng lấy cảm hứng từ áo ngũ thân tay chẽn, chất liệu do AI gợi ý và đi kèm phụ kiện túi vải mộc/mây tre đan.",
+          "related_domain_ids": [
+            "bocanh",
+            "phongcachanh"
+          ]
+        },
+        {
+          "domain_id": "phongcachanh",
+          "label": "Phong cách trình bày ảnh",
+          "summary": "Cách thể hiện hình ảnh minh họa thiết kế theo phong cách lookbook studio tối giản.",
+          "related_domain_ids": [
+            "thietke"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_1",
+          "domain_ids": [
+            "thietke"
+          ],
+          "meaning": "Trang phục thiết kế dành cho nữ.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Thiết kế đồ nữ"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_2",
+          "domain_ids": [
+            "thietke"
+          ],
+          "meaning": "Lấy cảm hứng từ Việt phục.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "lấy cảm hứng Việt phục"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_3",
+          "domain_ids": [
+            "bocanh"
+          ],
+          "meaning": "Mục đích sử dụng để đi học đại học.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "để đi học đại học"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_4",
+          "domain_ids": [
+            "thietke"
+          ],
+          "meaning": "Tiêu chí thiết kế cần kín đáo.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "kín đáo"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_5",
+          "domain_ids": [
+            "thietke"
+          ],
+          "meaning": "Tiêu chí thiết kế cần thoải mái.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "thoải mái"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_6",
+          "domain_ids": [
+            "thietke"
+          ],
+          "meaning": "Giao quyền cho AI gợi ý các chi tiết còn lại.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Còn lại bạn gợi ý."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_s1",
+          "domain_ids": [
+            "thietke",
+            "bocanh"
+          ],
+          "meaning": "Chọn thiết kế lấy cảm hứng từ áo ngũ thân tay chẽn.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn thiết kế lấy cảm hứng từ áo ngũ thân tay chẽn."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_s2",
+          "domain_ids": [
+            "thietke"
+          ],
+          "meaning": "Giao cho AI tự quyết định chất liệu.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Giao cho AI tự quyết định chất liệu."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_s3",
+          "domain_ids": [
+            "thietke",
+            "bocanh"
+          ],
+          "meaning": "Chọn túi vải mộc hoặc túi mây tre đan.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn túi vải mộc hoặc túi mây tre đan."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_s4",
+          "domain_ids": [
+            "phongcachanh"
+          ],
+          "meaning": "Chọn phong cách lookbook studio.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn phong cách lookbook studio."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "locked_atom_ids": [
+        "atom_1",
+        "atom_2",
+        "atom_3",
+        "atom_4",
+        "atom_5",
+        "atom_s1",
+        "atom_s3",
+        "atom_s4"
+      ],
+      "delegated_atom_ids": [
+        "atom_6",
+        "atom_s2"
+      ],
+      "creative_space": [
+        {
+          "domain_id": "thietke",
+          "description": "Chất liệu trang phục do AI chủ động đề xuất để phù hợp với phom dáng áo ngũ thân tay chẽn và tiêu chí đi học.",
+          "allowed_variations": [
+            "Lựa chọn các loại vải mộc, đũi, cotton hoặc pha tự nhiên giữ phom và thoáng mát"
+          ]
+        }
+      ],
+      "reference_ids": [],
+      "historical_mode": "inspired",
+      "decisions": [
+        {
+          "group_id": "group_trang_phuc",
+          "option_ids": [
+            "opt_ngu_than_chuyen_the"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_s1"
+          ]
+        },
+        {
+          "group_id": "group_chat_lieu",
+          "option_ids": [
+            "opt_ai_delegate_chat_lieu"
+          ],
+          "custom_text": "",
+          "delegated": true,
+          "atom_ids": [
+            "atom_s2"
+          ]
+        },
+        {
+          "group_id": "group_phu_kien",
+          "option_ids": [
+            "opt_tui_vai_tho"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_s3"
+          ]
+        },
+        {
+          "group_id": "group_phong_cach_anh",
+          "option_ids": [
+            "opt_lookbook_studio"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_s4"
+          ]
+        }
+      ],
+      "conflicts": [],
+      "status": "ready"
+    },
+    "CANDIDATE_BATCH": [
+      {
+        "candidate_id": "R2-B1-C1",
+        "batch_id": "B1",
+        "revision": 2,
+        "title": "Áo ngũ thân tay chẽn cách tân phối vạt chéo cho nữ đi học đại học",
+        "image_prompt": "Tạo một ảnh trình bày duy nhất một người mẫu mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Thiết kế trang phục nữ lấy cảm hứng từ áo ngũ thân tay chẽn truyền thống, được chuyển hóa thành dạng áo vạt chéo gọn gàng kết hợp chân váy dài đứng dáng phục vụ nhu cầu đi học đại học, đảm bảo tiêu chí kín đáo và thoải mái. Chất liệu sử dụng là vải đũi cotton tự nhiên màu xanh nhạt mềm mại, thoáng mát, dễ vận động. Chi tiết thiết kế áo có cổ đứng nhẹ, tay áo ôm vừa vặn, hàng khuy tết nút vải tinh tế dọc sườn phải; kết hợp chân váy dài suông nhẹ che phủ lịch sự. Phụ kiện đi kèm gồm một chiếc túi vải mộc màu ngà cỡ trung đeo vai. Phong cách trình bày ảnh là lookbook studio tối giản, phông nền xám nhạt trung tính, ánh sáng tự nhiên mềm mại, không có chữ, nhãn, watermark hay người mẫu thứ hai.",
+        "design_sections": [
+          {
+            "domain_id": "thietke",
+            "description": "Trang phục nữ đi học đại học lấy cảm hứng từ áo ngũ thân tay chẽn, phom dáng kín đáo, thoải mái với chất liệu đũi cotton.",
+            "related_atom_ids": [
+              "atom_1",
+              "atom_2",
+              "atom_4",
+              "atom_5",
+              "atom_s1"
+            ]
+          },
+          {
+            "domain_id": "bocanh",
+            "description": "Sử dụng cho bối cảnh đi học đại học, đi kèm túi vải mộc.",
+            "related_atom_ids": [
+              "atom_3",
+              "atom_s3"
+            ]
+          },
+          {
+            "domain_id": "phongcachanh",
+            "description": "Phong cách lookbook studio tối giản với ánh sáng tự nhiên.",
+            "related_atom_ids": [
+              "atom_s4"
+            ]
+          }
+        ],
+        "fashion_summary": "Trang phục áo ngũ thân tay chẽn cách tân kết hợp chân váy suông dài bằng chất liệu đũi cotton, tối ưu sự thoải mái và kín đáo cho nữ sinh đại học.",
+        "art_summary": "Phong cách lookbook studio tối giản, tone màu xanh nhạt kết hợp túi vải mộc, bố cục hai góc nhìn trước và sau đồng nhất.",
+        "culture_summary": "Sử dụng cảm hứng từ áo ngũ thân tay chẽn truyền thống của Việt Nam, mang tính ứng dụng cao trong đời sống hiện đại.",
+        "choices_made": [
+          "Chọn thiết kế lấy cảm hứng từ áo ngũ thân tay chẽn kết hợp chân váy dài.",
+          "Sử dụng chất liệu vải đũi cotton thoáng mát do AI đề xuất.",
+          "Phụ kiện túi vải mộc cỡ trung.",
+          "Phong cách lookbook studio tối giản."
+        ],
+        "claims": [],
+        "locked_coverage": [
+          {
+            "atom_id": "atom_1",
+            "prompt_quote": "Trang phục thiết kế dành cho nữ"
+          },
+          {
+            "atom_id": "atom_2",
+            "prompt_quote": "lấy cảm hứng từ áo ngũ thân tay chẽn truyền thống"
+          },
+          {
+            "atom_id": "atom_3",
+            "prompt_quote": "đi học đại học"
+          },
+          {
+            "atom_id": "atom_4",
+            "prompt_quote": "đảm bảo tiêu chí kín đáo"
+          },
+          {
+            "atom_id": "atom_5",
+            "prompt_quote": "thoải mái"
+          },
+          {
+            "atom_id": "atom_s1",
+            "prompt_quote": "áo ngũ thân tay chẽn"
+          },
+          {
+            "atom_id": "atom_s3",
+            "prompt_quote": "túi vải mộc"
+          },
+          {
+            "atom_id": "atom_s4",
+            "prompt_quote": "lookbook studio tối giản"
+          }
+        ],
+        "assumptions": [
+          "Sử dụng chất liệu đũi cotton thân thiện với môi trường và phù hợp thời tiết đi học.",
+          "Màu sắc trang phục nhã nhặn, phù hợp môi trường học đường."
+        ],
+        "limitations": [
+          "Chỉ mang tính chất minh họa thiết kế lấy cảm hứng, chưa qua thử nghiệm may đo thực tế."
+        ],
+        "content_hash": "ee9fe7b8a724e6c0d5042e56abd9560840bbfd467885ed5b257a0c1e72e44b61",
+        "verbatim_excerpt_bank": [
+          "Tạo một ảnh trình bày duy nhất một người mẫu mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.",
+          "Thiết kế trang phục nữ lấy cảm hứng từ áo ngũ thân tay chẽn truyền thống, được chuyển hóa thành dạng áo vạt chéo gọn gàng kết hợp chân váy dài đứng dáng phục vụ nhu cầu đi học đại học, đảm bảo tiêu chí kín đáo và thoải mái.",
+          "Chất liệu sử dụng là vải đũi cotton tự nhiên màu xanh nhạt mềm mại, thoáng mát, dễ vận động.",
+          "Chi tiết thiết kế áo có cổ đứng nhẹ, tay áo ôm vừa vặn, hàng khuy tết nút vải tinh tế dọc sườn phải; kết hợp chân váy dài suông nhẹ che phủ lịch sự.",
+          "Phụ kiện đi kèm gồm một chiếc túi vải mộc màu ngà cỡ trung đeo vai.",
+          "Phong cách trình bày ảnh là lookbook studio tối giản, phông nền xám nhạt trung tính, ánh sáng tự nhiên mềm mại, không có chữ, nhãn, watermark hay người mẫu thứ hai."
+        ]
+      }
+    ],
+    "REFERENCE_BUNDLE": {
+      "references": [],
+      "provider_metadata": [],
+      "reference_mode": "text_only",
+      "availability": "unavailable_by_user_choice"
+    },
+    "EXPECTED_CHECKS": [
+      {
+        "check_id": "locked:atom_1",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Trang phục thiết kế dành cho nữ."
+      },
+      {
+        "check_id": "locked:atom_2",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Lấy cảm hứng từ Việt phục."
+      },
+      {
+        "check_id": "locked:atom_3",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Mục đích sử dụng để đi học đại học."
+      },
+      {
+        "check_id": "locked:atom_4",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Tiêu chí thiết kế cần kín đáo."
+      },
+      {
+        "check_id": "locked:atom_5",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Tiêu chí thiết kế cần thoải mái."
+      },
+      {
+        "check_id": "locked:atom_s1",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chọn thiết kế lấy cảm hứng từ áo ngũ thân tay chẽn."
+      },
+      {
+        "check_id": "locked:atom_s3",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chọn túi vải mộc hoặc túi mây tre đan."
+      },
+      {
+        "check_id": "locked:atom_s4",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chọn phong cách lookbook studio."
+      },
+      {
+        "check_id": "summary_prompt_consistency",
+        "owner_role": "art",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Toàn bộ kế hoạch/tóm tắt phải trùng prompt"
+      }
+    ],
+    "ROLE_RUBRIC": {
+      "version": "vp-rubric-2.1.0",
+      "role": "art",
+      "rating_min": 0,
+      "rating_max": 5,
+      "criteria": [
+        {
+          "criterion_id": "ornament_composition",
+          "weight": 25,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "color_language",
+          "weight": 25,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "form_surface_integration",
+          "weight": 20,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "purposeful_originality",
+          "weight": 30,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        }
+      ]
+    },
+    "AUDIT_POLICY": {
+      "creative_level": "balanced",
+      "profile": "balanced",
+      "label": "Cân bằng chuyên môn"
+    }
+  },
+  "prompt": "TASK: AUDIT_VIET_PHUC_VISUAL_ART_AND_ORNAMENT\n\nThông tin ứng dụng cấp: {\"request_id\": \"13920343-ddc9-4374-8b62-e59e989a4d89\", \"revision\": 2}\nNhu cầu đã chốt: {\"request_id\": \"13920343-ddc9-4374-8b62-e59e989a4d89\", \"revision\": 2, \"resolved_text\": \"Thiết kế đồ nữ đi học đại học, kín đáo và thoải mái, lấy cảm hứng từ Việt phục với kiểu dáng thiết kế dựa trên áo ngũ thân tay chẽn phối vạt hiện đại. Chất liệu trang phục do AI tự quyết định để tối ưu sự thoải mái và phù hợp phom dáng. Phụ kiện đi kèm gồm túi vải mộc hoặc túi mây tre đan cỡ trung. Phong cách trình bày ảnh minh họa là lookbook studio tối giản.\", \"domains\": [{\"domain_id\": \"bocanh\", \"label\": \"Bối cảnh sử dụng\", \"summary\": \"Mục đích và hoàn cảnh mặc trang phục là đi học đại học.\", \"related_domain_ids\": [\"thietke\", \"phongcachanh\"]}, {\"domain_id\": \"thietke\", \"label\": \"Đặc điểm thiết kế\", \"summary\": \"Yêu cầu trang phục dành cho nữ, lấy cảm hứng từ Việt phục, đảm bảo tính kín đáo, thoải mái, kiểu dáng lấy cảm hứng từ áo ngũ thân tay chẽn, chất liệu do AI gợi ý và đi kèm phụ kiện túi vải mộc/mây tre đan.\", \"related_domain_ids\": [\"bocanh\", \"phongcachanh\"]}, {\"domain_id\": \"phongcachanh\", \"label\": \"Phong cách trình bày ảnh\", \"summary\": \"Cách thể hiện hình ảnh minh họa thiết kế theo phong cách lookbook studio tối giản.\", \"related_domain_ids\": [\"thietke\"]}], \"atoms\": [{\"atom_id\": \"atom_1\", \"domain_ids\": [\"thietke\"], \"meaning\": \"Trang phục thiết kế dành cho nữ.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Thiết kế đồ nữ\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_2\", \"domain_ids\": [\"thietke\"], \"meaning\": \"Lấy cảm hứng từ Việt phục.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"lấy cảm hứng Việt phục\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_3\", \"domain_ids\": [\"bocanh\"], \"meaning\": \"Mục đích sử dụng để đi học đại học.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"để đi học đại học\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_4\", \"domain_ids\": [\"thietke\"], \"meaning\": \"Tiêu chí thiết kế cần kín đáo.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"kín đáo\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_5\", \"domain_ids\": [\"thietke\"], \"meaning\": \"Tiêu chí thiết kế cần thoải mái.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"thoải mái\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_6\", \"domain_ids\": [\"thietke\"], \"meaning\": \"Giao quyền cho AI gợi ý các chi tiết còn lại.\", \"intent_type\": \"delegated\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Còn lại bạn gợi ý.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s1\", \"domain_ids\": [\"thietke\", \"bocanh\"], \"meaning\": \"Chọn thiết kế lấy cảm hứng từ áo ngũ thân tay chẽn.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn thiết kế lấy cảm hứng từ áo ngũ thân tay chẽn.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s2\", \"domain_ids\": [\"thietke\"], \"meaning\": \"Giao cho AI tự quyết định chất liệu.\", \"intent_type\": \"delegated\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Giao cho AI tự quyết định chất liệu.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s3\", \"domain_ids\": [\"thietke\", \"bocanh\"], \"meaning\": \"Chọn túi vải mộc hoặc túi mây tre đan.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn túi vải mộc hoặc túi mây tre đan.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_s4\", \"domain_ids\": [\"phongcachanh\"], \"meaning\": \"Chọn phong cách lookbook studio.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn phong cách lookbook studio.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}], \"locked_atom_ids\": [\"atom_1\", \"atom_2\", \"atom_3\", \"atom_4\", \"atom_5\", \"atom_s1\", \"atom_s3\", \"atom_s4\"], \"delegated_atom_ids\": [\"atom_6\", \"atom_s2\"], \"creative_space\": [{\"domain_id\": \"thietke\", \"description\": \"Chất liệu trang phục do AI chủ động đề xuất để phù hợp với phom dáng áo ngũ thân tay chẽn và tiêu chí đi học.\", \"allowed_variations\": [\"Lựa chọn các loại vải mộc, đũi, cotton hoặc pha tự nhiên giữ phom và thoáng mát\"]}], \"reference_ids\": [], \"historical_mode\": \"inspired\", \"decisions\": [{\"group_id\": \"group_trang_phuc\", \"option_ids\": [\"opt_ngu_than_chuyen_the\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_s1\"]}, {\"group_id\": \"group_chat_lieu\", \"option_ids\": [\"opt_ai_delegate_chat_lieu\"], \"custom_text\": \"\", \"delegated\": true, \"atom_ids\": [\"atom_s2\"]}, {\"group_id\": \"group_phu_kien\", \"option_ids\": [\"opt_tui_vai_tho\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_s3\"]}, {\"group_id\": \"group_phong_cach_anh\", \"option_ids\": [\"opt_lookbook_studio\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_s4\"]}], \"conflicts\": [], \"status\": \"ready\"}\nCác phương án, image_prompt nguyên văn và hash do ứng dụng cấp: [{\"candidate_id\": \"R2-B1-C1\", \"batch_id\": \"B1\", \"revision\": 2, \"title\": \"Áo ngũ thân tay chẽn cách tân phối vạt chéo cho nữ đi học đại học\", \"image_prompt\": \"Tạo một ảnh trình bày duy nhất một người mẫu mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Thiết kế trang phục nữ lấy cảm hứng từ áo ngũ thân tay chẽn truyền thống, được chuyển hóa thành dạng áo vạt chéo gọn gàng kết hợp chân váy dài đứng dáng phục vụ nhu cầu đi học đại học, đảm bảo tiêu chí kín đáo và thoải mái. Chất liệu sử dụng là vải đũi cotton tự nhiên màu xanh nhạt mềm mại, thoáng mát, dễ vận động. Chi tiết thiết kế áo có cổ đứng nhẹ, tay áo ôm vừa vặn, hàng khuy tết nút vải tinh tế dọc sườn phải; kết hợp chân váy dài suông nhẹ che phủ lịch sự. Phụ kiện đi kèm gồm một chiếc túi vải mộc màu ngà cỡ trung đeo vai. Phong cách trình bày ảnh là lookbook studio tối giản, phông nền xám nhạt trung tính, ánh sáng tự nhiên mềm mại, không có chữ, nhãn, watermark hay người mẫu thứ hai.\", \"design_sections\": [{\"domain_id\": \"thietke\", \"description\": \"Trang phục nữ đi học đại học lấy cảm hứng từ áo ngũ thân tay chẽn, phom dáng kín đáo, thoải mái với chất liệu đũi cotton.\", \"related_atom_ids\": [\"atom_1\", \"atom_2\", \"atom_4\", \"atom_5\", \"atom_s1\"]}, {\"domain_id\": \"bocanh\", \"description\": \"Sử dụng cho bối cảnh đi học đại học, đi kèm túi vải mộc.\", \"related_atom_ids\": [\"atom_3\", \"atom_s3\"]}, {\"domain_id\": \"phongcachanh\", \"description\": \"Phong cách lookbook studio tối giản với ánh sáng tự nhiên.\", \"related_atom_ids\": [\"atom_s4\"]}], \"fashion_summary\": \"Trang phục áo ngũ thân tay chẽn cách tân kết hợp chân váy suông dài bằng chất liệu đũi cotton, tối ưu sự thoải mái và kín đáo cho nữ sinh đại học.\", \"art_summary\": \"Phong cách lookbook studio tối giản, tone màu xanh nhạt kết hợp túi vải mộc, bố cục hai góc nhìn trước và sau đồng nhất.\", \"culture_summary\": \"Sử dụng cảm hứng từ áo ngũ thân tay chẽn truyền thống của Việt Nam, mang tính ứng dụng cao trong đời sống hiện đại.\", \"choices_made\": [\"Chọn thiết kế lấy cảm hứng từ áo ngũ thân tay chẽn kết hợp chân váy dài.\", \"Sử dụng chất liệu vải đũi cotton thoáng mát do AI đề xuất.\", \"Phụ kiện túi vải mộc cỡ trung.\", \"Phong cách lookbook studio tối giản.\"], \"claims\": [], \"locked_coverage\": [{\"atom_id\": \"atom_1\", \"prompt_quote\": \"Trang phục thiết kế dành cho nữ\"}, {\"atom_id\": \"atom_2\", \"prompt_quote\": \"lấy cảm hứng từ áo ngũ thân tay chẽn truyền thống\"}, {\"atom_id\": \"atom_3\", \"prompt_quote\": \"đi học đại học\"}, {\"atom_id\": \"atom_4\", \"prompt_quote\": \"đảm bảo tiêu chí kín đáo\"}, {\"atom_id\": \"atom_5\", \"prompt_quote\": \"thoải mái\"}, {\"atom_id\": \"atom_s1\", \"prompt_quote\": \"áo ngũ thân tay chẽn\"}, {\"atom_id\": \"atom_s3\", \"prompt_quote\": \"túi vải mộc\"}, {\"atom_id\": \"atom_s4\", \"prompt_quote\": \"lookbook studio tối giản\"}], \"assumptions\": [\"Sử dụng chất liệu đũi cotton thân thiện với môi trường và phù hợp thời tiết đi học.\", \"Màu sắc trang phục nhã nhặn, phù hợp môi trường học đường.\"], \"limitations\": [\"Chỉ mang tính chất minh họa thiết kế lấy cảm hứng, chưa qua thử nghiệm may đo thực tế.\"], \"content_hash\": \"ee9fe7b8a724e6c0d5042e56abd9560840bbfd467885ed5b257a0c1e72e44b61\", \"verbatim_excerpt_bank\": [\"Tạo một ảnh trình bày duy nhất một người mẫu mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.\", \"Thiết kế trang phục nữ lấy cảm hứng từ áo ngũ thân tay chẽn truyền thống, được chuyển hóa thành dạng áo vạt chéo gọn gàng kết hợp chân váy dài đứng dáng phục vụ nhu cầu đi học đại học, đảm bảo tiêu chí kín đáo và thoải mái.\", \"Chất liệu sử dụng là vải đũi cotton tự nhiên màu xanh nhạt mềm mại, thoáng mát, dễ vận động.\", \"Chi tiết thiết kế áo có cổ đứng nhẹ, tay áo ôm vừa vặn, hàng khuy tết nút vải tinh tế dọc sườn phải; kết hợp chân váy dài suông nhẹ che phủ lịch sự.\", \"Phụ kiện đi kèm gồm một chiếc túi vải mộc màu ngà cỡ trung đeo vai.\", \"Phong cách trình bày ảnh là lookbook studio tối giản, phông nền xám nhạt trung tính, ánh sáng tự nhiên mềm mại, không có chữ, nhãn, watermark hay người mẫu thứ hai.\"]}]\nTài liệu mỹ thuật, mô-típ và kỹ thuật được phép dùng: {\"references\": [], \"provider_metadata\": [], \"reference_mode\": \"text_only\", \"availability\": \"unavailable_by_user_choice\"}\nCác kiểm tra và mức bắt buộc thuộc vai trò này: [{\"check_id\": \"locked:atom_1\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Trang phục thiết kế dành cho nữ.\"}, {\"check_id\": \"locked:atom_2\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Lấy cảm hứng từ Việt phục.\"}, {\"check_id\": \"locked:atom_3\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Mục đích sử dụng để đi học đại học.\"}, {\"check_id\": \"locked:atom_4\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Tiêu chí thiết kế cần kín đáo.\"}, {\"check_id\": \"locked:atom_5\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Tiêu chí thiết kế cần thoải mái.\"}, {\"check_id\": \"locked:atom_s1\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chọn thiết kế lấy cảm hứng từ áo ngũ thân tay chẽn.\"}, {\"check_id\": \"locked:atom_s3\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chọn túi vải mộc hoặc túi mây tre đan.\"}, {\"check_id\": \"locked:atom_s4\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chọn phong cách lookbook studio.\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"art\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Toàn bộ kế hoạch/tóm tắt phải trùng prompt\"}]\nTiêu chí/rating/trọng số mỹ thuật đã khóa: {\"version\": \"vp-rubric-2.1.0\", \"role\": \"art\", \"rating_min\": 0, \"rating_max\": 5, \"criteria\": [{\"criterion_id\": \"ornament_composition\", \"weight\": 25, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"color_language\", \"weight\": 25, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"form_surface_integration\", \"weight\": 20, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"purposeful_originality\", \"weight\": 30, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}]}\n\nChế độ audit suy ra từ mức sáng tạo: {\"creative_level\": \"balanced\", \"profile\": \"balanced\", \"label\": \"Cân bằng chuyên môn\"}\n\nVAI TRÒ\nĐánh giá hội họa, ngôn ngữ tạo hình, bảng màu, hoa văn và sự sáng tạo có chủ đích của kế hoạch/prompt. Chưa có ảnh; nhận xét khả năng tạo hình, không khẳng định đã thấy ảnh. Không tự xác nhận niên đại/ý nghĩa mô-típ như một chuyên gia lịch sử.\n\nKIỂM TRA\n1. Đọc image_prompt cùng các phần thiết kế, so art_summary và nhu cầu đã chốt. Hoa văn phải xuất hiện cụ thể trong prompt, không chỉ nằm trong tóm tắt.\n2. Xem mô-típ, nét/hình, vị trí, tỉ lệ, độ phủ, nhịp lặp, khoảng trống, hướng chuyển động và điểm nhấn. “Đẹp, tinh tế, mang nét Việt” chưa đủ để hình dung một thiết kế nếu không có quyết định tạo hình cụ thể.\n3. Xem màu chính/điểm nhấn, độ tương phản, quan hệ màu với chất liệu và bối cảnh. Không dùng gu cá nhân để làm sai màu khóa của người dùng.\n4. Xem cách đưa hoa văn vào phom: thêu/đắp nổi có phục vụ cấu trúc, đường cắt và ánh sáng hay làm chi tiết rời rạc. Phân biệt nguồn cảm hứng với kỹ thuật thể hiện.\n5. Sáng tạo có chủ đích được đánh giá ở cách tổ chức, tiết chế, chuyển thể và quan hệ chi tiết; không thưởng chỉ vì thêm nhiều mô-típ, trang trí dày hoặc dùng mỹ từ.\n6. Nếu người dùng đã chọn không hoa văn, xét ngôn ngữ tạo hình ở phom, chất liệu, mảng màu và khoảng trống; không tự thêm hoa văn để tăng điểm mỹ thuật.\n7. EXPECTED_CHECKS trả đúng một lần, giữ severity và applicability; quote phải có thật. Ghi uncertain khi mô tả quá mơ hồ để kết luận, fail khi thấy trái điều bắt buộc. Không đặt thêm luật lịch sử hoặc nguồn mới.\n\nCHẤM BỐN TIÊU CHÍ\n- ornament_composition: bố cục, nhịp và ngôn ngữ mô-típ/mảng tạo hình.\n- color_language: bảng màu nhất quán, rõ chủ đạo và điểm nhấn.\n- form_surface_integration: hoa văn/bề mặt hỗ trợ phom và chất liệu.\n- purposeful_originality: sáng tạo có chủ đích trong phạm vi được phép đổi.\nRating số nguyên 0–5 theo ROLE_RUBRIC; tự tính score chuyên môn /100 theo ROLE_RUBRIC; tổng liên vai trò do VP08 tính. Không giảm điểm vì không có nhiều chi tiết nếu yêu cầu là tối giản.\n\nTrả đúng SpecialistAuditBatch, role=art; đủ tập candidate đầu vào, giữ candidate_revision và content_hash. Có checks, criterion_ratings đúng bốn tiêu chí, strengths, concerns, suggested_fixes, summary. Không sửa prompt.\n\nKhi AUDIT_POLICY.profile=creative (mức Khám phá), ưu tiên chuyển thể mới có chủ đích và tính nhất quán trong phần được phép đổi. Không giảm điểm chỉ vì khác mẫu truyền thống trong chế độ inspired; vẫn giữ mọi điều khóa, tính ứng dụng, giới hạn phụ kiện và căn cứ cho claim lịch sử. Đạo cụ dân gian chỉ phù hợp khi bối cảnh cho phép; không thưởng thêm chi tiết quá mức.\n\nHỢP ĐỒNG CHỨNG CỨ CHO TỪNG CHECK\n- Các check có applicability=false phải not_applicable. Các check có applicability=true không được dùng not_applicable để né thiếu căn cứ.\n- locked:<atom_id>: nếu EXPECTED_CHECKS cung cấp exact_prompt_excerpts[candidate_id], đọc và kiểm tra đoạn đó với yêu cầu rồi COPY nguyên văn nếu nó là chứng cứ phù hợp. Đoạn cấp sẵn không tự là kết luận pass. Nếu không đáp ứng thì fail/uncertain với reason thật; không tự thêm giải pháp.\n- summary_prompt_consistency: đọc cả prompt và mọi summary/design_sections. Khi pass phải có quote không rỗng COPY từ image_prompt của candidate; reason phải nêu các nội dung đã đối chiếu. Không lấy câu trong summary làm quote nếu câu đó không có trong prompt. Một quote chỉ là ví dụ đối chiếu, không chứng minh toàn bộ bản tóm tắt; phải đọc tất cả.\n- Các check còn lại: pass cần quote không rỗng, có thật trong image_prompt của đúng candidate. Quote giữ nguyên chữ hoa/thường, dấu câu và khoảng trắng. “thiết kế” không phải “Thiết kế”. Không copy meaning của atom hoặc viết câu tương đương làm quote.\n- Nếu không tìm được chi tiết cần thiết để kết luận, dùng uncertain với reason chỉ rõ phần thiếu; không invent quote. Không làm giảm severity, applicability hoặc sửa prompt để đạt.\n- Kiểm tra trước khi trả: check_ids đúng EXPECTED_CHECKS, candidate_revision/content_hash từ candidate hiện tại, các quote không rỗng đều có trong image_prompt, tất cả pass có chứng cứ theo đúng loại check. Rating và nhận xét chỉ dựa trên thông tin được cung cấp, không phải ảnh/mẫu may đã được xem.\n\nCHẾ ĐỘ KIỂM ĐỊNH QUA API (ƯU TIÊN KHI CÓ CHỈ DẪN CŨ KHÁC)\nTừ VP04 đến VP08, backend không kiểm định schema hoặc nội dung response, quote, coverage, mã/hash, nguồn hay điểm; không sửa quote và không loại phương án bằng gate, ngưỡng điểm hoặc so trùng. JSON schema vẫn gửi tới API để định dạng dữ liệu cho giao diện. Giữ đúng mã và trường đã cấp để ứng dụng liên kết kết quả. Các trường tên VALIDATED là tên giao tiếp cũ, không có nghĩa backend đã xác nhận đúng. Auditor tự đọc prompt, đối chiếu yêu cầu và nguồn, nêu rõ fail/uncertain cùng lý do; không bịa chứng cứ. VP08 tự chấm harmony_score/proposed_total và recommendation; backend hiển thị nhận xét và xếp ba phương án theo proposed_total, không xác nhận chất lượng hoặc điều kiện đạt. Không ép prompt thành bản sao câu đầu vào chỉ để có quote.\n\nĐIỂM CHUYÊN MÔN DO GEMINI TÍNH VÀ LƯU\nMỗi audit trả thêm score và score_reason. score = round(100 × sum(weight × rating/5) / sum(weight của các tiêu chí áp dụng), 2). Nếu không có tiêu chí áp dụng, score=null và giải thích. score_reason nêu căn cứ, hạn chế và lý do điểm số; không đồng nhất việc đủ tên chi tiết với chất lượng tối đa. Giữ criterion_ratings/checks, strengths, concerns, suggested_fixes, summary để VP08 có toàn bộ nhận xét của từng candidate. Backend lưu nguyên score/score_reason, không tính lại hoặc chỉnh điểm. Không trả tổng cuối liên vai trò ở bước này.\n\nKIỂM TRA NGUYÊN VĂN VÀ ĐỦ MỆNH ĐỀ\n- prompt_quote chỉ là MỘT đoạn LIỀN có thật trong image_prompt hiện tại. Không ghép nhiều đoạn bằng “...”/“;”, không đổi dấu/chữ, không lấy design_sections hoặc summary làm quote. Nếu cần nhiều phần, chọn một đoạn tiêu biểu rồi giải thích phần còn lại trong reason; không làm giả quote tổng hợp.\n- Với locked atom chứa nhiều điều, pass chỉ khi TẤT CẢ mệnh đề liên quan được thể hiện trong prompt. Ví dụ “nhẹ, thoáng, dễ giặt” mà prompt chỉ nói “vải nhẹ” thì uncertain cho phần thoáng/dễ giặt, không pass cả atom. Đề xuất sửa còn nằm trong suggested_fixes không phải giải pháp đã có.\n- Trước khi xuất JSON, đối chiếu từng quote với chuỗi image_prompt của đúng candidate. Không tìm thấy đoạn thật => quote=\"\", uncertain/fail theo căn cứ và reason chỉ rõ thiếu gì; không paraphrase để lấp.\n- Rating 5 cần thiết kế cụ thể và không còn thiếu sót ảnh hưởng tiêu chí đó. Concern về khả năng mặc/che phủ hoặc thiếu mệnh đề phải được phản ánh ở rating liên quan; không trừ điểm ở miền không liên quan chỉ để tạo vẻ nghiêm khắc.\n\nPHÉP TÍNH ĐIỂM CÓ THỂ KIỂM TRA\nKhông suy score theo cảm giác từ bốn rating. Với mỗi criterion áp dụng, tính contribution=weight*rating/5; score=round(100*sum(contribution)/sum(weight),2). score_reason phải ghi trọng số và contribution cho từng criterion cùng tổng, sau đó một lý do ngắn. Khi tổng weight=100, contribution cộng trực tiếp ra score. Ví dụ weight=[30,30,25,15],rating=[5,4,4,5] => contributions=[30,24,20,15], score=89. Không dùng ví dụ nếu ROLE_RUBRIC có trọng số khác. Không lấy 93.75 hay trung bình không trọng số. Kiểm tra số score khớp các contribution vừa ghi.\nQuote là thao tác COPY văn bản, không phải mô tả ý nghĩa. Với “Trang phục thiết kế dành cho nữ” chỉ có trong summary mà không có nguyên cụm đó trong image_prompt, không được chép vào prompt_quote dù đúng ý. Chọn một câu thật trong image_prompt; nếu prompt không nói rõ người mặc, uncertain thay vì tạo câu mới.\n\nNGÂN HÀNG TRÍCH NGUYÊN VĂN\nCANDIDATE_BATCH.verbatim_excerpt_bank cung cấp câu có thật của từng image_prompt để giảm lỗi chép. Ưu tiên COPY NGUYÊN một phần tử của bank đúng candidate vào prompt_quote; không sửa/chắp thêm từ. Bank không chứng nhận nội dung phù hợp: đọc đầy đủ yêu cầu và chọn uncertain/fail nếu câu không đáp ứng. Không thể tìm câu phù hợp thì quote rỗng và giải thích phần thiếu, không tạo câu gần giống.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "role": {
+        "type": "string",
+        "enum": [
+          "fashion",
+          "culture",
+          "art"
+        ]
+      },
+      "audits": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "candidate_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "candidate_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "content_hash": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "fashion",
+                "culture",
+                "art"
+              ]
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "check_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  "owner_role": {
+                    "type": "string",
+                    "enum": [
+                      "fashion",
+                      "culture",
+                      "art"
+                    ]
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "hard",
+                      "soft"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "fail",
+                      "uncertain",
+                      "not_applicable"
+                    ]
+                  },
+                  "prompt_quote": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 18000
+                  },
+                  "source_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "check_id",
+                  "owner_role",
+                  "severity",
+                  "status",
+                  "prompt_quote",
+                  "source_ids",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 160,
+              "minItems": 0
+            },
+            "criterion_ratings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "criterion_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "applicable": {
+                    "type": "boolean"
+                  },
+                  "rating": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 5
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "criterion_id",
+                  "applicable",
+                  "rating",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 4,
+              "minItems": 4
+            },
+            "strengths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "concerns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "suggested_fixes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Điểm chuyên môn /100 do Gemini tính theo ROLE_RUBRIC; null khi không áp dụng."
+            },
+            "score_reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            }
+          },
+          "required": [
+            "candidate_id",
+            "candidate_revision",
+            "content_hash",
+            "role",
+            "checks",
+            "criterion_ratings",
+            "strengths",
+            "concerns",
+            "suggested_fixes",
+            "summary",
+            "score",
+            "score_reason"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 3,
+        "minItems": 1
+      }
+    },
+    "required": [
+      "role",
+      "audits"
+    ],
+    "additionalProperties": false
+  },
+  "config": {
+    "timeout_seconds": 45,
+    "max_output_tokens": 14000,
+    "sampling_policy": "model_default",
+    "structured": true,
+    "web_tools": false
+  },
+  "template_version": "a08f172745f596e91af783585248774e11fd92c2e03288722f9a148d5b7456b6"
+}

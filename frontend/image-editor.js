@@ -28,6 +28,55 @@ async function arenaImageFromClipboard() {
   throw new Error("Clipboard chưa có ảnh. Hãy copy ảnh trên Gemini, rồi dán bằng Ctrl+V / ⌘V.");
 }
 
+function arenaEditClipboardPrompt(packet) {
+  return "Bộ ảnh đối chiếu: ảnh 01 bên trái là ảnh gốc trước chỉnh sửa; ảnh 02 bên phải là ảnh đã thêm phác thảo hướng dẫn. Nếu nhận một ảnh ghép, đọc hai khung như hai ảnh tham chiếu; không tái tạo khung, chữ hoặc nét đánh dấu trong kết quả.\n\n" + packet.prompt;
+}
+
+async function arenaEditClipboardImage(packet) {
+  const images = await Promise.all([packet.original, packet.guide].map(async image => {
+    const img = new Image(); img.src = `data:${image.mime_type};base64,${image.data}`; await img.decode(); return img;
+  }));
+  const canvas = document.createElement("canvas"), ctx = canvas.getContext("2d");
+  const width = 1600, gap = 24, margin = 32, cell = (width - margin * 2 - gap) / 2;
+  const height = Math.min(1400, Math.max(...images.map(img => cell * img.naturalHeight / img.naturalWidth)));
+  ctx.font = "18px sans-serif";
+  const lines = [];
+  for (const paragraph of arenaEditClipboardPrompt(packet).split("\n")) {
+    let line = "";
+    for (const char of paragraph) {
+      if (ctx.measureText(line + char).width > width - margin * 2) { lines.push(line); line = ""; }
+      line += char;
+    }
+    lines.push(line);
+  }
+  canvas.width = width; canvas.height = Math.ceil(height + 108 + lines.length * 26 + margin);
+  if (canvas.height > 16000) throw new Error("Prompt quá dài để copy cùng ảnh. Hãy rút gọn yêu cầu chỉnh sửa.");
+  ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.font = "600 18px sans-serif"; ctx.fillStyle = "#302a26";
+  ctx.fillText("01 · Ảnh gốc trước chỉnh sửa", margin, 30);
+  ctx.fillText("02 · Ảnh sau khi thêm phác thảo", margin + cell + gap, 30);
+  images.forEach((img, index) => {
+    const scale = Math.min(cell / img.naturalWidth, height / img.naturalHeight);
+    const w = img.naturalWidth * scale, h = img.naturalHeight * scale;
+    ctx.drawImage(img, margin + index * (cell + gap) + (cell - w) / 2, 48 + (height - h) / 2, w, h);
+  });
+  ctx.font = "18px sans-serif"; ctx.fillStyle = "#302a26";
+  lines.forEach((line, index) => ctx.fillText(line, margin, height + 88 + index * 26));
+  return new Promise((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("Không đóng gói được ảnh clipboard.")), "image/png"));
+}
+
+function copyArenaEditPacket(packetPromise) {
+  if (!navigator.clipboard?.write || !window.ClipboardItem) throw new Error("Trình duyệt chưa hỗ trợ copy prompt kèm ảnh. Hãy mở ứng dụng bằng trình duyệt hỗ trợ clipboard ảnh.");
+  const packet = Promise.resolve(packetPromise);
+  // Start the clipboard write during the click; preparation may include an API call.
+  // One item carries all formats: multiple native clipboard items are not portable.
+  return navigator.clipboard.write([new ClipboardItem({
+    "text/plain": packet.then(p => new Blob([arenaEditClipboardPrompt(p)], {type:"text/plain"})),
+    "text/html": packet.then(p => new Blob([`<div><p style="white-space:pre-wrap">${escapeHtml(arenaEditClipboardPrompt(p))}</p><p>01 · Ảnh gốc trước chỉnh sửa</p><img src="data:${p.original.mime_type};base64,${p.original.data}" alt="Ảnh gốc"/><p>02 · Ảnh sau khi thêm phác thảo</p><img src="data:${p.guide.mime_type};base64,${p.guide.data}" alt="Ảnh phác thảo"/></div>`], {type:"text/html"})),
+    "image/png": packet.then(arenaEditClipboardImage),
+  })]);
+}
+
 function paintArenaStrokes(canvas, strokes, current = null) {
   const ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -61,17 +110,12 @@ class ArenaImageEditor {
         <button type="button" class="button button-quiet" data-tool="eraser" aria-pressed="false">Tẩy nét</button>
         <label>Màu phác <input type="color" data-color value="#2060df" /></label><label>Cỡ cọ <input type="range" data-width min="2" max="36" value="6" /></label>
         <button type="button" class="button button-quiet" data-undo>Hoàn tác</button><button type="button" class="button button-quiet" data-redo>Làm lại</button>
-        <label>Zoom <select data-zoom><option value="fit">Vừa khung</option><option value="1">100%</option><option value="1.5">150%</option><option value="2">200%</option></select></label>
       </div><p class="muted editor-legend">Đỏ: chỉ vùng cần sửa · Màu phác: hình dạng/vị trí mong muốn · Tẩy chỉ xóa nét vẽ.</p>
       <div class="editor-viewport"><div class="editor-stage"><img alt="Ảnh gốc để phác thảo" draggable="false" /><canvas aria-label="Vẽ hướng dẫn sửa ảnh" tabindex="0"></canvas></div></div></div>
       <div class="editor-instructions"><label for="edit-instruction">Bạn muốn sửa gì?</label><textarea id="edit-instruction" rows="4" maxlength="6000" placeholder="Ví dụ: đổi cổ áo theo nét xanh; bỏ vòng cổ trong vùng đỏ…"></textarea>
-        <label for="edit-keep">Chi tiết cần giữ thêm (tùy chọn)</label><textarea id="edit-keep" rows="2" maxlength="6000" placeholder="Ví dụ: giữ khuôn mặt, nền và màu áo."></textarea>
-        <button type="button" class="button button-accent" data-prepare>Chuẩn bị ảnh và prompt</button>
-        <div data-packet hidden><p class="muted">Đính kèm ảnh gốc trước, ảnh phác thảo sau, rồi dán prompt vào Gemini.</p><div class="editor-packet-actions">
-          <button type="button" class="button button-quiet" data-original>Tải ảnh gốc</button><button type="button" class="button button-quiet" data-guide>Tải ảnh phác thảo</button>
-          <button type="button" class="button button-quiet" data-copy-original>Copy ảnh gốc</button><button type="button" class="button button-quiet" data-copy-guide>Copy ảnh phác thảo</button>
-          <button type="button" class="button button-dark" data-copy>Copy prompt sửa</button><a class="button button-quiet" href="https://gemini.google.com/" target="_blank" rel="noreferrer">Mở Gemini ↗</a>
-        </div><details><summary>Xem / sửa prompt</summary><textarea data-prompt rows="9" maxlength="30000" aria-label="Prompt sửa ảnh"></textarea></details>
+        <label for="edit-keep">Chi tiết cần giữ thêm</label><textarea id="edit-keep" rows="2" maxlength="6000" placeholder="Ví dụ: giữ khuôn mặt, nền và màu áo."></textarea>
+        <button type="button" class="button button-accent" data-prepare>Copy prompt</button>
+        <div data-packet hidden><p class="editor-copy-note">Copy prompt gồm yêu cầu và ảnh gốc / ảnh có phác thảo. Hai ảnh được đóng gói thành một bảng đối chiếu khi nơi dán chỉ nhận một ảnh.</p><div class="editor-packet-actions"><a href="https://gemini.google.com/" target="_blank" rel="noreferrer">Mở Gemini ↗</a></div><details><summary>Xem / sửa prompt</summary><textarea data-prompt rows="9" maxlength="30000" aria-label="Prompt sửa ảnh"></textarea></details>
         <div class="editor-return"><strong>Nhận ảnh hoàn thiện</strong><p class="muted">Dán ảnh Gemini trả về. Ảnh mới được cập nhật ngay.</p><button type="button" class="button button-accent" data-paste-result>Dán ảnh hoàn thiện</button>
           <label class="button button-quiet upload-button" for="editor-result-file">Chọn ảnh hoàn thiện</label><input id="editor-result-file" type="file" class="visually-hidden" accept="image/png,image/jpeg,image/webp" />
           <button type="button" class="button button-quiet" data-retry hidden>Gửi lại ảnh hoàn thiện</button>
@@ -84,7 +128,6 @@ class ArenaImageEditor {
     this.strokes = []; this.redo = []; this.current = null; this.busy = false;
     q("[data-close]").addEventListener("click", () => this.close());
     this.dialog.addEventListener("cancel", event => { if (this.busy) event.preventDefault(); else this.close(); });
-    q("[data-zoom]").addEventListener("change", () => this.resize());
     this.observer = new ResizeObserver(() => { if (this.dialog.open) this.resize(); });
     this.observer.observe(q(".editor-viewport"));
     this.dialog.querySelectorAll("[data-tool]").forEach(button => button.addEventListener("click", () => {
@@ -100,27 +143,19 @@ class ArenaImageEditor {
     this.canvas.addEventListener("pointercancel", event => this.endStroke(event));
     this.canvas.addEventListener("lostpointercapture", event => this.endStroke(event));
     [q("#edit-instruction"), q("#edit-keep")].forEach(el => el.addEventListener("input", () => this.invalidate()));
-    q("[data-prepare]").addEventListener("click", () => this.prepare());
-    q("[data-original]").addEventListener("click", () => this.download(this.source.image, "01-anh-goc", this.packet.original_url));
-    q("[data-guide]").addEventListener("click", () => this.download(this.packet.guide, "02-anh-phac-thao", this.packet.guide_url));
-    for (const [selector, role] of [["[data-copy-original]", "gốc"], ["[data-copy-guide]", "phác thảo"]]) {
-      q(selector).addEventListener("click", async () => {
-        try {
-          if (!navigator.clipboard?.write || !window.ClipboardItem) throw new Error("Trình duyệt chưa hỗ trợ copy ảnh. Hãy tải ảnh và chọn tệp trong Gemini.");
-          const canvas = document.createElement("canvas");
-          const image = role === "gốc" ? this.q(".editor-stage img") : await createImageBitmap(new Blob([Uint8Array.from(atob(this.packet.guide.data), c => c.charCodeAt(0))], {type: this.packet.guide.mime_type}));
-          canvas.width = image.naturalWidth || image.width; canvas.height = image.naturalHeight || image.height;
-          canvas.getContext("2d").drawImage(image, 0, 0);
-          const blob = new Promise(resolve => canvas.toBlob(resolve, "image/png"));
-          await navigator.clipboard.write([new ClipboardItem({"image/png": blob})]);
-          image.close?.();
-          this.message(`Đã copy ảnh ${role}. Mở Gemini và dán bằng Ctrl+V / ⌘V.`);
-        } catch (error) { this.message(error.message, true); }
-      });
-    }
-    q("[data-copy]").addEventListener("click", async () => {
-      try { await copyPrompt(q("[data-prompt]").value, q("[data-prompt]")); this.message("Đã copy prompt. Đính kèm hai ảnh theo đúng thứ tự."); }
-      catch (_) { q("[data-packet] details").open = true; q("[data-prompt]").focus(); q("[data-prompt]").select(); this.message("Dùng Ctrl+C / ⌘C để copy prompt."); }
+    q("[data-prepare]").addEventListener("click", async () => {
+      if (this.copyBusy || this.busy) return;
+      if (!q("#edit-instruction").value.trim()) { q("#edit-instruction").focus(); return this.message("Nhập điều bạn muốn sửa trước khi copy.", true); }
+      this.copyBusy = true;
+      try {
+        if (!navigator.clipboard?.write || !window.ClipboardItem) throw new Error("Trình duyệt chưa hỗ trợ copy prompt kèm ảnh. Hãy mở ứng dụng bằng trình duyệt hỗ trợ clipboard ảnh.");
+        const packet = this.packet
+          ? Promise.resolve({...this.packet, prompt:q("[data-prompt]").value})
+          : this.prepare().then(() => { if (!this.packet) throw new Error("Chưa chuẩn bị được prompt và ảnh; kiểm tra thông báo rồi thử lại."); return this.packet; });
+        await copyArenaEditPacket(packet);
+        this.message("Đã copy prompt và cặp ảnh đối chiếu. Mở Gemini và dán bằng Ctrl+V / ⌘V.");
+      } catch (error) { this.message(error.message, true); }
+      finally { this.copyBusy = false; this.setBusy(false); }
     });
     q("[data-paste-result]").addEventListener("click", async () => {
       try { await this.receive(await arenaImageFromClipboard()); } catch (error) { this.message(error.message, true); }
@@ -139,7 +174,6 @@ class ArenaImageEditor {
     this.tool = "region";
     this.dialog.querySelectorAll("[data-tool]").forEach(el => el.setAttribute("aria-pressed", String(el.dataset.tool === "region")));
     this.q("[data-color]").disabled = true;
-    this.q("[data-zoom]").value = "fit";
     this.q("#edit-instruction").value = ""; this.q("#edit-keep").value = "";
     this.q("[data-packet]").hidden = true; this.q("[data-retry]").hidden = true;
     this.q("#editor-result-file").value = "";
@@ -153,7 +187,7 @@ class ArenaImageEditor {
   }
 
   close() {
-    if (this.busy) return;
+    if (this.busy || this.copyBusy) return;
     if (this.current) this.endStroke({pointerId: this.pointerId});
     this.dialog.close(); this.packet = null; this.result = null;
     this.strokes = []; this.redo = []; this.canvas.width = this.canvas.height = 1;
@@ -167,9 +201,8 @@ class ArenaImageEditor {
   }
 
   resize() {
-    const zoom = this.q("[data-zoom]").value;
     const viewport = this.q(".editor-viewport");
-    const width = zoom === "fit" ? Math.min(this.canvas.width, Math.max(1, viewport.clientWidth - 24), Math.max(1, viewport.clientHeight - 24) * this.canvas.width / this.canvas.height) : this.canvas.width * Number(zoom);
+    const width = Math.min(this.canvas.width, Math.max(1, viewport.clientWidth - 24), Math.max(1, viewport.clientHeight - 24) * this.canvas.width / this.canvas.height);
     this.stage.style.width = `${width}px`; this.stage.style.height = `${width * this.canvas.height / this.canvas.width}px`;
   }
 
@@ -229,7 +262,7 @@ class ArenaImageEditor {
       const {prompt} = assets;
       this.packet = {...description, ...assets, strokes: structuredClone(this.strokes), prompt, guide: guide.image, original: this.source.image};
       this.q("[data-prompt]").value = prompt; this.q("[data-packet]").hidden = false;
-      this.message("Bộ ảnh và prompt đã sẵn sàng. Tải hoặc copy ảnh gốc trước, ảnh phác thảo sau để đính kèm vào Gemini.");
+      this.message("Bộ ảnh và prompt đã sẵn sàng; đang copy vào clipboard…");
     } catch (error) { this.message(error.message, true); }
     finally { this.setBusy(false); }
   }

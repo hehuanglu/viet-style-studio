@@ -6,6 +6,7 @@ const statusLabels = {
   awaiting_choices: "Xác nhận lựa chọn thiết kế", resolving_choices: "Gemini đang tổng hợp nhu cầu đã chốt",
   generating_prompt_pool: "Đang viết các gợi ý thiết kế", specialist_auditing: "Đang kiểm tra thiết kế từ ba góc nhìn",
   harmony_scoring: "Đang đánh giá hài hòa và tính điểm", selecting: "Đang chọn ba điểm cao nhất",
+  writing_design_stories: "Gemini đang viết câu chuyện cho từng thiết kế",
   prompt_writing: "Gemini đang viết prompt tạo ảnh qua API",
   brief_checking: "Gemini đang kiểm tra các thông tin đã nhận diện",
   normalizing: "Đang hiểu yêu cầu", retrieving: "Đang chọn căn cứ",
@@ -63,9 +64,71 @@ function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 }
 
+let cloudApiKey = "";
+
+async function stageCloudImages(value) {
+  if (Array.isArray(value)) {
+    const result = [];
+    for (const item of value) result.push(await stageCloudImages(item));
+    return result;
+  }
+  if (!value || typeof value !== "object") return value;
+  if (typeof value.data === "string" && typeof value.mime_type === "string" && value.mime_type.startsWith("image/")) {
+    const chunks = [];
+    for (let offset = 0; offset < value.data.length; offset += 1048576) {
+      const chunk = await api("/uploads", {method: "POST", body: JSON.stringify({data: value.data.slice(offset, offset + 1048576)})});
+      chunks.push(chunk.asset_id);
+    }
+    const asset = await api("/uploads/assemble", {method: "POST", body: JSON.stringify({chunks})});
+    return {mime_type: value.mime_type, asset_id: asset.asset_id};
+  }
+  const result = {};
+  for (const [key, item] of Object.entries(value)) result[key] = await stageCloudImages(item);
+  return result;
+}
+
+const cloudAssetUrls = new Map();
+async function cloudArtifactUrl(url) {
+  const path = url.split("?")[0];
+  if (!cloudAssetUrls.has(path)) {
+    const pending = (async () => {
+      const manifest = await api(path + "/manifest");
+      const parts = [];
+      for (let part = 0; part < manifest.parts; part++) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 15000);
+        try {
+          const response = await fetch(path + "/parts/" + part, {headers: {"X-Arena-Session": sessionId}, signal: controller.signal});
+          if (!response.ok) throw new Error("Không tải được ảnh đã lưu.");
+          parts.push(await response.arrayBuffer());
+        } finally { clearTimeout(timer); }
+      }
+      return URL.createObjectURL(new Blob(parts, {type: manifest.mime_type}));
+    })();
+    cloudAssetUrls.set(path, pending);
+    pending.catch(() => cloudAssetUrls.delete(path));
+  }
+  return cloudAssetUrls.get(path);
+}
+async function resolveCloudAssetUrls(value) {
+  if (Array.isArray(value)) {
+    for (let i = 0; i < value.length; i++) value[i] = await resolveCloudAssetUrls(value[i]);
+  } else if (value && typeof value === "object") {
+    for (const [key, item] of Object.entries(value)) {
+      value[key] = typeof item === "string" && (key === "url" || key.endsWith("_url")) && item.startsWith("/artifacts/")
+        ? await cloudArtifactUrl(item) : await resolveCloudAssetUrls(item);
+    }
+  }
+  return value;
+}
+
 async function api(path, options = {}) {
+  const cloud = typeof window !== "undefined" && window.ARENA_CLOUD === true;
+  if (cloud && options.body && !path.startsWith("/uploads")) {
+    options = {...options, body: JSON.stringify(await stageCloudImages(JSON.parse(options.body)))};
+  }
   const controller = new AbortController();
-  const timeoutMs = options.timeoutMs ?? 15000;
+  const timeoutMs = options.timeoutMs ?? (cloud && options.method === "POST" ? 295000 : 15000);
   let timer;
   const deadline = new Promise((resolve, reject) => {
     timer = setTimeout(() => {
@@ -80,7 +143,7 @@ async function api(path, options = {}) {
     const response = await Promise.race([fetch(path, {
       ...requestOptions,
       signal: controller.signal,
-      headers: { "Content-Type": "application/json", ...(options.headers || {}) },
+      headers: { "Content-Type": "application/json", ...(cloud ? {"X-Arena-Session": sessionId, ...(cloudApiKey ? {"X-Gemini-Key": cloudApiKey} : {})} : {}), ...(options.headers || {}) },
     }), deadline]);
     const contentType = response.headers.get("content-type") || "";
     const body = contentType.includes("application/json") ? await Promise.race([response.json(), deadline]) : null;
@@ -90,7 +153,7 @@ async function api(path, options = {}) {
       error.status = response.status;
       throw error;
     }
-    return body;
+    return cloud ? await resolveCloudAssetUrls(body) : body;
   } catch (error) {
     if (error.name === "AbortError") {
       const timeout = new Error("Máy chủ chưa phản hồi trong thời gian cho phép. Vui lòng gửi lại; hệ thống giữ khóa yêu cầu để tránh tạo trùng.");
@@ -112,8 +175,6 @@ function setKeyMessage(message, error = false) {
 async function loadHealth() {
   try {
     const health = await api("/health");
-    $(".status-dot").classList.add("online");
-    $("#server-label").textContent = "Ứng dụng sẵn sàng";
     textApiReady = health.text_api_ready ?? (health.provider === "gemini" && health.api_key_configured === true);
     simulationEnabled = health.simulation_enabled === true;
     $("#simulation-option").hidden = !simulationEnabled;
@@ -129,7 +190,6 @@ async function loadHealth() {
     textApiReady = false;
     simulationEnabled = false;
     updateSubmitState();
-    $("#server-label").textContent = "Ứng dụng mất kết nối";
     $("#provider-badge").textContent = "Chưa kết nối";
     $("#provider-badge").className = "badge";
     $("#pack-label").textContent = "Mở lại ứng dụng để tiếp tục.";
@@ -144,9 +204,10 @@ $("#key-form").addEventListener("submit", async (event) => {
   const key = keyInput.value.trim();
   if (!key) return setKeyMessage("Vui lòng nhập Gemini API key.", true);
   button.disabled = true;
-  setKeyMessage("Đang cấu hình key trong bộ nhớ backend…");
+  setKeyMessage("Đang kết nối API key…");
   try {
     await api("/session/api-key", { method: "POST", body: JSON.stringify({ api_key: key }) });
+    if (window.ARENA_CLOUD === true) cloudApiKey = key;
     keyInput.value = "";
     setKeyMessage("Đã nhập key. Google sẽ kiểm tra quyền sử dụng ở lần xử lý tiếp theo.");
     await loadHealth();
@@ -179,8 +240,6 @@ $("#request-form").addEventListener("submit", async (event) => {
   $("#warnings").replaceChildren();
   $("#question-card").hidden = true;
   $("#image-result").replaceChildren();
-  $("#details").hidden = true;
-  $("#report").hidden = true;
   $("#manual-step").hidden = true;
   $("#mock-request-notice").hidden = true;
   renderedManualKey = null;
@@ -292,8 +351,8 @@ function renderNextAction(job) {
   if (job.status === "failed" || job.error || job.status === "needs_resolution" && job.workflow_version === 2) {
     const guidance = job.status === "needs_resolution" && !job.error ? {message: "Chưa đủ gợi ý hợp lệ", next: `Hiện có ${job.cards?.length || 0}/3 gợi ý đạt điều kiện từ ${job.prompt_pool?.length || 0} prompt hợp lệ. Các bản lỗi chưa được chọn. Bạn có thể tiếp tục nếu còn ngân sách hoặc sửa lựa chọn.`} : errorGuidance(job.error);
     const task = job.trace?.at(-1)?.task;
-    const stoppedAt = ({checking_selection_conflicts: "Kiểm tra xung đột lựa chọn", cleaning: "Hiểu nhu cầu", designing_checklist: "Chuẩn bị bảng lựa chọn và tham khảo", resolving_choices: "Tổng hợp lựa chọn", generating_prompt_pool: "Viết gợi ý thiết kế", specialist_auditing: "Đánh giá thiết kế", harmony_scoring: "Đánh giá tổng hợp thiết kế"}[job.failed_stage]) || ({VP02C: "Kiểm tra xung đột lựa chọn", VP01: "Hiểu nhu cầu", VP02: "Chuẩn bị bảng lựa chọn và tham khảo", VP02R: "Tìm nguồn tham khảo"}[task]) || "Xử lý yêu cầu";
-    const canUseBasic = job.workflow_version === 2 && job.reference_mode !== "text_only" && guidance.quota && (job.failed_stage === "designing_checklist" || ["VP02", "VP02R"].includes(task));
+    const stoppedAt = ({checking_selection_conflicts: "Kiểm tra xung đột lựa chọn", cleaning: "Hiểu nhu cầu", designing_checklist: "Chuẩn bị bảng lựa chọn", resolving_choices: "Tổng hợp lựa chọn", generating_prompt_pool: "Viết gợi ý thiết kế", specialist_auditing: "Đánh giá thiết kế", harmony_scoring: "Đánh giá hài hòa thiết kế", writing_design_stories: "Viết câu chuyện thiết kế"}[job.failed_stage]) || ({VP02C: "Kiểm tra xung đột lựa chọn", VP01: "Hiểu nhu cầu", VP02: "Chuẩn bị bảng lựa chọn", VP02R: "Tìm nguồn tham khảo"}[task]) || "Xử lý yêu cầu";
+
     const design = job.user_report?.api?.budgets?.design;
     const canContinue = !["budget_exhausted", "deadline_exceeded", "session_budget_exhausted"].includes(job.error?.code) && (!design || ((job.metrics?.design?.attempts || 0) < design.total_provider_calls_max && (job.metrics?.design?.active_seconds || 0) < design.active_processing_deadline_seconds));
     box.innerHTML = `<div><strong>Đã dừng ở: ${escapeHtml(stoppedAt)}</strong><p>${escapeHtml(guidance.next)}</p>${guidance.quota ? '<p><a href="https://ai.dev/rate-limit" target="_blank" rel="noopener noreferrer">Kiểm tra hạn mức tại Google ↗</a></p>' : ""}</div><div class="manual-actions"><button type="button" class="button button-quiet" data-key-settings>Nhập / đổi API key</button><button type="button" class="button button-accent" data-retry-request>Thử lại yêu cầu</button></div>`;
@@ -310,23 +369,15 @@ function renderNextAction(job) {
       button.addEventListener("click", async () => { button.disabled = true; try { await api(`/requests/${job.request_id}/retry-resolution`, {method: "POST", body: JSON.stringify({revision: job.revision})}); await refreshJob(); syncPolling(); } catch (error) { showRequestError(error); button.disabled = false; } });
       box.append(button);
     }
-    if (canUseBasic) {
-      const note = document.createElement("p");
-      note.textContent = "Bạn cũng có thể dùng chế độ cơ bản cho ý tưởng hiện đại: không tìm web, không có link đã kiểm chứng. Yêu cầu tái hiện lịch sử vẫn cần nguồn.";
-      const button = document.createElement("button");
-      button.type = "button"; button.className = "button button-quiet"; button.textContent = "Thử chế độ cơ bản";
-      button.addEventListener("click", () => { $("#request-input").value = job.raw_prompt || job.turns?.[0]?.text || $("#request-input").value; $("#request-form").requestSubmit(); });
-      box.append(note, button);
-    }
     box.querySelector("[data-key-settings]").addEventListener("click", () => { $("#connection-settings").open = true; $("#api-key").focus(); });
-    box.querySelector("[data-retry-request]").addEventListener("click", () => { if (job.turns?.[0]) $("#request-input").value = job.raw_prompt || job.turns[0].text; $("#request-form").requestSubmit(); });
+    box.querySelector("[data-retry-request]").addEventListener("click", () => { if (job.turns?.[0]) $("#request-input").value = job.raw_prompt || job.turns[0].text;  $("#request-form").requestSubmit(); });
   } else if (job.status === "awaiting_manual_audit") {
     box.hidden = false;
     box.innerHTML = '<strong>Ảnh đã nhận</strong><a class="button button-quiet small-button" href="#manual-step">Kiểm tra ảnh ↓</a>';
   } else if (job.status === "awaiting_image" && job.workflow_version === 2) {
     box.hidden = false;
     const selected = (job.cards || []).find(card => job.image_target_ids?.includes(card.candidate_id));
-    box.innerHTML = `<div><strong>${selected ? `Đang nhận ảnh cho: ${escapeHtml(selected.title)}` : "Bước tiếp: chọn một gợi ý để xem ảnh"}</strong><p>Bấm Sao chép hướng dẫn ở thẻ bạn thích. Hướng dẫn này dùng để tạo ảnh; nút sẽ sao chép sẵn để bạn dán vào Gemini. Sau đó tải ảnh về và gửi vào đây.</p><p class="tiny-note">Đánh giá áp dụng cho bản mô tả thiết kế; ảnh thực tế chưa được tạo.</p></div>`;
+    box.innerHTML = `<div><strong>${selected ? `Đang nhận ảnh cho: ${escapeHtml(selected.title)}` : "Bước tiếp: chọn một gợi ý để xem ảnh"}</strong><p>Bấm Copy prompt ở thẻ bạn thích. Hướng dẫn này dùng để tạo ảnh; nút sẽ sao chép sẵn để bạn dán vào Gemini. Sau đó tải ảnh về và gửi vào đây.</p><p class="tiny-note">Đánh giá áp dụng cho bản mô tả thiết kế; ảnh thực tế chưa được tạo.</p></div>`;
   }
 }
 
@@ -391,54 +442,28 @@ async function chooseImageCandidate(job, card) {
 
 function renderCards(job) {
   const cards = job.cards || [];
-  const currentIds = new Set(cards.map(card => card.candidate_id));
-  const hasCurrentImages = (job.artifacts || []).some(artifact => job.workflow_version !== 2 || currentIds.has(artifact.candidate_id));
   $("#cards").innerHTML = cards.map((card, index) => {
-    const design = card.design || {};
-    const prompt = candidatePrompt(job, card, index);
+    const design = card.design || {}, prompt = candidatePrompt(job, card, index);
+    const story = card.design_story;
     const tags = [...(design.palette || []), ...(design.accessories || [])];
-    const sources = (card.source_caption || []).map((source) => {
-      const title = `${source.text || ""}${source.source_id ? ` · ${source.source_id}` : ""}`;
-      return source.source_url
-        ? `<a href="${escapeHtml(source.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>`
-        : escapeHtml(title);
-    });
-    return `<article class="idea-card">
-      <div class="idea-top"><span class="idea-index">PHƯƠNG ÁN 0${index + 1}</span></div>
-      <h3>${escapeHtml(card.title || "Gợi ý phối đồ")}</h3>
-      ${index === 0 ? '<p class="chosen-label">Phương án đề xuất</p>' : ""}
-      ${job.workflow_version === 2 ? [
-        ["Thời trang / cấu trúc", card.fashion_summary, card.specialist_reviews?.fashion],
-        ["Văn hóa / lịch sử", card.culture_summary, card.specialist_reviews?.culture],
-        ["Hội họa / mỹ thuật", card.art_summary, card.specialist_reviews?.art],
-      ].map(([label, text, review]) => `<section class="specialist-section"><h4>${label} </h4><p>${escapeHtml(text)}</p><details><summary>Nhận xét AI</summary><p class="muted">${escapeHtml(review?.summary || "")}</p>${review?.concerns?.length ? `<p>${review.concerns.map(escapeHtml).join(" · ")}</p>` : ""}</details></section>`).join("") + `<details><summary>Đánh giá tổng hợp</summary><p class="muted">${escapeHtml(card.harmony?.summary)}</p></details><p class="tiny-note">Đánh giá AI hỗ trợ tham khảo; chưa xác nhận độ chính xác lịch sử, khả năng may thực tế hoặc chất lượng ảnh.</p>` : `<p>${escapeHtml(card.target_need || "")}</p>`}
-      ${job.workflow_version !== 2 ? `<p class="design-detail">${escapeHtml(design.subject_description || "")} ${escapeHtml(design.scene || "")}</p>` : ""}
-      ${tags.length ? `<div class="tag-list">${tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>` : ""}
-      ${(card.caveats || []).map((item) => `<p>${escapeHtml(item)}</p>`).join("")}
-      <div class="option-prompt-actions">
-        ${job.status === "awaiting_image" && !hasCurrentImages ? `<button type="button" class="button-primary" data-select-option="${index}" ${job.image_target_ids?.includes(card.candidate_id) ? "disabled" : ""}>${job.image_target_ids?.includes(card.candidate_id) ? "Đã chọn" : "Chọn phương án này"}</button>` : ""}
-        <button type="button" class="button-primary" data-copy-option="${index}" aria-label="Sao chép hướng dẫn phương án ${index + 1}" aria-controls="option-prompt-${index}" ${prompt ? "" : "disabled"}>Sao chép hướng dẫn</button>
-        <button type="button" class="button-secondary" data-view-option="${index}" aria-expanded="false" aria-controls="option-prompt-${index}">Xem hướng dẫn</button>
-      </div>
-      <div id="option-prompt-${index}" hidden class="option-prompt-textarea"><label for="option-prompt-text-${index}">Hướng dẫn tạo ảnh · phương án ${index + 1}</label><textarea id="option-prompt-text-${index}" rows="8" readonly>${escapeHtml(prompt)}</textarea></div>
-      <span role="status" class="option-prompt-status">${prompt ? "" : "Đang chuẩn bị prompt…"}</span>
-      ${sources.length ? `<p class="source-line">Nguồn: ${sources.join(" · ")}</p>` : ""}
+    const sources = (card.source_caption || []).map(source => source.source_url
+      ? `<a href="${escapeHtml(source.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(source.text || source.source_id || "Nguồn tham khảo")}</a>`
+      : escapeHtml(source.text || ""));
+    const reviews = [
+      ["Thời trang / cấu trúc", card.fashion_summary, card.specialist_reviews?.fashion],
+      ["Văn hóa / lịch sử", card.culture_summary, card.specialist_reviews?.culture],
+      ["Hội họa / mỹ thuật", card.art_summary, card.specialist_reviews?.art],
+    ].map(([label, text, review]) => `<section class="specialist-section"><div class="specialist-heading"><h4>${label}</h4></div><p>${escapeHtml(text || "")}</p>${review ? `<details class="ai-review"><summary>Nhận xét AI</summary><div class="ai-review-body"><p>${escapeHtml(review.summary || "")}</p>${review.concerns?.length ? `<ul>${review.concerns.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}</div></details>` : ""}</section>`).join("");
+    return `<article class="idea-card ${index === 0 ? "idea-card-recommended" : ""}">
+      <header class="idea-card-header"><div class="idea-top"><span class="idea-index">PHƯƠNG ÁN ${String(index + 1).padStart(2, "0")}</span>${index === 0 ? '<span class="chosen-label">Đề xuất</span>' : ""}</div><h3>${escapeHtml(card.title || "Gợi ý phối đồ")}</h3></header>
+      <div class="idea-card-body">${job.workflow_version === 2 ? `<section class="design-story"><h4>Câu chuyện thiết kế</h4>${story ? `<p>${escapeHtml(story.origin_and_meaning)}</p>${story.cultural_combination_warnings?.length ? `<div class="story-notes"><h5>Lưu ý kết hợp văn hóa</h5><ul>${story.cultural_combination_warnings.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul></div>` : ""}` : `<p class="muted">${job.status === "writing_design_stories" ? "Gemini đang viết câu chuyện từ prompt của phương án này…" : "Chưa có câu chuyện thiết kế cho phương án này."}</p>`}</section><div class="design-perspectives">${reviews}</div>` : `<p>${escapeHtml(card.target_need || "")}</p><p>${escapeHtml(design.subject_description || "")} ${escapeHtml(design.scene || "")}</p>`}
+      ${tags.length ? `<div class="tag-list">${tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>` : ""}
+      ${sources.length ? `<p class="source-line">Nguồn: ${sources.join(" · ")}</p>` : ""}</div>
+      <footer class="idea-card-footer"><button type="button" class="button-primary copy-prompt-button" data-copy-option="${index}" aria-label="Copy prompt phương án ${index + 1}" ${prompt ? "" : "disabled"}><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4"/></svg>Copy prompt</button><span role="status" aria-live="polite" class="option-prompt-status">${prompt ? "" : "Đang chuẩn bị prompt…"}</span>
+      <div id="option-prompt-${index}" hidden class="option-prompt-textarea"><label for="option-prompt-text-${index}">Prompt phương án ${index + 1}</label><textarea id="option-prompt-text-${index}" rows="8" readonly>${escapeHtml(prompt)}</textarea></div></footer>
     </article>`;
   }).join("");
-  $("#cards").querySelectorAll("[data-select-option]").forEach((button) => button.addEventListener("click", async () => {
-    button.disabled = true;
-    try {
-      const candidate = cards[Number(button.dataset.selectOption)];
-      await chooseImageCandidate(job, candidate);
-    } catch (error) { showRequestError(error); button.disabled = false; }
-  }));
-  $("#cards").querySelectorAll("[data-view-option]").forEach((button) => button.addEventListener("click", () => {
-    const panel = button.closest(".idea-card").querySelector(".option-prompt-textarea");
-    panel.hidden = !panel.hidden;
-    button.setAttribute("aria-expanded", String(!panel.hidden));
-    button.textContent = panel.hidden ? "Xem hướng dẫn" : "Ẩn hướng dẫn";
-  }));
-  $("#cards").querySelectorAll("[data-copy-option]").forEach((button) => button.addEventListener("click", async () => {
+  $("#cards").querySelectorAll("[data-copy-option]").forEach(button => button.addEventListener("click", async () => {
     const index = Number(button.dataset.copyOption), candidate = cards[index];
     const panel = button.closest(".idea-card").querySelector(".option-prompt-textarea");
     const textarea = panel.querySelector("textarea");
@@ -447,20 +472,16 @@ function renderCards(job) {
     try {
       await copyPrompt(candidatePrompt(job, candidate, index), textarea);
       message.textContent = "Đã copy · dán vào Gemini";
+      if (shouldChooseCopiedCandidate(job, candidate)) {
+        try {
+          await chooseImageCandidate(job, candidate);
+          const current = $("#cards").querySelector(`[data-copy-option="${index}"]`);
+          if (current) current.closest(".idea-card").querySelector(".option-prompt-status").textContent = "Đã copy · đang nhận ảnh cho phương án này";
+        } catch (error) { message.textContent = "Đã copy. Chưa chọn được phương án nhận ảnh; bấm Copy prompt để thử lại."; showRequestError(error); }
+      }
     } catch (_) {
       panel.hidden = false; textarea.focus(); textarea.select();
-      message.textContent = "Dùng Ctrl+C / ⌘C để copy phần đã chọn. Bấm Chọn phương án này trước khi gửi ảnh.";
-      button.disabled = false;
-      return;
-    }
-    try {
-      if (shouldChooseCopiedCandidate(job, candidate)) {
-        await chooseImageCandidate(job, candidate);
-        const current = $("#cards").querySelector(`[data-copy-option="${index}"]`);
-        if (current && activeJob?.image_target_ids?.includes(candidate.candidate_id)) current.closest('.idea-card').querySelector('.option-prompt-status').textContent = "Đã sao chép hướng dẫn và chọn phương án";
-      }
-    } catch (error) {
-      showRequestError(`Đã sao chép prompt, nhưng chưa chọn được phương án để nhận ảnh: ${error.message}. Bấm Chọn phương án này và kiểm tra tên trước khi gửi ảnh.`);
+      message.textContent = "Dùng Ctrl+C / ⌘C để copy đoạn đã chọn, rồi bấm Copy prompt để chốt phương án.";
     } finally { button.disabled = false; }
   }));
 }
@@ -503,18 +524,16 @@ function renderWarnings(job) {
   if (job.status === "needs_evidence") messages.unshift("Chưa đủ nguồn cho phần bắt buộc. Giữ nguyên mức lịch sử đã yêu cầu; có thể điều chỉnh yêu cầu.");
   if (job.status === "cards_only" && job.render_image && !job.artifacts?.length) messages.unshift("Không có ảnh đã kiểm tra; các gợi ý bằng chữ vẫn được giữ lại.");
   if (job.workflow_version === 2) {
-    const basic = job.reference_mode === "text_only" ? '<p class="warning">Chế độ cơ bản: ý tưởng hiện đại, không có nguồn web đã tìm/đọc và không xác nhận lịch sử.</p>' : "";
+    const basic = job.reference_mode === "text_only" ? '<p class="warning">Ứng dụng hỗ trợ ý tưởng hiện đại, không có nguồn web đã tìm/đọc và không xác nhận lịch sử.</p>' : "";
     const usageWarnings = [...new Set(job.api_call_warnings || [])];
     const usageNotice = usageWarnings.map(message => `<p class="warning" role="status">${escapeHtml(message)}</p>`).join("");
-    const notes = [...new Set(messages)].filter(message => !usageWarnings.includes(message));
-    $("#warnings").innerHTML = basic + usageNotice + (job.status === "needs_evidence" ? '<p class="warning">Chưa đủ nguồn cho yêu cầu đã chốt. Bạn có thể sửa lựa chọn hoặc điều chỉnh yêu cầu.</p>' : "") + (notes.length ? `<details><summary>Ghi chú xử lý (gồm các lần thử trước)</summary>${notes.map(message => `<p>${escapeHtml(message)}</p>`).join("")}</details>` : "");
+    $("#warnings").innerHTML = basic + usageNotice + (job.status === "needs_evidence" ? '<p class="warning">Chưa đủ nguồn cho yêu cầu đã chốt. Bạn có thể sửa lựa chọn hoặc điều chỉnh yêu cầu.</p>' : "");
     return;
   }
   $("#warnings").innerHTML = messages.map((message) => `<div class="warning">${escapeHtml(message)}</div>`).join("");
 }
 
 function renderImage(job) {
-  const labels = {passed: "Ảnh đã được AI đánh giá", mock_flow_checked: "Chỉ kiểm tra luồng bằng mô phỏng; chưa đánh giá ảnh thực tế", failed_or_uncertain: "Chưa đạt / chưa xác định", unverified: "Chưa có kết quả đánh giá ảnh"};
   const currentIds = job.output_artifact_ids || (job.artifacts || []).filter(a => !(job.artifacts || []).some(child => child.parent_artifact_id === a.artifact_id)).map(a => a.artifact_id);
   const editable = waiting.has(job.status) || ["complete", "cards_only"].includes(job.status);
   const imageReview = (artifact) => {
@@ -526,12 +545,6 @@ function renderImage(job) {
     <button type="button" class="image-open" data-edit-image="${escapeHtml(artifact.artifact_id)}" ${editable ? "" : "disabled"} aria-label="Mở ảnh để phác thảo"><img src="${escapeHtml(artifact.url)}" alt="${artifact.parent_artifact_id ? "Ảnh sửa" : "Ảnh tạo"}" /></button>
     <div class="image-info" style="flex: 1;">
       <p style="margin: 0 0 8px 0; font-size: 14px;"><strong>${escapeHtml((job.cards || []).find(c => c.candidate_id === artifact.candidate_id)?.title || artifact.candidate_id || "")}</strong></p>
-      <p style="margin: 0; font-size: 13px; color: var(--muted); line-height: 1.6;">
-        ${artifact.parent_artifact_id ? "Ảnh sửa từ ảnh gốc của request này" : "Ảnh tạo ban đầu"}<br />
-        Nguồn: ${escapeHtml(artifact.output_origin === "gemini" ? "API Gemini" : artifact.output_origin === "mock" ? "Ảnh mock" : artifact.output_origin)}<br />
-        Trạng thái: ${escapeHtml(labels[artifact.check_status] || "Chưa kiểm tra")}<br />
-        ${(job.selected_artifact_ids || [job.selected_artifact_id]).includes(artifact.artifact_id) ? "<span style='color: var(--forest); font-weight: 600;'>Đã chốt phương án này.</span><br />" : ""}
-      </p>
       <div style="display: flex; gap: 10px; margin-top: 15px; margin-bottom: 10px; flex-wrap: wrap;">
         <a class="button-secondary" href="${escapeHtml(artifact.url)}" download style="text-decoration: none;">Tải ảnh</a>
         <button type="button" class="button-primary" data-edit-image="${escapeHtml(artifact.artifact_id)}" ${editable ? "" : "disabled"}>Mở ảnh / Phác thảo chỉnh sửa</button>
@@ -634,13 +647,13 @@ function renderManual(job) {
   const repair = pending.kind === "repair";
   const instructions = repair
       ? "Copy yêu cầu sửa và tiếp tục cuộc trò chuyện Gemini đã tạo ảnh. Đính kèm ảnh gốc, tải ảnh sửa về rồi gửi tại đây."
-      : "Bấm Sao chép hướng dẫn ở thẻ bạn thích để sao chép và chọn phương án. Mở Gemini, dán đoạn vừa sao chép và gửi. Nếu Gemini chỉ trả lời bằng chữ, chọn Công cụ → Tạo ảnh rồi gửi lại. Tải ảnh Gemini trả về, quay lại đây bấm Chọn ảnh (hoặc copy ảnh rồi bấm Dán ảnh), kiểm tra tên phương án và bấm Gửi ảnh. Sau đó bấm vào ảnh để chỉnh sửa.";
+      : "Bấm Copy prompt ở thẻ bạn thích để sao chép và chọn phương án. Mở Gemini, dán đoạn vừa sao chép và gửi. Nếu Gemini chỉ trả lời bằng chữ, chọn Công cụ → Tạo ảnh rồi gửi lại. Tải ảnh Gemini trả về, quay lại đây bấm Chọn ảnh (hoặc copy ảnh rồi bấm Dán ảnh), kiểm tra tên phương án và bấm Gửi ảnh. Sau đó bấm vào ảnh để chỉnh sửa.";
   const relevant = (job.artifacts || []).filter((a) => a.artifact_id === pending.artifact_id || a.artifact_id === pending.parent_artifact_id);
   relevant.sort((a, b) => Number(b.artifact_id === pending.artifact_id) - Number(a.artifact_id === pending.artifact_id));
   box.innerHTML = `${heading(repair ? "Sửa ảnh" : "Tạo ảnh với Gemini")}
-    ${!repair ? '<div class="manual-path" aria-label="Các bước tạo ảnh"><span>01 · Sao chép hướng dẫn</span><span>02 · Tạo trên Gemini</span><span>03 · Gửi ảnh</span></div>' : ""}
+    ${!repair ? '<div class="manual-path" aria-label="Các bước tạo ảnh"><span>01 · Copy prompt</span><span>02 · Tạo trên Gemini</span><span>03 · Gửi ảnh</span></div>' : ""}
     <div class="manual-actions" style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-      ${repair ? `<button type="button" class="button-primary" id="copy-prompt">Copy yêu cầu sửa</button>` : ""}
+      ${repair ? `<button type="button" class="button-primary" id="copy-prompt">Copy prompt</button>` : ""}
       <a class="button-secondary gemini-button" href="https://gemini.google.com/" target="_blank" rel="noreferrer" style="text-decoration: none;">Mở Gemini ↗</a>
       <span id="copy-message" role="status" style="width: 100%; color: var(--muted); font-size: 13px;"></span>
     </div>
@@ -716,32 +729,6 @@ function renderManual(job) {
   if (draft) showPreview(draft.result, draft.context);
 }
 
-function renderReport(job) {
-  const report = job.user_report;
-  const box = $("#report");
-  if (!report) { box.hidden = true; return; }
-  const list = (items) => items.length ? `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : '<p class="muted">Chưa có.</p>';
-  const totals = report.api.totals;
-  box.hidden = false;
-  box.innerHTML = `<details><summary>Thông tin xử lý và kiểm tra ảnh</summary><h3>Báo cáo yêu cầu</h3><p class="report-outcome">${escapeHtml(report.final)}</p>
-    <h4>Input đã nhận</h4><p>${escapeHtml(report.inputs.initial)}</p>${list(report.inputs.answers)}
-    ${list(report.inputs.images.map((image) => `${image.role}: ${image.name} · ${image.source}`))}
-    ${report.inputs.manual_audits.map((text, index) => `<details><summary>Kết quả đánh giá thủ công đã nhận · lượt ${index + 1}</summary><p>${escapeHtml(text)}</p></details>`).join("")}
-    ${job.workflow_version === 2 ? `<h4>Yêu cầu đã làm rõ</h4><p>${escapeHtml(report.clean_text || "")}</p><h4>Tập phương án trước đánh giá</h4>${list((report.generation_batches || []).map(b => `${b.batch_id}: ${b.count} hướng dẫn · ${b.direction.label}${b.supplemental ? " · bổ sung" : ""}`))}<h4>Ngân sách từng giai đoạn</h4>${list(Object.entries(report.api.phases || {}).map(([phase, m]) => `${phase}: ${m.attempts} lượt gọi · ${m.actual_api_calls} HTTP API thật · ${m.active_seconds} giây xử lý`))}` : ""}<h4>Yêu cầu đã chốt</h4>${list(report.agreed)}<h4>Giả định còn lại</h4>${list(report.assumptions)}
-    <h4>Phương án và lựa chọn</h4>${report.candidates.map((candidate) => `<p><strong>${escapeHtml(candidate.title)}</strong> · ${escapeHtml(candidate.description)}<br />${escapeHtml(candidate.reason)}</p>`).join("")}
-    <p><strong>${report.selected ? `Chọn: ${escapeHtml(report.selected)}` : "Chưa chọn phương án"}</strong><br />${escapeHtml(report.selection_reason)}</p>
-    <details><summary>Xem phần đạt, chưa đạt và chưa xác định của đánh giá phương án</summary>${(report.candidate_audits || []).map((audit) => `<p><strong>${escapeHtml(audit.title)}${audit.is_repair ? " · sau sửa" : ""}</strong></p>${list(audit.findings)}`).join("")}</details>
-    <h4>Các bước đã thực hiện theo thứ tự</h4><ol>${report.steps.map((step) => `<li><strong>${escapeHtml(step.purpose)}</strong> · ${escapeHtml(step.via)}${step.detail ? `<br />${escapeHtml(step.detail)}` : ""}</li>`).join("")}</ol>
-    <h4>API thật</h4><p>${totals.actual} lượt gọi thực tế: ${totals.success} thành công, ${totals.failed} thất bại / phản hồi không hợp lệ, ${totals.interrupted} bị ngắt chưa có kết quả. ${totals.cache} bước dùng kết quả đã lưu, không gọi lại API.</p>
-    ${report.api.calls.length ? list(report.api.calls.map((call) => `${call.purpose} · ${call.provider} / ${call.model}: ${call.calls} lượt API thật · ${call.result}`)) : ""}
-    ${totals.mock ? '<p class="muted">Các bước mock chỉ mô phỏng workflow, không tính là API thật.</p>' : ""}
-    <h4>Thao tác Gemini thủ công</h4><p>${report.manual.image_prompts} hướng dẫn tạo/sửa ảnh đã cung cấp · ${report.manual.images_received} ảnh đã nhận · ${report.manual.audit_prompts} hướng dẫn đánh giá đã cung cấp · ${report.manual.audits_received} kết quả đánh giá đã nhận.</p>
-    <h4>Đánh giá ảnh và chỉnh sửa</h4>${report.audits.length ? report.audits.map((audit) => `<p><strong>${escapeHtml(audit.image)}</strong> · ${escapeHtml(audit.via)}<br />${escapeHtml(audit.quality)}</p>${list(audit.findings)}${audit.fixes.length ? `<p>Cần sửa:</p>${list(audit.fixes)}` : ""}`).join("") : '<p>Chưa có kết quả đánh giá ảnh.</p>'}
-    ${report.repairs.map((repair) => `<p>Vòng sửa đã yêu cầu:</p>${list(repair.fixes)}<p>${escapeHtml(repair.quality)}</p>`).join("")}
-    <h4>Kết quả cuối và giới hạn</h4><p>${escapeHtml(report.final)}</p>${list(report.limits)}</details>`;
-  $("#details").hidden = true;
-}
-
 async function refreshJob() {
   if (!activeId) return;
   const requestId = activeId;
@@ -766,7 +753,7 @@ async function refreshJob() {
     const subjectLabel = {au_phuc: "âu phục", ao_dai: "áo dài", ao_tu_than: "áo tứ thân", ao_ngu_than: "áo ngũ thân", ao_va_chan_vay: "áo phối chân váy", vay_lien: "váy liền thân"}[job.brief?.subject?.value] || job.brief?.subject?.value;
     $("#result-summary").textContent = job.workflow_version === 2 ? v2Summary(job) : subjectLabel ? `Đối tượng: ${subjectLabel}${job.brief.mode ? ` · ${job.brief.mode === "historical" ? "theo hướng lịch sử" : "lấy cảm hứng"}` : ""}` : "";
 
-    const progressMap = { queued: 5, cleaning: 10, understanding: 15, designing_checklist: 20, checking_selection_conflicts: 25, awaiting_choices: 30, resolving_choices: 40, generating_prompt_pool: 50, specialist_auditing: 60, harmony_scoring: 70, selecting: 80, prompt_writing: 85, cards_ready: 90, awaiting_image: 95, rendering: 96, image_repairing: 97, image_checking: 98, complete: 100, cards_only: 100 };
+    const progressMap = { queued: 5, cleaning: 10, understanding: 15, designing_checklist: 20, checking_selection_conflicts: 25, awaiting_choices: 30, resolving_choices: 40, generating_prompt_pool: 50, specialist_auditing: 60, harmony_scoring: 70, selecting: 80, writing_design_stories: 85, prompt_writing: 85, cards_ready: 90, awaiting_image: 95, rendering: 96, image_repairing: 97, image_checking: 98, complete: 100, cards_only: 100 };
     let progressPercent = progressMap[job.status] || 50;
     const progressSpan = $("#progress span");
     if (terminal.has(job.status)) {
@@ -792,7 +779,6 @@ async function refreshJob() {
     renderImage(job);
     renderManual(job);
     renderNextAction(job);
-    renderReport(job);
     renderRevisionControl(job);
     if (previousStatus !== job.status) {
       setTimeout(() => {
@@ -876,7 +862,7 @@ function renderChecklist(job) {
   box.innerHTML = `<h3>Chọn những chi tiết còn thiếu</h3><p>${escapeHtml(checklist.clean_prompt.clean_text)}</p><p class="muted">Ở mỗi phần cần chọn, bấm ý bạn thích, giao AI đề xuất hoặc nhập ý riêng. “Đã xác định” là phần được giữ từ lời bạn nói. ${job.choice_restore ? "Các lựa chọn bạn đã chốt được giữ lại; bạn có thể thay đổi trước khi chốt lần mới." : "Không có lựa chọn nào được chọn sẵn."}</p>${job.previous_selection_snapshot ? `<details><summary>Đối chiếu lựa chọn trước</summary>${selectionSummary(job.previous_selection_snapshot)}</details>` : ""}
     ${conflictMarkup}<form id="choice-form">${groups.map((g, index) => `<details class="choice-group" data-group="${escapeHtml(g.group_id)}" ${index < 6 ? "open" : ""}><summary>${escapeHtml(g.label)} · ${g.status === "locked" ? "Đã xác định" : g.selection_mode === "single" ? "Chọn một" : "Chọn nhiều"}</summary><fieldset ${g.status === "locked" ? "disabled" : ""}>
     <legend>${escapeHtml(g.question)}</legend><p class="muted">${escapeHtml(g.why_it_matters)}</p>${g.status !== "locked" ? `<p class="tiny-note">${g.status === "needs_choice" ? `Cần chọn ít nhất ${g.min}` : "Có thể bỏ qua"} · tối đa ${g.max} ý, tính cả ý riêng.</p>` : ""}
-    ${g.status === "locked" ? g.related_atom_ids.map(aid => `<p>${escapeHtml(checklist.clean_prompt.atoms.find(a => a.atom_id === aid)?.meaning)}</p>`).join("") : g.options.map(o => `<div class="choice-option"><label><input type="${g.selection_mode === "single" ? "radio" : "checkbox"}" name="${escapeHtml(g.group_id)}" value="${escapeHtml(o.option_id)}" data-delegate="${o.is_ai_delegate}" /><strong>${o.is_ai_delegate ? "Để AI đề xuất" : escapeHtml(o.label)}</strong>${o.is_recommended ? '<small> · Gợi ý</small>' : ""}</label><p>${escapeHtml(o.description)}</p>${o.reference_ids.map(rid => references.has(rid) ? referenceMarkup(references.get(rid)) : "").join("")}</div>`).join("") + `<label>Nhập yêu cầu riêng<textarea data-custom rows="2" maxlength="6000" placeholder="Nhập để chọn ý riêng…"></textarea></label>`}
+    ${g.status === "locked" ? g.related_atom_ids.map(aid => `<p>${escapeHtml(checklist.clean_prompt.atoms.find(a => a.atom_id === aid)?.meaning)}</p>`).join("") : g.options.map(o => `<div class="choice-option"><label><input type="${g.selection_mode === "single" ? "radio" : "checkbox"}" name="${escapeHtml(g.group_id)}" value="${escapeHtml(o.option_id)}" data-delegate="${o.is_ai_delegate}" /><strong>${o.is_ai_delegate ? "Để AI đề xuất" : escapeHtml(o.label)}</strong></label><p>${escapeHtml(o.description)}</p>${o.reference_ids.map(rid => references.has(rid) ? referenceMarkup(references.get(rid)) : "").join("")}</div>`).join("") + `<label>Nhập yêu cầu riêng<textarea data-custom rows="2" maxlength="6000" placeholder="Nhập để chọn ý riêng…"></textarea></label>`}
     </fieldset><p data-inactive class="tiny-note" hidden>Chọn nhóm nền phù hợp để mở phần này.</p></details>`).join("")}
     <details class="explicit-changes"><summary>Sửa ý đã hiểu (cần xác nhận)</summary>${checklist.clean_prompt.atoms.map(a => `<div data-change-atom="${escapeHtml(a.atom_id)}"><p>${escapeHtml(a.meaning)}</p><textarea rows="2" maxlength="6000" placeholder="Ý thay thế…"></textarea><label><input type="checkbox" /> Tôi xác nhận thay ý này</label></div>`).join("")}</details>
     <div class="reference-results">${(job.reference_metadata || []).map(m => m.groundingMetadata?.searchEntryPoint?.renderedContent).filter(Boolean).map(html => `<iframe title="Gợi ý tìm kiếm Google do Gemini trả" sandbox="allow-popups allow-popups-to-escape-sandbox" srcdoc="${escapeHtml(html)}"></iframe>`).join("")}</div>
@@ -957,7 +943,7 @@ function renderRevisionControl(job) {
   if (!box) return;
   box.hidden = job.workflow_version !== 2 || !job.checklist || !["awaiting_image", "complete", "cards_only", "needs_evidence", "needs_resolution", "failed"].includes(job.status);
   if (box.hidden) return;
-  box.innerHTML = '<button type="button" class="button button-quiet" data-reuse="true">Chọn lại từ bảng đã có</button><button type="button" class="button button-quiet" data-reuse="false">Tạo bảng lựa chọn mới</button><span class="tiny-note">Chọn lại giữ các option và lựa chọn đã chốt, không gọi API để mở bảng. Sau khi chốt mới, thiết kế sẽ được tạo và đánh giá lại qua API.</span>';
+  box.innerHTML = '<button type="button" class="button button-quiet" data-reuse="true">Điều chỉnh lựa chọn</button><button type="button" class="button button-quiet" data-reuse="false">Gợi ý lựa chọn khác</button>';
   box.querySelectorAll("button").forEach(button => button.addEventListener("click", async event => {
     event.currentTarget.disabled = true;
     try { await api(`/requests/${job.request_id}/revise`, {method: "POST", body: JSON.stringify({revision: job.revision, reuse_checklist: button.dataset.reuse === "true"})}); renderedChecklistKey = null; await refreshJob(); syncPolling(); }

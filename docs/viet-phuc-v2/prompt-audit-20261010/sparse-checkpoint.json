@@ -1,0 +1,471 @@
+{
+  "request_id": "de585706-68cc-467e-ad7b-e6c09b8eeecd",
+  "session_id": "prompt-audit-20261010-sparse",
+  "workflow_version": 2,
+  "revision": 1,
+  "status": "designing_checklist",
+  "provider": "gemini",
+  "creative_level": "balanced",
+  "scoring_profile": "balanced",
+  "image_mode": "gemini_manual",
+  "audit_mode": "background",
+  "render_image": false,
+  "reference_mode": "text_only",
+  "raw_prompt": "Thiết kế đồ nữ lấy cảm hứng Việt phục để đi học đại học, kín đáo, thoải mái. Còn lại bạn gợi ý.",
+  "turns": [
+    {
+      "id": "T1",
+      "text": "Thiết kế đồ nữ lấy cảm hứng Việt phục để đi học đại học, kín đáo, thoải mái. Còn lại bạn gợi ý."
+    }
+  ],
+  "brief": null,
+  "questions": [],
+  "cards": [],
+  "ranking": null,
+  "artifacts": [],
+  "image_audit": null,
+  "image_prompts": [],
+  "error": null,
+  "warnings": [
+    "Ứng dụng không tìm nguồn web và không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử."
+  ],
+  "events": [
+    {
+      "sequence": 1,
+      "stage": "cleaning",
+      "brief_revision": 1,
+      "timestamp": 1791613691.282103
+    },
+    {
+      "sequence": 2,
+      "stage": "designing_checklist",
+      "brief_revision": 1,
+      "timestamp": 1791613695.889313
+    }
+  ],
+  "trace": [
+    {
+      "task": "VP01",
+      "phase": "design",
+      "attempt_id": "91529c0c-66d7-4e39-99aa-37dab85a1822",
+      "revision": 1,
+      "role": null,
+      "batch_id": null,
+      "cache_hit": false,
+      "duration_ms": 4599,
+      "provider_call_id": "0af43aff-6c1f-4df5-b242-e899e432b89b",
+      "provider_called": true,
+      "usage": {
+        "promptTokenCount": 2578,
+        "candidatesTokenCount": 1514,
+        "totalTokenCount": 4092,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2578
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "tool_metadata": {
+        "groundingMetadata": {},
+        "urlContextMetadata": {},
+        "modelVersion": "gemini-3.5-flash-lite",
+        "responseId": "-9rJasqBOaON1e8Pkbi9qQE"
+      },
+      "input_hash": "f22b6c58811768c84b01d075744e3746fdd0bba1d60e3770ceba9e049863a6f5",
+      "output_hash": "89379da7b47bff3d96f3cdce6d36fc11bcfb72129e8a0419bc86f9316138ddc4",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite"
+    }
+  ],
+  "workflow_steps": [
+    {
+      "kind": "provider",
+      "trace": {
+        "task": "VP01",
+        "phase": "design",
+        "attempt_id": "91529c0c-66d7-4e39-99aa-37dab85a1822",
+        "revision": 1,
+        "role": null,
+        "batch_id": null,
+        "cache_hit": false,
+        "duration_ms": 4599,
+        "provider_call_id": "0af43aff-6c1f-4df5-b242-e899e432b89b",
+        "provider_called": true,
+        "usage": {
+          "promptTokenCount": 2578,
+          "candidatesTokenCount": 1514,
+          "totalTokenCount": 4092,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2578
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "tool_metadata": {
+          "groundingMetadata": {},
+          "urlContextMetadata": {},
+          "modelVersion": "gemini-3.5-flash-lite",
+          "responseId": "-9rJasqBOaON1e8Pkbi9qQE"
+        },
+        "input_hash": "f22b6c58811768c84b01d075744e3746fdd0bba1d60e3770ceba9e049863a6f5",
+        "output_hash": "89379da7b47bff3d96f3cdce6d36fc11bcfb72129e8a0419bc86f9316138ddc4",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite"
+      }
+    }
+  ],
+  "created_at": 1791613691.277985,
+  "budget_config": {
+    "design": {
+      "total_provider_calls_max": 30,
+      "active_processing_deadline_seconds": 320,
+      "retry_per_task_max": 1
+    },
+    "media": {
+      "total_provider_calls_max": 13,
+      "active_processing_deadline_seconds": 90
+    }
+  },
+  "clean_prompt": {
+    "request_id": "de585706-68cc-467e-ad7b-e6c09b8eeecd",
+    "revision": 1,
+    "clean_text": "Thiết kế đồ nữ lấy cảm hứng Việt phục để đi học đại học, đảm bảo sự kín đáo và thoải mái. Các yếu tố còn lại do hệ thống gợi ý.",
+    "domains": [
+      {
+        "domain_id": "boi_canh",
+        "label": "Bối cảnh sử dụng",
+        "summary": "Trang phục dùng cho mục đích đi học đại học.",
+        "related_domain_ids": []
+      },
+      {
+        "domain_id": "phong_cach",
+        "label": "Phong cách và cảm hứng",
+        "summary": "Trang phục nữ lấy cảm hứng từ Việt phục.",
+        "related_domain_ids": []
+      },
+      {
+        "domain_id": "tieu_chi",
+        "label": "Tiêu chí thiết kế",
+        "summary": "Yêu cầu trang phục phải kín đáo và thoải mái.",
+        "related_domain_ids": []
+      },
+      {
+        "domain_id": "quyen_giao_ai",
+        "label": "Quyền quyết định của AI",
+        "summary": "Các chi tiết và phần còn lại do hệ thống gợi ý.",
+        "related_domain_ids": []
+      }
+    ],
+    "atoms": [
+      {
+        "atom_id": "atom_gioi_tinh",
+        "domain_ids": [
+          "phong_cach"
+        ],
+        "meaning": "Thiết kế trang phục dành cho nữ.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Thiết kế đồ nữ"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_cam_hung",
+        "domain_ids": [
+          "phong_cach"
+        ],
+        "meaning": "Trang phục lấy cảm hứng Việt phục.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "lấy cảm hứng Việt phục"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_boi_canh",
+        "domain_ids": [
+          "boi_canh"
+        ],
+        "meaning": "Mục đích sử dụng để đi học đại học.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "để đi học đại học"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_kin_dao",
+        "domain_ids": [
+          "tieu_chi"
+        ],
+        "meaning": "Trang phục phải kín đáo.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "kín đáo"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_thoai_mai",
+        "domain_ids": [
+          "tieu_chi"
+        ],
+        "meaning": "Trang phục phải thoải mái.",
+        "intent_type": "must",
+        "polarity": "positive",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "thoải mái"
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      },
+      {
+        "atom_id": "atom_goi_y",
+        "domain_ids": [
+          "quyen_giao_ai"
+        ],
+        "meaning": "Các phần còn lại do hệ thống gợi ý.",
+        "intent_type": "delegated",
+        "polarity": "neutral",
+        "source_refs": [
+          {
+            "turn_id": "T1",
+            "quote": "Còn lại bạn gợi ý."
+          }
+        ],
+        "resolution": "explicit",
+        "supersedes_atom_ids": []
+      }
+    ],
+    "relations": [
+      {
+        "from_atom_id": "atom_cam_hung",
+        "to_atom_id": "atom_gioi_tinh",
+        "relation": "bổ trợ",
+        "reason": "Xác định hướng thiết kế Việt phục cho đồ nữ."
+      },
+      {
+        "from_atom_id": "atom_kin_dao",
+        "to_atom_id": "atom_boi_canh",
+        "relation": "phù hợp",
+        "reason": "Tiêu chí kín đáo phục vụ cho bối cảnh đi học đại học."
+      },
+      {
+        "from_atom_id": "atom_thoai_mai",
+        "to_atom_id": "atom_boi_canh",
+        "relation": "phù hợp",
+        "reason": "Tiêu chí thoải mái phục vụ cho bối cảnh đi học đại học."
+      }
+    ],
+    "conflicts": [],
+    "coverage": [
+      {
+        "source_ref": {
+          "turn_id": "T1",
+          "quote": "Thiết kế đồ nữ lấy cảm hứng Việt phục để đi học đại học, kín đáo, thoải mái. Còn lại bạn gợi ý."
+        },
+        "atom_ids": [
+          "atom_gioi_tinh",
+          "atom_cam_hung",
+          "atom_boi_canh",
+          "atom_kin_dao",
+          "atom_thoai_mai",
+          "atom_goi_y"
+        ],
+        "disposition": "retained",
+        "reason": "Toàn bộ ý định và yêu cầu của người dùng đã được phân rã đầy đủ thành các atom."
+      }
+    ]
+  },
+  "checklist": null,
+  "resolved_brief": null,
+  "choices": null,
+  "references": [],
+  "reference_metadata": [],
+  "call_records": {
+    "91529c0c-66d7-4e39-99aa-37dab85a1822": {
+      "task_key": "17f5846c98d7cfbdba42692c931aa2702fb35bdb1950e8a331e8beaadf3a5c8a",
+      "task": "VP01",
+      "stage": "cleaning",
+      "role": null,
+      "revision": 1,
+      "batch_id": null,
+      "status": "complete",
+      "started_at": 1791613691.286282,
+      "timeout_seconds": 40,
+      "provider_call_id": "0af43aff-6c1f-4df5-b242-e899e432b89b",
+      "finished_at": 1791613695.883127
+    },
+    "f9fe9737-2e15-4071-b42c-9e220151e56c": {
+      "task_key": "cf59d837a09a93a0e7c55e27c1ecb44478065b383ae237cde822ded977819fac",
+      "task": "VP02",
+      "stage": "designing_checklist",
+      "role": null,
+      "revision": 1,
+      "batch_id": null,
+      "status": "inflight",
+      "started_at": 1791613695.8974469,
+      "timeout_seconds": 60,
+      "provider_call_id": "9e7010c0-39ab-4bfc-a2ae-2d29cb3ca2f1"
+    }
+  },
+  "generation_batches": {},
+  "prompt_pool": [],
+  "specialist_audits": {},
+  "harmony_audits": {},
+  "supplemental_batches": 0,
+  "checklist_round": 0,
+  "metrics": {
+    "provider_calls": 2,
+    "actual_api_calls": 2,
+    "cache_hits": 0,
+    "active_seconds": 4.619,
+    "design": {
+      "attempts": 2,
+      "actual_api_calls": 2,
+      "active_seconds": 4.619,
+      "search_queries_reported": 0
+    },
+    "media": {
+      "attempts": 0,
+      "actual_api_calls": 0,
+      "active_seconds": 0.0
+    },
+    "cards_ready_seconds": null,
+    "image_ready_seconds": null,
+    "manual_image_prompts": 0,
+    "manual_images_received": 0,
+    "manual_audit_prompts": 0,
+    "manual_audits_received": 0
+  },
+  "manifest": {
+    "kit_hash": "d17f44ff31a192f529a6cceee3b80caa0b1dc67a54cecae54284da88a4a164cf",
+    "vp_hash": "d5e24c35d3a52a1689cbbd25d7ec58967a03107925f5f4114b4cc6481adf788e",
+    "template_version": "8b429fd7a42cfd6fba08ac822a7547f8c4e8e5a5fb55f5c577f48f5c08d57de6",
+    "schema_version": "viet-phuc-2.0.0",
+    "rubric_version": "vp-rubric-2.1.0",
+    "text_model": "gemini-3.5-flash-lite",
+    "image_model": "gemini-3.1-flash-image",
+    "pack_hash": "5eefbd3c6bef7b07444cbad8f51d2e535b0a032dbc05d962bbf232185855ee38"
+  },
+  "server_images_enabled": false,
+  "repair_counts": {
+    "concept": 0,
+    "image": 0
+  },
+  "recovery_count": 0,
+  "next_form_id": "f92101dd-c547-4367-a9aa-789fa2bf8de1",
+  "user_report": {
+    "inputs": {
+      "initial": "Thiết kế đồ nữ lấy cảm hứng Việt phục để đi học đại học, kín đáo, thoải mái. Còn lại bạn gợi ý.",
+      "answers": [],
+      "images": [],
+      "manual_audits": []
+    },
+    "agreed": [],
+    "assumptions": [],
+    "candidates": [],
+    "selected": null,
+    "selection_reason": "Xếp tổng điểm giảm dần, bằng điểm theo candidate_id; kết quả phiên api_only dùng điểm API và không lọc bằng backend.",
+    "steps": [
+      {
+        "via": "API Gemini",
+        "purpose": "Giữ ý và phân miền mở",
+        "detail": "Thành công · gemini-3.5-flash-lite"
+      }
+    ],
+    "api": {
+      "totals": {
+        "success": 1,
+        "failed": 0,
+        "cache": 0,
+        "interrupted": 0,
+        "mock": 0,
+        "actual": 2,
+        "inflight": 1
+      },
+      "calls": [
+        {
+          "purpose": "Giữ ý và phân miền mở",
+          "provider": "Gemini",
+          "model": "gemini-3.5-flash-lite",
+          "calls": 1,
+          "result": "Thành công"
+        }
+      ],
+      "phases": {
+        "design": {
+          "attempts": 2,
+          "actual_api_calls": 2,
+          "active_seconds": 4.619,
+          "search_queries_reported": 0
+        },
+        "media": {
+          "attempts": 0,
+          "actual_api_calls": 0,
+          "active_seconds": 0.0
+        }
+      },
+      "budgets": {
+        "design": {
+          "total_provider_calls_max": 30,
+          "active_processing_deadline_seconds": 320,
+          "retry_per_task_max": 1
+        },
+        "media": {
+          "total_provider_calls_max": 13,
+          "active_processing_deadline_seconds": 90
+        }
+      }
+    },
+    "manual": {
+      "image_prompts": 0,
+      "images_received": 0,
+      "audit_prompts": 0,
+      "audits_received": 0
+    },
+    "audits": [],
+    "candidate_audits": [],
+    "repairs": [],
+    "final": "Ứng dụng đang xử lý",
+    "selected_image_url": null,
+    "limits": [
+      "Ba góc nhìn và hài hòa là hỗ trợ AI về prompt; chưa xác nhận đúng văn hóa, may thực tế hoặc ảnh thực tế.",
+      "Nguồn Gemini có metadata công cụ không đồng nghĩa nguồn hoặc trích đoạn đã được chuyên gia xác minh.",
+      "Design budget: 30 attempts/320 giây; media budget riêng: 13 attempts/90 giây. Thời gian chờ lựa chọn và tạo ảnh thủ công không tính.",
+      "Ứng dụng không tìm nguồn web và không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử."
+    ],
+    "clean_text": "Thiết kế đồ nữ lấy cảm hứng Việt phục để đi học đại học, đảm bảo sự kín đáo và thoải mái. Các yếu tố còn lại do hệ thống gợi ý.",
+    "choices": null,
+    "references": [],
+    "generation_batches": [],
+    "warning_history": []
+  }
+}

@@ -1,0 +1,651 @@
+{
+  "value": {
+    "request_id": "da6d2259-358a-422d-a96e-a34370fc6b6a",
+    "revision": 1,
+    "clean_prompt": {
+      "request_id": "da6d2259-358a-422d-a96e-a34370fc6b6a",
+      "revision": 1,
+      "clean_text": "Thiết kế đồ nữ lấy cảm hứng Việt phục để đi học đại học, kín đáo, thoải mái. Còn lại bạn gợi ý. Muốn tham khảo cách chuyển thể áo yếm nếu phù hợp; đi học phải che kín vai, ngực, eo và lưng, không mặc áo yếm độc lập.",
+      "domains": [
+        {
+          "domain_id": "dom_b_c",
+          "label": "Bối cảnh sử dụng",
+          "summary": "Mục đích sử dụng trang phục để đi học đại học.",
+          "related_domain_ids": [
+            "dom_t_t",
+            "LOCAL_YEM"
+          ]
+        },
+        {
+          "domain_id": "dom_t_t",
+          "label": "Thể hiện trang phục và yêu cầu chung",
+          "summary": "Các yêu cầu về giới tính, cảm hứng, độ kín đáo, độ thoải mái và phần do AI gợi ý.",
+          "related_domain_ids": [
+            "dom_b_c",
+            "LOCAL_YEM"
+          ]
+        },
+        {
+          "domain_id": "LOCAL_YEM",
+          "label": "Chuyển thể áo yếm",
+          "summary": "Muốn tham khảo cách chuyển thể áo yếm nếu phù hợp; đi học phải che kín vai, ngực, eo và lưng, không mặc áo yếm độc lập.",
+          "related_domain_ids": [
+            "dom_b_c",
+            "dom_t_t"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atm_01",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Trang phục dành cho nữ.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Thiết kế đồ nữ"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_02",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Lấy cảm hứng từ Việt phục.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "lấy cảm hứng Việt phục"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_03",
+          "domain_ids": [
+            "dom_b_c"
+          ],
+          "meaning": "Sử dụng để đi học đại học.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "đi học đại học"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_04",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Trang phục phải kín đáo.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "kín đáo"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_05",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Trang phục phải thoải mái.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "thoải mái"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_06",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Các phần còn lại do AI gợi ý.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Còn lại bạn gợi ý."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "LOCAL_YEM_EXAMPLE",
+          "domain_ids": [
+            "LOCAL_YEM"
+          ],
+          "meaning": "Muốn tham khảo cách chuyển thể áo yếm nếu phù hợp",
+          "intent_type": "example",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Muốn tham khảo cách chuyển thể áo yếm nếu phù hợp"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "LOCAL_SCHOOL_COVER",
+          "domain_ids": [
+            "LOCAL_YEM"
+          ],
+          "meaning": "đi học phải che kín vai, ngực, eo và lưng",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "đi học phải che kín vai, ngực, eo và lưng"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "LOCAL_NO_YEM_ALONE",
+          "domain_ids": [
+            "LOCAL_YEM"
+          ],
+          "meaning": "không mặc áo yếm độc lập",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "không mặc áo yếm độc lập"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "relations": [
+        {
+          "from_atom_id": "atm_01",
+          "to_atom_id": "atm_03",
+          "relation": "contextual_fit",
+          "reason": "Trang phục nữ được thiết kế phù hợp với bối cảnh đi học đại học."
+        },
+        {
+          "from_atom_id": "atm_02",
+          "to_atom_id": "atm_06",
+          "relation": "extension",
+          "reason": "Cảm hứng Việt phục làm nền tảng để AI gợi ý các chi tiết còn lại."
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Thiết kế đồ nữ lấy cảm hứng Việt phục để đi học đại học, kín đáo, thoải mái. Còn lại bạn gợi ý."
+          },
+          "atom_ids": [
+            "atm_01",
+            "atm_02",
+            "atm_03",
+            "atm_04",
+            "atm_05",
+            "atm_06"
+          ],
+          "disposition": "retained",
+          "reason": "Toàn bộ yêu cầu của người dùng được phân tách và lưu trữ đầy đủ vào các atom."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "Muốn tham khảo cách chuyển thể áo yếm nếu phù hợp"
+          },
+          "atom_ids": [
+            "LOCAL_YEM_EXAMPLE"
+          ],
+          "disposition": "example",
+          "reason": "Synthetic local regression input, not a VP01 output."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "đi học phải che kín vai, ngực, eo và lưng"
+          },
+          "atom_ids": [
+            "LOCAL_SCHOOL_COVER"
+          ],
+          "disposition": "retained",
+          "reason": "Synthetic local regression input, not a VP01 output."
+        },
+        {
+          "source_ref": {
+            "turn_id": "T1",
+            "quote": "không mặc áo yếm độc lập"
+          },
+          "atom_ids": [
+            "LOCAL_NO_YEM_ALONE"
+          ],
+          "disposition": "retained",
+          "reason": "Synthetic local regression input, not a VP01 output."
+        }
+      ]
+    },
+    "form_id": "416184cf-c5f6-4076-8611-5a5fa922e623",
+    "groups": [
+      {
+        "group_id": "grp_outfit_direction",
+        "domain_ids": [
+          "dom_t_t",
+          "dom_b_c",
+          "LOCAL_YEM"
+        ],
+        "label": "Hướng thiết kế trang phục",
+        "question": "Bạn muốn định hướng kiểu dáng trang phục nữ lấy cảm hứng Việt phục nào cho phù hợp với môi trường đại học và các yêu cầu đã nêu?",
+        "why_it_matters": "Xác định rõ phom dáng chủ đạo giúp đảm bảo sự kín đáo, thoải mái, đồng thời giải quyết bài toán chuyển thể áo yếm hoặc các loại áo truyền thống thành trang phục đi học lịch sự.",
+        "status": "needs_choice",
+        "selection_mode": "single",
+        "min": 1,
+        "max": 1,
+        "related_atom_ids": [
+          "atm_01",
+          "atm_02",
+          "atm_03",
+          "atm_04",
+          "atm_05",
+          "LOCAL_YEM_EXAMPLE",
+          "LOCAL_SCHOOL_COVER",
+          "LOCAL_NO_YEM_ALONE"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_ao_ngu_than_tay_lo",
+            "label": "Áo ngũ thân tay lỡ phối chân váy dài",
+            "description": "Biến tấu áo ngũ thân truyền thống với tay áo gọn gàng hơn, vạt áo vừa phải phối cùng chân váy dài thanh lịch, che kín vai, ngực, eo và lưng, đảm bảo tính kín đáo khi đi học.",
+            "decision_text": "Chọn thiết kế áo ngũ thân tay lỡ phối cùng chân váy dài, đáp ứng đầy đủ tiêu chí kín đáo, thoải mái và đậm chất Việt phục cho môi trường đại học.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ao_tu_than_layer",
+            "label": "Áo tứ thân cách tân kết hợp áo lót kín đáo bên trong",
+            "description": "Lấy cảm hứng từ áo tứ thân nhưng được thiết kế dạng áo khoác ngoài vạt lửng gọn gàng, kết hợp áo thun hoặc áo ôm kín cổ/vai bên trong, hoàn toàn không mặc áo yếm độc lập, che kín toàn bộ phần eo và lưng.",
+            "decision_text": "Chọn thiết kế áo tứ thân cách tân mặc kèm lớp áo kín đáo bên trong, vừa mang cảm hứng truyền thống vừa phù hợp quy định trang phục đại học.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ao_yem_layered_vest",
+            "label": "Áo yếm cách điệu phối cùng áo khoác ngoài hoặc mặc lót trong",
+            "description": "Tham khảo chuyển thể áo yếm bằng cách thiết kế dạng yếm liền thân kín đáo hoặc mặc bên trong một lớp áo khoác dáng suông bên ngoài, bảo đảm che kín vai, ngực, eo, lưng và không mặc áo yếm độc lập.",
+            "decision_text": "Chọn phương án chuyển thể áo yếm có mặc kèm lớp ngoài hoặc kết hợp kín đáo để phù hợp đi học đại học.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_outfit",
+            "label": "Để AI tự quyết định hướng thiết kế phù hợp nhất",
+            "description": "AI sẽ tự động lựa chọn giải pháp thiết kế tối ưu nhất kết hợp giữa cảm hứng Việt phục, tính thoải mái và sự kín đáo tuyệt đối cho môi trường đại học.",
+            "decision_text": "Để AI tự quyết định hướng thiết kế trang phục phù hợp nhất.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          }
+        ],
+        "allows_custom": true
+      },
+      {
+        "group_id": "grp_materials_and_fabrics",
+        "domain_ids": [
+          "dom_t_t",
+          "dom_b_c"
+        ],
+        "label": "Chất liệu và tổ hợp vải",
+        "question": "Bạn muốn lựa chọn tổ hợp chất liệu nào cho trang phục để đảm bảo độ thoải mái, đứng dáng vừa phải và phù hợp di chuyển cả ngày ở trường đại học?",
+        "why_it_matters": "Chất liệu quyết định độ rủ, độ thoáng khí và sự thoải mái cho người mặc trong suốt các hoạt động học tập hàng ngày.",
+        "status": "needs_choice",
+        "selection_mode": "single",
+        "min": 1,
+        "max": 1,
+        "related_atom_ids": [
+          "atm_05"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_mat_linen_cotton",
+            "label": "Đũi linen pha cotton mềm mại, thoáng mát",
+            "description": "Sử dụng vải đũi linen pha cotton tự nhiên, thấm hút mồ hôi tốt, mang lại cảm giác thoải mái tối đa khi di chuyển học tập.",
+            "decision_text": "Chọn chất liệu đũi linen pha cotton cho trang phục đi học.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_mat_silk_cotton",
+            "label": "Lụa mộc pha cotton đứng dáng",
+            "description": "Sự kết hợp giữa độ bóng nhẹ của lụa mộc và độ bền, đứng phom của cotton, giúp trang phục giữ nếp gọn gàng, trang nhã.",
+            "decision_text": "Chọn chất liệu lụa mộc pha cotton cho trang phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_material",
+            "label": "Để AI tự quyết định chất liệu phù hợp",
+            "description": "AI sẽ lựa chọn tổ hợp chất liệu tối ưu nhất cân bằng giữa tính thẩm mỹ truyền thống và độ thoải mái thực tế.",
+            "decision_text": "Để AI tự quyết định chất liệu trang phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          }
+        ],
+        "allows_custom": true
+      },
+      {
+        "group_id": "grp_color_palette",
+        "domain_ids": [
+          "dom_t_t",
+          "dom_b_c"
+        ],
+        "label": "Bảng màu trang phục",
+        "question": "Bạn muốn định hướng bảng màu nào cho bộ trang phục đi học lấy cảm hứng Việt phục?",
+        "why_it_matters": "Bảng màu tạo nên phong cách thị giác chính, giữ được nét nhã nhặn, thanh lịch cần thiết cho môi trường học đường.",
+        "status": "needs_choice",
+        "selection_mode": "single",
+        "min": 1,
+        "max": 1,
+        "related_atom_ids": [
+          "atm_02",
+          "atm_03",
+          "atm_04"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_color_neutral_pastel",
+            "label": "Tone màu nhã nhặn (Trắng ngà, xanh nhạt, nâu be)",
+            "description": "Bảng màu trung tính và pastel nhẹ nhàng, mang lại cảm giác thanh lịch, dễ mặc và rất phù hợp với không gian lớp học đại học.",
+            "decision_text": "Chọn bảng màu nhã nhặn, trung tính và pastel cho trang phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_color_traditional_earth",
+            "label": "Tone màu hoài cổ (Xanh rêu trầm, vàng đất nhẹ, đỏ trầm)",
+            "description": "Lấy cảm hứng từ sắc màu truyền thống Việt Nam nhưng được hạ độ chói để giữ sự kín đáo, trang nhã khi đi học.",
+            "decision_text": "Chọn bảng màu hoài cổ trầm ấm cho trang phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_color",
+            "label": "Để AI tự quyết định bảng màu phù hợp",
+            "description": "AI sẽ tự động chọn tone màu hài hòa nhất với kiểu dáng và bối cảnh đi học.",
+            "decision_text": "Để AI tự quyết định bảng màu trang phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          }
+        ],
+        "allows_custom": true
+      },
+      {
+        "group_id": "grp_art_and_motifs",
+        "domain_ids": [
+          "dom_t_t",
+          "dom_b_c"
+        ],
+        "label": "Mỹ thuật và hoa văn trang trí",
+        "question": "Bạn có muốn thêm các chi tiết mỹ thuật hoặc hoa văn lấy cảm hứng dân gian lên trang phục hay không?",
+        "why_it_matters": "Các họa tiết tinh tế giúp tôn lên nét đẹp Việt phục mà không làm mất đi vẻ kín đáo, lịch sự nơi học đường.",
+        "status": "needs_choice",
+        "selection_mode": "single",
+        "min": 1,
+        "max": 1,
+        "related_atom_ids": [
+          "atm_02",
+          "atm_04"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_motif_lotus_subtle",
+            "label": "Hoa văn hoa sen cách điệu tinh tế ở viền cổ hoặc tà áo",
+            "description": "Sử dụng đường thêu tay hoặc in chìm họa tiết hoa sen cách điệu nhỏ gọn tại cổ áo hoặc mép tay áo, tạo điểm nhấn nhẹ nhàng.",
+            "decision_text": "Chọn hoa văn hoa sen cách điệu tinh tế làm điểm nhấn trang phục.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_motif_minimal_line",
+            "label": "Họa tiết đường viền nẹp trơn truyền thống",
+            "description": "Không dùng họa tiết lớn, chỉ dùng đường viền nẹp cổ và tà áo đồng màu hoặc tương phản nhẹ theo lối cắt may truyền thống.",
+            "decision_text": "Chọn thiết kế viền nẹp trơn truyền thống, không cầu kỳ hoa văn.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_motif",
+            "label": "Để AI tự quyết định mức độ và chi tiết mỹ thuật",
+            "description": "AI sẽ tự cân nhắc tỷ lệ hoa văn phù hợp để đảm bảo tính trang nhã cho trang phục đi học.",
+            "decision_text": "Để AI tự quyết định chi tiết mỹ thuật và hoa văn.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          }
+        ],
+        "allows_custom": true
+      },
+      {
+        "group_id": "grp_accessories",
+        "domain_ids": [
+          "dom_t_t",
+          "dom_b_c"
+        ],
+        "label": "Phụ kiện đi kèm",
+        "question": "Bạn có muốn bổ sung phụ kiện mang tính ứng dụng cao khi đi học không?",
+        "why_it_matters": "Phụ kiện hỗ trợ hoàn thiện tổng thể trang phục nhưng cần gọn gàng, thiết thực cho việc mang sách vở và di chuyển.",
+        "status": "optional",
+        "selection_mode": "single",
+        "min": 0,
+        "max": 1,
+        "related_atom_ids": [
+          "atm_03",
+          "atm_05"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_acc_canvas_bag",
+            "label": "Túi vải mây tre đan hoặc túi tote vải thô phong cách mộc mạc",
+            "description": "Sử dụng túi tote vải hoặc túi đan tay nhỏ gọn, thiết thực đựng tài liệu và hợp với tổng thể trang phục mang cảm hứng Việt phục.",
+            "decision_text": "Chọn túi xách mộc mạc làm phụ kiện đi học.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_acc_hair_pin",
+            "label": "Trâm cài tóc tối giản lấy cảm hứng dân gian",
+            "description": "Một chiếc trâm gỗ hoặc trâm kim loại nhỏ gọn để búi tóc gọn gàng khi đến lớp.",
+            "decision_text": "Chọn trâm cài tóc tối giản làm phụ kiện.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_accessories",
+            "label": "Để AI tự quyết định phụ kiện phù hợp",
+            "description": "AI sẽ đề xuất phụ kiện tối giản hoặc không dùng phụ kiện tùy theo thiết kế chính.",
+            "decision_text": "Để AI tự quyết định phụ kiện.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          }
+        ],
+        "allows_custom": true
+      },
+      {
+        "group_id": "grp_presentation_style",
+        "domain_ids": [
+          "dom_t_t",
+          "dom_b_c"
+        ],
+        "label": "Phong cách trình bày ảnh",
+        "question": "Bạn muốn thể hiện bản vẽ thiết kế trang phục theo phong cách hình ảnh nào?",
+        "why_it_matters": "Phong cách trình bày giúp hình dung trực quan bối cảnh và chất liệu thiết kế. Tất cả các phương án đều tuân thủ quy ước một người mẫu duy nhất với hai góc nhìn mặt trước và mặt sau.",
+        "status": "optional",
+        "selection_mode": "single",
+        "min": 0,
+        "max": 1,
+        "related_atom_ids": [
+          "atm_03",
+          "atm_06"
+        ],
+        "depends_on": [],
+        "options": [
+          {
+            "option_id": "opt_style_fashion_illustration",
+            "label": "Bản minh họa thiết kế thời trang (Fashion Illustration)",
+            "description": "Phong cách vẽ phác thảo thời trang tinh tế, làm nổi bật đường nét cắt may và chi tiết cấu trúc trang phục.",
+            "decision_text": "Chọn phong cách minh họa thiết kế thời trang.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": true,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_style_lookbook_studio",
+            "label": "Ảnh lookbook studio nền tối giản",
+            "description": "Hình ảnh chụp người mẫu trong không gian studio với ánh sáng tự nhiên, tôn lên chất liệu vải và phom dáng thực tế.",
+            "decision_text": "Chọn phong cách lookbook studio tối giản.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": false,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          },
+          {
+            "option_id": "opt_ai_delegate_presentation",
+            "label": "Để AI tự quyết định phong cách trình bày ảnh",
+            "description": "AI sẽ tự chọn phong cách hình ảnh phù hợp nhất với tinh thần bộ trang phục đi học.",
+            "decision_text": "Để AI tự quyết định phong cách trình bày ảnh.",
+            "reference_ids": [],
+            "origin": "gemini_suggestion",
+            "is_recommended": false,
+            "is_ai_delegate": true,
+            "compatible_option_ids": [],
+            "incompatible_option_ids": []
+          }
+        ],
+        "allows_custom": true
+      }
+    ],
+    "references": [],
+    "open_conflicts": []
+  },
+  "usage": {
+    "promptTokenCount": 5963,
+    "candidatesTokenCount": 6908,
+    "totalTokenCount": 12871,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 5963
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "metadata": {
+    "groundingMetadata": {},
+    "urlContextMetadata": {},
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "n-vJataDK63a9tMPu7qmgQU"
+  }
+}

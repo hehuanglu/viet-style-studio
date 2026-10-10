@@ -1,0 +1,130 @@
+{
+  "count": 9,
+  "styles": 3,
+  "distinct_gemini_requests": 4,
+  "final_origin": "Gemini originals + Sol text-only revisions",
+  "images_generated": 0,
+  "source_freeze_unchanged": {
+    "backend/arena_backend/viet_phuc.py": true,
+    "backend/viet_phuc/config.json": true,
+    "docs/viet-phuc-v2/prompts/VP05_AUDIT_FASHION.txt": true,
+    "docs/viet-phuc-v2/prompts/VP03_RESOLVE_SELECTIONS.txt": true,
+    "docs/viet-phuc-v2/prompts/VP04_GENERATE_IMAGE_PROMPTS.txt": true,
+    "docs/viet-phuc-v2/prompts/VP02C_REVIEW_SELECTION_CONFLICTS.txt": true,
+    "docs/viet-phuc-v2/prompts/VP01_CLEAN_RAW_PROMPT.txt": true,
+    "docs/viet-phuc-v2/prompts/VP02_DOMAIN_CHECKLIST.txt": true,
+    "docs/viet-phuc-v2/prompts/VP07_AUDIT_VISUAL_ART.txt": true,
+    "docs/viet-phuc-v2/prompts/VP06_AUDIT_CULTURE_HISTORY.txt": true,
+    "docs/viet-phuc-v2/prompts/VP00_SYSTEM.txt": true,
+    "docs/viet-phuc-v2/prompts/VP02R_DISCOVER_REFERENCES.txt": true,
+    "docs/viet-phuc-v2/prompts/VP08_AUDIT_HARMONY_SCORE.txt": true,
+    "arena-kit/image-edit-template.txt": true
+  },
+  "item_checks": [
+    {
+      "id": "full-1",
+      "nonempty_changed": true,
+      "front_back_present": true,
+      "one_model_explicit": true,
+      "edit_template_runtime_version": "visual-edit-v1",
+      "instruction_in_edit_packet": true,
+      "no_url": true,
+      "packet_expects_two_images_not_supplied": true,
+      "locked_coverage_terms": true
+    },
+    {
+      "id": "full-2",
+      "nonempty_changed": true,
+      "front_back_present": true,
+      "one_model_explicit": true,
+      "edit_template_runtime_version": "visual-edit-v1",
+      "instruction_in_edit_packet": true,
+      "no_url": true,
+      "packet_expects_two_images_not_supplied": true,
+      "locked_coverage_terms": true
+    },
+    {
+      "id": "full-3",
+      "nonempty_changed": true,
+      "front_back_present": true,
+      "one_model_explicit": true,
+      "edit_template_runtime_version": "visual-edit-v1",
+      "instruction_in_edit_packet": true,
+      "no_url": true,
+      "packet_expects_two_images_not_supplied": true,
+      "locked_coverage_terms": true
+    },
+    {
+      "id": "sparse-1",
+      "nonempty_changed": true,
+      "front_back_present": true,
+      "one_model_explicit": true,
+      "edit_template_runtime_version": "visual-edit-v1",
+      "instruction_in_edit_packet": true,
+      "no_url": true,
+      "packet_expects_two_images_not_supplied": true
+    },
+    {
+      "id": "sparse-2",
+      "nonempty_changed": true,
+      "front_back_present": true,
+      "one_model_explicit": true,
+      "edit_template_runtime_version": "visual-edit-v1",
+      "instruction_in_edit_packet": true,
+      "no_url": true,
+      "packet_expects_two_images_not_supplied": true
+    },
+    {
+      "id": "sparse-3",
+      "nonempty_changed": true,
+      "front_back_present": true,
+      "one_model_explicit": true,
+      "edit_template_runtime_version": "visual-edit-v1",
+      "instruction_in_edit_packet": true,
+      "no_url": true,
+      "packet_expects_two_images_not_supplied": true
+    },
+    {
+      "id": "adversarial-1",
+      "nonempty_changed": true,
+      "front_back_present": true,
+      "one_model_explicit": true,
+      "edit_template_runtime_version": "visual-edit-v1",
+      "instruction_in_edit_packet": true,
+      "no_url": true,
+      "packet_expects_two_images_not_supplied": true,
+      "corrected_coverage_terms": true
+    },
+    {
+      "id": "adversarial-2",
+      "nonempty_changed": true,
+      "front_back_present": true,
+      "one_model_explicit": true,
+      "edit_template_runtime_version": "visual-edit-v1",
+      "instruction_in_edit_packet": true,
+      "no_url": true,
+      "packet_expects_two_images_not_supplied": true,
+      "corrected_coverage_terms": true
+    },
+    {
+      "id": "adversarial-3",
+      "nonempty_changed": true,
+      "front_back_present": true,
+      "one_model_explicit": true,
+      "edit_template_runtime_version": "visual-edit-v1",
+      "instruction_in_edit_packet": true,
+      "no_url": true,
+      "packet_expects_two_images_not_supplied": true,
+      "corrected_coverage_terms": true
+    }
+  ],
+  "provider_call_usage": {
+    "calls": 58,
+    "warning_interval": 100,
+    "blocking_limit": null
+  },
+  "text_model": "gemini-3.5-flash-lite",
+  "image_model_configured_but_not_called": "gemini-3.1-flash-image",
+  "credential_pattern_files": 0,
+  "limits": "Checks are textual, not cultural/live-image validation. Sol performs substantive per-prompt audit in report.md."
+}

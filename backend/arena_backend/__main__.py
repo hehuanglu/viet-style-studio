@@ -13,7 +13,7 @@ from .server import create_server
 def main():
     parser = argparse.ArgumentParser(description="AI Arena experimental backend")
     parser.add_argument("--provider", choices=["mock", "gemini"], default="gemini", help="Gemini cho yêu cầu thật; mock chỉ mô phỏng để kiểm thử")
-    parser.add_argument("--port", type=int, default=8787)
+    parser.add_argument("--port", type=int, default=8800)
     parser.add_argument("--data-dir", type=Path)
     parser.add_argument("--text-model", default="gemini-3.5-flash-lite")
     parser.add_argument("--image-model", default="gemini-3.1-flash-image")

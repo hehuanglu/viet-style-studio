@@ -1,0 +1,42 @@
+Validator before option-count change; same pre-existing workspace source for all other files.
+FFEE
+======================================================================
+ERROR: test_real_provider_wire_tools_tokens_temperature_and_metadata_without_network (test_viet_phuc_v2.V2Tests.test_real_provider_wire_tools_tokens_temperature_and_metadata_without_network)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/75/6_tyjkx53z18r176lxlb7xv80000gn/T/vp02-baseline-0nwlyn_c/backend/tests/test_viet_phuc_v2.py", line 755, in test_real_provider_wire_tools_tokens_temperature_and_metadata_without_network
+    body=body_seen[0];self.assertEqual(body['tools'],[{'googleSearch':{}},{'urlContext':{}}]);self.assertNotIn('temperature',body['generationConfig'])
+                                       ~~~~^^^^^^^^^
+KeyError: 'tools'
+
+======================================================================
+ERROR: test_structured_tools_rejection_falls_back_entirely_to_gemini (test_viet_phuc_v2.V2Tests.test_structured_tools_rejection_falls_back_entirely_to_gemini)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/75/6_tyjkx53z18r176lxlb7xv80000gn/T/vp02-baseline-0nwlyn_c/backend/tests/test_viet_phuc_v2.py", line 612, in test_structured_tools_rejection_falls_back_entirely_to_gemini
+    self.assertTrue(j['reference_split']);self.assertIn('VP02R',[t['task'] for t in j['trace']])
+                    ~^^^^^^^^^^^^^^^^^^^
+KeyError: 'reference_split'
+
+======================================================================
+FAIL: test_basic_mode_has_no_web_calls_or_generated_links (test_viet_phuc_v2.V2Tests.test_basic_mode_has_no_web_calls_or_generated_links)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/75/6_tyjkx53z18r176lxlb7xv80000gn/T/vp02-baseline-0nwlyn_c/backend/tests/test_viet_phuc_v2.py", line 332, in test_basic_mode_has_no_web_calls_or_generated_links
+    self.assertTrue(any('không tìm/đọc web' in w for w in job['warnings']))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_split_reference_branch_is_fourteen_attempts (test_viet_phuc_v2.V2Tests.test_split_reference_branch_is_fourteen_attempts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/75/6_tyjkx53z18r176lxlb7xv80000gn/T/vp02-baseline-0nwlyn_c/backend/tests/test_viet_phuc_v2.py", line 602, in test_split_reference_branch_is_fourteen_attempts
+    self.assertEqual(final['metrics']['design']['attempts'],15)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 14 != 15
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.359s
+
+FAILED (failures=2, errors=2)

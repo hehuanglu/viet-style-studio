@@ -4,7 +4,7 @@ Snapshot mã/cấu hình: 04/10/2026. Hướng dẫn người dùng: [README d�
 
 ## Runtime và persistence
 
-Backend dùng Python, `ThreadingHTTPServer`, SQLite và Pillow; frontend là HTML/CSS/JavaScript, không có build pipeline. Entrypoint: `arena_backend.__main__`. HTTP bind mặc định `127.0.0.1:8787`; đổi cổng bằng `--port`. Mỗi data directory chỉ chạy một Engine. Không có authentication hoặc mô hình triển khai public đa người dùng.
+Backend dùng Python, `ThreadingHTTPServer`, SQLite và Pillow; frontend là HTML/CSS/JavaScript, không có build pipeline. Entrypoint: `arena_backend.__main__`. HTTP bind mặc định `127.0.0.1:8800`; đổi cổng bằng `--port`. Mỗi data directory chỉ chạy một Engine. Không có authentication hoặc mô hình triển khai public đa người dùng.
 
 ```bash
 python3 -m pip install -r backend/requirements.txt
@@ -27,10 +27,11 @@ Workflow mới mặc định v2. Request v1 đã lưu giữ đường tương th
 - VP02C: API severe-only conflict review; backend validate response/provenance, không tự đánh giá tổ hợp. Conflict→awaiting_choices trên form đã giữ; clear→VP03; lỗi không được coi clear.
 - VP03: resolved brief; schema/semantic/provenance/decision bindings còn được validate. needs_evidence dừng; needs_resolution quay lại lựa chọn.
 - VP04–VP08: **bỏ backend schema/semantic/quote/coverage/hash/source/rating output validation**, kể cả checkpoint outputs. Schema vẫn gửi Gemini để định dạng. JSON parsing, transport errors, operational budget/revision/cancel vẫn áp dụng. Invalid usable structures có thể gây lỗi vận hành; api_only không là bảo đảm response hợp lệ.
-- VP04: hai batch×ba prompt, barrier trước specialist dispatch; supplemental tối đa một batch trong budget.
+- VP04: năm prompt chia hai batch (3 + 2), barrier trước specialist dispatch; supplemental tối đa một batch trong budget.
 - VP05–VP07: batch audit theo role riêng; Gemini trả score/score_reason, backend persist nguyên. Role tasks không nhận audit của role khác.
 - VP08: chỉ dispatch candidate có đủ ba role entries; nhận toàn bộ audits, source scores, ratings/checks/strengths/concerns/fixes/summaries; Gemini trả harmony_score/proposed_total. Backend lưu/xếp hạng theo proposed_total, không tính lại hoặc reconcile source_scores.
 - `rank_reported`: candidate có harmony record được xếp giảm dần; tie-break candidate_id; top≤3, rejected=[]. Không eligibility gate, minimum_total cutoff hoặc duplicate filter. `minimum_total=70` còn trong config là legacy, không áp dụng tại ranking hiện hành.
+- VP09: một lượt Gemini structured output cho từng prompt top 3, sau xếp hạng; trả nguồn gốc/ý nghĩa và lưu ý kết hợp văn hóa trong `design_story`. Kiểm tra cấu trúc/mã/hash để gắn đúng thẻ, không kiểm chứng sự thật văn hóa. Giao diện thay “Đánh giá tổng hợp” bằng “Câu chuyện thiết kế”.
 - P06 image audit: vẫn schema + image semantic validation qua `_inspect_image`/`_validate_image_audit`; không thuộc VP04–VP08. Artifact pass yêu cầu mọi hard finding pass/not_applicable và visual_quality ≥ 2.
 
 Default `audit_mode=background`: lỗi/check failure không chặn sử dụng artifact hiện tại; audit state lưu riêng. `audit_mode=api`: mandatory acceptance và tối đa một automatic image repair nếu còn media budget, API failure→awaiting_audit_choice. Frontend chuyển checkpoint này sang background/direct edit; manual JSON UI đã bỏ.
@@ -49,7 +50,7 @@ Profiles: explore→creative F/C/A/H=25/20/35/20; balanced/moderate→balanced=3
 
 ## Budget, accounting và recovery
 
-Design budget: 30 charged attempts/320 active seconds; media budget:13 / 90. Design transport retry tối đa1/task; thời gian chờ người dùng không charged. Concurrency generation≤2, specialist≤3, global VP semaphore 3. Baseline qua thẻ khoảng14 actual HTTP calls với VP02C, hoặc15 khi split VP02R; retries/supplemental thêm calls. Task timeouts/output token caps nằm trong config, không phải giới hạn tổng thời gian người dùng thao tác.
+Design budget: 36 charged attempts/320 active seconds; media budget:13 / 90. Design transport retry tối đa1/task; thời gian chờ người dùng không charged. Concurrency generation≤2, specialist≤3, global VP semaphore 3. Baseline qua thẻ khoảng17 actual HTTP calls (gồm ba VP09 calls) với VP02C, hoặc18 khi split VP02R; retries/supplemental thêm calls. Task timeouts/output token caps nằm trong config, không phải giới hạn tổng thời gian người dùng thao tác.
 
 Lifetime/process call cap đã bỏ. Counter atomic của GeminiProvider dùng chung text/image/retries; tại100/200… observer persist cảnh báo vào warnings và api_call_warnings của request thực hiện milestone. Frontend render notice trực tiếp, không acknowledgment gate. Counter reset khi restart; per-request metrics giữ nguyên. Health trả `api_call_usage={calls,warning_interval:100,blocking_limit:null}`. Không đồng nghĩa bỏ request budgets, Google quotas hoặc transport deadlines.
 
@@ -76,3 +77,5 @@ python3 arena-kit/verify_kit.py
 ```
 
 Các lệnh trên không gọi live Gemini. Tests/fixture/injected transport không chứng minh semantic accuracy hay Google permissions. Evidence theo ngày ở `backend/evidence/` và [docs index](../docs/README.md); manifest/historical evidence không sửa để khớp runtime mới. Một số legacy title/message vẫn nói “đạt ngưỡng”; xem trace/stage_errors trước khi quy lỗi cho eligibility validator.
+
+Polling v2 không gửi checkpoints, generation_inputs, generation_batches hay design_history; các dữ liệu nội bộ này vẫn lưu trong SQLite để tiếp tục và kiểm tra workflow. `generation.initial_pool_size=5` là mục tiêu trước audit; supplemental vẫn tối đa một batch ba prompt nếu thiếu phương án.

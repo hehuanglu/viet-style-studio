@@ -1,0 +1,313 @@
+{
+  "snapshot": "docs/viet-phuc-v2/prompt-refinement-20261010/round2/sparse-complete-job.json",
+  "request_id": "da6d2259-358a-422d-a96e-a34370fc6b6a",
+  "revision": 2,
+  "status": "complete",
+  "provider": "gemini",
+  "render_image": false,
+  "model": "gemini-3.5-flash-lite",
+  "candidate_count": 6,
+  "cards_count": 3,
+  "scoring_profile": "balanced",
+  "rubric_version": "vp-rubric-2.1.0",
+  "weights": {
+    "fashion": 30,
+    "culture": 25,
+    "art": 25,
+    "harmony": 20
+  },
+  "formulas": {
+    "specialist_and_harmony": "round(100 * sum(weight * rating/5 for applicable criteria) / sum(applicable weights), 2)",
+    "balanced_total": "round(sum(active role weights * score) / sum(active role weights), 2)"
+  },
+  "candidates": [
+    {
+      "candidate_id": "R2-B2-C1",
+      "title": "Áo ngũ thân cách tân xanh rêu đi học",
+      "revision": 2,
+      "content_hash": "94463ba70b12602772f750600a617f1af9cfcc40c0a3f06ef85c22d36f29e727",
+      "specialist_reported": {
+        "fashion": 93.75,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 95.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 93.75,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 97.81,
+      "balanced_recalculated_from_vp08_inputs": 98.12,
+      "balanced_recalculated_from_rubric_scores": 98.5,
+      "vp08_total_matches_its_inputs": false
+    },
+    {
+      "candidate_id": "R2-B2-C2",
+      "title": "Áo ngũ thân cách tân màu be vàng đi học",
+      "revision": 2,
+      "content_hash": "7bb143b85452e1f711951f0b838d4559bc84ab97912624deacf6e4ed2957abfb",
+      "specialist_reported": {
+        "fashion": 90.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 89.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 96.0,
+      "harmony_rubric_calculated": 95.0,
+      "harmony_matches": false,
+      "vp08_source_scores": {
+        "fashion": 90.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 96.2,
+      "balanced_recalculated_from_vp08_inputs": 96.2,
+      "balanced_recalculated_from_rubric_scores": 95.7,
+      "vp08_total_matches_its_inputs": true
+    },
+    {
+      "candidate_id": "R2-B2-C3",
+      "title": "Áo ngũ thân cách tân màu xanh dương nhạt đi học",
+      "revision": 2,
+      "content_hash": "8bf63b0a09f57e5c42d7023f7bb546d2180ce9dd64d4ba7a21518746a3ba469c",
+      "specialist_reported": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": true,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 100.0,
+      "balanced_recalculated_from_vp08_inputs": 100.0,
+      "balanced_recalculated_from_rubric_scores": 100.0,
+      "vp08_total_matches_its_inputs": true
+    },
+    {
+      "candidate_id": "R2-B1-C1",
+      "title": "Áo ngũ thân cách tân xanh pastel dịu nhẹ đi học đại học",
+      "revision": 2,
+      "content_hash": "3d7773fb180c82aa131c9360ffd27b8afe57c9635cdc992aaeeaf4a42aaccddf",
+      "specialist_reported": {
+        "fashion": 92.5,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 95.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 92.5,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 96.75,
+      "balanced_recalculated_from_vp08_inputs": 97.75,
+      "balanced_recalculated_from_rubric_scores": 98.5,
+      "vp08_total_matches_its_inputs": false
+    },
+    {
+      "candidate_id": "R2-B1-C2",
+      "title": "Áo ngũ thân cách tân màu be nhã nhặn đi học",
+      "revision": 2,
+      "content_hash": "e5fe3ab47e4bc624a35096b66077a6ba956c939de88f39823c05552a9b5e6620",
+      "specialist_reported": {
+        "fashion": 92.5,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 95.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 92.5,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 96.75,
+      "balanced_recalculated_from_vp08_inputs": 97.75,
+      "balanced_recalculated_from_rubric_scores": 98.5,
+      "vp08_total_matches_its_inputs": false
+    },
+    {
+      "candidate_id": "R2-B1-C3",
+      "title": "Áo ngũ thân cách tân xanh rêu trầm ấm đi học",
+      "revision": 2,
+      "content_hash": "14b1c1249946fb4af0ab234cbbf08a770eab8d4e40e0d69f1921000fa449965e",
+      "specialist_reported": {
+        "fashion": 95.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 95.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 97.25,
+      "balanced_recalculated_from_vp08_inputs": 98.5,
+      "balanced_recalculated_from_rubric_scores": 100.0,
+      "vp08_total_matches_its_inputs": false
+    }
+  ],
+  "top_three_api_order": [
+    "R2-B2-C3",
+    "R2-B2-C1",
+    "R2-B1-C3"
+  ],
+  "top_three_recalculated_from_vp08_inputs": [
+    "R2-B2-C3",
+    "R2-B1-C3",
+    "R2-B2-C1"
+  ],
+  "quote_substring_issues": [
+    {
+      "candidate_id": "R2-B1-C1",
+      "role": "fashion",
+      "check_id": "locked:atm_01",
+      "quote": "Tạo một ảnh trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên the right nhìn thẳng mặt sau của chính người mẫu đó.",
+      "quote_is_prompt_substring": false
+    }
+  ],
+  "specialist_rubric_mismatches": [
+    {
+      "candidate_id": "R2-B2-C1",
+      "role": "fashion",
+      "reported": 93.75,
+      "rubric_calculated": 95.0
+    },
+    {
+      "candidate_id": "R2-B2-C2",
+      "role": "fashion",
+      "reported": 90.0,
+      "rubric_calculated": 89.0
+    },
+    {
+      "candidate_id": "R2-B1-C1",
+      "role": "fashion",
+      "reported": 92.5,
+      "rubric_calculated": 95.0
+    },
+    {
+      "candidate_id": "R2-B1-C2",
+      "role": "fashion",
+      "reported": 92.5,
+      "rubric_calculated": 95.0
+    },
+    {
+      "candidate_id": "R2-B1-C3",
+      "role": "fashion",
+      "reported": 95.0,
+      "rubric_calculated": 100.0
+    }
+  ],
+  "harmony_rubric_mismatches": [
+    {
+      "candidate_id": "R2-B2-C2",
+      "reported": 96.0,
+      "rubric_calculated": 95.0
+    }
+  ],
+  "vp08_balanced_total_mismatches": [
+    {
+      "candidate_id": "R2-B2-C1",
+      "vp08_proposed_total": 97.81,
+      "balanced_recalculated_from_vp08_inputs": 98.12
+    },
+    {
+      "candidate_id": "R2-B1-C1",
+      "vp08_proposed_total": 96.75,
+      "balanced_recalculated_from_vp08_inputs": 97.75
+    },
+    {
+      "candidate_id": "R2-B1-C2",
+      "vp08_proposed_total": 96.75,
+      "balanced_recalculated_from_vp08_inputs": 97.75
+    },
+    {
+      "candidate_id": "R2-B1-C3",
+      "vp08_proposed_total": 97.25,
+      "balanced_recalculated_from_vp08_inputs": 98.5
+    }
+  ],
+  "link_integrity_issues": [],
+  "non_finite_scores": [],
+  "summary": {
+    "all_observed_quotes_are_candidate_prompt_substrings": false,
+    "all_specialist_scores_match_rubric": false,
+    "all_harmony_scores_match_rubric": false,
+    "all_vp08_totals_match_their_own_inputs": false,
+    "all_links_valid": true,
+    "all_scores_finite": true
+  }
+}

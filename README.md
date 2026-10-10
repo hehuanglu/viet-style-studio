@@ -1,9 +1,13 @@
 # AI Arena — hướng dẫn sử dụng và vận hành
 
+Triển khai cloud: [hướng dẫn Vercel và PostgreSQL](docs/DEPLOY_VERCEL.md).
+
 Cập nhật giao diện 10/10/2026: Cài đặt nâng cao đã bỏ tìm nguồn tham khảo và kiểm tra ảnh qua API. Mức sáng tạo dùng thanh kéo ba nấc Vừa phải / Cân bằng / Khám phá. Quy trình luôn đi tiếp sang bước tạo/nhận ảnh và chỉnh sửa, không còn checkbox lựa chọn tạo ảnh. Nút Tự động tạo / sửa ảnh chọn giữa gọi API ảnh và thao tác trên Gemini. Ảnh gửi từ giao diện mới được lưu để xem và chỉnh sửa, không gọi API kiểm tra ảnh, kể cả khi tiếp tục phiên cũ. Các chế độ kiểm tra ảnh cũ trong tài liệu dưới đây chỉ còn phục vụ tương thích với phiên/client cũ.
 
 
 AI Arena giúp bạn phát triển ý tưởng trang phục lấy cảm hứng Việt phục: mô tả nhu cầu, chọn chi tiết, nhận ba phương án, tạo ảnh và chỉnh sửa ảnh. Đây là dự án thử nghiệm chạy trên máy của bạn. Nội dung này mô tả thiết lập trong mã ngày 04/10/2026, không phải lời bảo đảm về chất lượng thiết kế.
+
+Tập phương án nội bộ mặc định gồm 5 thiết kế (hai lượt 3 + 2), được đánh giá trước khi chọn 3 phương án để hiển thị.
 
 Ứng dụng dùng Gemini để hiểu nhu cầu và đánh giá. Ba góc nhìn “thời trang”, “văn hóa/lịch sử”, “mỹ thuật” đều do AI thực hiện, không phải ba chuyên gia thật. Nhận xét cần được bạn xem lại trước khi may, công bố thông tin lịch sử hoặc dùng cho công việc thực tế.
 
@@ -52,7 +56,7 @@ python -m arena_backend --port 8800 --prompt-key
 
 Nếu máy không cho kích hoạt môi trường, dùng trực tiếp `.\.venv\Scripts\python.exe` thay `python`. Các lệnh Windows là hướng dẫn từ cấu trúc dự án, chưa được kiểm định trên máy Windows trong các phiên thử được lưu.
 
-Có thể bỏ `--prompt-key` để chạy trước rồi nhập mã ở “Kết nối Gemini” trên giao diện. Nếu máy đã có biến `GEMINI_API_KEY`, chương trình cũng đọc được. Không ghi mã vào README, file chia sẻ hoặc commit. Địa chỉ mặc định khi không ghi `--port` là `http://127.0.0.1:8787`.
+Có thể bỏ `--prompt-key` để chạy trước rồi nhập mã ở “Kết nối Gemini” trên giao diện. Nếu máy đã có biến `GEMINI_API_KEY`, chương trình cũng đọc được. Không ghi mã vào README, file chia sẻ hoặc commit. Địa chỉ mặc định khi không ghi `--port` là `http://127.0.0.1:8800`.
 
 Để dừng, bấm Ctrl+C trong Terminal. Lần sau kích hoạt lại môi trường và chạy lệnh cuối. Giữ cùng thư mục dữ liệu để xem lại phiên và ảnh. Sau mỗi lần khởi động cần nhập lại API key nếu không dùng biến môi trường. Khi vừa sửa cấu hình/prompt, khởi động lại chương trình để nạp bản mới; các prompt đã tạo trong phiên cũ không tự đổi.
 
@@ -66,7 +70,7 @@ Nếu cổng 8800 đang dùng, chọn số khác, chẳng hạn `--port 8801`, r
 4. Nhóm phụ kiện và “Phong cách trình bày ảnh” có thể bỏ qua nếu được ghi như vậy. Phong cách ảnh có thể là minh họa thời trang, đời thường, ảnh studio, sàn diễn hoặc bản vẽ kỹ thuật. Muốn đổi điều đã hiểu, nhập ý thay thế và xác nhận.
 5. Xác nhận lựa chọn. Nếu có xung đột nghiêm trọng, đọc hai yêu cầu đối nghịch, lý do và gợi ý sửa, chọn lại trên cùng bảng rồi xác nhận. Ví dụ cùng một cổ áo vừa kín cao vừa khoét sâu. Phối màu tương phản hoặc phong cách lai không tự động là xung đột.
 6. Chờ Gemini tạo và đánh giá phương án. Thời gian có thể từ vài chục giây đến vài phút, tùy phản hồi Google. Giao diện hiển thị bước đang xử lý. Những lượt thử gần đây mất khoảng 83–87 giây đến ba phương án; đây không phải cam kết thời gian.
-7. Đọc nhận xét ở các thẻ. Điểm không hiển thị. Bấm “Sao chép hướng dẫn” ở phương án bạn thích; có thể mở “Xem hướng dẫn” để đọc.
+7. Đọc câu chuyện thiết kế và mở nhận xét AI khi cần. Bấm “Copy prompt” ở phương án bạn thích để sao chép và chọn phương án nhận ảnh.
 8. Mở Gemini Web, dán hướng dẫn và tạo ảnh. Nếu chỉ nhận chữ, chọn công cụ tạo ảnh trên Gemini rồi gửi lại. Tải ảnh về, quay lại chọn/dán ảnh, kiểm tra đúng phương án và bấm “Gửi ảnh”. PNG, JPG, WebP được hỗ trợ, tối đa 10 MB.
 9. Xem nhận xét kiểm tra ảnh. Muốn sửa, mở ảnh, khoanh/phác vùng cần sửa, ghi yêu cầu và phần muốn giữ. Dùng ảnh gốc trước, ảnh phác sau cùng hướng dẫn sửa trên Gemini; đưa ảnh hoàn thiện trở lại ứng dụng. Nét khoanh là chỉ dẫn, không phải trang trí cần xuất hiện trong ảnh.
 
@@ -86,11 +90,11 @@ Template mới yêu cầu một người mẫu duy nhất, cùng bộ trang ph�
 
 ## Theo dõi, chi phí và giới hạn
 
-Mục “Thông tin xử lý và kiểm tra ảnh” cho biết nhu cầu, lựa chọn, nhận xét, lượt gọi thực tế và tình trạng ảnh. Một lần bấm có thể cần nhiều lần gọi Google: đường thông thường đến ba thẻ cần khoảng 14 lượt, thêm một lượt khi phải tách tìm nguồn, chưa tính thử lại, bổ sung và kiểm tra ảnh.
+Mục “Thông tin xử lý và kiểm tra ảnh” cho biết nhu cầu, lựa chọn, nhận xét, lượt gọi thực tế và tình trạng ảnh. Một lần bấm có thể cần nhiều lần gọi Google: đường thông thường đến ba thẻ cần khoảng 17 lượt (gồm ba lượt viết Câu chuyện thiết kế), thêm một lượt khi phải tách tìm nguồn, chưa tính thử lại, bổ sung và kiểm tra ảnh.
 
 Không có trần tổng lượt gọi của chương trình. Mỗi mốc 100, 200, 300… chỉ cảnh báo; không ngắt quy trình vì mốc này. Bộ đếm chung đặt lại khi khởi động server. Số đã lưu trong từng phiên vẫn giữ.
 
-Vẫn còn giới hạn cho từng phiên: phần chuẩn bị thiết kế tối đa 30 lượt xử lý trong 320 giây hoạt động; phần ảnh tối đa 13 lượt trong 90 giây hoạt động. Lượt lỗi/thử lại cũng tiêu giới hạn. Thời gian bạn đọc bảng, thao tác Gemini hoặc chờ gửi ảnh không tính vào thời gian hoạt động. Google vẫn có thể từ chối vì mã, quyền dùng, hạn mức hoặc mạng. Cảnh báo 100 lượt không bỏ những điều kiện này.
+Vẫn còn giới hạn cho từng phiên: phần chuẩn bị thiết kế tối đa 36 lượt xử lý trong 320 giây hoạt động; phần ảnh tối đa 13 lượt trong 90 giây hoạt động. Lượt lỗi/thử lại cũng tiêu giới hạn. Thời gian bạn đọc bảng, thao tác Gemini hoặc chờ gửi ảnh không tính vào thời gian hoạt động. Google vẫn có thể từ chối vì mã, quyền dùng, hạn mức hoặc mạng. Cảnh báo 100 lượt không bỏ những điều kiện này.
 
 ## Khi gặp vấn đề
 

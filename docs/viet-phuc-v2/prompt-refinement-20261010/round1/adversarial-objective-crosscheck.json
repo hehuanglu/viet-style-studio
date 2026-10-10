@@ -1,0 +1,406 @@
+{
+  "snapshot": "docs/viet-phuc-v2/prompt-refinement-20261010/round1/adversarial-complete-job.json",
+  "request_id": "1d9c0b9e-a3c0-4ae4-9c21-9a5754a01a2a",
+  "revision": 3,
+  "status": "complete",
+  "provider": "gemini",
+  "render_image": false,
+  "model": "gemini-3.5-flash-lite",
+  "candidate_count": 6,
+  "cards_count": 3,
+  "scoring_profile": "balanced",
+  "rubric_version": "vp-rubric-2.1.0",
+  "weights": {
+    "fashion": 30,
+    "culture": 25,
+    "art": 25,
+    "harmony": 20
+  },
+  "formulas": {
+    "specialist_and_harmony": "round(100 * sum(weight * rating/5 for applicable criteria) / sum(applicable weights), 2)",
+    "balanced_total": "round(sum(active role weights * score) / sum(active role weights), 2)"
+  },
+  "candidates": [
+    {
+      "candidate_id": "R3-B1-C1",
+      "title": "Áo ngắn kết hợp chân váy dài phong cách tối giản xanh chàm",
+      "revision": 3,
+      "content_hash": "daa54491031176493b7dcd5d757ee232185f82dbb7760dd84035b04e7399cb26",
+      "specialist_reported": {
+        "fashion": 96.67,
+        "culture": 97.5,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 95.0,
+        "culture": 93.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": false,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 96.67,
+        "culture": 97.5,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 98.42,
+      "balanced_recalculated_from_vp08_inputs": 98.38,
+      "balanced_recalculated_from_rubric_scores": 96.75,
+      "vp08_total_matches_its_inputs": false
+    },
+    {
+      "candidate_id": "R3-B1-C2",
+      "title": "Áo ngắn váy dài phối dải thêu sen điện tử dọc thân",
+      "revision": 3,
+      "content_hash": "adb85039192d32d2b1fefb5afe26dd16f09e9db6162f2d72bc7dcd004cfb9377",
+      "specialist_reported": {
+        "fashion": 96.67,
+        "culture": 97.5,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 95.0,
+        "culture": 93.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": false,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 96.67,
+        "culture": 97.5,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 98.42,
+      "balanced_recalculated_from_vp08_inputs": 98.38,
+      "balanced_recalculated_from_rubric_scores": 96.75,
+      "vp08_total_matches_its_inputs": false
+    },
+    {
+      "candidate_id": "R3-B1-C3",
+      "title": "Áo ngắn váy dài phối hoa văn sen điện tử viền gấu",
+      "revision": 3,
+      "content_hash": "06e260cbcf789b6f464bbcbdcee85ab9ff1ebe837b89693c605c4057e2bd4714",
+      "specialist_reported": {
+        "fashion": 96.67,
+        "culture": 97.5,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 95.0,
+        "culture": 93.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": false,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 96.67,
+        "culture": 97.5,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 98.42,
+      "balanced_recalculated_from_vp08_inputs": 98.38,
+      "balanced_recalculated_from_rubric_scores": 96.75,
+      "vp08_total_matches_its_inputs": false
+    },
+    {
+      "candidate_id": "R3-B2-C1",
+      "title": "Phương án 1: Áo ngắn kín cổ kết hợp chân váy dài thêu sen điện tử tối giản (Tỷ lệ mảng lớn)",
+      "revision": 3,
+      "content_hash": "2872e8cc67a9c90f45cb5441d39bd743e09d54084dc4e14de09057891335cd08",
+      "specialist_reported": {
+        "fashion": 88.33,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 83.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 86.0,
+      "harmony_rubric_calculated": 84.0,
+      "harmony_matches": false,
+      "vp08_source_scores": {
+        "fashion": 88.33,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "vp08_proposed_total": 89.25,
+      "balanced_recalculated_from_vp08_inputs": 88.7,
+      "balanced_recalculated_from_rubric_scores": 86.7,
+      "vp08_total_matches_its_inputs": false
+    },
+    {
+      "candidate_id": "R3-B2-C2",
+      "title": "Phương án 2: Áo ngắn kín cổ kết hợp chân váy dài thêu sen điện tử tối giản (Nhịp bố cục đường viền)",
+      "revision": 3,
+      "content_hash": "83cbe64e72a8e261e9fba8b3774e16cd08d6935b3630d8983748f7efe746fdd8",
+      "specialist_reported": {
+        "fashion": 88.33,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 83.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 86.0,
+      "harmony_rubric_calculated": 84.0,
+      "harmony_matches": false,
+      "vp08_source_scores": {
+        "fashion": 88.33,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "vp08_proposed_total": 89.25,
+      "balanced_recalculated_from_vp08_inputs": 88.7,
+      "balanced_recalculated_from_rubric_scores": 86.7,
+      "vp08_total_matches_its_inputs": false
+    },
+    {
+      "candidate_id": "R3-B2-C3",
+      "title": "Phương án 3: Áo ngắn kín cổ kết hợp chân váy dài thêu sen điện tử tối giản (Điểm nhấn trung tâm)",
+      "revision": 3,
+      "content_hash": "279e05021dfb2dde96dfb55a85f5e9d62193362f44810d9dc804712259919431",
+      "specialist_reported": {
+        "fashion": 88.33,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 83.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_matches": {
+        "fashion": false,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 86.0,
+      "harmony_rubric_calculated": 84.0,
+      "harmony_matches": false,
+      "vp08_source_scores": {
+        "fashion": 88.33,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "vp08_proposed_total": 89.25,
+      "balanced_recalculated_from_vp08_inputs": 88.7,
+      "balanced_recalculated_from_rubric_scores": 86.7,
+      "vp08_total_matches_its_inputs": false
+    }
+  ],
+  "top_three_api_order": [
+    "R3-B1-C1",
+    "R3-B1-C2",
+    "R3-B1-C3"
+  ],
+  "top_three_recalculated_from_vp08_inputs": [
+    "R3-B1-C1",
+    "R3-B1-C2",
+    "R3-B1-C3"
+  ],
+  "quote_substring_issues": [
+    {
+      "candidate_id": "R3-B1-C1",
+      "role": "fashion",
+      "check_id": "locked:A_12",
+      "quote": "họa tiết sen điện tử cách điệu đường nét tối giản thêu chỉ màu trắng ngà trên nền xanh chàm",
+      "quote_is_prompt_substring": false
+    },
+    {
+      "candidate_id": "R3-B1-C1",
+      "role": "culture",
+      "check_id": "locked:A_12",
+      "quote": "họa tiết sen điện tử cách điệu đường nét tối giản thêu chỉ màu trắng ngà trên nền xanh chàm",
+      "quote_is_prompt_substring": false
+    },
+    {
+      "candidate_id": "R3-B1-C2",
+      "role": "fashion",
+      "check_id": "locked:A_12",
+      "quote": "họa tiết sen điện tử cách điệu đường nét tối giản thêu dọc theo thân áo bằng chỉ màu trắng ngà trên nền xanh chàm",
+      "quote_is_prompt_substring": false
+    },
+    {
+      "candidate_id": "R3-B1-C2",
+      "role": "culture",
+      "check_id": "locked:A_12",
+      "quote": "họa tiết sen điện tử cách điệu đường nét tối giản thêu dọc theo thân áo bằng chỉ màu trắng ngà trên nền xanh chàm",
+      "quote_is_prompt_substring": false
+    },
+    {
+      "candidate_id": "R3-B2-C1",
+      "role": "culture",
+      "check_id": "locked:A_06",
+      "quote": "màu sắc chủ đạo: nền vải xanh chàm đậm kết hợp các đường thêu chỉ trắng ngà.",
+      "quote_is_prompt_substring": false
+    },
+    {
+      "candidate_id": "R3-B2-C1",
+      "role": "culture",
+      "check_id": "locked:A_11",
+      "quote": "cổ áo kín cao vừa phải, che kín ngực và lưng",
+      "quote_is_prompt_substring": false
+    },
+    {
+      "candidate_id": "R3-B2-C2",
+      "role": "culture",
+      "check_id": "locked:A_11",
+      "quote": "trang phục bao gồm áo ngắn gọn gàng, hoàn toàn kín đáo, che kín ngực và lưng, cổ áo kín cao vừa phải",
+      "quote_is_prompt_substring": false
+    },
+    {
+      "candidate_id": "R3-B2-C3",
+      "role": "culture",
+      "check_id": "locked:A_01",
+      "quote": "Trang phục nữ đi học đại học hằng ngày, lấy cảm hứng từ phom dáng truyền thống. Trang phục gồm áo ngắn kết hợp chân váy dài thanh lịch, thiết kế kín đáo tuyệt đối, không hở ngực và lưng.",
+      "quote_is_prompt_substring": false
+    }
+  ],
+  "specialist_rubric_mismatches": [
+    {
+      "candidate_id": "R3-B1-C1",
+      "role": "fashion",
+      "reported": 96.67,
+      "rubric_calculated": 95.0
+    },
+    {
+      "candidate_id": "R3-B1-C1",
+      "role": "culture",
+      "reported": 97.5,
+      "rubric_calculated": 93.0
+    },
+    {
+      "candidate_id": "R3-B1-C2",
+      "role": "fashion",
+      "reported": 96.67,
+      "rubric_calculated": 95.0
+    },
+    {
+      "candidate_id": "R3-B1-C2",
+      "role": "culture",
+      "reported": 97.5,
+      "rubric_calculated": 93.0
+    },
+    {
+      "candidate_id": "R3-B1-C3",
+      "role": "fashion",
+      "reported": 96.67,
+      "rubric_calculated": 95.0
+    },
+    {
+      "candidate_id": "R3-B1-C3",
+      "role": "culture",
+      "reported": 97.5,
+      "rubric_calculated": 93.0
+    },
+    {
+      "candidate_id": "R3-B2-C1",
+      "role": "fashion",
+      "reported": 88.33,
+      "rubric_calculated": 83.0
+    },
+    {
+      "candidate_id": "R3-B2-C2",
+      "role": "fashion",
+      "reported": 88.33,
+      "rubric_calculated": 83.0
+    },
+    {
+      "candidate_id": "R3-B2-C3",
+      "role": "fashion",
+      "reported": 88.33,
+      "rubric_calculated": 83.0
+    }
+  ],
+  "harmony_rubric_mismatches": [
+    {
+      "candidate_id": "R3-B2-C1",
+      "reported": 86.0,
+      "rubric_calculated": 84.0
+    },
+    {
+      "candidate_id": "R3-B2-C2",
+      "reported": 86.0,
+      "rubric_calculated": 84.0
+    },
+    {
+      "candidate_id": "R3-B2-C3",
+      "reported": 86.0,
+      "rubric_calculated": 84.0
+    }
+  ],
+  "vp08_balanced_total_mismatches": [
+    {
+      "candidate_id": "R3-B1-C1",
+      "vp08_proposed_total": 98.42,
+      "balanced_recalculated_from_vp08_inputs": 98.38
+    },
+    {
+      "candidate_id": "R3-B1-C2",
+      "vp08_proposed_total": 98.42,
+      "balanced_recalculated_from_vp08_inputs": 98.38
+    },
+    {
+      "candidate_id": "R3-B1-C3",
+      "vp08_proposed_total": 98.42,
+      "balanced_recalculated_from_vp08_inputs": 98.38
+    },
+    {
+      "candidate_id": "R3-B2-C1",
+      "vp08_proposed_total": 89.25,
+      "balanced_recalculated_from_vp08_inputs": 88.7
+    },
+    {
+      "candidate_id": "R3-B2-C2",
+      "vp08_proposed_total": 89.25,
+      "balanced_recalculated_from_vp08_inputs": 88.7
+    },
+    {
+      "candidate_id": "R3-B2-C3",
+      "vp08_proposed_total": 89.25,
+      "balanced_recalculated_from_vp08_inputs": 88.7
+    }
+  ],
+  "link_integrity_issues": [],
+  "non_finite_scores": [],
+  "summary": {
+    "all_observed_quotes_are_candidate_prompt_substrings": false,
+    "all_specialist_scores_match_rubric": false,
+    "all_harmony_scores_match_rubric": false,
+    "all_vp08_totals_match_their_own_inputs": false,
+    "all_links_valid": true,
+    "all_scores_finite": true
+  }
+}

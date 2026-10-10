@@ -4,13 +4,14 @@
   "status": "initial_unbenchmarked",
   "generation": {
     "batch_size": 3,
+    "initial_pool_size": 5,
     "initial_batches": 2,
     "supplemental_batches_max": 1,
     "generation_concurrency": 2,
     "specialist_concurrency": 3
   },
   "design_budget": {
-    "total_provider_calls_max": 30,
+    "total_provider_calls_max": 36,
     "active_processing_deadline_seconds": 320,
     "retry_per_task_max": 1
   },
@@ -109,6 +110,11 @@
     "VP02C": {
       "timeout_seconds": 40,
       "max_output_tokens": 10000,
+      "sampling_policy": "model_default"
+    },
+    "VP09": {
+      "timeout_seconds": 40,
+      "max_output_tokens": 2500,
       "sampling_policy": "model_default"
     }
   },

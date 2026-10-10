@@ -50,6 +50,8 @@ class VietPhucWorkflow:
 
     def _init_v2(self):
         self.vp_config = read_json(vp.DATA / 'config.json')
+        for key, values in self.runtime_config.items():
+            self.vp_config[key].update(values)
         if self.design_attempts_override is not None:
             self.vp_config['design_budget']['total_provider_calls_max'] = self.design_attempts_override
             self.vp_config['status'] = 'explicit_runtime_budget_experiment'
@@ -92,7 +94,7 @@ class VietPhucWorkflow:
                    'budget_config': {'design': copy.deepcopy(self.vp_config['design_budget']), 'media': copy.deepcopy(self.vp_config['media_budget'])},
                    'clean_prompt': None, 'checklist': None, 'resolved_brief': None, 'choices': None, 'references': [], 'reference_metadata': [],
                    'checkpoints': {}, 'call_records': {}, 'selection_receipts': {}, 'generation_batches': {}, 'prompt_pool': [],
-                   'specialist_audits': {}, 'harmony_audits': {}, 'supplemental_batches': 0, 'checklist_round': 0,
+                   'specialist_audits': {}, 'harmony_audits': {}, 'design_stories': {}, 'supplemental_batches': 0, 'checklist_round': 0,
                    'metrics': {'provider_calls': 0, 'actual_api_calls': 0, 'cache_hits': 0, 'active_seconds': 0.0,
                                'design': {'attempts': 0, 'actual_api_calls': 0, 'active_seconds': 0.0},
                                'media': {'attempts': 0, 'actual_api_calls': 0, 'active_seconds': 0.0},
@@ -185,7 +187,7 @@ class VietPhucWorkflow:
             require(job.get('workflow_version') == 2 and job['checklist'], 'Chưa có bảng v2', 'invalid_state', 409)
             require(type(payload.get('revision')) is int and payload['revision'] == job['revision'], 'revision cũ', 'stale_revision', 409)
             require(job['status'] in ('awaiting_choices', 'awaiting_image', 'complete', 'cards_only', 'needs_evidence', 'needs_resolution', 'failed') and not any(c['status'] == 'inflight' for c in job['call_records'].values()), 'Bước API đang chạy', 'invalid_state', 409)
-            job.setdefault('design_history', []).append({key: copy.deepcopy(job.get(key)) for key in ('revision', 'clean_prompt', 'checklist', 'choices', 'resolved_brief', 'prompt_pool', 'specialist_audits', 'harmony_audits', 'cards', 'image_prompts', 'image_workflow', 'output_artifact_ids', 'image_audit')})
+            job.setdefault('design_history', []).append({key: copy.deepcopy(job.get(key)) for key in ('revision', 'clean_prompt', 'checklist', 'choices', 'resolved_brief', 'prompt_pool', 'specialist_audits', 'harmony_audits', 'design_stories', 'cards', 'image_prompts', 'image_workflow', 'output_artifact_ids', 'image_audit')})
             previous = copy.deepcopy({'checklist': job['checklist'], 'choices': job.get('choices') or job.get('choice_restore')})
             job['previous_selection_snapshot'] = previous
             reuse = payload.get('reuse_checklist', False)
@@ -193,7 +195,7 @@ class VietPhucWorkflow:
             job['revision'] += 1
             for key in ('resolved_brief', 'choices', 'checklist', 'image_workflow', 'pending_manual', 'image_target_ids', 'selected_artifact_id', 'selected_artifact_ids', 'audit_resume_only', 'selection_review'):
                 job.pop(key, None)
-            job.update(status='queued', cards=[], image_prompts=[], prompt_pool=[], generation_batches={}, specialist_audits={}, harmony_audits={}, supplemental_batches=0, error=None, ranking=None, generation_inputs={}, output_artifact_ids=[], image_audit=None)
+            job.update(status='queued', cards=[], image_prompts=[], prompt_pool=[], generation_batches={}, specialist_audits={}, harmony_audits={}, design_stories={}, supplemental_batches=0, error=None, ranking=None, generation_inputs={}, output_artifact_ids=[], image_audit=None)
             job.pop('choice_restore', None)
             if reuse:
                 job['checklist'] = copy.deepcopy(previous['checklist'])
@@ -244,7 +246,7 @@ class VietPhucWorkflow:
                 job['selection_review']['revision'] = job['revision']
             if generating:
                 job['resolved_brief']['revision'] = job['revision']
-                job.update(generation_batches={}, generation_inputs={}, supplemental_batches=0, specialist_audits={}, harmony_audits={})
+                job.update(generation_batches={}, generation_inputs={}, supplemental_batches=0, specialist_audits={}, harmony_audits={}, design_stories={})
                 job.pop('pool_barrier', None)
             job['manifest'].update(vp_hash=self.vp_version, kit_hash=self.cache_version, template_version=self.vp_prompts.version)
             job.update(status='queued', error=None)
@@ -419,6 +421,10 @@ class VietPhucWorkflow:
         self._v2_update(rid, revision, finish)
         self._v2_stage(rid, revision, 'awaiting_choices')
 
+    def _vp_pool_target(self):
+        generation = self.vp_config['generation']
+        return generation.get('initial_pool_size', generation['batch_size'] * generation['initial_batches'])
+
     def _vp_generate(self, rid, revision, index, supplemental=False):
         job = self._v2_job(rid, revision); brief = job['resolved_brief']
         batch_id = 'B' + str(index + 1)
@@ -427,7 +433,11 @@ class VietPhucWorkflow:
         focus = ordered[:2]
         level_instruction = {'moderate': 'Thay đổi tiết chế trong các phần mở, vẫn tạo khác biệt cụ thể.', 'balanced': 'Cân bằng mức thay đổi với tính sử dụng; khám phá quan hệ giữa các miền mở.', 'explore': 'Khám phá các tổ hợp mới có chủ đích của ít nhất hai quyết định còn mở, công bố giới hạn nếu không đủ tự do.'}[job['creative_level']]
         direction = {'direction_id': 'D' + str(index + 1), 'label': 'Khám phá ' + str(index + 1), 'focus_domain_ids': [s['domain_id'] for s in focus], 'allowed_variations': [dict(s, exploration_offset=index * 3) for s in ordered], 'locked_atom_ids': brief['locked_atom_ids'], 'creative_level': job['creative_level'], 'instruction': level_instruction + ' Nhóm này khám phá các biến thể kế tiếp, không thay điều khóa.'}
-        slots = {'batch_id': batch_id, 'slots': [{'candidate_id': f'R{revision}-{batch_id}-C{n + 1}', 'revision': revision} for n in range(self.vp_config['generation']['batch_size'])]}
+        batch_size = self.vp_config['generation']['batch_size']
+        slot_count = batch_size if supplemental else min(batch_size, max(0, self._vp_pool_target() - index * batch_size))
+        if not slot_count:
+            return
+        slots = {'batch_id': batch_id, 'slots': [{'candidate_id': f'R{revision}-{batch_id}-C{n + 1}', 'revision': revision} for n in range(slot_count)]}
         payload = dict(self._vp_base(job), RESOLVED_BRIEF=brief, GENERATION_DIRECTION=direction, CREATIVITY_CONFIG={'level': job['creative_level'], 'spaces': spaces}, CANDIDATE_SLOTS=slots, REFERENCE_BUNDLE=self._vp_references(job), PREVIOUS_DESIGN_DIGESTS=[{'candidate_id': c['candidate_id'], 'design_sections': c['design_sections'], 'choices_made': c['choices_made']} for c in job['prompt_pool']], LOCKED_REQUIREMENTS=[a for a in brief['atoms'] if a['atom_id'] in brief['locked_atom_ids']])
         if batch_id in job.get('generation_inputs', {}):
             payload = job['generation_inputs'][batch_id]
@@ -442,7 +452,7 @@ class VietPhucWorkflow:
             j['generation_batches'][batch_id] = {'direction': direction, 'final_prompt': self.vp_prompts.render('VP04', payload), 'candidates': result['candidates'], 'limitations': result['limitations'], 'supplemental': supplemental}
             j['prompt_pool'] = [c for b in j['generation_batches'].values() for c in b['candidates']]
             j['warnings'].extend(result['limitations'])
-            j['design_progress'] = {'pool_count': len(j['prompt_pool']), 'pool_target': 6, 'audit_started': False}
+            j['design_progress'] = {'pool_count': len(j['prompt_pool']), 'pool_target': self._vp_pool_target(), 'audit_started': False}
         self._v2_update(rid, revision, save)
 
     def _vp_audit(self, rid, revision, batch_id, role):
@@ -482,6 +492,26 @@ class VietPhucWorkflow:
                 item['reported_harmony_score'] = item['harmony_score']; item['reported_total'] = item['proposed_total']
                 item['harmony_score'] = h; item['score_100'] = item['proposed_total']
                 j['harmony_audits'][item['candidate_id']] = item
+        self._v2_update(rid, revision, save)
+
+    def _vp_design_story(self, rid, revision, candidate):
+        job = self._v2_job(rid, revision)
+        cid = candidate['candidate_id']
+        story = job.get('design_stories', {}).get(cid)
+        if story and story['content_hash'] == candidate['content_hash'] and story['candidate_revision'] == candidate['revision']:
+            self._v2_update(rid, revision, lambda j: next(c for c in j['cards'] if c['candidate_id'] == cid).update(design_story=copy.deepcopy(story)))
+            return
+        payload = {'REQUEST_METADATA': self._vp_base(job)['REQUEST_METADATA'],
+                   'RESOLVED_BRIEF': job['resolved_brief'], 'CANDIDATE': candidate,
+                   'CULTURE_REVIEW': job['specialist_audits'][cid]['culture'],
+                   'REFERENCE_BUNDLE': self._vp_references(job)}
+        def validate(value, metadata):
+            vp.valid(value['candidate_id'] == cid and value['candidate_revision'] == candidate['revision']
+                     and value['content_hash'] == candidate['content_hash'], 'Câu chuyện sai phương án/phiên bản/hash')
+        story, _ = self._vp_task(rid, revision, 'VP09', payload, validate)
+        def save(j):
+            j.setdefault('design_stories', {})[cid] = copy.deepcopy(story)
+            next(c for c in j['cards'] if c['candidate_id'] == cid)['design_story'] = copy.deepcopy(story)
         self._v2_update(rid, revision, save)
 
     def _vp_parallel(self, rid, revision, tasks, workers):
@@ -557,12 +587,12 @@ class VietPhucWorkflow:
             tasks = [(self._vp_generate, (rid, revision, i)) for i in range(self.vp_config['generation']['initial_batches']) if not job.get('audit_resume_only') and 'B' + str(i + 1) not in job['generation_batches']]
             self._vp_parallel(rid, revision, tasks, self.vp_config['generation']['generation_concurrency'])
             job = self._v2_job(rid, revision)
-            if len(job['prompt_pool']) < 6 and not job.get('audit_resume_only'):
+            if len(job['prompt_pool']) < self._vp_pool_target() and not job.get('audit_resume_only'):
                 self._vp_supplement(rid, revision)
                 job = self._v2_job(rid, revision)
-                self._v2_update(rid, revision, lambda j: j['warnings'].append(f"Pool có {len(j['prompt_pool'])}/6 prompt trước audit; đã xử lý bổ sung trong giới hạn."))
+                self._v2_update(rid, revision, lambda j: j['warnings'].append(f"Pool có {len(j['prompt_pool'])}/{self._vp_pool_target()} prompt trước audit; đã xử lý bổ sung trong giới hạn."))
             # Barrier: ALL initial generations (and a bounded shortage attempt) are settled.
-            self._v2_stage(rid, revision, 'specialist_auditing', pool_barrier={'revision': revision, 'count': len(job['prompt_pool']), 'target': 6, 'closed': True, 'timestamp': time.time()})
+            self._v2_stage(rid, revision, 'specialist_auditing', pool_barrier={'revision': revision, 'count': len(job['prompt_pool']), 'target': self._vp_pool_target(), 'closed': True, 'timestamp': time.time()})
             batches = [bid for bid, batch in job['generation_batches'].items() if batch['candidates']]
             tasks = [(self._vp_audit, (rid, revision, bid, role)) for bid in batches for role in ('fashion', 'culture', 'art') if not all(role in job['specialist_audits'].get(c['candidate_id'], {}) for c in job['generation_batches'][bid]['candidates'])]
             self._vp_parallel(rid, revision, tasks, self.vp_config['generation']['specialist_concurrency'])
@@ -581,14 +611,19 @@ class VietPhucWorkflow:
             def select(j):
                 j['ranking'] = ranking
                 adapt(j, ranking)
-                j['metrics']['cards_ready_seconds'] = j['metrics']['design']['active_seconds']
-                j['design_progress'] = {'pool_count': len(j['prompt_pool']), 'pool_target': 6, 'audited_count': len(j['harmony_audits']), 'selected_count': len(j['cards']), 'audit_started': True}
+                j['design_progress'] = {'pool_count': len(j['prompt_pool']), 'pool_target': self._vp_pool_target(), 'audited_count': len(j['harmony_audits']), 'selected_count': len(j['cards']), 'audit_started': True}
                 if len(j['cards']) < 3:
                     j['warnings'].append(f"Chỉ có {len(j['cards'])}/3 phương án hợp lệ đạt ngưỡng; không đủ kết quả để hiển thị ba thẻ.")
             self._v2_stage(rid, revision, 'selecting')
             job = self._v2_update(rid, revision, select)
             if not job['cards']:
                 self._v2_stage(rid, revision, 'needs_resolution', failed_stage='generating_prompt_pool' if not job['prompt_pool'] else 'selecting'); return
+            self._v2_stage(rid, revision, 'writing_design_stories')
+            tasks = [(self._vp_design_story, (rid, revision, row['candidate'])) for row in ranking['ranked']]
+            errors = self._vp_parallel(rid, revision, tasks, 3)
+            if errors:
+                raise ArenaError(errors[0]['code'], errors[0]['message'], 502)
+            self._v2_update(rid, revision, lambda j: j['metrics'].__setitem__('cards_ready_seconds', j['metrics']['design']['active_seconds']))
             self._v2_stage(rid, revision, 'cards_ready')
             if not job['render_image']:
                 self._v2_stage(rid, revision, 'complete'); return

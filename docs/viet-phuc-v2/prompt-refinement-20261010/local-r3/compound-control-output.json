@@ -1,0 +1,145 @@
+{
+  "value": {
+    "role": "fashion",
+    "audits": [
+      {
+        "candidate_id": "LOCAL-missing",
+        "candidate_revision": 2,
+        "content_hash": "fbb2b49c8c9436c21f6dae9a14e0a9154265af282a451e248192293d9df4d1fa",
+        "role": "fashion",
+        "checks": [
+          {
+            "check_id": "locked:TEST_COMPOUND",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "uncertain",
+            "prompt_quote": "Trang phục nữ đi học đại học, áo ngắn cổ kín tay dài màu xanh chàm, vải cotton nhẹ và thoáng.",
+            "source_ids": [],
+            "reason": "Prompt đã nêu vải nhẹ và thoáng nhưng thiếu yêu cầu/giải pháp về độ dễ giặt theo đúng cụm mệnh đề trong chất liệu."
+          }
+        ],
+        "criterion_ratings": [
+          {
+            "criterion_id": "need_fit",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Đáp ứng tốt bối cảnh đi học đại học với áo ngũ thân cách tân và quần dài, nhưng cần bổ sung yếu tố dễ giặt rõ ràng hơn."
+          },
+          {
+            "criterion_id": "silhouette_structure",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Phom dáng áo ngắn cổ kín tay dài được cấu trúc rõ ràng, hai góc nhìn trước sau đầy đủ."
+          },
+          {
+            "criterion_id": "material_technique",
+            "applicable": true,
+            "rating": 3,
+            "reason": "Đã đề xuất chất liệu cotton nhẹ và thoáng nhưng chưa làm nổi bật kỹ thuật hay đặc tính dễ giặt thực tế."
+          },
+          {
+            "criterion_id": "contextual_usability",
+            "applicable": true,
+            "rating": 4,
+            "reason": "Trang phục thanh lịch, kín đáo, phù hợp đi học đại học hằng ngày."
+          }
+        ],
+        "strengths": [
+          "Phom dáng áo ngũ thân cách tân kín đáo và phù hợp đi học.",
+          "Mô tả hai góc nhìn trước và sau rõ ràng trong cấu trúc trình bày ảnh."
+        ],
+        "concerns": [
+          "Thiếu thông tin chi tiết về độ dễ giặt của chất liệu.",
+          "Chưa tối ưu hóa hoàn toàn các mệnh đề của yêu cầu chất liệu phức hợp."
+        ],
+        "suggested_fixes": [
+          "Bổ sung rõ ràng phương án chất liệu dễ giặt vào image_prompt."
+        ],
+        "summary": "Phương án thiết kế có cấu trúc tốt, bối cảnh rõ ràng nhưng còn thiếu một phần nhỏ trong yêu cầu chất liệu tổng hợp.",
+        "score": 75.0,
+        "score_reason": "Trọng số các tiêu chí: need_fit (30), silhouette_structure (30), material_technique (25), contextual_usability (15). Đánh giá rating tương ứng: need_fit=4 (đóng góp 24), silhouette_structure=4 (đóng góp 24), material_technique=3 (đóng góp 15), contextual_usability=4 (đóng góp 12). Tổng contribution = 24 + 24 + 15 + 12 = 75. Điểm số chuyên môn là 75.0."
+      },
+      {
+        "candidate_id": "LOCAL-present",
+        "candidate_revision": 2,
+        "content_hash": "2c1cb5005040cb7f29e7fc8007f3f552dc2fe1aa0fd9e14b12a52053413b4aae",
+        "role": "fashion",
+        "checks": [
+          {
+            "check_id": "locked:TEST_COMPOUND",
+            "owner_role": "fashion",
+            "severity": "hard",
+            "status": "pass",
+            "prompt_quote": "Trang phục nữ đi học đại học, áo ngắn cổ kín tay dài màu xanh chàm, vải cotton nhẹ và thoáng, chất liệu và cấu tạo ưu tiên dễ giặt.",
+            "source_ids": [],
+            "reason": "Image_prompt đã bao phủ đầy đủ các ý: nhẹ, thoáng và dễ giặt theo đúng yêu cầu khóa."
+          }
+        ],
+        "criterion_ratings": [
+          {
+            "criterion_id": "need_fit",
+            "applicable": true,
+            "rating": 5,
+            "reason": "Đáp ứng hoàn hảo nhu cầu đi học đại học cùng tiêu chí chất liệu nhẹ, thoáng và dễ giặt."
+          },
+          {
+            "criterion_id": "silhouette_structure",
+            "applicable": true,
+            "rating": 5,
+            "reason": "Cấu trúc trang phục rõ ràng, tỉ lệ hợp lý với hai góc nhìn trước và sau đầy đủ."
+          },
+          {
+            "criterion_id": "material_technique",
+            "applicable": true,
+            "rating": 5,
+            "reason": "Chất liệu cotton nhẹ, thoáng kết hợp ưu tiên dễ giặt được nêu đầy đủ và khả thi."
+          },
+          {
+            "criterion_id": "contextual_usability",
+            "applicable": true,
+            "rating": 5,
+            "reason": "Rất phù hợp với môi trường học đường, vừa thanh lịch vừa tiện lợi cho sinh viên."
+          }
+        ],
+        "strengths": [
+          "Thể hiện đầy đủ và chính xác tất cả các mệnh đề của yêu cầu đã chốt.",
+          "Cấu trúc và phom dáng thiết kế rõ ràng, đồng nhất cho lookbook studio."
+        ],
+        "concerns": [
+          "Cần kiểm tra thực tế độ bền của chất liệu sau khi giặt là nhiều lần."
+        ],
+        "suggested_fixes": [
+          "Tiến hành may thử nghiệm mẫu thực tế để kiểm chứng độ rủ và tính dễ giặt."
+        ],
+        "summary": "Phương án hoàn thiện tốt, đáp ứng toàn diện các yêu cầu về thời trang, cấu trúc và chất liệu.",
+        "score": 100.0,
+        "score_reason": "Trọng số các tiêu chí: need_fit (30), silhouette_structure (30), material_technique (25), contextual_usability (15). Đánh giá rating tương ứng: need_fit=5 (đóng góp 30), silhouette_structure=5 (đóng góp 30), material_technique=5 (đóng góp 25), contextual_usability=5 (đóng góp 15). Tổng contribution = 30 + 30 + 25 + 15 = 100. Điểm số chuyên môn là 100.0."
+      }
+    ]
+  },
+  "usage": {
+    "promptTokenCount": 6662,
+    "candidatesTokenCount": 1652,
+    "totalTokenCount": 8314,
+    "cachedContentTokenCount": 1666,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 6662
+      }
+    ],
+    "cacheTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1666
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "metadata": {
+    "groundingMetadata": {},
+    "urlContextMetadata": {},
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "9-XJaru_H9jc1e8Ph7DjmQI"
+  }
+}

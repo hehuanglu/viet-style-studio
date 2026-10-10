@@ -131,7 +131,7 @@ class ImageWorkflow:
             # HTTP downloads also work in browsers that cannot download blob URLs.
             for role, raw in assets:
                 asset_id = str(uuid.uuid4())
-                (self.store.directory / f"{asset_id}.image").write_bytes(raw)
+                self.store.write_asset(asset_id, raw)
                 result[role + "_url"] = f"/artifacts/{asset_id}?download={role}"
         return result
 
@@ -145,7 +145,7 @@ class ImageWorkflow:
 
     def _save_edit_context(self, job, artifact, description, guide, raw):
         guide_id = str(uuid.uuid4())
-        (self.store.directory / f"{guide_id}.image").write_bytes(raw)
+        self.store.write_asset(guide_id, raw)
         context = dict(description, kind="image", source="user_sketch", parent_artifact_id=artifact["parent_artifact_id"],
                        artifact_id=artifact["artifact_id"], guide_url=f"/artifacts/{guide_id}", guide_hash=digest(raw), guide_mime_type=guide["mime_type"],
                        findings=[{"fix": description["instruction"]}], quality_reason="", repair_prompt=description["prompt"])
@@ -308,13 +308,13 @@ class ImageWorkflow:
         return next(a for a in job["artifacts"] if a["artifact_id"] == job["image_workflow"]["artifact_id"])
 
     def _artifact_image(self, artifact):
-        raw = (self.store.directory / (artifact["artifact_id"] + ".image")).read_bytes()
+        raw = self.store.read_asset(artifact["artifact_id"])
         require(digest(raw) == artifact["hash"], "Ảnh đã lưu bị thay đổi; không tiếp tục audit", "artifact_corrupt", 409)
         return {"mime_type": artifact["mime_type"], "data": base64.b64encode(raw).decode()}
 
     def _save_image_artifact(self, job, image, raw, parent_id, origin):
         artifact_id = str(uuid.uuid4())
-        (self.store.directory / f"{artifact_id}.image").write_bytes(raw)
+        self.store.write_asset(artifact_id, raw)
         artifact = {"artifact_id": artifact_id, "candidate_id": self._image_candidate(job)["candidate_id"], "mime_type": image["mime_type"], "hash": digest(raw), "check_status": "unverified", "url": f"/artifacts/{artifact_id}", "output_origin": origin, "parent_artifact_id": parent_id}
         job["artifacts"].append(artifact)
         return artifact

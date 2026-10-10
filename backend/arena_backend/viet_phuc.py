@@ -13,7 +13,7 @@ DATA = PROJECT / 'backend' / 'viet_phuc'
 PROMPT_DIR = PROJECT / 'docs' / 'viet-phuc-v2' / 'prompts'
 SCHEMAS = {'VP01': 'CleanPrompt', 'VP02': 'ClarificationChecklist', 'VP02R': 'ReferenceDiscoveryBundle',
            'VP02C': 'SelectionConflictReview', 'VP03': 'ResolvedBrief', 'VP04': 'ImagePromptBatch', 'VP05': 'SpecialistAuditBatch',
-           'VP06': 'SpecialistAuditBatch', 'VP07': 'SpecialistAuditBatch', 'VP08': 'HarmonyAuditBatch'}
+           'VP06': 'SpecialistAuditBatch', 'VP07': 'SpecialistAuditBatch', 'VP08': 'HarmonyAuditBatch', 'VP09': 'DesignStory'}
 ROLES = {'VP05': 'fashion', 'VP06': 'culture', 'VP07': 'art'}
 CONTENT_FIELDS = ('title', 'image_prompt', 'design_sections', 'fashion_summary', 'art_summary',
                   'culture_summary', 'choices_made', 'claims', 'locked_coverage', 'assumptions', 'limitations')

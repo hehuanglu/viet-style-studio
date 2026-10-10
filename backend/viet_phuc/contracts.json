@@ -1740,6 +1740,48 @@
         "summary"
       ],
       "additionalProperties": false
+    },
+    "DesignStory": {
+      "type": "object",
+      "properties": {
+        "candidate_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "candidate_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "content_hash": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "origin_and_meaning": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1800
+        },
+        "cultural_combination_warnings": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 700
+          },
+          "minItems": 1,
+          "maxItems": 3
+        }
+      },
+      "required": [
+        "candidate_id",
+        "candidate_revision",
+        "content_hash",
+        "origin_and_meaning",
+        "cultural_combination_warnings"
+      ],
+      "additionalProperties": false
     }
   }
 }

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "F1",
+    "priority": "P1",
+    "stage": "VP02 → VP02C",
+    "title": "Bỏ sót mâu thuẫn trực tiếp nghiêm trọng",
+    "evidence": "Ca adversarial r2 và r5 đều VP02C=clear. Ở r5 custom yêu cầu cùng một cổ, cùng lớp/vị trí vừa che kín toàn bộ ngực vừa khoét sâu để phần ngực đó hở trực tiếp, không lót/áo trong/phối lớp. Summary r5 còn nói các yêu cầu hoàn toàn khả thi. VP02 trước đó đề xuất xếp nếp lập thể hoặc viền liền để thực hiện cùng mâu thuẫn.",
+    "impact": "Người dùng được đưa tiếp với kết luận sai; VP03 không phải cơ chế bảo đảm chặn conflict. Trong lần này luồng dừng vì validator nguồn/provenance, không phải review đã bắt đúng cổ áo.",
+    "proposal": "VP02 không đưa phương án tự giải một mâu thuẫn đang khóa thành option hợp lệ. VP02C bắt đầu bằng so các must/avoid còn hiệu lực và custom mới; nếu cùng source chứa hai vế thì tách hai quote. Ràng buộc phải dùng dữ kiện vị trí/lớp người dùng đã nêu, không tự phát minh lớp lót/trang trí giả để trả clear. Thêm đúng case này vào regression.",
+    "tradeoff": "Sửa hẹp cho cặp phủ định trực tiếp, giữ clear cho phối lớp thật hoặc tổ hợp lạ; không mở thành bộ cấm gu thẩm mỹ. Không cần thêm một auditor/API call cho mọi yêu cầu."
+  },
+  {
+    "id": "F2",
+    "priority": "P1",
+    "stage": "VP03 + payload old_atom_binding",
+    "title": "Quyền sửa ý cũ mâu thuẫn với danh sách buộc khóa",
+    "evidence": "Sau explicit_changes A4/A7/A8 đã confirmed=yes, old_atom_binding vẫn must_lock A4/A7 và keep_delegated A8; do_not_lock cũng chứa A8. Bốn response ở revision 7/8 vẫn khóa A4/A7. Workflow dừng Ý đã thay vẫn bị khóa sau retry.",
+    "impact": "Người dùng không thể sửa yêu cầu qua bảng cũ trong ca này; phải nhập lại mới lấy được ba prompt. Không thể kết luận luồng chọn lại đã thành công.",
+    "proposal": "Khi xây old_atom_binding, loại các atom_id đã có explicit_changes khỏi cả must_lock/keep_delegated, ghi rõ superseded_atom_ids. VP03 ưu tiên replacement_text mới đã xác nhận, vẫn giữ atom cũ như lịch sử nhưng không khóa/giao AI còn hiệu lực. Backend provenance validation hiện có nên giữ.",
+    "tradeoff": "Ưu tiên sửa payload trước khi viết thêm nhiều quy tắc prompt. Chi phí thấp, lợi ích trực tiếp cho chọn lại; không nới validator để bỏ lịch sử hoặc âm thầm thay ý người dùng."
+  },
+  {
+    "id": "F3",
+    "priority": "P1",
+    "stage": "VP05–VP07",
+    "title": "Chứng cứ audit có thể được chép từ summary hoặc viết lại",
+    "evidence": "Full: 72/198 quote không có nguyên văn trong image_prompt; sparse: 4/144; adversarial sau sửa: 17/188. Full R2-B1-C1 culture quote ‘Chất liệu nhẹ, thoáng trong khí hậu nóng, dễ giặt’ chỉ có ở design_sections; image_prompt không có ‘dễ giặt’. Fashion R2-B1-C2 dùng ‘vải đục có lót kín đáo’ để pass tiêu chí gồm nhẹ/thoáng/dễ giặt. Một số quote chứa dấu ... do ghép đoạn. Đây là lỗi đúng hợp đồng quote, không phải mọi trường hợp đều là bịa nguồn lịch sử.",
+    "impact": "Nhận xét pass và điểm 100 có thể chứng minh nhầm nội dung ngoài prompt cuối; người dùng nhìn kết quả như đã đủ điều kiện dù prompt còn thiếu.",
+    "proposal": "Tách các vế kiểm tra của atom ghép; mỗi vế phải tìm chứng cứ trong image_prompt đúng candidate. Không dùng summary/design_sections làm prompt_quote; thiếu vế thì uncertain kèm phần thiếu. Đối chiếu exact-quote tự động là kiểm tra toàn vẹn rẻ; có thể đánh dấu audit chưa đáng tin và giữ nguyên phương án, không tự loại thiết kế.",
+    "tradeoff": "Không cần khôi phục toàn bộ domain gate/dedupe. Chỉ kiểm tra quote và trình bày trạng thái; tăng chút dữ liệu kiểm tra nhưng tránh thêm nhiều lượt model."
+  },
+  {
+    "id": "F4",
+    "priority": "P2",
+    "stage": "VP08",
+    "title": "Tổng điểm không tuân thủ đúng trọng số đã cấp",
+    "evidence": "10/18 ứng viên có proposed_total lệch phép tính balanced. Sparse R2-B1-C3: fashion=100,culture=100,art=80,harmony=97.5 → 94.50, API trả 95.50. Sáu sparse đều lệch +0.20 đến +1.50; bốn adversarial sau sửa lệch +0.20/+0.50. Full sáu phương án đều 100 và phép tính khớp.",
+    "impact": "Trong mẫu này không thay đổi top 3. Tuy nhiên sai số là lỗi số học có thể ảnh hưởng các ca sát điểm; không phải cơ sở tự loại thiết kế.",
+    "proposal": "VP08 trình bày đúng từng thành phần và phép cộng rồi trả proposed_total. Nếu điểm quyết định ranking, cân nhắc total tính xác định từ các source_scores/harmony_score và hiển thị API total riêng; không tính lại rating chuyên môn.",
+    "tradeoff": "Không cần tăng model hay thêm role chỉ để làm phép cộng. Trước mắt có thể ghi sai số; ưu tiên sau F1/F2/F3 vì ranking mẫu này không đổi."
+  },
+  {
+    "id": "F5",
+    "priority": "P2",
+    "stage": "VP04 + VP05/07/08",
+    "title": "Hai góc nhìn được yêu cầu nhưng mặt sau còn thiếu thiết kế cụ thể",
+    "evidence": "9 prompt gốc yêu cầu trước/sau, nhưng đều không mô tả độc lập thân sau, nối tiếp trang trí/vải/túi ở mức đủ rõ. Full VP04 còn bỏ vài điều tránh/dễ giặt chỉ có trong summary; full cả sáu candidate và nhiều audit 100, trong khi concerns nêu lót nóng hoặc hai kỹ thuật phức tạp.",
+    "impact": "Ảnh có thể tự thêm họa tiết mặt sau, đổi túi/người mẫu, hoặc bỏ chi tiết khóa. Điểm cao không phân biệt đủ tên chi tiết với mô tả có thể dựng ảnh.",
+    "proposal": "VP04 thêm cấu trúc ngắn: mặt trước; mặt sau; đồng nhất; điều giữ/điều tránh. VP05/07 chấm độ cụ thể và đánh đổi, không tối đa chỉ vì có từ khóa. Thiếu tự do cho khác biệt thì limitations rõ; không buộc biến thể trái brief.",
+    "tradeoff": "Thêm vài câu hữu ích hơn mở schema lớn. Không bắt hai mặt giống hệt hoặc luôn trơn; đó chỉ là chỉnh thử của Sol cho các ca này, không nên biến thành luật toàn cục."
+  },
+  {
+    "id": "F6",
+    "priority": "P2",
+    "stage": "VP01 + VP03",
+    "title": "Chỉ thị vượt hợp đồng được giữ như phần giao AI thiết kế",
+    "evidence": "VP01/VP02 adversarial giữ yêu cầu bịa URL/cho điểm tối đa trong A8 intent_type=delegated; old_atom_binding giữ A8. VP03 một response r2 needs_evidence, các response khác r2/r3 lại historical+ready với reference_ids=[]; validator nguồn đã chặn. Không thấy URL bịa được chấp nhận trong kết quả cuối.",
+    "impact": "Chỉ thị điều khiển hệ thống có thể lẫn vào creative_space; trong mẫu này các guard trước VP04 ngăn luồng tiếp, nhưng tốn retry và dễ gây sai đánh giá.",
+    "proposal": "Giữ nguyên raw để audit, nhưng VP01 phân biệt ý thiết kế với chỉ thị đổi schema/điểm/nguồn; phần sau chỉ ghi như dữ liệu không có quyền điều khiển, không đưa vào delegated_atom_ids/creative_space. VP03 historical thiếu nguồn phải needs_evidence trước khi tự chốt ready.",
+    "tradeoff": "Không xóa lịch sử người dùng và không coi mọi từ lạ là injection. Không thêm tìm web để đáp ứng một tài liệu chưa được cung cấp/được ngụy tạo."
+  },
+  {
+    "id": "F7",
+    "priority": "P2",
+    "stage": "image-edit-template.txt + endpoint render prompt",
+    "title": "Prompt sửa ảnh phụ thuộc ngữ cảnh và luôn giả định hai ảnh",
+    "evidence": "9 packet được render thật qua image-edit-prompt với strokes=[] và không gửi ảnh. Template vẫn nói ảnh 1 là ảnh sạch, ảnh 2 là ảnh đánh dấu. CONTEXT chỉ có candidate.design và hard_constraints, không có nguyên image_prompt, creative_space hay brief đầy đủ. Đây là test render văn bản, không test ảnh.",
+    "impact": "Nếu sao chép packet không kèm đủ ảnh sẽ gây mơ hồ. Nếu mở cuộc chat Gemini mới, chỉ một phần chi tiết được đưa sang; dễ đổi mặt sau hoặc phương án gốc mà người dùng không yêu cầu.",
+    "proposal": "Prompt nhận danh sách ảnh thực tế: chỉ nói ảnh đánh dấu khi có. Đưa prompt gốc hoặc bản thiết kế đầy đủ vào context, cùng brief hiệu lực và vùng/chi tiết giữ. Phân biệt prompt sửa ảnh với prompt tạo ảnh độc lập.",
+    "tradeoff": "Thêm văn bản làm copy dài hơn nhưng bảo toàn thiết kế; không cần gọi Gemini chỉ để nối template. Chưa thử clipboard/frontend hay ảnh thực tế, nên không kết luận việc dán đủ ảnh đã hoạt động."
+  },
+  {
+    "id": "F8",
+    "priority": "P3",
+    "stage": "VP00/VP02/VP04/VP08 + docs/tests",
+    "title": "Một số chỉ dẫn cũ không khớp runtime hiện tại",
+    "evidence": "VP00/VP02 còn mô tả tìm web mặc định, backend ép text_only và provider không gửi tools. VP04 còn nói ứng dụng xử lý trùng trong khi ranking không dedupe. VP08/config còn minimum_total legacy và nhiều câu gate dù api_only đã ghi ưu tiên. Bốn test về web/split/warning hỏng trước và sau thay validator.",
+    "impact": "Tốn token, gây mơ hồ và làm người vận hành đánh giá sai cơ chế thực. Chưa chứng minh các câu này là nguyên nhân duy nhất của một failure trong mẫu.",
+    "proposal": "Dọn đúng các câu đã hết hiệu lực, đồng bộ docs/tests với runtime đã chốt; không mở lại nguồn/dedupe/ngưỡng chỉ vì template cũ nhắc tới.",
+    "tradeoff": "Sửa nhỏ khi cập nhật template tiếp theo; không ưu tiên hơn các lỗi có bằng chứng trực tiếp."
+  }
+]

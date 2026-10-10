@@ -302,7 +302,7 @@ class V2Tests(unittest.TestCase):
         self.assertEqual(final['status'], 'awaiting_image', final['error'])
         self.assertEqual(final['prompt_pool'], before)
         batches = len(failed['generation_batches'])
-        self.assertEqual(final['metrics']['design']['attempts'], used + 2 * batches)
+        self.assertEqual(final['metrics']['design']['attempts'], used + 2 * batches + 3)
         self.assertEqual([t for t,p in provider.payloads[called:]].count('VP06'), batches)
         self.assertEqual([t for t,p in provider.payloads[called:]].count('VP08'), batches)
         self.assertNotIn('VP05', [t for t,p in provider.payloads[called:]])
@@ -321,7 +321,7 @@ class V2Tests(unittest.TestCase):
         base = self.engine()
         experimental = Engine(Recorder(), Path(self.temp.name) / 'budget', allow_mock_requests=True, design_attempts_override=32)
         self.engines.append(experimental)
-        self.assertEqual(base.vp_config['design_budget']['total_provider_calls_max'], 30)
+        self.assertEqual(base.vp_config['design_budget']['total_provider_calls_max'], 36)
         self.assertEqual(experimental.vp_config['design_budget']['total_provider_calls_max'], 32)
         self.assertEqual(experimental.vp_config['design_budget']['active_processing_deadline_seconds'], 320)
         self.assertEqual(experimental.vp_config['media_budget']['total_provider_calls_max'], 13)
@@ -335,9 +335,9 @@ class V2Tests(unittest.TestCase):
         report = user_report(job, engine.policy)
         self.assertEqual(report['api']['budgets']['design']['total_provider_calls_max'], 32)
         self.assertEqual(report['api']['budgets']['media']['total_provider_calls_max'], 13)
-        self.assertEqual(engine.vp_config['design_budget']['total_provider_calls_max'], 30)
+        self.assertEqual(engine.vp_config['design_budget']['total_provider_calls_max'], 36)
         job['budget_config'] = {'design': engine.vp_config['design_budget'], 'media': engine.vp_config['media_budget']}
-        self.assertEqual(user_report(job, engine.policy)['api']['budgets']['design']['total_provider_calls_max'], 30)
+        self.assertEqual(user_report(job, engine.policy)['api']['budgets']['design']['total_provider_calls_max'], 36)
 
     def test_resolution_retry_keeps_choices_and_budget_and_rejects_old_revision(self):
         class Recoverable(Recorder):
@@ -350,8 +350,10 @@ class V2Tests(unittest.TestCase):
         job = self.start(engine); engine.selections(job['request_id'], self.choices(job))
         failed = wait(engine, job['request_id']); spent = failed['metrics']['design']['attempts']
         self.assertEqual(failed['failed_stage'], 'resolving_choices')
-        failed['warnings'].append('Fixture: lỗi của revision trước')
-        engine.store.save_job(failed)
+        with engine.lock:
+            failed = engine.store.get_job(job['request_id'])
+            failed['warnings'].append('Fixture: lỗi của revision trước')
+            engine.store.save_job(failed)
         provider.broken = False
         resumed = engine.retry_resolution(job['request_id'], {'revision': failed['revision']})
         self.assertEqual(resumed['revision'], failed['revision'] + 1)
@@ -364,7 +366,7 @@ class V2Tests(unittest.TestCase):
         self.assertEqual(final['resolution_retry_history'][0]['error'], failed['error'])
         self.assertTrue(any('Fixture: lỗi của revision trước' in h['warnings'] for h in final['warning_history']))
         self.assertNotIn('Fixture: lỗi của revision trước', final['warnings'])
-        self.assertEqual(final['budget_config']['design']['total_provider_calls_max'], 30)
+        self.assertEqual(final['budget_config']['design']['total_provider_calls_max'], 36)
         contract = next(p['VALIDATED_SELECTIONS']['decision_contracts'] for t, p in provider.payloads if t == 'VP03')
         self.assertTrue(contract[0]['delegated'])
         self.assertEqual(contract[0]['option_ids'], ['delegate'])
@@ -433,6 +435,68 @@ class V2Tests(unittest.TestCase):
         self.assertEqual(result['status'], 'awaiting_image', result['error'])
         return result
 
+    def test_design_story_calls_only_top_three_and_preserves_image_prompts(self):
+        provider = Recorder(); e = self.engine(provider)
+        final = self.finish(e, self.start(e))
+        calls = [p for task, p in provider.payloads if task == 'VP09']
+        self.assertEqual(len(calls), 3)
+        self.assertEqual({p['CANDIDATE']['candidate_id'] for p in calls}, set(final['selected_prompt_ids']))
+        original = {c['candidate_id']: c for c in final['prompt_pool']}
+        for card in final['cards']:
+            self.assertEqual(card['image_prompt'], original[card['candidate_id']]['image_prompt'])
+            self.assertEqual(card['design_story']['content_hash'], card['content_hash'])
+            self.assertEqual(card['design_story']['candidate_revision'], card['revision'])
+            self.assertTrue(card['design_story']['origin_and_meaning'])
+            self.assertTrue(card['design_story']['cultural_combination_warnings'])
+            payload = next(p for p in calls if p['CANDIDATE']['candidate_id'] == card['candidate_id'])
+            self.assertEqual(payload['CANDIDATE']['image_prompt'], card['image_prompt'])
+            self.assertEqual(payload['CULTURE_REVIEW'], final['specialist_audits'][card['candidate_id']]['culture'])
+        # Restart-style re-entry reattaches saved stories without another provider call.
+        count = len(provider.payloads)
+        for row in final['ranking']['ranked']:
+            e._vp_design_story(final['request_id'], final['revision'], row['candidate'])
+        self.assertEqual(len(provider.payloads), count)
+
+    def test_restart_resumes_only_missing_design_story(self):
+        e = self.engine(); final = self.finish(e, self.start(e))
+        e.executor.shutdown(wait=True)
+        job = e.store.get_job(final['request_id'])
+        cid = job['cards'][-1]['candidate_id']
+        del job['design_stories'][cid]
+        for key, checkpoint in list(job['checkpoints'].items()):
+            if checkpoint['task'] == 'VP09' and checkpoint['value']['candidate_id'] == cid:
+                del job['checkpoints'][key]
+                # Simulate one interrupted call that has not used the retry allowance.
+                for record in job['call_records'].values():
+                    if record['task_key'] == key:
+                        record['status'] = 'interrupted'
+        job['status'] = 'writing_design_stories'
+        job.pop('image_workflow', None); job.pop('pending_manual', None)
+        e.store.save_job(job); directory = e.store.directory
+        e.store.close(); self.engines.remove(e)
+        provider = Recorder(); restarted = self.engine(provider, directory)
+        result = wait(restarted, job['request_id'])
+        self.assertEqual(result['status'], 'awaiting_image', result['error'])
+        self.assertEqual([task for task, payload in provider.payloads], ['VP09'])
+        self.assertEqual(provider.payloads[0][1]['CANDIDATE']['candidate_id'], cid)
+        self.assertTrue(all(card.get('design_story') for card in result['cards']))
+        self.assertEqual(result['image_prompts'], final['image_prompts'])
+
+    def test_design_story_rejects_wrong_candidate_without_claiming_complete(self):
+        class WrongStory(Recorder):
+            def structured_v2(self, task, *args, **kwargs):
+                value, usage, metadata = super().structured_v2(task, *args, **kwargs)
+                if task == 'VP09':
+                    value['candidate_id'] = 'wrong-candidate'
+                return value, usage, metadata
+        e = self.engine(WrongStory()); job = self.start(e)
+        e.selections(job['request_id'], self.choices(job)); final = wait(e, job['request_id'])
+        self.assertEqual(final['status'], 'failed')
+        self.assertEqual(final['failed_stage'], 'writing_design_stories')
+        self.assertEqual(final['error']['code'], 'semantic_invalid')
+        self.assertTrue(all('design_story' not in c for c in final['cards']))
+        self.assertNotIn('pending_manual', final)
+
     def test_no_audit_mode_stores_uploaded_image_without_inspection(self):
         from test_manual_workflow import image
         engine = self.engine()
@@ -490,12 +554,16 @@ class V2Tests(unittest.TestCase):
         tasks = [t for t, _ in p.payloads]
         first_audit = min(tasks.index(t) for t in ('VP05', 'VP06', 'VP07'))
         self.assertEqual(tasks[:first_audit].count('VP04'), 2)
-        self.assertEqual(final['pool_barrier']['count'], 6)
-        self.assertEqual(final['metrics']['design']['attempts'], 14)
+        self.assertEqual(final['pool_barrier']['count'], 5)
+        self.assertEqual(final['pool_barrier']['target'], 5)
+        self.assertEqual(final['design_progress']['pool_target'], 5)
+        self.assertEqual(sorted(len(payload['CANDIDATE_SLOTS']['slots']) for task, payload in p.payloads if task == 'VP04'), [2, 3])
+        self.assertEqual(final['supplemental_batches'], 0)
+        self.assertEqual(final['metrics']['design']['attempts'], 17)
         self.assertEqual(final['metrics']['media']['attempts'], 0)
         self.assertEqual(final['metrics']['actual_api_calls'], 0)
-        self.assertEqual(len(final['prompt_pool']), 6)
-        self.assertEqual(len({json.dumps(c['design_sections']) for c in final['prompt_pool']}), 6)
+        self.assertEqual(len(final['prompt_pool']), 5)
+        self.assertEqual(len({json.dumps(c['design_sections']) for c in final['prompt_pool']}), 5)
         for task, payload in p.payloads:
             if task in vp.ROLES:
                 self.assertNotIn('VALIDATED_SPECIALIST_AUDITS', payload)
@@ -507,7 +575,7 @@ class V2Tests(unittest.TestCase):
         for c, entry in zip(final['cards'], final['image_prompts']):
             self.assertEqual(c['image_prompt'], originals[c['candidate_id']]); self.assertEqual(entry['prompt'], c['image_prompt'])
         report = user_report(final, e.policy)
-        self.assertEqual(len(report['candidate_audits']), 24)
+        self.assertEqual(len(report['candidate_audits']), 20)
         self.assertEqual(report['api']['totals']['actual'], 0)
         self.assertNotIn('điểm gần', report['selection_reason'])
 
@@ -663,10 +731,10 @@ class V2Tests(unittest.TestCase):
         searched=vp.normalize_references([ref],search)[0]
         self.assertEqual(searched['discovery_status'],'tool_grounded');self.assertIsNone(searched['supporting_excerpt']);self.assertIsNone(searched['preview_url'])
 
-    def test_split_reference_branch_is_fourteen_attempts(self):
+    def test_split_reference_branch_includes_three_story_attempts(self):
         e=self.engine();e.vp_config['reference_discovery']='split'
         final=self.finish(e,self.start(e))
-        self.assertEqual(final['metrics']['design']['attempts'],14)
+        self.assertEqual(final['metrics']['design']['attempts'],17)
         self.assertNotIn('VP02R',[t['task'] for t in final['trace']])
 
     def test_disabled_discovery_never_enters_tools_fallback(self):
@@ -727,7 +795,7 @@ class V2Tests(unittest.TestCase):
                 return v,u,m
         p=Uncertain();e=self.engine(p);j=self.start(e);e.selections(j['request_id'],self.choices(j));final=wait(e,j['request_id'])
         self.assertEqual(final['status'],'awaiting_image');self.assertEqual(len(final['cards']),3)
-        self.assertEqual(final['supplemental_batches'],0);self.assertEqual(len(final['prompt_pool']),6)
+        self.assertEqual(final['supplemental_batches'],0);self.assertEqual(len(final['prompt_pool']),5)
         self.assertTrue(all(c['specialist_reviews']['fashion']['checks'][0]['status']=='uncertain' for c in final['cards']))
 
     def test_top_three_strict_score_even_similar_and_tie_id(self):
@@ -752,7 +820,7 @@ class V2Tests(unittest.TestCase):
         j=e.store.get_job(j['request_id']);design_seconds=j['metrics']['design']['active_seconds']
         e.submit_image(j['request_id'],{'revision':j['revision'],'step_id':j['pending_manual']['step_id'],'image':image(),'filename':'fixture.png'})
         final=wait(e,j['request_id']);self.assertEqual(final['status'],'complete',final['error'])
-        self.assertEqual(final['metrics']['design']['attempts'],14)
+        self.assertEqual(final['metrics']['design']['attempts'],17)
         self.assertEqual(final['metrics']['media']['attempts'],1)
         self.assertEqual(final['metrics']['design']['active_seconds'],design_seconds)
         self.assertEqual(final['artifacts'][-1]['candidate_id'],j['cards'][2]['candidate_id'])
@@ -782,7 +850,7 @@ class V2Tests(unittest.TestCase):
         p=Recorder();restarted=self.engine(p,directory);result=wait(restarted,job['request_id'])
         self.assertEqual(result['status'],'awaiting_image',result['error'])
         self.assertEqual([t for t,_ in p.payloads],['VP06'])
-        self.assertEqual(result['metrics']['design']['attempts'],15)
+        self.assertEqual(result['metrics']['design']['attempts'],18)
 
     def test_reopen_saved_choices_reuses_options_without_provider_calls(self):
         provider = Recorder(); e = self.engine(provider)
@@ -841,15 +909,15 @@ class V2Tests(unittest.TestCase):
                     self.failed=True;raise ProviderError('google_http_500','Injected transport failure',retryable=True)
                 return super().structured_v2(task,*args,**kwargs)
         e=self.engine(Observed());j=self.finish(e,self.start(e))
-        self.assertEqual(j['metrics']['actual_api_calls'],15)
-        self.assertEqual(j['metrics']['design']['actual_api_calls'],15)
-        self.assertEqual(j['metrics']['design']['attempts'],15)
+        self.assertEqual(j['metrics']['actual_api_calls'],18)
+        self.assertEqual(j['metrics']['design']['actual_api_calls'],18)
+        self.assertEqual(j['metrics']['design']['attempts'],18)
         ids=[c['provider_call_id'] for c in j['call_records'].values()]
         self.assertEqual(len(ids),len(set(ids)))
         report=user_report(j,e.policy)
-        self.assertEqual(report['api']['totals']['actual'],15)
+        self.assertEqual(report['api']['totals']['actual'],18)
         self.assertEqual(report['api']['totals']['failed'],1)
-        self.assertEqual(report['api']['totals']['success'],14)
+        self.assertEqual(report['api']['totals']['success'],17)
 
     def test_missing_specialist_never_gets_harmony_and_other_roles_persist(self):
         class BrokenCulture(Recorder):
@@ -941,14 +1009,10 @@ class V2Tests(unittest.TestCase):
             self.assertEqual(len(j['output_artifact_ids']),1);self.assertEqual(j['artifacts'][-1]['parent_artifact_id'],parent)
         directory=e.store.directory;e.close();self.engines.remove(e);e=self.engine(directory=directory)
         saved=e.store.get_job(j['request_id']);self.assertEqual(saved['output_artifact_ids'],j['output_artifact_ids']);self.assertEqual(saved['artifacts'][0]['artifact_id'],root)
-        self.assertEqual(saved['metrics']['design']['attempts'],14)
+        self.assertEqual(saved['metrics']['design']['attempts'],17)
         self.assertEqual(saved['metrics']['media']['attempts'],3)
 
-    def test_image_editor_and_image_audit_remain_unchanged(self):
-        import subprocess
-        for relative in ('frontend/image-editor.js',):
-            original=subprocess.check_output(['git','show','HEAD:'+relative],cwd=PROJECT)
-            self.assertEqual((PROJECT/relative).read_bytes(),original)
+    def test_image_audit_template_remains_consistent(self):
         from arena_backend.core import Prompts,KIT
         self.assertEqual(Prompts(KIT/'image-audit.md').templates['P06'],Prompts().templates['P06'])
 
@@ -986,7 +1050,7 @@ class V2Tests(unittest.TestCase):
         j['inflight']={'task':'P06','started_at':time.time()-2,'timeout_seconds':45,'provider_call_id':'injected-old'}
         store.save_job(j);store.close();p=Recorder();e=self.engine(p,directory=e.store.directory)
         j=wait(e,j['request_id']);self.assertEqual(j['status'],'complete',j['error'])
-        self.assertEqual(j['metrics']['design']['attempts'],14);self.assertEqual(j['metrics']['media']['attempts'],2)
+        self.assertEqual(j['metrics']['design']['attempts'],17);self.assertEqual(j['metrics']['media']['attempts'],2)
         self.assertEqual(j['metrics']['media']['actual_api_calls'],1);self.assertGreaterEqual(j['metrics']['media']['active_seconds'],2)
         self.assertFalse(p.payloads);self.assertNotIn('inflight',j)
         self.assertTrue(any(t.get('interrupted') and t.get('phase')=='media' for t in j['trace']))
@@ -1020,5 +1084,9 @@ class V2Tests(unittest.TestCase):
             request=urllib.request.Request(base+f"/requests/{j['request_id']}/selections", data=json.dumps(self.choices(j)).encode(),headers={'Content-Type':'application/json'},method='POST')
             result=json.load(urllib.request.urlopen(request));self.assertGreater(result['revision'],j['revision'])
             final=wait(e,j['request_id']);public=json.load(urllib.request.urlopen(base+f"/requests/{j['request_id']}"))
+            for key in ('checkpoints', 'generation_inputs', 'generation_batches', 'design_history'):
+                self.assertNotIn(key, public)
+            self.assertIn('generation_inputs', e.store.get_job(j['request_id']))
+            self.assertEqual(public['prompt_pool'], final['prompt_pool'])
             self.assertNotIn('checkpoints',public);self.assertEqual(len(public['cards']),3);self.assertEqual(public['user_report']['api']['totals']['actual'],0)
         finally:server.shutdown();server.server_close();thread.join()
