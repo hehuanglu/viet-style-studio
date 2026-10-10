@@ -66,7 +66,7 @@ class VietPhucWorkflow:
         require(not ('input' in payload and 'raw_prompt' in payload) or payload['input'] == raw, 'input và raw_prompt khác nhau')
         require(payload.get('creative_level', 'explore') in ('moderate', 'balanced', 'explore'), 'Mức sáng tạo không hợp lệ')
         require(payload.get('image_mode', 'gemini_manual') in ('gemini_manual', 'api'), 'image_mode không hợp lệ')
-        require(payload.get('audit_mode', 'background') in ('background', 'api', 'gemini_manual'), 'audit_mode không hợp lệ')
+        require(payload.get('audit_mode', 'background') in ('none', 'background', 'api', 'gemini_manual'), 'audit_mode không hợp lệ')
         require(type(payload.get('render_image', True)) is bool, 'render_image phải là boolean')
         require(payload.get('reference_mode', 'gemini_web') in ('gemini_web', 'text_only'), 'reference_mode không hợp lệ')
         session = payload.get('session_id') or str(uuid.uuid4()); idem = payload.get('idempotency_key')

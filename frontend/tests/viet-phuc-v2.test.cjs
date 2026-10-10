@@ -11,7 +11,7 @@ function button(dataset) {return {dataset, parentElement:parent, closest(){retur
 const copyButton=button({copyOption:'0'}), viewButton=button({viewOption:'0'});
 const cards = {innerHTML:'',querySelector(){return copyButton;},querySelectorAll(s){return s === '[data-copy-option]' ? [copyButton] : s === '[data-view-option]' ? [viewButton] : [];}};
 const context=vm.createContext({
-  document:{querySelector(s){if(s==='#cards')return cards;if(!selectors.has(s))selectors.set(s,{addEventListener(){},classList:{add(){},remove(){},toggle(){}},value:'',hidden:false});return selectors.get(s);},querySelectorAll(){return[];}},
+  document:{querySelector(s){if(s==='#cards')return cards;if(!selectors.has(s))selectors.set(s,{addEventListener(){},classList:{add(){},remove(){},toggle(){}},value:'',hidden:false,style:{setProperty(){}},setAttribute(){},getAttribute(){return 'false';},querySelector(){return {textContent:''};}});return selectors.get(s);},querySelectorAll(){return[];}},
   navigator:{clipboard:{async writeText(text){copies.push(text);}}},
   localStorage:{getItem(key){return key==='arena-session-id'?'session':null;},setItem(){}},
   location:{search:''},URLSearchParams,AbortController,crypto:{randomUUID(){return'id';}},
@@ -33,7 +33,7 @@ assert.match(selectors.get('#warnings').innerHTML, /100 lượt gọi/);
 assert.doesNotMatch(selectors.get('#warnings').innerHTML, /<details>/);
 context.quotaError={code:'google_http_429',message:'You exceeded your current quota'};
 const quota=vm.runInContext('errorGuidance(quotaError)',context);
-assert.match(quota.message,/giới hạn sử dụng/);assert.match(quota.next,/quyền tìm web/);
+assert.match(quota.message,/giới hạn sử dụng/);assert.match(quota.next,/hạn mức API/);
 assert.doesNotMatch(quota.message,/invalid key|sai key|You exceeded/);
 vm.runInContext('showRequestError(quotaError)',context);
 assert.match(selectors.get('#request-error').innerHTML,/<details><summary>Chi tiết kỹ thuật/);

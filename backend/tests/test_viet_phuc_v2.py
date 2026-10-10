@@ -433,6 +433,23 @@ class V2Tests(unittest.TestCase):
         self.assertEqual(result['status'], 'awaiting_image', result['error'])
         return result
 
+    def test_no_audit_mode_stores_uploaded_image_without_inspection(self):
+        from test_manual_workflow import image
+        engine = self.engine()
+        def unexpected_audit(*args, **kwargs):
+            raise AssertionError("No image API inspection is allowed")
+        engine._inspect_image = unexpected_audit
+        job = self.finish(engine, self.start(engine, audit_mode='none', reference_mode='text_only'))
+        engine.choose_image_candidate(job['request_id'], {'revision': job['revision'], 'step_id': job['pending_manual']['step_id'], 'candidate_id': job['cards'][0]['candidate_id']})
+        job = engine.store.get_job(job['request_id'])
+        engine.submit_image(job['request_id'], {'revision': job['revision'], 'step_id': job['pending_manual']['step_id'], 'image': image(), 'filename': 'No audit.png'})
+        final = wait(engine, job['request_id'])
+        self.assertEqual(final['status'], 'complete')
+        self.assertEqual(final['audit_mode'], 'none')
+        self.assertEqual(final['artifacts'][-1]['check_status'], 'unverified')
+        self.assertEqual(final['selected_artifact_ids'], [])
+        self.assertEqual(final['output_artifact_ids'], [final['artifacts'][-1]['artifact_id']])
+
     def test_hundred_call_notice_is_persisted_without_stopping_workflow(self):
         import io
         provider = GeminiProvider('fake-test-key', session_call_limit=1)

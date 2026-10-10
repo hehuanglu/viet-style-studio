@@ -131,7 +131,7 @@ class Engine(VietPhucWorkflow, ImageWorkflow):
         require(isinstance(text, str) and 0 < len(text.strip()) <= 6000, "input phải là chuỗi 1–6000 ký tự")
         require(isinstance(payload.get("render_image", False), bool), "render_image phải là boolean")
         require(payload.get("image_mode", "api") in ("api", "gemini_manual"), "image_mode phải là api hoặc gemini_manual")
-        require(payload.get("audit_mode", "api") in ("api", "gemini_manual", "background"), "audit_mode phải là api, gemini_manual hoặc background")
+        require(payload.get("audit_mode", "api") in ("none", "api", "gemini_manual", "background"), "audit_mode phải là none, api, gemini_manual hoặc background")
         session_id = payload.get("session_id") or str(uuid.uuid4())
         require(isinstance(session_id, str) and 0 < len(session_id) <= 120, "session_id không hợp lệ")
         idempotency = payload.get("idempotency_key")

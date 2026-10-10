@@ -889,3 +889,23 @@ details summary:hover::before {
   background: #f8f9f5;
   border-color: #d1d6c8;
 }
+
+/* Three discrete creativity levels, adjustable by drag or arrow keys. */
+.creativity-control { grid-column: 1 / -1; width: 100%; padding: 6px 0 12px; }
+.creativity-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.creativity-heading label { margin: 0; font-size: 13px; font-weight: 600; }
+.creativity-heading output { color: var(--concept-red); font-size: 12px; font-weight: 700; background: var(--concept-red-light); border-radius: 20px; padding: 5px 12px; }
+.creativity-slider { --creativity-fill: 100%; appearance: none; -webkit-appearance: none; width: 100%; height: 6px; margin: 0; border: 0; border-radius: 10px; padding: 0; background: linear-gradient(to right, var(--concept-red) var(--creativity-fill), var(--concept-line) var(--creativity-fill)); cursor: pointer; }
+.creativity-slider::-webkit-slider-thumb { appearance: none; -webkit-appearance: none; width: 20px; height: 20px; border: 3px solid white; border-radius: 50%; background: var(--concept-red); box-shadow: 0 1px 5px #302a2640; transition: box-shadow .15s, transform .15s; }
+.creativity-slider::-moz-range-thumb { width: 14px; height: 14px; border: 3px solid white; border-radius: 50%; background: var(--concept-red); box-shadow: 0 1px 5px #302a2640; }
+.creativity-slider:active::-webkit-slider-thumb { transform: scale(1.15); box-shadow: 0 0 0 5px var(--concept-red-light); }
+.creativity-slider:focus-visible { outline: 2px solid var(--concept-red); outline-offset: 8px; }
+.creativity-labels { display: flex; justify-content: space-between; margin-top: 12px; color: var(--concept-muted); font-size: 11px; }
+.creativity-control .tiny-note { margin: 12px 0 0; }
+.auto-image-setting { margin: 18px 0; }
+.auto-image-toggle { display: inline-flex; align-items: center; gap: 10px; background: white; color: var(--concept-muted); border: 1px solid var(--concept-line); border-radius: 24px; padding: 10px 14px; font: inherit; font-size: 13px; cursor: pointer; transition: background .18s, color .18s, border-color .18s; }
+.auto-image-toggle[aria-pressed="true"] { background: var(--concept-red-light); border-color: var(--concept-red); color: var(--concept-red); }
+.auto-image-state { font-size: 11px; padding-left: 8px; border-left: 1px solid currentColor; }
+.auto-image-toggle:focus-visible { outline: 2px solid var(--concept-red); outline-offset: 3px; }
+.auto-image-toggle:disabled { opacity: .55; cursor: default; }
+.auto-image-setting .tiny-note { margin: 10px 0 0; line-height: 1.6; }

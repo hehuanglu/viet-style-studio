@@ -195,7 +195,7 @@ $("#request-form").addEventListener("submit", async (event) => {
   $("#progress").classList.remove("done", "stopped");
   window.scrollTo({ top: $("#result-section").offsetTop - 20, behavior: "smooth" });
   try {
-    const submission = {raw_prompt: input, workflow_version: 2, reference_mode: $("#reference-mode").value || "gemini_web", creative_level: $("#creative-level").value, session_id: sessionId, render_image: $("#render-image").checked, image_mode: $("#image-mode").value, audit_mode: $("#audit-mode").value};
+    const submission = {raw_prompt: input, workflow_version: 2, reference_mode: "text_only", creative_level: creativityLevels[Number($("#creative-level").value)].value, session_id: sessionId, render_image: $("#render-image").checked, image_mode: imageMode(), audit_mode: "none"};
     const fingerprint = JSON.stringify(submission);
     if (!pendingSubmission || pendingSubmission.fingerprint !== fingerprint) pendingSubmission = {fingerprint, key: crypto.randomUUID()};
     const created = await api("/requests", { method: "POST", body: JSON.stringify({...submission, idempotency_key: pendingSubmission.key}) });
@@ -276,7 +276,7 @@ $("#confirm-cancel-request")?.addEventListener("click", async (e) => {
 
 function errorGuidance(error) {
   const code = error?.code || "";
-  if (code === "google_http_429") return {message: "Gemini đang giới hạn sử dụng hoặc chưa cấp quyền cho bước này. Kết quả đã nhận và nhu cầu của bạn vẫn được giữ.", next: "Kiểm tra hạn mức và quyền tìm web của API key, hoặc đổi key có quyền sử dụng. Sau khi xử lý xong, bấm Thử lại yêu cầu.", quota: true};
+  if (code === "google_http_429") return {message: "Gemini đang giới hạn sử dụng hoặc chưa cấp quyền cho bước này. Kết quả đã nhận và nhu cầu của bạn vẫn được giữ.", next: "Kiểm tra hạn mức API của API key, hoặc đổi key có quyền sử dụng. Sau khi xử lý xong, bấm Thử lại yêu cầu.", quota: true};
   if (["google_http_401", "google_http_403", "missing_api_key"].includes(code)) return {message: "Gemini chưa chấp nhận API key hoặc quyền sử dụng của key.", next: "Nhập lại key trong phần Kết nối Gemini, rồi thử lại yêu cầu.", key: true};
   if (code === "google_http_400") return {message: "Gemini từ chối cấu hình ứng dụng gửi đi. Đây chưa phải lỗi trong cách bạn mô tả bộ đồ.", next: "Nhờ người thiết lập ứng dụng kiểm tra cấu hình Gemini. Sau khi sửa, bấm Thử lại yêu cầu."};
   if (code === "google_http_404") return {message: "Model Gemini đang cấu hình chưa dùng được với key này.", next: "Nhờ người thiết lập ứng dụng chọn model được Google cho phép, rồi thử lại."};
@@ -322,11 +322,11 @@ function renderNextAction(job) {
       note.textContent = "Bạn cũng có thể dùng chế độ cơ bản cho ý tưởng hiện đại: không tìm web, không có link đã kiểm chứng. Yêu cầu tái hiện lịch sử vẫn cần nguồn.";
       const button = document.createElement("button");
       button.type = "button"; button.className = "button button-quiet"; button.textContent = "Thử chế độ cơ bản";
-      button.addEventListener("click", () => { $("#reference-mode").value = "text_only"; $("#request-input").value = job.raw_prompt || job.turns?.[0]?.text || $("#request-input").value; $("#request-form").requestSubmit(); });
+      button.addEventListener("click", () => { $("#request-input").value = job.raw_prompt || job.turns?.[0]?.text || $("#request-input").value; $("#request-form").requestSubmit(); });
       box.append(note, button);
     }
     box.querySelector("[data-key-settings]").addEventListener("click", () => { $("#connection-settings").open = true; $("#api-key").focus(); });
-    box.querySelector("[data-retry-request]").addEventListener("click", () => { if (job.turns?.[0]) $("#request-input").value = job.raw_prompt || job.turns[0].text; $("#reference-mode").value = job.reference_mode || "gemini_web"; $("#request-form").requestSubmit(); });
+    box.querySelector("[data-retry-request]").addEventListener("click", () => { if (job.turns?.[0]) $("#request-input").value = job.raw_prompt || job.turns[0].text; $("#request-form").requestSubmit(); });
   } else if (job.status === "awaiting_manual_audit") {
     box.hidden = false;
     box.innerHTML = '<strong>Ảnh đã nhận</strong><a class="button button-quiet small-button" href="#manual-step">Kiểm tra ảnh ↓</a>';
@@ -507,14 +507,14 @@ async function sendAnswer(job, answer) {
 
 function renderWarnings(job) {
   const messages = [...(job.warnings || [])];
-  if (job.status === "needs_evidence") messages.unshift("Chưa đủ nguồn cho phần bắt buộc. Giữ nguyên mức lịch sử đã yêu cầu; có thể thử tìm nguồn lại.");
+  if (job.status === "needs_evidence") messages.unshift("Chưa đủ nguồn cho phần bắt buộc. Giữ nguyên mức lịch sử đã yêu cầu; có thể điều chỉnh yêu cầu.");
   if (job.status === "cards_only" && job.render_image && !job.artifacts?.length) messages.unshift("Không có ảnh đã kiểm tra; các gợi ý bằng chữ vẫn được giữ lại.");
   if (job.workflow_version === 2) {
     const basic = job.reference_mode === "text_only" ? '<p class="warning">Chế độ cơ bản: ý tưởng hiện đại, không có nguồn web đã tìm/đọc và không xác nhận lịch sử.</p>' : "";
     const usageWarnings = [...new Set(job.api_call_warnings || [])];
     const usageNotice = usageWarnings.map(message => `<p class="warning" role="status">${escapeHtml(message)}</p>`).join("");
     const notes = [...new Set(messages)].filter(message => !usageWarnings.includes(message));
-    $("#warnings").innerHTML = basic + usageNotice + (job.status === "needs_evidence" ? '<p class="warning">Chưa đủ nguồn cho yêu cầu đã chốt. Bạn có thể sửa lựa chọn hoặc thử tìm nguồn lại.</p>' : "") + (notes.length ? `<details><summary>Ghi chú xử lý (gồm các lần thử trước)</summary>${notes.map(message => `<p>${escapeHtml(message)}</p>`).join("")}</details>` : "");
+    $("#warnings").innerHTML = basic + usageNotice + (job.status === "needs_evidence" ? '<p class="warning">Chưa đủ nguồn cho yêu cầu đã chốt. Bạn có thể sửa lựa chọn hoặc điều chỉnh yêu cầu.</p>' : "") + (notes.length ? `<details><summary>Ghi chú xử lý (gồm các lần thử trước)</summary>${notes.map(message => `<p>${escapeHtml(message)}</p>`).join("")}</details>` : "");
     return;
   }
   $("#warnings").innerHTML = messages.map((message) => `<div class="warning">${escapeHtml(message)}</div>`).join("");
@@ -560,7 +560,7 @@ function renderImage(job) {
       await editor().open({...source, job, candidateId: artifact.candidate_id, onComplete: async (result, packet) => {
         if (!activeJob || activeJob.request_id !== job.request_id) throw new Error("Yêu cầu hiện tại đã thay đổi. Mở lại đúng ảnh để sửa.");
         const {original, ...context} = packet;
-        await api(`/requests/${job.request_id}/image-edits`, {method: "POST", body: JSON.stringify({revision: activeJob.revision, parent_artifact_id: artifact.artifact_id, image: result.image, filename: result.filename, ...context})});
+        await api(`/requests/${job.request_id}/image-edits`, {method: "POST", body: JSON.stringify({revision: activeJob.revision, parent_artifact_id: artifact.artifact_id, audit_mode: "none", image: result.image, filename: result.filename, ...context})});
         renderedManualKey = null; await refreshJob(); syncPolling();
       }});
     } catch (error) { showRequestError(error); }
@@ -568,13 +568,38 @@ function renderImage(job) {
   }));
 }
 
+const creativityLevels = [
+  {value: "moderate", label: "Vừa phải", description: "Điều chỉnh tiết chế, dùng cách đánh giá cân bằng."},
+  {value: "balanced", label: "Cân bằng", description: "Cân bằng tính ứng dụng và ý tưởng sáng tạo."},
+  {value: "explore", label: "Khám phá", description: "Ưu tiên ý tưởng mới và sáng tạo, vẫn giữ các chi tiết bạn đã chốt."},
+];
+function updateCreativity() {
+  const input = $("#creative-level"), level = creativityLevels[Number(input.value)] || creativityLevels[2];
+  $("#creative-level-label").textContent = level.label;
+  $("#creative-level-description").textContent = level.description;
+  input.setAttribute("aria-valuetext", level.label);
+  input.style.setProperty("--creativity-fill", `${Number(input.value) * 50}%`);
+}
+$("#creative-level").addEventListener("input", updateCreativity);
+
+function imageMode() { return $("#image-mode").getAttribute("aria-pressed") === "true" ? "api" : "gemini_manual"; }
 function updateImageMode() {
-  const manual = $("#image-mode").value === "gemini_manual";
+  $("#image-mode").querySelector(".auto-image-state").textContent = imageMode() === "api" ? "Bật" : "Tắt";
+  const manual = imageMode() === "gemini_manual";
   $("#render-image").disabled = (!manual && !imagesEnabled) || (!!activeJob && !terminal.has(activeJob.status));
-  $("#image-note").textContent = manual ? "Dán prompt vào Gemini, rồi gửi ảnh về; không gọi API tạo ảnh" : imagesEnabled ? "Tạo ảnh tự động qua API — cần bật billing, có tính phí" : "Tạo ảnh API cần bật billing và được người thiết lập ứng dụng bật tính năng";
+  $("#image-note").textContent = manual ? "Không chọn: chỉ nhận gợi ý. Khi chọn: tạo ảnh trên Gemini rồi gửi về để xem và chỉnh sửa." : imagesEnabled ? "Tạo ảnh tự động qua API — cần bật billing, có tính phí" : "Tạo ảnh API cần bật billing và được người thiết lập ứng dụng bật tính năng";
   if (!manual && !imagesEnabled) $("#render-image").checked = false;
 }
-$("#image-mode").addEventListener("change", updateImageMode);
+$("#image-mode").addEventListener("click", () => {
+  $("#image-mode").setAttribute("aria-pressed", String(imageMode() !== "api"));
+  if (imageMode() === "api" && imagesEnabled) $("#render-image").checked = true;
+  updateImageMode();
+});
+
+$("#render-image").addEventListener("change", () => {
+  if (!$("#render-image").checked) $("#image-mode").setAttribute("aria-pressed", "false");
+  updateImageMode();
+});
 
 async function resumeStep(job, endpoint, data = {}) {
   const box = $("#manual-step");
@@ -617,8 +642,8 @@ function renderManual(job) {
   const card = cards[candidateIndex];
   const heading = (title) => `<div class="manual-heading"><div><h3>${title}</h3><p class="manual-option">${escapeHtml(card?.title || `Phương án ${candidateIndex + 1}`)}</p></div><span class="manual-count">${job.image_target_ids ? "PHƯƠNG ÁN " : ""}${String(candidateIndex + 1).padStart(2, "0")}${job.image_target_ids ? "" : ` / ${String(cards.length || 1).padStart(2, "0")}`}</span></div>`;
   if (["audit_choice", "audit"].includes(pending.kind)) {
-    box.innerHTML = `${heading("Kiểm tra ảnh")}<p>Kiểm tra ảnh thủ công bằng JSON đã được bỏ. Bạn có thể tiếp tục bằng quy trình kiểm tra qua API và chỉnh sửa trực tiếp.</p><button class="button-primary" id="choose-background-audit" style="margin-top: 10px;">Tiếp tục kiểm tra qua API và chỉnh sửa</button>`;
-    box.querySelector("#choose-background-audit").addEventListener("click", () => resumeStep(job, "background-audit-mode"));
+    box.innerHTML = `${heading("Kiểm tra ảnh")}<p>Bạn có thể bỏ qua kiểm tra ảnh và tiếp tục chỉnh sửa trực tiếp.</p><button class="button-primary" id="choose-background-audit" style="margin-top: 10px;">Bỏ qua kiểm tra ảnh và tiếp tục</button>`;
+    box.querySelector("#choose-background-audit").addEventListener("click", () => resumeStep(job, "background-audit-mode", {audit_mode: "none"}));
     return;
   }
   const repair = pending.kind === "repair";
@@ -636,7 +661,7 @@ function renderManual(job) {
     </div>
     ${relevant.length ? `<div class="manual-references">${relevant.map((a) => `<div class="audit-reference"><img src="${escapeHtml(a.url)}" alt="${a.artifact_id === pending.artifact_id ? "Ảnh cần kiểm tra" : "Ảnh gốc"}" /><a class="button-secondary small-button" href="${escapeHtml(a.url)}" download style="text-decoration: none;">${a.artifact_id === pending.artifact_id ? "Tải ảnh cần kiểm tra" : "Tải ảnh gốc"}</a></div>`).join("")}</div>` : ""}
     <div class="manual-upload" tabindex="0" aria-label="Dán ảnh Gemini" style="margin-top: 20px;"><div class="upload-control" style="display: flex; gap: 10px; align-items: center;"><button type="button" class="button-secondary" id="paste-image">Dán ảnh</button><label for="manual-image" class="button-secondary upload-button" style="margin: 0;">Chọn ảnh</label><input id="manual-image" class="visually-hidden" type="file" accept="image/png,image/jpeg,image/webp" /><span id="upload-name" style="font-size: 13px; color: var(--muted);">Chưa chọn ảnh</span></div><span class="upload-hint" style="display: block; margin-top: 8px;">Ctrl+V / ⌘V hoặc chọn ảnh · PNG, JPG, WebP · tối đa 10 MB</span><div id="upload-preview" style="margin-top: 15px;"></div><div class="manual-actions" style="display: flex; gap: 10px; margin-top: 15px;"><button id="edit-upload" type="button" class="button-secondary" hidden>Mở ảnh / Phác thảo chỉnh sửa</button><button id="confirm-image" type="button" class="button-primary" disabled>Gửi ảnh</button></div></div>
-    ${job.audit_mode !== "background" ? '<button type="button" class="button-secondary" id="switch-direct-edit" style="margin-top: 15px;">Dùng quy trình chỉnh sửa trực tiếp</button>' : ""}
+    ${!["background", "none"].includes(job.audit_mode) ? '<button type="button" class="button-secondary" id="switch-direct-edit" style="margin-top: 15px;">Dùng quy trình chỉnh sửa trực tiếp</button>' : ""}
     <details class="manual-help" style="margin-top: 20px;" ${!repair ? "open" : ""}><summary>Hướng dẫn từng bước</summary><p style="margin-top: 10px;">${instructions}</p></details>`;
   box.querySelector("#copy-prompt")?.addEventListener("click", async () => {
     try {
@@ -646,7 +671,7 @@ function renderManual(job) {
       box.querySelector("#copy-message").textContent = "Trình duyệt chưa cho phép copy. Hãy cấp quyền clipboard rồi thử lại.";
     }
   });
-  box.querySelector("#switch-direct-edit")?.addEventListener("click", () => resumeStep(job, "background-audit-mode"));
+  box.querySelector("#switch-direct-edit")?.addEventListener("click", () => resumeStep(job, "background-audit-mode", {audit_mode: "none"}));
   let selectedImage = null;
   let selectedName = null;
   let selectedEdit = null;
@@ -699,7 +724,7 @@ function renderManual(job) {
   }, {signal: manualPasteController.signal});
   confirm.addEventListener("click", async () => {
     if (!selectedImage) return;
-    await resumeStep(job, "images", {image: selectedImage, filename: selectedName, ...(selectedEdit ? {edit_context: selectedEdit} : {})});
+    await resumeStep(job, "images", {audit_mode: "none", image: selectedImage, filename: selectedName, ...(selectedEdit ? {edit_context: selectedEdit} : {})});
     if (activeJob?.pending_manual?.step_id !== pending.step_id) uploadDrafts.delete(draftKey);
   });
   const draft = uploadDrafts.get(draftKey);
@@ -740,17 +765,14 @@ async function refreshJob() {
     if (requestId !== activeId) return;
     if (isOlderJob(job, activeJob)) return;
     if (!activeJob || activeJob.request_id !== job.request_id) {
-      $("#image-mode").value = job.image_mode || "api";
-      $("#audit-mode").value = job.audit_mode === "gemini_manual" ? "background" : (job.audit_mode || "api");
-      $("#render-image").checked = job.render_image;
+      $("#image-mode").setAttribute("aria-pressed", String(job.image_mode === "api" && !terminal.has(job.status)));
+      $("#render-image").checked = !!job.render_image && !terminal.has(job.status);
       $("#request-input").value = job.raw_prompt || job.turns[0]?.text || "";
-      $("#reference-mode").value = job.reference_mode || "gemini_web";
-      if (job.creative_level) $("#creative-level").value = job.creative_level;
+      if (job.creative_level) { $("#creative-level").value = Math.max(0, creativityLevels.findIndex(level => level.value === job.creative_level)); updateCreativity(); }
     }
     const previousStatus = activeJob ? activeJob.status : null;
     activeJob = job;
     $("#image-mode").disabled = !terminal.has(job.status);
-    $("#audit-mode").disabled = !terminal.has(job.status);
     updateImageMode();
     $("#result-section").hidden = false;
     $("#request-error").hidden = true;
@@ -951,7 +973,7 @@ function renderRevisionControl(job) {
   if (!box) return;
   box.hidden = job.workflow_version !== 2 || !job.checklist || !["awaiting_image", "complete", "cards_only", "needs_evidence", "needs_resolution", "failed"].includes(job.status);
   if (box.hidden) return;
-  box.innerHTML = '<button type="button" class="button button-quiet" data-reuse="true">Chọn lại từ bảng đã có</button><button type="button" class="button button-quiet" data-reuse="false">Tìm nguồn và tạo bảng mới (API cần billing)</button><span class="tiny-note">Chọn lại giữ các option và lựa chọn đã chốt, không gọi API để mở bảng. Sau khi chốt mới, thiết kế sẽ được tạo và đánh giá lại qua API.</span>';
+  box.innerHTML = '<button type="button" class="button button-quiet" data-reuse="true">Chọn lại từ bảng đã có</button><button type="button" class="button button-quiet" data-reuse="false">Tạo bảng lựa chọn mới</button><span class="tiny-note">Chọn lại giữ các option và lựa chọn đã chốt, không gọi API để mở bảng. Sau khi chốt mới, thiết kế sẽ được tạo và đánh giá lại qua API.</span>';
   box.querySelectorAll("button").forEach(button => button.addEventListener("click", async event => {
     event.currentTarget.disabled = true;
     try { await api(`/requests/${job.request_id}/revise`, {method: "POST", body: JSON.stringify({revision: job.revision, reuse_checklist: button.dataset.reuse === "true"})}); renderedChecklistKey = null; await refreshJob(); syncPolling(); }

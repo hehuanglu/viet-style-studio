@@ -166,15 +166,18 @@ class ImageWorkflow:
             raw, new_width, new_height = decode_upload(payload.get("image"))
             name = payload.get("filename", "Ảnh sửa Gemini")
             require(isinstance(name, str) and 0 < len(name) <= 255, "Tên ảnh không hợp lệ")
+            require(payload.get("audit_mode", "none") == "none", "Chỉ có thể bỏ kiểm tra ảnh khi gửi ảnh sửa")
+            if payload.get("audit_mode") == "none":
+                job["audit_mode"] = "none"
             checkpoint = {"state": copy.deepcopy(job["image_workflow"]), "status": job["status"],
-                          "pending": copy.deepcopy(job.get("pending_manual")), "audit_mode": "background"}
+                          "pending": copy.deepcopy(job.get("pending_manual")), "audit_mode": "none" if job.get("audit_mode") == "none" else "background"}
             job["image_workflow"] = {"phase": "audit", "candidate_id": parent["candidate_id"],
                                      "parent_artifact_id": parent["artifact_id"], "resume_checkpoint": checkpoint}
             artifact = self._save_image_artifact(job, payload["image"], raw, parent["artifact_id"], MANUAL_ORIGIN)
             artifact.update(filename=name, width=new_width, height=new_height)
             self._save_edit_context(job, artifact, description, payload["guide"], guide_raw)
             job["image_workflow"]["artifact_id"] = artifact["artifact_id"]
-            job["audit_mode"] = "background"
+            job["audit_mode"] = checkpoint["audit_mode"]
             job["metrics"]["manual_images_received"] += 1
             self._journal(job, "manual", "Nhận ảnh hoàn thiện từ phác thảo", description["instruction"])
             return self._queue_image_resume(job)
@@ -183,8 +186,9 @@ class ImageWorkflow:
         with self.lock:
             job = self.store.get_job(request_id)
             self._pending(job, payload, {"awaiting_manual_audit", "awaiting_audit_choice", "awaiting_image", "awaiting_image_repair"})
-            job["audit_mode"] = "background"
-            self._journal(job, "app", "Chuyển sang chỉnh sửa trực tiếp; kiểm tra ảnh hỗ trợ tự động")
+            require(payload.get("audit_mode", "background") in {"background", "none"}, "audit_mode không hợp lệ")
+            job["audit_mode"] = payload.get("audit_mode", "background")
+            self._journal(job, "app", "Chuyển sang chỉnh sửa trực tiếp")
             return self._queue_image_resume(job)
 
     def _pending(self, job, payload, statuses):
@@ -235,6 +239,9 @@ class ImageWorkflow:
                 require(isinstance(edit, dict), "Thông tin sửa ảnh không hợp lệ", "invalid_edit")
                 original_raw, ow, oh = decode_upload(edit.get("original"))
                 description, guide_raw = self._edit_context(edit, (ow, oh))
+            require(payload.get("audit_mode", "none") == "none", "Chỉ có thể bỏ kiểm tra ảnh khi gửi ảnh")
+            if payload.get("audit_mode") == "none":
+                job["audit_mode"] = "none"
             parent_id = pending.get("parent_artifact_id")
             if description:
                 original = self._save_image_artifact(job, edit["original"], original_raw, parent_id, MANUAL_ORIGIN)
@@ -375,7 +382,7 @@ class ImageWorkflow:
         index = state.get("candidate_index", 0) + 1
         if index >= len(prompts):
             state["phase"] = "done"
-            completed = len(job.get("output_artifact_ids", [])) if job.get("audit_mode") == "background" else len(job.get("selected_artifact_ids", [])) or int(bool(job.get("selected_artifact_id")))
+            completed = len(job.get("output_artifact_ids", [])) if job.get("audit_mode") in {"background", "none"} else len(job.get("selected_artifact_ids", [])) or int(bool(job.get("selected_artifact_id")))
             state["final_status"] = "complete" if completed == (len(prompts) or 1) else "cards_only"
             self._event(job, state["final_status"])
             return False
@@ -409,8 +416,8 @@ class ImageWorkflow:
                 state.update(phase="audit", artifact_id=artifact["artifact_id"])
                 self.store.save_job(job)
             artifact = self._current_artifact(job)
-            if job.get("audit_mode") == "background":
-                if state["phase"] == "audit":
+            if job.get("audit_mode") in {"background", "none"}:
+                if state["phase"] == "audit" and job.get("audit_mode") != "none":
                     self._event(job, "image_checking")
                     try:
                         value = self._inspect_image(job, budget, selected, bundle, self._artifact_image(artifact), artifact, reference)

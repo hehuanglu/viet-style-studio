@@ -33,6 +33,23 @@ class VisualEditTests(unittest.TestCase):
         return dict(self.description(), revision=job["revision"], parent_artifact_id=parent["artifact_id"],
                     image=image("green"), filename="Ảnh hoàn thiện.png", guide=image("red"), prompt=prompt["prompt"])
 
+    def test_no_audit_upload_and_repeated_edit_never_call_inspection(self):
+        engine = self.engine()
+        def unexpected_audit(*args, **kwargs):
+            raise AssertionError("Image inspection must not run when audit_mode is none")
+        engine._inspect_image = unexpected_audit
+        job = self.upload(engine, self.start(engine, "background"), audit_mode="none")
+        for _ in range(2):
+            self.assertEqual(job["status"], "complete")
+            self.assertEqual(job["audit_mode"], "none")
+            self.assertEqual(job["artifacts"][-1]["check_status"], "unverified")
+            self.assertEqual(job["selected_artifact_ids"], [])
+            self.assertEqual(job["output_artifact_ids"], [job["artifacts"][-1]["artifact_id"]])
+            engine.submit_user_image_edit(job["request_id"], self.edit(engine, job))
+            job = wait_step(engine, job["request_id"])
+        self.assertEqual(job["audit_mode"], "none")
+        self.assertEqual(job["status"], "complete")
+
     def test_background_upload_completes_without_manual_audit_or_auto_repair(self):
         class FailingAudit(NoImageAPI):
             def _image_audit(self, payload):
