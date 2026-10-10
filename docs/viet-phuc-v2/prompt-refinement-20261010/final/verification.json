@@ -1,0 +1,31 @@
+{
+  "personas": 3,
+  "final_prompts": 9,
+  "edit_packets": 9,
+  "api_calls_by_evidence_directory": {
+    "prompt-refinement-20261010-r2": 49,
+    "prompt-refinement-20261010-local-r5": 2,
+    "prompt-refinement-20261010-r1": 46,
+    "prompt-refinement-20261010-probes": 8,
+    "prompt-refinement-20261010-local-r3": 6,
+    "prompt-refinement-20261010-local-r4": 5,
+    "prompt-refinement-20261010-final": 8,
+    "prompt-refinement-20261010-local-yem": 1
+  },
+  "actual_text_api_calls": 125,
+  "image_generation_calls": 0,
+  "clipboard_or_frontend_tested": false,
+  "credential_like_occurrences_in_json": 0,
+  "unit_tests": {
+    "passed": 74,
+    "commands": "PYTHONPATH=backend:backend/tests python3 -m unittest test_viet_phuc_v2 test_visual_edits"
+  },
+  "stop_decision": "Acceptable residual weaknesses: no reproduced severe business regression; quotes and total arithmetic match; two API harmony values differ by4 (0.8 weighted total), no top3 membership change. Not a reliability guarantee.",
+  "excluded_initial_probe": "probes/arithmetic-VP08: role entries referenced different candidates; excluded from all pass/fail conclusions.",
+  "local_yem_regression": {
+    "calls": 1,
+    "status": "pass_with_limits",
+    "scope": "Synthetic CLEAN_PROMPT fixture; real VP02 API only; explicit coverage input; not an end-to-end workflow",
+    "review": "local-yem/sol-review.json"
+  }
+}

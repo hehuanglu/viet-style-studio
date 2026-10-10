@@ -5,7 +5,7 @@ Lời người dùng nguyên văn: {{USER_TURNS}}
 Bản chuẩn hóa cần đối chiếu: {{CLEAN_PROMPT}}
 Thông tin miền nghiệp vụ mở: {{DOMAIN_GUIDANCE}}
 Kết quả tham khảo Gemini đã tìm trước đó nếu có (có thể rỗng, không phải catalog bắt buộc): {{REFERENCE_BUNDLE}}
-Khả năng tìm web/đọc URL đã bật, hoặc chế độ dùng kết quả VP02R: {{REFERENCE_DISCOVERY_CONFIG}}
+Phạm vi nguồn đang được runtime cung cấp: {{REFERENCE_DISCOVERY_CONFIG}}
 Bảng và lựa chọn đã có nếu có: {{PREVIOUS_CHECKLIST_AND_CHOICES}}
 Mã form mới và giới hạn hiển thị do ứng dụng cấp: {{FORM_CONFIG}}
 
@@ -18,32 +18,39 @@ MỤC TIÊU
 - Phân biệt thông tin người dùng đã quyết định, thiếu thật sự, mâu thuẫn và phần người dùng đã giao AI đề xuất. Không yêu cầu người dùng chọn lại điều đã rõ.
 
 THIẾT KẾ BẢNG THEO MIỀN
+Ưu tiên mức phù hợp hơn số lượng. Chỉ đưa option đáp ứng bối cảnh và yêu cầu trong CLEAN_PROMPT; không thêm phương án yếu để đủ số. Trước khi trả, đối chiếu từng option với các yêu cầu liên quan. Nếu cần điều kiện phối mặc để phù hợp, ghi trực tiếp điều kiện đó vào description và decision_text; nếu chưa thể giải quyết, loại option. Với bối cảnh đi học, không đề xuất áo yếm mặc độc lập hoặc cách mặc hở như lựa chọn phù hợp mặc định.
+
 1. Xem xét nhóm trang phục đề xuất, bối cảnh, phom/cấu trúc, chất liệu/kỹ thuật, bảng màu, mỹ thuật/hoa văn, văn hóa/lịch sử, cách thể hiện ảnh và miền khác nếu thực sự cần. Chỉ tạo nhóm liên quan.
 2. Mỗi nhóm ghi domain_ids, related_atom_ids, question, why_it_matters, status và selection_mode. Dùng single cho các lựa chọn thay nhau; multiple chỉ khi kết hợp có nghĩa. Ghi min/max hợp lý theo FORM_CONFIG, không cắt ý gốc để đủ giới hạn hiển thị.
 3. Lựa chọn phải phù hợp với nền trang phục và hoàn cảnh. Không đưa phom váy A-line/Column thành lựa chọn mặc định cho người yêu cầu âu phục. Nếu phù hợp với váy, label có thể là “Chữ A (A-line)” và “Dáng cột (Column)”, kèm mô tả dễ hiểu.
 4. Tách nguồn cảm hứng/mô-típ khỏi kỹ thuật thể hiện: sen/rồng/mây là nội dung có thể lựa chọn; thêu, thêu nổi, đắp nổi là cách đưa lên trang phục. Tách vị trí/độ phủ khi những quyết định đó ảnh hưởng thiết kế.
 5. Tách lấy cảm hứng đương đại khỏi tái hiện có căn cứ. Chưa có nguồn đúng phạm vi thì không ghi một option là “chuẩn lịch sử”. Không gán niên đại hoặc ý nghĩa từ trí nhớ.
 6. Có “Để AI tự quyết” cho nhóm có thể giao AI chọn, đánh dấu is_ai_delegate=true. Nếu người dùng đã giao quyền, ghi lựa chọn đó là đề xuất để họ kiểm tra, không đặt thành blocker bắt họ tự chọn.
-7. Mỗi nhóm needs_choice/optional có ít nhất 5 gợi ý CỤ THỂ khác nhau, thêm đúng một option “Để AI tự quyết” (is_ai_delegate=true), tối đa 8 options theo FORM_CONFIG. allows_custom=true để giao diện hiển thị lựa chọn thứ hai “Tự điền thông tin” bằng ô nhập custom_text; KHÔNG tạo option giả cho custom. AI/custom không tính vào 5 gợi ý cụ thể. Nhóm locked có thể options=[] và allows_custom=false; người dùng sửa nhóm đã hiểu bằng thay đổi yêu cầu rõ ràng riêng. Một giá trị thiếu không tự trở thành option đã chọn. is_recommended chỉ là khuyến nghị, không phải đồng ý của người dùng.
+7. Mỗi nhóm needs_choice/optional hướng tới 3–5 gợi ý CỤ THỂ khác nhau nếu phù hợp; có thể ít hơn khi phạm vi hẹp, không ép số lượng. Thêm đúng một option “Để AI tự quyết” (is_ai_delegate=true), tối đa 8 options theo FORM_CONFIG. allows_custom=true để giao diện hiển thị lựa chọn thứ hai “Tự điền thông tin” bằng ô nhập custom_text; KHÔNG tạo option giả cho custom. AI/custom không tính vào số gợi ý cụ thể. Nhóm locked có thể options=[] và allows_custom=false; người dùng sửa nhóm đã hiểu bằng thay đổi yêu cầu rõ ràng riêng. Một giá trị thiếu không tự trở thành option đã chọn. is_recommended chỉ là khuyến nghị, không phải đồng ý của người dùng.
 8. depends_on chỉ dùng để mở nhóm phụ theo nhóm nền, không tạo vòng phụ thuộc. compatible_option_ids=[] và incompatible_option_ids=[]: không mã hóa phán đoán tương thích ở bảng. API VP02C kiểm tra nội dung lựa chọn mới nhất, chỉ chặn mâu thuẫn trực tiếp nghiêm trọng trên cùng chi tiết/vị trí/lớp.
 9. Nhóm đã rõ có status=locked để hiển thị “Đã hiểu”; không yêu cầu chọn lại. Điều kiện cần làm rõ thật sự có status=needs_choice. Các phần giúp tinh chỉnh có status=optional.
 
+BAO QUÁT QUYẾT ĐỊNH CÒN MỞ
+- Miền đã có trong CLEAN_PROMPT phản ánh lời người dùng, KHÔNG phải danh sách giới hạn các nhóm được gợi ý. DOMAIN_GUIDANCE.source_domains là các mã miền có thật; design_dimensions_to_review là các chiều thiết kế cần xem xét, không phải mã domain_id để tham chiếu trực tiếp.
+- Trước khi tạo form, rà soát: bối cảnh/vai trò sử dụng; nền trang phục/cách phối; hướng phong cách và mức chuyển thể; phom/che phủ/vận động; chất liệu/kỹ thuật và tính ứng dụng; bảng màu; mỹ thuật/hoa văn/vị trí/độ phủ; phụ kiện/cách tạo điểm nhấn. Xem xét cách trình bày ảnh riêng ở cuối. Không coi nhóm ảnh là thay thế cho phong cách của bộ trang phục.
+- Với một yêu cầu thiết kế bộ đồ mới, màu, chất liệu, hướng phong cách và cấu trúc thường còn mở nếu chưa được chốt. Việc người dùng không nhắc tới chúng không có nghĩa chúng không liên quan hoặc đã giao AI quyết định. Tạo các nhóm gợi ý có ích, status=optional nếu có thể bỏ qua để AI đề xuất; needs_choice chỉ khi thật sự cần chốt trước khi thiết kế. Không chỉ đưa nền trang phục và cách thể hiện ảnh rồi âm thầm quyết định mọi chiều còn lại.
+- Không ép đủ một số nhóm cố định. Gộp những quyết định thực sự trùng nhau; bỏ nhóm không ảnh hưởng nhu cầu, đã được thể hiện đầy đủ ở nhóm khác hoặc chỉ làm form dài hơn. Với yêu cầu sửa một chi tiết của bộ đã chốt, chỉ mở phần bị ảnh hưởng, không mở lại toàn bộ thiết kế. Quyền giao AI rõ ràng vẫn được giữ, không trở thành nhiều câu hỏi bắt buộc.
+- Nếu nhóm cần miền mới, thêm domain vào clean_prompt.domains với summary nêu đó là phần thiết kế chưa được xác định; domain_ids của nhóm phải trỏ mã có thật. Không tạo atom/source_refs giả để biến câu hỏi hoặc gợi ý của AI thành yêu cầu gốc. related_atom_ids dùng các atom bối cảnh/điểm nhấn có liên quan, có thể rỗng khi không có atom tương ứng. Giữ nguyên atoms, provenance và coverage của lời người dùng.
+- Bối cảnh đã chốt có thể vẫn còn vai trò chưa rõ (ví dụ biểu diễn trên sàn diễn hay tham dự sự kiện). Nếu vai trò ảnh hưởng thiết kế, hỏi riêng phần đó mà không hỏi lại sự kiện. Không tự suy giới tính hoặc coi dự sự kiện là chắc chắn trình diễn.
+- Phụ kiện đã chốt loại chưa chắc đã chốt cách dùng. Ví dụ nón lá làm điểm nhấn: khóa việc dùng nón lá, nhưng có thể gợi ý cách đội/cầm, tạo tương phản với bộ đồ hoặc bố trí trang trí trên nón, giữ khả năng nhận diện nón lá. Không thay việc dùng nón thật bằng hoa văn nón hoặc thêm phụ kiện khác như điều mặc định.
+
+CA ĐỐI CHIẾU BAO QUÁT
+“tôi cần một bộ trang phục cho tuần lễ thời trang quốc tế. sử dụng nón lá làm điểm nhấn” chỉ khóa sự kiện và điểm nhấn nón lá; KHÔNG khóa giao lĩnh, chất liệu cao cấp, bảng màu, hướng phong cách hay Editorial. Form cần có các hướng trang phục phù hợp và mở các quyết định còn có giá trị: vai trò tham dự/trình diễn khi cần, phong cách bộ đồ, chất liệu, màu, cách dùng nón lá; cấu trúc và trang trí có thể tách/gộp theo mức khác biệt thực. Cách thể hiện ảnh là nhóm phụ riêng. Không mặc định đòi phục dựng lịch sử, giới tính, ngân sách hoặc địa phương.
+
 THAM KHẢO DO GEMINI ĐẢM NHIỆM
-- Tự quyết định cần tìm gì theo miền và từng option; dùng tìm web tích hợp Gemini để tìm URL thật, đọc nội dung liên quan bằng khả năng đọc trang nếu có. Không cần catalog, không yêu cầu người dùng tự đi tìm hay đội vận hành nhập link.
-- Trả references[] gồm reference_id duy nhất, domains, label, description, url, source_type, scope, supporting_excerpt nếu thực sự đọc được và discovery_status. Option gắn reference_ids tới references này hoặc nguồn Gemini đã tìm trong REFERENCE_BUNDLE.
-- Với mỗi option chuyên môn cụ thể, cố gắng cung cấp trang đúng kiểu để xem: phom dáng, kỹ thuật thêu/đắp nổi, mô-típ hoặc hiện vật liên quan. Không dùng một link chung cho mọi option và không coi link tìm kiếm chung là nguồn đã đọc.
-- Nguồn thời trang/cách làm minh họa đúng hình thức; phát biểu văn hóa/lịch sử cần trang có nội dung hỗ trợ đúng phạm vi. Không che thiếu tài liệu lịch sử bằng link váy/thêu.
-- preview_url chỉ trả nếu công cụ/nội dung trang thực sự cung cấp ảnh liên quan; không đoán đường dẫn ảnh. Có thể null; giải thích và URL trang vẫn đủ để người dùng xem chi tiết.
-- origin=gemini_suggestion cho option; nguồn link vẫn ghi source_type thật. Không tự khai chuyên gia duyệt. tool_grounded chỉ khi có dấu dẫn nguồn/kết quả công cụ; chưa tìm được thì not_found, URL chưa đọc được phải mô tả đúng giới hạn.
-- Nếu REFERENCE_DISCOVERY_CONFIG là chế độ format_only sau VP02R, chỉ dùng nguồn trong REFERENCE_BUNDLE và giữ đúng URL/đoạn trích; không tạo link mới không có xuất xứ.
-- Nếu REFERENCE_DISCOVERY_CONFIG.mode=unavailable do người dùng chọn API cơ bản, không gọi web và bắt buộc references=[] cùng mọi reference_ids=[]. Ghi rõ chưa có nguồn/link đã kiểm chứng trong giải thích. Vẫn đề xuất ý tưởng đương đại, không xác nhận nguồn gốc hay tái hiện lịch sử. Đây là chế độ có giới hạn do người dùng chọn, không thay thế luồng tìm nguồn mặc định.
-- Thiếu link phù hợp thì reference_ids=[] và ghi chưa tìm được; không bịa để lấp đủ form. Nếu công cụ tìm nguồn không sẵn sàng, báo giới hạn đó, không tự chuyển sang catalog thủ công.
+- Runtime hiện tại không có công cụ tìm web/đọc URL. REFERENCE_DISCOVERY_CONFIG.mode=unavailable thì references=[] và mọi reference_ids=[]. Không khẳng định đã đọc web hoặc tạo link để đủ form.
+- Chỉ dùng nguồn được cung cấp trong REFERENCE_BUNDLE khi thực sự có; nêu giới hạn chưa có nguồn xác minh. Ý tưởng inspired vẫn được đề xuất, nhưng không xác nhận tái hiện lịch sử hay chuyên gia duyệt.
 
 Trả đúng ClarificationChecklist gồm clean_prompt đã đối chiếu, form_id do ứng dụng cấp, groups, references và open_conflicts. Không tạo thiết kế cuối hoặc điểm ở bước này.
 
 NHÓM TRANG PHỤC VÀ PHỤ KIỆN
-- Nếu nền Việt phục chưa được chốt, tạo nhóm “Trang phục đề xuất” với ít nhất 5 hướng phù hợp, ví dụ áo dài cách tân, áo tứ thân chuyển thể, áo ngũ thân chuyển thể, áo giao lĩnh chuyển thể, áo yếm phối lớp ngoài. Đây là ví dụ mở, không phải danh mục bắt buộc. Với áo gọn + chân váy dài đã khóa, các hướng phải giữ cấu trúc đó (áo ngắn lấy đường nét áo dài, áo tứ thân rút gọn, v.v.), không thay thành áo dài nguyên bộ hoặc váy liền. Khi loại trang phục đã chốt rõ, hiển thị nhóm locked thay vì hỏi lại.
-- Mỗi miền còn mở cần ít nhất 5 hướng có mô tả khác biệt thực chất và hợp yêu cầu; không dùng các nhãn gần nghĩa để lấp đủ số. Gợi ý màu cần bảng màu cụ thể; chất liệu cần tổ hợp vải; mỹ thuật cần ngôn ngữ tạo hình + vị trí + độ phủ.
+- Nếu nền Việt phục chưa được chốt, tạo nhóm “Trang phục đề xuất” với số hướng phù hợp thực tế, không bắt buộc đủ 5, ví dụ áo dài cách tân, áo tứ thân chuyển thể, áo ngũ thân chuyển thể, áo giao lĩnh chuyển thể, áo yếm phối lớp ngoài. Đây là ví dụ mở, không phải danh mục bắt buộc. Với áo gọn + chân váy dài đã khóa, các hướng phải giữ cấu trúc đó (áo ngắn lấy đường nét áo dài, áo tứ thân rút gọn, v.v.), không thay thành áo dài nguyên bộ hoặc váy liền. Khi loại trang phục đã chốt rõ, hiển thị nhóm locked thay vì hỏi lại.
+- Mỗi miền còn mở chỉ đưa các hướng có mô tả khác biệt thực chất và hợp yêu cầu; không dùng các nhãn gần nghĩa để lấp đủ số. Gợi ý màu cần bảng màu cụ thể; chất liệu cần tổ hợp vải; mỹ thuật cần ngôn ngữ tạo hình + vị trí + độ phủ.
 - Phụ kiện có thể mở rộng sang nón lá, nón quai thao, khăn vấn, túi mây tre, quạt, trang sức lấy cảm hứng dân gian. Đàn bầu/đàn tranh là đạo cụ trình diễn hoặc nguồn cảm hứng cho hình dáng túi/trang sức, không mặc định là phụ kiện đeo hay đồ mang đi sự kiện. Nêu rõ cách dùng và tính ứng dụng.
 - Giữ giới hạn phụ kiện người dùng nêu; gợi ý nhiều lựa chọn không có nghĩa dùng tất cả. Nếu yêu cầu 1–2 phụ kiện, đặt max<=2; không lén thêm đạo cụ vào prompt để vượt giới hạn. Không khẳng định xuất xứ/ý nghĩa dân gian nếu thiếu nguồn.
 
@@ -55,6 +62,12 @@ KIỂM TRA STATUS/MIN TRƯỚC KHI TRẢ
 - source_refs.quote phải COPY đoạn liên tục của USER_TURNS[turn_id].text, không từ clean_text hoặc meaning đã viết lại. Giữ cả dấu cách/ngắt dòng trong quote; nếu đoạn dài có ngắt dòng thì chọn đoạn ngắn đủ căn cứ, không tự nối hai đoạn thành câu mới. Các atom cũ giữ source_refs hợp lệ; khi sửa phân loại không cần viết lại quote.
 
 PHONG CÁCH TRÌNH BÀY ẢNH
-Luôn xem xét miền cách thể hiện ảnh. Nếu người dùng chưa chốt, tạo nhóm riêng “Phong cách trình bày ảnh”, status=optional, selection_mode=single, min=0, max=1, allows_custom=true. Đề xuất ít nhất năm lựa chọn cụ thể phù hợp nhu cầu: bản minh họa thiết kế thời trang, ảnh đời thường, ảnh lookbook studio, ảnh trình diễn thời trang, bản vẽ kỹ thuật trang phục; mô tả khác biệt về bối cảnh, chất liệu hình ảnh và bố cục. Thêm Để AI tự quyết; không chọn sẵn. Có thể đề xuất phong cách khác nếu hợp yêu cầu. Nếu đã chốt, ghi locked và giữ phong cách đó. Đây là cách trình bày hình ảnh, không đổi trang phục hoặc bối cảnh sử dụng đã khóa. Khi bỏ qua optional, AI chọn cách trình bày phù hợp và ghi nhận giả định.
+Luôn xem xét miền cách thể hiện ảnh. Nếu người dùng chưa chốt, tạo nhóm riêng “Phong cách trình bày ảnh”, status=optional, selection_mode=single, min=0, max=1, allows_custom=true. Đề xuất các lựa chọn cụ thể phù hợp nhu cầu, hướng tới 3–5 nhưng không ép đủ số; các ví dụ có thể cân nhắc: bản minh họa thiết kế thời trang, ảnh đời thường, ảnh lookbook studio, ảnh trình diễn thời trang, bản vẽ kỹ thuật trang phục; mô tả khác biệt về bối cảnh, chất liệu hình ảnh và bố cục. Thêm Để AI tự quyết; không chọn sẵn. Có thể đề xuất phong cách khác nếu hợp yêu cầu. Nếu đã chốt, ghi locked và giữ phong cách đó. Đây là cách trình bày hình ảnh, không đổi trang phục hoặc bối cảnh sử dụng đã khóa. Khi bỏ qua optional, AI chọn cách trình bày phù hợp và ghi nhận giả định.
 
 Các lựa chọn phong cách trình bày đều dùng cùng quy ước: một người mẫu duy nhất, một bộ trang phục, hai ô thể hiện mặt trước và mặt sau của chính người mẫu đó. Khác biệt giữa các option nằm ở ngôn ngữ tạo hình, ánh sáng và bối cảnh; không gợi ý nhiều người mẫu, nhóm người, đám đông sàn diễn hoặc nhiều thiết kế trong cùng ảnh. Không thêm nhóm lựa chọn số người mẫu/góc nhìn; đây là quy ước trình bày của quy trình.
+
+KHI YÊU CẦU GỐC TỰ MÂU THUẪN
+Không đề xuất một option yếu hay giải pháp giả để làm như hai điều cấm nhau đã phù hợp. Giữ mâu thuẫn trong nội dung giải thích, cho phép người dùng xác nhận thay atom cũ. Option không được mặc nhiên bỏ cổ kín, đổi khoét thật thành trang trí hoặc thêm lớp khi CLEAN_PROMPT đã cấm. VP02C sẽ yêu cầu xử lý trước sinh thiết kế.
+
+GIỚI HẠN ÁP DỤNG CHO MỌI NHÓM
+Phong cách trình bày cũng phải giữ bối cảnh đã khóa: đã yêu cầu nền trường đại học thì không gợi ý studio thay nền như một lựa chọn hợp lệ mặc định. Chỉ hỏi phần còn mở, hoặc locked/optional không cần chọn lại khi đã rõ. Điều kiện cần để phù hợp phải có trong cả description và decision_text; không chỉ lời giải thích bên ngoài option.

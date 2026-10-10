@@ -1,0 +1,17 @@
+{
+  "task": "VP02",
+  "reviewer": "Sol",
+  "status": "pass_with_limits",
+  "scope": "One real Gemini VP02 call on a synthetic CLEAN_PROMPT fixture. This is a local regression, not a new end-to-end persona run or VP01 validation.",
+  "observations": [
+    "Three concrete garment options and two concrete material options: no padding to five.",
+    "The yem option requires a covering combination in description and decision_text; description explicitly covers shoulders, chest, waist and back and excludes standalone yem.",
+    "Layered tu than is permitted with a covering inner garment, rather than banning all layered designs."
+  ],
+  "limits": [
+    "The fixture explicitly supplies coverage and no-standalone requirements. One successful sample does not prove the template alone reliably infers them from every sparse school brief.",
+    "The yem decision_text is less precise than description. Downstream resolution must retain the hard coverage requirements, not infer that an open jacket alone suffices.",
+    "A generic claim of suitability for university clothing rules is not verification of a specific campus rule. No campus regulation or material performance was verified."
+  ],
+  "decision": "No further prompt change justified by this sample. Preserve the fixture for local regression, and reopen this issue if coverage is lost downstream."
+}

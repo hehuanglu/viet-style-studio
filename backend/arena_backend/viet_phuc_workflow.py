@@ -76,7 +76,7 @@ class VietPhucWorkflow:
             require(self.provider.name != 'mock' or self.allow_mock_requests, 'Mock chỉ dành cho kiểm thử', 'text_api_required', 409)
             require(self.provider.name != 'gemini' or self.provider.configured, 'Kết nối Gemini API key trước khi gửi yêu cầu', 'missing_api_key', 409)
             options = {'creative_level': payload.get('creative_level', 'explore'), 'scoring_profile': self.vp_config['scoring_by_creative_level'][payload.get('creative_level', 'explore')], 'image_mode': payload.get('image_mode', 'gemini_manual'), 'audit_mode': payload.get('audit_mode', 'background'), 'render_image': payload.get('render_image', True)}
-            options['reference_mode'] = payload.get('reference_mode', 'gemini_web')
+            options['reference_mode'] = 'text_only'
             fingerprint = digest({'raw': raw, 'options': options, 'version': self.vp_version, 'model': self.provider.text_model, 'provider': self.provider.name})
             key = digest({'session': session, 'v2': idem or fingerprint})
             old = self.store.submission_get(key)
@@ -102,7 +102,7 @@ class VietPhucWorkflow:
                                 'text_model': self.provider.text_model, 'image_model': self.provider.image_model, 'pack_hash': self.domain.hash},
                    'server_images_enabled': self.enable_images, 'repair_counts': {'concept': 0, 'image': 0}, 'recovery_count': 0}
             if options['reference_mode'] == 'text_only':
-                job['warnings'].append('Chế độ cơ bản: không tìm/đọc web, không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử.')
+                job['warnings'].append('Ứng dụng không tìm nguồn web và không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử.')
             self.store.save_job(job)
             self.store.submission_put(key, fingerprint, rid, self.policy['cache']['session_ttl_seconds'])
             self.executor.submit(self._run, rid)
@@ -211,7 +211,7 @@ class VietPhucWorkflow:
         job.setdefault('warning_history', []).append({'revision': job['revision'], 'warnings': copy.deepcopy(job['warnings'])})
         job['warnings'] = []
         if job.get('reference_mode') == 'text_only':
-            job['warnings'].append('Chế độ cơ bản: không tìm/đọc web, không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử.')
+            job['warnings'].append('Ứng dụng không tìm nguồn web và không có link tham khảo đã xác minh. Chỉ hỗ trợ ý tưởng hiện đại; không xác nhận tái hiện lịch sử.')
 
     def retry_resolution(self, rid, payload):
         """Explicit retry keeps approved inputs and cumulative budget, in a new revision."""
@@ -287,6 +287,10 @@ class VietPhucWorkflow:
     def _vp_task_reserved(self, rid, revision, task, payload, validator, web_tools=False, structured=True):
         config = dict(self.vp_config['tasks'][task], web_tools=web_tools, structured=structured)
         schema = self.vp_contracts.schema(vp.SCHEMAS[task])
+        if task in vp.ROLES:
+            schema = vp.audit_response_schema(schema, payload['CANDIDATE_BATCH'])
+        elif task == 'VP08':
+            schema = vp.harmony_response_schema(schema)
         key = digest({'version': self.vp_version, 'model': self.provider.text_model, 'config': config, 'task': task, 'payload': payload})
         job = self._v2_job(rid, revision)
         if key in job['checkpoints']:
@@ -386,50 +390,32 @@ class VietPhucWorkflow:
         form_id = job.get('next_form_id') or str(uuid.uuid4())
         self._v2_update(rid, revision, lambda j: j.update(next_form_id=form_id))
         base = self._vp_base(job)
-        guidance = [{'domain_id': d['domain_id'], 'label': d['label']} for d in job['clean_prompt']['domains']]
-        basic = job.get('reference_mode', 'gemini_web') == 'text_only'
-        split = not basic and job.get('reference_split', self.vp_config['reference_discovery'] == 'split' or not self.provider.text_model.startswith(('gemini-3', 'mock')))
-        def discover():
-            current = self._v2_job(rid, revision)
-            if form_id in current.get('discovery_forms', {}):
-                return
-            payload = dict(base, CLEAN_PROMPT=current['clean_prompt'], DOMAIN_GUIDANCE=guidance, PREVIOUS_REFERENCES=current['references'], REFERENCE_DISCOVERY_CONFIG={'mode': 'search_and_read', 'tools': ['google_search', 'url_context']})
-            result, metadata = self._vp_task(rid, revision, 'VP02R', payload, lambda v, m: vp.normalize_references(v['references'], m), web_tools=True, structured=False)
-            refs = vp.normalize_references(result['references'], metadata)
-            self._v2_update(rid, revision, lambda j: (j.update(references=refs, reference_split=True), j['reference_metadata'].append(metadata), j['warnings'].extend(result['unresolved_reference_needs']), j.setdefault('discovery_forms', {}).__setitem__(form_id, True)))
-        if split:
-            discover()
-        def make():
-            current = self._v2_job(rid, revision)
-            payload = dict(base, CLEAN_PROMPT=current['clean_prompt'], DOMAIN_GUIDANCE=guidance, REFERENCE_BUNDLE=self._vp_references(current), REFERENCE_DISCOVERY_CONFIG={'mode': 'format_only' if split else 'search_and_read', 'tools': [] if split else ['google_search', 'url_context']}, PREVIOUS_CHECKLIST_AND_CHOICES={'checklist': current.get('checklist'), 'choices': current.get('choices'), 'unresolved': current.get('resolved_brief')}, FORM_CONFIG={'form_id': form_id, 'open_groups_initial': 6, **self.vp_config['checklist']})
-            if basic:
-                payload['REFERENCE_DISCOVERY_CONFIG'] = {'mode': 'unavailable', 'tools': [], 'reason': 'Người dùng chọn chế độ API cơ bản không tìm web. references=[] và mọi reference_ids=[]; không sinh URL từ trí nhớ. Ghi rõ thiếu nguồn; gợi ý hiện đại vẫn được phép, tái hiện lịch sử cần căn cứ.'}
-            def validate(value, metadata):
-                if basic:
-                    vp.valid(value['references'] == [], 'Chế độ cơ bản không được tạo nguồn hoặc link từ trí nhớ')
-                refs = vp.normalize_references(value['references'], metadata, current['references'] if split else ())
-                vp.validate_checklist(value, current, form_id, refs)
-                if split:
-                    old = {r['reference_id']: r for r in current['references']}
-                    vp.valid(all(r['reference_id'] in old and r == old[r['reference_id']] for r in refs), 'format_only thêm nguồn không có xuất xứ')
-            return self._vp_task(rid, revision, 'VP02', payload, validate, web_tools=not split and not basic)
-        try:
-            result, metadata = make()
-        except ProviderError as error:
-            if basic or split or error.code != 'google_http_400' or not any(word in error.message.lower() for word in ('tool', 'schema', 'structured', 'response format', 'grounding')):
-                raise
-            split = True
-            self._v2_update(rid, revision, lambda j: j['warnings'].append('API không hỗ trợ schema cùng tools; chuyển sang VP02R rồi VP02.'))
-            discover(); result, metadata = make()
+        guidance = {
+            'source_domains': [{'domain_id': d['domain_id'], 'label': d['label']} for d in job['clean_prompt']['domains']],
+            'design_dimensions_to_review': [
+                'Bối cảnh và vai trò sử dụng', 'Nền trang phục và cách phối',
+                'Phong cách trang phục và mức chuyển thể', 'Phom, che phủ và vận động',
+                'Chất liệu, kỹ thuật và tính ứng dụng', 'Bảng màu',
+                'Mỹ thuật, hoa văn, vị trí và độ phủ', 'Phụ kiện và cách tạo điểm nhấn',
+                'Cách trình bày ảnh (riêng với phong cách trang phục)',
+            ],
+            'coverage_policy': 'Rà soát các chiều còn mở, không giới hạn theo source_domains. Chỉ tạo nhóm có ích; optional cho tinh chỉnh có thể giao AI. Không ép số nhóm, không tạo atom yêu cầu giả.',
+        }
+        # Source discovery has been removed, including for resumed legacy jobs.
+        self._v2_update(rid, revision, lambda j: j.update(reference_mode='text_only', references=[], reference_metadata=[]))
         current = self._v2_job(rid, revision)
-        refs = vp.normalize_references(result['references'], metadata, current['references'] if split else ())
-        result['references'] = refs
+        payload = dict(base, CLEAN_PROMPT=current['clean_prompt'], DOMAIN_GUIDANCE=guidance,
+                       REFERENCE_BUNDLE=self._vp_references(current),
+                       REFERENCE_DISCOVERY_CONFIG={'mode': 'unavailable', 'tools': [], 'reason': 'Ứng dụng không tìm nguồn. references=[] và mọi reference_ids=[]; không sinh URL từ trí nhớ. Không xác nhận tái hiện lịch sử.'},
+                       PREVIOUS_CHECKLIST_AND_CHOICES={'checklist': current.get('checklist'), 'choices': current.get('choices'), 'unresolved': current.get('resolved_brief')},
+                       FORM_CONFIG={'form_id': form_id, 'open_groups_initial': 6, **self.vp_config['checklist']})
+        def validate(value, metadata):
+            vp.valid(value['references'] == [], 'Ứng dụng không tạo nguồn hoặc link từ trí nhớ')
+            vp.validate_checklist(value, current, form_id, [])
+        result, metadata = self._vp_task(rid, revision, 'VP02', payload, validate)
         def finish(j):
-            j.update(clean_prompt=result['clean_prompt'], checklist=result, references=refs, choices=None, resolved_brief=None)
+            j.update(clean_prompt=result['clean_prompt'], checklist=result, references=[], choices=None, resolved_brief=None)
             j.pop('next_form_id', None); j['checklist_round'] += 1
-            j['reference_metadata'].append(metadata)
-            if not vp.tool_urls(metadata) and not split and not basic:
-                j['warnings'].append('Gemini chưa trả metadata tìm/đọc nguồn; link thiếu xuất xứ ghi chưa xác minh.')
         self._v2_update(rid, revision, finish)
         self._v2_stage(rid, revision, 'awaiting_choices')
 
@@ -469,7 +455,7 @@ class VietPhucWorkflow:
             if check['check_id'].startswith('locked:'):
                 aid = check['check_id'].removeprefix('locked:')
                 check['exact_prompt_excerpts'] = {c['candidate_id']: next((x['prompt_quote'] for x in c['locked_coverage'] if x['atom_id'] == aid and x['prompt_quote'] and x['prompt_quote'] in c['image_prompt']), '') for c in candidates}
-        payload = {'REQUEST_METADATA': self._vp_base(job)['REQUEST_METADATA'], 'RESOLVED_BRIEF': brief, 'CANDIDATE_BATCH': candidates, 'REFERENCE_BUNDLE': self._vp_references(job), 'EXPECTED_CHECKS': checks, 'ROLE_RUBRIC': role_rubric, 'AUDIT_POLICY': {'creative_level': job['creative_level'], 'profile': job['scoring_profile'], 'label': 'Ưu tiên sáng tạo' if job['scoring_profile'] == 'creative' else 'Cân bằng chuyên môn'}}
+        payload = {'REQUEST_METADATA': self._vp_base(job)['REQUEST_METADATA'], 'RESOLVED_BRIEF': brief, 'CANDIDATE_BATCH': vp.audit_candidates(candidates), 'REFERENCE_BUNDLE': self._vp_references(job), 'EXPECTED_CHECKS': checks, 'ROLE_RUBRIC': role_rubric, 'AUDIT_POLICY': {'creative_level': job['creative_level'], 'profile': job['scoring_profile'], 'label': 'Ưu tiên sáng tạo' if job['scoring_profile'] == 'creative' else 'Cân bằng chuyên môn'}}
         # Deliberately no specialist_audits in this payload, even on retry/recovery.
         result, _ = self._vp_task(rid, revision, task, payload, lambda v, m: None)
         def save(j):
@@ -485,6 +471,9 @@ class VietPhucWorkflow:
             return
         specialists = {c['candidate_id']: job['specialist_audits'][c['candidate_id']] for c in candidates}
         payload = {'REQUEST_METADATA': self._vp_base(job)['REQUEST_METADATA'], 'RESOLVED_BRIEF': brief, 'CANDIDATE_BATCH': candidates, 'VALIDATED_SPECIALIST_AUDITS': specialists, 'VALIDATED_GATE_SUMMARY': {cid: vp.gate_summary(items) for cid, items in specialists.items()}, 'HARMONY_RUBRIC': vp.rubric(self.vp_config, 'harmony', brief), 'SCORING_CONFIG': {'profile': job['scoring_profile'], 'weights': self.vp_config['profiles'][job['scoring_profile']], 'minimum_total': self.vp_config['minimum_total']}, 'REFERENCE_BUNDLE': self._vp_references(job)}
+        weights = payload['SCORING_CONFIG']['weights']
+        payload['SCORING_CONFIG']['source_numerator_terms'] = {cid: {role: weights[role] * item['score'] for role, item in roles.items() if isinstance(item.get('score'), (int, float))} for cid, roles in specialists.items()}
+        payload['SCORING_CONFIG']['source_numerator_subtotal'] = {cid: sum(terms.values()) for cid, terms in payload['SCORING_CONFIG']['source_numerator_terms'].items()}
         result, _ = self._vp_task(rid, revision, 'VP08', payload, lambda v, m: None)
         def save(j):
             for audit in result['audits']:
@@ -556,7 +545,7 @@ class VietPhucWorkflow:
                 payload = dict(self._vp_base(job), CLEAN_PROMPT=job['clean_prompt'], CHECKLIST=job['checklist'], VALIDATED_SELECTIONS=job['choices'], SELECTION_CONFLICT_REVIEW=job['selection_review'], PREVIOUS_RESOLVED_BRIEF=(job.get('design_history') or [{}])[-1].get('resolved_brief'), REFERENCE_BUNDLE=self._vp_references(job))
                 options = {o['option_id']: o for g in job['checklist']['groups'] for o in g['options']}
                 payload['VALIDATED_SELECTIONS'] = dict(job['choices'], decision_contracts=[{'group_id': s['group_id'], 'delegated': any(options[oid]['is_ai_delegate'] for oid in s['option_ids']), 'option_ids': s['option_ids'], 'custom_text': s['custom_text']} for s in job['choices']['selections'] if s['option_ids'] or s['custom_text'].strip()])
-                payload['VALIDATED_SELECTIONS']['old_atom_binding'] = {'must_lock': [a['atom_id'] for a in job['clean_prompt']['atoms'] if a['intent_type'] in ('must', 'avoid')], 'keep_delegated': [a['atom_id'] for a in job['clean_prompt']['atoms'] if a['intent_type'] == 'delegated'], 'do_not_lock': [a['atom_id'] for a in job['clean_prompt']['atoms'] if a['intent_type'] not in ('must', 'avoid')]}
+                payload['VALIDATED_SELECTIONS']['old_atom_binding'] = vp.old_atom_binding(job['clean_prompt']['atoms'], job['choices']['explicit_changes'])
                 result, _ = self._vp_task(rid, revision, 'VP03', payload, lambda v, m: vp.validate_resolved(v, job))
                 job = self._v2_update(rid, revision, lambda j: j.update(resolved_brief=result))
             brief = job['resolved_brief']

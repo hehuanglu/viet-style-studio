@@ -1,0 +1,930 @@
+{
+  "task": "VP06",
+  "payload": {
+    "REQUEST_METADATA": {
+      "request_id": "da6d2259-358a-422d-a96e-a34370fc6b6a",
+      "revision": 2
+    },
+    "RESOLVED_BRIEF": {
+      "request_id": "da6d2259-358a-422d-a96e-a34370fc6b6a",
+      "revision": 2,
+      "resolved_text": "Thiết kế trang phục nữ lấy cảm hứng Việt phục để đi học đại học, với phom dáng áo ngũ thân cách tân kết hợp quần dài, đảm bảo độ kín đáo, thoải mái và lịch sự. Chất liệu trang phục, bảng màu chủ đạo và hoa văn trang trí do AI gợi ý và quyết định. Đi kèm phụ kiện là túi vải mộc đựng sách vở. Phong cách trình bày ảnh là lookbook studio tối giản.",
+      "domains": [
+        {
+          "domain_id": "dom_b_c",
+          "label": "Bối cảnh sử dụng",
+          "summary": "Mục đích sử dụng trang phục để đi học đại học.",
+          "related_domain_ids": [
+            "dom_t_t"
+          ]
+        },
+        {
+          "domain_id": "dom_t_t",
+          "label": "Thể hiện trang phục và yêu cầu chung",
+          "summary": "Các yêu cầu về giới tính, cảm hứng, độ kín đáo, độ thoải mái, các lựa chọn chi tiết và phần do AI gợi ý.",
+          "related_domain_ids": [
+            "dom_b_c"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atm_01",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Trang phục dành cho nữ.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Thiết kế đồ nữ"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_02",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Lấy cảm hứng từ Việt phục.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "lấy cảm hứng Việt phục"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_03",
+          "domain_ids": [
+            "dom_b_c"
+          ],
+          "meaning": "Sử dụng để đi học đại học.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "đi học đại học"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_04",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Trang phục phải kín đáo.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "kín đáo"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_05",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Trang phục phải thoải mái.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "thoải mái"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_06",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Các phần còn lại do AI gợi ý.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Còn lại bạn gợi ý."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_s_01",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Chọn hướng thiết kế áo ngũ thân cách tân kết hợp quần dài, phù hợp đi học.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn hướng thiết kế áo ngũ thân cách tân kết hợp quần dài, phù hợp đi học."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_s_02",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Giao AI tự quyết định chất liệu trang phục.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Giao AI tự quyết định chất liệu trang phục."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_s_03",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Giao AI tự quyết định bảng màu trang phục.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Giao AI tự quyết định bảng màu trang phục."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_s_04",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Giao AI tự quyết định hoa văn trang trí.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Giao AI tự quyết định hoa văn trang trí."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_s_05",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Chọn túi vải mộc đựng sách vở.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn túi vải mộc đựng sách vở."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atm_s_06",
+          "domain_ids": [
+            "dom_t_t"
+          ],
+          "meaning": "Chọn phong cách ảnh lookbook studio tối giản.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn phong cách ảnh lookbook studio tối giản."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "locked_atom_ids": [
+        "atm_01",
+        "atm_03",
+        "atm_04",
+        "atm_05",
+        "atm_s_01",
+        "atm_s_05",
+        "atm_s_06"
+      ],
+      "delegated_atom_ids": [
+        "atm_06",
+        "atm_s_02",
+        "atm_s_03",
+        "atm_s_04"
+      ],
+      "creative_space": [
+        {
+          "domain_id": "dom_t_t",
+          "description": "Chất liệu, bảng màu và hoa văn trang trí được giao cho AI toàn quyền tự quyết định dựa trên tính chất trang phục đi học đại học.",
+          "allowed_variations": [
+            "Lựa chọn tổ hợp chất liệu thoáng mát, đứng phom hoặc mềm mại phù hợp.",
+            "Xây dựng bảng màu trang nhã, thanh lịch hoặc trầm ấm truyền thống.",
+            "Bổ sung hoa văn trang trí tinh tế mang hơi thở Việt phục hoặc tối giản."
+          ]
+        }
+      ],
+      "reference_ids": [],
+      "historical_mode": "inspired",
+      "decisions": [
+        {
+          "group_id": "grp_trang_phuc",
+          "option_ids": [
+            "opt_ao_ngu_than_phối"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atm_s_01"
+          ]
+        },
+        {
+          "group_id": "grp_chat_lieu",
+          "option_ids": [
+            "opt_ai_tu_quyet_cl"
+          ],
+          "custom_text": "",
+          "delegated": true,
+          "atom_ids": [
+            "atm_s_02"
+          ]
+        },
+        {
+          "group_id": "grp_mau_sac",
+          "option_ids": [
+            "opt_ai_tu_quyet_ms"
+          ],
+          "custom_text": "",
+          "delegated": true,
+          "atom_ids": [
+            "atm_s_03"
+          ]
+        },
+        {
+          "group_id": "grp_hoa_van",
+          "option_ids": [
+            "opt_ai_tu_quyet_hv"
+          ],
+          "custom_text": "",
+          "delegated": true,
+          "atom_ids": [
+            "atm_s_04"
+          ]
+        },
+        {
+          "group_id": "grp_phu_kien",
+          "option_ids": [
+            "opt_tui_vai_tho"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atm_s_05"
+          ]
+        },
+        {
+          "group_id": "grp_phong_cach_trinh_bay_anh",
+          "option_ids": [
+            "opt_lookbook_studio"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atm_s_06"
+          ]
+        }
+      ],
+      "conflicts": [],
+      "status": "ready"
+    },
+    "CANDIDATE_BATCH": [
+      {
+        "candidate_id": "R2-B2-C1",
+        "batch_id": "LOCAL_REPAIR_SPARSE",
+        "revision": 2,
+        "title": "Áo ngũ thân cách tân xanh rêu đi học",
+        "image_prompt": "Tạo một hình ảnh theo phong cách lookbook studio tối giản trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục đi học đại học qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Trang phục được thiết kế lấy cảm hứng từ Việt phục, bao gồm áo ngũ thân cách tân dáng gọn gàng kết hợp quần dài ống suông lịch sự, kín đáo và thoải mái cho sinh viên nữ trong khí hậu nóng. Chất liệu vải linen cotton pha tơ mềm mại, thoáng mát, ưu tiên dễ giặt và cấu tạo hướng tới mục tiêu đề xuất dễ giặt. Bảng màu chủ đạo là xanh rêu nhã nhặn kết hợp với quần màu kem sáng. Hoa văn trang trí tối giản với các đường nét thêu tay nhẹ nhàng hình lá tre cách điệu dọc theo vạt áo trước. Phụ kiện đi kèm đúng một chiếc túi vải mộc đựng sách vở. Bối cảnh studio tối giản với phông nền sáng, ánh sáng tự nhiên mềm mại, không có chữ hay nhãn trong ảnh. Chi tiết mặt trước: cổ áo đứng thanh lịch, khuy cài bên gọn gàng, thân áo vừa vặn kín đáo không xuyên thấu, hai vạt trước cân đối. Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.",
+        "design_sections": [
+          {
+            "domain_id": "dom_t_t",
+            "description": "Áo ngũ thân cách tân kết hợp quần dài ống suông cho nữ, chất liệu linen cotton dễ giặt, màu xanh rêu, hoa văn thêu lá tre tối giản, kèm đúng một túi vải mộc.",
+            "related_atom_ids": [
+              "atm_01",
+              "atm_04",
+              "atm_05",
+              "atm_s_01",
+              "atm_s_05",
+              "atm_s_06"
+            ]
+          },
+          {
+            "domain_id": "dom_b_c",
+            "description": "Trang phục sử dụng đi học đại học, phù hợp khí hậu nóng, phong cách lookbook studio tối giản.",
+            "related_atom_ids": [
+              "atm_03",
+              "atm_s_06"
+            ]
+          }
+        ],
+        "fashion_summary": "Thiết kế áo ngũ thân cách tân kết hợp quần dài suông rộng thoáng mát, màu xanh rêu thanh lịch, phù hợp mặc đi học đại học cho nữ.",
+        "art_summary": "Phong cách lookbook studio tối giản, hoa văn lá tre thêu tay tinh tế, bố cục hai góc nhìn trước và sau đồng nhất.",
+        "culture_summary": "Lấy cảm hứng từ phom dáng áo ngũ thân truyền thống của Việt phục, cách tân để phù hợp với môi trường học đường hiện đại.",
+        "choices_made": [
+          "Chọn hướng thiết kế áo ngũ thân cách tân kết hợp quần dài",
+          "AI quyết định chất liệu linen cotton pha tơ thoáng mát, dễ giặt",
+          "AI quyết định bảng màu xanh rêu nhã nhặn",
+          "AI quyết định hoa văn lá tre thêu tay tối giản",
+          "Chọn một túi vải mộc đựng sách vở",
+          "Chọn phong cách ảnh lookbook studio tối giản"
+        ],
+        "claims": [],
+        "locked_coverage": [],
+        "assumptions": [
+          "Sử dụng chất liệu thân thiện với thời tiết nóng và dễ giặt hàng ngày.",
+          "Màu sắc được chọn mang tính nhã nhặn, phù hợp môi trường đại học."
+        ],
+        "limitations": [
+          "Chất liệu cotton lạnh là mục tiêu đề xuất, không xác nhận khả năng thấm hút đã kiểm chứng.",
+          "Chất liệu và độ bền giặt là đề xuất thiết kế, cần thực tế kiểm chứng thêm."
+        ],
+        "content_hash": "e7b9cf7db34e57b0c6cd1931199bd4b9316de1ac3a4aabaaaadc5d9d1329244d",
+        "verbatim_excerpt_bank": [
+          "Tạo một hình ảnh theo phong cách lookbook studio tối giản trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục đi học đại học qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.",
+          "Trang phục được thiết kế lấy cảm hứng từ Việt phục, bao gồm áo ngũ thân cách tân dáng gọn gàng kết hợp quần dài ống suông lịch sự, kín đáo và thoải mái cho sinh viên nữ trong khí hậu nóng.",
+          "Chất liệu vải linen cotton pha tơ mềm mại, thoáng mát, ưu tiên dễ giặt và cấu tạo hướng tới mục tiêu đề xuất dễ giặt.",
+          "Bảng màu chủ đạo là xanh rêu nhã nhặn kết hợp với quần màu kem sáng.",
+          "Hoa văn trang trí tối giản với các đường nét thêu tay nhẹ nhàng hình lá tre cách điệu dọc theo vạt áo trước.",
+          "Phụ kiện đi kèm đúng một chiếc túi vải mộc đựng sách vở.",
+          "Bối cảnh studio tối giản với phông nền sáng, ánh sáng tự nhiên mềm mại, không có chữ hay nhãn trong ảnh.",
+          "Chi tiết mặt trước: cổ áo đứng thanh lịch, khuy cài bên gọn gàng, thân áo vừa vặn kín đáo không xuyên thấu, hai vạt trước cân đối.",
+          "Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước."
+        ]
+      },
+      {
+        "candidate_id": "R2-B2-C3",
+        "batch_id": "LOCAL_REPAIR_SPARSE",
+        "revision": 2,
+        "title": "Áo ngũ thân cách tân màu xanh dương nhạt đi học",
+        "image_prompt": "Tạo một hình ảnh theo phong cách lookbook studio tối giản trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục đi học đại học qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Trang phục được thiết kế lấy cảm hứng từ Việt phục, bao gồm áo ngũ thân cách tân vạt lửng kết hợp quần dài đứng phom, đảm bảo độ kín đáo, lịch sự, thoải mái khi di chuyển và dễ giặt. Chất liệu vải cotton lạnh cao cấp, mục tiêu đề xuất thoáng mát và dễ giặt. Bảng màu chủ đạo là xanh dương nhạt thanh thoát kết hợp quần màu trắng sữa. Hoa văn trang trí là các đường kẻ sọc mờ đan xen tối giản dọc thân áo. Phụ kiện đi kèm đúng một chiếc túi vải mộc đựng sách vở. Bối cảnh studio tối giản với ánh sáng khuếch tán đều, không có chữ hay nhãn trong ảnh. Chi tiết mặt trước: cổ áo đứng gọn gàng, khuy cài bên kín đáo, thân áo vừa vặn lịch sự. Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng phiu, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.",
+        "design_sections": [
+          {
+            "domain_id": "dom_t_t",
+            "description": "Áo ngũ thân cách tân kết hợp quần dài đứng phom, chất liệu cotton lạnh dễ giặt, màu xanh dương nhạt, hoa văn sọc mờ tối giản, kèm một túi vải mộc.",
+            "related_atom_ids": [
+              "atm_01",
+              "atm_04",
+              "atm_05",
+              "atm_s_01",
+              "atm_s_05",
+              "atm_s_06"
+            ]
+          },
+          {
+            "domain_id": "dom_b_c",
+            "description": "Mục đích đi học đại học, phong cách lookbook studio tối giản.",
+            "related_atom_ids": [
+              "atm_03",
+              "atm_s_06"
+            ]
+          }
+        ],
+        "fashion_summary": "Áo ngũ thân cách tân phối quần dài đứng phom chất liệu cotton lạnh màu xanh dương nhạt, tạo vẻ ngoài năng động, lịch sự khi đi học.",
+        "art_summary": "Bố cục lookbook studio tối giản, gam màu lạnh nhẹ nhàng, đường nét trang trí gọn gàng, đồng nhất ở hai góc nhìn.",
+        "culture_summary": "Cảm hứng từ áo ngũ thân truyền thống được tinh gọn để phù hợp cho giới trẻ mặc đi học.",
+        "choices_made": [
+          "Chọn hướng thiết kế áo ngũ thân cách tân kết hợp quần dài",
+          "AI quyết định chất liệu cotton lạnh thoáng mát, dễ giặt",
+          "AI quyết định bảng màu xanh dương nhạt",
+          "AI quyết định hoa văn kẻ sọc mờ tối giản",
+          "Chọn một túi vải mộc đựng sách vở",
+          "Chọn phong cách ảnh lookbook studio tối giản"
+        ],
+        "claims": [],
+        "locked_coverage": [],
+        "assumptions": [
+          "Cotton lạnh mang lại độ đứng phom vừa phải và dễ chăm sóc hằng ngày."
+        ],
+        "limitations": [
+          "Chất liệu cotton lạnh là mục tiêu đề xuất, không xác nhận khả năng thấm hút đã kiểm chứng.",
+          "Tính năng dễ giặt và thoáng khí dựa trên đặc tính vật liệu phổ thông, chưa qua thử nghiệm thực tế."
+        ],
+        "content_hash": "a47f9e83fcec206544b2cf1869de563fdb521030af0b1dbee5dd98cf7eda02b2",
+        "verbatim_excerpt_bank": [
+          "Tạo một hình ảnh theo phong cách lookbook studio tối giản trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục đi học đại học qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.",
+          "Trang phục được thiết kế lấy cảm hứng từ Việt phục, bao gồm áo ngũ thân cách tân vạt lửng kết hợp quần dài đứng phom, đảm bảo độ kín đáo, lịch sự, thoải mái khi di chuyển và dễ giặt.",
+          "Chất liệu vải cotton lạnh cao cấp, mục tiêu đề xuất thoáng mát và dễ giặt.",
+          "Bảng màu chủ đạo là xanh dương nhạt thanh thoát kết hợp quần màu trắng sữa.",
+          "Hoa văn trang trí là các đường kẻ sọc mờ đan xen tối giản dọc thân áo.",
+          "Phụ kiện đi kèm đúng một chiếc túi vải mộc đựng sách vở.",
+          "Bối cảnh studio tối giản với ánh sáng khuếch tán đều, không có chữ hay nhãn trong ảnh.",
+          "Chi tiết mặt trước: cổ áo đứng gọn gàng, khuy cài bên kín đáo, thân áo vừa vặn lịch sự.",
+          "Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng phiu, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước."
+        ]
+      },
+      {
+        "candidate_id": "R2-B1-C3",
+        "batch_id": "LOCAL_REPAIR_SPARSE",
+        "revision": 2,
+        "title": "Áo ngũ thân cách tân xanh rêu trầm ấm đi học",
+        "image_prompt": "Tạo một ảnh trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Trang phục thiết kế lấy cảm hứng từ Việt phục để đi học đại học, đảm bảo độ kín đáo, thoải mái và lịch sự. Phom dáng gồm áo ngũ thân cách tân vạt ngắn gọn gàng kết hợp quần dài ống suông màu xám nhạt. Chất liệu vải cotton lạnh mịn màng, ít nhăn, mục tiêu đề xuất dễ giặt. Bảng màu chủ đạo gồm xanh rêu trầm ấm kết hợp xám nhạt. Hoa văn trang trí tối giản hình lá tre nhỏ thêu tay tinh tế ở góc vạt áo. Phụ kiện đi kèm gồm một chiếc túi vải mộc đơn giản đựng sách vở. Phong cách trình bày ảnh lookbook studio tối giản với nền sáng trung tính. Chi tiết mặt trước: cổ áo đứng thanh lịch, khuy cài bên gọn gàng, thân áo vừa vặn kín đáo không xuyên thấu, hai vạt trước cân đối. Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.",
+        "design_sections": [
+          {
+            "domain_id": "dom_t_t",
+            "description": "Áo ngũ thân cách tân vạt ngắn kết hợp quần dài ống suông, chất liệu cotton lạnh, màu xanh rêu và xám nhạt, hoa văn lá tre thêu tay, đi kèm túi vải mộc.",
+            "related_atom_ids": [
+              "atm_01",
+              "atm_03",
+              "atm_04",
+              "atm_05",
+              "atm_s_01",
+              "atm_s_05",
+              "atm_s_06"
+            ]
+          }
+        ],
+        "fashion_summary": "Áo ngũ thân cách tân vạt ngắn phối quần ống suông, chất liệu cotton lạnh ít nhăn, màu xanh rêu trầm ấm mang lại vẻ lịch sự, trang nhã cho nữ sinh.",
+        "art_summary": "Họa tiết lá tre thêu tay nhỏ gọn, đường nét tối giản trên nền vải trơn tạo điểm nhấn tinh tế.",
+        "culture_summary": "Kết hợp hài hòa giữa nét đẹp truyền thống của áo ngũ thân và phong cách thời trang học đường hiện đại.",
+        "choices_made": [
+          "Sử dụng chất liệu cotton lạnh ít nhăn",
+          "Bảng màu xanh rêu trầm ấm kết hợp xám nhạt",
+          "Hoa văn lá tre thêu tay tối giản",
+          "Túi vải mộc đơn giản",
+          "Phong cách lookbook studio tối giản"
+        ],
+        "claims": [],
+        "locked_coverage": [],
+        "assumptions": [
+          "Chất liệu cotton lạnh đáp ứng tiêu chí thoáng mát và dễ giặt.",
+          "Thiết kế phù hợp với sinh hoạt học tập hằng ngày."
+        ],
+        "limitations": [
+          "Chất liệu cotton lạnh là mục tiêu đề xuất, không xác nhận khả năng thấm hút đã kiểm chứng.",
+          "Mô tả dựa trên góc độ thiết kế ý tưởng, chưa qua kiểm chứng may thực tế."
+        ],
+        "content_hash": "c2776e870bde20c79908a05e888cf45e9249b132400e3b76f09afe4c95731458",
+        "verbatim_excerpt_bank": [
+          "Tạo một ảnh trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.",
+          "Trang phục thiết kế lấy cảm hứng từ Việt phục để đi học đại học, đảm bảo độ kín đáo, thoải mái và lịch sự.",
+          "Phom dáng gồm áo ngũ thân cách tân vạt ngắn gọn gàng kết hợp quần dài ống suông màu xám nhạt.",
+          "Chất liệu vải cotton lạnh mịn màng, ít nhăn, mục tiêu đề xuất dễ giặt.",
+          "Bảng màu chủ đạo gồm xanh rêu trầm ấm kết hợp xám nhạt.",
+          "Hoa văn trang trí tối giản hình lá tre nhỏ thêu tay tinh tế ở góc vạt áo.",
+          "Phụ kiện đi kèm gồm một chiếc túi vải mộc đơn giản đựng sách vở.",
+          "Phong cách trình bày ảnh lookbook studio tối giản với nền sáng trung tính.",
+          "Chi tiết mặt trước: cổ áo đứng thanh lịch, khuy cài bên gọn gàng, thân áo vừa vặn kín đáo không xuyên thấu, hai vạt trước cân đối.",
+          "Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước."
+        ]
+      }
+    ],
+    "REFERENCE_BUNDLE": {
+      "references": [],
+      "provider_metadata": [],
+      "reference_mode": "text_only",
+      "availability": "unavailable_by_user_choice"
+    },
+    "EXPECTED_CHECKS": [
+      {
+        "check_id": "locked:atm_01",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Trang phục dành cho nữ."
+      },
+      {
+        "check_id": "locked:atm_03",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Sử dụng để đi học đại học."
+      },
+      {
+        "check_id": "locked:atm_04",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Trang phục phải kín đáo."
+      },
+      {
+        "check_id": "locked:atm_05",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Trang phục phải thoải mái."
+      },
+      {
+        "check_id": "locked:atm_s_01",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chọn hướng thiết kế áo ngũ thân cách tân kết hợp quần dài, phù hợp đi học."
+      },
+      {
+        "check_id": "locked:atm_s_05",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chọn túi vải mộc đựng sách vở."
+      },
+      {
+        "check_id": "locked:atm_s_06",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chọn phong cách ảnh lookbook studio tối giản."
+      },
+      {
+        "check_id": "summary_prompt_consistency",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Toàn bộ kế hoạch/tóm tắt phải trùng prompt"
+      },
+      {
+        "check_id": "claim_support",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Kiểm tra claims và phát biểu thực tế trong prompt/tóm tắt; không có claim sai nguồn",
+        "evidence_mode": "claim_inventory",
+        "empty_quote_allowed_for_candidate_ids": [
+          "R2-B2-C1",
+          "R2-B2-C3",
+          "R2-B1-C3"
+        ]
+      },
+      {
+        "check_id": "historical_scope",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": false,
+        "content": "Mọi phần lịch sử bắt buộc có căn cứ đúng vùng/thời kỳ, không đổi mode"
+      }
+    ],
+    "ROLE_RUBRIC": {
+      "version": "vp-rubric-2.1.0",
+      "role": "culture",
+      "rating_min": 0,
+      "rating_max": 5,
+      "contribution_lookup": {
+        "mode_fidelity": [
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0
+        ],
+        "evidence_scope": [
+          0.0,
+          7.0,
+          14.0,
+          21.0,
+          28.0,
+          35.0
+        ],
+        "cultural_integration": [
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0
+        ],
+        "claim_transparency": [
+          0.0,
+          3.0,
+          6.0,
+          9.0,
+          12.0,
+          15.0
+        ]
+      },
+      "criteria": [
+        {
+          "criterion_id": "mode_fidelity",
+          "weight": 25,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "evidence_scope",
+          "weight": 35,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "cultural_integration",
+          "weight": 25,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "claim_transparency",
+          "weight": 15,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        }
+      ]
+    },
+    "AUDIT_POLICY": {
+      "creative_level": "balanced",
+      "profile": "balanced",
+      "label": "Cân bằng chuyên môn"
+    }
+  },
+  "prompt": "TASK: AUDIT_VIET_PHUC_CULTURE_AND_HISTORY\n\nThông tin ứng dụng cấp: {\"request_id\": \"da6d2259-358a-422d-a96e-a34370fc6b6a\", \"revision\": 2}\nNhu cầu đã chốt và mức lịch sử: {\"request_id\": \"da6d2259-358a-422d-a96e-a34370fc6b6a\", \"revision\": 2, \"resolved_text\": \"Thiết kế trang phục nữ lấy cảm hứng Việt phục để đi học đại học, với phom dáng áo ngũ thân cách tân kết hợp quần dài, đảm bảo độ kín đáo, thoải mái và lịch sự. Chất liệu trang phục, bảng màu chủ đạo và hoa văn trang trí do AI gợi ý và quyết định. Đi kèm phụ kiện là túi vải mộc đựng sách vở. Phong cách trình bày ảnh là lookbook studio tối giản.\", \"domains\": [{\"domain_id\": \"dom_b_c\", \"label\": \"Bối cảnh sử dụng\", \"summary\": \"Mục đích sử dụng trang phục để đi học đại học.\", \"related_domain_ids\": [\"dom_t_t\"]}, {\"domain_id\": \"dom_t_t\", \"label\": \"Thể hiện trang phục và yêu cầu chung\", \"summary\": \"Các yêu cầu về giới tính, cảm hứng, độ kín đáo, độ thoải mái, các lựa chọn chi tiết và phần do AI gợi ý.\", \"related_domain_ids\": [\"dom_b_c\"]}], \"atoms\": [{\"atom_id\": \"atm_01\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Trang phục dành cho nữ.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Thiết kế đồ nữ\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_02\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Lấy cảm hứng từ Việt phục.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"lấy cảm hứng Việt phục\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_03\", \"domain_ids\": [\"dom_b_c\"], \"meaning\": \"Sử dụng để đi học đại học.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"đi học đại học\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_04\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Trang phục phải kín đáo.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"kín đáo\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_05\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Trang phục phải thoải mái.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"thoải mái\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_06\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Các phần còn lại do AI gợi ý.\", \"intent_type\": \"delegated\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Còn lại bạn gợi ý.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_s_01\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Chọn hướng thiết kế áo ngũ thân cách tân kết hợp quần dài, phù hợp đi học.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn hướng thiết kế áo ngũ thân cách tân kết hợp quần dài, phù hợp đi học.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_s_02\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Giao AI tự quyết định chất liệu trang phục.\", \"intent_type\": \"delegated\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Giao AI tự quyết định chất liệu trang phục.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_s_03\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Giao AI tự quyết định bảng màu trang phục.\", \"intent_type\": \"delegated\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Giao AI tự quyết định bảng màu trang phục.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_s_04\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Giao AI tự quyết định hoa văn trang trí.\", \"intent_type\": \"delegated\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Giao AI tự quyết định hoa văn trang trí.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_s_05\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Chọn túi vải mộc đựng sách vở.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn túi vải mộc đựng sách vở.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atm_s_06\", \"domain_ids\": [\"dom_t_t\"], \"meaning\": \"Chọn phong cách ảnh lookbook studio tối giản.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn phong cách ảnh lookbook studio tối giản.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}], \"locked_atom_ids\": [\"atm_01\", \"atm_03\", \"atm_04\", \"atm_05\", \"atm_s_01\", \"atm_s_05\", \"atm_s_06\"], \"delegated_atom_ids\": [\"atm_06\", \"atm_s_02\", \"atm_s_03\", \"atm_s_04\"], \"creative_space\": [{\"domain_id\": \"dom_t_t\", \"description\": \"Chất liệu, bảng màu và hoa văn trang trí được giao cho AI toàn quyền tự quyết định dựa trên tính chất trang phục đi học đại học.\", \"allowed_variations\": [\"Lựa chọn tổ hợp chất liệu thoáng mát, đứng phom hoặc mềm mại phù hợp.\", \"Xây dựng bảng màu trang nhã, thanh lịch hoặc trầm ấm truyền thống.\", \"Bổ sung hoa văn trang trí tinh tế mang hơi thở Việt phục hoặc tối giản.\"]}], \"reference_ids\": [], \"historical_mode\": \"inspired\", \"decisions\": [{\"group_id\": \"grp_trang_phuc\", \"option_ids\": [\"opt_ao_ngu_than_phối\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atm_s_01\"]}, {\"group_id\": \"grp_chat_lieu\", \"option_ids\": [\"opt_ai_tu_quyet_cl\"], \"custom_text\": \"\", \"delegated\": true, \"atom_ids\": [\"atm_s_02\"]}, {\"group_id\": \"grp_mau_sac\", \"option_ids\": [\"opt_ai_tu_quyet_ms\"], \"custom_text\": \"\", \"delegated\": true, \"atom_ids\": [\"atm_s_03\"]}, {\"group_id\": \"grp_hoa_van\", \"option_ids\": [\"opt_ai_tu_quyet_hv\"], \"custom_text\": \"\", \"delegated\": true, \"atom_ids\": [\"atm_s_04\"]}, {\"group_id\": \"grp_phu_kien\", \"option_ids\": [\"opt_tui_vai_tho\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atm_s_05\"]}, {\"group_id\": \"grp_phong_cach_trinh_bay_anh\", \"option_ids\": [\"opt_lookbook_studio\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atm_s_06\"]}], \"conflicts\": [], \"status\": \"ready\"}\nCác phương án, image_prompt nguyên văn và hash do ứng dụng cấp: [{\"candidate_id\": \"R2-B2-C1\", \"batch_id\": \"LOCAL_REPAIR_SPARSE\", \"revision\": 2, \"title\": \"Áo ngũ thân cách tân xanh rêu đi học\", \"image_prompt\": \"Tạo một hình ảnh theo phong cách lookbook studio tối giản trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục đi học đại học qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Trang phục được thiết kế lấy cảm hứng từ Việt phục, bao gồm áo ngũ thân cách tân dáng gọn gàng kết hợp quần dài ống suông lịch sự, kín đáo và thoải mái cho sinh viên nữ trong khí hậu nóng. Chất liệu vải linen cotton pha tơ mềm mại, thoáng mát, ưu tiên dễ giặt và cấu tạo hướng tới mục tiêu đề xuất dễ giặt. Bảng màu chủ đạo là xanh rêu nhã nhặn kết hợp với quần màu kem sáng. Hoa văn trang trí tối giản với các đường nét thêu tay nhẹ nhàng hình lá tre cách điệu dọc theo vạt áo trước. Phụ kiện đi kèm đúng một chiếc túi vải mộc đựng sách vở. Bối cảnh studio tối giản với phông nền sáng, ánh sáng tự nhiên mềm mại, không có chữ hay nhãn trong ảnh. Chi tiết mặt trước: cổ áo đứng thanh lịch, khuy cài bên gọn gàng, thân áo vừa vặn kín đáo không xuyên thấu, hai vạt trước cân đối. Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.\", \"design_sections\": [{\"domain_id\": \"dom_t_t\", \"description\": \"Áo ngũ thân cách tân kết hợp quần dài ống suông cho nữ, chất liệu linen cotton dễ giặt, màu xanh rêu, hoa văn thêu lá tre tối giản, kèm đúng một túi vải mộc.\", \"related_atom_ids\": [\"atm_01\", \"atm_04\", \"atm_05\", \"atm_s_01\", \"atm_s_05\", \"atm_s_06\"]}, {\"domain_id\": \"dom_b_c\", \"description\": \"Trang phục sử dụng đi học đại học, phù hợp khí hậu nóng, phong cách lookbook studio tối giản.\", \"related_atom_ids\": [\"atm_03\", \"atm_s_06\"]}], \"fashion_summary\": \"Thiết kế áo ngũ thân cách tân kết hợp quần dài suông rộng thoáng mát, màu xanh rêu thanh lịch, phù hợp mặc đi học đại học cho nữ.\", \"art_summary\": \"Phong cách lookbook studio tối giản, hoa văn lá tre thêu tay tinh tế, bố cục hai góc nhìn trước và sau đồng nhất.\", \"culture_summary\": \"Lấy cảm hứng từ phom dáng áo ngũ thân truyền thống của Việt phục, cách tân để phù hợp với môi trường học đường hiện đại.\", \"choices_made\": [\"Chọn hướng thiết kế áo ngũ thân cách tân kết hợp quần dài\", \"AI quyết định chất liệu linen cotton pha tơ thoáng mát, dễ giặt\", \"AI quyết định bảng màu xanh rêu nhã nhặn\", \"AI quyết định hoa văn lá tre thêu tay tối giản\", \"Chọn một túi vải mộc đựng sách vở\", \"Chọn phong cách ảnh lookbook studio tối giản\"], \"claims\": [], \"locked_coverage\": [], \"assumptions\": [\"Sử dụng chất liệu thân thiện với thời tiết nóng và dễ giặt hàng ngày.\", \"Màu sắc được chọn mang tính nhã nhặn, phù hợp môi trường đại học.\"], \"limitations\": [\"Chất liệu cotton lạnh là mục tiêu đề xuất, không xác nhận khả năng thấm hút đã kiểm chứng.\", \"Chất liệu và độ bền giặt là đề xuất thiết kế, cần thực tế kiểm chứng thêm.\"], \"content_hash\": \"e7b9cf7db34e57b0c6cd1931199bd4b9316de1ac3a4aabaaaadc5d9d1329244d\", \"verbatim_excerpt_bank\": [\"Tạo một hình ảnh theo phong cách lookbook studio tối giản trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục đi học đại học qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.\", \"Trang phục được thiết kế lấy cảm hứng từ Việt phục, bao gồm áo ngũ thân cách tân dáng gọn gàng kết hợp quần dài ống suông lịch sự, kín đáo và thoải mái cho sinh viên nữ trong khí hậu nóng.\", \"Chất liệu vải linen cotton pha tơ mềm mại, thoáng mát, ưu tiên dễ giặt và cấu tạo hướng tới mục tiêu đề xuất dễ giặt.\", \"Bảng màu chủ đạo là xanh rêu nhã nhặn kết hợp với quần màu kem sáng.\", \"Hoa văn trang trí tối giản với các đường nét thêu tay nhẹ nhàng hình lá tre cách điệu dọc theo vạt áo trước.\", \"Phụ kiện đi kèm đúng một chiếc túi vải mộc đựng sách vở.\", \"Bối cảnh studio tối giản với phông nền sáng, ánh sáng tự nhiên mềm mại, không có chữ hay nhãn trong ảnh.\", \"Chi tiết mặt trước: cổ áo đứng thanh lịch, khuy cài bên gọn gàng, thân áo vừa vặn kín đáo không xuyên thấu, hai vạt trước cân đối.\", \"Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.\"]}, {\"candidate_id\": \"R2-B2-C3\", \"batch_id\": \"LOCAL_REPAIR_SPARSE\", \"revision\": 2, \"title\": \"Áo ngũ thân cách tân màu xanh dương nhạt đi học\", \"image_prompt\": \"Tạo một hình ảnh theo phong cách lookbook studio tối giản trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục đi học đại học qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Trang phục được thiết kế lấy cảm hứng từ Việt phục, bao gồm áo ngũ thân cách tân vạt lửng kết hợp quần dài đứng phom, đảm bảo độ kín đáo, lịch sự, thoải mái khi di chuyển và dễ giặt. Chất liệu vải cotton lạnh cao cấp, mục tiêu đề xuất thoáng mát và dễ giặt. Bảng màu chủ đạo là xanh dương nhạt thanh thoát kết hợp quần màu trắng sữa. Hoa văn trang trí là các đường kẻ sọc mờ đan xen tối giản dọc thân áo. Phụ kiện đi kèm đúng một chiếc túi vải mộc đựng sách vở. Bối cảnh studio tối giản với ánh sáng khuếch tán đều, không có chữ hay nhãn trong ảnh. Chi tiết mặt trước: cổ áo đứng gọn gàng, khuy cài bên kín đáo, thân áo vừa vặn lịch sự. Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng phiu, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.\", \"design_sections\": [{\"domain_id\": \"dom_t_t\", \"description\": \"Áo ngũ thân cách tân kết hợp quần dài đứng phom, chất liệu cotton lạnh dễ giặt, màu xanh dương nhạt, hoa văn sọc mờ tối giản, kèm một túi vải mộc.\", \"related_atom_ids\": [\"atm_01\", \"atm_04\", \"atm_05\", \"atm_s_01\", \"atm_s_05\", \"atm_s_06\"]}, {\"domain_id\": \"dom_b_c\", \"description\": \"Mục đích đi học đại học, phong cách lookbook studio tối giản.\", \"related_atom_ids\": [\"atm_03\", \"atm_s_06\"]}], \"fashion_summary\": \"Áo ngũ thân cách tân phối quần dài đứng phom chất liệu cotton lạnh màu xanh dương nhạt, tạo vẻ ngoài năng động, lịch sự khi đi học.\", \"art_summary\": \"Bố cục lookbook studio tối giản, gam màu lạnh nhẹ nhàng, đường nét trang trí gọn gàng, đồng nhất ở hai góc nhìn.\", \"culture_summary\": \"Cảm hứng từ áo ngũ thân truyền thống được tinh gọn để phù hợp cho giới trẻ mặc đi học.\", \"choices_made\": [\"Chọn hướng thiết kế áo ngũ thân cách tân kết hợp quần dài\", \"AI quyết định chất liệu cotton lạnh thoáng mát, dễ giặt\", \"AI quyết định bảng màu xanh dương nhạt\", \"AI quyết định hoa văn kẻ sọc mờ tối giản\", \"Chọn một túi vải mộc đựng sách vở\", \"Chọn phong cách ảnh lookbook studio tối giản\"], \"claims\": [], \"locked_coverage\": [], \"assumptions\": [\"Cotton lạnh mang lại độ đứng phom vừa phải và dễ chăm sóc hằng ngày.\"], \"limitations\": [\"Chất liệu cotton lạnh là mục tiêu đề xuất, không xác nhận khả năng thấm hút đã kiểm chứng.\", \"Tính năng dễ giặt và thoáng khí dựa trên đặc tính vật liệu phổ thông, chưa qua thử nghiệm thực tế.\"], \"content_hash\": \"a47f9e83fcec206544b2cf1869de563fdb521030af0b1dbee5dd98cf7eda02b2\", \"verbatim_excerpt_bank\": [\"Tạo một hình ảnh theo phong cách lookbook studio tối giản trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục đi học đại học qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.\", \"Trang phục được thiết kế lấy cảm hứng từ Việt phục, bao gồm áo ngũ thân cách tân vạt lửng kết hợp quần dài đứng phom, đảm bảo độ kín đáo, lịch sự, thoải mái khi di chuyển và dễ giặt.\", \"Chất liệu vải cotton lạnh cao cấp, mục tiêu đề xuất thoáng mát và dễ giặt.\", \"Bảng màu chủ đạo là xanh dương nhạt thanh thoát kết hợp quần màu trắng sữa.\", \"Hoa văn trang trí là các đường kẻ sọc mờ đan xen tối giản dọc thân áo.\", \"Phụ kiện đi kèm đúng một chiếc túi vải mộc đựng sách vở.\", \"Bối cảnh studio tối giản với ánh sáng khuếch tán đều, không có chữ hay nhãn trong ảnh.\", \"Chi tiết mặt trước: cổ áo đứng gọn gàng, khuy cài bên kín đáo, thân áo vừa vặn lịch sự.\", \"Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng phiu, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.\"]}, {\"candidate_id\": \"R2-B1-C3\", \"batch_id\": \"LOCAL_REPAIR_SPARSE\", \"revision\": 2, \"title\": \"Áo ngũ thân cách tân xanh rêu trầm ấm đi học\", \"image_prompt\": \"Tạo một ảnh trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Trang phục thiết kế lấy cảm hứng từ Việt phục để đi học đại học, đảm bảo độ kín đáo, thoải mái và lịch sự. Phom dáng gồm áo ngũ thân cách tân vạt ngắn gọn gàng kết hợp quần dài ống suông màu xám nhạt. Chất liệu vải cotton lạnh mịn màng, ít nhăn, mục tiêu đề xuất dễ giặt. Bảng màu chủ đạo gồm xanh rêu trầm ấm kết hợp xám nhạt. Hoa văn trang trí tối giản hình lá tre nhỏ thêu tay tinh tế ở góc vạt áo. Phụ kiện đi kèm gồm một chiếc túi vải mộc đơn giản đựng sách vở. Phong cách trình bày ảnh lookbook studio tối giản với nền sáng trung tính. Chi tiết mặt trước: cổ áo đứng thanh lịch, khuy cài bên gọn gàng, thân áo vừa vặn kín đáo không xuyên thấu, hai vạt trước cân đối. Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.\", \"design_sections\": [{\"domain_id\": \"dom_t_t\", \"description\": \"Áo ngũ thân cách tân vạt ngắn kết hợp quần dài ống suông, chất liệu cotton lạnh, màu xanh rêu và xám nhạt, hoa văn lá tre thêu tay, đi kèm túi vải mộc.\", \"related_atom_ids\": [\"atm_01\", \"atm_03\", \"atm_04\", \"atm_05\", \"atm_s_01\", \"atm_s_05\", \"atm_s_06\"]}], \"fashion_summary\": \"Áo ngũ thân cách tân vạt ngắn phối quần ống suông, chất liệu cotton lạnh ít nhăn, màu xanh rêu trầm ấm mang lại vẻ lịch sự, trang nhã cho nữ sinh.\", \"art_summary\": \"Họa tiết lá tre thêu tay nhỏ gọn, đường nét tối giản trên nền vải trơn tạo điểm nhấn tinh tế.\", \"culture_summary\": \"Kết hợp hài hòa giữa nét đẹp truyền thống của áo ngũ thân và phong cách thời trang học đường hiện đại.\", \"choices_made\": [\"Sử dụng chất liệu cotton lạnh ít nhăn\", \"Bảng màu xanh rêu trầm ấm kết hợp xám nhạt\", \"Hoa văn lá tre thêu tay tối giản\", \"Túi vải mộc đơn giản\", \"Phong cách lookbook studio tối giản\"], \"claims\": [], \"locked_coverage\": [], \"assumptions\": [\"Chất liệu cotton lạnh đáp ứng tiêu chí thoáng mát và dễ giặt.\", \"Thiết kế phù hợp với sinh hoạt học tập hằng ngày.\"], \"limitations\": [\"Chất liệu cotton lạnh là mục tiêu đề xuất, không xác nhận khả năng thấm hút đã kiểm chứng.\", \"Mô tả dựa trên góc độ thiết kế ý tưởng, chưa qua kiểm chứng may thực tế.\"], \"content_hash\": \"c2776e870bde20c79908a05e888cf45e9249b132400e3b76f09afe4c95731458\", \"verbatim_excerpt_bank\": [\"Tạo một ảnh trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.\", \"Trang phục thiết kế lấy cảm hứng từ Việt phục để đi học đại học, đảm bảo độ kín đáo, thoải mái và lịch sự.\", \"Phom dáng gồm áo ngũ thân cách tân vạt ngắn gọn gàng kết hợp quần dài ống suông màu xám nhạt.\", \"Chất liệu vải cotton lạnh mịn màng, ít nhăn, mục tiêu đề xuất dễ giặt.\", \"Bảng màu chủ đạo gồm xanh rêu trầm ấm kết hợp xám nhạt.\", \"Hoa văn trang trí tối giản hình lá tre nhỏ thêu tay tinh tế ở góc vạt áo.\", \"Phụ kiện đi kèm gồm một chiếc túi vải mộc đơn giản đựng sách vở.\", \"Phong cách trình bày ảnh lookbook studio tối giản với nền sáng trung tính.\", \"Chi tiết mặt trước: cổ áo đứng thanh lịch, khuy cài bên gọn gàng, thân áo vừa vặn kín đáo không xuyên thấu, hai vạt trước cân đối.\", \"Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.\"]}]\nNguồn văn hóa/lịch sử, trích đoạn và phạm vi được phép dùng: {\"references\": [], \"provider_metadata\": [], \"reference_mode\": \"text_only\", \"availability\": \"unavailable_by_user_choice\"}\nCác kiểm tra và mức bắt buộc thuộc vai trò này: [{\"check_id\": \"locked:atm_01\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Trang phục dành cho nữ.\"}, {\"check_id\": \"locked:atm_03\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Sử dụng để đi học đại học.\"}, {\"check_id\": \"locked:atm_04\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Trang phục phải kín đáo.\"}, {\"check_id\": \"locked:atm_05\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Trang phục phải thoải mái.\"}, {\"check_id\": \"locked:atm_s_01\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chọn hướng thiết kế áo ngũ thân cách tân kết hợp quần dài, phù hợp đi học.\"}, {\"check_id\": \"locked:atm_s_05\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chọn túi vải mộc đựng sách vở.\"}, {\"check_id\": \"locked:atm_s_06\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chọn phong cách ảnh lookbook studio tối giản.\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Toàn bộ kế hoạch/tóm tắt phải trùng prompt\"}, {\"check_id\": \"claim_support\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Kiểm tra claims và phát biểu thực tế trong prompt/tóm tắt; không có claim sai nguồn\", \"evidence_mode\": \"claim_inventory\", \"empty_quote_allowed_for_candidate_ids\": [\"R2-B2-C1\", \"R2-B2-C3\", \"R2-B1-C3\"]}, {\"check_id\": \"historical_scope\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": false, \"content\": \"Mọi phần lịch sử bắt buộc có căn cứ đúng vùng/thời kỳ, không đổi mode\"}]\nTiêu chí/rating/trọng số văn hóa đã khóa: {\"version\": \"vp-rubric-2.1.0\", \"role\": \"culture\", \"rating_min\": 0, \"rating_max\": 5, \"contribution_lookup\": {\"mode_fidelity\": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0], \"evidence_scope\": [0.0, 7.0, 14.0, 21.0, 28.0, 35.0], \"cultural_integration\": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0], \"claim_transparency\": [0.0, 3.0, 6.0, 9.0, 12.0, 15.0]}, \"criteria\": [{\"criterion_id\": \"mode_fidelity\", \"weight\": 25, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"evidence_scope\", \"weight\": 35, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"cultural_integration\", \"weight\": 25, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"claim_transparency\", \"weight\": 15, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}]}\n\nChế độ audit suy ra từ mức sáng tạo: {\"creative_level\": \"balanced\", \"profile\": \"balanced\", \"label\": \"Cân bằng chuyên môn\"}\n\nVAI TRÒ\nĐánh giá chuyên biệt về yếu tố văn hóa/lịch sử trong kế hoạch và prompt. Không đóng dấu xác thực lịch sử bằng kiến thức nhớ, không dùng độ đẹp như chứng cứ. Chưa có ảnh để xác nhận những chi tiết nhìn thấy.\n\nKIỂM TRA\n1. Đọc cả image_prompt, design_sections và claims; không chỉ đọc culture_summary. Phân biệt dữ kiện thực tế, mô tả sáng tạo, lời người dùng và phần chưa xác minh.\n2. Đối chiếu mức neutral/inspired/historical đã chốt. inspired cho phép cách tân có nhãn rõ; không phạt một thiết kế sáng tạo chỉ vì không phục dựng. historical phải có nguồn hỗ trợ đúng phần bắt buộc tái hiện, không đổi sang inspired để tránh lỗi.\n3. Với claim thực tế: kiểm tra mã nguồn, đoạn trích, hiện vật/đặc trưng, thời kỳ và vùng. Nguồn áo dài hiện đại không xác nhận trang phục thời Lý–Trần; link phom váy/thêu không chứng minh lịch sử. Có mã nguồn nhưng không hỗ trợ claim không được pass.\n4. Chú ý sen/rồng/mây là tên nhóm mô-típ rộng. Không mặc định cùng hình dạng, cách bố trí hoặc ý nghĩa cho mọi thời kỳ. Chỉ nêu điều được đoạn nguồn hỗ trợ; phần cách điệu phải ghi là lựa chọn thiết kế.\n5. Xem yếu tố Việt được đưa vào thiết kế cụ thể hay chỉ nói “nét truyền thống”. Nếu yêu cầu lai phom, xem có chi tiết cấu trúc thật được chuyển vào nền mới. Không tự áp một luật cấm pha trộn nếu không có căn cứ/yêu cầu bắt buộc.\n6. Phần tín ngưỡng/nghi lễ/địa vị chỉ coi là hạn chế bắt buộc khi có nguồn đúng phạm vi hoặc người dùng đã yêu cầu. Nếu chưa rõ bối cảnh có ảnh hưởng, ghi cần làm rõ thay vì invent rule.\n7. Kiểm tra EXPECTED_CHECKS đúng một lần, giữ mức bắt buộc/phạm vi. Missing evidence cho claim bắt buộc => uncertain/thiếu căn cứ; claim trái đoạn nguồn => fail. Nguồn/trích dẫn bịa => fail. Ý tưởng sáng tạo không tự là claim lịch sử.\n\nCHẤM BỐN TIÊU CHÍ\n- mode_fidelity: tôn trọng mức tái hiện/cảm hứng đã chốt.\n- evidence_scope: phát biểu thực tế đúng nguồn và đúng phạm vi, hoặc giới hạn phát biểu rõ với thiết kế sáng tạo.\n- cultural_integration: đưa yếu tố văn hóa được yêu cầu vào thiết kế có ý đồ cụ thể.\n- claim_transparency: phân biệt xác thực và sáng tạo, nói đúng điều còn thiếu.\nRating 0–5 theo ROLE_RUBRIC. Nếu không có yêu cầu văn hóa, đánh dấu tiêu chí không áp dụng có lý do, không tự cho 100. historical thiếu nguồn không được dùng not_applicable để né. inspired không claim nguồn gốc vẫn được đánh giá về tính minh bạch, không bị buộc invent claim.\n\nTrả đúng SpecialistAuditBatch, role=culture; giữ candidate_id/revision/content_hash và đúng tập đầu vào. Mỗi audit có checks, criterion_ratings, strengths, concerns, suggested_fixes, summary. Mọi source_id trong nhận xét phải có trong bundle. Không sửa phương án hoặc tự viết caption nguồn mới.\n\nKhi AUDIT_POLICY.profile=creative (mức Khám phá), ưu tiên chuyển thể mới có chủ đích và tính nhất quán trong phần được phép đổi. Không giảm điểm chỉ vì khác mẫu truyền thống trong chế độ inspired; vẫn giữ mọi điều khóa, tính ứng dụng, giới hạn phụ kiện và căn cứ cho claim lịch sử. Đạo cụ dân gian chỉ phù hợp khi bối cảnh cho phép; không thưởng thêm chi tiết quá mức.\n\nHỢP ĐỒNG CHỨNG CỨ CHO TỪNG CHECK\n- Các check có applicability=false phải not_applicable. Các check có applicability=true không được dùng not_applicable để né thiếu căn cứ.\n- locked:<atom_id>: nếu EXPECTED_CHECKS cung cấp exact_prompt_excerpts[candidate_id], đọc và kiểm tra đoạn đó với yêu cầu rồi COPY nguyên văn nếu nó là chứng cứ phù hợp. Đoạn cấp sẵn không tự là kết luận pass. Nếu không đáp ứng thì fail/uncertain với reason thật; không tự thêm giải pháp.\n- summary_prompt_consistency: đọc cả prompt và mọi summary/design_sections. Khi pass phải có quote không rỗng COPY từ image_prompt của candidate; reason phải nêu các nội dung đã đối chiếu. Không lấy câu trong summary làm quote nếu câu đó không có trong prompt. Một quote chỉ là ví dụ đối chiếu, không chứng minh toàn bộ bản tóm tắt; phải đọc tất cả.\n- Các check còn lại: pass cần quote không rỗng, có thật trong image_prompt của đúng candidate, trừ ngoại lệ claim_support ghi riêng dưới đây. Quote giữ nguyên chữ hoa/thường, dấu câu và khoảng trắng. “thiết kế” không phải “Thiết kế”. Không copy meaning của atom hoặc viết câu tương đương làm quote.\n- Nếu không tìm được chi tiết cần thiết để kết luận, dùng uncertain với reason chỉ rõ phần thiếu; không invent quote. Không làm giảm severity, applicability hoặc sửa prompt để đạt.\n- Kiểm tra trước khi trả: check_ids đúng EXPECTED_CHECKS, candidate_revision/content_hash từ candidate hiện tại, các quote không rỗng đều có trong image_prompt, tất cả pass có chứng cứ theo đúng loại check. Rating và nhận xét chỉ dựa trên thông tin được cung cấp, không phải ảnh/mẫu may đã được xem.\n\nCLAIM_SUPPORT: CĂN CỨ TỪ CLAIM INVENTORY\n- EXPECTED_CHECKS.claim_support.evidence_mode=claim_inventory: kiểm tra claims[] và đọc prompt/culture_summary để phát hiện phát biểu lịch sử/nguồn gốc thực tế bị bỏ ngoài claims. Danh sách claims rỗng chưa tự đủ cho pass.\n- Nếu candidate_id thuộc empty_quote_allowed_for_candidate_ids, claims=[] và đọc toàn bộ nội dung không có claim thực tế cần nguồn: được pass với prompt_quote=\"\", source_ids=[]; reason phải ghi rõ kiểm tra claims rỗng và nội dung không chứa claim thực tế chưa khai báo. Không invent đoạn quote để chứng minh một claim không tồn tại. Đây là ngoại lệ duy nhất cho pass không có quote.\n- Nếu claims không rỗng: đối chiếu từng claim với nguồn và scope; pass vẫn cần quote nguyên văn từ image_prompt và source_ids phù hợp. Thiếu đoạn hỗ trợ => uncertain; trái nguồn => fail. Không dùng ngoại lệ của claims rỗng cho check khác.\n- Nếu claims=[] nhưng prompt lại khẳng định niên đại, nguồn gốc, ý nghĩa hay phục dựng chính xác không có căn cứ: không pass; chỉ rõ phát biểu thật trong prompt và lý do fail/uncertain. Inspired không miễn kiểm tra claim thực tế.\n\nCHẾ ĐỘ KIỂM ĐỊNH QUA API (ƯU TIÊN KHI CÓ CHỈ DẪN CŨ KHÁC)\nTừ VP04 đến VP08, backend không kiểm định schema hoặc nội dung response, quote, coverage, mã/hash, nguồn hay điểm; không sửa quote và không loại phương án bằng gate, ngưỡng điểm hoặc so trùng. JSON schema vẫn gửi tới API để định dạng dữ liệu cho giao diện. Giữ đúng mã và trường đã cấp để ứng dụng liên kết kết quả. Các trường tên VALIDATED là tên giao tiếp cũ, không có nghĩa backend đã xác nhận đúng. Auditor tự đọc prompt, đối chiếu yêu cầu và nguồn, nêu rõ fail/uncertain cùng lý do; không bịa chứng cứ. VP08 tự chấm harmony_score/proposed_total và recommendation; backend hiển thị nhận xét và xếp ba phương án theo proposed_total, không xác nhận chất lượng hoặc điều kiện đạt. Không ép prompt thành bản sao câu đầu vào chỉ để có quote.\n\nĐIỂM CHUYÊN MÔN DO GEMINI TÍNH VÀ LƯU\nMỗi audit trả thêm score và score_reason. score = round(100 × sum(weight × rating/5) / sum(weight của các tiêu chí áp dụng), 2). Nếu không có tiêu chí áp dụng, score=null và giải thích. score_reason nêu căn cứ, hạn chế và lý do điểm số; không đồng nhất việc đủ tên chi tiết với chất lượng tối đa. Giữ criterion_ratings/checks, strengths, concerns, suggested_fixes, summary để VP08 có toàn bộ nhận xét của từng candidate. Backend lưu nguyên score/score_reason, không tính lại hoặc chỉnh điểm. Không trả tổng cuối liên vai trò ở bước này.\n\nKIỂM TRA NGUYÊN VĂN VÀ ĐỦ MỆNH ĐỀ\n- prompt_quote chỉ là MỘT đoạn LIỀN có thật trong image_prompt hiện tại. Không ghép nhiều đoạn bằng “...”/“;”, không đổi dấu/chữ, không lấy design_sections hoặc summary làm quote. Nếu cần nhiều phần, chọn một đoạn tiêu biểu rồi giải thích phần còn lại trong reason; không làm giả quote tổng hợp.\n- Với locked atom chứa nhiều điều, pass chỉ khi TẤT CẢ mệnh đề liên quan được thể hiện trong prompt. Ví dụ “nhẹ, thoáng, dễ giặt” mà prompt chỉ nói “vải nhẹ” thì uncertain cho phần thoáng/dễ giặt, không pass cả atom. Đề xuất sửa còn nằm trong suggested_fixes không phải giải pháp đã có.\n- Trước khi xuất JSON, đối chiếu từng quote với chuỗi image_prompt của đúng candidate. Không tìm thấy đoạn thật => quote=\"\", uncertain/fail theo căn cứ và reason chỉ rõ thiếu gì; không paraphrase để lấp.\n- Rating 5 cần thiết kế cụ thể và không còn thiếu sót ảnh hưởng tiêu chí đó. Concern về khả năng mặc/che phủ hoặc thiếu mệnh đề phải được phản ánh ở rating liên quan; không trừ điểm ở miền không liên quan chỉ để tạo vẻ nghiêm khắc.\n\nPHÉP TÍNH ĐIỂM CÓ THỂ KIỂM TRA\nKhông suy score theo cảm giác từ bốn rating. Với mỗi criterion áp dụng, tính contribution=weight*rating/5; score=round(100*sum(contribution)/sum(weight),2). score_reason phải ghi trọng số và contribution cho từng criterion cùng tổng, sau đó một lý do ngắn. Khi tổng weight=100, contribution cộng trực tiếp ra score. Ví dụ weight=[30,30,25,15],rating=[5,4,4,5] => contributions=[30,24,20,15], score=89. Không dùng ví dụ nếu ROLE_RUBRIC có trọng số khác. Không lấy 93.75 hay trung bình không trọng số. Kiểm tra số score khớp các contribution vừa ghi.\nQuote là thao tác COPY văn bản, không phải mô tả ý nghĩa. Với “Trang phục thiết kế dành cho nữ” chỉ có trong summary mà không có nguyên cụm đó trong image_prompt, không được chép vào prompt_quote dù đúng ý. Chọn một câu thật trong image_prompt; nếu prompt không nói rõ người mặc, uncertain thay vì tạo câu mới.\n\nNGÂN HÀNG TRÍCH NGUYÊN VĂN\nCANDIDATE_BATCH.verbatim_excerpt_bank cung cấp câu có thật của từng image_prompt để giảm lỗi chép. Ưu tiên COPY NGUYÊN một phần tử của bank đúng candidate vào prompt_quote; không sửa/chắp thêm từ. Bank không chứng nhận nội dung phù hợp: đọc đầy đủ yêu cầu và chọn uncertain/fail nếu câu không đáp ứng. Không thể tìm câu phù hợp thì quote rỗng và giải thích phần thiếu, không tạo câu gần giống.\n\nVÍ DỤ BẮT BUỘC UNCERTAIN KHI THIẾU ĐIỀU\nCheck yêu cầu “Chất liệu nhẹ, thoáng, dễ giặt.” nhưng image_prompt chỉ viết “vải cotton nhẹ và thoáng”: status=uncertain, quote COPY câu thật đó, reason=\"Đã mô tả nhẹ và thoáng nhưng chưa nêu mục tiêu/giải pháp dễ giặt.\" Không dùng hiểu biết cotton để tự thêm dễ giặt. Pass cả atom phải bao phủ từng điều liên quan, không chỉ phần trùng rõ nhất; nguyên tắc này áp dụng cho mọi yêu cầu gồm nhiều mệnh đề.\n\nQUOTE THEO TỪ VỰNG RESPONSE SCHEMA\nSchema của lượt gọi giới hạn prompt_quote trong các câu nguyên văn của batch hoặc chuỗi rỗng. Chọn một câu thuộc ĐÚNG candidate hiện tại, không dùng câu của candidate khác. Một câu không chứng minh toàn bộ check: reason phải đối chiếu đủ mệnh đề, thiếu một điều vẫn uncertain/fail. locked_coverage của generator được tách khỏi đầu vào audit để tránh coi tự khai là bằng chứng độc lập. Không điều chỉnh câu để hợp quote; không thay đổi nội dung phương án.\n\nTHỨ TỰ TÍNH VÀ GHI ĐIỂM\nXuất score_reason với phép tính thật trước score. Các tiêu chí đều áp dụng và tổng trọng số=100, từng weight chia hết cho5 thì score là tổng contribution và luôn là số nguyên; không có “quy đổi theo hệ thống” khác. Nếu reason tính95 thì score=95, không được tự đổi thành93.75. Không thêm giả thuyết về cơ chế phân bổ điểm.\n\nROLE_RUBRIC.contribution_lookup cho giá trị đóng góp ở rating0..5. Lấy đúng phần tử theo rating cho từng criterion, cộng bốn giá trị và chuẩn hóa theo tổng weight áp dụng. Đây là bảng nhân hỗ trợ, không thay rating/score do Gemini quyết định. Không tự đổi giá trị bảng.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "role": {
+        "type": "string",
+        "enum": [
+          "fashion",
+          "culture",
+          "art"
+        ]
+      },
+      "audits": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "candidate_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "candidate_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "content_hash": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "fashion",
+                "culture",
+                "art"
+              ]
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "check_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  "owner_role": {
+                    "type": "string",
+                    "enum": [
+                      "fashion",
+                      "culture",
+                      "art"
+                    ]
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "hard",
+                      "soft"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "fail",
+                      "uncertain",
+                      "not_applicable"
+                    ]
+                  },
+                  "prompt_quote": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 18000,
+                    "enum": [
+                      "",
+                      "Tạo một hình ảnh theo phong cách lookbook studio tối giản trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục đi học đại học qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.",
+                      "Trang phục được thiết kế lấy cảm hứng từ Việt phục, bao gồm áo ngũ thân cách tân dáng gọn gàng kết hợp quần dài ống suông lịch sự, kín đáo và thoải mái cho sinh viên nữ trong khí hậu nóng.",
+                      "Chất liệu vải linen cotton pha tơ mềm mại, thoáng mát, ưu tiên dễ giặt và cấu tạo hướng tới mục tiêu đề xuất dễ giặt.",
+                      "Bảng màu chủ đạo là xanh rêu nhã nhặn kết hợp với quần màu kem sáng.",
+                      "Hoa văn trang trí tối giản với các đường nét thêu tay nhẹ nhàng hình lá tre cách điệu dọc theo vạt áo trước.",
+                      "Phụ kiện đi kèm đúng một chiếc túi vải mộc đựng sách vở.",
+                      "Bối cảnh studio tối giản với phông nền sáng, ánh sáng tự nhiên mềm mại, không có chữ hay nhãn trong ảnh.",
+                      "Chi tiết mặt trước: cổ áo đứng thanh lịch, khuy cài bên gọn gàng, thân áo vừa vặn kín đáo không xuyên thấu, hai vạt trước cân đối.",
+                      "Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.",
+                      "Trang phục được thiết kế lấy cảm hứng từ Việt phục, bao gồm áo ngũ thân cách tân vạt lửng kết hợp quần dài đứng phom, đảm bảo độ kín đáo, lịch sự, thoải mái khi di chuyển và dễ giặt.",
+                      "Chất liệu vải cotton lạnh cao cấp, mục tiêu đề xuất thoáng mát và dễ giặt.",
+                      "Bảng màu chủ đạo là xanh dương nhạt thanh thoát kết hợp quần màu trắng sữa.",
+                      "Hoa văn trang trí là các đường kẻ sọc mờ đan xen tối giản dọc thân áo.",
+                      "Bối cảnh studio tối giản với ánh sáng khuếch tán đều, không có chữ hay nhãn trong ảnh.",
+                      "Chi tiết mặt trước: cổ áo đứng gọn gàng, khuy cài bên kín đáo, thân áo vừa vặn lịch sự.",
+                      "Chi tiết mặt sau: đường sống lưng may ráp chuẩn mực, lưng áo phẳng phiu, vạt sau buông suông tự nhiên đồng bộ chất liệu và màu sắc với mặt trước.",
+                      "Tạo một ảnh trình bày duy nhất một người mẫu nữ mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.",
+                      "Trang phục thiết kế lấy cảm hứng từ Việt phục để đi học đại học, đảm bảo độ kín đáo, thoải mái và lịch sự.",
+                      "Phom dáng gồm áo ngũ thân cách tân vạt ngắn gọn gàng kết hợp quần dài ống suông màu xám nhạt.",
+                      "Chất liệu vải cotton lạnh mịn màng, ít nhăn, mục tiêu đề xuất dễ giặt.",
+                      "Bảng màu chủ đạo gồm xanh rêu trầm ấm kết hợp xám nhạt.",
+                      "Hoa văn trang trí tối giản hình lá tre nhỏ thêu tay tinh tế ở góc vạt áo.",
+                      "Phụ kiện đi kèm gồm một chiếc túi vải mộc đơn giản đựng sách vở.",
+                      "Phong cách trình bày ảnh lookbook studio tối giản với nền sáng trung tính."
+                    ]
+                  },
+                  "source_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "check_id",
+                  "owner_role",
+                  "severity",
+                  "status",
+                  "prompt_quote",
+                  "source_ids",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 160,
+              "minItems": 0
+            },
+            "criterion_ratings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "criterion_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "applicable": {
+                    "type": "boolean"
+                  },
+                  "rating": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 5
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "criterion_id",
+                  "applicable",
+                  "rating",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 4,
+              "minItems": 4
+            },
+            "strengths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "concerns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "suggested_fixes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "score_reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Exactly the weighted sum calculated in score_reason; no alternate conversion."
+            }
+          },
+          "required": [
+            "candidate_id",
+            "candidate_revision",
+            "content_hash",
+            "role",
+            "checks",
+            "criterion_ratings",
+            "strengths",
+            "concerns",
+            "suggested_fixes",
+            "summary",
+            "score_reason",
+            "score"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 3,
+        "minItems": 1
+      }
+    },
+    "required": [
+      "role",
+      "audits"
+    ],
+    "additionalProperties": false
+  },
+  "config": {
+    "timeout_seconds": 45,
+    "max_output_tokens": 14000,
+    "sampling_policy": "model_default",
+    "structured": true,
+    "web_tools": false
+  },
+  "template_version": "16014d6868df5af2cb9791910e26c77d4266dd4b2930678d1eeb0881482156f7"
+}

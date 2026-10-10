@@ -99,7 +99,7 @@ class Engine(VietPhucWorkflow, ImageWorkflow):
                 "pack_hash": self.domain.hash, "cultural_caption_ready": any(u["kind"] == "cultural_fact" and u["status"] == "verified" and self.domain.sources[u["source_id"]]["kind"] != "task_brief" for u in self.domain.units.values()),
                 "mock_outputs_are_fixtures": self.provider.name == "mock",
                 "api_call_usage": getattr(self.provider, "api_call_usage", None),
-                "workflow_version": 2, "reference_discovery": "gemini_search_url_context", "design_config": self.vp_config}
+                "workflow_version": 2, "reference_discovery": "disabled", "design_config": self.vp_config}
 
     def configure_api_key(self, key):
         require(isinstance(key, str) and bool(key.strip()), "Vui lòng nhập Gemini API key")

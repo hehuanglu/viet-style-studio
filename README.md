@@ -12,6 +12,10 @@ AI Arena giúp bạn phát triển ý tưởng trang phục lấy cảm hứng V
 - Đọc lời hướng dẫn gửi Gemini: [danh mục prompt](docs/viet-phuc-v2/prompts/README.md).
 - Đọc kết quả thử nghiệm và giới hạn: [danh mục tài liệu](docs/README.md). Báo cáo theo ngày mô tả đúng phiên thử ở thời điểm đó, không thay hướng dẫn hiện hành.
 
+## Chức năng tìm nguồn đã được bỏ
+
+Ứng dụng không gọi Google Search hoặc đọc URL để tìm nguồn. Mọi yêu cầu mới dùng API văn bản; bảng gợi ý không có nguồn web và không xác nhận tái hiện lịch sử. Nút tạo bảng mới chỉ tạo lại gợi ý. Các mô tả tìm nguồn bên dưới thuộc phiên bản trước.
+
 ## Chuẩn bị
 
 Bạn cần máy có Python và Terminal, trình duyệt, kết nối Internet, một Gemini API key có quyền dùng model được cấu hình và tài khoản Gemini Web nếu tạo ảnh trên trang Gemini. API key là mã để ứng dụng gọi Google trực tiếp; đăng nhập trang Gemini không thay thế mã này. Có thể nhờ người phụ trách kỹ thuật cài Python nếu máy chưa có.

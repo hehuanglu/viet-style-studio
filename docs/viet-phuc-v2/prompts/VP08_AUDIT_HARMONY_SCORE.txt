@@ -3,7 +3,7 @@ TASK: AUDIT_HARMONY_AND_PROPOSE_FINAL_SCORE
 Thông tin ứng dụng cấp: {{REQUEST_METADATA}}
 Nhu cầu đã chốt: {{RESOLVED_BRIEF}}
 Các phương án với image_prompt nguyên văn và hash: {{CANDIDATE_BATCH}}
-Ba bản đánh giá riêng, được ứng dụng kiểm tra và tính điểm: {{VALIDATED_SPECIALIST_AUDITS}}
+Ba bản đánh giá riêng và điểm do Gemini trả (chưa được backend xác nhận): {{VALIDATED_SPECIALIST_AUDITS}}
 Trạng thái điều bắt buộc do ứng dụng tổng hợp: {{VALIDATED_GATE_SUMMARY}}
 Rubric hài hòa đã khóa: {{HARMONY_RUBRIC}}
 Bộ trọng số và quy tắc công thức đã khóa: {{SCORING_CONFIG}}
@@ -26,7 +26,7 @@ THỰC HIỆN
 6. Tính harmony_score theo rubric: tổng trọng số tiêu chí × rating/5 trên các tiêu chí áp dụng. Tiêu chí không áp dụng phải có điều kiện hợp lệ, không tự loại điểm yếu khỏi mẫu số.
 7. Sao chép source_scores chính xác từ VALIDATED_SPECIALIST_AUDITS. Giữ null cho chuyên môn không áp dụng hợp lệ, không đổi thành 0 hay 100.
 8. proposed_total = round(tổng trọng số chuyên môn × điểm / tổng trọng số chuyên môn áp dụng, 2), gồm fashion/culture/art/harmony theo SCORING_CONFIG. Không tự thay bộ trọng số. Backend lưu nguyên điểm và kết luận Gemini, không tính lại phép tính.
-9. recommendation=eligible chỉ khi không vi phạm/thiếu điều bắt buộc, đủ đánh giá, đáp ứng ngưỡng và cross_domain_conflicts=[]. cross_domain_conflicts chỉ chứa mâu thuẫn giữa các miền còn thực sự tồn tại trong phương án, chưa được giải quyết và khiến kế hoạch chưa đủ điều kiện. Nếu danh sách này không rỗng, recommendation phải là ineligible hoặc unresolved theo căn cứ. ineligible khi có vi phạm đã rõ; unresolved khi phần bắt buộc chưa kết luận. Không quyết định top 3 ở bước này; ứng dụng xếp hạng sau.
+9. recommendation=eligible chỉ khi không vi phạm/thiếu điều bắt buộc, đủ đánh giá, cross_domain_conflicts=[]. cross_domain_conflicts chỉ chứa mâu thuẫn giữa các miền còn thực sự tồn tại trong phương án, chưa được giải quyết và khiến kế hoạch chưa đủ điều kiện. Nếu danh sách này không rỗng, recommendation phải là ineligible hoặc unresolved theo căn cứ. ineligible khi có vi phạm đã rõ; unresolved khi phần bắt buộc chưa kết luận. Không quyết định top 3 ở bước này; ứng dụng xếp hạng sau.
 10. Summary chỉ nêu vì sao phương án hài hòa hoặc chưa hài hòa, ưu/nhược nổi bật. Không viết lại prompt thắng cuộc hay thêm claim lịch sử vào caption.
 11. Không coi suggested_fixes, concerns hoặc limitations là chi tiết đã được thực hiện trong image_prompt. Nếu một vai trò yêu cầu thêm lớp lót mà prompt chưa có, không viết “đã kiểm soát lớp lót”. Nêu xung đột còn lại, giữ uncertain cho điều bắt buộc chưa kết luận. Điểm 5 cần căn cứ cụ thể; tránh kết luận “hài hòa tuyệt đối” chỉ vì ba vai trò cho điểm cao.
 
@@ -45,3 +45,17 @@ Từ VP04 đến VP08, backend không kiểm định schema hoặc nội dung re
 
 TỔNG HỢP THEO TỪNG CANDIDATE
 Với từng image_prompt, đọc đủ ba audit trong VALIDATED_SPECIALIST_AUDITS: score, score_reason, criterion_ratings/reasons, checks, strengths, concerns, suggested_fixes và summary. Tên VALIDATED là tên trường giao tiếp, không phải xác nhận backend. Sao chép source_scores từ score từng vai trò; không tự tính lại điểm chuyên môn. Đối chiếu các ý kiến với prompt để đưa ra kết luận tổng hợp độc lập trong summary, nêu ưu điểm, hạn chế, bất đồng và phần chưa xác định. Tự chấm harmony_ratings, harmony_score, proposed_total và recommendation theo rubric/trọng số đã cấp. Điểm tối đa cần giải thích cụ thể; không mặc định 5/5 vì các vai trò trước đều cho điểm cao. Không coi đây là đánh giá ảnh đã tạo.
+
+ĐỐI CHIẾU PHÉP TÍNH
+- Với mỗi candidate: COPY score của ba vai trò, tính harmony_score từ harmony_ratings và HARMONY_RUBRIC, rồi tính numerator=sum(weight_role * score_role) và denominator=sum(weight_role áp dụng). proposed_total=round(numerator/denominator,2). Không lấy trung bình 4 vai trò hoặc cộng thêm điểm thưởng.
+- Ví dụ balanced có fashion=90,culture=100,art=80,harmony=70 và trọng số 30/25/25/20: numerator=8600, denominator=100, proposed_total=86.00. Khi culture=null: loại cả score và trọng số25 khỏi phép tính, không đổi null thành100.
+- Kiểm tra lại phép nhân/cộng/chia bằng các số đã trả, chỉ làm tròn ở bước cuối. Summary có thể nêu ngắn numerator/denominator để người đọc kiểm tra. Điểm cao không chứng minh các quote/check đúng; phát hiện thiếu/chứng cứ sai thì nêu uncertainty thay vì mặc nhiên eligible.
+
+TÍNH HARMONY TRƯỚC TỔNG LIÊN VAI TRÒ
+harmony_score không phải trung bình rating: HARMONY_RUBRIC thường có trọng số [35,25,20,20]. Rating [4,4,4,5] => contributions=[28,20,16,20] => harmony_score=84, không phải85. Rating [5,4,4,5] =>91, không phải95. Dùng trọng số thật trong payload. Summary ghi ngắn contributions, harmony_score, numerator/denominator và proposed_total; kiểm tra từng số khớp trường trả về. source_scores vẫn phải giữ nguyên API chuyên môn, không sửa chúng cho vừa tổng.
+
+BẢNG NHÂN HỖ TRỢ VÀ THỨ TỰ XUẤT
+HARMONY_RUBRIC.contribution_lookup cho contribution ở từng rating0..5. SCORING_CONFIG.source_numerator_terms[candidate_id][role] cung cấp weight_role*source_score của đúng candidate; đây chỉ là bảng nhân từ điểm API đầu vào, không là tổng cuối hay chứng nhận chất lượng. Dùng đúng candidate, cộng các term với weight_harmony*harmony_score; mẫu số là tổng weight đang áp dụng. Xuất summary có phép tính ngắn trước harmony_score/proposed_total theo thứ tự schema. Kết quả phải khớp phép tính đó, không có bước quy đổi/thưởng điểm khác.
+
+TRA CỨU THAY VÌ ƯỚC LƯỢNG PHÉP TÍNH
+HARMONY_RUBRIC.near_max_score_lookup cung cấp tổng cho các tuple rating4/5 theo đúng thứ tự criteria. Ví dụ tuple4,4,4,5 phải tra84, không làm tròn thành80. Nếu tuple có trong bảng thì dùng đúng giá trị; rating khác vẫn tính từ contribution_lookup, không đổi rating để được tra bảng. SCORING_CONFIG.source_numerator_subtotal[candidate_id] đã cộng các source_numerator_terms; numerator=subtotal+weight_harmony*harmony_score. Chỉ còn cộng một term hài hòa và chia tổng weight áp dụng, không cộng lại các term rồi đưa ra một subtotal khác. Summary ghi tuple, lookup/tổng contribution, subtotal và phép tính cuối để đối chiếu. Đây là hỗ trợ số học, Gemini vẫn tự đánh giá rating và đưa điểm/kết luận; backend không sửa kết quả API.

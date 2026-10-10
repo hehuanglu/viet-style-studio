@@ -3,7 +3,7 @@
 PURPOSES = {"P02": "Hiểu và chuẩn hóa yêu cầu", "P03": "Đề xuất phương án", "P04": "Audit phương án",
             "P10": "Kiểm tra và bổ sung thông tin đã nhận diện",
             "P08": "Sửa phương án", "P09": "Viết prompt tạo ảnh bằng API", "P06": "Audit ảnh", "image": "Tạo ảnh", "image_repair": "Sửa ảnh"}
-PURPOSES.update(VP02C="Kiểm tra xung đột nghiêm trọng trong lựa chọn", VP01="Giữ ý và phân miền mở", VP02="Đối chiếu lời gốc, tìm nguồn và lập checklist", VP02R="Gemini tìm và đọc nguồn", VP03="Tổng hợp lựa chọn đã chốt", VP04="Sinh batch prompt ảnh", VP05="Đánh giá thời trang", VP06="Đánh giá văn hóa/lịch sử", VP07="Đánh giá hội họa/mỹ thuật", VP08="Đánh giá hài hòa và đối chiếu tổng điểm")
+PURPOSES.update(VP02C="Kiểm tra xung đột nghiêm trọng trong lựa chọn", VP01="Giữ ý và phân miền mở", VP02="Đối chiếu lời gốc và lập checklist", VP02R="Gemini tìm và đọc nguồn", VP03="Tổng hợp lựa chọn đã chốt", VP04="Sinh batch prompt ảnh", VP05="Đánh giá thời trang", VP06="Đánh giá văn hóa/lịch sử", VP07="Đánh giá hội họa/mỹ thuật", VP08="Đánh giá hài hòa và đối chiếu tổng điểm")
 GATES = {"visible_user_constraints": "Yêu cầu và ràng buộc nhìn thấy", "visible_invariants": "Chi tiết cần giữ",
          "major_visual_defects": "Lỗi tạo hình lớn", "edit_preservation": "Giữ phần không cần sửa so với ảnh gốc",
          "user_constraints": "Ràng buộc người dùng", "applicable_cultural_rules": "Quy tắc có căn cứ",

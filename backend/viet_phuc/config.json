@@ -112,7 +112,7 @@
       "sampling_policy": "model_default"
     }
   },
-  "reference_discovery": "auto",
+  "reference_discovery": "disabled",
   "google_docs_checked_at": "2026-10-03",
   "google_docs": [
     "https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5",
@@ -128,7 +128,9 @@
     "moderate": "balanced"
   },
   "checklist": {
-    "concrete_options_min": 5,
+    "concrete_options_min": 1,
+    "concrete_options_target": [3, 5],
+    "prioritize_context_fit": true,
     "options_max": 8,
     "ai_delegate_required": true,
     "custom_required": true

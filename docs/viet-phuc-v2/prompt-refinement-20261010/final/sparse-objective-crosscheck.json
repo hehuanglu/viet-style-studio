@@ -1,0 +1,185 @@
+{
+  "snapshot": "docs/viet-phuc-v2/prompt-refinement-20261010/final/sparse-audited-job.json",
+  "request_id": "da6d2259-358a-422d-a96e-a34370fc6b6a",
+  "revision": 2,
+  "status": "complete",
+  "provider": "gemini",
+  "render_image": false,
+  "model": "gemini-3.5-flash-lite",
+  "candidate_count": 3,
+  "cards_count": 3,
+  "scoring_profile": "balanced",
+  "rubric_version": "vp-rubric-2.1.0",
+  "weights": {
+    "fashion": 30,
+    "culture": 25,
+    "art": 25,
+    "harmony": 20
+  },
+  "formulas": {
+    "specialist_and_harmony": "round(100 * sum(weight * rating/5 for applicable criteria) / sum(applicable weights), 2)",
+    "balanced_total": "round(sum(active role weights * score) / sum(active role weights), 2)"
+  },
+  "candidates": [
+    {
+      "candidate_id": "R2-B2-C1",
+      "title": "Áo ngũ thân cách tân xanh rêu đi học",
+      "revision": 2,
+      "content_hash": "e7b9cf7db34e57b0c6cd1931199bd4b9316de1ac3a4aabaaaadc5d9d1329244d",
+      "specialist_reported": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_matches": {
+        "fashion": true,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 80.0,
+      "harmony_rubric_calculated": 80.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "vp08_proposed_total": 91.0,
+      "balanced_recalculated_from_vp08_inputs": 91.0,
+      "balanced_recalculated_from_rubric_scores": 91.0,
+      "vp08_total_matches_its_inputs": true
+    },
+    {
+      "candidate_id": "R2-B2-C3",
+      "title": "Áo ngũ thân cách tân màu xanh dương nhạt đi học",
+      "revision": 2,
+      "content_hash": "a47f9e83fcec206544b2cf1869de563fdb521030af0b1dbee5dd98cf7eda02b2",
+      "specialist_reported": {
+        "fashion": 95.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 95.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_matches": {
+        "fashion": true,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 80.0,
+      "harmony_rubric_calculated": 80.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 95.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "vp08_proposed_total": 89.5,
+      "balanced_recalculated_from_vp08_inputs": 89.5,
+      "balanced_recalculated_from_rubric_scores": 89.5,
+      "vp08_total_matches_its_inputs": true
+    },
+    {
+      "candidate_id": "R2-B1-C3",
+      "title": "Áo ngũ thân cách tân xanh rêu trầm ấm đi học",
+      "revision": 2,
+      "content_hash": "c2776e870bde20c79908a05e888cf45e9249b132400e3b76f09afe4c95731458",
+      "specialist_reported": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "specialist_matches": {
+        "fashion": true,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 80.0,
+      "harmony_rubric_calculated": 80.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 80.0
+      },
+      "vp08_proposed_total": 91.0,
+      "balanced_recalculated_from_vp08_inputs": 91.0,
+      "balanced_recalculated_from_rubric_scores": 91.0,
+      "vp08_total_matches_its_inputs": true
+    }
+  ],
+  "rank_membership": [
+    {
+      "candidate_id": "R2-B1-C3",
+      "rank": 1,
+      "in_cards": true,
+      "in_top_three": true
+    },
+    {
+      "candidate_id": "R2-B2-C1",
+      "rank": 2,
+      "in_cards": true,
+      "in_top_three": true
+    },
+    {
+      "candidate_id": "R2-B2-C3",
+      "rank": 3,
+      "in_cards": true,
+      "in_top_three": true
+    }
+  ],
+  "top_three_membership": {
+    "top_three_candidate_ids": [
+      "R2-B1-C3",
+      "R2-B2-C1",
+      "R2-B2-C3"
+    ],
+    "card_candidate_ids": [
+      "R2-B1-C3",
+      "R2-B2-C1",
+      "R2-B2-C3"
+    ],
+    "all_top_three_present_in_cards": true,
+    "all_cards_are_top_three": true,
+    "exact_set_match": true
+  },
+  "top_three_api_order": [
+    "R2-B1-C3",
+    "R2-B2-C1",
+    "R2-B2-C3"
+  ],
+  "top_three_recalculated_from_vp08_inputs": [
+    "R2-B1-C3",
+    "R2-B2-C1",
+    "R2-B2-C3"
+  ],
+  "quote_substring_issues": [],
+  "specialist_rubric_mismatches": [],
+  "harmony_rubric_mismatches": [],
+  "vp08_balanced_total_mismatches": [],
+  "link_integrity_issues": [],
+  "non_finite_scores": [],
+  "summary": {
+    "all_observed_quotes_are_candidate_prompt_substrings": true,
+    "all_specialist_scores_match_rubric": true,
+    "all_harmony_scores_match_rubric": true,
+    "all_vp08_totals_match_their_own_inputs": true,
+    "all_top_three_candidates_present_as_cards": true,
+    "cards_exactly_match_top_three_set": true,
+    "all_links_valid": true,
+    "all_scores_finite": true
+  }
+}

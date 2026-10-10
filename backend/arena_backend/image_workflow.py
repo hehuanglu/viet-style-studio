@@ -105,19 +105,31 @@ class ImageWorkflow:
         require(candidate is not None, "Phương án không thuộc yêu cầu này", "invalid_edit")
         template = (KIT / "image-edit-template.txt").read_text(encoding="utf-8")
         # A separate template makes image order and annotation semantics explicit.
+        has_guide = bool(payload.get("guide") or description["strokes"])
+        image_inputs = "Ảnh 1 là ảnh gốc sạch, dùng làm nền để chỉnh sửa."
+        if has_guide:
+            image_inputs += "\nẢnh 2 là cùng ảnh đó có đánh dấu/phác thảo; chỉ dùng để hiểu vị trí và ý định sửa. Cần đính kèm đủ hai ảnh trước khi tạo kết quả."
+        else:
+            image_inputs += "\nChỉ cần ảnh gốc; không có ảnh đánh dấu. Nếu chưa đính kèm ảnh gốc, hãy yêu cầu ảnh đó trước khi sửa, không tự tạo ảnh thay thế."
+        original_prompt = next((p.get("prompt", p.get("image_prompt", "")) for p in job.get("image_prompts", []) if p["candidate_id"] == candidate["candidate_id"]), "")
+        resolved = job.get("resolved_brief") or {}
         replacements = {
+            "{{IMAGE_INPUTS}}": image_inputs,
             "{{INSTRUCTION}}": description["instruction"],
             "{{KEEP}}": description["keep"] or "Giữ các chi tiết của ảnh gốc không liên quan đến thay đổi được yêu cầu.",
-            "{{CONTEXT}}": json.dumps({"design": candidate["design"], "requirements": job["brief"]["hard_constraints"]}, ensure_ascii=False),
+            "{{CONTEXT}}": json.dumps({"design": candidate["design"], "original_image_prompt": original_prompt, "resolved_text": resolved.get("resolved_text", ""), "requirements": job["brief"]["hard_constraints"]}, ensure_ascii=False),
         }
-        template = re.sub(r"\{\{(?:INSTRUCTION|KEEP|CONTEXT)\}\}", lambda match: replacements[match[0]], template)
-        result = {"prompt": template, "template_version": "visual-edit-v1"}
+        template = re.sub(r"\{\{(?:IMAGE_INPUTS|INSTRUCTION|KEEP|CONTEXT)\}\}", lambda match: replacements[match[0]], template)
+        result = {"prompt": template, "template_version": "visual-edit-v2", "required_images": ["original", "guide"] if has_guide else ["original"]}
         if "original" in payload or "guide" in payload:
             original_raw, width, height = decode_upload(payload.get("original"))
-            guide_raw, gw, gh = decode_upload(payload.get("guide"))
-            require((width, height) == (gw, gh), "Ảnh đánh dấu phải cùng kích thước ảnh gốc", "invalid_edit")
+            assets = [("original", original_raw)]
+            if "guide" in payload:
+                guide_raw, gw, gh = decode_upload(payload.get("guide"))
+                require((width, height) == (gw, gh), "Ảnh đánh dấu phải cùng kích thước ảnh gốc", "invalid_edit")
+                assets.append(("guide", guide_raw))
             # HTTP downloads also work in browsers that cannot download blob URLs.
-            for role, raw in (("original", original_raw), ("guide", guide_raw)):
+            for role, raw in assets:
                 asset_id = str(uuid.uuid4())
                 (self.store.directory / f"{asset_id}.image").write_bytes(raw)
                 result[role + "_url"] = f"/artifacts/{asset_id}?download={role}"
@@ -129,7 +141,7 @@ class ImageWorkflow:
         require(isinstance(prompt, str) and 0 < len(prompt.strip()) <= 30_000, "Prompt sửa không hợp lệ", "invalid_edit")
         raw, width, height = decode_upload(payload.get("guide"))
         require((width, height) == original_size, "Ảnh đánh dấu phải cùng kích thước ảnh gốc", "invalid_edit")
-        return dict(description, prompt=prompt, template_version="visual-edit-v1"), raw
+        return dict(description, prompt=prompt, template_version="visual-edit-v2"), raw
 
     def _save_edit_context(self, job, artifact, description, guide, raw):
         guide_id = str(uuid.uuid4())

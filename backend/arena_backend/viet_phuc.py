@@ -181,7 +181,7 @@ def validate_checklist(value, job, form_id, references):
         if group['status'] != 'locked':
             concrete = [o for o in group['options'] if not o['is_ai_delegate']]
             delegates = [o for o in group['options'] if o['is_ai_delegate']]
-            valid(5 <= len(concrete) and len(group['options']) <= 8, f"Nhóm {group['group_id']} cần ít nhất 5 gợi ý cụ thể, tối đa 8 options gồm AI")
+            valid(1 <= len(concrete) and len(group['options']) <= 8, f"Nhóm {group['group_id']} cần gợi ý cụ thể phù hợp, tối đa 8 options gồm AI; không ép đủ số")
             valid(len(delegates) == 1, f"Nhóm {group['group_id']} cần đúng một lựa chọn Để AI tự quyết")
             valid(len({o['label'].strip().casefold() for o in concrete}) == len(concrete), 'Gợi ý cụ thể không được trùng nhãn')
         for option in group['options']:
@@ -259,6 +259,17 @@ def validate_selection_review(value, job):
     valid((value['status'] == 'conflict') == bool(value['conflicts']), 'Status conflict không khớp kết quả')
 
 
+def old_atom_binding(atoms, explicit_changes):
+    """Confirmed replacements retire both locked and delegated old requirements."""
+    changed = {c['atom_id'] for c in explicit_changes}
+    return {
+        'must_lock': [a['atom_id'] for a in atoms if a['atom_id'] not in changed and a['intent_type'] in ('must', 'avoid')],
+        'keep_delegated': [a['atom_id'] for a in atoms if a['atom_id'] not in changed and a['intent_type'] == 'delegated'],
+        'do_not_lock': [a['atom_id'] for a in atoms if a['atom_id'] in changed or a['intent_type'] not in ('must', 'avoid')],
+        'superseded': [a['atom_id'] for a in atoms if a['atom_id'] in changed],
+    }
+
+
 def validate_resolved(value, job):
     valid(value['request_id'] == job['request_id'] and value['revision'] == job['revision'], 'Resolved sai revision')
     domains, atoms = validate_content(value, job['turns'])
@@ -268,6 +279,7 @@ def validate_resolved(value, job):
         replacements = [a for a in value['atoms'] if cid in a['supersedes_atom_ids']]
         valid(any(any(r['quote'] == change['replacement_text'] for r in a['source_refs']) for a in replacements), 'Thay đổi không giữ nguyên văn mới')
         valid(cid not in value['locked_atom_ids'], 'Ý đã thay vẫn bị khóa')
+        valid(cid not in value['delegated_atom_ids'], 'Ý đã thay vẫn được giao AI')
     valid(set(value['locked_atom_ids'] + value['delegated_atom_ids']) <= atoms.keys(), 'Khóa/giao AI sai atom')
     valid(not set(value['locked_atom_ids']) & set(value['delegated_atom_ids']), 'Không khóa phần giao AI')
     valid({a['atom_id'] for a in value['atoms'] if a['intent_type'] in ('must', 'avoid') and a['atom_id'] not in changes} <= set(value['locked_atom_ids']), 'Mất điều bắt buộc')
@@ -353,8 +365,12 @@ def validate_candidates(value, job, slots):
 
 
 def rubric(config, role, brief):
+    from itertools import product
     applicable = role != 'culture' or brief['historical_mode'] != 'neutral'
+    weights = list(config['rubrics'][role].values())
     return {'version': config['rubric_version'], 'role': role, 'rating_min': 0, 'rating_max': 5,
+            'contribution_lookup': {key: [weight * rating / 5 for rating in range(6)] for key, weight in config['rubrics'][role].items()},
+            'near_max_score_lookup': {','.join(map(str, ratings)): round(100 * sum(w * r / 5 for w, r in zip(weights, ratings)) / sum(weights), 2) for ratings in product((4, 5), repeat=len(weights))} if applicable else {},
             'criteria': [{'criterion_id': key, 'weight': weight, 'applicable': applicable,
                           'applicability_reason': 'Không có yêu cầu văn hóa' if not applicable else 'Theo nhu cầu và vai trò'} for key, weight in config['rubrics'][role].items()]}
 
@@ -367,6 +383,70 @@ def expected_checks(brief, candidates, role):
     if role == 'culture':
         result += [{'check_id': 'claim_support', 'owner_role': role, 'severity': 'hard', 'applicability': True, 'content': 'Kiểm tra claims và phát biểu thực tế trong prompt/tóm tắt; không có claim sai nguồn', 'evidence_mode': 'claim_inventory', 'empty_quote_allowed_for_candidate_ids': [c['candidate_id'] for c in candidates if not c['claims']]},
                    {'check_id': 'historical_scope', 'owner_role': role, 'severity': 'hard', 'applicability': brief['historical_mode'] == 'historical', 'content': 'Mọi phần lịch sử bắt buộc có căn cứ đúng vùng/thời kỳ, không đổi mode'}]
+    return result
+
+
+def audit_candidates(candidates):
+    """Offer verbatim copy targets without changing or certifying candidate content."""
+    import copy
+    result = copy.deepcopy(candidates)
+    for candidate in result:
+        # Coverage belongs to the generator; auditors should inspect the prompt independently.
+        candidate['locked_coverage'] = []
+        candidate['verbatim_excerpt_bank'] = [m.group(0).strip() for m in re.finditer(r'[^.!?\n]+[.!?]*', candidate['image_prompt']) if m.group(0).strip()]
+    return result
+
+
+def audit_response_schema(schema, candidates):
+    """Constrain API quote vocabulary, without validating or rewriting responses."""
+    import copy
+    result = copy.deepcopy(schema)
+    excerpts = list(dict.fromkeys([''] + [q for c in audit_candidates(candidates) for q in c['verbatim_excerpt_bank']]))
+    def visit(node):
+        if isinstance(node, dict):
+            quote = node.get('properties', {}).get('prompt_quote')
+            if quote is not None:
+                quote['enum'] = excerpts
+            for value in node.values():
+                visit(value)
+        elif isinstance(node, list):
+            for value in node:
+                visit(value)
+    visit(result)
+    # Emit the calculation before its result, avoiding a guessed score being rationalized later.
+    def reorder(node):
+        if isinstance(node, dict):
+            props = node.get('properties', {})
+            if 'score_reason' in props and 'score' in props:
+                node['properties'] = {k: v for k, v in props.items() if k not in ('score_reason', 'score')}
+                node['properties'].update(score_reason=props['score_reason'], score=props['score'])
+                node['required'] = [k for k in node['properties'] if k in node.get('required', [])]
+                node['properties']['score']['description'] = 'Exactly the weighted sum calculated in score_reason; no alternate conversion.'
+            for value in node.values():
+                reorder(value)
+        elif isinstance(node, list):
+            for value in node:
+                reorder(value)
+    reorder(result)
+    return result
+
+
+def harmony_response_schema(schema):
+    import copy
+    result = copy.deepcopy(schema)
+    def visit(node):
+        if isinstance(node, dict):
+            props = node.get('properties', {})
+            if 'harmony_score' in props and 'summary' in props:
+                node['properties'] = {k: v for k, v in props.items() if k not in ('summary', 'harmony_score', 'proposed_total')}
+                node['properties'].update(summary=props['summary'], harmony_score=props['harmony_score'], proposed_total=props['proposed_total'])
+                node['required'] = [k for k in node['properties'] if k in node.get('required', [])]
+            for value in node.values():
+                visit(value)
+        elif isinstance(node, list):
+            for value in node:
+                visit(value)
+    visit(result)
     return result
 
 

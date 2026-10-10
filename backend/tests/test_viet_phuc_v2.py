@@ -62,6 +62,56 @@ class OpenAtoms(Recorder):
 
 
 class V2Tests(unittest.TestCase):
+    def test_excerpt_bank_is_verbatim_and_does_not_modify_candidate_hash(self):
+        candidates = [{'image_prompt':'Áo kín. Mặt sau xanh! TP.HCM, vải nhẹ.', 'content_hash':'original'}]
+        enriched = vp.audit_candidates(candidates)
+        self.assertNotIn('verbatim_excerpt_bank', candidates[0])
+        self.assertEqual(enriched[0]['content_hash'], 'original')
+        self.assertTrue(all(q in candidates[0]['image_prompt'] for q in enriched[0]['verbatim_excerpt_bank']))
+
+    def test_api_quote_enum_uses_only_verbatim_excerpts_without_mutating_schema(self):
+        schema = {'properties':{'prompt_quote':{'type':'string'}}}
+        enriched = vp.audit_response_schema(schema, [{'image_prompt':'Cổ kín. Lưng kín.'}])
+        self.assertNotIn('enum', schema['properties']['prompt_quote'])
+        self.assertEqual(enriched['properties']['prompt_quote']['enum'], ['', 'Cổ kín.', 'Lưng kín.'])
+
+    def test_response_calculation_order_is_consistent_in_properties_and_required(self):
+        schema = {'properties':{'score':{'type':'number'},'score_reason':{'type':'string'}},'required':['score','score_reason']}
+        result = vp.audit_response_schema(schema, [])
+        self.assertEqual(result['required'], ['score_reason', 'score'])
+        self.assertEqual(list(result['properties']), result['required'])
+        harmony = {'properties':{k:{'type':'string' if k == 'summary' else 'number'} for k in ('harmony_score','proposed_total','summary')},'required':['harmony_score','proposed_total','summary']}
+        result = vp.harmony_response_schema(harmony)
+        self.assertEqual(result['required'], ['summary','harmony_score','proposed_total'])
+        self.assertEqual(list(result['properties']), result['required'])
+
+    def test_confirmed_changes_retire_both_old_lock_and_delegation(self):
+        atoms = [{'atom_id':'a','intent_type':'must'}, {'atom_id':'b','intent_type':'delegated'}, {'atom_id':'c','intent_type':'avoid'}, {'atom_id':'d','intent_type':'context'}]
+        binding = vp.old_atom_binding(atoms, [{'atom_id':'a'}, {'atom_id':'b'}])
+        self.assertEqual(binding['must_lock'], ['c'])
+        self.assertEqual(binding['keep_delegated'], [])
+        self.assertEqual(binding['superseded'], ['a', 'b'])
+        self.assertFalse(set(binding['must_lock']) & set(binding['do_not_lock']))
+        self.assertEqual(vp.old_atom_binding(atoms, [])['keep_delegated'], ['b'])
+
+    def test_edit_prompt_without_guide_retains_full_v2_prompt_context(self):
+        e = self.engine(); j = self.finish(e, self.start(e))
+        cid = j['cards'][0]['candidate_id']
+        packet = e.image_edit_prompt(j['request_id'], {'candidate_id':cid, 'instruction':'Đổi vị trí đường thêu', 'keep':'Giữ bộ đồ', 'strokes':[]})
+        self.assertEqual(packet['required_images'], ['original'])
+        self.assertNotIn('Ảnh 2', packet['prompt'])
+        self.assertNotIn('{{', packet['prompt'])
+        prompt = next(p['prompt'] for p in j['image_prompts'] if p['candidate_id'] == cid)
+        self.assertIn(json.dumps(prompt, ensure_ascii=False), packet['prompt'])
+        self.assertIn('resolved_text', packet['prompt'])
+
+    def test_edit_packet_accepts_original_without_requiring_an_unused_guide(self):
+        e = self.engine(); j = self.finish(e, self.start(e))
+        packet = e.image_edit_prompt(j['request_id'], {'candidate_id':j['cards'][0]['candidate_id'], 'instruction':'Thu nhỏ hoa văn', 'strokes':[], 'original':image()})
+        self.assertEqual(packet['required_images'], ['original'])
+        self.assertIn('original_url', packet)
+        self.assertNotIn('guide_url', packet)
+
     def test_quote_case_repair_copies_original_and_never_changes_prompt(self):
         def value(prompt, quote):
             return {'candidates':[{'candidate_id':'c','image_prompt':prompt,'locked_coverage':[{'atom_id':'a','prompt_quote':quote}]}]}
@@ -312,7 +362,7 @@ class V2Tests(unittest.TestCase):
         self.assertGreater(final['metrics']['design']['attempts'], spent)
         self.assertEqual(final['choices']['selections'], failed['choices']['selections'])
         self.assertEqual(final['resolution_retry_history'][0]['error'], failed['error'])
-        self.assertIn('Fixture: lỗi của revision trước', final['warning_history'][0]['warnings'])
+        self.assertTrue(any('Fixture: lỗi của revision trước' in h['warnings'] for h in final['warning_history']))
         self.assertNotIn('Fixture: lỗi của revision trước', final['warnings'])
         self.assertEqual(final['budget_config']['design']['total_provider_calls_max'], 30)
         contract = next(p['VALIDATED_SELECTIONS']['decision_contracts'] for t, p in provider.payloads if t == 'VP03')
@@ -329,7 +379,7 @@ class V2Tests(unittest.TestCase):
         job = self.start(engine, reference_mode='text_only')
         self.assertEqual(job['references'], [])
         self.assertEqual(job['reference_mode'], 'text_only')
-        self.assertTrue(any('không tìm/đọc web' in w for w in job['warnings']))
+        self.assertTrue(any('không tìm nguồn web' in w for w in job['warnings']))
         final = self.finish(engine, job)
         self.assertEqual(len(final['cards']), 3)
         self.assertNotIn('VP02R', [task for task, _ in provider.payloads])
@@ -552,12 +602,15 @@ class V2Tests(unittest.TestCase):
         payload = e._image_audit_payload(job, {}, {'rules': []}, artifact)
         self.assertEqual(payload['AUDIT_POLICY']['profile'], 'balanced')
 
-    def test_checklist_requires_five_concrete_options_and_ai_and_custom(self):
+    def test_checklist_allows_fewer_contextual_options_and_requires_ai_and_custom(self):
         e = self.engine(); job = self.start(e)
         checked = copy.deepcopy(job['checklist']); group = checked['groups'][0]
         vp.validate_checklist(checked, job, checked['form_id'], [])
         self.assertEqual(sum(not o['is_ai_delegate'] for o in group['options']), 5)
-        group['options'].pop()
+        for concrete_count in (4, 3, 1):
+            group['options'] = [o for o in job['checklist']['groups'][0]['options'] if o['is_ai_delegate']] + [o for o in job['checklist']['groups'][0]['options'] if not o['is_ai_delegate']][:concrete_count]
+            vp.validate_checklist(checked, job, checked['form_id'], [])
+        group['options'] = [o for o in group['options'] if o['is_ai_delegate']]
         with self.assertRaises(ArenaError): vp.validate_checklist(checked, job, checked['form_id'], [])
         checked = copy.deepcopy(job['checklist'])
         checked['groups'][0]['options'][0]['is_ai_delegate'] = False
@@ -596,17 +649,17 @@ class V2Tests(unittest.TestCase):
     def test_split_reference_branch_is_fourteen_attempts(self):
         e=self.engine();e.vp_config['reference_discovery']='split'
         final=self.finish(e,self.start(e))
-        self.assertEqual(final['metrics']['design']['attempts'],15)
-        self.assertIn('VP02R',[t['task'] for t in final['trace']])
+        self.assertEqual(final['metrics']['design']['attempts'],14)
+        self.assertNotIn('VP02R',[t['task'] for t in final['trace']])
 
-    def test_structured_tools_rejection_falls_back_entirely_to_gemini(self):
+    def test_disabled_discovery_never_enters_tools_fallback(self):
         class Reject(Recorder):
             def structured_v2(self,task,system,prompt,schema,payload,timeout,config):
                 if task=='VP02' and config['web_tools']:
                     raise ProviderError('google_http_400','Tools with response schema not supported')
                 return super().structured_v2(task,system,prompt,schema,payload,timeout,config)
         e=self.engine(Reject());j=self.start(e)
-        self.assertTrue(j['reference_split']);self.assertIn('VP02R',[t['task'] for t in j['trace']])
+        self.assertFalse(j.get('reference_split', False));self.assertNotIn('VP02R',[t['task'] for t in j['trace']])
 
     def test_tools_failure_is_not_a_manual_catalog_fallback(self):
         class Unavailable(Recorder):
@@ -749,7 +802,7 @@ class V2Tests(unittest.TestCase):
         result={'candidates':[{'finishReason':'STOP','content':{'parts':[{'text':'{"references":[],"unresolved_reference_needs":[]}'},{'text':'secret-thought','thought':True}]},'groundingMetadata':{'webSearchQueries':['vietnam clothing']},'urlContextMetadata':{}}], 'usageMetadata':{'totalTokenCount':20},'modelVersion':'wire-fixture'}
         with patch.object(provider,'_request',side_effect=lambda model,body,timeout:(body_seen.append(body) or result)):
             v,u,m=provider.structured_v2('VP02R','system','prompt',{'type':'object'}, {}, 20, {'max_output_tokens':16000,'web_tools':True,'structured':False})
-        body=body_seen[0];self.assertEqual(body['tools'],[{'googleSearch':{}},{'urlContext':{}}]);self.assertNotIn('temperature',body['generationConfig'])
+        body=body_seen[0];self.assertNotIn('tools',body);self.assertNotIn('temperature',body['generationConfig'])
         self.assertNotIn('responseFormat',body['generationConfig']);self.assertEqual(u['totalTokenCount'],20)
         self.assertEqual(m['groundingMetadata']['webSearchQueries'],['vietnam clothing'])
         images = [{'mime_type': 'image/png', 'data': 'b3V0cHV0'}, {'mime_type': 'image/png', 'data': 'b3JpZ2luYWw='}]
@@ -863,7 +916,7 @@ class V2Tests(unittest.TestCase):
         for i in range(2):
             description={'instruction':'Đổi cổ áo theo nét xanh','keep':'Giữ phần còn lại','strokes':[{'tool':'sketch','color':'#2060df','width':.02,'points':[[.2,.3],[.4,.5]]}]}
             packet=e.image_edit_prompt(j['request_id'],dict(description,candidate_id=j['cards'][2]['candidate_id'],original=image(),guide=image('red')))
-            self.assertEqual(packet['template_version'],'visual-edit-v1')
+            self.assertEqual(packet['template_version'],'visual-edit-v2')
             self.assertLess(packet['prompt'].index('Ảnh 1'),packet['prompt'].index('Ảnh 2'))
             parent=j['artifacts'][-1]['artifact_id']
             e.submit_user_image_edit(j['request_id'],dict(description,revision=j['revision'],parent_artifact_id=parent,image=image('green'),filename='Edited.png',guide=image('red'),prompt=packet['prompt']))
@@ -874,9 +927,9 @@ class V2Tests(unittest.TestCase):
         self.assertEqual(saved['metrics']['design']['attempts'],14)
         self.assertEqual(saved['metrics']['media']['attempts'],3)
 
-    def test_image_editor_and_two_image_template_are_byte_unchanged(self):
+    def test_image_editor_and_image_audit_remain_unchanged(self):
         import subprocess
-        for relative in ('frontend/image-editor.js','arena-kit/image-edit-template.txt'):
+        for relative in ('frontend/image-editor.js',):
             original=subprocess.check_output(['git','show','HEAD:'+relative],cwd=PROJECT)
             self.assertEqual((PROJECT/relative).read_bytes(),original)
         from arena_backend.core import Prompts,KIT

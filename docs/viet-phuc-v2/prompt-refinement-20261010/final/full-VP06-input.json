@@ -1,0 +1,1194 @@
+{
+  "task": "VP06",
+  "payload": {
+    "REQUEST_METADATA": {
+      "request_id": "cc1fc4fa-ea9d-4faa-945e-8fc373a1d449",
+      "revision": 2
+    },
+    "RESOLVED_BRIEF": {
+      "request_id": "cc1fc4fa-ea9d-4faa-945e-8fc373a1d449",
+      "revision": 2,
+      "resolved_text": "Nữ sinh viên đại học tại TP.HCM mong muốn trang phục đi học hằng ngày, lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử. Thiết kế gồm áo ngắn gọn phối cùng chân váy chữ A dài qua mắt cá, đảm bảo đủ bước đi và ngồi học, không có tà quét đất. Trang phục kín đáo với cổ kín, tay dài, vải đục có lót nếu cần, không hở vai, ngực, eo hay lưng. Màu sắc chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim. Chất liệu nhẹ, thoáng trong khí hậu nóng và dễ giặt. Phụ kiện chỉ gồm một túi vải nhỏ đeo chéo, không dùng trang sức, nón hoặc đạo cụ. Họa tiết lấy cảm hứng hoa sen (tối giản, kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử), với vị trí trang trí và kỹ thuật thêu/in do AI đề xuất. Hình ảnh chụp theo phong cách lookbook rõ chất liệu, bối cảnh nền trường đại học giản dị, trình bày cùng người mẫu và cùng bộ đồ qua mặt trước và mặt sau.",
+      "domains": [
+        {
+          "domain_id": "bối_cảnh_người_dùng",
+          "label": "Bối cảnh & Mục đích",
+          "summary": "Thông tin về người mặc, môi trường sử dụng, dịp và phong cách trình bày hình ảnh.",
+          "related_domain_ids": [
+            "cấu_trúc_thiết_kế"
+          ]
+        },
+        {
+          "domain_id": "cấu_trúc_thiết_kế",
+          "label": "Cấu trúc & Phom dáng",
+          "summary": "Các yêu cầu về áo, chân váy, độ dài, mức độ kín đáo và phụ kiện đi kèm.",
+          "related_domain_ids": [
+            "bối_cảnh_người_dùng",
+            "chất_liệu",
+            "mỹ_thuật"
+          ]
+        },
+        {
+          "domain_id": "chất_liệu",
+          "label": "Chất liệu",
+          "summary": "Đặc tính vải, độ thoáng mát, lớp lót và khả năng giặt giũ.",
+          "related_domain_ids": [
+            "cấu_trúc_thiết_kế"
+          ]
+        },
+        {
+          "domain_id": "màu_sắc",
+          "label": "Màu sắc",
+          "summary": "Màu sắc chủ đạo, điểm nhấn và các màu bị tránh.",
+          "related_domain_ids": [
+            "cấu_trúc_thiết_kế"
+          ]
+        },
+        {
+          "domain_id": "mỹ_thuật",
+          "label": "Hoa văn & Trang trí",
+          "summary": "Cảm hứng hoa văn, kích thước, số lượng, vị trí và kỹ thuật do AI đề xuất.",
+          "related_domain_ids": [
+            "văn_hóa_lịch_sử",
+            "cấu_trúc_thiết_kế"
+          ]
+        },
+        {
+          "domain_id": "văn_hóa_lịch_sử",
+          "label": "Định hướng Lịch sử & Văn hóa",
+          "summary": "Mức độ gắn kết với lịch sử, yêu cầu không phục dựng và không gán ý nghĩa lịch sử.",
+          "related_domain_ids": [
+            "mỹ_thuật"
+          ]
+        },
+        {
+          "domain_id": "thể_hiện_ảnh",
+          "label": "Thể hiện Ảnh",
+          "summary": "Phong cách lookbook, bối cảnh nền và quy cách trình bày mặt trước mặt sau.",
+          "related_domain_ids": [
+            "bối_cảnh_người_dùng"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "atom_id": "atom_01",
+          "domain_ids": [
+            "bối_cảnh_người_dùng"
+          ],
+          "meaning": "Người mặc là nữ sinh viên đại học, muốn thiết kế trang phục đi học hằng ngày ở TP.HCM.",
+          "intent_type": "context",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Tôi là nữ sinh viên đại học, muốn thiết kế trang phục đi học hằng ngày ở TP.HCM"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_02",
+          "domain_ids": [
+            "văn_hóa_lịch_sử"
+          ],
+          "meaning": "Lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_03",
+          "domain_ids": [
+            "cấu_trúc_thiết_kế"
+          ],
+          "meaning": "Giữ áo ngắn gọn phối chân váy chữ A dài qua mắt cá.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Giữ áo ngắn gọn phối chân váy chữ A dài qua mắt cá;"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_04",
+          "domain_ids": [
+            "cấu_trúc_thiết_kế"
+          ],
+          "meaning": "Cổ kín, tay dài, vải đục có lót nếu cần.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "cổ kín, tay dài, vải đục có lót nếu cần,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_05",
+          "domain_ids": [
+            "cấu_trúc_thiết_kế"
+          ],
+          "meaning": "Không hở vai, ngực, eo hay lưng.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "không hở vai, ngực, eo hay lưng."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_06",
+          "domain_ids": [
+            "màu_sắc"
+          ],
+          "meaning": "Màu chính xanh chàm, điểm nhấn trắng ngà.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Màu chính xanh chàm, điểm nhấn trắng ngà,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_07",
+          "domain_ids": [
+            "màu_sắc"
+          ],
+          "meaning": "Tránh màu đỏ và ánh kim.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "tránh đỏ và ánh kim."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_08",
+          "domain_ids": [
+            "chất_liệu"
+          ],
+          "meaning": "Chất liệu nhẹ, thoáng trong khí hậu nóng, dễ giặt.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Chất liệu nhẹ, thoáng trong khí hậu nóng, dễ giặt;"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_09",
+          "domain_ids": [
+            "cấu_trúc_thiết_kế"
+          ],
+          "meaning": "Chân váy đủ bước đi và ngồi học, không có tà quét đất.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "chân váy đủ bước đi và ngồi học, không có tà quét đất."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_10",
+          "domain_ids": [
+            "cấu_trúc_thiết_kế"
+          ],
+          "meaning": "Chỉ một túi vải nhỏ đeo chéo.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Chỉ một túi vải nhỏ đeo chéo;"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_11",
+          "domain_ids": [
+            "cấu_trúc_thiết_kế"
+          ],
+          "meaning": "Không trang sức, nón hoặc đạo cụ.",
+          "intent_type": "avoid",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "không trang sức, nón hoặc đạo cụ."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_12",
+          "domain_ids": [
+            "mỹ_thuật"
+          ],
+          "meaning": "Có thể chọn một trong sen hoặc mây làm cảm hứng, không cần cả hai.",
+          "intent_type": "preference",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Có thể chọn một trong sen hoặc mây làm cảm hứng, không cần cả hai;"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_13",
+          "domain_ids": [
+            "mỹ_thuật"
+          ],
+          "meaning": "Hoa văn nhỏ, ít.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "hoa văn nhỏ, ít"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_14",
+          "domain_ids": [
+            "văn_hóa_lịch_sử",
+            "mỹ_thuật"
+          ],
+          "meaning": "Không gán ý nghĩa lịch sử cho hoa văn.",
+          "intent_type": "must",
+          "polarity": "negative",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "và không gán ý nghĩa lịch sử."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_15",
+          "domain_ids": [
+            "mỹ_thuật"
+          ],
+          "meaning": "AI đề xuất vị trí trang trí và kỹ thuật phù hợp.",
+          "intent_type": "delegated",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "AI đề xuất vị trí trang trí và kỹ thuật phù hợp."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_16",
+          "domain_ids": [
+            "thể_hiện_ảnh"
+          ],
+          "meaning": "Ảnh theo phong cách lookbook rõ chất liệu, nền trường đại học giản dị.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "Ảnh theo phong cách lookbook rõ chất liệu, nền trường đại học giản dị,"
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_17",
+          "domain_ids": [
+            "thể_hiện_ảnh"
+          ],
+          "meaning": "Trình bày cùng người mẫu và cùng bộ đồ qua mặt trước và mặt sau.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "T1",
+              "quote": "trình bày cùng người mẫu và cùng bộ đồ qua mặt trước và mặt sau."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        },
+        {
+          "atom_id": "atom_18",
+          "domain_ids": [
+            "mỹ_thuật"
+          ],
+          "meaning": "Chọn hoa sen làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử.",
+          "intent_type": "must",
+          "polarity": "positive",
+          "source_refs": [
+            {
+              "turn_id": "S1",
+              "quote": "Chọn hoa sen làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử."
+            }
+          ],
+          "resolution": "explicit",
+          "supersedes_atom_ids": []
+        }
+      ],
+      "locked_atom_ids": [
+        "atom_02",
+        "atom_03",
+        "atom_04",
+        "atom_05",
+        "atom_06",
+        "atom_07",
+        "atom_08",
+        "atom_09",
+        "atom_10",
+        "atom_11",
+        "atom_13",
+        "atom_14",
+        "atom_16",
+        "atom_17",
+        "atom_18"
+      ],
+      "delegated_atom_ids": [
+        "atom_15"
+      ],
+      "creative_space": [
+        {
+          "domain_id": "mỹ_thuật",
+          "description": "Vị trí trang trí hoa sen và kỹ thuật thêu/in phù hợp cho trang phục đi học.",
+          "allowed_variations": [
+            "Đề xuất vị trí thêu/in hoa sen ở cổ áo hoặc gấu tay",
+            "Lựa chọn kỹ thuật thêu tay hoặc in sắc nét phù hợp với vải nhẹ thoáng"
+          ]
+        }
+      ],
+      "reference_ids": [],
+      "historical_mode": "inspired",
+      "decisions": [
+        {
+          "group_id": "group_thiet_ke_chi_tiet",
+          "option_ids": [
+            "opt_sen"
+          ],
+          "custom_text": "",
+          "delegated": false,
+          "atom_ids": [
+            "atom_18"
+          ]
+        }
+      ],
+      "conflicts": [],
+      "status": "ready"
+    },
+    "CANDIDATE_BATCH": [
+      {
+        "candidate_id": "R2-B1-C1",
+        "batch_id": "B1",
+        "revision": 2,
+        "title": "Việt phục đương đại xanh chàm - Cảm hứng hoa sen tối giản cổ áo",
+        "image_prompt": "Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Bối cảnh nền trường đại học giản dị với hàng cây và hành lang thoáng đãng. Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt. Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lót mỏng kín đáo bên trong đảm bảo không hở vai, ngực, eo hay lưng. Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không có tà quét đất. Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; hoa sen được thêu tinh tế bằng chỉ trắng ngà ngay tại vị trí mép cổ áo và gấu tay áo. Màu chủ đạo là xanh chàm với điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim. Trang phục chỉ đi kèm một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác. Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và điểm nhấn hoa sen thêu ở cổ và tay, mặt sau thiết kế lưng kín đáo liền mạch, ôm nhẹ theo phom dáng váy chữ A, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.",
+        "design_sections": [
+          {
+            "domain_id": "bối_cảnh_người_dùng",
+            "description": "Nữ sinh viên đại học mặc đi học hằng ngày tại TP.HCM trong bối cảnh khuôn viên trường đại học giản dị.",
+            "related_atom_ids": [
+              "atom_01",
+              "atom_16"
+            ]
+          },
+          {
+            "domain_id": "cấu_trúc_thiết_kế",
+            "description": "Áo ngắn gọn màu xanh chàm phối chân váy chữ A dài qua mắt cá, cổ kín, tay dài, vải đục có lót mỏng, không hở vai, ngực, eo hay lưng, chân váy đủ bước đi và ngồi học, không tà quét đất. Phụ kiện chỉ có một túi vải nhỏ đeo chéo, không trang sức, nón hay đạo cụ.",
+            "related_atom_ids": [
+              "atom_03",
+              "atom_04",
+              "atom_05",
+              "atom_09",
+              "atom_10",
+              "atom_11"
+            ]
+          },
+          {
+            "domain_id": "chất_liệu",
+            "description": "Chất liệu nhẹ, thoáng mát trong khí hậu nóng, ưu tiên cấu tạo dễ giặt và có lớp lót mỏng kín đáo.",
+            "related_atom_ids": [
+              "atom_08"
+            ]
+          },
+          {
+            "domain_id": "màu_sắc",
+            "description": "Màu chính xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.",
+            "related_atom_ids": [
+              "atom_06",
+              "atom_07"
+            ]
+          },
+          {
+            "domain_id": "mỹ_thuật",
+            "description": "Cảm hứng hoa sen kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử, vị trí thêu tại mép cổ áo và gấu tay áo với kỹ thuật thêu tinh tế.",
+            "related_atom_ids": [
+              "atom_13",
+              "atom_14",
+              "atom_15",
+              "atom_18"
+            ]
+          },
+          {
+            "domain_id": "văn_hóa_lịch_sử",
+            "description": "Lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử.",
+            "related_atom_ids": [
+              "atom_02"
+            ]
+          },
+          {
+            "domain_id": "thể_hiện_ảnh",
+            "description": "Phong cách lookbook rõ chất liệu, nền trường đại học giản dị, trình bày cùng một người mẫu và cùng một bộ đồ qua mặt trước và mặt sau.",
+            "related_atom_ids": [
+              "atom_16",
+              "atom_17"
+            ]
+          }
+        ],
+        "fashion_summary": "Thiết kế trang phục đi học mang phong cách Việt phục đương đại với áo ngắn gọn và chân váy chữ A dài qua mắt cá, bảo đảm độ kín đáo, thoải mái cho sinh viên di chuyển và ngồi học.",
+        "art_summary": "Họa tiết hoa sen kích thước nhỏ, bố trí ít được thêu tinh tế ở mép cổ áo và gấu tay áo làm điểm nhấn mỹ thuật nhẹ nhàng.",
+        "culture_summary": "Mang tinh thần cảm hứng Việt phục đương đại, hoàn toàn không phục dựng lịch sử và không gán ý nghĩa lịch sử cho hoa văn.",
+        "choices_made": [
+          "Chọn vị trí thêu hoa sen ở mép cổ áo và gấu tay áo",
+          "Sử dụng kỹ thuật thêu tay tinh tế với chỉ trắng ngà trên nền vải xanh chàm"
+        ],
+        "claims": [],
+        "locked_coverage": [],
+        "assumptions": [
+          "Sử dụng vải cotton pha hoặc đũi nhẹ thoáng phù hợp khí hậu TP.HCM.",
+          "Phong cách lookbook đời thường tôn lên nét trẻ trung của sinh viên."
+        ],
+        "limitations": [
+          "Tính năng dễ giặt là định hướng chất liệu và cấu tạo ở mức đề xuất, chưa qua kiểm nghiệm thực tế."
+        ],
+        "content_hash": "75a6f11f174b16087264b9851a855aab83a2e1fdd6d05f375943645abad6bcaf",
+        "verbatim_excerpt_bank": [
+          "Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.",
+          "Bối cảnh nền trường đại học giản dị với hàng cây và hành lang thoáng đãng.",
+          "Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.",
+          "HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt.",
+          "Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lót mỏng kín đáo bên trong đảm bảo không hở vai, ngực, eo hay lưng.",
+          "Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không có tà quét đất.",
+          "Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; hoa sen được thêu tinh tế bằng chỉ trắng ngà ngay tại vị trí mép cổ áo và gấu tay áo.",
+          "Màu chủ đạo là xanh chàm với điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.",
+          "Trang phục chỉ đi kèm một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác.",
+          "Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và điểm nhấn hoa sen thêu ở cổ và tay, mặt sau thiết kế lưng kín đáo liền mạch, ôm nhẹ theo phom dáng váy chữ A, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước."
+        ]
+      },
+      {
+        "candidate_id": "R2-B1-C2",
+        "batch_id": "B1",
+        "revision": 2,
+        "title": "Việt phục đương đại xanh chàm - Cảm hứng hoa sen tối giản gấu tay áo",
+        "image_prompt": "Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Bối cảnh nền trường đại học giản dị với khuôn viên nhiều cây xanh. Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt. Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lớp lót mỏng bên trong đảm bảo không hở vai, ngực, eo hay lưng. Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không quét đất. Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; họa tiết hoa sen được in sắc nét màu trắng ngà điểm xuyết ở phần gấu tay áo dài. Màu chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim. Trang phục chỉ có một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác. Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và tay áo dài, mặt sau thể hiện phần lưng áo kín đáo, đường may gọn gàng và tà váy chữ A suôn mượt, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.",
+        "design_sections": [
+          {
+            "domain_id": "bối_cảnh_người_dùng",
+            "description": "Nữ sinh viên đại học mặc đi học hằng ngày tại TP.HCM trong bối cảnh trường đại học giản dị.",
+            "related_atom_ids": [
+              "atom_01",
+              "atom_16"
+            ]
+          },
+          {
+            "domain_id": "cấu_trúc_thiết_kế",
+            "description": "Áo ngắn gọn màu xanh chàm phối chân váy chữ A dài qua mắt cá, cổ kín, tay dài, vải đục có lót mỏng, không hở vai, ngực, eo hay lưng, chân váy đủ bước đi và ngồi học, không tà quét đất. Phụ kiện chỉ có một túi vải nhỏ đeo chéo, không trang sức, nón hay đạo cụ.",
+            "related_atom_ids": [
+              "atom_03",
+              "atom_04",
+              "atom_05",
+              "atom_09",
+              "atom_10",
+              "atom_11"
+            ]
+          },
+          {
+            "domain_id": "chất_liệu",
+            "description": "Chất liệu nhẹ, thoáng mát trong khí hậu nóng, ưu tiên cấu tạo dễ giặt và có lớp lót mỏng.",
+            "related_atom_ids": [
+              "atom_08"
+            ]
+          },
+          {
+            "domain_id": "màu_sắc",
+            "description": "Màu chính xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.",
+            "related_atom_ids": [
+              "atom_06",
+              "atom_07"
+            ]
+          },
+          {
+            "domain_id": "mỹ_thuật",
+            "description": "Cảm hứng hoa sen kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử, vị trí in sắc nét tại gấu tay áo.",
+            "related_atom_ids": [
+              "atom_13",
+              "atom_14",
+              "atom_15",
+              "atom_18"
+            ]
+          },
+          {
+            "domain_id": "văn_hóa_lịch_sử",
+            "description": "Lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử.",
+            "related_atom_ids": [
+              "atom_02"
+            ]
+          },
+          {
+            "domain_id": "thể_hiện_ảnh",
+            "description": "Phong cách lookbook rõ chất liệu, nền trường đại học giản dị, trình bày cùng một người mẫu và cùng một bộ đồ qua mặt trước và mặt sau.",
+            "related_atom_ids": [
+              "atom_16",
+              "atom_17"
+            ]
+          }
+        ],
+        "fashion_summary": "Trang phục đi học năng động với phom dáng áo ngắn và chân váy chữ A dài qua mắt cá, kết hợp màu sắc nhã nhặn và đảm bảo tiêu chí kín đáo.",
+        "art_summary": "Họa tiết hoa sen nhỏ được in sắc nét màu trắng ngà tại gấu tay áo tạo điểm nhấn tinh tế.",
+        "culture_summary": "Thiết kế mang tính sáng tạo đương đại, không phục dựng lịch sử và không gán ý nghĩa tượng trưng cho họa tiết.",
+        "choices_made": [
+          "Chọn vị trí in hoa sen ở gấu tay áo",
+          "Sử dụng kỹ thuật in sắc nét màu trắng ngà trên nền vải xanh chàm"
+        ],
+        "claims": [],
+        "locked_coverage": [],
+        "assumptions": [
+          "Sử dụng vải cotton hoặc linen nhẹ thoáng phù hợp với sinh viên.",
+          "Kỹ thuật in sắc nét giúp họa tiết nhỏ bền màu khi giặt."
+        ],
+        "limitations": [
+          "Tính năng dễ giặt là định hướng chất liệu và cấu tạo ở mức đề xuất, chưa qua kiểm nghiệm thực tế."
+        ],
+        "content_hash": "39174fa21897a3d2078ba8dc4585666f78b353f85ab1d7bab0138c23dc5c669a",
+        "verbatim_excerpt_bank": [
+          "Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.",
+          "Bối cảnh nền trường đại học giản dị với khuôn viên nhiều cây xanh.",
+          "Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.",
+          "HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt.",
+          "Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lớp lót mỏng bên trong đảm bảo không hở vai, ngực, eo hay lưng.",
+          "Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không quét đất.",
+          "Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; họa tiết hoa sen được in sắc nét màu trắng ngà điểm xuyết ở phần gấu tay áo dài.",
+          "Màu chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.",
+          "Trang phục chỉ có một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác.",
+          "Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và tay áo dài, mặt sau thể hiện phần lưng áo kín đáo, đường may gọn gàng và tà váy chữ A suôn mượt, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước."
+        ]
+      },
+      {
+        "candidate_id": "R2-B1-C3",
+        "batch_id": "B1",
+        "revision": 2,
+        "title": "Việt phục đương đại xanh chàm - Cảm hứng hoa sen tối giản thân áo",
+        "image_prompt": "Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Bối cảnh nền trường đại học giản dị với kiến trúc tòa nhà học đường quen thuộc. Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt. Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lót mỏng bên trong đảm bảo không hở vai, ngực, eo hay lưng. Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không có tà quét đất. Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; họa tiết hoa sen được thêu tay nhẹ nhàng màu trắng ngà đặt lệch một góc nhỏ ở phía trước thân áo. Màu chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim. Trang phục chỉ đi kèm một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác. Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và điểm thêu hoa sen nhỏ ở thân áo, mặt sau thể hiện phần lưng áo liền mạch, kín đáo, không có chi tiết thêu rườm rà, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.",
+        "design_sections": [
+          {
+            "domain_id": "bối_cảnh_người_dùng",
+            "description": "Nữ sinh viên đại học mặc đi học hằng ngày tại TP.HCM trong bối cảnh trường đại học giản dị.",
+            "related_atom_ids": [
+              "atom_01",
+              "atom_16"
+            ]
+          },
+          {
+            "domain_id": "cấu_trúc_thiết_kế",
+            "description": "Áo ngắn gọn màu xanh chàm phối chân váy chữ A dài qua mắt cá, cổ kín, tay dài, vải đục có lót mỏng, không hở vai, ngực, eo hay lưng, chân váy đủ bước đi và ngồi học, không tà quét đất. Phụ kiện chỉ có một túi vải nhỏ đeo chéo, không trang sức, nón hoặc đạo cụ.",
+            "related_atom_ids": [
+              "atom_03",
+              "atom_04",
+              "atom_05",
+              "atom_09",
+              "atom_10",
+              "atom_11"
+            ]
+          },
+          {
+            "domain_id": "chất_liệu",
+            "description": "Chất liệu nhẹ, thoáng mát trong khí hậu nóng, ưu tiên cấu tạo dễ giặt và có lớp lót mỏng.",
+            "related_atom_ids": [
+              "atom_08"
+            ]
+          },
+          {
+            "domain_id": "màu_sắc",
+            "description": "Màu chính xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.",
+            "related_atom_ids": [
+              "atom_06",
+              "atom_07"
+            ]
+          },
+          {
+            "domain_id": "mỹ_thuật",
+            "description": "Cảm hứng hoa sen kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử, vị trí thêu tay ở phía trước thân áo.",
+            "related_atom_ids": [
+              "atom_13",
+              "atom_14",
+              "atom_15",
+              "atom_18"
+            ]
+          },
+          {
+            "domain_id": "văn_hóa_lịch_sử",
+            "description": "Lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử.",
+            "related_atom_ids": [
+              "atom_02"
+            ]
+          },
+          {
+            "domain_id": "thể_hiện_ảnh",
+            "description": "Phong cách lookbook rõ chất liệu, nền trường đại học giản dị, trình bày cùng một người mẫu và cùng một bộ đồ qua mặt trước và mặt sau.",
+            "related_atom_ids": [
+              "atom_16",
+              "atom_17"
+            ]
+          }
+        ],
+        "fashion_summary": "Trang phục đi học lịch sự, kết hợp áo ngắn gọn và chân váy chữ A dài qua mắt cá, mang lại sự thoải mái tối đa cho sinh viên trong sinh hoạt học tập.",
+        "art_summary": "Họa tiết hoa sen kích thước nhỏ được thêu tay đặt lệch ở thân áo trước tạo nét chấm phá mỹ thuật tối giản.",
+        "culture_summary": "Định hướng cảm hứng đương đại, không phục dựng lịch sử và không gắn ý nghĩa lịch sử cho họa tiết.",
+        "choices_made": [
+          "Chọn vị trí thêu hoa sen ở phía trước thân áo",
+          "Sử dụng kỹ thuật thêu tay màu trắng ngà trên nền vải xanh chàm"
+        ],
+        "claims": [],
+        "locked_coverage": [],
+        "assumptions": [
+          "Sử dụng chất liệu vải nhẹ thấm hút mồ hôi tốt phù hợp với thời tiết nóng ẩm.",
+          "Thiết kế thêu tay tối giản giữ được sự trang nhã cho môi trường học đường."
+        ],
+        "limitations": [
+          "Tính năng dễ giặt là định hướng chất liệu và cấu tạo ở mức đề xuất, chưa qua kiểm nghiệm thực tế."
+        ],
+        "content_hash": "4679ddd406d76a612678b9377f8cb666134e704ee7a9c905cf4bf6fe6b024867",
+        "verbatim_excerpt_bank": [
+          "Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.",
+          "Bối cảnh nền trường đại học giản dị với kiến trúc tòa nhà học đường quen thuộc.",
+          "Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.",
+          "HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt.",
+          "Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lót mỏng bên trong đảm bảo không hở vai, ngực, eo hay lưng.",
+          "Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không có tà quét đất.",
+          "Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; họa tiết hoa sen được thêu tay nhẹ nhàng màu trắng ngà đặt lệch một góc nhỏ ở phía trước thân áo.",
+          "Màu chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.",
+          "Trang phục chỉ đi kèm một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác.",
+          "Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và điểm thêu hoa sen nhỏ ở thân áo, mặt sau thể hiện phần lưng áo liền mạch, kín đáo, không có chi tiết thêu rườm rà, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước."
+        ]
+      }
+    ],
+    "REFERENCE_BUNDLE": {
+      "references": [],
+      "provider_metadata": [],
+      "reference_mode": "text_only",
+      "availability": "unavailable_by_user_choice"
+    },
+    "EXPECTED_CHECKS": [
+      {
+        "check_id": "locked:atom_02",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử."
+      },
+      {
+        "check_id": "locked:atom_03",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Giữ áo ngắn gọn phối chân váy chữ A dài qua mắt cá."
+      },
+      {
+        "check_id": "locked:atom_04",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Cổ kín, tay dài, vải đục có lót nếu cần."
+      },
+      {
+        "check_id": "locked:atom_05",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Không hở vai, ngực, eo hay lưng."
+      },
+      {
+        "check_id": "locked:atom_06",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Màu chính xanh chàm, điểm nhấn trắng ngà."
+      },
+      {
+        "check_id": "locked:atom_07",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Tránh màu đỏ và ánh kim."
+      },
+      {
+        "check_id": "locked:atom_08",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chất liệu nhẹ, thoáng trong khí hậu nóng, dễ giặt."
+      },
+      {
+        "check_id": "locked:atom_09",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chân váy đủ bước đi và ngồi học, không có tà quét đất."
+      },
+      {
+        "check_id": "locked:atom_10",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chỉ một túi vải nhỏ đeo chéo."
+      },
+      {
+        "check_id": "locked:atom_11",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Không trang sức, nón hoặc đạo cụ."
+      },
+      {
+        "check_id": "locked:atom_13",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Hoa văn nhỏ, ít."
+      },
+      {
+        "check_id": "locked:atom_14",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Không gán ý nghĩa lịch sử cho hoa văn."
+      },
+      {
+        "check_id": "locked:atom_16",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Ảnh theo phong cách lookbook rõ chất liệu, nền trường đại học giản dị."
+      },
+      {
+        "check_id": "locked:atom_17",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Trình bày cùng người mẫu và cùng bộ đồ qua mặt trước và mặt sau."
+      },
+      {
+        "check_id": "locked:atom_18",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Chọn hoa sen làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử."
+      },
+      {
+        "check_id": "summary_prompt_consistency",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Toàn bộ kế hoạch/tóm tắt phải trùng prompt"
+      },
+      {
+        "check_id": "claim_support",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": true,
+        "content": "Kiểm tra claims và phát biểu thực tế trong prompt/tóm tắt; không có claim sai nguồn",
+        "evidence_mode": "claim_inventory",
+        "empty_quote_allowed_for_candidate_ids": [
+          "R2-B1-C1",
+          "R2-B1-C2",
+          "R2-B1-C3"
+        ]
+      },
+      {
+        "check_id": "historical_scope",
+        "owner_role": "culture",
+        "severity": "hard",
+        "applicability": false,
+        "content": "Mọi phần lịch sử bắt buộc có căn cứ đúng vùng/thời kỳ, không đổi mode"
+      }
+    ],
+    "ROLE_RUBRIC": {
+      "version": "vp-rubric-2.1.0",
+      "role": "culture",
+      "rating_min": 0,
+      "rating_max": 5,
+      "contribution_lookup": {
+        "mode_fidelity": [
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0
+        ],
+        "evidence_scope": [
+          0.0,
+          7.0,
+          14.0,
+          21.0,
+          28.0,
+          35.0
+        ],
+        "cultural_integration": [
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0
+        ],
+        "claim_transparency": [
+          0.0,
+          3.0,
+          6.0,
+          9.0,
+          12.0,
+          15.0
+        ]
+      },
+      "criteria": [
+        {
+          "criterion_id": "mode_fidelity",
+          "weight": 25,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "evidence_scope",
+          "weight": 35,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "cultural_integration",
+          "weight": 25,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        },
+        {
+          "criterion_id": "claim_transparency",
+          "weight": 15,
+          "applicable": true,
+          "applicability_reason": "Theo nhu cầu và vai trò"
+        }
+      ]
+    },
+    "AUDIT_POLICY": {
+      "creative_level": "balanced",
+      "profile": "balanced",
+      "label": "Cân bằng chuyên môn"
+    }
+  },
+  "prompt": "TASK: AUDIT_VIET_PHUC_CULTURE_AND_HISTORY\n\nThông tin ứng dụng cấp: {\"request_id\": \"cc1fc4fa-ea9d-4faa-945e-8fc373a1d449\", \"revision\": 2}\nNhu cầu đã chốt và mức lịch sử: {\"request_id\": \"cc1fc4fa-ea9d-4faa-945e-8fc373a1d449\", \"revision\": 2, \"resolved_text\": \"Nữ sinh viên đại học tại TP.HCM mong muốn trang phục đi học hằng ngày, lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử. Thiết kế gồm áo ngắn gọn phối cùng chân váy chữ A dài qua mắt cá, đảm bảo đủ bước đi và ngồi học, không có tà quét đất. Trang phục kín đáo với cổ kín, tay dài, vải đục có lót nếu cần, không hở vai, ngực, eo hay lưng. Màu sắc chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim. Chất liệu nhẹ, thoáng trong khí hậu nóng và dễ giặt. Phụ kiện chỉ gồm một túi vải nhỏ đeo chéo, không dùng trang sức, nón hoặc đạo cụ. Họa tiết lấy cảm hứng hoa sen (tối giản, kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử), với vị trí trang trí và kỹ thuật thêu/in do AI đề xuất. Hình ảnh chụp theo phong cách lookbook rõ chất liệu, bối cảnh nền trường đại học giản dị, trình bày cùng người mẫu và cùng bộ đồ qua mặt trước và mặt sau.\", \"domains\": [{\"domain_id\": \"bối_cảnh_người_dùng\", \"label\": \"Bối cảnh & Mục đích\", \"summary\": \"Thông tin về người mặc, môi trường sử dụng, dịp và phong cách trình bày hình ảnh.\", \"related_domain_ids\": [\"cấu_trúc_thiết_kế\"]}, {\"domain_id\": \"cấu_trúc_thiết_kế\", \"label\": \"Cấu trúc & Phom dáng\", \"summary\": \"Các yêu cầu về áo, chân váy, độ dài, mức độ kín đáo và phụ kiện đi kèm.\", \"related_domain_ids\": [\"bối_cảnh_người_dùng\", \"chất_liệu\", \"mỹ_thuật\"]}, {\"domain_id\": \"chất_liệu\", \"label\": \"Chất liệu\", \"summary\": \"Đặc tính vải, độ thoáng mát, lớp lót và khả năng giặt giũ.\", \"related_domain_ids\": [\"cấu_trúc_thiết_kế\"]}, {\"domain_id\": \"màu_sắc\", \"label\": \"Màu sắc\", \"summary\": \"Màu sắc chủ đạo, điểm nhấn và các màu bị tránh.\", \"related_domain_ids\": [\"cấu_trúc_thiết_kế\"]}, {\"domain_id\": \"mỹ_thuật\", \"label\": \"Hoa văn & Trang trí\", \"summary\": \"Cảm hứng hoa văn, kích thước, số lượng, vị trí và kỹ thuật do AI đề xuất.\", \"related_domain_ids\": [\"văn_hóa_lịch_sử\", \"cấu_trúc_thiết_kế\"]}, {\"domain_id\": \"văn_hóa_lịch_sử\", \"label\": \"Định hướng Lịch sử & Văn hóa\", \"summary\": \"Mức độ gắn kết với lịch sử, yêu cầu không phục dựng và không gán ý nghĩa lịch sử.\", \"related_domain_ids\": [\"mỹ_thuật\"]}, {\"domain_id\": \"thể_hiện_ảnh\", \"label\": \"Thể hiện Ảnh\", \"summary\": \"Phong cách lookbook, bối cảnh nền và quy cách trình bày mặt trước mặt sau.\", \"related_domain_ids\": [\"bối_cảnh_người_dùng\"]}], \"atoms\": [{\"atom_id\": \"atom_01\", \"domain_ids\": [\"bối_cảnh_người_dùng\"], \"meaning\": \"Người mặc là nữ sinh viên đại học, muốn thiết kế trang phục đi học hằng ngày ở TP.HCM.\", \"intent_type\": \"context\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Tôi là nữ sinh viên đại học, muốn thiết kế trang phục đi học hằng ngày ở TP.HCM\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_02\", \"domain_ids\": [\"văn_hóa_lịch_sử\"], \"meaning\": \"Lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_03\", \"domain_ids\": [\"cấu_trúc_thiết_kế\"], \"meaning\": \"Giữ áo ngắn gọn phối chân váy chữ A dài qua mắt cá.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Giữ áo ngắn gọn phối chân váy chữ A dài qua mắt cá;\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_04\", \"domain_ids\": [\"cấu_trúc_thiết_kế\"], \"meaning\": \"Cổ kín, tay dài, vải đục có lót nếu cần.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"cổ kín, tay dài, vải đục có lót nếu cần,\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_05\", \"domain_ids\": [\"cấu_trúc_thiết_kế\"], \"meaning\": \"Không hở vai, ngực, eo hay lưng.\", \"intent_type\": \"avoid\", \"polarity\": \"negative\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"không hở vai, ngực, eo hay lưng.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_06\", \"domain_ids\": [\"màu_sắc\"], \"meaning\": \"Màu chính xanh chàm, điểm nhấn trắng ngà.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Màu chính xanh chàm, điểm nhấn trắng ngà,\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_07\", \"domain_ids\": [\"màu_sắc\"], \"meaning\": \"Tránh màu đỏ và ánh kim.\", \"intent_type\": \"avoid\", \"polarity\": \"negative\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"tránh đỏ và ánh kim.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_08\", \"domain_ids\": [\"chất_liệu\"], \"meaning\": \"Chất liệu nhẹ, thoáng trong khí hậu nóng, dễ giặt.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Chất liệu nhẹ, thoáng trong khí hậu nóng, dễ giặt;\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_09\", \"domain_ids\": [\"cấu_trúc_thiết_kế\"], \"meaning\": \"Chân váy đủ bước đi và ngồi học, không có tà quét đất.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"chân váy đủ bước đi và ngồi học, không có tà quét đất.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_10\", \"domain_ids\": [\"cấu_trúc_thiết_kế\"], \"meaning\": \"Chỉ một túi vải nhỏ đeo chéo.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Chỉ một túi vải nhỏ đeo chéo;\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_11\", \"domain_ids\": [\"cấu_trúc_thiết_kế\"], \"meaning\": \"Không trang sức, nón hoặc đạo cụ.\", \"intent_type\": \"avoid\", \"polarity\": \"negative\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"không trang sức, nón hoặc đạo cụ.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_12\", \"domain_ids\": [\"mỹ_thuật\"], \"meaning\": \"Có thể chọn một trong sen hoặc mây làm cảm hứng, không cần cả hai.\", \"intent_type\": \"preference\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Có thể chọn một trong sen hoặc mây làm cảm hứng, không cần cả hai;\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_13\", \"domain_ids\": [\"mỹ_thuật\"], \"meaning\": \"Hoa văn nhỏ, ít.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"hoa văn nhỏ, ít\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_14\", \"domain_ids\": [\"văn_hóa_lịch_sử\", \"mỹ_thuật\"], \"meaning\": \"Không gán ý nghĩa lịch sử cho hoa văn.\", \"intent_type\": \"must\", \"polarity\": \"negative\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"và không gán ý nghĩa lịch sử.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_15\", \"domain_ids\": [\"mỹ_thuật\"], \"meaning\": \"AI đề xuất vị trí trang trí và kỹ thuật phù hợp.\", \"intent_type\": \"delegated\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"AI đề xuất vị trí trang trí và kỹ thuật phù hợp.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_16\", \"domain_ids\": [\"thể_hiện_ảnh\"], \"meaning\": \"Ảnh theo phong cách lookbook rõ chất liệu, nền trường đại học giản dị.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"Ảnh theo phong cách lookbook rõ chất liệu, nền trường đại học giản dị,\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_17\", \"domain_ids\": [\"thể_hiện_ảnh\"], \"meaning\": \"Trình bày cùng người mẫu và cùng bộ đồ qua mặt trước và mặt sau.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"T1\", \"quote\": \"trình bày cùng người mẫu và cùng bộ đồ qua mặt trước và mặt sau.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}, {\"atom_id\": \"atom_18\", \"domain_ids\": [\"mỹ_thuật\"], \"meaning\": \"Chọn hoa sen làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử.\", \"intent_type\": \"must\", \"polarity\": \"positive\", \"source_refs\": [{\"turn_id\": \"S1\", \"quote\": \"Chọn hoa sen làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử.\"}], \"resolution\": \"explicit\", \"supersedes_atom_ids\": []}], \"locked_atom_ids\": [\"atom_02\", \"atom_03\", \"atom_04\", \"atom_05\", \"atom_06\", \"atom_07\", \"atom_08\", \"atom_09\", \"atom_10\", \"atom_11\", \"atom_13\", \"atom_14\", \"atom_16\", \"atom_17\", \"atom_18\"], \"delegated_atom_ids\": [\"atom_15\"], \"creative_space\": [{\"domain_id\": \"mỹ_thuật\", \"description\": \"Vị trí trang trí hoa sen và kỹ thuật thêu/in phù hợp cho trang phục đi học.\", \"allowed_variations\": [\"Đề xuất vị trí thêu/in hoa sen ở cổ áo hoặc gấu tay\", \"Lựa chọn kỹ thuật thêu tay hoặc in sắc nét phù hợp với vải nhẹ thoáng\"]}], \"reference_ids\": [], \"historical_mode\": \"inspired\", \"decisions\": [{\"group_id\": \"group_thiet_ke_chi_tiet\", \"option_ids\": [\"opt_sen\"], \"custom_text\": \"\", \"delegated\": false, \"atom_ids\": [\"atom_18\"]}], \"conflicts\": [], \"status\": \"ready\"}\nCác phương án, image_prompt nguyên văn và hash do ứng dụng cấp: [{\"candidate_id\": \"R2-B1-C1\", \"batch_id\": \"B1\", \"revision\": 2, \"title\": \"Việt phục đương đại xanh chàm - Cảm hứng hoa sen tối giản cổ áo\", \"image_prompt\": \"Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Bối cảnh nền trường đại học giản dị với hàng cây và hành lang thoáng đãng. Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt. Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lót mỏng kín đáo bên trong đảm bảo không hở vai, ngực, eo hay lưng. Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không có tà quét đất. Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; hoa sen được thêu tinh tế bằng chỉ trắng ngà ngay tại vị trí mép cổ áo và gấu tay áo. Màu chủ đạo là xanh chàm với điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim. Trang phục chỉ đi kèm một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác. Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và điểm nhấn hoa sen thêu ở cổ và tay, mặt sau thiết kế lưng kín đáo liền mạch, ôm nhẹ theo phom dáng váy chữ A, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.\", \"design_sections\": [{\"domain_id\": \"bối_cảnh_người_dùng\", \"description\": \"Nữ sinh viên đại học mặc đi học hằng ngày tại TP.HCM trong bối cảnh khuôn viên trường đại học giản dị.\", \"related_atom_ids\": [\"atom_01\", \"atom_16\"]}, {\"domain_id\": \"cấu_trúc_thiết_kế\", \"description\": \"Áo ngắn gọn màu xanh chàm phối chân váy chữ A dài qua mắt cá, cổ kín, tay dài, vải đục có lót mỏng, không hở vai, ngực, eo hay lưng, chân váy đủ bước đi và ngồi học, không tà quét đất. Phụ kiện chỉ có một túi vải nhỏ đeo chéo, không trang sức, nón hay đạo cụ.\", \"related_atom_ids\": [\"atom_03\", \"atom_04\", \"atom_05\", \"atom_09\", \"atom_10\", \"atom_11\"]}, {\"domain_id\": \"chất_liệu\", \"description\": \"Chất liệu nhẹ, thoáng mát trong khí hậu nóng, ưu tiên cấu tạo dễ giặt và có lớp lót mỏng kín đáo.\", \"related_atom_ids\": [\"atom_08\"]}, {\"domain_id\": \"màu_sắc\", \"description\": \"Màu chính xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.\", \"related_atom_ids\": [\"atom_06\", \"atom_07\"]}, {\"domain_id\": \"mỹ_thuật\", \"description\": \"Cảm hứng hoa sen kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử, vị trí thêu tại mép cổ áo và gấu tay áo với kỹ thuật thêu tinh tế.\", \"related_atom_ids\": [\"atom_13\", \"atom_14\", \"atom_15\", \"atom_18\"]}, {\"domain_id\": \"văn_hóa_lịch_sử\", \"description\": \"Lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử.\", \"related_atom_ids\": [\"atom_02\"]}, {\"domain_id\": \"thể_hiện_ảnh\", \"description\": \"Phong cách lookbook rõ chất liệu, nền trường đại học giản dị, trình bày cùng một người mẫu và cùng một bộ đồ qua mặt trước và mặt sau.\", \"related_atom_ids\": [\"atom_16\", \"atom_17\"]}], \"fashion_summary\": \"Thiết kế trang phục đi học mang phong cách Việt phục đương đại với áo ngắn gọn và chân váy chữ A dài qua mắt cá, bảo đảm độ kín đáo, thoải mái cho sinh viên di chuyển và ngồi học.\", \"art_summary\": \"Họa tiết hoa sen kích thước nhỏ, bố trí ít được thêu tinh tế ở mép cổ áo và gấu tay áo làm điểm nhấn mỹ thuật nhẹ nhàng.\", \"culture_summary\": \"Mang tinh thần cảm hứng Việt phục đương đại, hoàn toàn không phục dựng lịch sử và không gán ý nghĩa lịch sử cho hoa văn.\", \"choices_made\": [\"Chọn vị trí thêu hoa sen ở mép cổ áo và gấu tay áo\", \"Sử dụng kỹ thuật thêu tay tinh tế với chỉ trắng ngà trên nền vải xanh chàm\"], \"claims\": [], \"locked_coverage\": [], \"assumptions\": [\"Sử dụng vải cotton pha hoặc đũi nhẹ thoáng phù hợp khí hậu TP.HCM.\", \"Phong cách lookbook đời thường tôn lên nét trẻ trung của sinh viên.\"], \"limitations\": [\"Tính năng dễ giặt là định hướng chất liệu và cấu tạo ở mức đề xuất, chưa qua kiểm nghiệm thực tế.\"], \"content_hash\": \"75a6f11f174b16087264b9851a855aab83a2e1fdd6d05f375943645abad6bcaf\", \"verbatim_excerpt_bank\": [\"Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.\", \"Bối cảnh nền trường đại học giản dị với hàng cây và hành lang thoáng đãng.\", \"Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.\", \"HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt.\", \"Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lót mỏng kín đáo bên trong đảm bảo không hở vai, ngực, eo hay lưng.\", \"Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không có tà quét đất.\", \"Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; hoa sen được thêu tinh tế bằng chỉ trắng ngà ngay tại vị trí mép cổ áo và gấu tay áo.\", \"Màu chủ đạo là xanh chàm với điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.\", \"Trang phục chỉ đi kèm một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác.\", \"Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và điểm nhấn hoa sen thêu ở cổ và tay, mặt sau thiết kế lưng kín đáo liền mạch, ôm nhẹ theo phom dáng váy chữ A, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.\"]}, {\"candidate_id\": \"R2-B1-C2\", \"batch_id\": \"B1\", \"revision\": 2, \"title\": \"Việt phục đương đại xanh chàm - Cảm hứng hoa sen tối giản gấu tay áo\", \"image_prompt\": \"Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Bối cảnh nền trường đại học giản dị với khuôn viên nhiều cây xanh. Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt. Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lớp lót mỏng bên trong đảm bảo không hở vai, ngực, eo hay lưng. Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không quét đất. Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; họa tiết hoa sen được in sắc nét màu trắng ngà điểm xuyết ở phần gấu tay áo dài. Màu chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim. Trang phục chỉ có một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác. Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và tay áo dài, mặt sau thể hiện phần lưng áo kín đáo, đường may gọn gàng và tà váy chữ A suôn mượt, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.\", \"design_sections\": [{\"domain_id\": \"bối_cảnh_người_dùng\", \"description\": \"Nữ sinh viên đại học mặc đi học hằng ngày tại TP.HCM trong bối cảnh trường đại học giản dị.\", \"related_atom_ids\": [\"atom_01\", \"atom_16\"]}, {\"domain_id\": \"cấu_trúc_thiết_kế\", \"description\": \"Áo ngắn gọn màu xanh chàm phối chân váy chữ A dài qua mắt cá, cổ kín, tay dài, vải đục có lót mỏng, không hở vai, ngực, eo hay lưng, chân váy đủ bước đi và ngồi học, không tà quét đất. Phụ kiện chỉ có một túi vải nhỏ đeo chéo, không trang sức, nón hay đạo cụ.\", \"related_atom_ids\": [\"atom_03\", \"atom_04\", \"atom_05\", \"atom_09\", \"atom_10\", \"atom_11\"]}, {\"domain_id\": \"chất_liệu\", \"description\": \"Chất liệu nhẹ, thoáng mát trong khí hậu nóng, ưu tiên cấu tạo dễ giặt và có lớp lót mỏng.\", \"related_atom_ids\": [\"atom_08\"]}, {\"domain_id\": \"màu_sắc\", \"description\": \"Màu chính xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.\", \"related_atom_ids\": [\"atom_06\", \"atom_07\"]}, {\"domain_id\": \"mỹ_thuật\", \"description\": \"Cảm hứng hoa sen kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử, vị trí in sắc nét tại gấu tay áo.\", \"related_atom_ids\": [\"atom_13\", \"atom_14\", \"atom_15\", \"atom_18\"]}, {\"domain_id\": \"văn_hóa_lịch_sử\", \"description\": \"Lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử.\", \"related_atom_ids\": [\"atom_02\"]}, {\"domain_id\": \"thể_hiện_ảnh\", \"description\": \"Phong cách lookbook rõ chất liệu, nền trường đại học giản dị, trình bày cùng một người mẫu và cùng một bộ đồ qua mặt trước và mặt sau.\", \"related_atom_ids\": [\"atom_16\", \"atom_17\"]}], \"fashion_summary\": \"Trang phục đi học năng động với phom dáng áo ngắn và chân váy chữ A dài qua mắt cá, kết hợp màu sắc nhã nhặn và đảm bảo tiêu chí kín đáo.\", \"art_summary\": \"Họa tiết hoa sen nhỏ được in sắc nét màu trắng ngà tại gấu tay áo tạo điểm nhấn tinh tế.\", \"culture_summary\": \"Thiết kế mang tính sáng tạo đương đại, không phục dựng lịch sử và không gán ý nghĩa tượng trưng cho họa tiết.\", \"choices_made\": [\"Chọn vị trí in hoa sen ở gấu tay áo\", \"Sử dụng kỹ thuật in sắc nét màu trắng ngà trên nền vải xanh chàm\"], \"claims\": [], \"locked_coverage\": [], \"assumptions\": [\"Sử dụng vải cotton hoặc linen nhẹ thoáng phù hợp với sinh viên.\", \"Kỹ thuật in sắc nét giúp họa tiết nhỏ bền màu khi giặt.\"], \"limitations\": [\"Tính năng dễ giặt là định hướng chất liệu và cấu tạo ở mức đề xuất, chưa qua kiểm nghiệm thực tế.\"], \"content_hash\": \"39174fa21897a3d2078ba8dc4585666f78b353f85ab1d7bab0138c23dc5c669a\", \"verbatim_excerpt_bank\": [\"Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.\", \"Bối cảnh nền trường đại học giản dị với khuôn viên nhiều cây xanh.\", \"Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.\", \"HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt.\", \"Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lớp lót mỏng bên trong đảm bảo không hở vai, ngực, eo hay lưng.\", \"Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không quét đất.\", \"Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; họa tiết hoa sen được in sắc nét màu trắng ngà điểm xuyết ở phần gấu tay áo dài.\", \"Màu chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.\", \"Trang phục chỉ có một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác.\", \"Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và tay áo dài, mặt sau thể hiện phần lưng áo kín đáo, đường may gọn gàng và tà váy chữ A suôn mượt, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.\"]}, {\"candidate_id\": \"R2-B1-C3\", \"batch_id\": \"B1\", \"revision\": 2, \"title\": \"Việt phục đương đại xanh chàm - Cảm hứng hoa sen tối giản thân áo\", \"image_prompt\": \"Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó. Bối cảnh nền trường đại học giản dị với kiến trúc tòa nhà học đường quen thuộc. Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt. Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lót mỏng bên trong đảm bảo không hở vai, ngực, eo hay lưng. Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không có tà quét đất. Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; họa tiết hoa sen được thêu tay nhẹ nhàng màu trắng ngà đặt lệch một góc nhỏ ở phía trước thân áo. Màu chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim. Trang phục chỉ đi kèm một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác. Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và điểm thêu hoa sen nhỏ ở thân áo, mặt sau thể hiện phần lưng áo liền mạch, kín đáo, không có chi tiết thêu rườm rà, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.\", \"design_sections\": [{\"domain_id\": \"bối_cảnh_người_dùng\", \"description\": \"Nữ sinh viên đại học mặc đi học hằng ngày tại TP.HCM trong bối cảnh trường đại học giản dị.\", \"related_atom_ids\": [\"atom_01\", \"atom_16\"]}, {\"domain_id\": \"cấu_trúc_thiết_kế\", \"description\": \"Áo ngắn gọn màu xanh chàm phối chân váy chữ A dài qua mắt cá, cổ kín, tay dài, vải đục có lót mỏng, không hở vai, ngực, eo hay lưng, chân váy đủ bước đi và ngồi học, không tà quét đất. Phụ kiện chỉ có một túi vải nhỏ đeo chéo, không trang sức, nón hoặc đạo cụ.\", \"related_atom_ids\": [\"atom_03\", \"atom_04\", \"atom_05\", \"atom_09\", \"atom_10\", \"atom_11\"]}, {\"domain_id\": \"chất_liệu\", \"description\": \"Chất liệu nhẹ, thoáng mát trong khí hậu nóng, ưu tiên cấu tạo dễ giặt và có lớp lót mỏng.\", \"related_atom_ids\": [\"atom_08\"]}, {\"domain_id\": \"màu_sắc\", \"description\": \"Màu chính xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.\", \"related_atom_ids\": [\"atom_06\", \"atom_07\"]}, {\"domain_id\": \"mỹ_thuật\", \"description\": \"Cảm hứng hoa sen kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử, vị trí thêu tay ở phía trước thân áo.\", \"related_atom_ids\": [\"atom_13\", \"atom_14\", \"atom_15\", \"atom_18\"]}, {\"domain_id\": \"văn_hóa_lịch_sử\", \"description\": \"Lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử.\", \"related_atom_ids\": [\"atom_02\"]}, {\"domain_id\": \"thể_hiện_ảnh\", \"description\": \"Phong cách lookbook rõ chất liệu, nền trường đại học giản dị, trình bày cùng một người mẫu và cùng một bộ đồ qua mặt trước và mặt sau.\", \"related_atom_ids\": [\"atom_16\", \"atom_17\"]}], \"fashion_summary\": \"Trang phục đi học lịch sự, kết hợp áo ngắn gọn và chân váy chữ A dài qua mắt cá, mang lại sự thoải mái tối đa cho sinh viên trong sinh hoạt học tập.\", \"art_summary\": \"Họa tiết hoa sen kích thước nhỏ được thêu tay đặt lệch ở thân áo trước tạo nét chấm phá mỹ thuật tối giản.\", \"culture_summary\": \"Định hướng cảm hứng đương đại, không phục dựng lịch sử và không gắn ý nghĩa lịch sử cho họa tiết.\", \"choices_made\": [\"Chọn vị trí thêu hoa sen ở phía trước thân áo\", \"Sử dụng kỹ thuật thêu tay màu trắng ngà trên nền vải xanh chàm\"], \"claims\": [], \"locked_coverage\": [], \"assumptions\": [\"Sử dụng chất liệu vải nhẹ thấm hút mồ hôi tốt phù hợp với thời tiết nóng ẩm.\", \"Thiết kế thêu tay tối giản giữ được sự trang nhã cho môi trường học đường.\"], \"limitations\": [\"Tính năng dễ giặt là định hướng chất liệu và cấu tạo ở mức đề xuất, chưa qua kiểm nghiệm thực tế.\"], \"content_hash\": \"4679ddd406d76a612678b9377f8cb666134e704ee7a9c905cf4bf6fe6b024867\", \"verbatim_excerpt_bank\": [\"Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.\", \"Bối cảnh nền trường đại học giản dị với kiến trúc tòa nhà học đường quen thuộc.\", \"Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.\", \"HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt.\", \"Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lót mỏng bên trong đảm bảo không hở vai, ngực, eo hay lưng.\", \"Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không có tà quét đất.\", \"Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; họa tiết hoa sen được thêu tay nhẹ nhàng màu trắng ngà đặt lệch một góc nhỏ ở phía trước thân áo.\", \"Màu chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.\", \"Trang phục chỉ đi kèm một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác.\", \"Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và điểm thêu hoa sen nhỏ ở thân áo, mặt sau thể hiện phần lưng áo liền mạch, kín đáo, không có chi tiết thêu rườm rà, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.\"]}]\nNguồn văn hóa/lịch sử, trích đoạn và phạm vi được phép dùng: {\"references\": [], \"provider_metadata\": [], \"reference_mode\": \"text_only\", \"availability\": \"unavailable_by_user_choice\"}\nCác kiểm tra và mức bắt buộc thuộc vai trò này: [{\"check_id\": \"locked:atom_02\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử.\"}, {\"check_id\": \"locked:atom_03\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Giữ áo ngắn gọn phối chân váy chữ A dài qua mắt cá.\"}, {\"check_id\": \"locked:atom_04\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Cổ kín, tay dài, vải đục có lót nếu cần.\"}, {\"check_id\": \"locked:atom_05\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Không hở vai, ngực, eo hay lưng.\"}, {\"check_id\": \"locked:atom_06\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Màu chính xanh chàm, điểm nhấn trắng ngà.\"}, {\"check_id\": \"locked:atom_07\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Tránh màu đỏ và ánh kim.\"}, {\"check_id\": \"locked:atom_08\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chất liệu nhẹ, thoáng trong khí hậu nóng, dễ giặt.\"}, {\"check_id\": \"locked:atom_09\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chân váy đủ bước đi và ngồi học, không có tà quét đất.\"}, {\"check_id\": \"locked:atom_10\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chỉ một túi vải nhỏ đeo chéo.\"}, {\"check_id\": \"locked:atom_11\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Không trang sức, nón hoặc đạo cụ.\"}, {\"check_id\": \"locked:atom_13\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Hoa văn nhỏ, ít.\"}, {\"check_id\": \"locked:atom_14\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Không gán ý nghĩa lịch sử cho hoa văn.\"}, {\"check_id\": \"locked:atom_16\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Ảnh theo phong cách lookbook rõ chất liệu, nền trường đại học giản dị.\"}, {\"check_id\": \"locked:atom_17\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Trình bày cùng người mẫu và cùng bộ đồ qua mặt trước và mặt sau.\"}, {\"check_id\": \"locked:atom_18\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Chọn hoa sen làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử.\"}, {\"check_id\": \"summary_prompt_consistency\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Toàn bộ kế hoạch/tóm tắt phải trùng prompt\"}, {\"check_id\": \"claim_support\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": true, \"content\": \"Kiểm tra claims và phát biểu thực tế trong prompt/tóm tắt; không có claim sai nguồn\", \"evidence_mode\": \"claim_inventory\", \"empty_quote_allowed_for_candidate_ids\": [\"R2-B1-C1\", \"R2-B1-C2\", \"R2-B1-C3\"]}, {\"check_id\": \"historical_scope\", \"owner_role\": \"culture\", \"severity\": \"hard\", \"applicability\": false, \"content\": \"Mọi phần lịch sử bắt buộc có căn cứ đúng vùng/thời kỳ, không đổi mode\"}]\nTiêu chí/rating/trọng số văn hóa đã khóa: {\"version\": \"vp-rubric-2.1.0\", \"role\": \"culture\", \"rating_min\": 0, \"rating_max\": 5, \"contribution_lookup\": {\"mode_fidelity\": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0], \"evidence_scope\": [0.0, 7.0, 14.0, 21.0, 28.0, 35.0], \"cultural_integration\": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0], \"claim_transparency\": [0.0, 3.0, 6.0, 9.0, 12.0, 15.0]}, \"criteria\": [{\"criterion_id\": \"mode_fidelity\", \"weight\": 25, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"evidence_scope\", \"weight\": 35, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"cultural_integration\", \"weight\": 25, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}, {\"criterion_id\": \"claim_transparency\", \"weight\": 15, \"applicable\": true, \"applicability_reason\": \"Theo nhu cầu và vai trò\"}]}\n\nChế độ audit suy ra từ mức sáng tạo: {\"creative_level\": \"balanced\", \"profile\": \"balanced\", \"label\": \"Cân bằng chuyên môn\"}\n\nVAI TRÒ\nĐánh giá chuyên biệt về yếu tố văn hóa/lịch sử trong kế hoạch và prompt. Không đóng dấu xác thực lịch sử bằng kiến thức nhớ, không dùng độ đẹp như chứng cứ. Chưa có ảnh để xác nhận những chi tiết nhìn thấy.\n\nKIỂM TRA\n1. Đọc cả image_prompt, design_sections và claims; không chỉ đọc culture_summary. Phân biệt dữ kiện thực tế, mô tả sáng tạo, lời người dùng và phần chưa xác minh.\n2. Đối chiếu mức neutral/inspired/historical đã chốt. inspired cho phép cách tân có nhãn rõ; không phạt một thiết kế sáng tạo chỉ vì không phục dựng. historical phải có nguồn hỗ trợ đúng phần bắt buộc tái hiện, không đổi sang inspired để tránh lỗi.\n3. Với claim thực tế: kiểm tra mã nguồn, đoạn trích, hiện vật/đặc trưng, thời kỳ và vùng. Nguồn áo dài hiện đại không xác nhận trang phục thời Lý–Trần; link phom váy/thêu không chứng minh lịch sử. Có mã nguồn nhưng không hỗ trợ claim không được pass.\n4. Chú ý sen/rồng/mây là tên nhóm mô-típ rộng. Không mặc định cùng hình dạng, cách bố trí hoặc ý nghĩa cho mọi thời kỳ. Chỉ nêu điều được đoạn nguồn hỗ trợ; phần cách điệu phải ghi là lựa chọn thiết kế.\n5. Xem yếu tố Việt được đưa vào thiết kế cụ thể hay chỉ nói “nét truyền thống”. Nếu yêu cầu lai phom, xem có chi tiết cấu trúc thật được chuyển vào nền mới. Không tự áp một luật cấm pha trộn nếu không có căn cứ/yêu cầu bắt buộc.\n6. Phần tín ngưỡng/nghi lễ/địa vị chỉ coi là hạn chế bắt buộc khi có nguồn đúng phạm vi hoặc người dùng đã yêu cầu. Nếu chưa rõ bối cảnh có ảnh hưởng, ghi cần làm rõ thay vì invent rule.\n7. Kiểm tra EXPECTED_CHECKS đúng một lần, giữ mức bắt buộc/phạm vi. Missing evidence cho claim bắt buộc => uncertain/thiếu căn cứ; claim trái đoạn nguồn => fail. Nguồn/trích dẫn bịa => fail. Ý tưởng sáng tạo không tự là claim lịch sử.\n\nCHẤM BỐN TIÊU CHÍ\n- mode_fidelity: tôn trọng mức tái hiện/cảm hứng đã chốt.\n- evidence_scope: phát biểu thực tế đúng nguồn và đúng phạm vi, hoặc giới hạn phát biểu rõ với thiết kế sáng tạo.\n- cultural_integration: đưa yếu tố văn hóa được yêu cầu vào thiết kế có ý đồ cụ thể.\n- claim_transparency: phân biệt xác thực và sáng tạo, nói đúng điều còn thiếu.\nRating 0–5 theo ROLE_RUBRIC. Nếu không có yêu cầu văn hóa, đánh dấu tiêu chí không áp dụng có lý do, không tự cho 100. historical thiếu nguồn không được dùng not_applicable để né. inspired không claim nguồn gốc vẫn được đánh giá về tính minh bạch, không bị buộc invent claim.\n\nTrả đúng SpecialistAuditBatch, role=culture; giữ candidate_id/revision/content_hash và đúng tập đầu vào. Mỗi audit có checks, criterion_ratings, strengths, concerns, suggested_fixes, summary. Mọi source_id trong nhận xét phải có trong bundle. Không sửa phương án hoặc tự viết caption nguồn mới.\n\nKhi AUDIT_POLICY.profile=creative (mức Khám phá), ưu tiên chuyển thể mới có chủ đích và tính nhất quán trong phần được phép đổi. Không giảm điểm chỉ vì khác mẫu truyền thống trong chế độ inspired; vẫn giữ mọi điều khóa, tính ứng dụng, giới hạn phụ kiện và căn cứ cho claim lịch sử. Đạo cụ dân gian chỉ phù hợp khi bối cảnh cho phép; không thưởng thêm chi tiết quá mức.\n\nHỢP ĐỒNG CHỨNG CỨ CHO TỪNG CHECK\n- Các check có applicability=false phải not_applicable. Các check có applicability=true không được dùng not_applicable để né thiếu căn cứ.\n- locked:<atom_id>: nếu EXPECTED_CHECKS cung cấp exact_prompt_excerpts[candidate_id], đọc và kiểm tra đoạn đó với yêu cầu rồi COPY nguyên văn nếu nó là chứng cứ phù hợp. Đoạn cấp sẵn không tự là kết luận pass. Nếu không đáp ứng thì fail/uncertain với reason thật; không tự thêm giải pháp.\n- summary_prompt_consistency: đọc cả prompt và mọi summary/design_sections. Khi pass phải có quote không rỗng COPY từ image_prompt của candidate; reason phải nêu các nội dung đã đối chiếu. Không lấy câu trong summary làm quote nếu câu đó không có trong prompt. Một quote chỉ là ví dụ đối chiếu, không chứng minh toàn bộ bản tóm tắt; phải đọc tất cả.\n- Các check còn lại: pass cần quote không rỗng, có thật trong image_prompt của đúng candidate, trừ ngoại lệ claim_support ghi riêng dưới đây. Quote giữ nguyên chữ hoa/thường, dấu câu và khoảng trắng. “thiết kế” không phải “Thiết kế”. Không copy meaning của atom hoặc viết câu tương đương làm quote.\n- Nếu không tìm được chi tiết cần thiết để kết luận, dùng uncertain với reason chỉ rõ phần thiếu; không invent quote. Không làm giảm severity, applicability hoặc sửa prompt để đạt.\n- Kiểm tra trước khi trả: check_ids đúng EXPECTED_CHECKS, candidate_revision/content_hash từ candidate hiện tại, các quote không rỗng đều có trong image_prompt, tất cả pass có chứng cứ theo đúng loại check. Rating và nhận xét chỉ dựa trên thông tin được cung cấp, không phải ảnh/mẫu may đã được xem.\n\nCLAIM_SUPPORT: CĂN CỨ TỪ CLAIM INVENTORY\n- EXPECTED_CHECKS.claim_support.evidence_mode=claim_inventory: kiểm tra claims[] và đọc prompt/culture_summary để phát hiện phát biểu lịch sử/nguồn gốc thực tế bị bỏ ngoài claims. Danh sách claims rỗng chưa tự đủ cho pass.\n- Nếu candidate_id thuộc empty_quote_allowed_for_candidate_ids, claims=[] và đọc toàn bộ nội dung không có claim thực tế cần nguồn: được pass với prompt_quote=\"\", source_ids=[]; reason phải ghi rõ kiểm tra claims rỗng và nội dung không chứa claim thực tế chưa khai báo. Không invent đoạn quote để chứng minh một claim không tồn tại. Đây là ngoại lệ duy nhất cho pass không có quote.\n- Nếu claims không rỗng: đối chiếu từng claim với nguồn và scope; pass vẫn cần quote nguyên văn từ image_prompt và source_ids phù hợp. Thiếu đoạn hỗ trợ => uncertain; trái nguồn => fail. Không dùng ngoại lệ của claims rỗng cho check khác.\n- Nếu claims=[] nhưng prompt lại khẳng định niên đại, nguồn gốc, ý nghĩa hay phục dựng chính xác không có căn cứ: không pass; chỉ rõ phát biểu thật trong prompt và lý do fail/uncertain. Inspired không miễn kiểm tra claim thực tế.\n\nCHẾ ĐỘ KIỂM ĐỊNH QUA API (ƯU TIÊN KHI CÓ CHỈ DẪN CŨ KHÁC)\nTừ VP04 đến VP08, backend không kiểm định schema hoặc nội dung response, quote, coverage, mã/hash, nguồn hay điểm; không sửa quote và không loại phương án bằng gate, ngưỡng điểm hoặc so trùng. JSON schema vẫn gửi tới API để định dạng dữ liệu cho giao diện. Giữ đúng mã và trường đã cấp để ứng dụng liên kết kết quả. Các trường tên VALIDATED là tên giao tiếp cũ, không có nghĩa backend đã xác nhận đúng. Auditor tự đọc prompt, đối chiếu yêu cầu và nguồn, nêu rõ fail/uncertain cùng lý do; không bịa chứng cứ. VP08 tự chấm harmony_score/proposed_total và recommendation; backend hiển thị nhận xét và xếp ba phương án theo proposed_total, không xác nhận chất lượng hoặc điều kiện đạt. Không ép prompt thành bản sao câu đầu vào chỉ để có quote.\n\nĐIỂM CHUYÊN MÔN DO GEMINI TÍNH VÀ LƯU\nMỗi audit trả thêm score và score_reason. score = round(100 × sum(weight × rating/5) / sum(weight của các tiêu chí áp dụng), 2). Nếu không có tiêu chí áp dụng, score=null và giải thích. score_reason nêu căn cứ, hạn chế và lý do điểm số; không đồng nhất việc đủ tên chi tiết với chất lượng tối đa. Giữ criterion_ratings/checks, strengths, concerns, suggested_fixes, summary để VP08 có toàn bộ nhận xét của từng candidate. Backend lưu nguyên score/score_reason, không tính lại hoặc chỉnh điểm. Không trả tổng cuối liên vai trò ở bước này.\n\nKIỂM TRA NGUYÊN VĂN VÀ ĐỦ MỆNH ĐỀ\n- prompt_quote chỉ là MỘT đoạn LIỀN có thật trong image_prompt hiện tại. Không ghép nhiều đoạn bằng “...”/“;”, không đổi dấu/chữ, không lấy design_sections hoặc summary làm quote. Nếu cần nhiều phần, chọn một đoạn tiêu biểu rồi giải thích phần còn lại trong reason; không làm giả quote tổng hợp.\n- Với locked atom chứa nhiều điều, pass chỉ khi TẤT CẢ mệnh đề liên quan được thể hiện trong prompt. Ví dụ “nhẹ, thoáng, dễ giặt” mà prompt chỉ nói “vải nhẹ” thì uncertain cho phần thoáng/dễ giặt, không pass cả atom. Đề xuất sửa còn nằm trong suggested_fixes không phải giải pháp đã có.\n- Trước khi xuất JSON, đối chiếu từng quote với chuỗi image_prompt của đúng candidate. Không tìm thấy đoạn thật => quote=\"\", uncertain/fail theo căn cứ và reason chỉ rõ thiếu gì; không paraphrase để lấp.\n- Rating 5 cần thiết kế cụ thể và không còn thiếu sót ảnh hưởng tiêu chí đó. Concern về khả năng mặc/che phủ hoặc thiếu mệnh đề phải được phản ánh ở rating liên quan; không trừ điểm ở miền không liên quan chỉ để tạo vẻ nghiêm khắc.\n\nPHÉP TÍNH ĐIỂM CÓ THỂ KIỂM TRA\nKhông suy score theo cảm giác từ bốn rating. Với mỗi criterion áp dụng, tính contribution=weight*rating/5; score=round(100*sum(contribution)/sum(weight),2). score_reason phải ghi trọng số và contribution cho từng criterion cùng tổng, sau đó một lý do ngắn. Khi tổng weight=100, contribution cộng trực tiếp ra score. Ví dụ weight=[30,30,25,15],rating=[5,4,4,5] => contributions=[30,24,20,15], score=89. Không dùng ví dụ nếu ROLE_RUBRIC có trọng số khác. Không lấy 93.75 hay trung bình không trọng số. Kiểm tra số score khớp các contribution vừa ghi.\nQuote là thao tác COPY văn bản, không phải mô tả ý nghĩa. Với “Trang phục thiết kế dành cho nữ” chỉ có trong summary mà không có nguyên cụm đó trong image_prompt, không được chép vào prompt_quote dù đúng ý. Chọn một câu thật trong image_prompt; nếu prompt không nói rõ người mặc, uncertain thay vì tạo câu mới.\n\nNGÂN HÀNG TRÍCH NGUYÊN VĂN\nCANDIDATE_BATCH.verbatim_excerpt_bank cung cấp câu có thật của từng image_prompt để giảm lỗi chép. Ưu tiên COPY NGUYÊN một phần tử của bank đúng candidate vào prompt_quote; không sửa/chắp thêm từ. Bank không chứng nhận nội dung phù hợp: đọc đầy đủ yêu cầu và chọn uncertain/fail nếu câu không đáp ứng. Không thể tìm câu phù hợp thì quote rỗng và giải thích phần thiếu, không tạo câu gần giống.\n\nVÍ DỤ BẮT BUỘC UNCERTAIN KHI THIẾU ĐIỀU\nCheck yêu cầu “Chất liệu nhẹ, thoáng, dễ giặt.” nhưng image_prompt chỉ viết “vải cotton nhẹ và thoáng”: status=uncertain, quote COPY câu thật đó, reason=\"Đã mô tả nhẹ và thoáng nhưng chưa nêu mục tiêu/giải pháp dễ giặt.\" Không dùng hiểu biết cotton để tự thêm dễ giặt. Pass cả atom phải bao phủ từng điều liên quan, không chỉ phần trùng rõ nhất; nguyên tắc này áp dụng cho mọi yêu cầu gồm nhiều mệnh đề.\n\nQUOTE THEO TỪ VỰNG RESPONSE SCHEMA\nSchema của lượt gọi giới hạn prompt_quote trong các câu nguyên văn của batch hoặc chuỗi rỗng. Chọn một câu thuộc ĐÚNG candidate hiện tại, không dùng câu của candidate khác. Một câu không chứng minh toàn bộ check: reason phải đối chiếu đủ mệnh đề, thiếu một điều vẫn uncertain/fail. locked_coverage của generator được tách khỏi đầu vào audit để tránh coi tự khai là bằng chứng độc lập. Không điều chỉnh câu để hợp quote; không thay đổi nội dung phương án.\n\nTHỨ TỰ TÍNH VÀ GHI ĐIỂM\nXuất score_reason với phép tính thật trước score. Các tiêu chí đều áp dụng và tổng trọng số=100, từng weight chia hết cho5 thì score là tổng contribution và luôn là số nguyên; không có “quy đổi theo hệ thống” khác. Nếu reason tính95 thì score=95, không được tự đổi thành93.75. Không thêm giả thuyết về cơ chế phân bổ điểm.\n\nROLE_RUBRIC.contribution_lookup cho giá trị đóng góp ở rating0..5. Lấy đúng phần tử theo rating cho từng criterion, cộng bốn giá trị và chuẩn hóa theo tổng weight áp dụng. Đây là bảng nhân hỗ trợ, không thay rating/score do Gemini quyết định. Không tự đổi giá trị bảng.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "role": {
+        "type": "string",
+        "enum": [
+          "fashion",
+          "culture",
+          "art"
+        ]
+      },
+      "audits": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "candidate_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "candidate_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "content_hash": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "fashion",
+                "culture",
+                "art"
+              ]
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "check_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  "owner_role": {
+                    "type": "string",
+                    "enum": [
+                      "fashion",
+                      "culture",
+                      "art"
+                    ]
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "hard",
+                      "soft"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "fail",
+                      "uncertain",
+                      "not_applicable"
+                    ]
+                  },
+                  "prompt_quote": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 18000,
+                    "enum": [
+                      "",
+                      "Tạo một ảnh lookbook thời trang rõ chất liệu trình bày duy nhất một nữ sinh viên mặc cùng một bộ trang phục qua hai góc nhìn toàn thân đặt cạnh nhau: ô bên trái nhìn thẳng mặt trước, ô bên phải nhìn thẳng mặt sau của chính người mẫu đó.",
+                      "Bối cảnh nền trường đại học giản dị với hàng cây và hành lang thoáng đãng.",
+                      "Trang phục lấy cảm hứng Việt phục đương đại, không phục dựng lịch sử, thiết kế cho khí hậu nóng ở TP.",
+                      "HCM, ưu tiên chất liệu nhẹ, thoáng mát và dễ giặt.",
+                      "Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lót mỏng kín đáo bên trong đảm bảo không hở vai, ngực, eo hay lưng.",
+                      "Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không có tà quét đất.",
+                      "Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; hoa sen được thêu tinh tế bằng chỉ trắng ngà ngay tại vị trí mép cổ áo và gấu tay áo.",
+                      "Màu chủ đạo là xanh chàm với điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.",
+                      "Trang phục chỉ đi kèm một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác.",
+                      "Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và điểm nhấn hoa sen thêu ở cổ và tay, mặt sau thiết kế lưng kín đáo liền mạch, ôm nhẹ theo phom dáng váy chữ A, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.",
+                      "Bối cảnh nền trường đại học giản dị với khuôn viên nhiều cây xanh.",
+                      "Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lớp lót mỏng bên trong đảm bảo không hở vai, ngực, eo hay lưng.",
+                      "Phối cùng chân váy chữ A màu xanh chàm dài qua mắt cá, thiết kế đủ độ rộng để bước đi và ngồi học thoải mái, hoàn toàn không quét đất.",
+                      "Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; họa tiết hoa sen được in sắc nét màu trắng ngà điểm xuyết ở phần gấu tay áo dài.",
+                      "Màu chủ đạo là xanh chàm, điểm nhấn trắng ngà, hoàn toàn tránh màu đỏ và ánh kim.",
+                      "Trang phục chỉ có một túi vải nhỏ đeo chéo màu trắng ngà; không có trang sức, nón hay đạo cụ nào khác.",
+                      "Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và tay áo dài, mặt sau thể hiện phần lưng áo kín đáo, đường may gọn gàng và tà váy chữ A suôn mượt, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước.",
+                      "Bối cảnh nền trường đại học giản dị với kiến trúc tòa nhà học đường quen thuộc.",
+                      "Áo ngắn gọn màu xanh chàm, cổ áo kín đáo, tay dài, vải đục có lót mỏng bên trong đảm bảo không hở vai, ngực, eo hay lưng.",
+                      "Họa tiết hoa sen được chọn làm cảm hứng mỹ thuật với kích thước nhỏ, bố trí ít, không gán ý nghĩa lịch sử; họa tiết hoa sen được thêu tay nhẹ nhàng màu trắng ngà đặt lệch một góc nhỏ ở phía trước thân áo.",
+                      "Cả hai góc nhìn cùng tỷ lệ, ánh sáng rõ, thấy trọn trang phục; mặt trước thấy rõ cổ áo kín và điểm thêu hoa sen nhỏ ở thân áo, mặt sau thể hiện phần lưng áo liền mạch, kín đáo, không có chi tiết thêu rườm rà, giữ nguyên chất liệu, màu sắc và kiểu dáng đồng nhất với mặt trước."
+                    ]
+                  },
+                  "source_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "maxItems": 100,
+                    "minItems": 0,
+                    "uniqueItems": true
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "check_id",
+                  "owner_role",
+                  "severity",
+                  "status",
+                  "prompt_quote",
+                  "source_ids",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 160,
+              "minItems": 0
+            },
+            "criterion_ratings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "criterion_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "applicable": {
+                    "type": "boolean"
+                  },
+                  "rating": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 5
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "criterion_id",
+                  "applicable",
+                  "rating",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 4,
+              "minItems": 4
+            },
+            "strengths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "concerns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "suggested_fixes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "maxItems": 100,
+              "minItems": 0
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "score_reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Exactly the weighted sum calculated in score_reason; no alternate conversion."
+            }
+          },
+          "required": [
+            "candidate_id",
+            "candidate_revision",
+            "content_hash",
+            "role",
+            "checks",
+            "criterion_ratings",
+            "strengths",
+            "concerns",
+            "suggested_fixes",
+            "summary",
+            "score_reason",
+            "score"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 3,
+        "minItems": 1
+      }
+    },
+    "required": [
+      "role",
+      "audits"
+    ],
+    "additionalProperties": false
+  },
+  "config": {
+    "timeout_seconds": 45,
+    "max_output_tokens": 14000,
+    "sampling_policy": "model_default",
+    "structured": true,
+    "web_tools": false
+  },
+  "template_version": "16014d6868df5af2cb9791910e26c77d4266dd4b2930678d1eeb0881482156f7"
+}

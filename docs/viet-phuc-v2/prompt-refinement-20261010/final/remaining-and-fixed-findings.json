@@ -1,0 +1,58 @@
+[
+  {
+    "id": "R1",
+    "status": "Đã sửa, ca kiểm tra đạt",
+    "title": "Conflict trên cùng chi tiết và ý đã thay",
+    "detail": "VP02C không còn tự dùng phối lớp/cổ giả để lách yêu cầu cùng lớp; ca đối nghịch trả conflict và ca hai lớp được phép trả clear. old_atom_binding loại ý bị supersede khỏi khóa/giao AI. VP03 được viết lại theo thứ tự áp dụng mọi explicit_change, không để brief cũ ghi đè lượt S mới.",
+    "tradeoff": "Không chặn mọi áo yếm hoặc phối lớp. Chỉ chặn đối nghịch thật trên cùng vị trí/lớp; tránh phá không gian thiết kế."
+  },
+  {
+    "id": "R2",
+    "status": "Đã sửa, ca kiểm tra đạt",
+    "title": "Mode lịch sử và lệnh bịa nguồn",
+    "detail": "VP01 giữ mong muốn phục dựng chính xác thành must riêng và tách lệnh can thiệp thành context. Sửa cổ áo riêng vẫn historical/needs_evidence. Chỉ sau khi xác nhận đổi atom lịch sử mới inspired/ready trên cùng request. Hai mã cũ không còn khóa.",
+    "tradeoff": "Không tự tìm tài liệu trong runtime vốn tắt web, không tự đổi mode để né lỗi. Giữ nguồn rỗng đúng sự thật; câu chuyện 1054 chưa được xác minh."
+  },
+  {
+    "id": "R3",
+    "status": "Đã giảm lỗi dẫn chứng trong mẫu",
+    "title": "Quote không có trong prompt",
+    "detail": "Prompt đơn thuần chưa đủ: vòng hai còn55 quote sai ở full. Đầu vào audit bỏ coverage tự khai của generator, thêm bank nguyên văn; response schema giới hạn quote theo bank của batch. Audit cuối12 candidates không có quote sai hoặc quote của sai candidate.",
+    "tradeoff": "Thêm token/schema; chỉ chọn một câu tiêu biểu, reason vẫn phải đọc tất cả mệnh đề. Enum batch không tự chứng minh đúng candidate hay đủ nội dung. Backend không sửa quote, không thêm gate VP04–08."
+  },
+  {
+    "id": "R4",
+    "status": "Chấp nhận giới hạn số học đã đo",
+    "title": "Điểm không khớp rating",
+    "detail": "Bảng đóng góp rubric, thứ tự required/properties và subtotal giúp specialist scores và proposed_total khớp ở audit cuối. Còn R6-B1-C2/C3 harmony80 trong khi ratings cho84; lệch tổng chuẩn hóa0,8/100, top3 không đổi trong pool6 của adversarial.",
+    "tradeoff": "Không kéo dài prompt vô hạn để giả định tính toán chắc chắn. Nếu điểm phải chính xác ở mọi lần, giải pháp đáng làm là tính số học xác định từ rating, cần thay chính sách API-only hiện tại; chưa áp dụng trong lượt này."
+  },
+  {
+    "id": "R5",
+    "status": "Đã sửa prompt và sửa cục bộ đầu ra",
+    "title": "Mất yêu cầu khi copy riêng và mặt sau",
+    "detail": "VP04 nêu điều kiện dễ giặt/khí hậu/che phủ trực tiếp. Ba sparse prompts được sửa trong một call VP04, thêm mặt sau và bỏ từ Thái, rồi audit lại các bản đã sửa. Ca thiếu dễ giặt trả uncertain, ca có đủ trả pass.",
+    "tradeoff": "Không nhét nguyên đầu vào để lấy quote; hình dung vật liệu vẫn ở mức ý tưởng. Template chưa loại được mọi lỗi gõ trong một lần sinh."
+  },
+  {
+    "id": "R6",
+    "status": "Đã sửa phạm vi template",
+    "title": "Bối cảnh gợi ý, nguồn và số options",
+    "detail": "Không ép5 gợi ý, mục tiêu3–5 và có thể ít hơn. Vòng hai full chỉ hỏi sen/mây; không đề xuất studio thay nền trường đã khóa. VP00/VP02/README nói đúng runtime không có web và VP02R không chạy.",
+    "tradeoff": "Không ép mọi nhóm phải có3. Mẫu không bao phủ tất cả trang phục hoặc bối cảnh, cần regression khi thêm miền mới."
+  },
+  {
+    "id": "R7",
+    "status": "Đã render/test9 packet; chưa test ảnh thật",
+    "title": "Template chỉnh ảnh và thông tin copy",
+    "detail": "Packet v2 chứa prompt gốc đầy đủ, resolved_text và điều khóa; không guide thì yêu cầu ảnh gốc, có guide/nét vẽ thì nêu đúng hai ảnh. Endpoint nhận được original riêng khi không cần guide.",
+    "tradeoff": "Ảnh chưa được cung cấp nên9 packet chỉ render chữ, không gọi Gemini sửa ảnh. Không kết luận clipboard có thể dán đồng thời chữ/ảnh/thông báo; frontend nằm ngoài audit này."
+  },
+  {
+    "id": "R8",
+    "status": "Giữ làm giới hạn hợp lý",
+    "title": "Điểm5, độ đa dạng và mô tả vật liệu",
+    "detail": "Gemini vẫn có thể cho100 dù mô tả chất liệu chung, hoặc gợi ý các biến thể chủ yếu khác vị trí/kỹ thuật trang trí. Sol đánh giá từng prompt riêng thay vì coi điểm API là bằng chứng chất lượng.",
+    "tradeoff": "Không thêm model/role/cấm vật liệu/đổi phom chỉ để điểm có vẻ nghiêm hoặc thiết kế khác hơn. Chỉ bổ sung cấu tạo/vật liệu khi mục tiêu chuyển sang sản xuất, không mặc định sửa workflow ý tưởng."
+  }
+]

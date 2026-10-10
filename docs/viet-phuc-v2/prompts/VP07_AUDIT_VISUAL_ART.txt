@@ -45,3 +45,27 @@ Từ VP04 đến VP08, backend không kiểm định schema hoặc nội dung re
 
 ĐIỂM CHUYÊN MÔN DO GEMINI TÍNH VÀ LƯU
 Mỗi audit trả thêm score và score_reason. score = round(100 × sum(weight × rating/5) / sum(weight của các tiêu chí áp dụng), 2). Nếu không có tiêu chí áp dụng, score=null và giải thích. score_reason nêu căn cứ, hạn chế và lý do điểm số; không đồng nhất việc đủ tên chi tiết với chất lượng tối đa. Giữ criterion_ratings/checks, strengths, concerns, suggested_fixes, summary để VP08 có toàn bộ nhận xét của từng candidate. Backend lưu nguyên score/score_reason, không tính lại hoặc chỉnh điểm. Không trả tổng cuối liên vai trò ở bước này.
+
+KIỂM TRA NGUYÊN VĂN VÀ ĐỦ MỆNH ĐỀ
+- prompt_quote chỉ là MỘT đoạn LIỀN có thật trong image_prompt hiện tại. Không ghép nhiều đoạn bằng “...”/“;”, không đổi dấu/chữ, không lấy design_sections hoặc summary làm quote. Nếu cần nhiều phần, chọn một đoạn tiêu biểu rồi giải thích phần còn lại trong reason; không làm giả quote tổng hợp.
+- Với locked atom chứa nhiều điều, pass chỉ khi TẤT CẢ mệnh đề liên quan được thể hiện trong prompt. Ví dụ “nhẹ, thoáng, dễ giặt” mà prompt chỉ nói “vải nhẹ” thì uncertain cho phần thoáng/dễ giặt, không pass cả atom. Đề xuất sửa còn nằm trong suggested_fixes không phải giải pháp đã có.
+- Trước khi xuất JSON, đối chiếu từng quote với chuỗi image_prompt của đúng candidate. Không tìm thấy đoạn thật => quote="", uncertain/fail theo căn cứ và reason chỉ rõ thiếu gì; không paraphrase để lấp.
+- Rating 5 cần thiết kế cụ thể và không còn thiếu sót ảnh hưởng tiêu chí đó. Concern về khả năng mặc/che phủ hoặc thiếu mệnh đề phải được phản ánh ở rating liên quan; không trừ điểm ở miền không liên quan chỉ để tạo vẻ nghiêm khắc.
+
+PHÉP TÍNH ĐIỂM CÓ THỂ KIỂM TRA
+Không suy score theo cảm giác từ bốn rating. Với mỗi criterion áp dụng, tính contribution=weight*rating/5; score=round(100*sum(contribution)/sum(weight),2). score_reason phải ghi trọng số và contribution cho từng criterion cùng tổng, sau đó một lý do ngắn. Khi tổng weight=100, contribution cộng trực tiếp ra score. Ví dụ weight=[30,30,25,15],rating=[5,4,4,5] => contributions=[30,24,20,15], score=89. Không dùng ví dụ nếu ROLE_RUBRIC có trọng số khác. Không lấy 93.75 hay trung bình không trọng số. Kiểm tra số score khớp các contribution vừa ghi.
+Quote là thao tác COPY văn bản, không phải mô tả ý nghĩa. Với “Trang phục thiết kế dành cho nữ” chỉ có trong summary mà không có nguyên cụm đó trong image_prompt, không được chép vào prompt_quote dù đúng ý. Chọn một câu thật trong image_prompt; nếu prompt không nói rõ người mặc, uncertain thay vì tạo câu mới.
+
+NGÂN HÀNG TRÍCH NGUYÊN VĂN
+CANDIDATE_BATCH.verbatim_excerpt_bank cung cấp câu có thật của từng image_prompt để giảm lỗi chép. Ưu tiên COPY NGUYÊN một phần tử của bank đúng candidate vào prompt_quote; không sửa/chắp thêm từ. Bank không chứng nhận nội dung phù hợp: đọc đầy đủ yêu cầu và chọn uncertain/fail nếu câu không đáp ứng. Không thể tìm câu phù hợp thì quote rỗng và giải thích phần thiếu, không tạo câu gần giống.
+
+VÍ DỤ BẮT BUỘC UNCERTAIN KHI THIẾU ĐIỀU
+Check yêu cầu “Chất liệu nhẹ, thoáng, dễ giặt.” nhưng image_prompt chỉ viết “vải cotton nhẹ và thoáng”: status=uncertain, quote COPY câu thật đó, reason="Đã mô tả nhẹ và thoáng nhưng chưa nêu mục tiêu/giải pháp dễ giặt." Không dùng hiểu biết cotton để tự thêm dễ giặt. Pass cả atom phải bao phủ từng điều liên quan, không chỉ phần trùng rõ nhất; nguyên tắc này áp dụng cho mọi yêu cầu gồm nhiều mệnh đề.
+
+QUOTE THEO TỪ VỰNG RESPONSE SCHEMA
+Schema của lượt gọi giới hạn prompt_quote trong các câu nguyên văn của batch hoặc chuỗi rỗng. Chọn một câu thuộc ĐÚNG candidate hiện tại, không dùng câu của candidate khác. Một câu không chứng minh toàn bộ check: reason phải đối chiếu đủ mệnh đề, thiếu một điều vẫn uncertain/fail. locked_coverage của generator được tách khỏi đầu vào audit để tránh coi tự khai là bằng chứng độc lập. Không điều chỉnh câu để hợp quote; không thay đổi nội dung phương án.
+
+THỨ TỰ TÍNH VÀ GHI ĐIỂM
+Xuất score_reason với phép tính thật trước score. Các tiêu chí đều áp dụng và tổng trọng số=100, từng weight chia hết cho5 thì score là tổng contribution và luôn là số nguyên; không có “quy đổi theo hệ thống” khác. Nếu reason tính95 thì score=95, không được tự đổi thành93.75. Không thêm giả thuyết về cơ chế phân bổ điểm.
+
+ROLE_RUBRIC.contribution_lookup cho giá trị đóng góp ở rating0..5. Lấy đúng phần tử theo rating cho từng criterion, cộng bốn giá trị và chuẩn hóa theo tổng weight áp dụng. Đây là bảng nhân hỗ trợ, không thay rating/score do Gemini quyết định. Không tự đổi giá trị bảng.

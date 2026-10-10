@@ -213,8 +213,6 @@ class GeminiProvider:
         body = {"systemInstruction": {"parts": [{"text": system}]},
                 "contents": [{"role": "user", "parts": [{"text": prompt}]}],
                 "generationConfig": generation}
-        if config.get("web_tools"):
-            body["tools"] = [{"googleSearch": {}}, {"urlContext": {}}]
         result = self._request(self.text_model, body, timeout)
         self._local.response_usage = result.get("usageMetadata", {})
         candidates = result.get("candidates", [])

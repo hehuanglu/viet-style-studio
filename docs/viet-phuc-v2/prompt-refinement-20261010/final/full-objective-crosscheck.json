@@ -1,0 +1,185 @@
+{
+  "snapshot": "docs/viet-phuc-v2/prompt-refinement-20261010/final/full-audited-job.json",
+  "request_id": "cc1fc4fa-ea9d-4faa-945e-8fc373a1d449",
+  "revision": 2,
+  "status": "complete",
+  "provider": "gemini",
+  "render_image": false,
+  "model": "gemini-3.5-flash-lite",
+  "candidate_count": 3,
+  "cards_count": 3,
+  "scoring_profile": "balanced",
+  "rubric_version": "vp-rubric-2.1.0",
+  "weights": {
+    "fashion": 30,
+    "culture": 25,
+    "art": 25,
+    "harmony": 20
+  },
+  "formulas": {
+    "specialist_and_harmony": "round(100 * sum(weight * rating/5 for applicable criteria) / sum(applicable weights), 2)",
+    "balanced_total": "round(sum(active role weights * score) / sum(active role weights), 2)"
+  },
+  "candidates": [
+    {
+      "candidate_id": "R2-B1-C1",
+      "title": "Việt phục đương đại xanh chàm - Cảm hứng hoa sen tối giản cổ áo",
+      "revision": 2,
+      "content_hash": "75a6f11f174b16087264b9851a855aab83a2e1fdd6d05f375943645abad6bcaf",
+      "specialist_reported": {
+        "fashion": 100,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": true,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 100.0,
+      "balanced_recalculated_from_vp08_inputs": 100.0,
+      "balanced_recalculated_from_rubric_scores": 100.0,
+      "vp08_total_matches_its_inputs": true
+    },
+    {
+      "candidate_id": "R2-B1-C2",
+      "title": "Việt phục đương đại xanh chàm - Cảm hứng hoa sen tối giản gấu tay áo",
+      "revision": 2,
+      "content_hash": "39174fa21897a3d2078ba8dc4585666f78b353f85ab1d7bab0138c23dc5c669a",
+      "specialist_reported": {
+        "fashion": 100,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": true,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 100.0,
+      "balanced_recalculated_from_vp08_inputs": 100.0,
+      "balanced_recalculated_from_rubric_scores": 100.0,
+      "vp08_total_matches_its_inputs": true
+    },
+    {
+      "candidate_id": "R2-B1-C3",
+      "title": "Việt phục đương đại xanh chàm - Cảm hứng hoa sen tối giản thân áo",
+      "revision": 2,
+      "content_hash": "4679ddd406d76a612678b9377f8cb666134e704ee7a9c905cf4bf6fe6b024867",
+      "specialist_reported": {
+        "fashion": 100,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_rubric_calculated": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "specialist_matches": {
+        "fashion": true,
+        "culture": true,
+        "art": true
+      },
+      "harmony_reported": 100.0,
+      "harmony_rubric_calculated": 100.0,
+      "harmony_matches": true,
+      "vp08_source_scores": {
+        "fashion": 100.0,
+        "culture": 100.0,
+        "art": 100.0
+      },
+      "vp08_proposed_total": 100.0,
+      "balanced_recalculated_from_vp08_inputs": 100.0,
+      "balanced_recalculated_from_rubric_scores": 100.0,
+      "vp08_total_matches_its_inputs": true
+    }
+  ],
+  "rank_membership": [
+    {
+      "candidate_id": "R2-B1-C1",
+      "rank": 1,
+      "in_cards": true,
+      "in_top_three": true
+    },
+    {
+      "candidate_id": "R2-B1-C2",
+      "rank": 2,
+      "in_cards": true,
+      "in_top_three": true
+    },
+    {
+      "candidate_id": "R2-B1-C3",
+      "rank": 3,
+      "in_cards": true,
+      "in_top_three": true
+    }
+  ],
+  "top_three_membership": {
+    "top_three_candidate_ids": [
+      "R2-B1-C1",
+      "R2-B1-C2",
+      "R2-B1-C3"
+    ],
+    "card_candidate_ids": [
+      "R2-B1-C1",
+      "R2-B1-C2",
+      "R2-B1-C3"
+    ],
+    "all_top_three_present_in_cards": true,
+    "all_cards_are_top_three": true,
+    "exact_set_match": true
+  },
+  "top_three_api_order": [
+    "R2-B1-C1",
+    "R2-B1-C2",
+    "R2-B1-C3"
+  ],
+  "top_three_recalculated_from_vp08_inputs": [
+    "R2-B1-C1",
+    "R2-B1-C2",
+    "R2-B1-C3"
+  ],
+  "quote_substring_issues": [],
+  "specialist_rubric_mismatches": [],
+  "harmony_rubric_mismatches": [],
+  "vp08_balanced_total_mismatches": [],
+  "link_integrity_issues": [],
+  "non_finite_scores": [],
+  "summary": {
+    "all_observed_quotes_are_candidate_prompt_substrings": true,
+    "all_specialist_scores_match_rubric": true,
+    "all_harmony_scores_match_rubric": true,
+    "all_vp08_totals_match_their_own_inputs": true,
+    "all_top_three_candidates_present_as_cards": true,
+    "cards_exactly_match_top_three_set": true,
+    "all_links_valid": true,
+    "all_scores_finite": true
+  }
+}
