@@ -157,13 +157,6 @@ $("#key-form").addEventListener("submit", async (event) => {
   }
 });
 
-document.querySelectorAll("[data-example]").forEach((button) => {
-  button.addEventListener("click", () => {
-    $("#request-input").value = button.dataset.example;
-    $("#request-input").focus();
-  });
-});
-
 $("#request-form").addEventListener("submit", async (event) => {
   event.preventDefault();
   if (submittingRequest) return;
