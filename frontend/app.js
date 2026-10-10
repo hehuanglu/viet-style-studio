@@ -759,7 +759,7 @@ async function refreshJob() {
     $("#result-title").textContent = statusLabels[job.status] || job.status;
     const subjectLabel = {au_phuc: "âu phục", ao_dai: "áo dài", ao_tu_than: "áo tứ thân", ao_ngu_than: "áo ngũ thân", ao_va_chan_vay: "áo phối chân váy", vay_lien: "váy liền thân"}[job.brief?.subject?.value] || job.brief?.subject?.value;
     $("#result-summary").textContent = job.workflow_version === 2 ? v2Summary(job) : subjectLabel ? `Đối tượng: ${subjectLabel}${job.brief.mode ? ` · ${job.brief.mode === "historical" ? "theo hướng lịch sử" : "lấy cảm hứng"}` : ""}` : "";
-    
+
     const progressMap = { queued: 5, cleaning: 10, understanding: 15, designing_checklist: 20, checking_selection_conflicts: 25, awaiting_choices: 30, resolving_choices: 40, generating_prompt_pool: 50, specialist_auditing: 60, harmony_scoring: 70, selecting: 80, prompt_writing: 85, cards_ready: 90, awaiting_image: 95, rendering: 96, image_repairing: 97, image_checking: 98, complete: 100, cards_only: 100 };
     let progressPercent = progressMap[job.status] || 50;
     const progressSpan = $("#progress span");
@@ -778,7 +778,7 @@ async function refreshJob() {
         $("#progress").className = "progress-track loading";
         progressSpan.style.width = progressPercent + "%";
     }
-    
+
     $("#cancel-request").hidden = terminal.has(job.status);
     renderQuestion(job);
     renderCards(job);
