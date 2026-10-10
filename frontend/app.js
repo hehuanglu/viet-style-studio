@@ -195,7 +195,7 @@ $("#request-form").addEventListener("submit", async (event) => {
   $("#progress").classList.remove("done", "stopped");
   window.scrollTo({ top: $("#result-section").offsetTop - 20, behavior: "smooth" });
   try {
-    const submission = {raw_prompt: input, workflow_version: 2, reference_mode: "text_only", creative_level: creativityLevels[Number($("#creative-level").value)].value, session_id: sessionId, render_image: $("#render-image").checked, image_mode: imageMode(), audit_mode: "none"};
+    const submission = {raw_prompt: input, workflow_version: 2, reference_mode: "text_only", creative_level: creativityLevels[Number($("#creative-level").value)].value, session_id: sessionId, render_image: true, image_mode: imageMode(), audit_mode: "none"};
     const fingerprint = JSON.stringify(submission);
     if (!pendingSubmission || pendingSubmission.fingerprint !== fingerprint) pendingSubmission = {fingerprint, key: crypto.randomUUID()};
     const created = await api("/requests", { method: "POST", body: JSON.stringify({...submission, idempotency_key: pendingSubmission.key}) });
@@ -586,18 +586,10 @@ function imageMode() { return $("#image-mode").getAttribute("aria-pressed") === 
 function updateImageMode() {
   $("#image-mode").querySelector(".auto-image-state").textContent = imageMode() === "api" ? "Bật" : "Tắt";
   const manual = imageMode() === "gemini_manual";
-  $("#render-image").disabled = (!manual && !imagesEnabled) || (!!activeJob && !terminal.has(activeJob.status));
-  $("#image-note").textContent = manual ? "Không chọn: chỉ nhận gợi ý. Khi chọn: tạo ảnh trên Gemini rồi gửi về để xem và chỉnh sửa." : imagesEnabled ? "Tạo ảnh tự động qua API — cần bật billing, có tính phí" : "Tạo ảnh API cần bật billing và được người thiết lập ứng dụng bật tính năng";
-  if (!manual && !imagesEnabled) $("#render-image").checked = false;
+  $("#image-note").textContent = manual ? "Sau khi có gợi ý, tạo ảnh trên Gemini rồi gửi về để xem và chỉnh sửa." : imagesEnabled ? "Tạo ảnh tự động qua API — cần bật billing, có tính phí" : "Tạo ảnh API cần bật billing và được người thiết lập ứng dụng bật tính năng";
 }
 $("#image-mode").addEventListener("click", () => {
   $("#image-mode").setAttribute("aria-pressed", String(imageMode() !== "api"));
-  if (imageMode() === "api" && imagesEnabled) $("#render-image").checked = true;
-  updateImageMode();
-});
-
-$("#render-image").addEventListener("change", () => {
-  if (!$("#render-image").checked) $("#image-mode").setAttribute("aria-pressed", "false");
   updateImageMode();
 });
 
@@ -766,7 +758,6 @@ async function refreshJob() {
     if (isOlderJob(job, activeJob)) return;
     if (!activeJob || activeJob.request_id !== job.request_id) {
       $("#image-mode").setAttribute("aria-pressed", String(job.image_mode === "api" && !terminal.has(job.status)));
-      $("#render-image").checked = !!job.render_image && !terminal.has(job.status);
       $("#request-input").value = job.raw_prompt || job.turns[0]?.text || "";
       if (job.creative_level) { $("#creative-level").value = Math.max(0, creativityLevels.findIndex(level => level.value === job.creative_level)); updateCreativity(); }
     }

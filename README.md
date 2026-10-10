@@ -1,6 +1,6 @@
 # AI Arena — hướng dẫn sử dụng và vận hành
 
-Cập nhật giao diện 10/10/2026: Cài đặt nâng cao đã bỏ tìm nguồn tham khảo và kiểm tra ảnh qua API. Mức sáng tạo dùng thanh kéo ba nấc Vừa phải / Cân bằng / Khám phá. Ô Tạo ảnh minh họa mặc định chưa chọn: bỏ chọn chỉ nhận gợi ý thiết kế và prompt; chọn để tiếp tục tạo/nhận ảnh. Ảnh gửi từ giao diện mới được lưu để xem và chỉnh sửa, không gọi API kiểm tra ảnh, kể cả khi tiếp tục phiên cũ. Các chế độ kiểm tra ảnh cũ trong tài liệu dưới đây chỉ còn phục vụ tương thích với phiên/client cũ.
+Cập nhật giao diện 10/10/2026: Cài đặt nâng cao đã bỏ tìm nguồn tham khảo và kiểm tra ảnh qua API. Mức sáng tạo dùng thanh kéo ba nấc Vừa phải / Cân bằng / Khám phá. Quy trình luôn đi tiếp sang bước tạo/nhận ảnh và chỉnh sửa, không còn checkbox lựa chọn tạo ảnh. Nút Tự động tạo / sửa ảnh chọn giữa gọi API ảnh và thao tác trên Gemini. Ảnh gửi từ giao diện mới được lưu để xem và chỉnh sửa, không gọi API kiểm tra ảnh, kể cả khi tiếp tục phiên cũ. Các chế độ kiểm tra ảnh cũ trong tài liệu dưới đây chỉ còn phục vụ tương thích với phiên/client cũ.
 
 
 AI Arena giúp bạn phát triển ý tưởng trang phục lấy cảm hứng Việt phục: mô tả nhu cầu, chọn chi tiết, nhận ba phương án, tạo ảnh và chỉnh sửa ảnh. Đây là dự án thử nghiệm chạy trên máy của bạn. Nội dung này mô tả thiết lập trong mã ngày 04/10/2026, không phải lời bảo đảm về chất lượng thiết kế.
