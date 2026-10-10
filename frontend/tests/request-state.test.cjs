@@ -13,7 +13,7 @@ const context = vm.createContext({
   document: {
     querySelector(selector) {
       if (!elements.has(selector)) elements.set(selector, {
-        hidden: false, value: '', textContent: '', innerHTML: '',
+        hidden: false, value: '', textContent: '', innerHTML: '', style: {},
         addEventListener() {}, classList: {add() {}, remove() {}, toggle() {}},
         replaceChildren() {},
       });

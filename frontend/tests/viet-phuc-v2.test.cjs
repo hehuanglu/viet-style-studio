@@ -6,10 +6,10 @@ const selectors = new Map();
 const copies = [];
 const panel = {hidden:true, querySelector() {return {value:'Nguyên văn\nKhông tự đổi màu.',focus(){},select(){}};}};
 const status = {textContent:''};
-const parent = {querySelector(s){return s === 'div' ? panel : status;}};
-function button(dataset) {return {dataset, parentElement:parent, textContent:'Sao chép hướng dẫn', events:{}, setAttribute(){}, addEventListener(name, fn){this.events[name]=fn;}};}
+const parent = {querySelector(s){return s === '.option-prompt-textarea' ? panel : status;}};
+function button(dataset) {return {dataset, parentElement:parent, closest(){return parent;}, textContent:'Sao chép hướng dẫn', events:{}, setAttribute(){}, addEventListener(name, fn){this.events[name]=fn;}};}
 const copyButton=button({copyOption:'0'}), viewButton=button({viewOption:'0'});
-const cards = {innerHTML:'',querySelectorAll(s){return s === '[data-copy-option]' ? [copyButton] : s === '[data-view-option]' ? [viewButton] : [];}};
+const cards = {innerHTML:'',querySelector(){return copyButton;},querySelectorAll(s){return s === '[data-copy-option]' ? [copyButton] : s === '[data-view-option]' ? [viewButton] : [];}};
 const context=vm.createContext({
   document:{querySelector(s){if(s==='#cards')return cards;if(!selectors.has(s))selectors.set(s,{addEventListener(){},classList:{add(){},remove(){},toggle(){}},value:'',hidden:false});return selectors.get(s);},querySelectorAll(){return[];}},
   navigator:{clipboard:{async writeText(text){copies.push(text);}}},
@@ -100,5 +100,11 @@ assert.equal(box.hidden,false);assert.match(box.innerHTML,/Lựa chọn đã ch�
   assert.equal(status.textContent,'Đã copy · dán vào Gemini');
   await viewButton.events.click();assert.equal(panel.hidden,false);
   await copyButton.events.click();assert.equal(panel.hidden,false);assert.equal(copies.length,3);
+  selectors.set('#request-error',{hidden:true});
+  job.artifacts=[];job.pending_manual={step_id:"step"};
+  vm.runInContext(`chooseImageCandidate = async (_job, candidate) => { activeJob = {image_target_ids:[candidate.candidate_id]}; };`,context);
+  await copyButton.events.click();
+  assert.equal(status.textContent,'Đã sao chép hướng dẫn và chọn phương án');
+  assert.equal(selectors.get('#request-error').hidden,true);
   console.log('Passed: specialist cards, repeated exact copy, revision selection, missing reference details, no defaults, recursive dependencies, AI/custom exclusivity.');
 })().catch(e=>{console.error(e);process.exitCode=1;});
