@@ -32,7 +32,7 @@ class handler(create_handler(None)):
         if hasattr(self, 'engine'):
             self.engine.executor.drain()
         if self.path == '/health' and isinstance(body, dict):
-            body.update(cloud_runtime=True, upload_chunks=True)
+            body.update(cloud_runtime=True, upload_chunks=True, function_region=os.environ.get("VERCEL_REGION"))
         super().send_json(status, body)
 
     def end_headers(self):

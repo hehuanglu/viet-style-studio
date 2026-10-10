@@ -4,7 +4,7 @@ Giao diện tĩnh và backend Python nằm trong project `viet-style-studio`, pr
 
 ## Cấu hình và triển khai
 
-Python 3.13, dependencies ở `requirements.txt` tại root. Neon integration cấp `DATABASE_URL`; không commit credential. Function `api/index.py` có maxDuration 300 giây, budget cloud thiết kế 230 giây hoạt động và ảnh 45 giây. Budget local giữ nguyên.
+Python 3.13, dependencies ở `requirements.txt` tại root. Neon integration cấp `DATABASE_URL`; không commit credential. Function `api/index.py` chạy tại Singapore (`sin1`) cùng vùng database để giảm độ trễ, có maxDuration 300 giây, budget cloud thiết kế 230 giây hoạt động và ảnh 45 giây. Budget local giữ nguyên.
 
 `scripts/build_vercel.py` sao chép frontend sang `public`, sinh cờ cloud. API rewrite mang đường dẫn gốc qua `arena_path`. includeFiles giữ backend/contracts/packs/templates; excludeFiles và .vercelignore loại môi trường local, logs/evidence khỏi deployment.
 
