@@ -52,7 +52,7 @@ class handler(create_handler(None)):
                 super().send_json(400, {'error': {'code': 'invalid_input', 'message': 'Route không hợp lệ'}})
                 return
             self.path = original + ('?' + urlencode(query, doseq=True) if query else '')
-        path = urlsplit(self.path).path
+        path = urlsplit(self.path).path.rstrip('/') or '/'
         if method == 'GET' and path == '/runtime-config.js':
             data = b'window.ARENA_CLOUD = true;'
             self.send_response(200)

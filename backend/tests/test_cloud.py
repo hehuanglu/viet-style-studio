@@ -119,6 +119,8 @@ class CloudTests(unittest.TestCase):
     def test_vercel_rewrite_preserves_original_route(self):
         health = self.request('/api/index?arena_path=%2Fhealth')
         self.assertTrue(health['cloud_runtime'])
+        upload = self.request('/api/index?arena_path=%2Fuploads%2F', {'data': base64.b64encode(b'fixture').decode()})
+        self.assertIn('asset_id', upload)
 
     def test_abandoned_invocation_reports_failure_without_discarding_checkpoint(self):
         created = self.request('/requests', {'raw_prompt': RAW, 'render_image': False})
