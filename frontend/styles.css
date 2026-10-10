@@ -915,7 +915,7 @@ details summary:hover::before {
 .composer .chatbox:focus-within { border-color: #cbbdb2; box-shadow: 0 3px 16px #302a260c; }
 .composer .chatbox textarea { display: block; width: 100%; min-height: 132px; margin: 0; padding: 22px 24px 10px; border: 0; border-radius: 28px 28px 0 0; background: transparent; box-shadow: none; resize: vertical; font-size: 16px; line-height: 1.65; }
 .composer .chatbox textarea:focus { border: 0; box-shadow: none; }
-.chatbox-toolbar { display: flex; align-items: center; gap: 10px; padding: 12px 16px 16px; }
+.chatbox-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 12px 16px 16px; }
 .chatbox-hint { flex: 1; font-size: 11px; color: #9a918a; }
 .creativity-menu { position: relative; font-size: 12px; }
 .creativity-menu > summary { list-style: none; display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 24px; background: #f4f2ef; color: var(--concept-muted); cursor: pointer; white-space: nowrap; }
@@ -926,7 +926,7 @@ details summary:hover::before {
 .creativity-popover { position: absolute; z-index: 10; bottom: calc(100% + 12px); right: 0; width: 260px; max-width: calc(100vw - 80px); padding: 14px 16px; background: white; border: 1px solid var(--concept-line); border-radius: 18px; box-shadow: 0 10px 38px #302a2618; }
 .creativity-popover .tiny-note { padding: 0; font-size: 10px; line-height: 1.6; }
 .creativity-popover .creativity-heading { margin-bottom: 14px; }
-.creativity-popover .creativity-slider { height: 12px; background: #eeece9; border: 1px solid #e1ded9; }
+.creativity-popover .creativity-slider { height: 12px; background: linear-gradient(to right, #edb6ad var(--creativity-fill), #eeece9 var(--creativity-fill)); border: 1px solid #e1ded9; }
 .creativity-popover .creativity-slider::-webkit-slider-thumb { width: 22px; height: 22px; background: #fff; border: 1px solid #e1ded9; box-shadow: 0 1px 4px #302a2620; }
 .creativity-popover .creativity-slider::-moz-range-thumb { width: 20px; height: 20px; background: #fff; border: 1px solid #e1ded9; }
 .creativity-popover .creativity-labels { font-size: 10px; }
