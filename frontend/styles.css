@@ -909,3 +909,34 @@ details summary:hover::before {
 .auto-image-toggle:focus-visible { outline: 2px solid var(--concept-red); outline-offset: 3px; }
 .auto-image-toggle:disabled { opacity: .55; cursor: default; }
 .auto-image-setting .tiny-note { margin: 10px 0 0; line-height: 1.6; }
+
+/* Chat composer with an effort-style creativity picker. */
+.composer .chatbox { position: relative; margin-top: 22px; background: #fff; border: 1px solid var(--concept-line); border-radius: 28px; box-shadow: 0 2px 10px #302a2607; transition: border-color .18s, box-shadow .18s; }
+.composer .chatbox:focus-within { border-color: #cbbdb2; box-shadow: 0 3px 16px #302a260c; }
+.composer .chatbox textarea { display: block; width: 100%; min-height: 132px; margin: 0; padding: 22px 24px 10px; border: 0; border-radius: 28px 28px 0 0; background: transparent; box-shadow: none; resize: vertical; font-size: 16px; line-height: 1.65; }
+.composer .chatbox textarea:focus { border: 0; box-shadow: none; }
+.chatbox-toolbar { display: flex; align-items: center; gap: 10px; padding: 12px 16px 16px; }
+.chatbox-hint { flex: 1; font-size: 11px; color: #9a918a; }
+.creativity-menu { position: relative; font-size: 12px; }
+.creativity-menu > summary { list-style: none; display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 24px; background: #f4f2ef; color: var(--concept-muted); cursor: pointer; white-space: nowrap; }
+.creativity-menu > summary::-webkit-details-marker { display: none; }
+.creativity-menu > summary::before, .creativity-menu > summary::after { content: none !important; }
+.creativity-menu > summary output { color: var(--concept-text); font-weight: 600; }
+.creativity-menu[open] > summary { background: var(--concept-red-light); }
+.creativity-popover { position: absolute; z-index: 10; bottom: calc(100% + 12px); right: 0; width: 330px; max-width: calc(100vw - 80px); padding: 20px 22px; background: white; border: 1px solid var(--concept-line); border-radius: 22px; box-shadow: 0 10px 38px #302a2618; }
+.creativity-popover .tiny-note { padding: 0; font-size: 10px; line-height: 1.6; }
+.creativity-popover .creativity-heading { margin-bottom: 22px; }
+.creativity-popover .creativity-slider { height: 16px; background: #eeece9; border: 1px solid #e1ded9; }
+.creativity-popover .creativity-slider::-webkit-slider-thumb { width: 26px; height: 26px; background: #fff; border: 1px solid #e1ded9; box-shadow: 0 1px 4px #302a2620; }
+.creativity-popover .creativity-slider::-moz-range-thumb { width: 24px; height: 24px; background: #fff; border: 1px solid #e1ded9; }
+.creativity-popover .creativity-labels { font-size: 10px; }
+.composer .chatbox-send { display: grid; place-items: center; flex: 0 0 42px; width: 42px; height: 42px; padding: 0; border: 0; border-radius: 50%; background: var(--concept-red); color: white; cursor: pointer; transition: opacity .18s, transform .18s; }
+.composer .chatbox-send:hover { transform: translateY(-1px); }
+.composer .chatbox-send:disabled { opacity: .4; cursor: default; transform: none; }
+.chatbox-send:focus-visible, .creativity-menu > summary:focus-visible { outline: 2px solid var(--concept-red); outline-offset: 3px; }
+.composer .auto-image-setting { margin: 14px 0 8px; }
+.composer .auto-image-setting .tiny-note, .composer #image-note { padding: 0; line-height: 1.6; }
+@media(max-width:480px) { .chatbox-hint { display: none; } .chatbox-toolbar { justify-content: flex-end; gap: 8px; } .creativity-menu > summary { padding: 10px; font-size: 11px; } .creativity-popover { right: -50px; width: 290px; } .composer .chatbox textarea { padding: 20px 18px 10px; } }
+.composer .chatbox textarea { background: transparent !important; resize: none; }
+.creativity-popover .creativity-heading label { width: auto; flex: 0 0 auto; white-space: nowrap; }
+.creativity-popover .creativity-heading > span { text-align: right; }

@@ -51,33 +51,31 @@
             <span class="step-number">01</span>
           </div>
           <form id="request-form">
-            <label class="sr-only" for="request-input">Mô tả yêu cầu</label>
-            <textarea id="request-input" rows="5" maxlength="6000" placeholder="Ví dụ: Phối áo dài xanh cho sự kiện ở trường, phong cách hiện đại và tối giản…"></textarea>
-            <p class="muted">Bạn chưa biết chọn vải, dáng hoặc hoa văn? Cứ nói điều bạn thích và điều muốn tránh; ở bước sau có thể chọn “Để AI đề xuất”.</p>
-            <details class="advanced-settings"><summary>Cài đặt nâng cao (có thể giữ nguyên)</summary>
-            <p class="muted">Mặc định khám phá ý tưởng mới và ưu tiên sáng tạo, vẫn giữ những điều bạn đã chốt. Mức Khám phá tự động dùng chế độ đánh giá ưu tiên sáng tạo. Các điểm đánh giá là hỗ trợ của AI.</p>
-            <div class="mode-options">
-              <div class="creativity-control">
-                <div class="creativity-heading"><label for="creative-level">Mức sáng tạo</label><output id="creative-level-label" for="creative-level">Khám phá</output></div>
-                <input id="creative-level" class="creativity-slider" type="range" min="0" max="2" step="1" value="2" aria-valuetext="Khám phá" />
-                <div class="creativity-labels" aria-hidden="true"><span>Vừa phải</span><span>Cân bằng</span><span>Khám phá</span></div>
-                <p id="creative-level-description" class="tiny-note">Ưu tiên ý tưởng mới và sáng tạo, vẫn giữ các chi tiết bạn đã chốt.</p>
+            <div class="chatbox">
+              <label class="sr-only" for="request-input">Mô tả yêu cầu</label>
+              <textarea id="request-input" rows="4" maxlength="6000" placeholder="Mô tả bộ trang phục bạn muốn thiết kế…"></textarea>
+              <div class="chatbox-toolbar">
+                <span class="chatbox-hint">Thiết kế cùng AI Arena</span>
+                <details class="creativity-menu">
+                  <summary>Mức sáng tạo <output id="creative-level-label" for="creative-level">Khám phá</output><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+                  <div class="creativity-popover">
+                    <div class="creativity-heading"><label for="creative-level">Mức sáng tạo</label><span class="tiny-note">Giữ các chi tiết đã chốt</span></div>
+                    <input id="creative-level" class="creativity-slider" aria-label="Mức sáng tạo" type="range" min="0" max="2" step="1" value="2" aria-valuetext="Khám phá" />
+                    <div class="creativity-labels" aria-hidden="true"><span>Vừa phải</span><span>Cân bằng</span><span>Khám phá</span></div>
+                    <p id="creative-level-description" class="tiny-note">Ưu tiên ý tưởng mới và sáng tạo, vẫn giữ các chi tiết bạn đã chốt.</p>
+                  </div>
+                </details>
+                <button id="submit-request" type="submit" class="chatbox-send" aria-label="Tạo gợi ý" title="Tạo gợi ý" disabled><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button>
               </div>
             </div>
             <div class="auto-image-setting">
               <button id="image-mode" type="button" class="auto-image-toggle" aria-pressed="false" aria-describedby="auto-image-note">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m3 17 5-5 4 4 4-5 5 6"/></svg>
-                <span>Tự động tạo / sửa ảnh</span><span class="auto-image-state" aria-hidden="true">Tắt</span>
+                <span>Tự động tạo ảnh</span><span class="auto-image-state" aria-hidden="true">Tắt</span>
               </button>
-              <p id="auto-image-note" class="tiny-note">Cần Gemini API key thuộc project đã bật thanh toán (billing). Tạo và sửa ảnh qua API có thể phát sinh phí theo mức sử dụng. Khi tắt, bạn tạo ảnh trên Gemini rồi tải ảnh về ứng dụng. <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">Xem giá API ↗</a></p>
+              <p id="auto-image-note" class="tiny-note">Cần Gemini API key thuộc project đã bật thanh toán (billing); tạo ảnh qua API có thể phát sinh phí. <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">Xem giá API ↗</a></p>
             </div>
-            <p id="image-note" class="tiny-note">Sau khi có gợi ý thiết kế, bạn luôn có thể tạo ảnh, gửi ảnh về và chỉnh sửa.</p>
-            <p class="tiny-note">Ảnh bạn gửi được lưu để xem và chỉnh sửa; ứng dụng không gọi API đánh giá ảnh.</p>
-            </details>
-            <div class="form-footer">
-              <span class="muted">Bước đầu: xem và chốt các chi tiết.</span>
-              <button id="submit-request" type="submit" class="button button-accent" disabled>Tạo gợi ý <span aria-hidden="true">↗</span></button>
-            </div>
+            <p id="image-note" class="tiny-note">Sau khi có gợi ý, tạo ảnh trên Gemini rồi gửi về để xem và chỉnh sửa.</p>
           </form>
           <div class="examples"><span>Gợi ý:</span><button type="button" data-example="Áo dài xanh cho sự kiện trường, phong cách hiện đại và tối giản">Áo dài đi học</button><button type="button" data-example="Tôi muốn phối đồ nổi bật cho buổi biểu diễn cuối tuần">Đi biểu diễn</button></div>
         </div>
